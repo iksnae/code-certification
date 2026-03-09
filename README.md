@@ -251,6 +251,7 @@ Certify auto-detects available AI providers and enables conservative review — 
 | Provider | Detection | Cost |
 |----------|-----------|------|
 | **OpenRouter** | `OPENROUTER_API_KEY` | Free tier + paid |
+| **OpenAI** | `OPENAI_API_KEY` | Paid (gpt-4o-mini ~$0.15/1M tokens) |
 | **Groq** | `GROQ_API_KEY` | Free (30 req/min) |
 | **Ollama** | Auto-probe `localhost:11434` | Free (local) |
 | **LM Studio** | Auto-probe `localhost:1234` | Free (local) |

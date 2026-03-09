@@ -28,11 +28,12 @@ When Certify detects an available provider, it automatically enables **conservat
 | Provider | Detection | Cost | Setup |
 |----------|-----------|------|-------|
 | **OpenRouter** | `OPENROUTER_API_KEY` env var | Free tier + paid | [openrouter.ai](https://openrouter.ai) |
+| **OpenAI** | `OPENAI_API_KEY` env var | Paid (~$0.15/1M tokens for gpt-4o-mini) | [platform.openai.com](https://platform.openai.com) |
 | **Groq** | `GROQ_API_KEY` env var | Free tier (30 req/min) | [groq.com](https://groq.com) |
 | **Ollama** | `OLLAMA_HOST` env or auto-probe `localhost:11434` | Free (local) | [ollama.com](https://ollama.com) |
 | **LM Studio** | `LM_STUDIO_URL` env or auto-probe `localhost:1234` | Free (local) | [lmstudio.ai](https://lmstudio.ai) |
 
-Certify checks in this order: `OPENROUTER_API_KEY` → `CERTIFY_API_KEY` → `GROQ_API_KEY` → Ollama → LM Studio. Cloud providers come first, local providers serve as fallback.
+Certify checks in this order: `OPENROUTER_API_KEY` → `CERTIFY_API_KEY` → `OPENAI_API_KEY` → `GROQ_API_KEY` → Ollama → LM Studio. Cloud providers come first, local providers serve as fallback.
 
 ### Disable Auto-Detection
 

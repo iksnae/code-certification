@@ -35,6 +35,15 @@ var DefaultOllamaModels = []string{
 	"gemma2:9b",
 }
 
+// DefaultOpenAIModels lists suggested models for OpenAI.
+var DefaultOpenAIModels = []string{
+	"gpt-4o-mini",
+	"gpt-4o",
+	"gpt-4.1-mini",
+	"gpt-4.1-nano",
+	"o3-mini",
+}
+
 // DefaultLMStudioModels lists models for LM Studio.
 var DefaultLMStudioModels = []string{
 	"loaded-model",
@@ -43,12 +52,14 @@ var DefaultLMStudioModels = []string{
 // DefaultModels maps provider name to default model suggestions.
 var DefaultModels = map[string][]string{
 	"openrouter": nil, // set from ConservativeModels in autodetect.go
+	"openai":     nil,
 	"groq":       nil,
 	"ollama":     nil,
 	"lmstudio":   nil,
 }
 
 func init() {
+	DefaultModels["openai"] = DefaultOpenAIModels
 	DefaultModels["groq"] = DefaultGroqModels
 	DefaultModels["ollama"] = DefaultOllamaModels
 	DefaultModels["lmstudio"] = DefaultLMStudioModels
@@ -56,6 +67,7 @@ func init() {
 
 // Backward-compatible aliases
 var (
+	OpenAIModels   = DefaultOpenAIModels
 	GroqModels     = DefaultGroqModels
 	OllamaModels   = DefaultOllamaModels
 	LMStudioModels = DefaultLMStudioModels
@@ -80,6 +92,15 @@ func DetectProviders() []DetectedProvider {
 			BaseURL: "https://openrouter.ai/api/v1",
 			APIKey:  key,
 			Models:  ConservativeModels,
+		})
+	}
+
+	if key := os.Getenv("OPENAI_API_KEY"); key != "" {
+		cloud = append(cloud, DetectedProvider{
+			Name:    "openai",
+			BaseURL: "https://api.openai.com/v1",
+			APIKey:  key,
+			Models:  OpenAIModels,
 		})
 	}
 

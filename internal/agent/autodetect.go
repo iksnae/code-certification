@@ -17,7 +17,7 @@ const (
 )
 
 // AutoDetectEnvVars lists environment variables checked for cloud API keys, in priority order.
-var AutoDetectEnvVars = []string{"OPENROUTER_API_KEY", "CERTIFY_API_KEY", "GROQ_API_KEY"}
+var AutoDetectEnvVars = []string{"OPENROUTER_API_KEY", "CERTIFY_API_KEY", "OPENAI_API_KEY", "GROQ_API_KEY"}
 
 // ConservativeModels lists free-tier OpenRouter models in fallback order.
 // These are default suggestions — users can choose any model via config or the extension.

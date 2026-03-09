@@ -234,6 +234,78 @@ func TestDetectProviders_OllamaLiveProbe(t *testing.T) {
 	}
 }
 
+// --- OpenAI detection ---
+
+func TestDetectProviders_OpenAI(t *testing.T) {
+	clearProviderEnvVars()
+	defer clearProviderEnvVars()
+	os.Setenv("OPENAI_API_KEY", "sk-test-openai")
+
+	providers := DetectProviders()
+	found := false
+	for _, p := range providers {
+		if p.Name == "openai" {
+			found = true
+			if p.APIKey != "sk-test-openai" {
+				t.Errorf("APIKey = %q, want sk-test-openai", p.APIKey)
+			}
+			if p.BaseURL != "https://api.openai.com/v1" {
+				t.Errorf("BaseURL = %q, want https://api.openai.com/v1", p.BaseURL)
+			}
+			if len(p.Models) == 0 {
+				t.Error("OpenAI should have default models")
+			}
+			if p.Local {
+				t.Error("OpenAI should not be local")
+			}
+		}
+	}
+	if !found {
+		t.Error("OpenAI not detected despite OPENAI_API_KEY being set")
+	}
+}
+
+func TestDetectProviders_OpenAIPriority(t *testing.T) {
+	clearProviderEnvVars()
+	defer clearProviderEnvVars()
+	os.Setenv("OPENROUTER_API_KEY", "sk-or-test")
+	os.Setenv("OPENAI_API_KEY", "sk-openai-test")
+
+	providers := DetectProviders()
+	// Both should be detected; OpenRouter first (more models, free tier)
+	if len(providers) < 2 {
+		t.Fatalf("expected at least 2 cloud providers, got %d", len(providers))
+	}
+	cloudNames := []string{}
+	for _, p := range providers {
+		if !p.Local {
+			cloudNames = append(cloudNames, p.Name)
+		}
+	}
+	if len(cloudNames) < 2 {
+		t.Fatalf("expected at least 2 cloud providers, got %v", cloudNames)
+	}
+	if cloudNames[0] != "openrouter" {
+		t.Errorf("OpenRouter should be first cloud provider, got %q", cloudNames[0])
+	}
+}
+
+func TestOpenAIModels(t *testing.T) {
+	if len(DefaultOpenAIModels) == 0 {
+		t.Fatal("DefaultOpenAIModels should not be empty")
+	}
+	// Should contain gpt-4o-mini (cheapest, best for code review)
+	found := false
+	for _, m := range DefaultOpenAIModels {
+		if m == "gpt-4o-mini" {
+			found = true
+		}
+	}
+	if !found {
+		t.Error("DefaultOpenAIModels should include gpt-4o-mini")
+	}
+}
+
 // --- Groq models ---
 
 func TestGroqModels(t *testing.T) {
@@ -271,6 +343,7 @@ func clearProviderEnvVars() {
 		os.Unsetenv(v)
 	}
 	os.Unsetenv("GROQ_API_KEY")
+	os.Unsetenv("OPENAI_API_KEY")
 	os.Unsetenv("OLLAMA_HOST")
 	os.Unsetenv("LM_STUDIO_URL")
 }
