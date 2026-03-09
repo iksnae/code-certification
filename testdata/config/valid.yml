@@ -1,0 +1,46 @@
+mode: enforcing
+
+scope:
+  include:
+    - "internal/**"
+    - "cmd/**"
+  exclude:
+    - "vendor/**"
+    - "testdata/**"
+
+agent:
+  enabled: true
+  provider:
+    type: openrouter
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    http_referer: https://github.com/example/repo
+    x_title: Test Project
+  models:
+    prescreen: mistralai/mistral-small-3.1-24b-instruct:free
+    review: qwen/qwen3-coder:free
+    scoring: qwen/qwen3-next-80b-a3b-instruct:free
+    decision: openai/gpt-oss-120b:free
+    remediation: qwen/qwen3-coder:free
+    fallback: meta-llama/llama-3.3-70b-instruct:free
+  rate_limit:
+    requests_per_minute: 20
+    retry_max: 3
+    retry_backoff_base_ms: 1000
+
+schedule:
+  nightly: true
+  weekly: true
+  sweep: false
+
+expiry:
+  default_window_days: 90
+  min_window_days: 7
+  max_window_days: 365
+
+issues:
+  enabled: true
+  labels:
+    - certification
+    - tech-debt
+  grouping: directory

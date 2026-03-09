@@ -1,0 +1,6 @@
+# Invalid: expiry min > max
+mode: advisory
+expiry:
+  default_window_days: 90
+  min_window_days: 400
+  max_window_days: 30

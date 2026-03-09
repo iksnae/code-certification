@@ -1,0 +1,21 @@
+name: security
+version: "1.0.0"
+path_patterns:
+  - "**/auth/**"
+  - "**/security/**"
+  - "**/crypto/**"
+
+rules:
+  - id: no-hardcoded-secrets
+    dimension: security
+    description: "No hardcoded secrets, tokens, or passwords"
+    severity: critical
+    metric: secret_findings
+    threshold: 0
+
+  - id: input-validation
+    dimension: security
+    description: "All public inputs must be validated"
+    severity: error
+    metric: unvalidated_inputs
+    threshold: 0

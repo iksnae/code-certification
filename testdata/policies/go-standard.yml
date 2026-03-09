@@ -1,0 +1,32 @@
+name: go-standard
+version: "1.0.0"
+language: go
+
+rules:
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity must be below 20"
+    severity: error
+    threshold: 20.0
+    metric: complexity
+
+  - id: test-coverage
+    dimension: testability
+    description: "Test coverage should be at least 80%"
+    severity: warning
+    threshold: 0.8
+    metric: test_coverage
+
+  - id: no-todo-fixme
+    dimension: readability
+    description: "No TODO/FIXME comments in certified code"
+    severity: warning
+    metric: todo_count
+    threshold: 0
+
+  - id: lint-clean
+    dimension: correctness
+    description: "Code must pass configured linter with zero errors"
+    severity: error
+    metric: lint_errors
+    threshold: 0
