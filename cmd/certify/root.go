@@ -20,4 +20,5 @@ func init() {
 	rootCmd.AddCommand(scanCmd)
 	rootCmd.AddCommand(certifyCmd)
 	rootCmd.AddCommand(reportCmd)
+	rootCmd.AddCommand(modelsCmd)
 }
