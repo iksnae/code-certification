@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -19,7 +18,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var certifyPath string
+var (
+	certifyPath      string
+	certifySkipAgent bool
+	certifyLimit     int
+)
 
 var certifyCmd = &cobra.Command{
 	Use:   "certify",
@@ -58,23 +61,41 @@ var certifyCmd = &cobra.Command{
 			fmt.Fprintf(os.Stderr, "warning: loading overrides: %v\n", err)
 		}
 
-		// Set up agent reviewer if enabled
-		var reviewer *agent.Reviewer
-		if cfg.Agent.Enabled {
+		// Set up agent coordinator if enabled
+		var coordinator *agent.Coordinator
+		if cfg.Agent.Enabled && !certifySkipAgent {
 			apiKey := os.Getenv(cfg.Agent.Provider.APIKeyEnv)
 			if apiKey != "" {
-				provider := agent.NewOpenRouterProvider(
+				// Build model chain: tries each model in order on 429
+				// Preferred: open-weight models suitable for future fine-tuning
+				chain := agent.NewModelChain(
 					cfg.Agent.Provider.BaseURL,
 					apiKey,
 					cfg.Agent.Provider.HTTPReferer,
 					cfg.Agent.Provider.XTitle,
+					[]string{
+						cfg.Agent.Models.Prescreen,                      // primary from config
+						cfg.Agent.Models.Fallback,                       // configured fallback
+						"qwen/qwen3-coder:free",                         // code-specialized, Apache 2.0
+						"mistralai/mistral-small-3.1-24b-instruct:free", // Apache 2.0
+						"meta-llama/llama-3.3-70b-instruct:free",        // Llama license
+						"google/gemma-3-12b-it:free",                    // last resort (no sys msg)
+					},
 				)
-				router := agent.NewRouter(cfg.Agent.Models)
-				reviewer = agent.NewReviewer(provider, router)
-				fmt.Println("  Agent review enabled")
+				// Wrap with circuit breaker: stop after 5 consecutive all-model failures
+				cb := agent.NewCircuitBreaker(chain, 5)
+
+				coordinator = agent.NewCoordinator(cb, agent.CoordinatorConfig{
+					Models:      cfg.Agent.Models,
+					Strategy:    agent.StrategyStandard,
+					TokenBudget: 50000,
+				})
+				fmt.Println("  Agent review: enabled (model chain with fallback)")
 			} else {
 				fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
 			}
+		} else if certifySkipAgent {
+			fmt.Println("  Agent review: skipped (--skip-agent)")
 		}
 
 		// Set up record store
@@ -89,6 +110,10 @@ var certifyCmd = &cobra.Command{
 
 		var certified, observations, failed int
 		units := idx.Units()
+		if certifyLimit > 0 && certifyLimit < len(units) {
+			units = units[:certifyLimit]
+			fmt.Printf("  Limiting to %d units (--limit)\n", certifyLimit)
+		}
 
 		for i, unit := range units {
 			if (i+1)%50 == 0 || i == len(units)-1 {
@@ -109,32 +134,23 @@ var certifyCmd = &cobra.Command{
 			copy(ev, repoEv)
 
 			srcPath := filepath.Join(root, unit.ID.Path())
+			var srcCode string
 			if srcData, readErr := os.ReadFile(srcPath); readErr == nil {
-				src := string(srcData)
+				srcCode = string(srcData)
 				sym := unit.ID.Symbol()
 				var metrics evidence.CodeMetrics
 				if sym != "" && strings.HasSuffix(unit.ID.Path(), ".go") {
-					// Per-symbol metrics for Go units
-					metrics = evidence.ComputeSymbolMetrics(src, sym)
+					metrics = evidence.ComputeSymbolMetrics(srcCode, sym)
 				} else {
-					// File-level metrics
-					metrics = evidence.ComputeMetrics(src)
+					metrics = evidence.ComputeMetrics(srcCode)
 				}
 				ev = append(ev, metrics.ToEvidence())
 			}
 
-			// Run agent review if available
-			if reviewer != nil {
-				srcCode := ""
-				if data, err := os.ReadFile(srcPath); err == nil {
-					srcCode = string(data)
-				}
-				result, err := reviewer.Review(context.Background(), agent.ReviewInput{
-					Unit:       unit,
-					SourceCode: srcCode,
-					Evidence:   ev,
-				})
-				if err == nil && result.Reviewed {
+			// Agent review via coordinator (handles dedup, budget, circuit breaking)
+			if coordinator != nil {
+				result := coordinator.ReviewUnit(cmd.Context(), unit, srcCode, ev)
+				if result.Reviewed {
 					ev = append(ev, result.ToEvidence())
 				}
 			}
@@ -163,7 +179,11 @@ var certifyCmd = &cobra.Command{
 		}
 
 		total := certified + observations + failed
-		fmt.Printf("\n✓ Certified %d/%d units", certified+observations, total)
+		if coordinator != nil {
+			filesReviewed, totalFiles, tokens := coordinator.Stats()
+			fmt.Printf("\n  Agent: %d/%d files reviewed, %d tokens used\n", filesReviewed, totalFiles, tokens)
+		}
+		fmt.Printf("✓ Certified %d/%d units", certified+observations, total)
 		if observations > 0 {
 			fmt.Printf(" (%d with observations)", observations)
 		}
@@ -182,6 +202,8 @@ var certifyCmd = &cobra.Command{
 
 func init() {
 	certifyCmd.Flags().StringVar(&certifyPath, "path", "", "Path to repository (default: current directory)")
+	certifyCmd.Flags().BoolVar(&certifySkipAgent, "skip-agent", false, "Skip agent-assisted review")
+	certifyCmd.Flags().IntVar(&certifyLimit, "limit", 0, "Limit number of units to certify (0=all)")
 }
 
 func defaultConfigObj() domain.Config {

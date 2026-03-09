@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -134,15 +135,25 @@ func (e *APIError) Error() string {
 }
 
 func isAuthError(err error) bool {
-	if apiErr, ok := err.(*APIError); ok {
+	var apiErr *APIError
+	if errors.As(err, &apiErr) {
 		return apiErr.StatusCode == 401 || apiErr.StatusCode == 403
 	}
 	return false
 }
 
 func isRetryable(err error) bool {
-	if apiErr, ok := err.(*APIError); ok {
+	var apiErr *APIError
+	if errors.As(err, &apiErr) {
 		return apiErr.StatusCode == 429 || apiErr.StatusCode >= 500
+	}
+	return false
+}
+
+func isBudgetError(err error) bool {
+	var apiErr *APIError
+	if errors.As(err, &apiErr) {
+		return apiErr.StatusCode == 402
 	}
 	return false
 }

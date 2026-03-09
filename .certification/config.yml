@@ -20,12 +20,12 @@ agent:
     http_referer: https://github.com/iksnae/code-certification
     x_title: code-certification
   models:
-    prescreen: mistralai/mistral-small-3.1-24b-instruct:free
+    prescreen: qwen/qwen3-coder:free
     review: qwen/qwen3-coder:free
-    scoring: qwen/qwen3-next-80b-a3b-instruct:free
-    decision: openai/gpt-oss-120b:free
+    scoring: qwen/qwen3-coder:free
+    decision: qwen/qwen3-coder:free
     remediation: qwen/qwen3-coder:free
-    fallback: meta-llama/llama-3.3-70b-instruct:free
+    fallback: mistralai/mistral-small-3.1-24b-instruct:free
   rate_limit:
     requests_per_minute: 20
     retry_max: 3
