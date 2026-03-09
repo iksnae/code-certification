@@ -1,0 +1,3038 @@
+{
+  "items": [
+    {
+      "unit_id": "go://internal/agent/ratelimit_test.go",
+      "file_path": "internal/agent/ratelimit_test.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861858-04:00",
+      "updated_at": "2026-03-09T14:21:17.764723-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#ToEvidence",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861858-04:00",
+      "updated_at": "2026-03-09T14:21:26.949876-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Skip",
+      "file_path": "internal/queue/queue.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861859-04:00",
+      "updated_at": "2026-03-09T14:21:34.982289-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#parseGrade",
+      "file_path": "internal/record/store.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861859-04:00",
+      "updated_at": "2026-03-09T14:21:44.173429-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health.go#FormatJSON",
+      "file_path": "internal/report/health.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861859-04:00",
+      "updated_at": "2026-03-09T14:21:52.081594-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect_test.go",
+      "file_path": "internal/discovery/detect_test.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861859-04:00",
+      "updated_at": "2026-03-09T14:22:14.057801-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config_test.go",
+      "file_path": "internal/domain/config_test.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86186-04:00",
+      "updated_at": "2026-03-09T14:22:21.986213-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#Chat",
+      "file_path": "internal/agent/circuit.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86186-04:00",
+      "updated_at": "2026-03-09T14:22:30.081725-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#LoadFile",
+      "file_path": "internal/config/loader.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86186-04:00",
+      "updated_at": "2026-03-09T14:22:37.756207-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#indexEntry",
+      "file_path": "internal/discovery/index.go",
+      "status": "skipped",
+      "reason": "prescreen: no review needed",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86186-04:00",
+      "updated_at": "2026-03-09T14:22:45.397381-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#IssueConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861861-04:00",
+      "updated_at": "2026-03-09T14:21:03.861861-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ModelAssignments",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861861-04:00",
+      "updated_at": "2026-03-09T14:21:03.861861-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types_test.go",
+      "file_path": "internal/agent/types_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861861-04:00",
+      "updated_at": "2026-03-09T14:21:03.861861-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/cross-agent.ts",
+      "file_path": "extensions/cross-agent.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861861-04:00",
+      "updated_at": "2026-03-09T14:21:03.861861-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#ModelChain",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861861-04:00",
+      "updated_at": "2026-03-09T14:21:03.861861-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#PipelineConfig",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861862-04:00",
+      "updated_at": "2026-03-09T14:21:03.861862-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#PromptTemplate",
+      "file_path": "internal/agent/prompts.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861862-04:00",
+      "updated_at": "2026-03-09T14:21:03.861862-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#StageInput",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861862-04:00",
+      "updated_at": "2026-03-09T14:21:03.861862-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#extractJSON",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861862-04:00",
+      "updated_at": "2026-03-09T14:21:03.861862-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows.go#GeneratePRWorkflow",
+      "file_path": "internal/github/workflows.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861863-04:00",
+      "updated_at": "2026-03-09T14:21:03.861863-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#rawPolicyRule",
+      "file_path": "internal/config/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861863-04:00",
+      "updated_at": "2026-03-09T14:21:03.861863-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#TSAdapter",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861863-04:00",
+      "updated_at": "2026-03-09T14:21:03.861863-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#ParseUnitID",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861863-04:00",
+      "updated_at": "2026-03-09T14:21:03.861863-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint.go#LintResult",
+      "file_path": "internal/evidence/lint.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861863-04:00",
+      "updated_at": "2026-03-09T14:21:03.861863-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#simpleAtoi",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861863-04:00",
+      "updated_at": "2026-03-09T14:21:03.861863-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health.go#Health",
+      "file_path": "internal/report/health.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861864-04:00",
+      "updated_at": "2026-03-09T14:21:03.861864-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect.go#DetectLanguages",
+      "file_path": "internal/discovery/detect.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861864-04:00",
+      "updated_at": "2026-03-09T14:21:03.861864-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#Status",
+      "file_path": "internal/domain/record.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861864-04:00",
+      "updated_at": "2026-03-09T14:21:03.861864-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Len",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861864-04:00",
+      "updated_at": "2026-03-09T14:21:03.861864-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override_test.go",
+      "file_path": "internal/domain/override_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861865-04:00",
+      "updated_at": "2026-03-09T14:21:03.861865-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit_test.go",
+      "file_path": "internal/domain/unit_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861865-04:00",
+      "updated_at": "2026-03-09T14:21:03.861865-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#NewRateLimiter",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861865-04:00",
+      "updated_at": "2026-03-09T14:21:03.861865-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#NewMatcher",
+      "file_path": "internal/policy/matcher.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861865-04:00",
+      "updated_at": "2026-03-09T14:21:03.861865-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#parseNode",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861867-04:00",
+      "updated_at": "2026-03-09T14:21:03.861867-04:00"
+    },
+    {
+      "unit_id": "file://specs/v1-implementation.md",
+      "file_path": "specs/v1-implementation.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861867-04:00",
+      "updated_at": "2026-03-09T14:21:03.861867-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#NewReviewStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861868-04:00",
+      "updated_at": "2026-03-09T14:21:03.861868-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#ChurnRate",
+      "file_path": "internal/evidence/git.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861868-04:00",
+      "updated_at": "2026-03-09T14:21:03.861868-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#matchPath",
+      "file_path": "internal/policy/matcher.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861868-04:00",
+      "updated_at": "2026-03-09T14:21:03.861868-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry_test.go",
+      "file_path": "internal/domain/expiry_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861869-04:00",
+      "updated_at": "2026-03-09T14:21:03.861869-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/tilldone.ts",
+      "file_path": "extensions/tilldone.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86187-04:00",
+      "updated_at": "2026-03-09T14:21:03.86187-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#rawConfig",
+      "file_path": "internal/config/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86187-04:00",
+      "updated_at": "2026-03-09T14:21:03.86187-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#Evidence",
+      "file_path": "internal/domain/evidence.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86187-04:00",
+      "updated_at": "2026-03-09T14:21:03.86187-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#goTestEvent",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86187-04:00",
+      "updated_at": "2026-03-09T14:21:03.86187-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractComplexity",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86187-04:00",
+      "updated_at": "2026-03-09T14:21:03.86187-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/subagent-widget.ts",
+      "file_path": "extensions/subagent-widget.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86187-04:00",
+      "updated_at": "2026-03-09T14:21:03.86187-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#parseSeverity",
+      "file_path": "internal/config/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861871-04:00",
+      "updated_at": "2026-03-09T14:21:03.861871-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/applier.go#Apply",
+      "file_path": "internal/override/applier.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861872-04:00",
+      "updated_at": "2026-03-09T14:21:03.861872-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Fail",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861872-04:00",
+      "updated_at": "2026-03-09T14:21:03.861872-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#Name",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861872-04:00",
+      "updated_at": "2026-03-09T14:21:03.861872-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#StageResult",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861872-04:00",
+      "updated_at": "2026-03-09T14:21:03.861872-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#EvidenceKind",
+      "file_path": "internal/domain/evidence.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861872-04:00",
+      "updated_at": "2026-03-09T14:21:03.861872-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#PolicyPack",
+      "file_path": "internal/domain/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861872-04:00",
+      "updated_at": "2026-03-09T14:21:03.861872-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#FormatIssueTitle",
+      "file_path": "internal/github/issues.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861873-04:00",
+      "updated_at": "2026-03-09T14:21:03.861873-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#BatchNext",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861873-04:00",
+      "updated_at": "2026-03-09T14:21:03.861873-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#init",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861873-04:00",
+      "updated_at": "2026-03-09T14:21:03.861873-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#NewPrescreenStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861873-04:00",
+      "updated_at": "2026-03-09T14:21:03.861873-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#defaultScores",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861873-04:00",
+      "updated_at": "2026-03-09T14:21:03.861873-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Save",
+      "file_path": "internal/discovery/index.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861875-04:00",
+      "updated_at": "2026-03-09T14:21:03.861875-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Save",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861875-04:00",
+      "updated_at": "2026-03-09T14:21:03.861875-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/session-replay.ts",
+      "file_path": "extensions/session-replay.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861875-04:00",
+      "updated_at": "2026-03-09T14:21:03.861875-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGoTest",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861875-04:00",
+      "updated_at": "2026-03-09T14:21:03.861875-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr.go#FormatPRComment",
+      "file_path": "internal/github/pr.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861875-04:00",
+      "updated_at": "2026-03-09T14:21:03.861875-04:00"
+    },
+    {
+      "unit_id": "go://internal/expiry/calculator_test.go",
+      "file_path": "internal/expiry/calculator_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861875-04:00",
+      "updated_at": "2026-03-09T14:21:03.861875-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#PrescreenResponse",
+      "file_path": "internal/agent/schemas.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861876-04:00",
+      "updated_at": "2026-03-09T14:21:03.861876-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#Merge",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861876-04:00",
+      "updated_at": "2026-03-09T14:21:03.861876-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#WeightedAverage",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861876-04:00",
+      "updated_at": "2026-03-09T14:21:03.861876-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/review.go#init",
+      "file_path": "cmd/certify/review.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861876-04:00",
+      "updated_at": "2026-03-09T14:21:03.861876-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#Execute",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861877-04:00",
+      "updated_at": "2026-03-09T14:21:03.861877-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#Duration",
+      "file_path": "internal/domain/expiry.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861877-04:00",
+      "updated_at": "2026-03-09T14:21:03.861877-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#PolicyRule",
+      "file_path": "internal/domain/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861877-04:00",
+      "updated_at": "2026-03-09T14:21:03.861877-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#String",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861877-04:00",
+      "updated_at": "2026-03-09T14:21:03.861877-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#StatusFromScore",
+      "file_path": "internal/engine/scorer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861877-04:00",
+      "updated_at": "2026-03-09T14:21:03.861877-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/collector.go#Collector",
+      "file_path": "internal/evidence/collector.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861877-04:00",
+      "updated_at": "2026-03-09T14:21:03.861877-04:00"
+    },
+    {
+      "unit_id": "file://STORIES.md",
+      "file_path": "STORIES.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861878-04:00",
+      "updated_at": "2026-03-09T14:21:03.861878-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue_test.go",
+      "file_path": "internal/queue/queue_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861878-04:00",
+      "updated_at": "2026-03-09T14:21:03.861878-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Pipeline",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861878-04:00",
+      "updated_at": "2026-03-09T14:21:03.861878-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/provider.go#Provider",
+      "file_path": "internal/agent/provider.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861878-04:00",
+      "updated_at": "2026-03-09T14:21:03.861878-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#GenericScanner",
+      "file_path": "internal/discovery/generic.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861878-04:00",
+      "updated_at": "2026-03-09T14:21:03.861878-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#AgentConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861878-04:00",
+      "updated_at": "2026-03-09T14:21:03.861878-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#NewUnit",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861878-04:00",
+      "updated_at": "2026-03-09T14:21:03.861878-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity.go#ComputeGoComplexity",
+      "file_path": "internal/evidence/complexity.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861879-04:00",
+      "updated_at": "2026-03-09T14:21:03.861879-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#ReviewInput",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861879-04:00",
+      "updated_at": "2026-03-09T14:21:03.861879-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#Reviewer",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861879-04:00",
+      "updated_at": "2026-03-09T14:21:03.861879-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#DiffResult",
+      "file_path": "internal/discovery/index.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861879-04:00",
+      "updated_at": "2026-03-09T14:21:03.861879-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#DimensionWeights",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861879-04:00",
+      "updated_at": "2026-03-09T14:21:03.861879-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity.go#funcName",
+      "file_path": "internal/evidence/complexity.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861879-04:00",
+      "updated_at": "2026-03-09T14:21:03.861879-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows.go#GenerateNightlyWorkflow",
+      "file_path": "internal/github/workflows.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86188-04:00",
+      "updated_at": "2026-03-09T14:21:03.86188-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#LoadDir",
+      "file_path": "internal/override/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86188-04:00",
+      "updated_at": "2026-03-09T14:21:03.86188-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractMetric",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86188-04:00",
+      "updated_at": "2026-03-09T14:21:03.86188-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy_test.go",
+      "file_path": "internal/config/policy_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86188-04:00",
+      "updated_at": "2026-03-09T14:21:03.86188-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#FallbackProvider",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86188-04:00",
+      "updated_at": "2026-03-09T14:21:03.86188-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#Allow",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86188-04:00",
+      "updated_at": "2026-03-09T14:21:03.86188-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router.go#NewRouter",
+      "file_path": "internal/agent/router.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861881-04:00",
+      "updated_at": "2026-03-09T14:21:03.861881-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/matcher.go#NewPolicyMatcher",
+      "file_path": "internal/config/matcher.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861881-04:00",
+      "updated_at": "2026-03-09T14:21:03.861881-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ScheduleConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861881-04:00",
+      "updated_at": "2026-03-09T14:21:03.861881-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter_test.go",
+      "file_path": "internal/agent/openrouter_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861881-04:00",
+      "updated_at": "2026-03-09T14:21:03.861881-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#defaultConfigObj",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861883-04:00",
+      "updated_at": "2026-03-09T14:21:03.861883-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#RemediationStep",
+      "file_path": "internal/agent/schemas.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861883-04:00",
+      "updated_at": "2026-03-09T14:21:03.861883-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#ScoringResponse",
+      "file_path": "internal/agent/schemas.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861883-04:00",
+      "updated_at": "2026-03-09T14:21:03.861883-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Usage",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861883-04:00",
+      "updated_at": "2026-03-09T14:21:03.861883-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#Config",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861884-04:00",
+      "updated_at": "2026-03-09T14:21:03.861884-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#init",
+      "file_path": "internal/domain/evidence.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861884-04:00",
+      "updated_at": "2026-03-09T14:21:03.861884-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#Evaluate",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861884-04:00",
+      "updated_at": "2026-03-09T14:21:03.861884-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues_test.go",
+      "file_path": "internal/github/issues_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861884-04:00",
+      "updated_at": "2026-03-09T14:21:03.861884-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#ToEvidence",
+      "file_path": "internal/evidence/git.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861884-04:00",
+      "updated_at": "2026-03-09T14:21:03.861884-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#pathFor",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861885-04:00",
+      "updated_at": "2026-03-09T14:21:03.861885-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows_test.go",
+      "file_path": "internal/github/workflows_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861885-04:00",
+      "updated_at": "2026-03-09T14:21:03.861885-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/system-select.ts",
+      "file_path": "extensions/system-select.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861885-04:00",
+      "updated_at": "2026-03-09T14:21:03.861885-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/expire.go#init",
+      "file_path": "cmd/certify/expire.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861885-04:00",
+      "updated_at": "2026-03-09T14:21:03.861885-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#Chat",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861885-04:00",
+      "updated_at": "2026-03-09T14:21:03.861885-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Strategy",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861886-04:00",
+      "updated_at": "2026-03-09T14:21:03.861886-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ProviderConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861886-04:00",
+      "updated_at": "2026-03-09T14:21:03.861886-04:00"
+    },
+    {
+      "unit_id": "file://go.mod",
+      "file_path": "go.mod",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861886-04:00",
+      "updated_at": "2026-03-09T14:21:03.861886-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#CircuitBreaker",
+      "file_path": "internal/agent/circuit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861888-04:00",
+      "updated_at": "2026-03-09T14:21:03.861888-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#NewPromptRegistry",
+      "file_path": "internal/agent/prompts.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861888-04:00",
+      "updated_at": "2026-03-09T14:21:03.861888-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#DecisionResponse",
+      "file_path": "internal/agent/schemas.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861888-04:00",
+      "updated_at": "2026-03-09T14:21:03.861888-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#Violation",
+      "file_path": "internal/domain/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861889-04:00",
+      "updated_at": "2026-03-09T14:21:03.861889-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint.go#TestResult",
+      "file_path": "internal/evidence/lint.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861889-04:00",
+      "updated_at": "2026-03-09T14:21:03.861889-04:00"
+    },
+    {
+      "unit_id": "go://internal/expiry/calculator.go#Calculate",
+      "file_path": "internal/expiry/calculator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861889-04:00",
+      "updated_at": "2026-03-09T14:21:03.861889-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy_test.go",
+      "file_path": "internal/domain/policy_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861889-04:00",
+      "updated_at": "2026-03-09T14:21:03.861889-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/report_cmd.go#init",
+      "file_path": "cmd/certify/report_cmd.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861889-04:00",
+      "updated_at": "2026-03-09T14:21:03.861889-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#Name",
+      "file_path": "internal/agent/circuit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861889-04:00",
+      "updated_at": "2026-03-09T14:21:03.861889-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#toResult",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86189-04:00",
+      "updated_at": "2026-03-09T14:21:03.86189-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#Scan",
+      "file_path": "internal/discovery/generic.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86189-04:00",
+      "updated_at": "2026-03-09T14:21:03.86189-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#OverrideAction",
+      "file_path": "internal/domain/override.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86189-04:00",
+      "updated_at": "2026-03-09T14:21:03.86189-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#Load",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86189-04:00",
+      "updated_at": "2026-03-09T14:21:03.86189-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#DialogueParser",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86189-04:00",
+      "updated_at": "2026-03-09T14:21:03.86189-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#AdaptiveMessages",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86189-04:00",
+      "updated_at": "2026-03-09T14:21:03.86189-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#doRequest",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861891-04:00",
+      "updated_at": "2026-03-09T14:21:03.861891-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#Review",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861891-04:00",
+      "updated_at": "2026-03-09T14:21:03.861891-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Choice",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861891-04:00",
+      "updated_at": "2026-03-09T14:21:03.861891-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#Validate",
+      "file_path": "internal/domain/override.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861891-04:00",
+      "updated_at": "2026-03-09T14:21:03.861891-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#NewToolExecutor",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861891-04:00",
+      "updated_at": "2026-03-09T14:21:03.861891-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#ItemStatus",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861891-04:00",
+      "updated_at": "2026-03-09T14:21:03.861891-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#toJSON",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861891-04:00",
+      "updated_at": "2026-03-09T14:21:03.861891-04:00"
+    },
+    {
+      "unit_id": "file://specs/agent-redesign.md",
+      "file_path": "specs/agent-redesign.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861892-04:00",
+      "updated_at": "2026-03-09T14:21:03.861892-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#Error",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861892-04:00",
+      "updated_at": "2026-03-09T14:21:03.861892-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#isAuthError",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861892-04:00",
+      "updated_at": "2026-03-09T14:21:03.861892-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#Scanner",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861892-04:00",
+      "updated_at": "2026-03-09T14:21:03.861892-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#CertificationMode",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861892-04:00",
+      "updated_at": "2026-03-09T14:21:03.861892-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#CollectAll",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861892-04:00",
+      "updated_at": "2026-03-09T14:21:03.861892-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint_test.go",
+      "file_path": "internal/evidence/lint_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861893-04:00",
+      "updated_at": "2026-03-09T14:21:03.861893-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#CoordinatorConfig",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861893-04:00",
+      "updated_at": "2026-03-09T14:21:03.861893-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#scoringStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861893-04:00",
+      "updated_at": "2026-03-09T14:21:03.861893-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ScopeConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861893-04:00",
+      "updated_at": "2026-03-09T14:21:03.861893-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGitLogWithAge",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861893-04:00",
+      "updated_at": "2026-03-09T14:21:03.861893-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner_test.go",
+      "file_path": "internal/evidence/runner_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861894-04:00",
+      "updated_at": "2026-03-09T14:21:03.861894-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/tool-counter.ts",
+      "file_path": "extensions/tool-counter.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861894-04:00",
+      "updated_at": "2026-03-09T14:21:03.861894-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Run",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861894-04:00",
+      "updated_at": "2026-03-09T14:21:03.861894-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#init",
+      "file_path": "internal/domain/record.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861894-04:00",
+      "updated_at": "2026-03-09T14:21:03.861894-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/themeMap.ts#THEME_MAP",
+      "file_path": "extensions/themeMap.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861894-04:00",
+      "updated_at": "2026-03-09T14:21:03.861894-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#String",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861895-04:00",
+      "updated_at": "2026-03-09T14:21:03.861895-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#Scan",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861895-04:00",
+      "updated_at": "2026-03-09T14:21:03.861895-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#scoreFromGitHistory",
+      "file_path": "internal/engine/scorer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861895-04:00",
+      "updated_at": "2026-03-09T14:21:03.861895-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGoTestJSON",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861895-04:00",
+      "updated_at": "2026-03-09T14:21:03.861895-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Next",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861895-04:00",
+      "updated_at": "2026-03-09T14:21:03.861895-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter_test.go",
+      "file_path": "internal/discovery/ts_adapter_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861895-04:00",
+      "updated_at": "2026-03-09T14:21:03.861895-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics_test.go",
+      "file_path": "internal/evidence/metrics_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861895-04:00",
+      "updated_at": "2026-03-09T14:21:03.861895-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/agent-chain.ts",
+      "file_path": "extensions/agent-chain.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861896-04:00",
+      "updated_at": "2026-03-09T14:21:03.861896-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#Version",
+      "file_path": "internal/agent/prompts.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861896-04:00",
+      "updated_at": "2026-03-09T14:21:03.861896-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#NewUnitID",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861896-04:00",
+      "updated_at": "2026-03-09T14:21:03.861896-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#UnitID",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861896-04:00",
+      "updated_at": "2026-03-09T14:21:03.861896-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#ToEvidence",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861896-04:00",
+      "updated_at": "2026-03-09T14:21:03.861896-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#EvaluationResult",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861896-04:00",
+      "updated_at": "2026-03-09T14:21:03.861896-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#NewReviewer",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861897-04:00",
+      "updated_at": "2026-03-09T14:21:03.861897-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#TaskType",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861897-04:00",
+      "updated_at": "2026-03-09T14:21:03.861897-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#rawOverrideFile",
+      "file_path": "internal/override/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861897-04:00",
+      "updated_at": "2026-03-09T14:21:03.861897-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#recordJSON",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861897-04:00",
+      "updated_at": "2026-03-09T14:21:03.861897-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/themeMap.ts#applyExtensionTheme",
+      "file_path": "extensions/themeMap.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861897-04:00",
+      "updated_at": "2026-03-09T14:21:03.861897-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/version.go",
+      "file_path": "cmd/certify/version.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861897-04:00",
+      "updated_at": "2026-03-09T14:21:03.861897-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts_test.go",
+      "file_path": "internal/agent/prompts_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861897-04:00",
+      "updated_at": "2026-03-09T14:21:03.861897-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner_test.go",
+      "file_path": "internal/discovery/scanner_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861898-04:00",
+      "updated_at": "2026-03-09T14:21:03.861898-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#CertificationRecord",
+      "file_path": "internal/domain/record.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861898-04:00",
+      "updated_at": "2026-03-09T14:21:03.861898-04:00"
+    },
+    {
+      "unit_id": "file://README.md",
+      "file_path": "README.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861898-04:00",
+      "updated_at": "2026-03-09T14:21:03.861898-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/attribution_test.go",
+      "file_path": "internal/agent/attribution_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861898-04:00",
+      "updated_at": "2026-03-09T14:21:03.861898-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/agent-team.ts",
+      "file_path": "extensions/agent-team.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861898-04:00",
+      "updated_at": "2026-03-09T14:21:03.861898-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#prescreenStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861898-04:00",
+      "updated_at": "2026-03-09T14:21:03.861898-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect.go#LanguageInfo",
+      "file_path": "internal/discovery/detect.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861899-04:00",
+      "updated_at": "2026-03-09T14:21:03.861899-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#parseFile",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861899-04:00",
+      "updated_at": "2026-03-09T14:21:03.861899-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router_test.go",
+      "file_path": "internal/agent/router_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861899-04:00",
+      "updated_at": "2026-03-09T14:21:03.861899-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#LoadPrompt",
+      "file_path": "internal/agent/prompts.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861899-04:00",
+      "updated_at": "2026-03-09T14:21:03.861899-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#AllDimensions",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861899-04:00",
+      "updated_at": "2026-03-09T14:21:03.861899-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#GitStats",
+      "file_path": "internal/evidence/git.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861899-04:00",
+      "updated_at": "2026-03-09T14:21:03.861899-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#containsTodo",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861899-04:00",
+      "updated_at": "2026-03-09T14:21:03.861899-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Enqueue",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.8619-04:00",
+      "updated_at": "2026-03-09T14:21:03.8619-04:00"
+    },
+    {
+      "unit_id": "go://internal/integration_test.go",
+      "file_path": "internal/integration_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.8619-04:00",
+      "updated_at": "2026-03-09T14:21:03.8619-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGoVet",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.8619-04:00",
+      "updated_at": "2026-03-09T14:21:03.8619-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Reset",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.8619-04:00",
+      "updated_at": "2026-03-09T14:21:03.8619-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#persistedQueue",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861902-04:00",
+      "updated_at": "2026-03-09T14:21:03.861902-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#tokenizeDialogue",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861902-04:00",
+      "updated_at": "2026-03-09T14:21:03.861902-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/cli_test.go",
+      "file_path": "cmd/certify/cli_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861902-04:00",
+      "updated_at": "2026-03-09T14:21:03.861902-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record_test.go",
+      "file_path": "internal/domain/record_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861903-04:00",
+      "updated_at": "2026-03-09T14:21:03.861903-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#PromptRegistry",
+      "file_path": "internal/agent/prompts.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861903-04:00",
+      "updated_at": "2026-03-09T14:21:03.861903-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#RemediationResponse",
+      "file_path": "internal/agent/schemas.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861903-04:00",
+      "updated_at": "2026-03-09T14:21:03.861903-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Diff",
+      "file_path": "internal/discovery/index.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861903-04:00",
+      "updated_at": "2026-03-09T14:21:03.861903-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#LoadIndex",
+      "file_path": "internal/discovery/index.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861903-04:00",
+      "updated_at": "2026-03-09T14:21:03.861903-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#ToolExecutor",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861904-04:00",
+      "updated_at": "2026-03-09T14:21:03.861904-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#FormatIssueBody",
+      "file_path": "internal/github/issues.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861904-04:00",
+      "updated_at": "2026-03-09T14:21:03.861904-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#Get",
+      "file_path": "internal/agent/prompts.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861904-04:00",
+      "updated_at": "2026-03-09T14:21:03.861904-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#ChatRequest",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861904-04:00",
+      "updated_at": "2026-03-09T14:21:03.861904-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#String",
+      "file_path": "internal/domain/record.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861905-04:00",
+      "updated_at": "2026-03-09T14:21:03.861905-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#rawOverride",
+      "file_path": "internal/override/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861905-04:00",
+      "updated_at": "2026-03-09T14:21:03.861905-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/main.go#main",
+      "file_path": "cmd/certify/main.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861905-04:00",
+      "updated_at": "2026-03-09T14:21:03.861905-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#NewCircuitBreaker",
+      "file_path": "internal/agent/circuit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861905-04:00",
+      "updated_at": "2026-03-09T14:21:03.861905-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#parseDimension",
+      "file_path": "internal/config/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861905-04:00",
+      "updated_at": "2026-03-09T14:21:03.861905-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Index",
+      "file_path": "internal/discovery/index.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861905-04:00",
+      "updated_at": "2026-03-09T14:21:03.861905-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity.go#ComputeSymbolMetrics",
+      "file_path": "internal/evidence/complexity.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861906-04:00",
+      "updated_at": "2026-03-09T14:21:03.861906-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#MAX_TOKENS",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861906-04:00",
+      "updated_at": "2026-03-09T14:21:03.861906-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#ChatResponse",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861906-04:00",
+      "updated_at": "2026-03-09T14:21:03.861906-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Stats",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861906-04:00",
+      "updated_at": "2026-03-09T14:21:03.861906-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#ListAll",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861906-04:00",
+      "updated_at": "2026-03-09T14:21:03.861906-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#Grade",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861907-04:00",
+      "updated_at": "2026-03-09T14:21:03.861907-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint.go#ToEvidence",
+      "file_path": "internal/evidence/lint.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861907-04:00",
+      "updated_at": "2026-03-09T14:21:03.861907-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Content",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861907-04:00",
+      "updated_at": "2026-03-09T14:21:03.861907-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#ExpiryWindow",
+      "file_path": "internal/domain/expiry.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861907-04:00",
+      "updated_at": "2026-03-09T14:21:03.861907-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#HasGoMod",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861907-04:00",
+      "updated_at": "2026-03-09T14:21:03.861907-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/themeMap.ts#applyExtensionDefaults",
+      "file_path": "extensions/themeMap.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861909-04:00",
+      "updated_at": "2026-03-09T14:21:03.861909-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/init_cmd.go#init",
+      "file_path": "cmd/certify/init_cmd.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861909-04:00",
+      "updated_at": "2026-03-09T14:21:03.861909-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#NewScoringStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861909-04:00",
+      "updated_at": "2026-03-09T14:21:03.861909-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#GradeFromScore",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861909-04:00",
+      "updated_at": "2026-03-09T14:21:03.861909-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/applier.go#ApplyAll",
+      "file_path": "internal/override/applier.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86191-04:00",
+      "updated_at": "2026-03-09T14:21:03.86191-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Queue",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86191-04:00",
+      "updated_at": "2026-03-09T14:21:03.86191-04:00"
+    },
+    {
+      "unit_id": "file://go.sum",
+      "file_path": "go.sum",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86191-04:00",
+      "updated_at": "2026-03-09T14:21:03.86191-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index_test.go",
+      "file_path": "internal/discovery/index_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86191-04:00",
+      "updated_at": "2026-03-09T14:21:03.86191-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#RateLimiter",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86191-04:00",
+      "updated_at": "2026-03-09T14:21:03.86191-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#NewTSAdapter",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861916-04:00",
+      "updated_at": "2026-03-09T14:21:03.861916-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#Path",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861916-04:00",
+      "updated_at": "2026-03-09T14:21:03.861916-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#init",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861916-04:00",
+      "updated_at": "2026-03-09T14:21:03.861916-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#BuildIssueCreateCommand",
+      "file_path": "internal/github/issues.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861916-04:00",
+      "updated_at": "2026-03-09T14:21:03.861916-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader_test.go",
+      "file_path": "internal/config/loader_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861916-04:00",
+      "updated_at": "2026-03-09T14:21:03.861916-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/applier_test.go",
+      "file_path": "internal/override/applier_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861916-04:00",
+      "updated_at": "2026-03-09T14:21:03.861916-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Coordinator",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861916-04:00",
+      "updated_at": "2026-03-09T14:21:03.861916-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#matchAny",
+      "file_path": "internal/discovery/generic.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861917-04:00",
+      "updated_at": "2026-03-09T14:21:03.861917-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/pipeline.go#CertifyUnit",
+      "file_path": "internal/engine/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861917-04:00",
+      "updated_at": "2026-03-09T14:21:03.861917-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint.go#LintFinding",
+      "file_path": "internal/evidence/lint.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861917-04:00",
+      "updated_at": "2026-03-09T14:21:03.861917-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#BuildIssueCloseCommand",
+      "file_path": "internal/github/issues.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861917-04:00",
+      "updated_at": "2026-03-09T14:21:03.861917-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#LoadFile",
+      "file_path": "internal/override/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861917-04:00",
+      "updated_at": "2026-03-09T14:21:03.861917-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/init_cmd.go#generateConfig",
+      "file_path": "cmd/certify/init_cmd.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861917-04:00",
+      "updated_at": "2026-03-09T14:21:03.861917-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#extractSummaryFloat",
+      "file_path": "internal/engine/scorer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861918-04:00",
+      "updated_at": "2026-03-09T14:21:03.861918-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGitStats",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861918-04:00",
+      "updated_at": "2026-03-09T14:21:03.861918-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#parseAction",
+      "file_path": "internal/override/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861918-04:00",
+      "updated_at": "2026-03-09T14:21:03.861918-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#matchesPack",
+      "file_path": "internal/policy/matcher.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861918-04:00",
+      "updated_at": "2026-03-09T14:21:03.861918-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Load",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861918-04:00",
+      "updated_at": "2026-03-09T14:21:03.861918-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#Save",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861918-04:00",
+      "updated_at": "2026-03-09T14:21:03.861918-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#isRetryable",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861919-04:00",
+      "updated_at": "2026-03-09T14:21:03.861919-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#Score",
+      "file_path": "internal/engine/scorer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861919-04:00",
+      "updated_at": "2026-03-09T14:21:03.861919-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#golangciLintIssue",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86192-04:00",
+      "updated_at": "2026-03-09T14:21:03.86192-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr.go#BuildPRCommentCommand",
+      "file_path": "internal/github/pr.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86192-04:00",
+      "updated_at": "2026-03-09T14:21:03.86192-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#Store",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86192-04:00",
+      "updated_at": "2026-03-09T14:21:03.86192-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health.go#FormatText",
+      "file_path": "internal/report/health.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861921-04:00",
+      "updated_at": "2026-03-09T14:21:03.861921-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#NewFallbackProvider",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861921-04:00",
+      "updated_at": "2026-03-09T14:21:03.861921-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#NewGenericScanner",
+      "file_path": "internal/discovery/generic.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861921-04:00",
+      "updated_at": "2026-03-09T14:21:03.861921-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#DimensionScores",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861921-04:00",
+      "updated_at": "2026-03-09T14:21:03.861921-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#ParseStatus",
+      "file_path": "internal/domain/record.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861921-04:00",
+      "updated_at": "2026-03-09T14:21:03.861921-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGolangciLintJSON",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861921-04:00",
+      "updated_at": "2026-03-09T14:21:03.861921-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#golangciLintOutput",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861932-04:00",
+      "updated_at": "2026-03-09T14:21:03.861932-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#NewStore",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861932-04:00",
+      "updated_at": "2026-03-09T14:21:03.861932-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer_test.go",
+      "file_path": "internal/engine/scorer_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861932-04:00",
+      "updated_at": "2026-03-09T14:21:03.861932-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/purpose-gate.ts",
+      "file_path": "extensions/purpose-gate.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861932-04:00",
+      "updated_at": "2026-03-09T14:21:03.861932-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#isBudgetError",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861932-04:00",
+      "updated_at": "2026-03-09T14:21:03.861932-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect.go#DetectedAdapters",
+      "file_path": "internal/discovery/detect.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861933-04:00",
+      "updated_at": "2026-03-09T14:21:03.861933-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#RateLimitConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861933-04:00",
+      "updated_at": "2026-03-09T14:21:03.861933-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#String",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861933-04:00",
+      "updated_at": "2026-03-09T14:21:03.861933-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git_test.go",
+      "file_path": "internal/evidence/git_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861933-04:00",
+      "updated_at": "2026-03-09T14:21:03.861933-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health_test.go",
+      "file_path": "internal/report/health_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861933-04:00",
+      "updated_at": "2026-03-09T14:21:03.861933-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#APIError",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861933-04:00",
+      "updated_at": "2026-03-09T14:21:03.861933-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Stats",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861933-04:00",
+      "updated_at": "2026-03-09T14:21:03.861933-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router.go#ModelFor",
+      "file_path": "internal/agent/router.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861934-04:00",
+      "updated_at": "2026-03-09T14:21:03.861934-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#NewIndex",
+      "file_path": "internal/discovery/index.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861934-04:00",
+      "updated_at": "2026-03-09T14:21:03.861934-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#scoreFromMetrics",
+      "file_path": "internal/engine/scorer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861934-04:00",
+      "updated_at": "2026-03-09T14:21:03.861934-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr_test.go",
+      "file_path": "internal/github/pr_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861934-04:00",
+      "updated_at": "2026-03-09T14:21:03.861934-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#NewPipeline",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861934-04:00",
+      "updated_at": "2026-03-09T14:21:03.861934-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#Stage",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861934-04:00",
+      "updated_at": "2026-03-09T14:21:03.861934-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#validate",
+      "file_path": "internal/config/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861935-04:00",
+      "updated_at": "2026-03-09T14:21:03.861935-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#parseFile",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861935-04:00",
+      "updated_at": "2026-03-09T14:21:03.861935-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#ParseGitLog",
+      "file_path": "internal/evidence/git.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861935-04:00",
+      "updated_at": "2026-03-09T14:21:03.861935-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/pipeline_test.go",
+      "file_path": "internal/engine/pipeline_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861935-04:00",
+      "updated_at": "2026-03-09T14:21:03.861935-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity_test.go",
+      "file_path": "internal/evidence/complexity_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861935-04:00",
+      "updated_at": "2026-03-09T14:21:03.861935-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router.go#directAssignment",
+      "file_path": "internal/agent/router.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861935-04:00",
+      "updated_at": "2026-03-09T14:21:03.861935-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Message",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861936-04:00",
+      "updated_at": "2026-03-09T14:21:03.861936-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#Scan",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861936-04:00",
+      "updated_at": "2026-03-09T14:21:03.861936-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#String",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861936-04:00",
+      "updated_at": "2026-03-09T14:21:03.861936-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#HasPackageJSON",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861936-04:00",
+      "updated_at": "2026-03-09T14:21:03.861936-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#CodeMetrics",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861936-04:00",
+      "updated_at": "2026-03-09T14:21:03.861936-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage_test.go",
+      "file_path": "internal/agent/stage_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861936-04:00",
+      "updated_at": "2026-03-09T14:21:03.861936-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter_test.go",
+      "file_path": "internal/discovery/go_adapter_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861936-04:00",
+      "updated_at": "2026-03-09T14:21:03.861936-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/minimal.ts",
+      "file_path": "extensions/minimal.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861937-04:00",
+      "updated_at": "2026-03-09T14:21:03.861937-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#NewCoordinator",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861937-04:00",
+      "updated_at": "2026-03-09T14:21:03.861937-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#refill",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861937-04:00",
+      "updated_at": "2026-03-09T14:21:03.861937-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#ReviewResult",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861938-04:00",
+      "updated_at": "2026-03-09T14:21:03.861938-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#Language",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861938-04:00",
+      "updated_at": "2026-03-09T14:21:03.861938-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractTodoCount",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861938-04:00",
+      "updated_at": "2026-03-09T14:21:03.861938-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/theme-cycler.ts",
+      "file_path": "extensions/theme-cycler.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861938-04:00",
+      "updated_at": "2026-03-09T14:21:03.861938-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#runCertify",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861938-04:00",
+      "updated_at": "2026-03-09T14:21:03.861938-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/root.go#init",
+      "file_path": "cmd/certify/root.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861938-04:00",
+      "updated_at": "2026-03-09T14:21:03.861938-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#joinModels",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861939-04:00",
+      "updated_at": "2026-03-09T14:21:03.861939-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#UnitType",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86194-04:00",
+      "updated_at": "2026-03-09T14:21:03.86194-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGolangciLint",
+      "file_path": "internal/evidence/executor.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86194-04:00",
+      "updated_at": "2026-03-09T14:21:03.86194-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractCoverage",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861941-04:00",
+      "updated_at": "2026-03-09T14:21:03.861941-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader_test.go",
+      "file_path": "internal/override/loader_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861941-04:00",
+      "updated_at": "2026-03-09T14:21:03.861941-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#Chat",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861941-04:00",
+      "updated_at": "2026-03-09T14:21:03.861941-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#ReviewUnit",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861941-04:00",
+      "updated_at": "2026-03-09T14:21:03.861941-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#Wait",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861941-04:00",
+      "updated_at": "2026-03-09T14:21:03.861941-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#looseParseNeedsReview",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861941-04:00",
+      "updated_at": "2026-03-09T14:21:03.861941-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#Severity",
+      "file_path": "internal/domain/evidence.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861942-04:00",
+      "updated_at": "2026-03-09T14:21:03.861942-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseCoverProfile",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861942-04:00",
+      "updated_at": "2026-03-09T14:21:03.861942-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health.go#HealthReport",
+      "file_path": "internal/report/health.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861942-04:00",
+      "updated_at": "2026-03-09T14:21:03.861942-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#ModelConfig",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861942-04:00",
+      "updated_at": "2026-03-09T14:21:03.861942-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#RemainingAt",
+      "file_path": "internal/domain/expiry.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861942-04:00",
+      "updated_at": "2026-03-09T14:21:03.861942-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#Symbol",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861942-04:00",
+      "updated_at": "2026-03-09T14:21:03.861942-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#evaluateRule",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861943-04:00",
+      "updated_at": "2026-03-09T14:21:03.861943-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Item",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861943-04:00",
+      "updated_at": "2026-03-09T14:21:03.861943-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback_test.go",
+      "file_path": "internal/agent/fallback_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861943-04:00",
+      "updated_at": "2026-03-09T14:21:03.861943-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer_test.go",
+      "file_path": "internal/agent/reviewer_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861943-04:00",
+      "updated_at": "2026-03-09T14:21:03.861943-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator_test.go",
+      "file_path": "internal/policy/evaluator_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861943-04:00",
+      "updated_at": "2026-03-09T14:21:03.861943-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher_test.go",
+      "file_path": "internal/policy/matcher_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861943-04:00",
+      "updated_at": "2026-03-09T14:21:03.861943-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/tool-counter-widget.ts",
+      "file_path": "extensions/tool-counter-widget.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861943-04:00",
+      "updated_at": "2026-03-09T14:21:03.861943-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#NewOpenRouterProvider",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861944-04:00",
+      "updated_at": "2026-03-09T14:21:03.861944-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#OpenRouterProvider",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861944-04:00",
+      "updated_at": "2026-03-09T14:21:03.861944-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#reviewStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861944-04:00",
+      "updated_at": "2026-03-09T14:21:03.861944-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#Render",
+      "file_path": "internal/agent/prompts.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861944-04:00",
+      "updated_at": "2026-03-09T14:21:03.861944-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#LoadFromDir",
+      "file_path": "internal/config/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861944-04:00",
+      "updated_at": "2026-03-09T14:21:03.861944-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#LoadPolicyPack",
+      "file_path": "internal/config/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861944-04:00",
+      "updated_at": "2026-03-09T14:21:03.861944-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#rawPolicyPack",
+      "file_path": "internal/config/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861945-04:00",
+      "updated_at": "2026-03-09T14:21:03.861945-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#NewGoAdapter",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861945-04:00",
+      "updated_at": "2026-03-09T14:21:03.861945-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#DeduplicateFileLevel",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861945-04:00",
+      "updated_at": "2026-03-09T14:21:03.861945-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#DefaultConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861945-04:00",
+      "updated_at": "2026-03-09T14:21:03.861945-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ExpiryConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861945-04:00",
+      "updated_at": "2026-03-09T14:21:03.861945-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension_test.go",
+      "file_path": "internal/domain/dimension_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861945-04:00",
+      "updated_at": "2026-03-09T14:21:03.861945-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/damage-control.ts",
+      "file_path": "extensions/damage-control.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861946-04:00",
+      "updated_at": "2026-03-09T14:21:03.861946-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/pure-focus.ts",
+      "file_path": "extensions/pure-focus.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861946-04:00",
+      "updated_at": "2026-03-09T14:21:03.861946-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#NewModelChain",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861946-04:00",
+      "updated_at": "2026-03-09T14:21:03.861946-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router.go#Router",
+      "file_path": "internal/agent/router.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861946-04:00",
+      "updated_at": "2026-03-09T14:21:03.861946-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#LoadPolicyPacks",
+      "file_path": "internal/config/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861946-04:00",
+      "updated_at": "2026-03-09T14:21:03.861946-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#ParseUnitType",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861946-04:00",
+      "updated_at": "2026-03-09T14:21:03.861946-04:00"
+    },
+    {
+      "unit_id": "file://CLAUDE.md",
+      "file_path": "CLAUDE.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861947-04:00",
+      "updated_at": "2026-03-09T14:21:03.861947-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#IsOpen",
+      "file_path": "internal/agent/circuit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861947-04:00",
+      "updated_at": "2026-03-09T14:21:03.861947-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#Override",
+      "file_path": "internal/domain/override.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861947-04:00",
+      "updated_at": "2026-03-09T14:21:03.861947-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#String",
+      "file_path": "internal/domain/override.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861947-04:00",
+      "updated_at": "2026-03-09T14:21:03.861947-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#severityPenalty",
+      "file_path": "internal/engine/scorer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861947-04:00",
+      "updated_at": "2026-03-09T14:21:03.861947-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#Matcher",
+      "file_path": "internal/policy/matcher.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861947-04:00",
+      "updated_at": "2026-03-09T14:21:03.861947-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#Name",
+      "file_path": "internal/agent/stage.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861947-04:00",
+      "updated_at": "2026-03-09T14:21:03.861947-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGoVet",
+      "file_path": "internal/evidence/runner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861948-04:00",
+      "updated_at": "2026-03-09T14:21:03.861948-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#fromJSON",
+      "file_path": "internal/record/store.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861948-04:00",
+      "updated_at": "2026-03-09T14:21:03.861948-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/utils.ts#formatDate",
+      "file_path": "testdata/repos/ts-simple/src/utils.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861948-04:00",
+      "updated_at": "2026-03-09T14:21:03.861948-04:00"
+    },
+    {
+      "unit_id": "file://FEATURES.md",
+      "file_path": "FEATURES.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861948-04:00",
+      "updated_at": "2026-03-09T14:21:03.861948-04:00"
+    },
+    {
+      "unit_id": "file://PRD.md",
+      "file_path": "PRD.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861949-04:00",
+      "updated_at": "2026-03-09T14:21:03.861949-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas_test.go",
+      "file_path": "internal/agent/schemas_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861949-04:00",
+      "updated_at": "2026-03-09T14:21:03.861949-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#ParseSeverity",
+      "file_path": "internal/domain/evidence.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861949-04:00",
+      "updated_at": "2026-03-09T14:21:03.861949-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Complete",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861949-04:00",
+      "updated_at": "2026-03-09T14:21:03.861949-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/pi-pi.ts",
+      "file_path": "extensions/pi-pi.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86195-04:00",
+      "updated_at": "2026-03-09T14:21:03.86195-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#parsePolicyPack",
+      "file_path": "internal/config/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86195-04:00",
+      "updated_at": "2026-03-09T14:21:03.86195-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#Match",
+      "file_path": "internal/policy/matcher.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86195-04:00",
+      "updated_at": "2026-03-09T14:21:03.86195-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#New",
+      "file_path": "internal/queue/queue.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86195-04:00",
+      "updated_at": "2026-03-09T14:21:03.86195-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/utils.ts#log",
+      "file_path": "testdata/repos/ts-simple/src/utils.ts",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86195-04:00",
+      "updated_at": "2026-03-09T14:21:03.86195-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store_test.go",
+      "file_path": "internal/record/store_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86195-04:00",
+      "updated_at": "2026-03-09T14:21:03.86195-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#modelPinnedProvider",
+      "file_path": "internal/agent/fallback.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.86195-04:00",
+      "updated_at": "2026-03-09T14:21:03.86195-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#Name",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861951-04:00",
+      "updated_at": "2026-03-09T14:21:03.861951-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#Load",
+      "file_path": "internal/config/loader.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861951-04:00",
+      "updated_at": "2026-03-09T14:21:03.861951-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#IsExpired",
+      "file_path": "internal/domain/expiry.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861951-04:00",
+      "updated_at": "2026-03-09T14:21:03.861951-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#IsPassing",
+      "file_path": "internal/domain/record.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861951-04:00",
+      "updated_at": "2026-03-09T14:21:03.861951-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#extractSummaryInt",
+      "file_path": "internal/engine/scorer.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861951-04:00",
+      "updated_at": "2026-03-09T14:21:03.861951-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows.go#GenerateWeeklyWorkflow",
+      "file_path": "internal/github/workflows.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861951-04:00",
+      "updated_at": "2026-03-09T14:21:03.861951-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/scan.go#init",
+      "file_path": "cmd/certify/scan.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861952-04:00",
+      "updated_at": "2026-03-09T14:21:03.861952-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#IsGlobal",
+      "file_path": "internal/domain/policy.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861952-04:00",
+      "updated_at": "2026-03-09T14:21:03.861952-04:00"
+    },
+    {
+      "unit_id": "file://specs/dogfood-gaps.md",
+      "file_path": "specs/dogfood-gaps.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861952-04:00",
+      "updated_at": "2026-03-09T14:21:03.861952-04:00"
+    },
+    {
+      "unit_id": "file://specs/project-bootstrap-justfile-commands-initial-commit.md",
+      "file_path": "specs/project-bootstrap-justfile-commands-initial-commit.md",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861952-04:00",
+      "updated_at": "2026-03-09T14:21:03.861952-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence_test.go",
+      "file_path": "internal/domain/evidence_test.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861952-04:00",
+      "updated_at": "2026-03-09T14:21:03.861952-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#ResponseFormat",
+      "file_path": "internal/agent/types.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861953-04:00",
+      "updated_at": "2026-03-09T14:21:03.861953-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#GoAdapter",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861953-04:00",
+      "updated_at": "2026-03-09T14:21:03.861953-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Units",
+      "file_path": "internal/discovery/index.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861953-04:00",
+      "updated_at": "2026-03-09T14:21:03.861953-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#String",
+      "file_path": "internal/domain/evidence.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861953-04:00",
+      "updated_at": "2026-03-09T14:21:03.861953-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/init_cmd.go#languagePolicy",
+      "file_path": "cmd/certify/init_cmd.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861953-04:00",
+      "updated_at": "2026-03-09T14:21:03.861953-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#UnitList",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861953-04:00",
+      "updated_at": "2026-03-09T14:21:03.861953-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#Dimension",
+      "file_path": "internal/domain/dimension.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861954-04:00",
+      "updated_at": "2026-03-09T14:21:03.861954-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#ExpiryFactors",
+      "file_path": "internal/domain/expiry.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861954-04:00",
+      "updated_at": "2026-03-09T14:21:03.861954-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#Unit",
+      "file_path": "internal/domain/unit.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861954-04:00",
+      "updated_at": "2026-03-09T14:21:03.861954-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#ComputeMetrics",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "pending",
+      "retries": 0,
+      "created_at": "2026-03-09T14:21:03.861954-04:00",
+      "updated_at": "2026-03-09T14:21:03.861954-04:00"
+    }
+  ]
+}
