@@ -131,6 +131,64 @@ func TestLoadConfig_EmptyFile(t *testing.T) {
 	}
 }
 
+func TestConfigExplicitlyDisabled(t *testing.T) {
+	data := []byte(`
+mode: advisory
+agent:
+  enabled: false
+`)
+	cfg, err := config.Load(data)
+	if err != nil {
+		t.Fatalf("Load() error: %v", err)
+	}
+	if cfg.Agent.Enabled {
+		t.Error("Agent.Enabled should be false")
+	}
+	if !cfg.Agent.ExplicitlyDisabled {
+		t.Error("Agent.ExplicitlyDisabled should be true when enabled: false is set")
+	}
+}
+
+func TestConfigNotExplicitlyDisabled(t *testing.T) {
+	data := []byte(`
+mode: advisory
+`)
+	cfg, err := config.Load(data)
+	if err != nil {
+		t.Fatalf("Load() error: %v", err)
+	}
+	if cfg.Agent.Enabled {
+		t.Error("Agent.Enabled should be false by default")
+	}
+	if cfg.Agent.ExplicitlyDisabled {
+		t.Error("Agent.ExplicitlyDisabled should be false when agent section is absent")
+	}
+}
+
+func TestConfigExplicitlyEnabled(t *testing.T) {
+	data := []byte(`
+mode: advisory
+agent:
+  enabled: true
+  provider:
+    type: openrouter
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+  models:
+    prescreen: qwen/qwen3-coder:free
+`)
+	cfg, err := config.Load(data)
+	if err != nil {
+		t.Fatalf("Load() error: %v", err)
+	}
+	if !cfg.Agent.Enabled {
+		t.Error("Agent.Enabled should be true")
+	}
+	if cfg.Agent.ExplicitlyDisabled {
+		t.Error("Agent.ExplicitlyDisabled should be false when enabled: true")
+	}
+}
+
 func TestLoadConfig_Dir(t *testing.T) {
 	// Create a temp dir with config.yml
 	dir := t.TempDir()

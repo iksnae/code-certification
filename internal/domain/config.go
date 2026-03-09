@@ -73,10 +73,11 @@ type PolicyConfig struct {
 
 // AgentConfig configures the optional agent-assisted review.
 type AgentConfig struct {
-	Enabled   bool             `yaml:"enabled"`
-	Provider  ProviderConfig   `yaml:"provider"`
-	Models    ModelAssignments `yaml:"models"`
-	RateLimit RateLimitConfig  `yaml:"rate_limit"`
+	Enabled            bool             `yaml:"enabled"`
+	ExplicitlyDisabled bool             `yaml:"-"` // Runtime-only: true when config explicitly sets enabled: false
+	Provider           ProviderConfig   `yaml:"provider"`
+	Models             ModelAssignments `yaml:"models"`
+	RateLimit          RateLimitConfig  `yaml:"rate_limit"`
 }
 
 // ProviderConfig defines the LLM provider settings.

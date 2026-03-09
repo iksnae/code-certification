@@ -20,6 +20,11 @@ type rawConfig struct {
 	Issues   domain.IssueConfig    `yaml:"issues"`
 }
 
+// rawAgent is used to detect whether agent.enabled was explicitly set.
+type rawAgent struct {
+	Enabled *bool `yaml:"enabled"`
+}
+
 // LoadFile reads and parses a config YAML file.
 func LoadFile(path string) (domain.Config, error) {
 	data, err := os.ReadFile(path)
@@ -67,9 +72,16 @@ func Load(data []byte) (domain.Config, error) {
 		cfg.Scope.Exclude = raw.Scope.Exclude
 	}
 
-	// Agent
+	// Agent — detect explicit enabled: false vs absent
 	if raw.Agent.Enabled {
 		cfg.Agent = raw.Agent
+	}
+	// Check if agent.enabled was explicitly set to false
+	var rawA struct {
+		Agent rawAgent `yaml:"agent"`
+	}
+	if yaml.Unmarshal(data, &rawA) == nil && rawA.Agent.Enabled != nil && !*rawA.Agent.Enabled {
+		cfg.Agent.ExplicitlyDisabled = true
 	}
 
 	// Schedule
