@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `5c8d177`  
-**Generated:** 2026-03-09T17:05:11  
+**Commit:** `e952480`  
+**Generated:** 2026-03-09T21:13:52  
 
 ---
 
@@ -12,8 +12,8 @@
 |--------|-------|
 | **Overall Grade** | 🟢 **B+** |
 | **Overall Score** | 87.3% |
-| **Total Units** | 581 |
-| **Passing** | 581 |
+| **Total Units** | 495 |
+| **Passing** | 495 |
 | **Failing** | 0 |
 | **Pass Rate** | 100.0% |
 | **Observations** | 0 |
@@ -23,8 +23,8 @@
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B+ | 390 | 67.1% | █████████████████████████████████ |
-| B | 191 | 32.9% | ████████████████ |
+| B+ | 348 | 70.3% | ███████████████████████████████████ |
+| B | 147 | 29.7% | ██████████████ |
 
 ## Dimension Averages
 
@@ -33,10 +33,10 @@
 | architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 90.0% | █████████████████░░░ |
 | correctness | 95.0% | ██████████████████░░ |
-| maintainability | 93.6% | ██████████████████░░ |
+| maintainability | 93.4% | ██████████████████░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
 | performance_appropriateness | 80.0% | ████████████████░░░░ |
-| readability | 91.9% | ██████████████████░░ |
+| readability | 92.7% | ██████████████████░░ |
 | security | 80.0% | ████████████████░░░░ |
 | testability | 90.0% | █████████████████░░░ |
 
@@ -48,23 +48,17 @@
 - **Score range:** 83.9% – 87.8%
 - **Grades:** 315×B+, 121×B
 
-### file — 🟢 B (87.0%)
+### file — 🟢 B (86.8%)
 
-- **Units:** 110
+- **Units:** 52
 - **Score range:** 83.9% – 87.8%
-- **Grades:** 57×B+, 53×B
+- **Grades:** 26×B+, 26×B
 
-### ts — 🟢 B (86.4%)
+### ts — 🟢 B+ (87.8%)
 
-- **Units:** 25
-- **Score range:** 83.9% – 87.8%
-- **Grades:** 9×B+, 16×B
-
-### js — 🟢 B+ (87.4%)
-
-- **Units:** 10
-- **Score range:** 83.9% – 87.8%
-- **Grades:** 9×B+, 1×B
+- **Units:** 7
+- **Score range:** 87.8% – 87.8%
+- **Grades:** 7×B+
 
 ## All Units
 
@@ -161,29 +155,6 @@
 |------|------|:-----:|------:|--------|--------|
 | `PRD.md` | file | B | 83.9% | certified | 2026-04-23 |
 | `STORIES.md` | file | B | 83.9% | certified | 2026-04-23 |
-
-### `extensions/` (18 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `agent-chain.ts` | file | B | 83.9% | certified | 2026-04-23 |
-| `agent-team.ts` | file | B | 83.9% | certified | 2026-04-23 |
-| `cross-agent.ts` | file | B | 86.1% | certified | 2026-04-23 |
-| `damage-control.ts` | file | B | 86.1% | certified | 2026-04-23 |
-| `minimal.ts` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `pi-pi.ts` | file | B | 83.9% | certified | 2026-04-23 |
-| `pure-focus.ts` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `purpose-gate.ts` | file | B | 86.7% | certified | 2026-04-23 |
-| `session-replay.ts` | file | B | 86.1% | certified | 2026-04-23 |
-| `subagent-widget.ts` | file | B | 83.9% | certified | 2026-04-23 |
-| `system-select.ts` | file | B | 86.7% | certified | 2026-04-23 |
-| `theme-cycler.ts` | file | B | 86.7% | certified | 2026-04-23 |
-| `THEME_MAP` | function | B | 86.7% | certified | 2026-04-23 |
-| `applyExtensionDefaults` | function | B | 86.7% | certified | 2026-04-23 |
-| `applyExtensionTheme` | function | B | 86.7% | certified | 2026-04-23 |
-| `tilldone.ts` | file | B | 83.9% | certified | 2026-04-23 |
-| `tool-counter-widget.ts` | file | B | 86.7% | certified | 2026-04-23 |
-| `tool-counter.ts` | file | B | 86.7% | certified | 2026-04-23 |
 
 ### `internal/` (1 units)
 
@@ -882,15 +853,6 @@
 | `HealthReport` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `health_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 
-### `specs/` (4 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `agent-redesign.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `close-feature-gaps.md` | file | B | 86.1% | certified | 2026-04-23 |
-| `dogfood-gaps.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `v1-implementation.md` | file | B | 83.9% | certified | 2026-04-23 |
-
 ### `testdata/repos/ts-simple/src/` (6 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
@@ -911,175 +873,6 @@
 | `package-lock.json` | file | B | 83.9% | certified | 2026-04-23 |
 | `package.json` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `tsconfig.json` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/dist/` (7 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `404.html` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `apple-touch-icon.png` | file | B | 86.7% | certified | 2026-04-23 |
-| `favicon-32.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `favicon.ico` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-| `sitemap-0.xml` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `sitemap-index.xml` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/dist/_astro/` (11 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `ec.v4551.css` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `index.BF2Krf21.css` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-dark.B08VM8o3.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-dark.B08VM8o3_mjnrq.webp` | file | B | 86.7% | certified | 2026-04-23 |
-| `print.DNXP8c50.css` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `MobileTableOfContents.astro_astro_type_script_index_0_lang.hwBsy0Mo.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `Search.astro_astro_type_script_index_0_lang.B82dqx6o.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `TableOfContents.astro_astro_type_script_index_0_lang.FuRcXuRY.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `ec.0vx5m.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `page.B1D-nYk3.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `ui-core.D9Pw1lAt.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/dist/advanced/agent-review/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/advanced/troubleshooting/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/concepts/architecture/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/concepts/dimensions/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/concepts/lifecycle/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/guides/first-report/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/guides/installation/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/guides/introduction/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/guides/quickstart/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/images/` (4 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `logo-128.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-256.png` | file | B | 86.7% | certified | 2026-04-23 |
-| `logo-64.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `og-image.png` | file | B | 83.9% | certified | 2026-04-23 |
-
-### `website/dist/pagefind/` (10 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `pagefind-entry.json` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `pagefind-modular-ui.css` | file | B | 86.1% | certified | 2026-04-23 |
-| `pagefind-ui.css` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `pagefind.en_a9ca19032a.pf_meta` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `wasm.en.pagefind` | file | B | 86.1% | certified | 2026-04-23 |
-| `wasm.unknown.pagefind` | file | B | 86.1% | certified | 2026-04-23 |
-| `pagefind-highlight.js` | file | B | 83.9% | certified | 2026-04-23 |
-| `pagefind-modular-ui.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `pagefind-ui.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `pagefind.js` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/dist/pagefind/fragment/` (16 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `en_293baa2.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_445a8ef.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_4628a9f.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_5890588.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_5cf5cb2.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_6d96328.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_7338df8.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_793a1e9.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_7c45d8b.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_7f1e2c5.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_8164193.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_880904f.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_c5b16c7.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_ca957a2.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_ce6b66e.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `en_fd5242f.pf_fragment` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/dist/pagefind/index/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `en_1bd5e7e.pf_index` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/reference/badge/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/reference/ci/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/reference/cli/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/reference/configuration/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/reference/policies/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/dist/reference/report-card/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.html` | file | B | 86.7% | certified | 2026-04-23 |
 
 ### `website/public/` (3 units)
 
@@ -1161,4 +954,4 @@
 
 ---
 
-*581 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
+*495 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
