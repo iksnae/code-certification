@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `//github.com/iksnae/code-certification`  
-**Commit:** `91d9fa1`  
-**Generated:** 2026-03-09T20:10:52  
+**Commit:** `508139f`  
+**Generated:** 2026-03-09T20:25:25  
 
 ---
 
@@ -11,9 +11,9 @@
 | Metric | Value |
 |--------|-------|
 | **Overall Grade** | 🟢 **B+** |
-| **Overall Score** | 87.4% |
-| **Total Units** | 448 |
-| **Passing** | 448 |
+| **Overall Score** | 87.3% |
+| **Total Units** | 494 |
+| **Passing** | 494 |
 | **Failing** | 0 |
 | **Pass Rate** | 100.0% |
 | **Observations** | 0 |
@@ -23,8 +23,8 @@
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B+ | 319 | 71.2% | ███████████████████████████████████ |
-| B | 129 | 28.8% | ██████████████ |
+| B+ | 348 | 70.4% | ███████████████████████████████████ |
+| B | 146 | 29.6% | ██████████████ |
 
 ## Dimension Averages
 
@@ -33,10 +33,10 @@
 | architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 90.0% | █████████████████░░░ |
 | correctness | 95.0% | ██████████████████░░ |
-| maintainability | 93.2% | ██████████████████░░ |
+| maintainability | 93.4% | ██████████████████░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
 | performance_appropriateness | 80.0% | ████████████████░░░░ |
-| readability | 93.1% | ██████████████████░░ |
+| readability | 92.7% | ██████████████████░░ |
 | security | 80.0% | ████████████████░░░░ |
 | testability | 90.0% | █████████████████░░░ |
 
@@ -48,11 +48,17 @@
 - **Score range:** 83.9% – 87.8%
 - **Grades:** 315×B+, 120×B
 
-### file — 🟢 B (86.3%)
+### file — 🟢 B (86.8%)
 
-- **Units:** 13
+- **Units:** 52
 - **Score range:** 83.9% – 87.8%
-- **Grades:** 4×B+, 9×B
+- **Grades:** 26×B+, 26×B
+
+### ts — 🟢 B+ (87.8%)
+
+- **Units:** 7
+- **Score range:** 87.8% – 87.8%
+- **Grades:** 7×B+
 
 ## All Units
 
@@ -66,6 +72,18 @@
 | `go.mod` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `go.sum` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `logo-image.png` | file | B | 83.9% | certified | 2026-04-23 |
+
+### `assets/` (7 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `logo-1024.png` | file | B | 83.9% | certified | 2026-04-23 |
+| `logo-128-dark.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `logo-128.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `logo-256.png` | file | B | 86.7% | certified | 2026-04-23 |
+| `logo-32.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `logo-512.png` | file | B | 86.1% | certified | 2026-04-23 |
+| `logo-64.png` | file | B+ | 87.8% | certified | 2026-04-23 |
 
 ### `cmd/certify/` (28 units)
 
@@ -834,6 +852,105 @@
 | `HealthReport` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `health_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 
+### `testdata/repos/ts-simple/src/` (6 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `DialogueParser` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `MAX_TOKENS` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `parseNode` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `tokenizeDialogue` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `formatDate` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `log` | function | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/` (5 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `README.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `astro.config.mjs` | file | B | 86.7% | certified | 2026-04-23 |
+| `package-lock.json` | file | B | 83.9% | certified | 2026-04-23 |
+| `package.json` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `tsconfig.json` | file | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/public/` (3 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `apple-touch-icon.png` | file | B | 86.7% | certified | 2026-04-23 |
+| `favicon-32.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `favicon.ico` | file | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/public/images/` (4 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `logo-128.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `logo-256.png` | file | B | 86.7% | certified | 2026-04-23 |
+| `logo-64.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `og-image.png` | file | B | 83.9% | certified | 2026-04-23 |
+
+### `website/src/` (1 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `collections` | function | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/src/assets/` (3 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `houston.webp` | file | B | 83.9% | certified | 2026-04-23 |
+| `logo-dark.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `logo-light.png` | file | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/src/content/docs/` (1 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `index.mdx` | file | B | 86.7% | certified | 2026-04-23 |
+
+### `website/src/content/docs/advanced/` (2 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `agent-review.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `troubleshooting.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/src/content/docs/concepts/` (3 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `architecture.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `dimensions.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `lifecycle.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/src/content/docs/guides/` (4 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `first-report.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `installation.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `introduction.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `quickstart.md` | file | B | 86.7% | certified | 2026-04-23 |
+
+### `website/src/content/docs/reference/` (6 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `badge.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `ci.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `cli.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `configuration.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `policies.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `report-card.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+
+### `website/src/styles/` (1 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `brand.css` | file | B | 86.7% | certified | 2026-04-23 |
+
 ---
 
-*448 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
+*494 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
