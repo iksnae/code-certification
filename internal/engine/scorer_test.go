@@ -81,3 +81,56 @@ func TestStatusFromScore_HasBlockingViolation(t *testing.T) {
 		t.Errorf("high score with blocking = %v, want probationary", status)
 	}
 }
+
+func TestScorer_ComplexityBoostsMaintainability(t *testing.T) {
+	// Low complexity = high maintainability
+	lowCx := evidence.CodeMetrics{TotalLines: 20, CodeLines: 15, Complexity: 2}
+	ev := []domain.Evidence{lowCx.ToEvidence()}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimMaintainability] < 0.90 {
+		t.Errorf("low complexity maintainability = %f, want >= 0.90", scores[domain.DimMaintainability])
+	}
+
+	// High complexity = lower maintainability
+	highCx := evidence.CodeMetrics{TotalLines: 500, CodeLines: 400, Complexity: 25}
+	ev2 := []domain.Evidence{highCx.ToEvidence()}
+	scores2 := engine.Score(ev2, policy.EvaluationResult{Passed: true})
+	if scores2[domain.DimMaintainability] >= 0.60 {
+		t.Errorf("high complexity maintainability = %f, want < 0.60", scores2[domain.DimMaintainability])
+	}
+}
+
+func TestScorer_SmallCodeBoostsReadability(t *testing.T) {
+	small := evidence.CodeMetrics{TotalLines: 30, CodeLines: 20, Complexity: 1}
+	ev := []domain.Evidence{small.ToEvidence()}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimReadability] < 0.90 {
+		t.Errorf("small code readability = %f, want >= 0.90", scores[domain.DimReadability])
+	}
+}
+
+func TestScorer_GitHistoryBoostsScores(t *testing.T) {
+	git := evidence.GitStats{CommitCount: 15, AuthorCount: 3, AgeDays: 100}
+	ev := []domain.Evidence{git.ToEvidence()}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimChangeRisk] < 0.85 {
+		t.Errorf("multi-author change_risk = %f, want >= 0.85", scores[domain.DimChangeRisk])
+	}
+	if scores[domain.DimOperationalQuality] < 0.85 {
+		t.Errorf("many commits op_quality = %f, want >= 0.85", scores[domain.DimOperationalQuality])
+	}
+}
+
+func TestScorer_RichEvidence_HighScore(t *testing.T) {
+	ev := []domain.Evidence{
+		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 0}.ToEvidence(),
+		evidence.TestResult{Tool: "go test", TotalCount: 10, PassedCount: 10, Coverage: 0.85}.ToEvidence(),
+		evidence.CodeMetrics{TotalLines: 30, CodeLines: 20, Complexity: 3}.ToEvidence(),
+		evidence.GitStats{CommitCount: 20, AuthorCount: 2, AgeDays: 60}.ToEvidence(),
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	avg := scores.WeightedAverage(nil)
+	if avg < 0.85 {
+		t.Errorf("rich clean evidence avg = %f, want >= 0.85", avg)
+	}
+}

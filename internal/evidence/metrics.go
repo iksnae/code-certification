@@ -8,13 +8,14 @@ import (
 	"github.com/code-certification/certify/internal/domain"
 )
 
-// CodeMetrics holds basic code metrics for a file.
+// CodeMetrics holds basic code metrics for a file or symbol.
 type CodeMetrics struct {
 	TotalLines   int `json:"total_lines"`
 	BlankLines   int `json:"blank_lines"`
 	CommentLines int `json:"comment_lines"`
 	CodeLines    int `json:"code_lines"`
 	TodoCount    int `json:"todo_count"`
+	Complexity   int `json:"complexity"`
 }
 
 // ComputeMetrics computes basic code metrics from source text.
@@ -65,7 +66,7 @@ func (m CodeMetrics) ToEvidence() domain.Evidence {
 		Kind:       domain.EvidenceKindMetrics,
 		Source:     "metrics",
 		Passed:     true,
-		Summary:    fmt.Sprintf("%d lines (%d code, %d comment, %d blank), %d TODOs", m.TotalLines, m.CodeLines, m.CommentLines, m.BlankLines, m.TodoCount),
+		Summary:    fmt.Sprintf("%d lines (%d code, %d comment, %d blank), %d TODOs, complexity %d", m.TotalLines, m.CodeLines, m.CommentLines, m.BlankLines, m.TodoCount, m.Complexity),
 		Details:    m,
 		Timestamp:  time.Now(),
 		Confidence: 1.0,

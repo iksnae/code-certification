@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/code-certification/certify/internal/agent"
@@ -109,7 +110,16 @@ var certifyCmd = &cobra.Command{
 
 			srcPath := filepath.Join(root, unit.ID.Path())
 			if srcData, readErr := os.ReadFile(srcPath); readErr == nil {
-				metrics := evidence.ComputeMetrics(string(srcData))
+				src := string(srcData)
+				sym := unit.ID.Symbol()
+				var metrics evidence.CodeMetrics
+				if sym != "" && strings.HasSuffix(unit.ID.Path(), ".go") {
+					// Per-symbol metrics for Go units
+					metrics = evidence.ComputeSymbolMetrics(src, sym)
+				} else {
+					// File-level metrics
+					metrics = evidence.ComputeMetrics(src)
+				}
 				ev = append(ev, metrics.ToEvidence())
 			}
 

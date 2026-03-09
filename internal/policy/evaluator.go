@@ -2,6 +2,7 @@ package policy
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/code-certification/certify/internal/domain"
 )
@@ -92,7 +93,7 @@ func extractMetric(metric string, ev []domain.Evidence) float64 {
 			}
 		case "complexity":
 			if e.Kind == domain.EvidenceKindMetrics {
-				return 0 // TODO: implement complexity extraction
+				return extractComplexity(e)
 			}
 		}
 	}
@@ -113,30 +114,47 @@ func extractTodoCount(e domain.Evidence) float64 {
 			}
 		}
 	}
-	// Parse from summary: "N lines (N code, N comment, N blank), N TODOs"
-	var count int
-	// Use strings approach since Sscanf can be finicky
-	parts := splitSummaryParts(e.Summary)
-	if parts >= 0 {
-		return float64(parts)
+	// Parse "N TODOs" from summary
+	idx := strings.Index(e.Summary, " TODO")
+	if idx > 0 {
+		// Walk backwards to find the number
+		sub := strings.TrimSpace(e.Summary[:idx])
+		// Find last separator
+		for i := len(sub) - 1; i >= 0; i-- {
+			if sub[i] == ' ' || sub[i] == ',' || sub[i] == '(' {
+				var n int
+				if _, err := fmt.Sscanf(strings.TrimSpace(sub[i+1:]), "%d", &n); err == nil {
+					return float64(n)
+				}
+				break
+			}
+		}
 	}
-	_ = count
 	return 0
 }
 
-func splitSummaryParts(summary string) int {
-	// Look for "N TODOs" in summary
-	var n int
-	for i := len(summary) - 1; i >= 0; i-- {
-		if summary[i] == ',' {
-			sub := summary[i+1:]
-			if _, err := fmt.Sscanf(sub, " %d TODO", &n); err == nil {
-				return n
+// extractComplexity pulls complexity from metrics evidence.
+func extractComplexity(e domain.Evidence) float64 {
+	if m, ok := e.Details.(map[string]any); ok {
+		if v, ok := m["complexity"]; ok {
+			if f, ok := v.(float64); ok {
+				return f
 			}
-			break
 		}
 	}
-	return -1
+	// Parse from summary: "... complexity N"
+	var n int
+	if _, err := fmt.Sscanf(e.Summary, "%*s complexity %d", &n); err == nil {
+		return float64(n)
+	}
+	// Try scanning from end of summary
+	parts := strings.Split(e.Summary, "complexity ")
+	if len(parts) >= 2 {
+		if _, err := fmt.Sscanf(parts[len(parts)-1], "%d", &n); err == nil {
+			return float64(n)
+		}
+	}
+	return 0
 }
 
 // extractCoverage pulls coverage from test evidence.
