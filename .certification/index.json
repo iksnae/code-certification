@@ -1,405 +1,29 @@
 [
   {
-    "id": "go://internal/override/loader.go#parseAction",
+    "id": "go://internal/queue/queue_test.go",
     "language": "go",
-    "path": "internal/override/loader.go",
-    "symbol": "parseAction",
-    "type": "function"
-  },
-  {
-    "id": "ts://extensions/minimal.ts",
-    "language": "ts",
-    "path": "extensions/minimal.ts",
+    "path": "internal/queue/queue_test.go",
     "type": "file"
   },
   {
-    "id": "go://cmd/certify/expire.go#init",
+    "id": "go://internal/discovery/diff.go#MovedFile",
     "language": "go",
-    "path": "cmd/certify/expire.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/stage.go#reviewStage",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "reviewStage",
+    "path": "internal/discovery/diff.go",
+    "symbol": "MovedFile",
     "type": "class"
   },
   {
-    "id": "go://internal/agent/router.go#ModelFor",
-    "language": "go",
-    "path": "internal/agent/router.go",
-    "symbol": "ModelFor",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/discovery/ts_adapter.go#TSAdapter",
-    "language": "go",
-    "path": "internal/discovery/ts_adapter.go",
-    "symbol": "TSAdapter",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/policy/evaluator.go#extractTodoCount",
-    "language": "go",
-    "path": "internal/policy/evaluator.go",
-    "symbol": "extractTodoCount",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/record/store.go#LoadHistory",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "LoadHistory",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/report/detailed.go#findExpiringSoon",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "findExpiringSoon",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/stage.go#extractJSON",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "extractJSON",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/loader.go#Load",
-    "language": "go",
-    "path": "internal/config/loader.go",
-    "symbol": "Load",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/report/detailed.go#findRecurrentlyFailing",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "findRecurrentlyFailing",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/report/health.go#HealthReport",
-    "language": "go",
-    "path": "internal/report/health.go",
-    "symbol": "HealthReport",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/prompts.go#NewPromptRegistry",
-    "language": "go",
-    "path": "internal/agent/prompts.go",
-    "symbol": "NewPromptRegistry",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/lint.go#ToEvidence",
-    "language": "go",
-    "path": "internal/evidence/lint.go",
-    "symbol": "ToEvidence",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#golangciLintOutput",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "golangciLintOutput",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/record/store.go#recordJSON",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "recordJSON",
-    "type": "class"
-  },
-  {
-    "id": "file://FEATURES.md",
-    "language": "file",
-    "path": "FEATURES.md",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/discovery/index.go#Units",
-    "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "Units",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#CollectAll",
-    "language": "go",
-    "path": "internal/evidence/executor.go",
-    "symbol": "CollectAll",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/prompts.go#LoadPrompt",
-    "language": "go",
-    "path": "internal/agent/prompts.go",
-    "symbol": "LoadPrompt",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/policy.go#LoadPolicyPack",
-    "language": "go",
-    "path": "internal/config/policy.go",
-    "symbol": "LoadPolicyPack",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/policy.go#IsGlobal",
-    "language": "go",
-    "path": "internal/domain/policy.go",
-    "symbol": "IsGlobal",
-    "type": "method"
-  },
-  {
-    "id": "ts://extensions/agent-chain.ts",
-    "language": "ts",
-    "path": "extensions/agent-chain.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/fallback.go#FallbackProvider",
-    "language": "go",
-    "path": "internal/agent/fallback.go",
-    "symbol": "FallbackProvider",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/openrouter.go#NewOpenRouterProvider",
-    "language": "go",
-    "path": "internal/agent/openrouter.go",
-    "symbol": "NewOpenRouterProvider",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/report/detailed.go#findFailing",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "findFailing",
-    "type": "function"
-  },
-  {
-    "id": "file://specs/dogfood-gaps.md",
-    "language": "file",
-    "path": "specs/dogfood-gaps.md",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#runCertify",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "runCertify",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#CoordinatorConfig",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "CoordinatorConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/dimension.go#DimensionWeights",
-    "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "DimensionWeights",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/github/issues.go#FormatIssueTitle",
-    "language": "go",
-    "path": "internal/github/issues.go",
-    "symbol": "FormatIssueTitle",
-    "type": "function"
-  },
-  {
-    "id": "file://CLAUDE.md",
-    "language": "file",
-    "path": "CLAUDE.md",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/reviewer_test.go",
-    "language": "go",
-    "path": "internal/agent/reviewer_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/record/store.go#toJSON",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "toJSON",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/validator_test.go",
-    "language": "go",
-    "path": "internal/config/validator_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/domain/dimension.go#WeightedAverage",
-    "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "WeightedAverage",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/evidence/complexity.go#ComputeSymbolMetrics",
-    "language": "go",
-    "path": "internal/evidence/complexity.go",
-    "symbol": "ComputeSymbolMetrics",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#goTestEvent",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "goTestEvent",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/queue/queue.go#Stats",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Stats",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/openrouter.go#isBudgetError",
-    "language": "go",
-    "path": "internal/agent/openrouter.go",
-    "symbol": "isBudgetError",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/detect.go#LanguageInfo",
-    "language": "go",
-    "path": "internal/discovery/detect.go",
-    "symbol": "LanguageInfo",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/policy.go#PolicyRule",
-    "language": "go",
-    "path": "internal/domain/policy.go",
-    "symbol": "PolicyRule",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/override/loader.go#LoadDir",
-    "language": "go",
-    "path": "internal/override/loader.go",
-    "symbol": "LoadDir",
-    "type": "function"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#filterUnits",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "filterUnits",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/scanner.go#DeduplicateFileLevel",
-    "language": "go",
-    "path": "internal/discovery/scanner.go",
-    "symbol": "DeduplicateFileLevel",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/record/store.go#parseGrade",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "parseGrade",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/policy/matcher_test.go",
-    "language": "go",
-    "path": "internal/policy/matcher_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/fallback.go#NewModelChain",
-    "language": "go",
-    "path": "internal/agent/fallback.go",
-    "symbol": "NewModelChain",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/config.go#Config",
+    "id": "go://internal/domain/config.go#AgentConfig",
     "language": "go",
     "path": "internal/domain/config.go",
-    "symbol": "Config",
+    "symbol": "AgentConfig",
     "type": "class"
   },
   {
-    "id": "go://internal/engine/scorer.go#extractSummaryInt",
+    "id": "go://internal/domain/evidence.go#Severity",
     "language": "go",
-    "path": "internal/engine/scorer.go",
-    "symbol": "extractSummaryInt",
-    "type": "function"
-  },
-  {
-    "id": "file://docs/architecture.md",
-    "language": "file",
-    "path": "docs/architecture.md",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/evidence/metrics_test.go",
-    "language": "go",
-    "path": "internal/evidence/metrics_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/discovery/ts_adapter.go#parseFile",
-    "language": "go",
-    "path": "internal/discovery/ts_adapter.go",
-    "symbol": "parseFile",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/unit.go#Symbol",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "Symbol",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/policy/matcher.go#NewMatcher",
-    "language": "go",
-    "path": "internal/policy/matcher.go",
-    "symbol": "NewMatcher",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/record/store.go#NewStore",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "NewStore",
-    "type": "function"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#loadCertifyContext",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "loadCertifyContext",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/dimension.go#DimensionScores",
-    "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "DimensionScores",
+    "path": "internal/domain/evidence.go",
+    "symbol": "Severity",
     "type": "class"
   },
   {
@@ -410,127 +34,24 @@
     "type": "function"
   },
   {
-    "id": "go://internal/override/loader.go#rawOverride",
+    "id": "go://internal/agent/ratelimit_test.go",
     "language": "go",
-    "path": "internal/override/loader.go",
-    "symbol": "rawOverride",
-    "type": "class"
-  },
-  {
-    "id": "file://STORIES.md",
-    "language": "file",
-    "path": "STORIES.md",
+    "path": "internal/agent/ratelimit_test.go",
     "type": "file"
   },
   {
-    "id": "go://internal/domain/config.go#IssueConfig",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "IssueConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/config.go#PolicyConfig",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "PolicyConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/record.go#init",
-    "language": "go",
-    "path": "internal/domain/record.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/reviewer.go#Review",
+    "id": "go://internal/agent/reviewer.go#ReviewResult",
     "language": "go",
     "path": "internal/agent/reviewer.go",
-    "symbol": "Review",
+    "symbol": "ReviewResult",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/config.go#String",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "String",
     "type": "method"
-  },
-  {
-    "id": "go://internal/discovery/detect.go#DetectLanguages",
-    "language": "go",
-    "path": "internal/discovery/detect.go",
-    "symbol": "DetectLanguages",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/engine/scorer.go#scoreFromGitHistory",
-    "language": "go",
-    "path": "internal/engine/scorer.go",
-    "symbol": "scoreFromGitHistory",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/queue/queue.go#Save",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Save",
-    "type": "method"
-  },
-  {
-    "id": "file://specs/v1-implementation.md",
-    "language": "file",
-    "path": "specs/v1-implementation.md",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/domain/expiry_test.go",
-    "language": "go",
-    "path": "internal/domain/expiry_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/engine/pipeline.go#CertifyUnit",
-    "language": "go",
-    "path": "internal/engine/pipeline.go",
-    "symbol": "CertifyUnit",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/report/detailed.go#computeLanguageBreakdowns",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "computeLanguageBreakdowns",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/schemas.go#PrescreenResponse",
-    "language": "go",
-    "path": "internal/agent/schemas.go",
-    "symbol": "PrescreenResponse",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/types.go#ResponseFormat",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "ResponseFormat",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#ToolExecutor",
-    "language": "go",
-    "path": "internal/evidence/executor.go",
-    "symbol": "ToolExecutor",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/github/issues.go#FormatIssueBody",
-    "language": "go",
-    "path": "internal/github/issues.go",
-    "symbol": "FormatIssueBody",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/router.go#NewRouter",
-    "language": "go",
-    "path": "internal/agent/router.go",
-    "symbol": "NewRouter",
-    "type": "function"
   },
   {
     "id": "go://internal/domain/unit.go#Unit",
@@ -540,543 +61,49 @@
     "type": "class"
   },
   {
-    "id": "file://README.md",
-    "language": "file",
-    "path": "README.md",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/fallback.go#NewFallbackProvider",
-    "language": "go",
-    "path": "internal/agent/fallback.go",
-    "symbol": "NewFallbackProvider",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#toResult",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "toResult",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/types.go#Choice",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "Choice",
-    "type": "class"
-  },
-  {
-    "id": "file://docs/policy-authoring.md",
-    "language": "file",
-    "path": "docs/policy-authoring.md",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/router.go#Router",
-    "language": "go",
-    "path": "internal/agent/router.go",
-    "symbol": "Router",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/schemas.go#ScoringResponse",
-    "language": "go",
-    "path": "internal/agent/schemas.go",
-    "symbol": "ScoringResponse",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/stage.go#scoringStage",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "scoringStage",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/record.go#CertificationRecord",
-    "language": "go",
-    "path": "internal/domain/record.go",
-    "symbol": "CertificationRecord",
-    "type": "class"
-  },
-  {
-    "id": "ts://testdata/repos/ts-simple/src/utils.ts#log",
-    "language": "ts",
-    "path": "testdata/repos/ts-simple/src/utils.ts",
-    "symbol": "log",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#NewCoordinator",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "NewCoordinator",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/matcher.go#FilterPolicyPacks",
-    "language": "go",
-    "path": "internal/config/matcher.go",
-    "symbol": "FilterPolicyPacks",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/policy.go#parseSeverity",
-    "language": "go",
-    "path": "internal/config/policy.go",
-    "symbol": "parseSeverity",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/policy.go#Violation",
-    "language": "go",
-    "path": "internal/domain/policy.go",
-    "symbol": "Violation",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/discovery/diff.go#ChangedFiles",
-    "language": "go",
-    "path": "internal/discovery/diff.go",
-    "symbol": "ChangedFiles",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/evidence.go#ParseSeverity",
-    "language": "go",
-    "path": "internal/domain/evidence.go",
-    "symbol": "ParseSeverity",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#ParseGolangciLintJSON",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "ParseGolangciLintJSON",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#golangciLintIssue",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "golangciLintIssue",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/schemas.go#RemediationStep",
-    "language": "go",
-    "path": "internal/agent/schemas.go",
-    "symbol": "RemediationStep",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/router_test.go",
-    "language": "go",
-    "path": "internal/agent/router_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/domain/config.go#ScopeConfig",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "ScopeConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#certifyUnit",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "certifyUnit",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/stage.go#defaultScores",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "defaultScores",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#ReviewUnit",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "ReviewUnit",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/reviewer.go#ToEvidence",
-    "language": "go",
-    "path": "internal/agent/reviewer.go",
-    "symbol": "ToEvidence",
-    "type": "method"
-  },
-  {
-    "id": "file://PRD.md",
-    "language": "file",
-    "path": "PRD.md",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/themeMap.ts#applyExtensionDefaults",
-    "language": "ts",
-    "path": "extensions/themeMap.ts",
-    "symbol": "applyExtensionDefaults",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/matcher.go#NewPolicyMatcher",
-    "language": "go",
-    "path": "internal/config/matcher.go",
-    "symbol": "NewPolicyMatcher",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/record.go#String",
-    "language": "go",
-    "path": "internal/domain/record.go",
-    "symbol": "String",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/stage.go#StageResult",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "StageResult",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/unit.go#Path",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "Path",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/record/store.go#fromJSON",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "fromJSON",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/prompts_test.go",
-    "language": "go",
-    "path": "internal/agent/prompts_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/evidence/lint_test.go",
-    "language": "go",
-    "path": "internal/evidence/lint_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/domain/dimension.go#String",
-    "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "String",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/evidence/lint.go#TestResult",
-    "language": "go",
-    "path": "internal/evidence/lint.go",
-    "symbol": "TestResult",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/github/issues.go#BuildIssueUpdateCommand",
-    "language": "go",
-    "path": "internal/github/issues.go",
-    "symbol": "BuildIssueUpdateCommand",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/unit_test.go",
-    "language": "go",
-    "path": "internal/domain/unit_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/stage.go#prescreenStage",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "prescreenStage",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/discovery/index.go#Save",
-    "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "Save",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/expiry.go#RemainingAt",
-    "language": "go",
-    "path": "internal/domain/expiry.go",
-    "symbol": "RemainingAt",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/override.go#OverrideAction",
-    "language": "go",
-    "path": "internal/domain/override.go",
-    "symbol": "OverrideAction",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#ParseCoverProfile",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "ParseCoverProfile",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/circuit.go#NewCircuitBreaker",
-    "language": "go",
-    "path": "internal/agent/circuit.go",
-    "symbol": "NewCircuitBreaker",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/github/pr.go#FormatPRComment",
-    "language": "go",
-    "path": "internal/github/pr.go",
-    "symbol": "FormatPRComment",
-    "type": "function"
-  },
-  {
-    "id": "ts://testdata/repos/ts-simple/src/parser.ts#MAX_TOKENS",
-    "language": "ts",
-    "path": "testdata/repos/ts-simple/src/parser.ts",
-    "symbol": "MAX_TOKENS",
-    "type": "function"
-  },
-  {
-    "id": "ts://testdata/repos/ts-simple/src/utils.ts#formatDate",
-    "language": "ts",
-    "path": "testdata/repos/ts-simple/src/utils.ts",
-    "symbol": "formatDate",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/circuit.go#Name",
-    "language": "go",
-    "path": "internal/agent/circuit.go",
-    "symbol": "Name",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/config/validator.go#ValidateConfig",
-    "language": "go",
-    "path": "internal/config/validator.go",
-    "symbol": "ValidateConfig",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/validator.go#ValidatePolicyPack",
-    "language": "go",
-    "path": "internal/config/validator.go",
-    "symbol": "ValidatePolicyPack",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/config.go#DefaultConfig",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "DefaultConfig",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#Stats",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "Stats",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/stage.go#NewScoringStage",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "NewScoringStage",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/index.go#Diff",
-    "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "Diff",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#ParseGoTestJSON",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "ParseGoTestJSON",
-    "type": "function"
-  },
-  {
-    "id": "ts://extensions/tool-counter.ts",
-    "language": "ts",
-    "path": "extensions/tool-counter.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/evidence/metrics.go#ComputeMetrics",
-    "language": "go",
-    "path": "internal/evidence/metrics.go",
-    "symbol": "ComputeMetrics",
-    "type": "function"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#defaultConfigObj",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "defaultConfigObj",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/scanner.go#Merge",
-    "language": "go",
-    "path": "internal/discovery/scanner.go",
-    "symbol": "Merge",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/policy.go#PolicyPack",
-    "language": "go",
-    "path": "internal/domain/policy.go",
-    "symbol": "PolicyPack",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/report/health_test.go",
-    "language": "go",
-    "path": "internal/report/health_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#runGolangciLint",
+    "id": "go://internal/evidence/executor.go#HasPackageJSON",
     "language": "go",
     "path": "internal/evidence/executor.go",
-    "symbol": "runGolangciLint",
+    "symbol": "HasPackageJSON",
     "type": "method"
   },
   {
-    "id": "go://internal/queue/queue.go#Enqueue",
+    "id": "go://internal/github/issues.go#BuildIssueCloseCommand",
     "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Enqueue",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/report/detailed.go#explainStatus",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "explainStatus",
+    "path": "internal/github/issues.go",
+    "symbol": "BuildIssueCloseCommand",
     "type": "function"
   },
   {
-    "id": "go://internal/agent/fallback_test.go",
+    "id": "go://internal/domain/policy_test.go",
     "language": "go",
-    "path": "internal/agent/fallback_test.go",
+    "path": "internal/domain/policy_test.go",
     "type": "file"
   },
   {
-    "id": "go://internal/discovery/go_adapter_test.go",
+    "id": "go://internal/engine/pipeline_test.go",
     "language": "go",
-    "path": "internal/discovery/go_adapter_test.go",
+    "path": "internal/engine/pipeline_test.go",
     "type": "file"
   },
   {
-    "id": "go://internal/engine/scorer_test.go",
+    "id": "go://internal/agent/fallback.go#modelPinnedProvider",
     "language": "go",
-    "path": "internal/engine/scorer_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#certifyContext",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "certifyContext",
+    "path": "internal/agent/fallback.go",
+    "symbol": "modelPinnedProvider",
     "type": "class"
   },
   {
-    "id": "go://internal/agent/reviewer.go#ReviewInput",
+    "id": "go://internal/config/policy.go#LoadPolicyPacks",
     "language": "go",
-    "path": "internal/agent/reviewer.go",
-    "symbol": "ReviewInput",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/types.go#ChatResponse",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "ChatResponse",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/config.go#ProviderConfig",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "ProviderConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/config/loader.go#rawConfig",
-    "language": "go",
-    "path": "internal/config/loader.go",
-    "symbol": "rawConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/discovery/diff.go#DetectMoves",
-    "language": "go",
-    "path": "internal/discovery/diff.go",
-    "symbol": "DetectMoves",
+    "path": "internal/config/policy.go",
+    "symbol": "LoadPolicyPacks",
     "type": "function"
   },
   {
-    "id": "go://internal/domain/override.go#Validate",
+    "id": "go://internal/discovery/ts_adapter_test.go",
     "language": "go",
-    "path": "internal/domain/override.go",
-    "symbol": "Validate",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/unit.go#NewUnit",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "NewUnit",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/unit.go#ParseUnitType",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "ParseUnitType",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/git.go#ToEvidence",
-    "language": "go",
-    "path": "internal/evidence/git.go",
-    "symbol": "ToEvidence",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/queue/queue.go#Skip",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Skip",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/discovery/detect_test.go",
-    "language": "go",
-    "path": "internal/discovery/detect_test.go",
+    "path": "internal/discovery/ts_adapter_test.go",
     "type": "file"
   },
   {
@@ -1087,58 +114,132 @@
     "type": "method"
   },
   {
-    "id": "go://internal/domain/dimension.go#AllDimensions",
+    "id": "go://internal/engine/scorer.go#extractSummaryFloat",
     "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "AllDimensions",
+    "path": "internal/engine/scorer.go",
+    "symbol": "extractSummaryFloat",
     "type": "function"
   },
   {
-    "id": "go://internal/report/detailed.go#FormatDetailedText",
+    "id": "go://internal/report/detailed.go#findHighestRisk",
     "language": "go",
     "path": "internal/report/detailed.go",
-    "symbol": "FormatDetailedText",
+    "symbol": "findHighestRisk",
     "type": "function"
   },
   {
-    "id": "file://docs/troubleshooting.md",
-    "language": "file",
-    "path": "docs/troubleshooting.md",
+    "id": "go://internal/domain/config_test.go",
+    "language": "go",
+    "path": "internal/domain/config_test.go",
     "type": "file"
   },
   {
-    "id": "go://internal/config/validator.go#ValidationError",
+    "id": "ts://extensions/session-replay.ts",
+    "language": "ts",
+    "path": "extensions/session-replay.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/override.go#Validate",
     "language": "go",
-    "path": "internal/config/validator.go",
-    "symbol": "ValidationError",
+    "path": "internal/domain/override.go",
+    "symbol": "Validate",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/evidence/git.go#GitStats",
+    "language": "go",
+    "path": "internal/evidence/git.go",
+    "symbol": "GitStats",
     "type": "class"
   },
   {
-    "id": "go://internal/agent/fallback.go#modelPinnedProvider",
+    "id": "go://internal/report/detailed.go#LanguageBreakdown",
     "language": "go",
-    "path": "internal/agent/fallback.go",
-    "symbol": "modelPinnedProvider",
+    "path": "internal/report/detailed.go",
+    "symbol": "LanguageBreakdown",
     "type": "class"
   },
   {
-    "id": "go://internal/agent/pipeline.go#NewPipeline",
+    "id": "go://internal/integration_test.go",
+    "language": "go",
+    "path": "internal/integration_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#collectRepoEvidence",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "collectRepoEvidence",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/circuit.go#IsOpen",
+    "language": "go",
+    "path": "internal/agent/circuit.go",
+    "symbol": "IsOpen",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/domain/evidence.go#String",
+    "language": "go",
+    "path": "internal/domain/evidence.go",
+    "symbol": "String",
+    "type": "method"
+  },
+  {
+    "id": "file://specs/dogfood-gaps.md",
+    "language": "file",
+    "path": "specs/dogfood-gaps.md",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/report_cmd.go#detectRepoName",
+    "language": "go",
+    "path": "cmd/certify/report_cmd.go",
+    "symbol": "detectRepoName",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/config.go#ProviderConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "ProviderConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/executor.go#runGolangciLint",
+    "language": "go",
+    "path": "internal/evidence/executor.go",
+    "symbol": "runGolangciLint",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/record/store.go#mapToDimensions",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "mapToDimensions",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/pipeline.go#Strategy",
     "language": "go",
     "path": "internal/agent/pipeline.go",
-    "symbol": "NewPipeline",
-    "type": "function"
+    "symbol": "Strategy",
+    "type": "class"
   },
   {
-    "id": "go://internal/discovery/index.go#NewIndex",
+    "id": "go://internal/agent/stage.go#StageResult",
     "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "NewIndex",
-    "type": "function"
+    "path": "internal/agent/stage.go",
+    "symbol": "StageResult",
+    "type": "class"
   },
   {
-    "id": "go://internal/agent/openrouter.go#isRetryable",
+    "id": "go://internal/policy/matcher.go#NewMatcher",
     "language": "go",
-    "path": "internal/agent/openrouter.go",
-    "symbol": "isRetryable",
+    "path": "internal/policy/matcher.go",
+    "symbol": "NewMatcher",
     "type": "function"
   },
   {
@@ -1149,128 +250,182 @@
     "type": "function"
   },
   {
-    "id": "file://go.mod",
+    "id": "file://docs/README.md",
     "language": "file",
-    "path": "go.mod",
+    "path": "docs/README.md",
     "type": "file"
   },
   {
-    "id": "go://internal/agent/stage.go#NewPrescreenStage",
+    "id": "go://internal/agent/reviewer.go#ToEvidence",
     "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "NewPrescreenStage",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/types.go#TaskType",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "TaskType",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/discovery/go_adapter.go#Scan",
-    "language": "go",
-    "path": "internal/discovery/go_adapter.go",
-    "symbol": "Scan",
+    "path": "internal/agent/reviewer.go",
+    "symbol": "ToEvidence",
     "type": "method"
   },
   {
-    "id": "go://internal/discovery/index.go#DiffResult",
+    "id": "go://internal/evidence/complexity.go#ComputeGoComplexity",
     "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "DiffResult",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#ParseGoVet",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "ParseGoVet",
+    "path": "internal/evidence/complexity.go",
+    "symbol": "ComputeGoComplexity",
     "type": "function"
   },
   {
-    "id": "go://internal/discovery/detect.go#buildLanguageList",
+    "id": "go://internal/agent/pipeline.go#NewPipeline",
     "language": "go",
-    "path": "internal/discovery/detect.go",
-    "symbol": "buildLanguageList",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "NewPipeline",
     "type": "function"
   },
   {
-    "id": "go://internal/discovery/index.go#Index",
+    "id": "go://internal/agent/pipeline.go#Stats",
     "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "Index",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/record.go#ParseStatus",
-    "language": "go",
-    "path": "internal/domain/record.go",
-    "symbol": "ParseStatus",
-    "type": "function"
-  },
-  {
-    "id": "go://cmd/certify/init_cmd.go#languagePolicy",
-    "language": "go",
-    "path": "cmd/certify/init_cmd.go",
-    "symbol": "languagePolicy",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/git.go#ParseGitLog",
-    "language": "go",
-    "path": "internal/evidence/git.go",
-    "symbol": "ParseGitLog",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/prompts.go#Get",
-    "language": "go",
-    "path": "internal/agent/prompts.go",
-    "symbol": "Get",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "Stats",
     "type": "method"
   },
   {
-    "id": "go://internal/agent/ratelimit.go#Wait",
+    "id": "go://internal/agent/ratelimit.go#RateLimiter",
     "language": "go",
     "path": "internal/agent/ratelimit.go",
-    "symbol": "Wait",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/discovery/go_adapter.go#NewGoAdapter",
-    "language": "go",
-    "path": "internal/discovery/go_adapter.go",
-    "symbol": "NewGoAdapter",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/expiry.go#ExpiryFactors",
-    "language": "go",
-    "path": "internal/domain/expiry.go",
-    "symbol": "ExpiryFactors",
+    "symbol": "RateLimiter",
     "type": "class"
   },
   {
-    "id": "go://internal/override/applier.go#Apply",
+    "id": "go://internal/domain/dimension.go#DimensionScores",
     "language": "go",
-    "path": "internal/override/applier.go",
-    "symbol": "Apply",
-    "type": "function"
+    "path": "internal/domain/dimension.go",
+    "symbol": "DimensionScores",
+    "type": "class"
   },
   {
-    "id": "go://internal/engine/pipeline_test.go",
+    "id": "go://internal/domain/override.go#String",
     "language": "go",
-    "path": "internal/engine/pipeline_test.go",
+    "path": "internal/domain/override.go",
+    "symbol": "String",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Complete",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Complete",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/domain/override_test.go",
+    "language": "go",
+    "path": "internal/domain/override_test.go",
     "type": "file"
   },
   {
-    "id": "go://internal/report/detailed.go#findHighestRisk",
+    "id": "go://internal/agent/stage.go#StageInput",
     "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "findHighestRisk",
+    "path": "internal/agent/stage.go",
+    "symbol": "StageInput",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Queue",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Queue",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Save",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Save",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/health.go#Health",
+    "language": "go",
+    "path": "internal/report/health.go",
+    "symbol": "Health",
     "type": "function"
+  },
+  {
+    "id": "ts://extensions/themeMap.ts#applyExtensionTheme",
+    "language": "ts",
+    "path": "extensions/themeMap.ts",
+    "symbol": "applyExtensionTheme",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/override/loader.go#parseAction",
+    "language": "go",
+    "path": "internal/override/loader.go",
+    "symbol": "parseAction",
+    "type": "function"
+  },
+  {
+    "id": "ts://extensions/cross-agent.ts",
+    "language": "ts",
+    "path": "extensions/cross-agent.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#printSummary",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "printSummary",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/evidence/lint.go#TestResult",
+    "language": "go",
+    "path": "internal/evidence/lint.go",
+    "symbol": "TestResult",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/pipeline.go#ReviewUnit",
+    "language": "go",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "ReviewUnit",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/prompts.go#LoadPrompt",
+    "language": "go",
+    "path": "internal/agent/prompts.go",
+    "symbol": "LoadPrompt",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/types.go#ChatResponse",
+    "language": "go",
+    "path": "internal/agent/types.go",
+    "symbol": "ChatResponse",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Skip",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Skip",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/attribution_test.go",
+    "language": "go",
+    "path": "internal/agent/attribution_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/report_cmd.go#init",
+    "language": "go",
+    "path": "cmd/certify/report_cmd.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/generic.go#Scan",
+    "language": "go",
+    "path": "internal/discovery/generic.go",
+    "symbol": "Scan",
+    "type": "method"
   },
   {
     "id": "go://internal/evidence/lint.go#LintResult",
@@ -1280,50 +435,32 @@
     "type": "class"
   },
   {
-    "id": "go://cmd/certify/review.go#init",
+    "id": "go://internal/record/store.go#historyEntry",
     "language": "go",
-    "path": "cmd/certify/review.go",
-    "symbol": "init",
-    "type": "function"
+    "path": "internal/record/store.go",
+    "symbol": "historyEntry",
+    "type": "class"
   },
   {
-    "id": "go://internal/evidence/complexity.go#funcName",
+    "id": "go://internal/agent/openrouter.go#Name",
     "language": "go",
-    "path": "internal/evidence/complexity.go",
-    "symbol": "funcName",
-    "type": "function"
+    "path": "internal/agent/openrouter.go",
+    "symbol": "Name",
+    "type": "method"
   },
   {
-    "id": "go://internal/discovery/diff_test.go",
+    "id": "go://internal/domain/unit.go#Symbol",
     "language": "go",
-    "path": "internal/discovery/diff_test.go",
-    "type": "file"
+    "path": "internal/domain/unit.go",
+    "symbol": "Symbol",
+    "type": "method"
   },
   {
-    "id": "go://internal/evidence/git_test.go",
+    "id": "go://internal/domain/unit.go#UnitType",
     "language": "go",
-    "path": "internal/evidence/git_test.go",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/agent-team.ts",
-    "language": "ts",
-    "path": "extensions/agent-team.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/ratelimit.go#NewRateLimiter",
-    "language": "go",
-    "path": "internal/agent/ratelimit.go",
-    "symbol": "NewRateLimiter",
-    "type": "function"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#loadQueue",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "loadQueue",
-    "type": "function"
+    "path": "internal/domain/unit.go",
+    "symbol": "UnitType",
+    "type": "class"
   },
   {
     "id": "go://internal/github/workflows.go#GenerateNightlyWorkflow",
@@ -1333,36 +470,10 @@
     "type": "function"
   },
   {
-    "id": "go://internal/domain/record_test.go",
+    "id": "go://cmd/certify/certify_cmd.go#printQueueStatus",
     "language": "go",
-    "path": "internal/domain/record_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/report/detailed_test.go",
-    "language": "go",
-    "path": "internal/report/detailed_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/engine/scorer.go#scoreFromMetrics",
-    "language": "go",
-    "path": "internal/engine/scorer.go",
-    "symbol": "scoreFromMetrics",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/policy/evaluator.go#extractCoverage",
-    "language": "go",
-    "path": "internal/policy/evaluator.go",
-    "symbol": "extractCoverage",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/record/store.go#Load",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "Load",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "printQueueStatus",
     "type": "method"
   },
   {
@@ -1373,349 +484,10 @@
     "type": "function"
   },
   {
-    "id": "go://internal/integration_test.go",
-    "language": "go",
-    "path": "internal/integration_test.go",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/cross-agent.ts",
-    "language": "ts",
-    "path": "extensions/cross-agent.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/circuit.go#IsOpen",
-    "language": "go",
-    "path": "internal/agent/circuit.go",
-    "symbol": "IsOpen",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/ratelimit.go#Allow",
-    "language": "go",
-    "path": "internal/agent/ratelimit.go",
-    "symbol": "Allow",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/discovery/ts_adapter.go#NewTSAdapter",
-    "language": "go",
-    "path": "internal/discovery/ts_adapter.go",
-    "symbol": "NewTSAdapter",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/github/issues.go#BuildIssueCreateCommand",
-    "language": "go",
-    "path": "internal/github/issues.go",
-    "symbol": "BuildIssueCreateCommand",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/expiry/calculator_test.go",
-    "language": "go",
-    "path": "internal/expiry/calculator_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#Pipeline",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "Pipeline",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/discovery/go_adapter.go#GoAdapter",
-    "language": "go",
-    "path": "internal/discovery/go_adapter.go",
-    "symbol": "GoAdapter",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/evidence.go#Evidence",
-    "language": "go",
-    "path": "internal/domain/evidence.go",
-    "symbol": "Evidence",
-    "type": "class"
-  },
-  {
-    "id": "go://cmd/certify/main.go#main",
-    "language": "go",
-    "path": "cmd/certify/main.go",
-    "symbol": "main",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/scanner.go#Scanner",
-    "language": "go",
-    "path": "internal/discovery/scanner.go",
-    "symbol": "Scanner",
-    "type": "class"
-  },
-  {
-    "id": "ts://extensions/themeMap.ts#THEME_MAP",
-    "language": "ts",
-    "path": "extensions/themeMap.ts",
-    "symbol": "THEME_MAP",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/policy/evaluator_test.go",
-    "language": "go",
-    "path": "internal/policy/evaluator_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/prompts.go#Render",
-    "language": "go",
-    "path": "internal/agent/prompts.go",
-    "symbol": "Render",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/report/detailed.go#unitSummaryFrom",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "unitSummaryFrom",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/policy.go#LoadPolicyPacks",
-    "language": "go",
-    "path": "internal/config/policy.go",
-    "symbol": "LoadPolicyPacks",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/override.go#Override",
-    "language": "go",
-    "path": "internal/domain/override.go",
-    "symbol": "Override",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/engine/scorer.go#severityPenalty",
-    "language": "go",
-    "path": "internal/engine/scorer.go",
-    "symbol": "severityPenalty",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/metrics.go#ToEvidence",
-    "language": "go",
-    "path": "internal/evidence/metrics.go",
-    "symbol": "ToEvidence",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/policy/evaluator.go#extractMetric",
-    "language": "go",
-    "path": "internal/policy/evaluator.go",
-    "symbol": "extractMetric",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/config.go#AnalyzerConfig",
+    "id": "go://internal/domain/config.go#CertificationMode",
     "language": "go",
     "path": "internal/domain/config.go",
-    "symbol": "AnalyzerConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/github/pr.go#ComputeTrustDelta",
-    "language": "go",
-    "path": "internal/github/pr.go",
-    "symbol": "ComputeTrustDelta",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/ratelimit_test.go",
-    "language": "go",
-    "path": "internal/agent/ratelimit_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/config/loader_test.go",
-    "language": "go",
-    "path": "internal/config/loader_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/queue/queue_test.go",
-    "language": "go",
-    "path": "internal/queue/queue_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/circuit.go#CircuitBreaker",
-    "language": "go",
-    "path": "internal/agent/circuit.go",
-    "symbol": "CircuitBreaker",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#PipelineConfig",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "PipelineConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#NewToolExecutor",
-    "language": "go",
-    "path": "internal/evidence/executor.go",
-    "symbol": "NewToolExecutor",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/policy/evaluator.go#extractComplexity",
-    "language": "go",
-    "path": "internal/policy/evaluator.go",
-    "symbol": "extractComplexity",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/github/issues_test.go",
-    "language": "go",
-    "path": "internal/github/issues_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/ratelimit.go#RateLimiter",
-    "language": "go",
-    "path": "internal/agent/ratelimit.go",
-    "symbol": "RateLimiter",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/reviewer.go#Reviewer",
-    "language": "go",
-    "path": "internal/agent/reviewer.go",
-    "symbol": "Reviewer",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/config/policy.go#rawPolicyPack",
-    "language": "go",
-    "path": "internal/config/policy.go",
-    "symbol": "rawPolicyPack",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/lint.go#LintFinding",
-    "language": "go",
-    "path": "internal/evidence/lint.go",
-    "symbol": "LintFinding",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/policy/matcher.go#Matcher",
-    "language": "go",
-    "path": "internal/policy/matcher.go",
-    "symbol": "Matcher",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/stage.go#StageInput",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "StageInput",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/github/pr.go#BuildPRCommentCommand",
-    "language": "go",
-    "path": "internal/github/pr.go",
-    "symbol": "BuildPRCommentCommand",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/record/store.go#AppendHistory",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "AppendHistory",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/record/store_test.go",
-    "language": "go",
-    "path": "internal/record/store_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/engine/scorer.go#Score",
-    "language": "go",
-    "path": "internal/engine/scorer.go",
-    "symbol": "Score",
-    "type": "function"
-  },
-  {
-    "id": "ts://extensions/theme-cycler.ts",
-    "language": "ts",
-    "path": "extensions/theme-cycler.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/openrouter.go#Error",
-    "language": "go",
-    "path": "internal/agent/openrouter.go",
-    "symbol": "Error",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/types.go#ChatRequest",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "ChatRequest",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/types.go#ModelConfig",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "ModelConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/config/policy.go#parseDimension",
-    "language": "go",
-    "path": "internal/config/policy.go",
-    "symbol": "parseDimension",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/dimension.go#GradeFromScore",
-    "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "GradeFromScore",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/github/issues.go#FormatGroupedIssueBody",
-    "language": "go",
-    "path": "internal/github/issues.go",
-    "symbol": "FormatGroupedIssueBody",
-    "type": "function"
-  },
-  {
-    "id": "file://specs/close-feature-gaps.md",
-    "language": "file",
-    "path": "specs/close-feature-gaps.md",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#init",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/diff.go#MovedFile",
-    "language": "go",
-    "path": "internal/discovery/diff.go",
-    "symbol": "MovedFile",
+    "symbol": "CertificationMode",
     "type": "class"
   },
   {
@@ -1726,45 +498,77 @@
     "type": "class"
   },
   {
-    "id": "ts://extensions/themeMap.ts#applyExtensionTheme",
-    "language": "ts",
-    "path": "extensions/themeMap.ts",
-    "symbol": "applyExtensionTheme",
+    "id": "go://internal/discovery/go_adapter_test.go",
+    "language": "go",
+    "path": "internal/discovery/go_adapter_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/github/issues_test.go",
+    "language": "go",
+    "path": "internal/github/issues_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/config/policy.go#rawPolicyRule",
+    "language": "go",
+    "path": "internal/config/policy.go",
+    "symbol": "rawPolicyRule",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/report/health.go#FormatJSON",
+    "language": "go",
+    "path": "internal/report/health.go",
+    "symbol": "FormatJSON",
     "type": "function"
   },
   {
-    "id": "go://internal/evidence/git.go#GitStats",
+    "id": "go://internal/agent/circuit.go#Chat",
     "language": "go",
-    "path": "internal/evidence/git.go",
-    "symbol": "GitStats",
+    "path": "internal/agent/circuit.go",
+    "symbol": "Chat",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/fallback.go#ModelChain",
+    "language": "go",
+    "path": "internal/agent/fallback.go",
+    "symbol": "ModelChain",
     "type": "class"
   },
   {
-    "id": "go://internal/override/loader.go#rawOverrideFile",
+    "id": "go://internal/agent/types.go#Choice",
     "language": "go",
-    "path": "internal/override/loader.go",
-    "symbol": "rawOverrideFile",
+    "path": "internal/agent/types.go",
+    "symbol": "Choice",
     "type": "class"
   },
   {
-    "id": "go://internal/policy/matcher.go#matchPath",
+    "id": "go://internal/policy/matcher.go#Match",
     "language": "go",
     "path": "internal/policy/matcher.go",
-    "symbol": "matchPath",
-    "type": "function"
+    "symbol": "Match",
+    "type": "method"
   },
   {
-    "id": "go://internal/queue/queue.go#Load",
+    "id": "go://internal/github/pr.go#TrustDelta",
     "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Load",
-    "type": "function"
+    "path": "internal/github/pr.go",
+    "symbol": "TrustDelta",
+    "type": "class"
   },
   {
-    "id": "go://internal/agent/openrouter.go#doRequest",
+    "id": "go://internal/report/card_test.go",
     "language": "go",
-    "path": "internal/agent/openrouter.go",
-    "symbol": "doRequest",
+    "path": "internal/report/card_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/fallback.go#Chat",
+    "language": "go",
+    "path": "internal/agent/fallback.go",
+    "symbol": "Chat",
     "type": "method"
   },
   {
@@ -1781,378 +585,25 @@
     "type": "file"
   },
   {
-    "id": "go://internal/agent/fallback.go#Chat",
+    "id": "go://cmd/certify/scan.go#init",
     "language": "go",
-    "path": "internal/agent/fallback.go",
-    "symbol": "Chat",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/types.go#Message",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "Message",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/queue/queue.go#Queue",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Queue",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/record/store.go#Save",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "Save",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/report/detailed.go#DetailedReport",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "DetailedReport",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/types_test.go",
-    "language": "go",
-    "path": "internal/agent/types_test.go",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/pi-pi.ts",
-    "language": "ts",
-    "path": "extensions/pi-pi.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/config/loader.go#validate",
-    "language": "go",
-    "path": "internal/config/loader.go",
-    "symbol": "validate",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/index.go#indexEntry",
-    "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "indexEntry",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/queue/queue.go#persistedQueue",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "persistedQueue",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/report/detailed.go#LanguageBreakdown",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "LanguageBreakdown",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/config_test.go",
-    "language": "go",
-    "path": "internal/domain/config_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/config/loader.go#LoadFromDir",
-    "language": "go",
-    "path": "internal/config/loader.go",
-    "symbol": "LoadFromDir",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/collector.go#Collector",
-    "language": "go",
-    "path": "internal/evidence/collector.go",
-    "symbol": "Collector",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/queue/queue.go#BatchNext",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "BatchNext",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/queue/queue.go#New",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "New",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/engine/scorer.go#StatusFromScore",
-    "language": "go",
-    "path": "internal/engine/scorer.go",
-    "symbol": "StatusFromScore",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/policy/evaluator.go#EvaluationResult",
-    "language": "go",
-    "path": "internal/policy/evaluator.go",
-    "symbol": "EvaluationResult",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/policy/evaluator.go#evaluateRule",
-    "language": "go",
-    "path": "internal/policy/evaluator.go",
-    "symbol": "evaluateRule",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/override/applier_test.go",
-    "language": "go",
-    "path": "internal/override/applier_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/schemas.go#DecisionResponse",
-    "language": "go",
-    "path": "internal/agent/schemas.go",
-    "symbol": "DecisionResponse",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/stage.go#Stage",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "Stage",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/override.go#String",
-    "language": "go",
-    "path": "internal/domain/override.go",
-    "symbol": "String",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/report/health.go#Health",
-    "language": "go",
-    "path": "internal/report/health.go",
-    "symbol": "Health",
-    "type": "function"
-  },
-  {
-    "id": "ts://extensions/tilldone.ts",
-    "language": "ts",
-    "path": "extensions/tilldone.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/report_cmd.go#init",
-    "language": "go",
-    "path": "cmd/certify/report_cmd.go",
+    "path": "cmd/certify/scan.go",
     "symbol": "init",
     "type": "function"
   },
   {
-    "id": "go://internal/agent/reviewer.go#NewReviewer",
+    "id": "go://internal/agent/ratelimit.go#refill",
     "language": "go",
-    "path": "internal/agent/reviewer.go",
-    "symbol": "NewReviewer",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/config.go#EnforcingConfig",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "EnforcingConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/evidence.go#Severity",
-    "language": "go",
-    "path": "internal/domain/evidence.go",
-    "symbol": "Severity",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/record/store.go#pathFor",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "pathFor",
+    "path": "internal/agent/ratelimit.go",
+    "symbol": "refill",
     "type": "method"
   },
   {
-    "id": "go://internal/report/detailed.go#Detailed",
+    "id": "go://internal/github/issues.go#FormatIssueBody",
     "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "Detailed",
+    "path": "internal/github/issues.go",
+    "symbol": "FormatIssueBody",
     "type": "function"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#printSummary",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "printSummary",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/evidence/metrics.go#containsTodo",
-    "language": "go",
-    "path": "internal/evidence/metrics.go",
-    "symbol": "containsTodo",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/evidence/runner.go#ParseGitLogWithAge",
-    "language": "go",
-    "path": "internal/evidence/runner.go",
-    "symbol": "ParseGitLogWithAge",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/override/loader.go#LoadFile",
-    "language": "go",
-    "path": "internal/override/loader.go",
-    "symbol": "LoadFile",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/record/store.go#historyEntry",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "historyEntry",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/queue/queue.go#Next",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Next",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/discovery/index_test.go",
-    "language": "go",
-    "path": "internal/discovery/index_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/root.go#init",
-    "language": "go",
-    "path": "cmd/certify/root.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/generic.go#GenericScanner",
-    "language": "go",
-    "path": "internal/discovery/generic.go",
-    "symbol": "GenericScanner",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/config.go#String",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "String",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/config.go#AgentConfig",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "AgentConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/dimension.go#Grade",
-    "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "Grade",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#runGitStats",
-    "language": "go",
-    "path": "internal/evidence/executor.go",
-    "symbol": "runGitStats",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/policy/matcher.go#Match",
-    "language": "go",
-    "path": "internal/policy/matcher.go",
-    "symbol": "Match",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/openrouter.go#APIError",
-    "language": "go",
-    "path": "internal/agent/openrouter.go",
-    "symbol": "APIError",
-    "type": "class"
-  },
-  {
-    "id": "go://cmd/certify/cli_test.go",
-    "language": "go",
-    "path": "cmd/certify/cli_test.go",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/system-select.ts",
-    "language": "ts",
-    "path": "extensions/system-select.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/config/policy.go#parsePolicyPack",
-    "language": "go",
-    "path": "internal/config/policy.go",
-    "symbol": "parsePolicyPack",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/stage.go#Name",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "Name",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/fallback.go#AdaptiveMessages",
-    "language": "go",
-    "path": "internal/agent/fallback.go",
-    "symbol": "AdaptiveMessages",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/override_test.go",
-    "language": "go",
-    "path": "internal/domain/override_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/report/detailed.go#AreaSummary",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "AreaSummary",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/dimension_test.go",
-    "language": "go",
-    "path": "internal/domain/dimension_test.go",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/purpose-gate.ts",
-    "language": "ts",
-    "path": "extensions/purpose-gate.ts",
-    "type": "file"
   },
   {
     "id": "go://internal/record/store.go#historyPathFor",
@@ -2162,10 +613,89 @@
     "type": "method"
   },
   {
-    "id": "file://docs/README.md",
+    "id": "go://internal/report/card.go#IssueCard",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "IssueCard",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/report/detailed.go#findExpiringSoon",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "findExpiringSoon",
+    "type": "function"
+  },
+  {
+    "id": "file://FEATURES.md",
     "language": "file",
-    "path": "docs/README.md",
+    "path": "FEATURES.md",
     "type": "file"
+  },
+  {
+    "id": "go://internal/agent/fallback_test.go",
+    "language": "go",
+    "path": "internal/agent/fallback_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/detect_test.go",
+    "language": "go",
+    "path": "internal/discovery/detect_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/evidence_test.go",
+    "language": "go",
+    "path": "internal/domain/evidence_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/circuit.go#Name",
+    "language": "go",
+    "path": "internal/agent/circuit.go",
+    "symbol": "Name",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/config/loader.go#LoadFile",
+    "language": "go",
+    "path": "internal/config/loader.go",
+    "symbol": "LoadFile",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Enqueue",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Enqueue",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/detailed.go#explainStatus",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "explainStatus",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/router_test.go",
+    "language": "go",
+    "path": "internal/agent/router_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/unit_test.go",
+    "language": "go",
+    "path": "internal/domain/unit_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#runCertify",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "runCertify",
+    "type": "function"
   },
   {
     "id": "go://internal/agent/pipeline.go#Coordinator",
@@ -2175,404 +705,38 @@
     "type": "class"
   },
   {
-    "id": "go://internal/evidence/executor.go#HasGoMod",
-    "language": "go",
-    "path": "internal/evidence/executor.go",
-    "symbol": "HasGoMod",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#HasPackageJSON",
-    "language": "go",
-    "path": "internal/evidence/executor.go",
-    "symbol": "HasPackageJSON",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/github/workflows.go#GenerateWeeklyWorkflow",
-    "language": "go",
-    "path": "internal/github/workflows.go",
-    "symbol": "GenerateWeeklyWorkflow",
-    "type": "function"
-  },
-  {
-    "id": "ts://extensions/subagent-widget.ts",
-    "language": "ts",
-    "path": "extensions/subagent-widget.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/domain/config.go#CertificationMode",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "CertificationMode",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/unit.go#UnitID",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "UnitID",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/prompts.go#PromptRegistry",
-    "language": "go",
-    "path": "internal/agent/prompts.go",
-    "symbol": "PromptRegistry",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#runGoVet",
-    "language": "go",
-    "path": "internal/evidence/executor.go",
-    "symbol": "runGoVet",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/github/workflows.go#GeneratePRWorkflow",
-    "language": "go",
-    "path": "internal/github/workflows.go",
-    "symbol": "GeneratePRWorkflow",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/override/applier.go#ApplyAll",
-    "language": "go",
-    "path": "internal/override/applier.go",
-    "symbol": "ApplyAll",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/generic.go#matchAny",
-    "language": "go",
-    "path": "internal/discovery/generic.go",
-    "symbol": "matchAny",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/github/issues.go#BuildIssueSearchCommand",
-    "language": "go",
-    "path": "internal/github/issues.go",
-    "symbol": "BuildIssueSearchCommand",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/scanner_test.go",
-    "language": "go",
-    "path": "internal/discovery/scanner_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#collectRepoEvidence",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "collectRepoEvidence",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/types.go#String",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "String",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/dimension.go#Dimension",
-    "language": "go",
-    "path": "internal/domain/dimension.go",
-    "symbol": "Dimension",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/report/detailed.go#UnitSummary",
-    "language": "go",
-    "path": "internal/report/detailed.go",
-    "symbol": "UnitSummary",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/complexity_test.go",
-    "language": "go",
-    "path": "internal/evidence/complexity_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/stage.go#NewReviewStage",
-    "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "NewReviewStage",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/diff.go#FilterByPaths",
-    "language": "go",
-    "path": "internal/discovery/diff.go",
-    "symbol": "FilterByPaths",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/config/policy.go#rawPolicyRule",
-    "language": "go",
-    "path": "internal/config/policy.go",
-    "symbol": "rawPolicyRule",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/unit.go#String",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "String",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/attribution_test.go",
-    "language": "go",
-    "path": "internal/agent/attribution_test.go",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/session-replay.ts",
-    "language": "ts",
-    "path": "extensions/session-replay.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/reviewer.go#ReviewResult",
-    "language": "go",
-    "path": "internal/agent/reviewer.go",
-    "symbol": "ReviewResult",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/unit.go#Language",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "Language",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/report/health.go#FormatText",
-    "language": "go",
-    "path": "internal/report/health.go",
-    "symbol": "FormatText",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/override/loader_test.go",
-    "language": "go",
-    "path": "internal/override/loader_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/reviewer.go#joinModels",
-    "language": "go",
-    "path": "internal/agent/reviewer.go",
-    "symbol": "joinModels",
-    "type": "function"
-  },
-  {
-    "id": "go://cmd/certify/version.go",
-    "language": "go",
-    "path": "cmd/certify/version.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/domain/record.go#Status",
-    "language": "go",
-    "path": "internal/domain/record.go",
-    "symbol": "Status",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/openrouter.go#Name",
-    "language": "go",
-    "path": "internal/agent/openrouter.go",
-    "symbol": "Name",
-    "type": "method"
-  },
-  {
-    "id": "go://cmd/certify/init_cmd.go#init",
-    "language": "go",
-    "path": "cmd/certify/init_cmd.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/discovery/generic.go#Scan",
-    "language": "go",
-    "path": "internal/discovery/generic.go",
-    "symbol": "Scan",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/discovery/scanner.go#UnitList",
+    "id": "go://internal/discovery/scanner.go#DeduplicateFileLevel",
     "language": "go",
     "path": "internal/discovery/scanner.go",
-    "symbol": "UnitList",
-    "type": "class"
-  },
-  {
-    "id": "ts://testdata/repos/ts-simple/src/parser.ts#tokenizeDialogue",
-    "language": "ts",
-    "path": "testdata/repos/ts-simple/src/parser.ts",
-    "symbol": "tokenizeDialogue",
+    "symbol": "DeduplicateFileLevel",
     "type": "function"
   },
   {
-    "id": "go://internal/config/policy_test.go",
+    "id": "go://internal/evidence/metrics.go#containsTodo",
     "language": "go",
-    "path": "internal/config/policy_test.go",
-    "type": "file"
+    "path": "internal/evidence/metrics.go",
+    "symbol": "containsTodo",
+    "type": "function"
   },
   {
-    "id": "go://internal/discovery/ts_adapter_test.go",
-    "language": "go",
-    "path": "internal/discovery/ts_adapter_test.go",
-    "type": "file"
-  },
-  {
-    "id": "ts://extensions/tool-counter-widget.ts",
-    "language": "ts",
-    "path": "extensions/tool-counter-widget.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/circuit.go#Chat",
-    "language": "go",
-    "path": "internal/agent/circuit.go",
-    "symbol": "Chat",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/evidence/git.go#ChurnRate",
-    "language": "go",
-    "path": "internal/evidence/git.go",
-    "symbol": "ChurnRate",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/openrouter.go#OpenRouterProvider",
+    "id": "go://internal/agent/openrouter.go#doRequest",
     "language": "go",
     "path": "internal/agent/openrouter.go",
-    "symbol": "OpenRouterProvider",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/discovery/generic.go#NewGenericScanner",
-    "language": "go",
-    "path": "internal/discovery/generic.go",
-    "symbol": "NewGenericScanner",
-    "type": "function"
-  },
-  {
-    "id": "file://go.sum",
-    "language": "file",
-    "path": "go.sum",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/scan.go#init",
-    "language": "go",
-    "path": "cmd/certify/scan.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#Run",
-    "language": "go",
-    "path": "internal/agent/pipeline.go",
-    "symbol": "Run",
+    "symbol": "doRequest",
     "type": "method"
   },
   {
-    "id": "go://internal/agent/schemas.go#RemediationResponse",
+    "id": "go://internal/domain/override.go#OverrideAction",
     "language": "go",
-    "path": "internal/agent/schemas.go",
-    "symbol": "RemediationResponse",
+    "path": "internal/domain/override.go",
+    "symbol": "OverrideAction",
     "type": "class"
   },
   {
-    "id": "go://internal/discovery/go_adapter.go#parseFile",
-    "language": "go",
-    "path": "internal/discovery/go_adapter.go",
-    "symbol": "parseFile",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/evidence.go#init",
-    "language": "go",
-    "path": "internal/domain/evidence.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/record.go#IsPassing",
-    "language": "go",
-    "path": "internal/domain/record.go",
-    "symbol": "IsPassing",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/unit.go#init",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "init",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/expiry/calculator.go#Calculate",
-    "language": "go",
-    "path": "internal/expiry/calculator.go",
-    "symbol": "Calculate",
-    "type": "function"
-  },
-  {
-    "id": "ts://testdata/repos/ts-simple/src/parser.ts#DialogueParser",
-    "language": "ts",
-    "path": "testdata/repos/ts-simple/src/parser.ts",
-    "symbol": "DialogueParser",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/evidence/executor.go#runGoTest",
+    "id": "go://internal/evidence/executor.go#ToolExecutor",
     "language": "go",
     "path": "internal/evidence/executor.go",
-    "symbol": "runGoTest",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/queue/queue.go#Complete",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Complete",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/schemas_test.go",
-    "language": "go",
-    "path": "internal/agent/schemas_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/types.go#Usage",
-    "language": "go",
-    "path": "internal/agent/types.go",
-    "symbol": "Usage",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/unit.go#ParseUnitID",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "ParseUnitID",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/domain/unit.go#UnitType",
-    "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "UnitType",
+    "symbol": "ToolExecutor",
     "type": "class"
   },
   {
@@ -2583,78 +747,73 @@
     "type": "method"
   },
   {
-    "id": "file://specs/agent-redesign.md",
-    "language": "file",
-    "path": "specs/agent-redesign.md",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/engine/scorer.go#extractSummaryFloat",
-    "language": "go",
-    "path": "internal/engine/scorer.go",
-    "symbol": "extractSummaryFloat",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/openrouter_test.go",
-    "language": "go",
-    "path": "internal/agent/openrouter_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/agent/pipeline.go#Strategy",
+    "id": "go://internal/agent/pipeline.go#Pipeline",
     "language": "go",
     "path": "internal/agent/pipeline.go",
-    "symbol": "Strategy",
+    "symbol": "Pipeline",
     "type": "class"
   },
   {
-    "id": "go://internal/agent/prompts.go#PromptTemplate",
-    "language": "go",
-    "path": "internal/agent/prompts.go",
-    "symbol": "PromptTemplate",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/provider.go#Provider",
-    "language": "go",
-    "path": "internal/agent/provider.go",
-    "symbol": "Provider",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/agent/ratelimit.go#refill",
-    "language": "go",
-    "path": "internal/agent/ratelimit.go",
-    "symbol": "refill",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/types.go#Content",
+    "id": "go://internal/agent/types.go#Usage",
     "language": "go",
     "path": "internal/agent/types.go",
-    "symbol": "Content",
-    "type": "method"
+    "symbol": "Usage",
+    "type": "class"
   },
   {
-    "id": "go://internal/discovery/ts_adapter.go#Scan",
+    "id": "go://internal/domain/evidence.go#EvidenceKind",
     "language": "go",
-    "path": "internal/discovery/ts_adapter.go",
-    "symbol": "Scan",
-    "type": "method"
+    "path": "internal/domain/evidence.go",
+    "symbol": "EvidenceKind",
+    "type": "class"
   },
   {
-    "id": "go://internal/domain/unit.go#NewUnitID",
+    "id": "go://internal/domain/policy.go#Violation",
     "language": "go",
-    "path": "internal/domain/unit.go",
-    "symbol": "NewUnitID",
+    "path": "internal/domain/policy.go",
+    "symbol": "Violation",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/runner.go#ParseGitLogWithAge",
+    "language": "go",
+    "path": "internal/evidence/runner.go",
+    "symbol": "ParseGitLogWithAge",
     "type": "function"
   },
   {
-    "id": "go://internal/github/pr_test.go",
+    "id": "go://internal/policy/matcher.go#matchPath",
     "language": "go",
-    "path": "internal/github/pr_test.go",
+    "path": "internal/policy/matcher.go",
+    "symbol": "matchPath",
+    "type": "function"
+  },
+  {
+    "id": "ts://extensions/subagent-widget.ts",
+    "language": "ts",
+    "path": "extensions/subagent-widget.ts",
     "type": "file"
+  },
+  {
+    "id": "go://internal/agent/fallback.go#NewFallbackProvider",
+    "language": "go",
+    "path": "internal/agent/fallback.go",
+    "symbol": "NewFallbackProvider",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/router.go#ModelFor",
+    "language": "go",
+    "path": "internal/agent/router.go",
+    "symbol": "ModelFor",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/policy/evaluator.go#evaluateRule",
+    "language": "go",
+    "path": "internal/policy/evaluator.go",
+    "symbol": "evaluateRule",
+    "type": "function"
   },
   {
     "id": "go://internal/record/store.go#Store",
@@ -2664,24 +823,215 @@
     "type": "class"
   },
   {
-    "id": "go://internal/github/workflows_test.go",
+    "id": "go://internal/report/health.go#FormatText",
     "language": "go",
-    "path": "internal/github/workflows_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/discovery/index.go#LoadIndex",
-    "language": "go",
-    "path": "internal/discovery/index.go",
-    "symbol": "LoadIndex",
+    "path": "internal/report/health.go",
+    "symbol": "FormatText",
     "type": "function"
   },
   {
-    "id": "go://internal/domain/config.go#ScheduleConfig",
+    "id": "go://internal/discovery/scanner_test.go",
     "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "ScheduleConfig",
+    "path": "internal/discovery/scanner_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/stage.go#NewPrescreenStage",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "NewPrescreenStage",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/index.go#NewIndex",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "NewIndex",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/config/validator_test.go",
+    "language": "go",
+    "path": "internal/config/validator_test.go",
+    "type": "file"
+  },
+  {
+    "id": "ts://extensions/tilldone.ts",
+    "language": "ts",
+    "path": "extensions/tilldone.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#loadQueue",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "loadQueue",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/config/validator.go#ValidationError",
+    "language": "go",
+    "path": "internal/config/validator.go",
+    "symbol": "ValidationError",
     "type": "class"
+  },
+  {
+    "id": "go://internal/domain/dimension.go#DimensionWeights",
+    "language": "go",
+    "path": "internal/domain/dimension.go",
+    "symbol": "DimensionWeights",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/prompts_test.go",
+    "language": "go",
+    "path": "internal/agent/prompts_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/evidence/runner.go#ParseGoVet",
+    "language": "go",
+    "path": "internal/evidence/runner.go",
+    "symbol": "ParseGoVet",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/pipeline.go#toResult",
+    "language": "go",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "toResult",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/config/loader.go#Load",
+    "language": "go",
+    "path": "internal/config/loader.go",
+    "symbol": "Load",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/report/detailed.go#computeLanguageBreakdowns",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "computeLanguageBreakdowns",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/fallback.go#FallbackProvider",
+    "language": "go",
+    "path": "internal/agent/fallback.go",
+    "symbol": "FallbackProvider",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/executor.go#runGitStats",
+    "language": "go",
+    "path": "internal/evidence/executor.go",
+    "symbol": "runGitStats",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/record/store.go#fromJSON",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "fromJSON",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/github/issues.go#BuildIssueUpdateCommand",
+    "language": "go",
+    "path": "internal/github/issues.go",
+    "symbol": "BuildIssueUpdateCommand",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/report/detailed.go#DetailedReport",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "DetailedReport",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/reviewer.go#joinModels",
+    "language": "go",
+    "path": "internal/agent/reviewer.go",
+    "symbol": "joinModels",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/types.go#TaskType",
+    "language": "go",
+    "path": "internal/agent/types.go",
+    "symbol": "TaskType",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/discovery/ts_adapter.go#parseFile",
+    "language": "go",
+    "path": "internal/discovery/ts_adapter.go",
+    "symbol": "parseFile",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/detailed.go#UnitSummary",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "UnitSummary",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/ratelimit.go#Wait",
+    "language": "go",
+    "path": "internal/agent/ratelimit.go",
+    "symbol": "Wait",
+    "type": "method"
+  },
+  {
+    "id": "file://README.md",
+    "language": "file",
+    "path": "README.md",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/dimension_test.go",
+    "language": "go",
+    "path": "internal/domain/dimension_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/evidence/executor.go#CollectAll",
+    "language": "go",
+    "path": "internal/evidence/executor.go",
+    "symbol": "CollectAll",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/override/applier.go#Apply",
+    "language": "go",
+    "path": "internal/override/applier.go",
+    "symbol": "Apply",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/override/applier.go#ApplyAll",
+    "language": "go",
+    "path": "internal/override/applier.go",
+    "symbol": "ApplyAll",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/pipeline.go#PipelineConfig",
+    "language": "go",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "PipelineConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/policy/matcher.go#matchesPack",
+    "language": "go",
+    "path": "internal/policy/matcher.go",
+    "symbol": "matchesPack",
+    "type": "method"
   },
   {
     "id": "go://internal/queue/queue.go#Fail",
@@ -2691,78 +1041,169 @@
     "type": "method"
   },
   {
-    "id": "go://internal/agent/stage_test.go",
+    "id": "go://internal/discovery/diff.go#ChangedFiles",
     "language": "go",
-    "path": "internal/agent/stage_test.go",
+    "path": "internal/discovery/diff.go",
+    "symbol": "ChangedFiles",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/diff.go#FilterByPaths",
+    "language": "go",
+    "path": "internal/discovery/diff.go",
+    "symbol": "FilterByPaths",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/config/loader_test.go",
+    "language": "go",
+    "path": "internal/config/loader_test.go",
     "type": "file"
   },
   {
-    "id": "go://internal/domain/config.go#SignoffConfig",
+    "id": "go://internal/agent/prompts.go#Version",
     "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "SignoffConfig",
+    "path": "internal/agent/prompts.go",
+    "symbol": "Version",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/reviewer.go#ReviewInput",
+    "language": "go",
+    "path": "internal/agent/reviewer.go",
+    "symbol": "ReviewInput",
     "type": "class"
   },
   {
-    "id": "go://internal/domain/evidence.go#String",
+    "id": "go://internal/domain/record.go#Status",
     "language": "go",
-    "path": "internal/domain/evidence.go",
+    "path": "internal/domain/record.go",
+    "symbol": "Status",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/unit.go#init",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/lint.go#ToEvidence",
+    "language": "go",
+    "path": "internal/evidence/lint.go",
+    "symbol": "ToEvidence",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/config/policy_test.go",
+    "language": "go",
+    "path": "internal/config/policy_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/router.go#directAssignment",
+    "language": "go",
+    "path": "internal/agent/router.go",
+    "symbol": "directAssignment",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/domain/record.go#ParseStatus",
+    "language": "go",
+    "path": "internal/domain/record.go",
+    "symbol": "ParseStatus",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/queue/queue.go#ItemStatus",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "ItemStatus",
+    "type": "class"
+  },
+  {
+    "id": "ts://testdata/repos/ts-simple/src/parser.ts#tokenizeDialogue",
+    "language": "ts",
+    "path": "testdata/repos/ts-simple/src/parser.ts",
+    "symbol": "tokenizeDialogue",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/pipeline.go#CoordinatorConfig",
+    "language": "go",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "CoordinatorConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/types.go#Message",
+    "language": "go",
+    "path": "internal/agent/types.go",
+    "symbol": "Message",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/unit.go#String",
+    "language": "go",
+    "path": "internal/domain/unit.go",
     "symbol": "String",
     "type": "method"
   },
   {
-    "id": "go://internal/domain/expiry.go#Duration",
+    "id": "go://internal/evidence/complexity.go#funcName",
     "language": "go",
-    "path": "internal/domain/expiry.go",
-    "symbol": "Duration",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/github/issues.go#BuildIssueCloseCommand",
-    "language": "go",
-    "path": "internal/github/issues.go",
-    "symbol": "BuildIssueCloseCommand",
+    "path": "internal/evidence/complexity.go",
+    "symbol": "funcName",
     "type": "function"
   },
   {
-    "id": "ts://testdata/repos/ts-simple/src/parser.ts#parseNode",
-    "language": "ts",
-    "path": "testdata/repos/ts-simple/src/parser.ts",
-    "symbol": "parseNode",
+    "id": "go://internal/expiry/calculator.go#Calculate",
+    "language": "go",
+    "path": "internal/expiry/calculator.go",
+    "symbol": "Calculate",
     "type": "function"
   },
   {
-    "id": "go://internal/agent/stage.go#Execute",
+    "id": "go://cmd/certify/init_cmd.go#generateConfig",
     "language": "go",
-    "path": "internal/agent/stage.go",
-    "symbol": "Execute",
-    "type": "method"
+    "path": "cmd/certify/init_cmd.go",
+    "symbol": "generateConfig",
+    "type": "function"
   },
   {
-    "id": "go://internal/record/store.go#ListAll",
-    "language": "go",
-    "path": "internal/record/store.go",
-    "symbol": "ListAll",
-    "type": "method"
-  },
-  {
-    "id": "ts://extensions/damage-control.ts",
-    "language": "ts",
-    "path": "extensions/damage-control.ts",
-    "type": "file"
-  },
-  {
-    "id": "go://internal/config/loader.go#LoadFile",
+    "id": "go://internal/config/loader.go#LoadFromDir",
     "language": "go",
     "path": "internal/config/loader.go",
-    "symbol": "LoadFile",
+    "symbol": "LoadFromDir",
     "type": "function"
   },
   {
-    "id": "go://internal/discovery/detect.go#DetectedAdapters",
+    "id": "go://internal/domain/expiry.go#ExpiryFactors",
     "language": "go",
-    "path": "internal/discovery/detect.go",
-    "symbol": "DetectedAdapters",
+    "path": "internal/domain/expiry.go",
+    "symbol": "ExpiryFactors",
+    "type": "class"
+  },
+  {
+    "id": "ts://testdata/repos/ts-simple/src/parser.ts#DialogueParser",
+    "language": "ts",
+    "path": "testdata/repos/ts-simple/src/parser.ts",
+    "symbol": "DialogueParser",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/pipeline.go#NewCoordinator",
+    "language": "go",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "NewCoordinator",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/ratelimit.go#NewRateLimiter",
+    "language": "go",
+    "path": "internal/agent/ratelimit.go",
+    "symbol": "NewRateLimiter",
     "type": "function"
   },
   {
@@ -2773,72 +1214,31 @@
     "type": "function"
   },
   {
-    "id": "go://internal/domain/evidence_test.go",
+    "id": "go://internal/agent/types.go#ModelConfig",
     "language": "go",
-    "path": "internal/domain/evidence_test.go",
-    "type": "file"
-  },
-  {
-    "id": "go://cmd/certify/certify_cmd.go#printQueueStatus",
-    "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "printQueueStatus",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/prompts.go#Version",
-    "language": "go",
-    "path": "internal/agent/prompts.go",
-    "symbol": "Version",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/config.go#ModelAssignments",
-    "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "ModelAssignments",
+    "path": "internal/agent/types.go",
+    "symbol": "ModelConfig",
     "type": "class"
   },
   {
-    "id": "go://internal/domain/expiry.go#ExpiryWindow",
+    "id": "go://internal/evidence/runner.go#golangciLintIssue",
     "language": "go",
-    "path": "internal/domain/expiry.go",
-    "symbol": "ExpiryWindow",
+    "path": "internal/evidence/runner.go",
+    "symbol": "golangciLintIssue",
     "type": "class"
   },
   {
-    "id": "go://internal/policy/evaluator.go#Evaluate",
+    "id": "go://internal/agent/types.go#Content",
     "language": "go",
-    "path": "internal/policy/evaluator.go",
-    "symbol": "Evaluate",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/report/health.go#FormatJSON",
-    "language": "go",
-    "path": "internal/report/health.go",
-    "symbol": "FormatJSON",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/agent/router.go#directAssignment",
-    "language": "go",
-    "path": "internal/agent/router.go",
-    "symbol": "directAssignment",
+    "path": "internal/agent/types.go",
+    "symbol": "Content",
     "type": "method"
   },
   {
-    "id": "go://internal/domain/config.go#ExpiryConfig",
+    "id": "go://internal/domain/dimension.go#WeightedAverage",
     "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "ExpiryConfig",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/domain/expiry.go#IsExpired",
-    "language": "go",
-    "path": "internal/domain/expiry.go",
-    "symbol": "IsExpired",
+    "path": "internal/domain/dimension.go",
+    "symbol": "WeightedAverage",
     "type": "method"
   },
   {
@@ -2849,79 +1249,366 @@
     "type": "class"
   },
   {
-    "id": "go://cmd/certify/init_cmd.go#generateConfig",
+    "id": "go://internal/record/store.go#toJSON",
     "language": "go",
-    "path": "cmd/certify/init_cmd.go",
-    "symbol": "generateConfig",
+    "path": "internal/record/store.go",
+    "symbol": "toJSON",
     "type": "function"
   },
   {
-    "id": "go://internal/agent/fallback.go#ModelChain",
-    "language": "go",
-    "path": "internal/agent/fallback.go",
-    "symbol": "ModelChain",
-    "type": "class"
+    "id": "file://CLAUDE.md",
+    "language": "file",
+    "path": "CLAUDE.md",
+    "type": "file"
   },
   {
-    "id": "go://cmd/certify/certify_cmd.go#setupAgent",
+    "id": "go://internal/agent/stage.go#NewScoringStage",
     "language": "go",
-    "path": "cmd/certify/certify_cmd.go",
-    "symbol": "setupAgent",
+    "path": "internal/agent/stage.go",
+    "symbol": "NewScoringStage",
     "type": "function"
   },
   {
-    "id": "go://internal/domain/config.go#RateLimitConfig",
+    "id": "go://internal/evidence/runner.go#goTestEvent",
     "language": "go",
-    "path": "internal/domain/config.go",
-    "symbol": "RateLimitConfig",
+    "path": "internal/evidence/runner.go",
+    "symbol": "goTestEvent",
     "type": "class"
   },
   {
-    "id": "go://internal/evidence/complexity.go#ComputeGoComplexity",
-    "language": "go",
-    "path": "internal/evidence/complexity.go",
-    "symbol": "ComputeGoComplexity",
-    "type": "function"
-  },
-  {
-    "id": "go://internal/policy/matcher.go#matchesPack",
-    "language": "go",
-    "path": "internal/policy/matcher.go",
-    "symbol": "matchesPack",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/domain/evidence.go#EvidenceKind",
-    "language": "go",
-    "path": "internal/domain/evidence.go",
-    "symbol": "EvidenceKind",
-    "type": "class"
-  },
-  {
-    "id": "go://internal/queue/queue.go#Len",
-    "language": "go",
-    "path": "internal/queue/queue.go",
-    "symbol": "Len",
-    "type": "method"
-  },
-  {
-    "id": "go://internal/agent/openrouter.go#Chat",
+    "id": "go://internal/agent/openrouter.go#isBudgetError",
     "language": "go",
     "path": "internal/agent/openrouter.go",
-    "symbol": "Chat",
+    "symbol": "isBudgetError",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/go_adapter.go#Scan",
+    "language": "go",
+    "path": "internal/discovery/go_adapter.go",
+    "symbol": "Scan",
     "type": "method"
   },
   {
-    "id": "go://internal/domain/policy_test.go",
+    "id": "go://internal/discovery/scanner.go#Scanner",
     "language": "go",
-    "path": "internal/domain/policy_test.go",
+    "path": "internal/discovery/scanner.go",
+    "symbol": "Scanner",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/dimension.go#String",
+    "language": "go",
+    "path": "internal/domain/dimension.go",
+    "symbol": "String",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/record/store.go#ListAll",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "ListAll",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/reviewer.go#Review",
+    "language": "go",
+    "path": "internal/agent/reviewer.go",
+    "symbol": "Review",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/discovery/index.go#indexEntry",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "indexEntry",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/metrics_test.go",
+    "language": "go",
+    "path": "internal/evidence/metrics_test.go",
     "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/index.go#LoadIndex",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "LoadIndex",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/engine/scorer.go#StatusFromScore",
+    "language": "go",
+    "path": "internal/engine/scorer.go",
+    "symbol": "StatusFromScore",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/record/store.go#LoadHistory",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "LoadHistory",
+    "type": "method"
   },
   {
     "id": "go://internal/evidence/runner_test.go",
     "language": "go",
     "path": "internal/evidence/runner_test.go",
     "type": "file"
+  },
+  {
+    "id": "go://internal/agent/stage.go#NewReviewStage",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "NewReviewStage",
+    "type": "function"
+  },
+  {
+    "id": "ts://extensions/system-select.ts",
+    "language": "ts",
+    "path": "extensions/system-select.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/pipeline.go#Run",
+    "language": "go",
+    "path": "internal/agent/pipeline.go",
+    "symbol": "Run",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/stage.go#Stage",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "Stage",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/stage.go#extractJSON",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "extractJSON",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/override/loader.go#rawOverride",
+    "language": "go",
+    "path": "internal/override/loader.go",
+    "symbol": "rawOverride",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/unit.go#NewUnitID",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "NewUnitID",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Stats",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Stats",
+    "type": "class"
+  },
+  {
+    "id": "go://cmd/certify/init_cmd.go#languagePolicy",
+    "language": "go",
+    "path": "cmd/certify/init_cmd.go",
+    "symbol": "languagePolicy",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/queue/queue.go#New",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "New",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/config.go#DefaultConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "DefaultConfig",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/engine/scorer.go#Score",
+    "language": "go",
+    "path": "internal/engine/scorer.go",
+    "symbol": "Score",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/expiry/calculator_test.go",
+    "language": "go",
+    "path": "internal/expiry/calculator_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/go_adapter.go#NewGoAdapter",
+    "language": "go",
+    "path": "internal/discovery/go_adapter.go",
+    "symbol": "NewGoAdapter",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/engine/scorer.go#extractSummaryInt",
+    "language": "go",
+    "path": "internal/engine/scorer.go",
+    "symbol": "extractSummaryInt",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/stage.go#defaultScores",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "defaultScores",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/detect.go#DetectedAdapters",
+    "language": "go",
+    "path": "internal/discovery/detect.go",
+    "symbol": "DetectedAdapters",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/report/health.go#HealthReport",
+    "language": "go",
+    "path": "internal/report/health.go",
+    "symbol": "HealthReport",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/stage_test.go",
+    "language": "go",
+    "path": "internal/agent/stage_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/openrouter.go#isRetryable",
+    "language": "go",
+    "path": "internal/agent/openrouter.go",
+    "symbol": "isRetryable",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/record/store.go#Save",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "Save",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/evidence/complexity_test.go",
+    "language": "go",
+    "path": "internal/evidence/complexity_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/fallback.go#AdaptiveMessages",
+    "language": "go",
+    "path": "internal/agent/fallback.go",
+    "symbol": "AdaptiveMessages",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/provider.go#Provider",
+    "language": "go",
+    "path": "internal/agent/provider.go",
+    "symbol": "Provider",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/config/policy.go#LoadPolicyPack",
+    "language": "go",
+    "path": "internal/config/policy.go",
+    "symbol": "LoadPolicyPack",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/policy.go#PolicyRule",
+    "language": "go",
+    "path": "internal/domain/policy.go",
+    "symbol": "PolicyRule",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/github/issues.go#FormatIssueTitle",
+    "language": "go",
+    "path": "internal/github/issues.go",
+    "symbol": "FormatIssueTitle",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/generic.go#GenericScanner",
+    "language": "go",
+    "path": "internal/discovery/generic.go",
+    "symbol": "GenericScanner",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/discovery/scanner.go#Merge",
+    "language": "go",
+    "path": "internal/discovery/scanner.go",
+    "symbol": "Merge",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/override/applier_test.go",
+    "language": "go",
+    "path": "internal/override/applier_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#certifyContext",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "certifyContext",
+    "type": "class"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#certifyUnit",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "certifyUnit",
+    "type": "method"
+  },
+  {
+    "id": "go://cmd/certify/cli_test.go",
+    "language": "go",
+    "path": "cmd/certify/cli_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/router.go#NewRouter",
+    "language": "go",
+    "path": "internal/agent/router.go",
+    "symbol": "NewRouter",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/circuit.go#NewCircuitBreaker",
+    "language": "go",
+    "path": "internal/agent/circuit.go",
+    "symbol": "NewCircuitBreaker",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/stage.go#prescreenStage",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "prescreenStage",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/config/policy.go#rawPolicyPack",
+    "language": "go",
+    "path": "internal/config/policy.go",
+    "symbol": "rawPolicyPack",
+    "type": "class"
   },
   {
     "id": "go://internal/config/validator.go#Error",
@@ -2931,10 +1618,984 @@
     "type": "method"
   },
   {
-    "id": "go://internal/queue/queue.go#ItemStatus",
+    "id": "file://STORIES.md",
+    "language": "file",
+    "path": "STORIES.md",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/reviewer_test.go",
+    "language": "go",
+    "path": "internal/agent/reviewer_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/dimension.go#Grade",
+    "language": "go",
+    "path": "internal/domain/dimension.go",
+    "symbol": "Grade",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/executor.go#HasGoMod",
+    "language": "go",
+    "path": "internal/evidence/executor.go",
+    "symbol": "HasGoMod",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/queue/queue.go#persistedQueue",
     "language": "go",
     "path": "internal/queue/queue.go",
-    "symbol": "ItemStatus",
+    "symbol": "persistedQueue",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/reviewer.go#Reviewer",
+    "language": "go",
+    "path": "internal/agent/reviewer.go",
+    "symbol": "Reviewer",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/policy/evaluator_test.go",
+    "language": "go",
+    "path": "internal/policy/evaluator_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/generic.go#matchAny",
+    "language": "go",
+    "path": "internal/discovery/generic.go",
+    "symbol": "matchAny",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/config.go#IssueConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "IssueConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/expiry.go#RemainingAt",
+    "language": "go",
+    "path": "internal/domain/expiry.go",
+    "symbol": "RemainingAt",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/engine/scorer.go#scoreFromMetrics",
+    "language": "go",
+    "path": "internal/engine/scorer.go",
+    "symbol": "scoreFromMetrics",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Load",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Load",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/index.go#Save",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "Save",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/domain/expiry.go#Duration",
+    "language": "go",
+    "path": "internal/domain/expiry.go",
+    "symbol": "Duration",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/evidence/executor.go#NewToolExecutor",
+    "language": "go",
+    "path": "internal/evidence/executor.go",
+    "symbol": "NewToolExecutor",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/report/card.go#GenerateCard",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "GenerateCard",
+    "type": "function"
+  },
+  {
+    "id": "ts://testdata/repos/ts-simple/src/utils.ts#log",
+    "language": "ts",
+    "path": "testdata/repos/ts-simple/src/utils.ts",
+    "symbol": "log",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/diff_test.go",
+    "language": "go",
+    "path": "internal/discovery/diff_test.go",
+    "type": "file"
+  },
+  {
+    "id": "ts://extensions/damage-control.ts",
+    "language": "ts",
+    "path": "extensions/damage-control.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#filterUnits",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "filterUnits",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/detect.go#DetectLanguages",
+    "language": "go",
+    "path": "internal/discovery/detect.go",
+    "symbol": "DetectLanguages",
+    "type": "function"
+  },
+  {
+    "id": "file://PRD.md",
+    "language": "file",
+    "path": "PRD.md",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/github/issues.go#BuildIssueCreateCommand",
+    "language": "go",
+    "path": "internal/github/issues.go",
+    "symbol": "BuildIssueCreateCommand",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/schemas_test.go",
+    "language": "go",
+    "path": "internal/agent/schemas_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/openrouter.go#OpenRouterProvider",
+    "language": "go",
+    "path": "internal/agent/openrouter.go",
+    "symbol": "OpenRouterProvider",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/report/health_test.go",
+    "language": "go",
+    "path": "internal/report/health_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/engine/scorer.go#scoreFromGitHistory",
+    "language": "go",
+    "path": "internal/engine/scorer.go",
+    "symbol": "scoreFromGitHistory",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/record/store.go#parseGrade",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "parseGrade",
+    "type": "function"
+  },
+  {
+    "id": "ts://testdata/repos/ts-simple/src/parser.ts#MAX_TOKENS",
+    "language": "ts",
+    "path": "testdata/repos/ts-simple/src/parser.ts",
+    "symbol": "MAX_TOKENS",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/policy/evaluator.go#EvaluationResult",
+    "language": "go",
+    "path": "internal/policy/evaluator.go",
+    "symbol": "EvaluationResult",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/report/card.go#buildLanguageCards",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "buildLanguageCards",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/report/card.go#gradeEmoji",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "gradeEmoji",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/git_test.go",
+    "language": "go",
+    "path": "internal/evidence/git_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/openrouter.go#NewOpenRouterProvider",
+    "language": "go",
+    "path": "internal/agent/openrouter.go",
+    "symbol": "NewOpenRouterProvider",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/stage.go#Execute",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "Execute",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/config/matcher.go#FilterPolicyPacks",
+    "language": "go",
+    "path": "internal/config/matcher.go",
+    "symbol": "FilterPolicyPacks",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/unit.go#NewUnit",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "NewUnit",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/generic.go#NewGenericScanner",
+    "language": "go",
+    "path": "internal/discovery/generic.go",
+    "symbol": "NewGenericScanner",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/metrics.go#ToEvidence",
+    "language": "go",
+    "path": "internal/evidence/metrics.go",
+    "symbol": "ToEvidence",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/policy/matcher_test.go",
+    "language": "go",
+    "path": "internal/policy/matcher_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/expire.go#init",
+    "language": "go",
+    "path": "cmd/certify/expire.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/prompts.go#PromptRegistry",
+    "language": "go",
+    "path": "internal/agent/prompts.go",
+    "symbol": "PromptRegistry",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/stage.go#scoringStage",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "scoringStage",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/discovery/detect.go#LanguageInfo",
+    "language": "go",
+    "path": "internal/discovery/detect.go",
+    "symbol": "LanguageInfo",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/git.go#ChurnRate",
+    "language": "go",
+    "path": "internal/evidence/git.go",
+    "symbol": "ChurnRate",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/discovery/detect.go#buildLanguageList",
+    "language": "go",
+    "path": "internal/discovery/detect.go",
+    "symbol": "buildLanguageList",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/config.go#ModelAssignments",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "ModelAssignments",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/dimension.go#Dimension",
+    "language": "go",
+    "path": "internal/domain/dimension.go",
+    "symbol": "Dimension",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/record.go#String",
+    "language": "go",
+    "path": "internal/domain/record.go",
+    "symbol": "String",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/detailed.go#Detailed",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "Detailed",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/index_test.go",
+    "language": "go",
+    "path": "internal/discovery/index_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/main.go#main",
+    "language": "go",
+    "path": "cmd/certify/main.go",
+    "symbol": "main",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/github/pr.go#ComputeTrustDelta",
+    "language": "go",
+    "path": "internal/github/pr.go",
+    "symbol": "ComputeTrustDelta",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/schemas.go#RemediationResponse",
+    "language": "go",
+    "path": "internal/agent/schemas.go",
+    "symbol": "RemediationResponse",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/stage.go#Name",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "Name",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/policy/evaluator.go#extractTodoCount",
+    "language": "go",
+    "path": "internal/policy/evaluator.go",
+    "symbol": "extractTodoCount",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/record_test.go",
+    "language": "go",
+    "path": "internal/domain/record_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/openrouter.go#APIError",
+    "language": "go",
+    "path": "internal/agent/openrouter.go",
+    "symbol": "APIError",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/types.go#String",
+    "language": "go",
+    "path": "internal/agent/types.go",
+    "symbol": "String",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/discovery/index.go#Units",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "Units",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/github/issues.go#BuildIssueSearchCommand",
+    "language": "go",
+    "path": "internal/github/issues.go",
+    "symbol": "BuildIssueSearchCommand",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/index.go#Diff",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "Diff",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/policy/evaluator.go#Evaluate",
+    "language": "go",
+    "path": "internal/policy/evaluator.go",
+    "symbol": "Evaluate",
+    "type": "function"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#init",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/openrouter.go#Chat",
+    "language": "go",
+    "path": "internal/agent/openrouter.go",
+    "symbol": "Chat",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/queue/queue.go#BatchNext",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "BatchNext",
+    "type": "method"
+  },
+  {
+    "id": "ts://testdata/repos/ts-simple/src/utils.ts#formatDate",
+    "language": "ts",
+    "path": "testdata/repos/ts-simple/src/utils.ts",
+    "symbol": "formatDate",
+    "type": "function"
+  },
+  {
+    "id": "go://cmd/certify/review.go#init",
+    "language": "go",
+    "path": "cmd/certify/review.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#loadCertifyContext",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "loadCertifyContext",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/github/issues.go#FormatGroupedIssueBody",
+    "language": "go",
+    "path": "internal/github/issues.go",
+    "symbol": "FormatGroupedIssueBody",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/report/detailed.go#unitSummaryFrom",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "unitSummaryFrom",
+    "type": "function"
+  },
+  {
+    "id": "file://docs/architecture.md",
+    "language": "file",
+    "path": "docs/architecture.md",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/evidence/collector.go#Collector",
+    "language": "go",
+    "path": "internal/evidence/collector.go",
+    "symbol": "Collector",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Next",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Next",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/record/store.go#NewStore",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "NewStore",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/fallback.go#NewModelChain",
+    "language": "go",
+    "path": "internal/agent/fallback.go",
+    "symbol": "NewModelChain",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/ts_adapter.go#NewTSAdapter",
+    "language": "go",
+    "path": "internal/discovery/ts_adapter.go",
+    "symbol": "NewTSAdapter",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/record/store.go#AppendHistory",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "AppendHistory",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/types_test.go",
+    "language": "go",
+    "path": "internal/agent/types_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/ratelimit.go#Allow",
+    "language": "go",
+    "path": "internal/agent/ratelimit.go",
+    "symbol": "Allow",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/config/validator.go#ValidatePolicyPack",
+    "language": "go",
+    "path": "internal/config/validator.go",
+    "symbol": "ValidatePolicyPack",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/record.go#init",
+    "language": "go",
+    "path": "internal/domain/record.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/engine/pipeline.go#CertifyUnit",
+    "language": "go",
+    "path": "internal/engine/pipeline.go",
+    "symbol": "CertifyUnit",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/lint.go#LintFinding",
+    "language": "go",
+    "path": "internal/evidence/lint.go",
+    "symbol": "LintFinding",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/types.go#ResponseFormat",
+    "language": "go",
+    "path": "internal/agent/types.go",
+    "symbol": "ResponseFormat",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/config.go#SignoffConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "SignoffConfig",
+    "type": "class"
+  },
+  {
+    "id": "file://docs/policy-authoring.md",
+    "language": "file",
+    "path": "docs/policy-authoring.md",
+    "type": "file"
+  },
+  {
+    "id": "file://specs/v1-implementation.md",
+    "language": "file",
+    "path": "specs/v1-implementation.md",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/index.go#DiffResult",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "DiffResult",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/discovery/scanner.go#UnitList",
+    "language": "go",
+    "path": "internal/discovery/scanner.go",
+    "symbol": "UnitList",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/agent/schemas.go#DecisionResponse",
+    "language": "go",
+    "path": "internal/agent/schemas.go",
+    "symbol": "DecisionResponse",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/record/store.go#dimensionsToMap",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "dimensionsToMap",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/router.go#Router",
+    "language": "go",
+    "path": "internal/agent/router.go",
+    "symbol": "Router",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/expiry.go#IsExpired",
+    "language": "go",
+    "path": "internal/domain/expiry.go",
+    "symbol": "IsExpired",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/domain/unit.go#Language",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "Language",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/detailed.go#FormatDetailedText",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "FormatDetailedText",
+    "type": "function"
+  },
+  {
+    "id": "ts://extensions/agent-team.ts",
+    "language": "ts",
+    "path": "extensions/agent-team.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/diff.go#DetectMoves",
+    "language": "go",
+    "path": "internal/discovery/diff.go",
+    "symbol": "DetectMoves",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/config.go#AnalyzerConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "AnalyzerConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/engine/scorer.go#severityPenalty",
+    "language": "go",
+    "path": "internal/engine/scorer.go",
+    "symbol": "severityPenalty",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/complexity.go#ComputeSymbolMetrics",
+    "language": "go",
+    "path": "internal/evidence/complexity.go",
+    "symbol": "ComputeSymbolMetrics",
+    "type": "function"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#defaultConfigObj",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "defaultConfigObj",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/config.go#ExpiryConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "ExpiryConfig",
+    "type": "class"
+  },
+  {
+    "id": "ts://extensions/tool-counter.ts",
+    "language": "ts",
+    "path": "extensions/tool-counter.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/config/loader.go#rawConfig",
+    "language": "go",
+    "path": "internal/config/loader.go",
+    "symbol": "rawConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/override/loader.go#LoadFile",
+    "language": "go",
+    "path": "internal/override/loader.go",
+    "symbol": "LoadFile",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/runner.go#ParseGoTestJSON",
+    "language": "go",
+    "path": "internal/evidence/runner.go",
+    "symbol": "ParseGoTestJSON",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/lint_test.go",
+    "language": "go",
+    "path": "internal/evidence/lint_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/override/loader_test.go",
+    "language": "go",
+    "path": "internal/override/loader_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/go_adapter.go#parseFile",
+    "language": "go",
+    "path": "internal/discovery/go_adapter.go",
+    "symbol": "parseFile",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/domain/config.go#EnforcingConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "EnforcingConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/policy.go#PolicyPack",
+    "language": "go",
+    "path": "internal/domain/policy.go",
+    "symbol": "PolicyPack",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/report/card.go#buildTopIssues",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "buildTopIssues",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/discovery/ts_adapter.go#Scan",
+    "language": "go",
+    "path": "internal/discovery/ts_adapter.go",
+    "symbol": "Scan",
+    "type": "method"
+  },
+  {
+    "id": "ts://extensions/minimal.ts",
+    "language": "ts",
+    "path": "extensions/minimal.ts",
+    "type": "file"
+  },
+  {
+    "id": "ts://extensions/theme-cycler.ts",
+    "language": "ts",
+    "path": "extensions/theme-cycler.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/config/policy.go#parsePolicyPack",
+    "language": "go",
+    "path": "internal/config/policy.go",
+    "symbol": "parsePolicyPack",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/unit.go#UnitID",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "UnitID",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/runner.go#ParseGolangciLintJSON",
+    "language": "go",
+    "path": "internal/evidence/runner.go",
+    "symbol": "ParseGolangciLintJSON",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/github/pr_test.go",
+    "language": "go",
+    "path": "internal/github/pr_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/evidence.go#ParseSeverity",
+    "language": "go",
+    "path": "internal/domain/evidence.go",
+    "symbol": "ParseSeverity",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/policy/evaluator.go#extractComplexity",
+    "language": "go",
+    "path": "internal/policy/evaluator.go",
+    "symbol": "extractComplexity",
+    "type": "function"
+  },
+  {
+    "id": "file://specs/close-feature-gaps.md",
+    "language": "file",
+    "path": "specs/close-feature-gaps.md",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/dimension.go#AllDimensions",
+    "language": "go",
+    "path": "internal/domain/dimension.go",
+    "symbol": "AllDimensions",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/executor.go#runGoTest",
+    "language": "go",
+    "path": "internal/evidence/executor.go",
+    "symbol": "runGoTest",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/record/store.go#Load",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "Load",
+    "type": "method"
+  },
+  {
+    "id": "file://docs/troubleshooting.md",
+    "language": "file",
+    "path": "docs/troubleshooting.md",
+    "type": "file"
+  },
+  {
+    "id": "file://go.sum",
+    "language": "file",
+    "path": "go.sum",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/report/card.go#FormatCardText",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "FormatCardText",
+    "type": "function"
+  },
+  {
+    "id": "ts://extensions/themeMap.ts#THEME_MAP",
+    "language": "ts",
+    "path": "extensions/themeMap.ts",
+    "symbol": "THEME_MAP",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/prompts.go#Get",
+    "language": "go",
+    "path": "internal/agent/prompts.go",
+    "symbol": "Get",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/domain/config.go#PolicyConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "PolicyConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/evidence.go#Evidence",
+    "language": "go",
+    "path": "internal/domain/evidence.go",
+    "symbol": "Evidence",
+    "type": "class"
+  },
+  {
+    "id": "file://go.mod",
+    "language": "file",
+    "path": "go.mod",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/report_cmd.go#detectCommit",
+    "language": "go",
+    "path": "cmd/certify/report_cmd.go",
+    "symbol": "detectCommit",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/prompts.go#PromptTemplate",
+    "language": "go",
+    "path": "internal/agent/prompts.go",
+    "symbol": "PromptTemplate",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/config/validator.go#ValidateConfig",
+    "language": "go",
+    "path": "internal/config/validator.go",
+    "symbol": "ValidateConfig",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/openrouter.go#Error",
+    "language": "go",
+    "path": "internal/agent/openrouter.go",
+    "symbol": "Error",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/agent/prompts.go#NewPromptRegistry",
+    "language": "go",
+    "path": "internal/agent/prompts.go",
+    "symbol": "NewPromptRegistry",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/stage.go#reviewStage",
+    "language": "go",
+    "path": "internal/agent/stage.go",
+    "symbol": "reviewStage",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/config/matcher.go#NewPolicyMatcher",
+    "language": "go",
+    "path": "internal/config/matcher.go",
+    "symbol": "NewPolicyMatcher",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/unit.go#Path",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "Path",
+    "type": "method"
+  },
+  {
+    "id": "ts://testdata/repos/ts-simple/src/parser.ts#parseNode",
+    "language": "ts",
+    "path": "testdata/repos/ts-simple/src/parser.ts",
+    "symbol": "parseNode",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/config.go#ScopeConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "ScopeConfig",
     "type": "class"
   },
   {
@@ -2945,10 +2606,446 @@
     "type": "method"
   },
   {
-    "id": "go://internal/github/pr.go#TrustDelta",
+    "id": "go://internal/agent/schemas.go#PrescreenResponse",
+    "language": "go",
+    "path": "internal/agent/schemas.go",
+    "symbol": "PrescreenResponse",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/github/pr.go#BuildPRCommentCommand",
     "language": "go",
     "path": "internal/github/pr.go",
-    "symbol": "TrustDelta",
+    "symbol": "BuildPRCommentCommand",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/policy/matcher.go#Matcher",
+    "language": "go",
+    "path": "internal/policy/matcher.go",
+    "symbol": "Matcher",
     "type": "class"
+  },
+  {
+    "id": "go://internal/report/card.go#FormatCardMarkdown",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "FormatCardMarkdown",
+    "type": "function"
+  },
+  {
+    "id": "go://cmd/certify/certify_cmd.go#setupAgent",
+    "language": "go",
+    "path": "cmd/certify/certify_cmd.go",
+    "symbol": "setupAgent",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/prompts.go#Render",
+    "language": "go",
+    "path": "internal/agent/prompts.go",
+    "symbol": "Render",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/discovery/go_adapter.go#GoAdapter",
+    "language": "go",
+    "path": "internal/discovery/go_adapter.go",
+    "symbol": "GoAdapter",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/unit.go#ParseUnitType",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "ParseUnitType",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/github/pr.go#FormatPRComment",
+    "language": "go",
+    "path": "internal/github/pr.go",
+    "symbol": "FormatPRComment",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/github/workflows.go#GenerateWeeklyWorkflow",
+    "language": "go",
+    "path": "internal/github/workflows.go",
+    "symbol": "GenerateWeeklyWorkflow",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/reviewer.go#NewReviewer",
+    "language": "go",
+    "path": "internal/agent/reviewer.go",
+    "symbol": "NewReviewer",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/types.go#ChatRequest",
+    "language": "go",
+    "path": "internal/agent/types.go",
+    "symbol": "ChatRequest",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/report/detailed_test.go",
+    "language": "go",
+    "path": "internal/report/detailed_test.go",
+    "type": "file"
+  },
+  {
+    "id": "ts://extensions/purpose-gate.ts",
+    "language": "ts",
+    "path": "extensions/purpose-gate.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/config/policy.go#parseDimension",
+    "language": "go",
+    "path": "internal/config/policy.go",
+    "symbol": "parseDimension",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/queue/queue.go#Len",
+    "language": "go",
+    "path": "internal/queue/queue.go",
+    "symbol": "Len",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/detailed.go#findRecurrentlyFailing",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "findRecurrentlyFailing",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/evidence/runner.go#golangciLintOutput",
+    "language": "go",
+    "path": "internal/evidence/runner.go",
+    "symbol": "golangciLintOutput",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/record/store.go#recordJSON",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "recordJSON",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/report/card.go#Card",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "Card",
+    "type": "class"
+  },
+  {
+    "id": "ts://extensions/tool-counter-widget.ts",
+    "language": "ts",
+    "path": "extensions/tool-counter-widget.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/schemas.go#ScoringResponse",
+    "language": "go",
+    "path": "internal/agent/schemas.go",
+    "symbol": "ScoringResponse",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/metrics.go#ComputeMetrics",
+    "language": "go",
+    "path": "internal/evidence/metrics.go",
+    "symbol": "ComputeMetrics",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/expiry_test.go",
+    "language": "go",
+    "path": "internal/domain/expiry_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/unit.go#ParseUnitID",
+    "language": "go",
+    "path": "internal/domain/unit.go",
+    "symbol": "ParseUnitID",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/override/loader.go#rawOverrideFile",
+    "language": "go",
+    "path": "internal/override/loader.go",
+    "symbol": "rawOverrideFile",
+    "type": "class"
+  },
+  {
+    "id": "ts://extensions/themeMap.ts#applyExtensionDefaults",
+    "language": "ts",
+    "path": "extensions/themeMap.ts",
+    "symbol": "applyExtensionDefaults",
+    "type": "function"
+  },
+  {
+    "id": "go://cmd/certify/version.go",
+    "language": "go",
+    "path": "cmd/certify/version.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/agent/schemas.go#RemediationStep",
+    "language": "go",
+    "path": "internal/agent/schemas.go",
+    "symbol": "RemediationStep",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/discovery/index.go#Index",
+    "language": "go",
+    "path": "internal/discovery/index.go",
+    "symbol": "Index",
+    "type": "class"
+  },
+  {
+    "id": "file://specs/agent-redesign.md",
+    "language": "file",
+    "path": "specs/agent-redesign.md",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/engine/scorer_test.go",
+    "language": "go",
+    "path": "internal/engine/scorer_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/domain/config.go#RateLimitConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "RateLimitConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/config.go#ScheduleConfig",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "ScheduleConfig",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/record.go#IsPassing",
+    "language": "go",
+    "path": "internal/domain/record.go",
+    "symbol": "IsPassing",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/detailed.go#AreaSummary",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "AreaSummary",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/executor.go#runGoVet",
+    "language": "go",
+    "path": "internal/evidence/executor.go",
+    "symbol": "runGoVet",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/override/loader.go#LoadDir",
+    "language": "go",
+    "path": "internal/override/loader.go",
+    "symbol": "LoadDir",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/report/card.go#LanguageCard",
+    "language": "go",
+    "path": "internal/report/card.go",
+    "symbol": "LanguageCard",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/policy.go#IsGlobal",
+    "language": "go",
+    "path": "internal/domain/policy.go",
+    "symbol": "IsGlobal",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/policy/evaluator.go#extractCoverage",
+    "language": "go",
+    "path": "internal/policy/evaluator.go",
+    "symbol": "extractCoverage",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/openrouter_test.go",
+    "language": "go",
+    "path": "internal/agent/openrouter_test.go",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/discovery/ts_adapter.go#TSAdapter",
+    "language": "go",
+    "path": "internal/discovery/ts_adapter.go",
+    "symbol": "TSAdapter",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/config.go#Config",
+    "language": "go",
+    "path": "internal/domain/config.go",
+    "symbol": "Config",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/git.go#ParseGitLog",
+    "language": "go",
+    "path": "internal/evidence/git.go",
+    "symbol": "ParseGitLog",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/record/store.go#pathFor",
+    "language": "go",
+    "path": "internal/record/store.go",
+    "symbol": "pathFor",
+    "type": "method"
+  },
+  {
+    "id": "go://internal/report/detailed.go#findFailing",
+    "language": "go",
+    "path": "internal/report/detailed.go",
+    "symbol": "findFailing",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/github/workflows_test.go",
+    "language": "go",
+    "path": "internal/github/workflows_test.go",
+    "type": "file"
+  },
+  {
+    "id": "ts://extensions/agent-chain.ts",
+    "language": "ts",
+    "path": "extensions/agent-chain.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://internal/evidence/runner.go#ParseCoverProfile",
+    "language": "go",
+    "path": "internal/evidence/runner.go",
+    "symbol": "ParseCoverProfile",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/record/store_test.go",
+    "language": "go",
+    "path": "internal/record/store_test.go",
+    "type": "file"
+  },
+  {
+    "id": "ts://extensions/pi-pi.ts",
+    "language": "ts",
+    "path": "extensions/pi-pi.ts",
+    "type": "file"
+  },
+  {
+    "id": "go://cmd/certify/init_cmd.go#init",
+    "language": "go",
+    "path": "cmd/certify/init_cmd.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/record.go#CertificationRecord",
+    "language": "go",
+    "path": "internal/domain/record.go",
+    "symbol": "CertificationRecord",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/github/workflows.go#GeneratePRWorkflow",
+    "language": "go",
+    "path": "internal/github/workflows.go",
+    "symbol": "GeneratePRWorkflow",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/config/loader.go#validate",
+    "language": "go",
+    "path": "internal/config/loader.go",
+    "symbol": "validate",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/policy/evaluator.go#extractMetric",
+    "language": "go",
+    "path": "internal/policy/evaluator.go",
+    "symbol": "extractMetric",
+    "type": "function"
+  },
+  {
+    "id": "go://cmd/certify/root.go#init",
+    "language": "go",
+    "path": "cmd/certify/root.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/agent/circuit.go#CircuitBreaker",
+    "language": "go",
+    "path": "internal/agent/circuit.go",
+    "symbol": "CircuitBreaker",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/config/policy.go#parseSeverity",
+    "language": "go",
+    "path": "internal/config/policy.go",
+    "symbol": "parseSeverity",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/dimension.go#GradeFromScore",
+    "language": "go",
+    "path": "internal/domain/dimension.go",
+    "symbol": "GradeFromScore",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/override.go#Override",
+    "language": "go",
+    "path": "internal/domain/override.go",
+    "symbol": "Override",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/domain/evidence.go#init",
+    "language": "go",
+    "path": "internal/domain/evidence.go",
+    "symbol": "init",
+    "type": "function"
+  },
+  {
+    "id": "go://internal/domain/expiry.go#ExpiryWindow",
+    "language": "go",
+    "path": "internal/domain/expiry.go",
+    "symbol": "ExpiryWindow",
+    "type": "class"
+  },
+  {
+    "id": "go://internal/evidence/git.go#ToEvidence",
+    "language": "go",
+    "path": "internal/evidence/git.go",
+    "symbol": "ToEvidence",
+    "type": "method"
   }
 ]

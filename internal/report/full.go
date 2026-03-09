@@ -1,0 +1,334 @@
+package report
+
+import (
+	"fmt"
+	"sort"
+	"strings"
+	"time"
+
+	"github.com/code-certification/certify/internal/domain"
+)
+
+// FullReport is a complete, per-unit certification report.
+type FullReport struct {
+	// Header
+	Repository  string `json:"repository"`
+	CommitSHA   string `json:"commit_sha,omitempty"`
+	GeneratedAt string `json:"generated_at"`
+
+	// Summary card
+	Card Card `json:"card"`
+
+	// Every unit with full details
+	Units []UnitReport `json:"units"`
+
+	// Dimension averages across all units
+	DimensionAverages map[string]float64 `json:"dimension_averages"`
+
+	// By-language detail
+	LanguageDetail []LanguageDetail `json:"language_detail"`
+}
+
+// UnitReport is the complete certification detail for a single unit.
+type UnitReport struct {
+	UnitID       string             `json:"unit_id"`
+	UnitType     string             `json:"unit_type"`
+	Path         string             `json:"path"`
+	Language     string             `json:"language"`
+	Symbol       string             `json:"symbol,omitempty"`
+	Status       string             `json:"status"`
+	Grade        string             `json:"grade"`
+	Score        float64            `json:"score"`
+	Confidence   float64            `json:"confidence"`
+	Dimensions   map[string]float64 `json:"dimensions"`
+	Observations []string           `json:"observations,omitempty"`
+	Actions      []string           `json:"actions,omitempty"`
+	CertifiedAt  string             `json:"certified_at"`
+	ExpiresAt    string             `json:"expires_at"`
+	Source       string             `json:"source"`
+}
+
+// LanguageDetail extends LanguageCard with grade distribution.
+type LanguageDetail struct {
+	Name              string         `json:"name"`
+	Units             int            `json:"units"`
+	AverageScore      float64        `json:"average_score"`
+	Grade             string         `json:"grade"`
+	GradeDistribution map[string]int `json:"grade_distribution"`
+	TopScore          float64        `json:"top_score"`
+	BottomScore       float64        `json:"bottom_score"`
+}
+
+// GenerateFullReport creates a comprehensive per-unit report.
+func GenerateFullReport(records []domain.CertificationRecord, repo, commit string, now time.Time) FullReport {
+	r := FullReport{
+		Repository:        repo,
+		CommitSHA:         commit,
+		GeneratedAt:       now.Format(time.RFC3339),
+		Card:              GenerateCard(records, repo, commit, now),
+		DimensionAverages: computeDimensionAverages(records),
+	}
+
+	// Build per-unit reports
+	r.Units = make([]UnitReport, 0, len(records))
+	for _, rec := range records {
+		r.Units = append(r.Units, unitReportFrom(rec))
+	}
+	sort.Slice(r.Units, func(i, j int) bool {
+		return r.Units[i].UnitID < r.Units[j].UnitID
+	})
+
+	// Build language detail
+	r.LanguageDetail = buildLanguageDetail(records)
+
+	return r
+}
+
+func unitReportFrom(rec domain.CertificationRecord) UnitReport {
+	dims := make(map[string]float64, len(rec.Dimensions))
+	for d, v := range rec.Dimensions {
+		dims[d.String()] = v
+	}
+
+	return UnitReport{
+		UnitID:       rec.UnitID.String(),
+		UnitType:     rec.UnitType.String(),
+		Path:         rec.UnitPath,
+		Language:     rec.UnitID.Language(),
+		Symbol:       rec.UnitID.Symbol(),
+		Status:       rec.Status.String(),
+		Grade:        rec.Grade.String(),
+		Score:        rec.Score,
+		Confidence:   rec.Confidence,
+		Dimensions:   dims,
+		Observations: rec.Observations,
+		Actions:      rec.Actions,
+		CertifiedAt:  rec.CertifiedAt.Format(time.RFC3339),
+		ExpiresAt:    rec.ExpiresAt.Format(time.RFC3339),
+		Source:       rec.Source,
+	}
+}
+
+func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail {
+	type langAccum struct {
+		scores []float64
+		grades map[string]int
+	}
+	accum := make(map[string]*langAccum)
+
+	for _, r := range records {
+		lang := r.UnitID.Language()
+		a, ok := accum[lang]
+		if !ok {
+			a = &langAccum{grades: make(map[string]int)}
+			accum[lang] = a
+		}
+		a.scores = append(a.scores, r.Score)
+		a.grades[r.Grade.String()]++
+	}
+
+	var details []LanguageDetail
+	for lang, a := range accum {
+		var sum, top, bottom float64
+		bottom = 1.0
+		for _, s := range a.scores {
+			sum += s
+			if s > top {
+				top = s
+			}
+			if s < bottom {
+				bottom = s
+			}
+		}
+		avg := sum / float64(len(a.scores))
+		details = append(details, LanguageDetail{
+			Name:              lang,
+			Units:             len(a.scores),
+			AverageScore:      avg,
+			Grade:             domain.GradeFromScore(avg).String(),
+			GradeDistribution: a.grades,
+			TopScore:          top,
+			BottomScore:       bottom,
+		})
+	}
+	sort.Slice(details, func(i, j int) bool {
+		return details[i].Units > details[j].Units
+	})
+	return details
+}
+
+// FormatFullMarkdown renders the complete report as a markdown document.
+func FormatFullMarkdown(r FullReport) string {
+	var b strings.Builder
+
+	// Title
+	emoji := gradeEmoji(r.Card.OverallGrade)
+	fmt.Fprintf(&b, "# %s Code Certification — Full Report\n\n", emoji)
+
+	if r.Repository != "" {
+		fmt.Fprintf(&b, "**Repository:** `%s`  \n", r.Repository)
+	}
+	if r.CommitSHA != "" {
+		fmt.Fprintf(&b, "**Commit:** `%s`  \n", r.CommitSHA)
+	}
+	fmt.Fprintf(&b, "**Generated:** %s  \n\n", r.GeneratedAt[:19])
+
+	// ── Summary ──
+	b.WriteString("---\n\n## Summary\n\n")
+	fmt.Fprintf(&b, "| Metric | Value |\n")
+	fmt.Fprintf(&b, "|--------|-------|\n")
+	fmt.Fprintf(&b, "| **Overall Grade** | %s **%s** |\n", emoji, r.Card.OverallGrade)
+	fmt.Fprintf(&b, "| **Overall Score** | %.1f%% |\n", r.Card.OverallScore*100)
+	fmt.Fprintf(&b, "| **Total Units** | %d |\n", r.Card.TotalUnits)
+	fmt.Fprintf(&b, "| **Passing** | %d |\n", r.Card.Passing)
+	fmt.Fprintf(&b, "| **Failing** | %d |\n", r.Card.Failing)
+	fmt.Fprintf(&b, "| **Pass Rate** | %.1f%% |\n", r.Card.PassRate*100)
+	fmt.Fprintf(&b, "| **Observations** | %d |\n", r.Card.Observations)
+	fmt.Fprintf(&b, "| **Expired** | %d |\n\n", r.Card.Expired)
+
+	// ── Grade Distribution ──
+	b.WriteString("## Grade Distribution\n\n")
+	b.WriteString("| Grade | Count | % | Bar |\n")
+	b.WriteString("|:-----:|------:|----:|-----|\n")
+	for _, g := range []string{"A", "A-", "B+", "B", "C", "D", "F"} {
+		count := r.Card.GradeDistribution[g]
+		if count == 0 {
+			continue
+		}
+		pct := float64(count) / float64(r.Card.TotalUnits) * 100
+		barLen := int(pct / 2)
+		if barLen < 1 {
+			barLen = 1
+		}
+		bar := strings.Repeat("█", barLen)
+		fmt.Fprintf(&b, "| %s | %d | %.1f%% | %s |\n", g, count, pct, bar)
+	}
+	b.WriteString("\n")
+
+	// ── Dimension Averages ──
+	if len(r.DimensionAverages) > 0 {
+		b.WriteString("## Dimension Averages\n\n")
+		b.WriteString("| Dimension | Score | Bar |\n")
+		b.WriteString("|-----------|------:|-----|\n")
+		dims := make([]string, 0, len(r.DimensionAverages))
+		for d := range r.DimensionAverages {
+			dims = append(dims, d)
+		}
+		sort.Strings(dims)
+		for _, d := range dims {
+			v := r.DimensionAverages[d]
+			barLen := int(v * 20)
+			bar := strings.Repeat("█", barLen) + strings.Repeat("░", 20-barLen)
+			fmt.Fprintf(&b, "| %s | %.1f%% | %s |\n", d, v*100, bar)
+		}
+		b.WriteString("\n")
+	}
+
+	// ── By Language ──
+	if len(r.LanguageDetail) > 0 {
+		b.WriteString("## By Language\n\n")
+		for _, lang := range r.LanguageDetail {
+			fmt.Fprintf(&b, "### %s — %s %s (%.1f%%)\n\n",
+				lang.Name, gradeEmoji(lang.Grade), lang.Grade, lang.AverageScore*100)
+			fmt.Fprintf(&b, "- **Units:** %d\n", lang.Units)
+			fmt.Fprintf(&b, "- **Score range:** %.1f%% – %.1f%%\n", lang.BottomScore*100, lang.TopScore*100)
+			b.WriteString("- **Grades:** ")
+			first := true
+			for _, g := range []string{"A", "A-", "B+", "B", "C", "D", "F"} {
+				if c := lang.GradeDistribution[g]; c > 0 {
+					if !first {
+						b.WriteString(", ")
+					}
+					fmt.Fprintf(&b, "%d×%s", c, g)
+					first = false
+				}
+			}
+			b.WriteString("\n\n")
+		}
+	}
+
+	// ── All Units ──
+	b.WriteString("## All Units\n\n")
+
+	// Group by directory for readability
+	dirUnits := make(map[string][]UnitReport)
+	var dirs []string
+	for _, u := range r.Units {
+		dir := dirOf(u.Path)
+		if _, ok := dirUnits[dir]; !ok {
+			dirs = append(dirs, dir)
+		}
+		dirUnits[dir] = append(dirUnits[dir], u)
+	}
+	sort.Strings(dirs)
+
+	for _, dir := range dirs {
+		units := dirUnits[dir]
+		fmt.Fprintf(&b, "### `%s/` (%d units)\n\n", dir, len(units))
+		b.WriteString("| Unit | Type | Grade | Score | Status | Expires |\n")
+		b.WriteString("|------|------|:-----:|------:|--------|--------|\n")
+		for _, u := range units {
+			name := u.Symbol
+			if name == "" {
+				name = shortFile(u.Path)
+			}
+			fmt.Fprintf(&b, "| `%s` | %s | %s | %.1f%% | %s | %s |\n",
+				name, u.UnitType, u.Grade, u.Score*100, u.Status, u.ExpiresAt[:10])
+		}
+		b.WriteString("\n")
+
+		// Show dimension detail for any unit with observations or non-passing
+		for _, u := range units {
+			if len(u.Observations) > 0 || u.Status != "certified" {
+				fmt.Fprintf(&b, "<details>\n<summary>%s — %s details</summary>\n\n", u.Symbol, u.Status)
+				if len(u.Dimensions) > 0 {
+					b.WriteString("| Dimension | Score |\n|-----------|------:|\n")
+					dimKeys := sortedKeys(u.Dimensions)
+					for _, d := range dimKeys {
+						fmt.Fprintf(&b, "| %s | %.1f%% |\n", d, u.Dimensions[d]*100)
+					}
+					b.WriteString("\n")
+				}
+				if len(u.Observations) > 0 {
+					b.WriteString("**Observations:**\n")
+					for _, obs := range u.Observations {
+						fmt.Fprintf(&b, "- %s\n", obs)
+					}
+					b.WriteString("\n")
+				}
+				b.WriteString("</details>\n\n")
+			}
+		}
+	}
+
+	// ── Footer ──
+	b.WriteString("---\n\n")
+	fmt.Fprintf(&b, "*%d units certified. Generated by [certify](https://github.com/iksnae/code-certification).*\n", len(r.Units))
+
+	return b.String()
+}
+
+func dirOf(path string) string {
+	idx := strings.LastIndex(path, "/")
+	if idx < 0 {
+		return "."
+	}
+	return path[:idx]
+}
+
+func shortFile(path string) string {
+	idx := strings.LastIndex(path, "/")
+	if idx < 0 {
+		return path
+	}
+	return path[idx+1:]
+}
+
+func sortedKeys(m map[string]float64) []string {
+	keys := make([]string, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	return keys
+}

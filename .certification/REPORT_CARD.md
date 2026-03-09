@@ -1,15 +1,15 @@
 # 🔵 Code Certification Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `8567fe3`
-**Generated:** 2026-03-09T15:05:16
+**Commit:** `0628f10`
+**Generated:** 2026-03-09T15:11:52
 
 ## 🔵 Overall: B (86.2%)
 
 | Metric | Value |
 |--------|-------|
-| Total Units | 433 |
-| Passing | 433 |
+| Total Units | 447 |
+| Passing | 447 |
 | Failing | 0 |
 | Pass Rate | 100.0% |
 | Observations | 0 |
@@ -19,13 +19,13 @@
 
 | Grade | Count | % |
 |-------|-------|---|
-| B | 433 | 100.0% |
+| B | 447 | 100.0% |
 
 ### By Language
 
 | Language | Units | Grade | Score |
 |----------|-------|-------|-------|
-| go | 394 | 🔵 B | 86.3% |
+| go | 408 | 🔵 B | 86.3% |
 | ts | 24 | 🔵 B | 85.3% |
 | file | 15 | 🔵 B | 85.2% |
 

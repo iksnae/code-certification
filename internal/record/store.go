@@ -16,21 +16,22 @@ import (
 
 // recordJSON is the JSON-serializable form of a CertificationRecord.
 type recordJSON struct {
-	UnitID       string   `json:"unit_id"`
-	UnitType     string   `json:"unit_type"`
-	UnitPath     string   `json:"unit_path"`
-	PolicyVer    string   `json:"policy_version"`
-	Status       string   `json:"status"`
-	Grade        string   `json:"grade"`
-	Score        float64  `json:"score"`
-	Confidence   float64  `json:"confidence"`
-	Observations []string `json:"observations,omitempty"`
-	Actions      []string `json:"actions,omitempty"`
-	CertifiedAt  string   `json:"certified_at"`
-	ExpiresAt    string   `json:"expires_at"`
-	Source       string   `json:"source"`
-	RunID        string   `json:"run_id,omitempty"`
-	Version      int      `json:"version"`
+	UnitID       string             `json:"unit_id"`
+	UnitType     string             `json:"unit_type"`
+	UnitPath     string             `json:"unit_path"`
+	PolicyVer    string             `json:"policy_version"`
+	Status       string             `json:"status"`
+	Grade        string             `json:"grade"`
+	Score        float64            `json:"score"`
+	Confidence   float64            `json:"confidence"`
+	Dimensions   map[string]float64 `json:"dimensions,omitempty"`
+	Observations []string           `json:"observations,omitempty"`
+	Actions      []string           `json:"actions,omitempty"`
+	CertifiedAt  string             `json:"certified_at"`
+	ExpiresAt    string             `json:"expires_at"`
+	Source       string             `json:"source"`
+	RunID        string             `json:"run_id,omitempty"`
+	Version      int                `json:"version"`
 }
 
 // Store manages certification record files.
@@ -120,6 +121,7 @@ func toJSON(rec domain.CertificationRecord) recordJSON {
 		Grade:        rec.Grade.String(),
 		Score:        rec.Score,
 		Confidence:   rec.Confidence,
+		Dimensions:   dimensionsToMap(rec.Dimensions),
 		Observations: rec.Observations,
 		Actions:      rec.Actions,
 		CertifiedAt:  rec.CertifiedAt.Format(time.RFC3339),
@@ -146,6 +148,7 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 		Grade:         parseGrade(rj.Grade),
 		Score:         rj.Score,
 		Confidence:    rj.Confidence,
+		Dimensions:    mapToDimensions(rj.Dimensions),
 		Observations:  rj.Observations,
 		Actions:       rj.Actions,
 		CertifiedAt:   certAt,
@@ -215,6 +218,35 @@ func (s *Store) historyPathFor(id domain.UnitID) string {
 	h := sha256.Sum256([]byte(id.String()))
 	name := hex.EncodeToString(h[:8]) + ".history.jsonl"
 	return filepath.Join(s.dir, name)
+}
+
+func dimensionsToMap(dims domain.DimensionScores) map[string]float64 {
+	if len(dims) == 0 {
+		return nil
+	}
+	m := make(map[string]float64, len(dims))
+	for d, v := range dims {
+		m[d.String()] = v
+	}
+	return m
+}
+
+func mapToDimensions(m map[string]float64) domain.DimensionScores {
+	if len(m) == 0 {
+		return nil
+	}
+	// Build reverse lookup
+	lookup := make(map[string]domain.Dimension)
+	for _, d := range domain.AllDimensions() {
+		lookup[d.String()] = d
+	}
+	dims := make(domain.DimensionScores, len(m))
+	for k, v := range m {
+		if d, ok := lookup[k]; ok {
+			dims[d] = v
+		}
+	}
+	return dims
 }
 
 func parseGrade(s string) domain.Grade {

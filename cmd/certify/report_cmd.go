@@ -27,13 +27,15 @@ var reportCmd = &cobra.Command{
 
 Formats:
   text      Human-readable summary (default)
-  json      Machine-readable detailed JSON
+  json      Full report as machine-readable JSON (every unit + dimensions)
   card      Report card (text box with grade)
   markdown  Report card as GitHub-friendly markdown
+  full      Complete per-unit report with all dimensions and scores
 
 Output:
   By default, reports print to stdout. Use --output to write to a file.
-  The report card is also saved to .certification/REPORT_CARD.md automatically.`,
+  The report card is also saved to .certification/REPORT_CARD.md.
+  The full report is saved to .certification/FULL_REPORT.md.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		root := reportPath
 		if root == "" {
@@ -60,8 +62,8 @@ Output:
 
 		switch reportFormat {
 		case "json":
-			d := report.Detailed(records, now)
-			data, err := report.FormatJSON(d)
+			fr := report.GenerateFullReport(records, repo, commit, now)
+			data, err := report.FormatJSON(fr)
 			if err != nil {
 				return err
 			}
@@ -74,9 +76,14 @@ Output:
 		case "markdown", "md":
 			c := report.GenerateCard(records, repo, commit, now)
 			output = report.FormatCardMarkdown(c)
-			// Also save to .certification/REPORT_CARD.md
 			cardPath := filepath.Join(certDir, "REPORT_CARD.md")
 			os.WriteFile(cardPath, []byte(output), 0o644)
+
+		case "full":
+			fr := report.GenerateFullReport(records, repo, commit, now)
+			output = report.FormatFullMarkdown(fr)
+			fullPath := filepath.Join(certDir, "FULL_REPORT.md")
+			os.WriteFile(fullPath, []byte(output), 0o644)
 
 		default:
 			if reportDetailed {
@@ -101,12 +108,16 @@ Output:
 			fmt.Print(output)
 		}
 
-		// Always save the markdown report card alongside records
+		// Always save both report card and full report alongside records
 		if reportFormat != "markdown" && reportFormat != "md" {
 			c := report.GenerateCard(records, repo, commit, now)
 			md := report.FormatCardMarkdown(c)
-			cardPath := filepath.Join(certDir, "REPORT_CARD.md")
-			os.WriteFile(cardPath, []byte(md), 0o644)
+			os.WriteFile(filepath.Join(certDir, "REPORT_CARD.md"), []byte(md), 0o644)
+		}
+		if reportFormat != "full" {
+			fr := report.GenerateFullReport(records, repo, commit, now)
+			fullMD := report.FormatFullMarkdown(fr)
+			os.WriteFile(filepath.Join(certDir, "FULL_REPORT.md"), []byte(fullMD), 0o644)
 		}
 
 		return nil
@@ -114,7 +125,7 @@ Output:
 }
 
 func init() {
-	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "text", "Output format (text, json, card, markdown)")
+	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "text", "Output format (text, json, card, markdown, full)")
 	reportCmd.Flags().StringVar(&reportPath, "path", "", "Path to repository (default: current directory)")
 	reportCmd.Flags().BoolVar(&reportDetailed, "detailed", false, "Include dimension breakdowns, risk analysis, expiring units")
 	reportCmd.Flags().StringVarP(&reportOutput, "output", "o", "", "Write report to file instead of stdout")
