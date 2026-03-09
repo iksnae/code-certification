@@ -1,6 +1,7 @@
 package discovery_test
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 
@@ -117,6 +118,89 @@ func TestGenericScanner_TSFiles(t *testing.T) {
 		if u.ID.Language() != "ts" {
 			t.Errorf("unit %s language = %q, want ts", u.ID, u.ID.Language())
 		}
+	}
+}
+
+func TestGenericScanner_SkipsNonCertifiable(t *testing.T) {
+	dir := t.TempDir()
+	// Create a mix of certifiable and non-certifiable files
+	certifiable := []string{"main.go", "app.ts", "lib.py", "run.sh", "server.rs", "Main.java"}
+	nonCertifiable := []string{
+		"logo.png", "icon.svg", "photo.jpg", "anim.gif", "pic.webp",  // images
+		"data.json", "config.xml", "style.css", "page.html", "doc.md", // data/markup
+		"app.wasm", "lib.so", "prog.exe",                               // binaries
+		"bundle.min.js", "bundle.min.css",                               // minified
+		"package-lock.json", "yarn.lock", "go.sum",                      // lock files
+		"output.map", "bundle.vsix",                                     // artifacts
+		"font.woff", "font.woff2", "font.ttf", "font.eot",             // fonts
+		"video.mp4", "audio.mp3",                                        // media
+		"archive.zip", "backup.tar.gz",                                  // archives
+	}
+
+	for _, f := range certifiable {
+		writeFile(t, dir, f, "// code")
+	}
+	for _, f := range nonCertifiable {
+		writeFile(t, dir, f, "content")
+	}
+
+	s := discovery.NewGenericScanner(nil, nil)
+	units, err := s.Scan(dir)
+	if err != nil {
+		t.Fatalf("Scan() error: %v", err)
+	}
+
+	paths := make(map[string]bool)
+	for _, u := range units {
+		paths[u.ID.Path()] = true
+	}
+
+	// All certifiable files should be found
+	for _, f := range certifiable {
+		if !paths[f] {
+			t.Errorf("certifiable file %q was not discovered", f)
+		}
+	}
+
+	// No non-certifiable files should be found
+	for _, f := range nonCertifiable {
+		if paths[f] {
+			t.Errorf("non-certifiable file %q should not be discovered", f)
+		}
+	}
+}
+
+func TestGenericScanner_SkipsBuildOutputDirs(t *testing.T) {
+	dir := t.TempDir()
+	writeFile(t, dir, "src/main.go", "package main")
+	writeFile(t, dir, "dist/bundle.js", "compiled")
+	writeFile(t, dir, "out/index.js", "compiled")
+	writeFile(t, dir, "coverage/lcov.info", "data")
+
+	s := discovery.NewGenericScanner(nil, nil)
+	units, err := s.Scan(dir)
+	if err != nil {
+		t.Fatalf("Scan() error: %v", err)
+	}
+
+	for _, u := range units {
+		path := u.ID.Path()
+		for _, bad := range []string{"dist/", "out/", "coverage/"} {
+			if filepath.HasPrefix(path, bad) {
+				t.Errorf("build output %q should be excluded", path)
+			}
+		}
+	}
+}
+
+func writeFile(t *testing.T, dir, name, content string) {
+	t.Helper()
+	full := filepath.Join(dir, name)
+	if err := os.MkdirAll(filepath.Dir(full), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(full, []byte(content), 0o644); err != nil {
+		t.Fatal(err)
 	}
 }
 

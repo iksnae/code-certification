@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `2607ed9`  
-**Generated:** 2026-03-09T22:48:01  
+**Commit:** `dca34b8`  
+**Generated:** 2026-03-09T19:03:03  
 
 ---
 
@@ -12,8 +12,8 @@
 |--------|-------|
 | **Overall Grade** | 🟢 **B+** |
 | **Overall Score** | 87.3% |
-| **Total Units** | 581 |
-| **Passing** | 581 |
+| **Total Units** | 539 |
+| **Passing** | 539 |
 | **Failing** | 0 |
 | **Pass Rate** | 100.0% |
 | **Observations** | 0 |
@@ -23,8 +23,8 @@
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B+ | 381 | 65.6% | ████████████████████████████████ |
-| B | 200 | 34.4% | █████████████████ |
+| B+ | 353 | 65.5% | ████████████████████████████████ |
+| B | 186 | 34.5% | █████████████████ |
 
 ## Dimension Averages
 
@@ -33,10 +33,10 @@
 | architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 90.0% | █████████████████░░░ |
 | correctness | 95.0% | ██████████████████░░ |
-| maintainability | 93.6% | ██████████████████░░ |
+| maintainability | 93.5% | ██████████████████░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
 | performance_appropriateness | 80.0% | ████████████████░░░░ |
-| readability | 92.1% | ██████████████████░░ |
+| readability | 92.2% | ██████████████████░░ |
 | security | 80.0% | ████████████████░░░░ |
 | testability | 90.0% | █████████████████░░░ |
 
@@ -48,42 +48,13 @@
 - **Score range:** 83.9% – 87.8%
 - **Grades:** 343×B+, 129×B
 
-### file — 🟢 B (86.8%)
+### ts — 🟢 B (86.6%)
 
-- **Units:** 60
+- **Units:** 67
 - **Score range:** 83.9% – 87.8%
-- **Grades:** 30×B+, 30×B
-
-### ts — 🟢 B (86.8%)
-
-- **Units:** 49
-- **Score range:** 86.1% – 87.8%
-- **Grades:** 8×B+, 41×B
+- **Grades:** 10×B+, 57×B
 
 ## All Units
-
-### `./` (6 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `CLAUDE.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `FEATURES.md` | file | B | 86.1% | certified | 2026-04-23 |
-| `README.md` | file | B | 86.1% | certified | 2026-04-23 |
-| `go.mod` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `go.sum` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-image.png` | file | B | 83.9% | certified | 2026-04-23 |
-
-### `assets/` (7 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `logo-1024.png` | file | B | 83.9% | certified | 2026-04-23 |
-| `logo-128-dark.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-128.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-256.png` | file | B | 86.7% | certified | 2026-04-23 |
-| `logo-32.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-512.png` | file | B | 86.1% | certified | 2026-04-23 |
-| `logo-64.png` | file | B+ | 87.8% | certified | 2026-04-23 |
 
 ### `cmd/certify/` (35 units)
 
@@ -145,22 +116,28 @@
 
 </details>
 
-### `docs/` (5 units)
+### `extensions/` (18 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| `README.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `architecture.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `brand.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `policy-authoring.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `troubleshooting.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `docs/internal/` (2 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `PRD.md` | file | B | 83.9% | certified | 2026-04-23 |
-| `STORIES.md` | file | B | 83.9% | certified | 2026-04-23 |
+| `agent-chain.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `agent-team.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `cross-agent.ts` | file | B | 86.1% | certified | 2026-04-23 |
+| `damage-control.ts` | file | B | 86.1% | certified | 2026-04-23 |
+| `minimal.ts` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `pi-pi.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `pure-focus.ts` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `purpose-gate.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `session-replay.ts` | file | B | 86.1% | certified | 2026-04-23 |
+| `subagent-widget.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `system-select.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `theme-cycler.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `THEME_MAP` | function | B | 86.7% | certified | 2026-04-23 |
+| `applyExtensionDefaults` | function | B | 86.7% | certified | 2026-04-23 |
+| `applyExtensionTheme` | function | B | 86.7% | certified | 2026-04-23 |
+| `tilldone.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `tool-counter-widget.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `tool-counter.ts` | file | B | 86.7% | certified | 2026-04-23 |
 
 ### `internal/` (1 units)
 
@@ -343,7 +320,7 @@
 | `diff_test.go` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `GenericScanner` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `NewGenericScanner` | function | B+ | 87.8% | certified | 2026-04-23 |
-| `Scan` | method | B | 86.1% | certified | 2026-04-23 |
+| `Scan` | method | B | 85.0% | certified | 2026-04-23 |
 | `matchAny` | function | B | 86.7% | certified | 2026-04-23 |
 | `GoAdapter` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `NewGoAdapter` | function | B+ | 87.8% | certified | 2026-04-23 |
@@ -363,7 +340,7 @@
 | `Merge` | function | B | 86.7% | certified | 2026-04-23 |
 | `Scanner` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `UnitList` | class | B+ | 87.8% | certified | 2026-04-23 |
-| `scanner_test.go` | file | B | 86.7% | certified | 2026-04-23 |
+| `scanner_test.go` | file | B | 86.1% | certified | 2026-04-23 |
 | `NewTSAdapter` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `Scan` | method | B | 86.1% | certified | 2026-04-23 |
 | `TSAdapter` | class | B+ | 87.8% | certified | 2026-04-23 |
@@ -900,18 +877,6 @@
 | `formatDate` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `log` | function | B+ | 87.8% | certified | 2026-04-23 |
 
-### `vscode-certify/` (7 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `CHANGELOG.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `README.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `esbuild.mjs` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `icon.png` | file | B | 86.7% | certified | 2026-04-23 |
-| `package-lock.json` | file | B | 83.9% | certified | 2026-04-23 |
-| `package.json` | file | B | 86.7% | certified | 2026-04-23 |
-| `tsconfig.json` | file | B+ | 87.8% | certified | 2026-04-23 |
-
 ### `vscode-certify/src/` (31 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
@@ -928,7 +893,7 @@
 | `GRADE_COLORS` | function | B | 86.7% | certified | 2026-04-23 |
 | `GRADE_EMOJI` | function | B | 86.7% | certified | 2026-04-23 |
 | `PROVIDER_PRESETS` | function | B | 86.7% | certified | 2026-04-23 |
-| `CertifyDataLoader` | class | B | 86.7% | certified | 2026-04-23 |
+| `CertifyDataLoader` | class | B | 86.1% | certified | 2026-04-23 |
 | `activate` | function | B | 86.7% | certified | 2026-04-23 |
 | `deactivate` | function | B | 86.7% | certified | 2026-04-23 |
 | `createStatusBarItem` | function | B+ | 87.8% | certified | 2026-04-23 |
@@ -984,95 +949,12 @@
 | `CertificationTreeProvider` | class | B | 86.7% | certified | 2026-04-23 |
 | `CertifyTreeItem` | class | B | 86.7% | certified | 2026-04-23 |
 
-### `website/` (5 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `README.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `astro.config.mjs` | file | B | 86.7% | certified | 2026-04-23 |
-| `package-lock.json` | file | B | 83.9% | certified | 2026-04-23 |
-| `package.json` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `tsconfig.json` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/public/` (3 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `apple-touch-icon.png` | file | B | 86.7% | certified | 2026-04-23 |
-| `favicon-32.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `favicon.ico` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/public/images/` (4 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `logo-128.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-256.png` | file | B | 86.7% | certified | 2026-04-23 |
-| `logo-64.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `og-image.png` | file | B | 83.9% | certified | 2026-04-23 |
-
 ### `website/src/` (1 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
 | `collections` | function | B+ | 87.8% | certified | 2026-04-23 |
 
-### `website/src/assets/` (3 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `houston.webp` | file | B | 83.9% | certified | 2026-04-23 |
-| `logo-dark.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `logo-light.png` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/src/content/docs/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `index.mdx` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/src/content/docs/advanced/` (2 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `agent-review.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `troubleshooting.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/src/content/docs/concepts/` (3 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `architecture.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `dimensions.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `lifecycle.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/src/content/docs/guides/` (5 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `first-report.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `installation.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `introduction.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `quickstart.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `vscode-extension.md` | file | B | 86.7% | certified | 2026-04-23 |
-
-### `website/src/content/docs/reference/` (6 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `badge.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `ci.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-| `cli.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `configuration.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `policies.md` | file | B | 86.7% | certified | 2026-04-23 |
-| `report-card.md` | file | B+ | 87.8% | certified | 2026-04-23 |
-
-### `website/src/styles/` (1 units)
-
-| Unit | Type | Grade | Score | Status | Expires |
-|------|------|:-----:|------:|--------|--------|
-| `brand.css` | file | B | 86.7% | certified | 2026-04-23 |
-
 ---
 
-*581 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
+*539 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
