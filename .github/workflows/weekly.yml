@@ -5,8 +5,12 @@ on:
     - cron: '0 8 * * 1'  # 8 AM UTC every Monday
   workflow_dispatch:
 
+concurrency:
+  group: certify-weekly
+  cancel-in-progress: true
+
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   report:
@@ -19,11 +23,12 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.22'
+          cache: true
 
       - name: Build certify
         run: |
           go build -ldflags "\
-            -X main.Version=0.1.0 \
+            -X main.Version=$(git describe --tags --always) \
             -X main.Commit=$(git rev-parse --short HEAD) \
             -X main.Date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             -o build/bin/certify ./cmd/certify/
@@ -31,15 +36,19 @@ jobs:
       - name: Scan
         run: ./build/bin/certify scan
 
-      - name: Full certification
+      - name: Full certification (deterministic)
+        run: ./build/bin/certify certify --skip-agent --reset-queue
+
+      - name: AI review (budget-capped)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: ./build/bin/certify certify --reset-queue
+        run: ./build/bin/certify certify --batch 100
+        continue-on-error: true
 
-      - name: Detailed report
-        run: ./build/bin/certify report --detailed
+      - name: Generate report
+        run: ./build/bin/certify report
 
-      - name: JSON report
+      - name: JSON report artifact
         run: ./build/bin/certify report --format json > weekly-report.json
 
       - name: Upload report
@@ -47,3 +56,11 @@ jobs:
         with:
           name: weekly-certification-report
           path: weekly-report.json
+
+      - name: Commit updated records
+        run: |
+          git config user.name "certify[bot]"
+          git config user.email "certify@users.noreply.github.com"
+          git add .certification/
+          git diff --staged --quiet || git commit -m "chore: weekly full certification [skip ci]"
+          git push

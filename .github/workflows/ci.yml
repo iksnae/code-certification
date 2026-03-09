@@ -3,8 +3,19 @@ name: CI
 on:
   push:
     branches: [main]
+    paths:
+      - '**.go'
+      - 'go.mod'
+      - 'go.sum'
+      - '.github/workflows/ci.yml'
+      - '.certification/config.yml'
+      - '.certification/policies/**'
   pull_request:
     branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -18,6 +29,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.22'
+          cache: true
 
       - name: Test
         run: go test ./... -count=1
@@ -40,26 +52,42 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.22'
+          cache: true
 
       - name: Build
         run: |
           go build -ldflags "\
-            -X main.Version=0.1.0 \
+            -X main.Version=$(git describe --tags --always) \
             -X main.Commit=$(git rev-parse --short HEAD) \
             -X main.Date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             -o build/bin/certify ./cmd/certify/
 
-      - name: Certify
+      - name: Scan
+        run: ./build/bin/certify scan
+
+      - name: Certify changed files only
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
-          ./build/bin/certify scan
-          ./build/bin/certify certify --reset-queue
+          # Only certify files changed in this push (incremental)
+          PREV=${{ github.event.before }}
+          if [ "$PREV" = "0000000000000000000000000000000000000000" ]; then
+            echo "Initial push — certifying with batch limit"
+            ./build/bin/certify certify --skip-agent --batch 50
+          else
+            CHANGED=$(git diff --name-only "$PREV" HEAD -- '*.go' '*.ts' | head -200)
+            if [ -z "$CHANGED" ]; then
+              echo "No certifiable files changed — skipping"
+              exit 0
+            fi
+            echo "Changed files: $(echo "$CHANGED" | wc -l)"
+            ./build/bin/certify certify --diff-base "$PREV"
+          fi
 
       - name: Commit report card
         run: |
           git config user.name "certify[bot]"
           git config user.email "certify@users.noreply.github.com"
-          git add .certification/REPORT_CARD.md .certification/badge.json
+          git add .certification/REPORT_CARD.md .certification/badge.json .certification/records/ .certification/index.json
           git diff --staged --quiet || git commit -m "chore: update report card [skip ci]"
           git push

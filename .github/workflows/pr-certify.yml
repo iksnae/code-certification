@@ -3,6 +3,16 @@ name: Certification PR Review
 on:
   pull_request:
     branches: [main]
+    paths:
+      - '**.go'
+      - '**.ts'
+      - '**.tsx'
+      - '**.js'
+      - '**.py'
+
+concurrency:
+  group: pr-certify-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -14,16 +24,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # full history for diff + git evidence
+          fetch-depth: 0
 
       - uses: actions/setup-go@v5
         with:
           go-version: '1.22'
+          cache: true
 
       - name: Build certify
         run: |
           go build -ldflags "\
-            -X main.Version=0.1.0 \
+            -X main.Version=$(git describe --tags --always) \
             -X main.Commit=$(git rev-parse --short HEAD) \
             -X main.Date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             -o build/bin/certify ./cmd/certify/
@@ -32,15 +43,7 @@ jobs:
         run: ./build/bin/certify scan
 
       - name: Certify changed files only
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: ./build/bin/certify certify --diff-base origin/main --reset-queue
+        run: ./build/bin/certify certify --diff-base origin/main --skip-agent
 
       - name: Generate report
-        run: ./build/bin/certify report --detailed
-
-      - name: Post PR comment
-        if: always()
-        run: |
-          COMMENT=$(./build/bin/certify review)
-          echo "$COMMENT"
+        run: ./build/bin/certify report
