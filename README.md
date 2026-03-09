@@ -233,7 +233,9 @@ rules:
 
 ### Agent-Assisted Review (Optional)
 
-Supplement deterministic evidence with LLM-powered code review:
+Set `OPENROUTER_API_KEY` in your environment or as a GitHub secret — Certify auto-detects the key and enables conservative AI-assisted review (prescreen-only, free-tier models, 10k token budget). No config changes needed.
+
+For full control, explicitly configure in `.certification/config.yml`:
 
 ```yaml
 agent:

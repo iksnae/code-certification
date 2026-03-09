@@ -190,13 +190,24 @@ scope:
     - "**/*.spec.ts"
 
 agent:
-  enabled: false
-  # To enable agent-assisted review, set enabled: true and
-  # add OPENROUTER_API_KEY as a GitHub repository secret.
+  # Auto-detection: when OPENROUTER_API_KEY (or CERTIFY_API_KEY) is set in
+  # your environment or as a GitHub secret, Certify automatically enables
+  # conservative AI-assisted review (prescreen-only, free-tier models,
+  # 10k token budget). No configuration needed — just add the secret.
+  #
+  # To use the full agent pipeline, set enabled: true and configure models:
+  # enabled: true
   # provider:
   #   type: openrouter
   #   base_url: https://openrouter.ai/api/v1
   #   api_key_env: OPENROUTER_API_KEY
+  # models:
+  #   prescreen: qwen/qwen3-coder:free
+  #   review: qwen/qwen3-coder:free
+  #   scoring: qwen/qwen3-coder:free
+  #
+  # To explicitly disable AI even when a key is present, uncomment:
+  # enabled: false
 
 expiry:
   default_window_days: 90

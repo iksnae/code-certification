@@ -5,9 +5,39 @@ description: Optional LLM-powered code review using open-weight models.
 
 Certify can supplement deterministic evidence with LLM-powered code review. This is entirely optional — the system works fully without it.
 
-## Enable
+## Auto-Detection (Recommended)
 
-In `.certification/config.yml`:
+The simplest way to enable AI-assisted review: **just add your API key.**
+
+```bash
+export OPENROUTER_API_KEY=sk-or-v1-your-key-here
+```
+
+For CI, add `OPENROUTER_API_KEY` as a GitHub repository secret. That's it — no config changes needed.
+
+When Certify detects an API key in the environment, it automatically enables **conservative mode**:
+- **Prescreen only** — single cheap LLM call per file
+- **Free-tier models** — zero cost by default (`qwen/qwen3-coder:free`)
+- **10k token budget** — processes ~200 files before stopping
+- **Circuit breaker** — 3 consecutive failures → falls back to deterministic
+- **Scan suggestions** — `certify scan` prints AI-powered policy recommendations
+
+Certify checks `OPENROUTER_API_KEY` first, then `CERTIFY_API_KEY`.
+
+### Disable Auto-Detection
+
+To explicitly disable AI even when a key is present:
+
+```yaml
+agent:
+  enabled: false
+```
+
+The `--skip-agent` CLI flag also overrides auto-detection for any single run.
+
+## Full Pipeline (Advanced)
+
+For more control, explicitly configure the full multi-stage agent pipeline in `.certification/config.yml`:
 
 ```yaml
 agent:
@@ -26,13 +56,7 @@ agent:
     retry_max: 3
 ```
 
-Set your API key:
-
-```bash
-export OPENROUTER_API_KEY=sk-or-v1-your-key-here
-```
-
-For CI, add `OPENROUTER_API_KEY` as a GitHub repository secret.
+This enables the 3-stage pipeline (prescreen → review → scoring) with a 50k token budget.
 
 ## How It Works
 

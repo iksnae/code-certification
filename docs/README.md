@@ -115,10 +115,13 @@ certify certify --reset-queue
 
 ## Agent-Assisted Review
 
-Optional LLM-powered code review using open-weight models via [OpenRouter](https://openrouter.ai/):
+Optional LLM-powered code review using open-weight models via [OpenRouter](https://openrouter.ai/).
+
+**Auto-detection (recommended):** Just set `OPENROUTER_API_KEY` in your environment or as a GitHub secret. Certify automatically enables conservative AI mode — prescreen-only, free-tier models, 10k token budget.
+
+**Full pipeline:** For more control, explicitly configure in `.certification/config.yml`:
 
 ```yaml
-# .certification/config.yml
 agent:
   enabled: true
   provider:
@@ -126,6 +129,8 @@ agent:
     base_url: https://openrouter.ai/api/v1
     api_key_env: OPENROUTER_API_KEY
 ```
+
+**Disable:** Set `agent: enabled: false` in config, or use `--skip-agent` for a single run.
 
 Models (Apache 2.0 licensed, fine-tunable):
 - **Primary**: `qwen/qwen3-coder:free` — code-specialized, 262k context

@@ -59,8 +59,8 @@ This collects evidence (lint results, test status, git history, complexity metri
 ✓ Certified 195/195 units
 ```
 
-:::tip
-Use `--skip-agent` to run deterministic-only certification (no LLM review). This is the default when no OpenRouter API key is configured.
+:::tip[AI-Assisted Mode]
+If `OPENROUTER_API_KEY` is set in your environment or as a GitHub secret, Certify automatically enables conservative AI-assisted review — no config changes needed. Use `--skip-agent` to disable it for a single run.
 :::
 
 ## Step 4 — Report
