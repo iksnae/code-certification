@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -31,10 +31,11 @@ jobs:
   certify:
     runs-on: ubuntu-latest
     needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # full history for git evidence
+          fetch-depth: 0
 
       - uses: actions/setup-go@v5
         with:
@@ -52,10 +53,18 @@ jobs:
         run: ./build/bin/certify scan
 
       - name: Certify (deterministic)
-        run: ./build/bin/certify certify --skip-agent
+        run: ./build/bin/certify certify --skip-agent --reset-queue
 
-      - name: Report
-        run: ./build/bin/certify report
+      - name: Report card
+        run: ./build/bin/certify report --format card
 
-      - name: Report (JSON)
-        run: ./build/bin/certify report --format json
+      - name: Full report
+        run: ./build/bin/certify report --format full
+
+      - name: Commit reports
+        run: |
+          git config user.name "certify[bot]"
+          git config user.email "certify@users.noreply.github.com"
+          git add .certification/REPORT_CARD.md .certification/FULL_REPORT.md
+          git diff --staged --quiet || git commit -m "chore: update certification report card [skip ci]"
+          git push
