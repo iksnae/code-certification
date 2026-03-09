@@ -75,15 +75,28 @@ Optional LLM-powered review via **OpenRouter** (free-tier models). See `specs/pr
 - Provider abstraction interface for swappable backends
 - `OPENROUTER_API_KEY` in GitHub repo secrets; graceful degradation when absent
 
+## GitHub Issue Tracking
+
+Implementation is tracked via **8 GitHub epic issues** (#1–#8), one per phase. Each epic includes a step checklist and FEATURES section mapping. See `CLAUDE.md` for the full table.
+
+**Development workflow for every change**:
+1. Reference the relevant epic issue (#1–#8)
+2. TDD cycle: failing test → implement → refactor
+3. Update `FEATURES.md`: check off completed criteria (`- [ ]` → `- [x]`)
+4. Update the epic: check off completed steps in the GitHub issue
+5. Commit with `Refs #N` to link to the epic
+6. Push to keep GitHub and code in sync
+
 ## Workflow
 
-1. Read `CLAUDE.md` for project context
+1. Read `CLAUDE.md` for project context and tracking guidance
 2. Read `PRD.md` for full product requirements
-3. Read `FEATURES.md` for acceptance checklist
+3. Read `FEATURES.md` for acceptance checklist (living document — update as you implement)
 4. Read `STORIES.md` for user stories
 5. Check `specs/` for implementation plans
-6. Run `just doctor` to verify tooling
-7. Explore Go source (when it exists)
+6. Check GitHub issues (`gh issue list`) for current epic status
+7. Run `just doctor` to verify tooling
+8. Explore Go source (when it exists)
 
 ## Report
 

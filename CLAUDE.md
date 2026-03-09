@@ -86,6 +86,42 @@ When Go source code is added (via TDD), the structure will grow:
 └── go.mod                    # Go module (created with first test)
 ```
 
+## GitHub Issue Tracking
+
+Implementation is tracked via **GitHub Issues** as epics. Each epic maps to a phase in `specs/v1-implementation.md`.
+
+| Epic | Phase | Issue |
+|------|-------|-------|
+| Domain Foundation | Phase 1 | [#1](https://github.com/iksnae/code-certification/issues/1) |
+| Configuration & Policy | Phase 2 | [#2](https://github.com/iksnae/code-certification/issues/2) |
+| Unit Discovery & Indexing | Phase 3 | [#3](https://github.com/iksnae/code-certification/issues/3) |
+| Evidence Collection | Phase 4 | [#4](https://github.com/iksnae/code-certification/issues/4) |
+| Certification Engine | Phase 5 | [#5](https://github.com/iksnae/code-certification/issues/5) |
+| Agent-Assisted Review | Phase 6 | [#6](https://github.com/iksnae/code-certification/issues/6) |
+| Records, Reports & CLI | Phase 7 | [#7](https://github.com/iksnae/code-certification/issues/7) |
+| GitHub Integration | Phase 8 | [#8](https://github.com/iksnae/code-certification/issues/8) |
+
+### Development Workflow
+
+When implementing any step from the v1 plan:
+
+1. **Reference the epic** — check the relevant GitHub issue for context and task checklist
+2. **TDD cycle** — write failing test → implement → refactor
+3. **Update FEATURES.md** — check off completed criteria as you implement them (change `- [ ]` to `- [x]`)
+4. **Update the epic** — check off completed steps in the GitHub issue
+5. **Commit with references** — include `Refs #N` in commit messages to link to the epic (e.g., `feat: unit discovery — Go adapter via go/ast. Refs #3`)
+6. **Push** — keep GitHub issues and code in sync
+
+### FEATURES.md as Living Checklist
+
+`FEATURES.md` is the **source of truth** for what's done and what's not. As you implement features:
+- Check off criteria: `- [ ]` → `- [x]`
+- Each epic's GitHub issue lists which FEATURES sections it covers
+- At any point, `grep -c '\- \[x\]' FEATURES.md` shows total completed criteria
+- At any point, `grep -c '\- \[ \]' FEATURES.md` shows total remaining criteria
+
+This keeps the acceptance checklist synchronized with actual implementation progress.
+
 ## Agent-Assisted Review
 
 The certification engine optionally uses **OpenRouter** (free-tier models) for LLM-powered code review. See `specs/project-bootstrap-justfile-commands-initial-commit.md` for the complete architecture including:

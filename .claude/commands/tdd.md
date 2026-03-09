@@ -52,4 +52,13 @@ Once all tests pass, report the completed work by updating the plan file with th
 - A brief description of what was implemented
 - Any issues encountered during implementation and how they were resolved
 - Any refactoring that was done to improve the codebase
+- Which `FEATURES.md` criteria were checked off (`- [ ]` → `- [x]`)
+- Which GitHub epic steps were completed (reference issue number)
 - Present the `## Report`.
+
+## Tracking
+
+After each TDD cycle:
+- Update `FEATURES.md` — check off completed criteria
+- Include `Refs #N` in commit messages to link to the relevant GitHub epic (see `CLAUDE.md` for epic table)
+- Update the epic issue checklist when steps are done
