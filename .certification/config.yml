@@ -1,48 +1,30 @@
 # Certify — Configuration
 mode: advisory
-
 scope:
   include: []
   exclude:
-    - "vendor/**"
-    - "node_modules/**"
-    - "testdata/**"
+    - vendor/**
+    - node_modules/**
+    - testdata/**
     - "**/*_test.go"
-    - "build/**"
-    - "templates/**"
-    - "website/**"
-    - "vscode-certify/**"
-    - "assets/**"
-    - "specs/**"
-
+    - build/**
+    - templates/**
+    - website/**
+    - vscode-certify/**
+    - assets/**
+    - specs/**
 agent:
   enabled: true
   provider:
-    type: openrouter
-    base_url: https://openrouter.ai/api/v1
-    api_key_env: OPENROUTER_API_KEY
-    http_referer: https://github.com/iksnae/code-certification
-    x_title: code-certification
+    type: openai-compatible
+    base_url: http://localhost:11434/v1
   models:
-    # Primary: open-weight, code-specialized, Apache 2.0, LoRA-ready
-    prescreen: qwen/qwen3-coder:free
-    review: qwen/qwen3-coder:free
-    scoring: qwen/qwen3-coder:free
-    decision: qwen/qwen3-coder:free
-    remediation: qwen/qwen3-coder:free
-    # Paid fallback chain (tried in order on 429):
-    #   mistralai/mistral-nemo — $0.002/run, perfect JSON, Apache 2.0, 12B LoRA-ready
-    #   qwen/qwen-turbo — $0.004/run, clean JSON, open weight
-    fallback: mistralai/mistral-nemo
-  rate_limit:
-    requests_per_minute: 20
-    retry_max: 3
-    retry_backoff_base_ms: 1000
-
+    prescreen: qwen3:latest
+    review: qwen3:latest
+    scoring: qwen3:latest
 expiry:
   default_window_days: 90
   min_window_days: 7
   max_window_days: 365
-
 issues:
   enabled: false
