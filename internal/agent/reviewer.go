@@ -26,19 +26,51 @@ type ReviewResult struct {
 	Remediation  []RemediationStep  `json:"remediation,omitempty"`
 	Confidence   float64            `json:"confidence"`
 	TokensUsed   int                `json:"tokens_used"`
+	ModelsUsed   []string           `json:"models_used,omitempty"`
 }
 
 // ToEvidence converts the review result to a domain.Evidence.
+// Model attribution is embedded in the Source field.
 func (r ReviewResult) ToEvidence() domain.Evidence {
+	source := "agent"
+	if len(r.ModelsUsed) > 0 {
+		source = "agent:" + joinModels(r.ModelsUsed)
+	}
+
+	summary := fmt.Sprintf("Agent review: %s (confidence: %.0f%%)", r.Status, r.Confidence*100)
+	if len(r.ModelsUsed) > 0 {
+		summary += fmt.Sprintf(" [models: %s]", joinModels(r.ModelsUsed))
+	}
+
 	return domain.Evidence{
 		Kind:       domain.EvidenceKindAgentReview,
-		Source:     "agent",
+		Source:     source,
 		Passed:     r.Status != "decertified",
-		Summary:    fmt.Sprintf("Agent review: %s (confidence: %.0f%%)", r.Status, r.Confidence*100),
+		Summary:    summary,
 		Details:    r,
 		Timestamp:  time.Now(),
 		Confidence: r.Confidence,
 	}
+}
+
+func joinModels(models []string) string {
+	// Deduplicate while preserving order
+	seen := make(map[string]bool)
+	var unique []string
+	for _, m := range models {
+		if !seen[m] {
+			seen[m] = true
+			unique = append(unique, m)
+		}
+	}
+	result := ""
+	for i, m := range unique {
+		if i > 0 {
+			result += ","
+		}
+		result += m
+	}
+	return result
 }
 
 // Reviewer orchestrates the 5-step agent review pipeline.

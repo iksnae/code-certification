@@ -1,6 +1,7 @@
 package engine
 
 import (
+	"strings"
 	"time"
 
 	"github.com/code-certification/certify/internal/domain"
@@ -43,6 +44,15 @@ func CertifyUnit(
 		observations = append(observations, v.Description)
 	}
 
+	// 8. Determine source attribution
+	source := "deterministic"
+	for _, e := range ev {
+		if e.Kind == domain.EvidenceKindAgentReview && strings.HasPrefix(e.Source, "agent:") {
+			source = "deterministic+" + e.Source
+			break
+		}
+	}
+
 	return domain.CertificationRecord{
 		UnitID:       unit.ID,
 		UnitType:     unit.Type,
@@ -56,7 +66,7 @@ func CertifyUnit(
 		Observations: observations,
 		CertifiedAt:  now,
 		ExpiresAt:    window.ExpiresAt,
-		Source:       "deterministic",
+		Source:       source,
 		Version:      1,
 	}
 }

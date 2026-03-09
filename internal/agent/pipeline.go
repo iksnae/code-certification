@@ -68,6 +68,7 @@ func (p *Pipeline) Run(ctx context.Context, input StageInput) (ReviewResult, err
 
 		// Merge stage result into accumulated
 		accumulated.TokensUsed += result.TokensUsed
+		accumulated.ModelsUsed = append(accumulated.ModelsUsed, result.ModelsUsed...)
 		if result.ReviewOutput != "" {
 			accumulated.ReviewOutput = result.ReviewOutput
 			input.ReviewOutput = result.ReviewOutput // feed forward
@@ -104,6 +105,7 @@ func (p *Pipeline) toResult(sr StageResult, reviewed bool) ReviewResult {
 		Remediation:  sr.Remediation,
 		Confidence:   sr.Confidence,
 		TokensUsed:   sr.TokensUsed,
+		ModelsUsed:   sr.ModelsUsed,
 	}
 }
 

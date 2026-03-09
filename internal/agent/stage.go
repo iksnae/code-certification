@@ -28,6 +28,7 @@ type StageResult struct {
 	Remediation  []RemediationStep
 	Confidence   float64
 	TokensUsed   int
+	ModelsUsed   []string // attribution: which models contributed
 }
 
 // Stage is a single step in the review pipeline.
@@ -67,7 +68,11 @@ func (s *prescreenStage) Execute(ctx context.Context, input StageInput) (StageRe
 		return StageResult{}, false, err
 	}
 
-	result := StageResult{TokensUsed: resp.Usage.TotalTokens}
+	model := resp.Model
+	if model == "" {
+		model = s.model
+	}
+	result := StageResult{TokensUsed: resp.Usage.TotalTokens, ModelsUsed: []string{model}}
 	content := resp.Content()
 
 	// Try strict JSON parse first
@@ -150,9 +155,14 @@ func (s *reviewStage) Execute(ctx context.Context, input StageInput) (StageResul
 		return StageResult{}, false, err
 	}
 
+	model := resp.Model
+	if model == "" {
+		model = s.model
+	}
 	return StageResult{
 		ReviewOutput: resp.Content(),
 		TokensUsed:   resp.Usage.TotalTokens,
+		ModelsUsed:   []string{model},
 	}, true, nil
 }
 
@@ -186,7 +196,11 @@ func (s *scoringStage) Execute(ctx context.Context, input StageInput) (StageResu
 		return StageResult{}, false, err
 	}
 
-	result := StageResult{TokensUsed: resp.Usage.TotalTokens}
+	model := resp.Model
+	if model == "" {
+		model = s.model
+	}
+	result := StageResult{TokensUsed: resp.Usage.TotalTokens, ModelsUsed: []string{model}}
 	content := resp.Content()
 
 	// Try JSON parse

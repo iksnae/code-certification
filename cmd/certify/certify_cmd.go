@@ -66,20 +66,20 @@ var certifyCmd = &cobra.Command{
 		if cfg.Agent.Enabled && !certifySkipAgent {
 			apiKey := os.Getenv(cfg.Agent.Provider.APIKeyEnv)
 			if apiKey != "" {
-				// Build model chain: tries each model in order on 429
-				// Preferred: open-weight models suitable for future fine-tuning
+				// Build model chain: tries each model in order on 429/402
+				// All open-weight, fine-tune ready. Models credited in records.
 				chain := agent.NewModelChain(
 					cfg.Agent.Provider.BaseURL,
 					apiKey,
 					cfg.Agent.Provider.HTTPReferer,
 					cfg.Agent.Provider.XTitle,
 					[]string{
-						cfg.Agent.Models.Prescreen,                      // primary from config
-						cfg.Agent.Models.Fallback,                       // configured fallback
-						"qwen/qwen3-coder:free",                         // code-specialized, Apache 2.0
-						"mistralai/mistral-small-3.1-24b-instruct:free", // Apache 2.0
-						"meta-llama/llama-3.3-70b-instruct:free",        // Llama license
-						"google/gemma-3-12b-it:free",                    // last resort (no sys msg)
+						cfg.Agent.Models.Prescreen, // primary: qwen3-coder (free, Apache 2.0)
+						cfg.Agent.Models.Fallback,  // paid fallback: mistral-nemo ($0.002/run)
+						"qwen/qwen-turbo",          // paid backup ($0.004/run)
+						"qwen/qwen3-coder:free",    // retry free tier
+						"mistralai/mistral-small-3.1-24b-instruct:free",
+						"google/gemma-3-12b-it:free", // last resort
 					},
 				)
 				// Wrap with circuit breaker: stop after 5 consecutive all-model failures
