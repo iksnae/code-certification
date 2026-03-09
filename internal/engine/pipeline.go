@@ -1,0 +1,62 @@
+package engine
+
+import (
+	"time"
+
+	"github.com/code-certification/certify/internal/domain"
+	"github.com/code-certification/certify/internal/expiry"
+	"github.com/code-certification/certify/internal/policy"
+)
+
+// CertifyUnit runs the full certification pipeline for a single unit.
+func CertifyUnit(
+	unit domain.Unit,
+	rules []domain.PolicyRule,
+	ev []domain.Evidence,
+	expiryCfg domain.ExpiryConfig,
+	now time.Time,
+) domain.CertificationRecord {
+	// 1. Evaluate policy rules against evidence
+	evalResult := policy.Evaluate(rules, ev)
+
+	// 2. Score across dimensions
+	scores := Score(ev, evalResult)
+
+	// 3. Compute weighted average
+	avg := scores.WeightedAverage(nil)
+
+	// 4. Determine status
+	status := StatusFromScore(avg, !evalResult.Passed)
+
+	// 5. Compute grade
+	grade := domain.GradeFromScore(avg)
+
+	// 6. Compute expiry window
+	factors := domain.ExpiryFactors{
+		BaseWindowDays: expiryCfg.DefaultWindowDays,
+	}
+	window := expiry.Calculate(expiryCfg, factors, now)
+
+	// 7. Build observations from violations
+	var observations []string
+	for _, v := range evalResult.Violations {
+		observations = append(observations, v.Description)
+	}
+
+	return domain.CertificationRecord{
+		UnitID:       unit.ID,
+		UnitType:     unit.Type,
+		UnitPath:     unit.ID.Path(),
+		Status:       status,
+		Grade:        grade,
+		Score:        avg,
+		Confidence:   1.0, // Deterministic evidence = full confidence
+		Dimensions:   scores,
+		Evidence:     ev,
+		Observations: observations,
+		CertifiedAt:  now,
+		ExpiresAt:    window.ExpiresAt,
+		Source:       "deterministic",
+		Version:      1,
+	}
+}
