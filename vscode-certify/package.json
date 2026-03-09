@@ -5,6 +5,15 @@
   "version": "0.1.0",
   "publisher": "iksnae",
   "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1C1C1C",
+    "theme": "dark"
+  },
+  "homepage": "https://iksnae.github.io/code-certification/",
+  "bugs": {
+    "url": "https://github.com/iksnae/code-certification/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/iksnae/code-certification"
@@ -12,6 +21,15 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "keywords": [
+    "certification",
+    "code quality",
+    "report card",
+    "linting",
+    "AI review",
+    "code governance",
+    "continuous certification"
+  ],
   "categories": [
     "Linters",
     "Other"
@@ -90,7 +108,9 @@
   "scripts": {
     "build": "node esbuild.mjs",
     "watch": "node esbuild.mjs --watch",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "package": "npm run build && npx @vscode/vsce package --no-dependencies",
+    "publish": "npm run build && npx @vscode/vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@types/node": "^25.4.0",

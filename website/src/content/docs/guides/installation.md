@@ -47,6 +47,16 @@ You should see:
 certify v0.1.0 (abc1234) built 2026-03-09T12:00:00Z
 ```
 
+## VSCode Extension
+
+See grades inline, open the dashboard, and configure AI providers — all from the editor.
+
+```bash
+code --install-extension iksnae.certify-vscode
+```
+
+[Extension guide →](/code-certification/guides/vscode-extension/)
+
 ## Next Steps
 
 [Quick Start — certify your first repository →](/code-certification/guides/quickstart/)

@@ -16,7 +16,7 @@ Certify continuously evaluates every code unit in your repository, scores it aga
 
 CI tells you whether code passes right now. **Certify tells you whether code should still be trusted.**
 
-[📋 View our report card →](.certification/REPORT_CARD.md) · [📖 Documentation →](https://iksnae.github.io/code-certification/)
+[📋 View our report card →](.certification/REPORT_CARD.md) · [📖 Documentation →](https://iksnae.github.io/code-certification/) · [🧩 VSCode Extension →](https://marketplace.visualstudio.com/items?itemName=iksnae.certify-vscode)
 
 ---
 
@@ -45,6 +45,18 @@ go build -o certify ./cmd/certify/
 ```
 
 **Requires:** Go 1.22+, Git
+
+### VSCode Extension
+
+See certification grades inline on every function, open an interactive dashboard, and configure AI providers visually.
+
+```bash
+code --install-extension iksnae.certify-vscode
+```
+
+Features: **CodeLens** grade annotations · **Dashboard** WebView · **Tree View** sidebar · **Status Bar** badge · **Diagnostics** for failing units · **Provider configurator** with 11 presets + any custom endpoint · **Model browser** with live discovery
+
+[Extension guide →](https://iksnae.github.io/code-certification/guides/vscode-extension/)
 
 ---
 

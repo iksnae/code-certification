@@ -48,6 +48,7 @@ export default defineConfig({
 						{ label: 'Installation', slug: 'guides/installation' },
 						{ label: 'Quick Start', slug: 'guides/quickstart' },
 						{ label: 'Your First Report Card', slug: 'guides/first-report' },
+						{ label: 'VSCode Extension', slug: 'guides/vscode-extension' },
 					],
 				},
 				{
