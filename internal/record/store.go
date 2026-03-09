@@ -156,6 +156,67 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 	}
 }
 
+// AppendHistory appends a history entry for the given record.
+// History is stored as a JSON-lines file alongside the record.
+func (s *Store) AppendHistory(rec domain.CertificationRecord) error {
+	histPath := s.historyPathFor(rec.UnitID)
+	f, err := os.OpenFile(histPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o644)
+	if err != nil {
+		return fmt.Errorf("opening history file: %w", err)
+	}
+	defer f.Close()
+
+	entry := historyEntry{
+		Status:      rec.Status.String(),
+		Score:       rec.Score,
+		Grade:       rec.Grade.String(),
+		CertifiedAt: rec.CertifiedAt.Format(time.RFC3339),
+		Source:      rec.Source,
+	}
+	data, _ := json.Marshal(entry)
+	data = append(data, '\n')
+	_, err = f.Write(data)
+	return err
+}
+
+// LoadHistory returns all history entries for a unit.
+func (s *Store) LoadHistory(id domain.UnitID) ([]historyEntry, error) {
+	histPath := s.historyPathFor(id)
+	data, err := os.ReadFile(histPath)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	var entries []historyEntry
+	for _, line := range strings.Split(strings.TrimSpace(string(data)), "\n") {
+		if line == "" {
+			continue
+		}
+		var e historyEntry
+		if json.Unmarshal([]byte(line), &e) == nil {
+			entries = append(entries, e)
+		}
+	}
+	return entries, nil
+}
+
+type historyEntry struct {
+	Status      string  `json:"status"`
+	Score       float64 `json:"score"`
+	Grade       string  `json:"grade"`
+	CertifiedAt string  `json:"certified_at"`
+	Source      string  `json:"source"`
+}
+
+func (s *Store) historyPathFor(id domain.UnitID) string {
+	h := sha256.Sum256([]byte(id.String()))
+	name := hex.EncodeToString(h[:8]) + ".history.jsonl"
+	return filepath.Join(s.dir, name)
+}
+
 func parseGrade(s string) domain.Grade {
 	m := map[string]domain.Grade{
 		"A": domain.GradeA, "A-": domain.GradeAMinus, "B+": domain.GradeBPlus,

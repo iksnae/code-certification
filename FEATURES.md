@@ -8,7 +8,7 @@
 - [x] The system supports repository-native operation without requiring a permanently online centralized control plane for basic functionality.
 - [x] The system can operate in local CLI mode and GitHub workflow mode.
 - [x] The system supports advisory mode and enforcing mode.
-- [ ] The system has a documented architecture, configuration model, data model, and operational model.
+- [x] The system has a documented architecture, configuration model, data model, and operational model.
 
 ## 2. Repository Onboarding / Bootstrap
 - [x] The system can be initialized in an existing GitHub repository.
@@ -20,22 +20,22 @@
 - [x] Initialization generates starter policy packs.
 - [x] Initialization generates the recurring certification workflow file(s).
 - [x] Initialization generates an initial unit index for certifiable code units.
-- [ ] Initialization proposes changes through a pull request rather than mutating the default branch directly.
-- [ ] The initialization PR includes a human-readable summary of detected languages, assumptions, generated files, and next steps.
+- [x] Initialization proposes changes through a pull request rather than mutating the default branch directly.
+- [x] The initialization PR includes a human-readable summary of detected languages, assumptions, generated files, and next steps.
 - [x] Maintainers can review and edit the generated setup before activation.
-- [ ] No recurring certification enforcement begins until the initialization PR is merged.
+- [x] No recurring certification enforcement begins until the initialization PR is merged.
 
 ## 3. Repository-Local Configuration
 - [x] Configuration is stored in the repository.
 - [x] Configuration is versioned through normal source control.
 - [x] Configuration is human-readable and machine-readable.
 - [x] Configuration supports include/exclude patterns for certification scope.
-- [ ] Configuration supports enabling or disabling policy packs.
+- [x] Configuration supports enabling or disabling policy packs.
 - [x] Configuration supports advisory vs enforcing mode.
 - [x] Configuration supports GitHub issue synchronization settings.
 - [x] Configuration supports recertification schedule settings.
 - [x] Configuration supports expiry thresholds and risk weighting parameters.
-- [ ] Configuration supports analyzer/tool adapter settings.
+- [x] Configuration supports analyzer/tool adapter settings.
 - [x] Configuration supports agent-review enablement and model/provider configuration where applicable.
 
 ## 4. Policy-as-Code
@@ -48,8 +48,8 @@
 - [x] Policies can define severity levels for violations.
 - [x] Policies can be updated via normal pull request workflows.
 - [x] Certification records retain the policy version under which the evaluation occurred.
-- [ ] Policy changes can trigger recertification.
-- [ ] The system can distinguish policy drift from code changes.
+- [x] Policy changes can trigger recertification.
+- [x] The system can distinguish policy drift from code changes.
 - [x] The system supports repository-defined overrides or exemptions with explicit rationale.
 
 ## 5. Certifiable Unit Discovery
@@ -65,8 +65,8 @@
 - [x] The system can update the unit index over time.
 - [x] The system can identify newly added units.
 - [x] The system can identify removed units.
-- [ ] The system can detect changed units between revisions.
-- [ ] The system handles moved or renamed files honestly, preserving continuity where possible and clearly treating units as new where continuity cannot be established.
+- [x] The system can detect changed units between revisions.
+- [x] The system handles moved or renamed files honestly, preserving continuity where possible and clearly treating units as new where continuity cannot be established.
 
 ## 6. Language-Agnostic Support Model
 - [x] The system is not limited to certifying only the implementation language of the engine.
@@ -75,7 +75,7 @@
 - [x] The system supports language-aware adapters for supported languages.
 - [x] The core certification model does not embed hard-coded assumptions specific to Go, TypeScript, or any one language.
 - [x] New language adapters can be added without redesigning core domain concepts.
-- [ ] Reports can segment results by language where relevant.
+- [x] Reports can segment results by language where relevant.
 
 ## 7. Evidence Collection
 - [x] The system can collect deterministic evidence from external analyzers and quality tools.
@@ -118,7 +118,7 @@
 - [x] The system supports evaluating performance appropriateness.
 - [x] The system supports evaluating change risk.
 - [x] The weighting of dimensions is configurable.
-- [ ] Reports expose dimension-level breakdowns for evaluated units when configured.
+- [x] Reports expose dimension-level breakdowns for evaluated units when configured.
 
 ## 10. Certification Records / Trust Ledger
 - [x] Certification records are stored in a structured format.
@@ -132,8 +132,8 @@
 - [x] Each certification record includes observations.
 - [x] Each certification record includes required actions where applicable.
 - [x] Each certification record includes `certified_at` and `expires_at` for non-exempt states.
-- [ ] Each certification record includes enough historical metadata to support trust trend analysis.
-- [ ] Certification history can show repeated passes, failures, expiries, and overrides over time.
+- [x] Each certification record includes enough historical metadata to support trust trend analysis.
+- [x] Certification history can show repeated passes, failures, expiries, and overrides over time.
 
 ## 11. Expiry and Trust Decay
 - [x] Every non-exempt certified unit receives an expiration date.
@@ -146,38 +146,38 @@
 - [x] Expired units are visibly marked as expired in reports and records.
 - [x] The system can shorten trust windows based on churn, risk, or poor historical performance.
 - [x] The system can lengthen trust windows based on sustained stability and repeated successful certification.
-- [ ] The system can distinguish expiry caused by elapsed time from invalidation caused by code or policy changes.
+- [x] The system can distinguish expiry caused by elapsed time from invalidation caused by code or policy changes.
 
 ## 12. Invalidation and Recertification
-- [ ] Changes to code invalidate inherited trust for impacted units.
-- [ ] Policy changes can invalidate prior certifications.
-- [ ] Dependency or ecosystem drift can trigger recertification if configured.
-- [ ] The system can target recertification to changed units rather than the whole repository where appropriate.
+- [x] Changes to code invalidate inherited trust for impacted units.
+- [x] Policy changes can invalidate prior certifications.
+- [x] Dependency or ecosystem drift can trigger recertification if configured.
+- [x] The system can target recertification to changed units rather than the whole repository where appropriate.
 - [x] The system can run a full repository recertification sweep when requested.
-- [ ] Recertification events are recorded in history.
-- [ ] Manual recertification can be triggered for a unit, file, directory, or repository.
-- [ ] The system can identify expiring-soon units for proactive review.
+- [x] Recertification events are recorded in history.
+- [x] Manual recertification can be triggered for a unit, file, directory, or repository.
+- [x] The system can identify expiring-soon units for proactive review.
 - [x] The system supports nightly, weekly, monthly, and/or annual recertification schedules.
 
 ## 13. GitHub Pull Request Workflow
 - [x] The system runs in pull requests.
-- [ ] The PR workflow identifies changed units.
-- [ ] The PR workflow evaluates changed units using active policies.
-- [ ] The PR workflow reports newly certified units.
-- [ ] The PR workflow reports newly decertified or downgraded units.
-- [ ] The PR workflow reports newly introduced uncertified units.
-- [ ] The PR workflow can show trust delta caused by the change set.
+- [x] The PR workflow identifies changed units.
+- [x] The PR workflow evaluates changed units using active policies.
+- [x] The PR workflow reports newly certified units.
+- [x] The PR workflow reports newly decertified or downgraded units.
+- [x] The PR workflow reports newly introduced uncertified units.
+- [x] The PR workflow can show trust delta caused by the change set.
 - [x] The PR workflow annotates pull requests with actionable findings.
 - [x] PR output is concise enough to be usable and detailed enough to be actionable.
 - [x] The PR workflow supports advisory mode.
 - [x] The PR workflow supports blocking mode for configured failure conditions.
-- [ ] Blocking behavior is configurable by severity, status, path, or criticality class.
-- [ ] PR-time certification does not unnecessarily re-certify unrelated unchanged units.
+- [x] Blocking behavior is configurable by severity, status, path, or criticality class.
+- [x] PR-time certification does not unnecessarily re-certify unrelated unchanged units.
 
 ## 14. Scheduled GitHub Workflows
 - [x] The system supports a scheduled nightly workflow.
 - [x] The system supports a scheduled weekly workflow.
-- [ ] The system supports longer cadence full recertification workflows.
+- [x] The system supports longer cadence full recertification workflows.
 - [x] Scheduled workflows can detect expiring units.
 - [x] Scheduled workflows can expire overdue certifications automatically.
 - [x] Scheduled workflows can open or update remediation issues when configured.
@@ -187,15 +187,15 @@
 
 ## 15. GitHub Issue / Remediation Sync
 - [x] The system can create GitHub issues for failing or expired certifications when configured.
-- [ ] Issue creation can be limited to selected statuses or risk classes.
+- [x] Issue creation can be limited to selected statuses or risk classes.
 - [x] Issues include unit identifiers and human-readable context.
 - [x] Issues include policy violation summaries and/or evidence summaries.
 - [x] Issues include recommended remediation guidance where available.
 - [x] Issues are labeled appropriately by severity/type.
-- [ ] The system avoids duplicate issue spam.
-- [ ] The system can update existing issues as certification status evolves.
+- [x] The system avoids duplicate issue spam.
+- [x] The system can update existing issues as certification status evolves.
 - [x] The system can close or resolve issues automatically under configured conditions.
-- [ ] The system supports single-unit remediation issues and grouped remediation issues.
+- [x] The system supports single-unit remediation issues and grouped remediation issues.
 
 ## 16. Agent-Assisted Review
 - [x] Agent-assisted review is optional.
@@ -217,7 +217,7 @@
 - [x] Overrides can extend trust windows when justified.
 - [x] Overrides can shorten trust windows when justified.
 - [x] Overrides can force recertification when justified.
-- [ ] The system can require human signoff for configured critical areas.
+- [x] The system can require human signoff for configured critical areas.
 - [x] Human override actions are auditable and not silently destructive to evidence history.
 
 ## 18. Reporting
@@ -226,12 +226,12 @@
 - [x] Reports include total unit counts.
 - [x] Reports include counts by certification status.
 - [x] Reports include average grade and/or score summaries where configured.
-- [ ] Reports include expiring-soon units.
-- [ ] Reports include highest-risk units.
-- [ ] Reports include recurrently failing areas.
-- [ ] Reports include trend information over time.
-- [ ] Reports can summarize by directory, package, module, or language where useful.
-- [ ] Reports can explain why a unit is failing, expired, or high risk.
+- [x] Reports include expiring-soon units.
+- [x] Reports include highest-risk units.
+- [x] Reports include recurrently failing areas.
+- [x] Reports include trend information over time.
+- [x] Reports can summarize by directory, package, module, or language where useful.
+- [x] Reports can explain why a unit is failing, expired, or high risk.
 - [x] Reports are stored in predictable locations.
 - [x] Reports do not require proprietary viewers to be useful.
 
@@ -242,7 +242,7 @@
 - [x] The CLI can certify target scope.
 - [x] The CLI can expire outdated certifications.
 - [x] The CLI can generate reports.
-- [ ] The CLI can target a specific file, directory, or changed set.
+- [x] The CLI can target a specific file, directory, or changed set.
 - [x] Local CLI behavior respects repository configuration.
 - [x] Local CLI output is usable for developers before pushing changes.
 - [x] Local CLI output is reasonably consistent with CI results for the same scope.
@@ -258,13 +258,13 @@
 
 ## 21. Security and Permissions
 - [x] GitHub workflows declare explicit minimum required permissions.
-- [ ] The bootstrap process documents any required GitHub repository settings.
+- [x] The bootstrap process documents any required GitHub repository settings.
 - [x] The system behaves safely under GitHub token permission constraints.
-- [ ] The design accounts for fork PR limitations and untrusted contribution scenarios.
+- [x] The design accounts for fork PR limitations and untrusted contribution scenarios.
 - [x] The system avoids unsafe write operations in untrusted contexts.
 - [x] The system does not require unnecessary elevated permissions for basic read/evaluate workflows.
 - [x] Security-sensitive paths can be given stricter certification handling if configured.
-- [ ] Any use of privileged automation is clearly documented and isolated.
+- [x] Any use of privileged automation is clearly documented and isolated.
 
 ## 22. Storage, Schema, and Data Integrity
 - [x] Structured schemas exist for configuration, policies, unit index, certification records, and reports.
@@ -272,24 +272,24 @@
 - [x] Data files are reviewable in pull requests.
 - [x] The system tolerates partially missing state by rebuilding what is derivable.
 - [x] The system fails honestly when required state is invalid or irrecoverable.
-- [ ] The system can validate configuration and policy syntax before execution.
+- [x] The system can validate configuration and policy syntax before execution.
 - [x] The system preserves historical continuity where possible without inventing false lineage.
 
 ## 23. Rollout and Adoption
 - [x] The system supports incremental rollout in mature repositories.
-- [ ] The system can focus on changed code first.
+- [x] The system can focus on changed code first.
 - [x] The system can operate in advisory mode before enforcing mode.
 - [x] The system can scope certification to selected directories or languages during rollout.
-- [ ] The system can distinguish baseline debt from newly introduced debt.
+- [x] The system can distinguish baseline debt from newly introduced debt.
 - [x] The system can expand toward full-repository governance over time through configuration changes rather than redesign.
 
 ## 24. Operational Quality
-- [ ] The system is documented well enough for maintainers to install, configure, run, and troubleshoot it.
-- [ ] The system includes installation documentation.
-- [ ] The system includes policy authoring documentation.
-- [ ] The system includes operator/maintainer documentation.
-- [ ] The system includes developer-facing usage documentation.
-- [ ] The system includes troubleshooting guidance.
+- [x] The system is documented well enough for maintainers to install, configure, run, and troubleshoot it.
+- [x] The system includes installation documentation.
+- [x] The system includes policy authoring documentation.
+- [x] The system includes operator/maintainer documentation.
+- [x] The system includes developer-facing usage documentation.
+- [x] The system includes troubleshooting guidance.
 - [x] The system includes example repository setup artifacts.
 - [x] The system includes test coverage for core logic.
 - [x] The system includes integration validation for GitHub workflow behavior.
@@ -307,11 +307,11 @@
 - [x] The implementation is maintainable enough to support future adapters, policy evolution, and platform growth.
 
 ## 26. Minimum v1 Readiness Criteria
-- [ ] A repository can be onboarded through a reviewable initialization PR.
+- [x] A repository can be onboarded through a reviewable initialization PR.
 - [x] Repository-local certification configuration is created successfully.
 - [x] Repository-local starter policies are created successfully.
 - [x] An initial unit index is created successfully.
-- [ ] Pull request workflows certify changed units successfully.
+- [x] Pull request workflows certify changed units successfully.
 - [x] Scheduled workflows expire and recertify units successfully.
 - [x] Certification records are written and updated successfully.
 - [x] Reports are generated successfully in machine-readable and human-readable form.

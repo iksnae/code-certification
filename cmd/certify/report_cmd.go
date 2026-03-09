@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/code-certification/certify/internal/record"
 	"github.com/code-certification/certify/internal/report"
@@ -11,8 +12,9 @@ import (
 )
 
 var (
-	reportFormat string
-	reportPath   string
+	reportFormat   string
+	reportPath     string
+	reportDetailed bool
 )
 
 var reportCmd = &cobra.Command{
@@ -36,17 +38,24 @@ var reportCmd = &cobra.Command{
 			return nil
 		}
 
-		h := report.Health(records)
+		now := time.Now()
 
 		switch reportFormat {
 		case "json":
-			data, err := report.FormatJSON(h)
+			d := report.Detailed(records, now)
+			data, err := report.FormatJSON(d)
 			if err != nil {
 				return err
 			}
 			fmt.Println(string(data))
 		default:
-			fmt.Print(report.FormatText(h))
+			if reportDetailed {
+				d := report.Detailed(records, now)
+				fmt.Print(report.FormatDetailedText(d))
+			} else {
+				h := report.Health(records)
+				fmt.Print(report.FormatText(h))
+			}
 		}
 
 		return nil
@@ -56,4 +65,5 @@ var reportCmd = &cobra.Command{
 func init() {
 	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "text", "Output format (text, json)")
 	reportCmd.Flags().StringVar(&reportPath, "path", "", "Path to repository (default: current directory)")
+	reportCmd.Flags().BoolVar(&reportDetailed, "detailed", false, "Include dimension breakdowns, risk analysis, expiring units")
 }

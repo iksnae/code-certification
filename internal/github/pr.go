@@ -53,6 +53,52 @@ func FormatPRComment(records []domain.CertificationRecord, enforcing bool) strin
 	return b.String()
 }
 
+// TrustDelta computes the change in certification metrics between old and new records.
+type TrustDelta struct {
+	NewlyCertified    int
+	NewlyDecertified  int
+	ScoreImproved     int
+	ScoreDegraded     int
+	AverageScoreDelta float64
+}
+
+// ComputeTrustDelta compares old vs new record sets.
+func ComputeTrustDelta(oldRecords, newRecords []domain.CertificationRecord) TrustDelta {
+	oldMap := make(map[string]domain.CertificationRecord)
+	for _, r := range oldRecords {
+		oldMap[r.UnitID.String()] = r
+	}
+
+	var d TrustDelta
+	var oldTotal, newTotal float64
+	for _, nr := range newRecords {
+		newTotal += nr.Score
+		if or, ok := oldMap[nr.UnitID.String()]; ok {
+			oldTotal += or.Score
+			if !or.Status.IsPassing() && nr.Status.IsPassing() {
+				d.NewlyCertified++
+			}
+			if or.Status.IsPassing() && !nr.Status.IsPassing() {
+				d.NewlyDecertified++
+			}
+			if nr.Score > or.Score+0.01 {
+				d.ScoreImproved++
+			}
+			if nr.Score < or.Score-0.01 {
+				d.ScoreDegraded++
+			}
+		} else {
+			if nr.Status.IsPassing() {
+				d.NewlyCertified++
+			}
+		}
+	}
+	if len(oldRecords) > 0 && len(newRecords) > 0 {
+		d.AverageScoreDelta = (newTotal / float64(len(newRecords))) - (oldTotal / float64(len(oldRecords)))
+	}
+	return d
+}
+
 // BuildPRCommentCommand constructs a `gh pr comment` command.
 func BuildPRCommentCommand(prNumber, body string) []string {
 	return []string{"gh", "pr", "comment", prNumber, "--body", body}

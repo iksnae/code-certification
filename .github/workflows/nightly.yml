@@ -1,0 +1,50 @@
+name: Certification Nightly Sweep
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 2 AM UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build certify
+        run: |
+          go build -ldflags "\
+            -X main.Version=0.1.0 \
+            -X main.Commit=$(git rev-parse --short HEAD) \
+            -X main.Date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            -o build/bin/certify ./cmd/certify/
+
+      - name: Scan
+        run: ./build/bin/certify scan
+
+      - name: Certify (incremental batch)
+        run: ./build/bin/certify certify --skip-agent --batch 100
+
+      - name: Expire overdue
+        run: ./build/bin/certify expire
+
+      - name: Generate report
+        run: ./build/bin/certify report --detailed
+
+      - name: Commit updated records
+        run: |
+          git config user.name "certify[bot]"
+          git config user.email "certify@users.noreply.github.com"
+          git add .certification/
+          git diff --staged --quiet || git commit -m "chore: nightly certification sweep"
+          git push

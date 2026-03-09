@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 
 	"github.com/code-certification/certify/internal/discovery"
@@ -10,7 +11,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var initPath string
+var (
+	initPath string
+	initPR   bool
+)
 
 var initCmd = &cobra.Command{
 	Use:   "init",
@@ -106,6 +110,59 @@ var initCmd = &cobra.Command{
 			}
 		}
 
+		// Summary of what was created
+		summary := fmt.Sprintf("## Certification Bootstrap Summary\n\n"+
+			"**Languages detected**: %d\n", len(langs))
+		for _, l := range langs {
+			summary += fmt.Sprintf("- %s (%d files)\n", l.Name, l.FileCount)
+		}
+		summary += "\n**Generated files**:\n" +
+			"- `.certification/config.yml` — Mode: advisory\n" +
+			"- `.certification/policies/` — Starter policy packs\n" +
+			"- `.github/workflows/` — PR, nightly, weekly workflows\n\n" +
+			"**Next steps**:\n" +
+			"1. Review and customize `.certification/config.yml`\n" +
+			"2. Run `certify scan` to discover code units\n" +
+			"3. Run `certify certify` to evaluate\n" +
+			"4. Run `certify report` to see results\n"
+
+		if initPR {
+			// Create a branch and PR
+			branchName := "certify/bootstrap"
+			fmt.Printf("\n  Creating PR on branch %s...\n", branchName)
+
+			cmds := [][]string{
+				{"git", "checkout", "-b", branchName},
+				{"git", "add", ".certification/", ".github/workflows/"},
+				{"git", "commit", "-m", "chore: bootstrap code certification"},
+				{"git", "push", "-u", "origin", branchName},
+			}
+			for _, c := range cmds {
+				cmd := exec.Command(c[0], c[1:]...)
+				cmd.Dir = root
+				cmd.Stdout = os.Stdout
+				cmd.Stderr = os.Stderr
+				if err := cmd.Run(); err != nil {
+					return fmt.Errorf("git command failed: %w", err)
+				}
+			}
+
+			prCmd := exec.Command("gh", "pr", "create",
+				"--title", "chore: bootstrap code certification",
+				"--body", summary,
+				"--base", "main",
+			)
+			prCmd.Dir = root
+			prCmd.Stdout = os.Stdout
+			prCmd.Stderr = os.Stderr
+			if err := prCmd.Run(); err != nil {
+				fmt.Fprintf(os.Stderr, "warning: gh pr create failed: %v\n", err)
+				fmt.Println("  Files committed to branch. Create PR manually.")
+			}
+		} else {
+			fmt.Print(summary)
+		}
+
 		fmt.Println("\n✓ Certification initialized. Run 'certify scan' to discover code units.")
 		return nil
 	},
@@ -113,6 +170,7 @@ var initCmd = &cobra.Command{
 
 func init() {
 	initCmd.Flags().StringVar(&initPath, "path", "", "Path to repository (default: current directory)")
+	initCmd.Flags().BoolVar(&initPR, "pr", false, "Create initialization as a pull request")
 }
 
 func generateConfig(langs []discovery.LanguageInfo) string {

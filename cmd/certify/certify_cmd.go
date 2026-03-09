@@ -25,6 +25,8 @@ var (
 	certifySkipAgent  bool
 	certifyBatch      int
 	certifyResetQueue bool
+	certifyTarget     []string
+	certifyDiffBase   string
 )
 
 var certifyCmd = &cobra.Command{
@@ -49,6 +51,8 @@ func init() {
 	certifyCmd.Flags().BoolVar(&certifySkipAgent, "skip-agent", false, "Skip agent-assisted review")
 	certifyCmd.Flags().IntVar(&certifyBatch, "batch", 0, "Max units to process per run (0=all)")
 	certifyCmd.Flags().BoolVar(&certifyResetQueue, "reset-queue", false, "Rebuild queue from index")
+	certifyCmd.Flags().StringSliceVar(&certifyTarget, "target", nil, "Target specific paths/directories (can specify multiple)")
+	certifyCmd.Flags().StringVar(&certifyDiffBase, "diff-base", "", "Only certify files changed since this git ref")
 }
 
 func runCertify(cmd *cobra.Command, args []string) error {
@@ -98,8 +102,23 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		}
 	}
 
-	// Populate queue from index (only adds new units)
+	// Filter units by --target or --diff-base
 	units := idx.Units()
+	if certifyDiffBase != "" {
+		changedFiles, err := discovery.ChangedFiles(root, certifyDiffBase, "HEAD")
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "warning: git diff failed: %v — certifying all units\n", err)
+		} else {
+			units = discovery.FilterChanged(units, changedFiles)
+			fmt.Printf("  Changed files since %s: %d → %d units\n", certifyDiffBase, len(idx.Units()), len(units))
+		}
+	}
+	if len(certifyTarget) > 0 {
+		units = discovery.FilterByPaths(units, certifyTarget)
+		fmt.Printf("  Targeting %v: %d units\n", certifyTarget, len(units))
+	}
+
+	// Populate queue from index (only adds new units)
 	for _, u := range units {
 		wq.Enqueue(u.ID.String(), u.ID.Path())
 	}
@@ -244,6 +263,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		if err := store.Save(rec); err != nil {
 			fmt.Fprintf(os.Stderr, "\nwarning: saving record for %s: %v\n", unit.ID, err)
 		}
+		store.AppendHistory(rec) // best-effort history tracking
 
 		switch {
 		case rec.Status == domain.StatusCertified:

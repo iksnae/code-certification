@@ -25,12 +25,23 @@ func (m CertificationMode) String() string {
 
 // Config is the top-level certification configuration.
 type Config struct {
-	Mode     CertificationMode `yaml:"mode"`
-	Scope    ScopeConfig       `yaml:"scope"`
-	Agent    AgentConfig       `yaml:"agent"`
-	Schedule ScheduleConfig    `yaml:"schedule"`
-	Expiry   ExpiryConfig      `yaml:"expiry"`
-	Issues   IssueConfig       `yaml:"issues"`
+	Mode      CertificationMode `yaml:"mode"`
+	Scope     ScopeConfig       `yaml:"scope"`
+	Policies  PolicyConfig      `yaml:"policies"`
+	Analyzers AnalyzerConfig    `yaml:"analyzers"`
+	Agent     AgentConfig       `yaml:"agent"`
+	Schedule  ScheduleConfig    `yaml:"schedule"`
+	Expiry    ExpiryConfig      `yaml:"expiry"`
+	Issues    IssueConfig       `yaml:"issues"`
+}
+
+// AnalyzerConfig defines settings for tool adapters.
+type AnalyzerConfig struct {
+	GoVet         bool   `yaml:"go_vet"`         // Enable go vet (default: auto-detect)
+	GoTest        bool   `yaml:"go_test"`        // Enable go test (default: auto-detect)
+	GolangciLint  bool   `yaml:"golangci_lint"`  // Enable golangci-lint (default: auto-detect)
+	ESLint        bool   `yaml:"eslint"`         // Enable eslint (default: auto-detect)
+	CustomCommand string `yaml:"custom_command"` // Custom analyzer command
 }
 
 // DefaultConfig returns a Config with sensible defaults.
@@ -52,6 +63,12 @@ func DefaultConfig() Config {
 type ScopeConfig struct {
 	Include []string `yaml:"include,omitempty"` // Glob patterns to include
 	Exclude []string `yaml:"exclude,omitempty"` // Glob patterns to exclude
+}
+
+// PolicyConfig controls which policy packs are active.
+type PolicyConfig struct {
+	Enabled  []string `yaml:"enabled,omitempty"`  // Pack names to enable (empty = all)
+	Disabled []string `yaml:"disabled,omitempty"` // Pack names to disable
 }
 
 // AgentConfig configures the optional agent-assisted review.
@@ -107,4 +124,18 @@ type IssueConfig struct {
 	Enabled  bool     `yaml:"enabled"`
 	Labels   []string `yaml:"labels,omitempty"`
 	Grouping string   `yaml:"grouping,omitempty"` // "single", "directory", "policy"
+}
+
+// EnforcingConfig controls what blocks merges in enforcing mode.
+type EnforcingConfig struct {
+	BlockOnSeverity []string `yaml:"block_on_severity,omitempty"` // error, critical
+	BlockOnStatus   []string `yaml:"block_on_status,omitempty"`   // decertified, probationary
+	BlockPaths      []string `yaml:"block_paths,omitempty"`       // paths that must pass
+	AllowPaths      []string `yaml:"allow_paths,omitempty"`       // paths exempt from blocking
+}
+
+// SignoffConfig controls human signoff requirements.
+type SignoffConfig struct {
+	RequiredPaths []string `yaml:"required_paths,omitempty"` // paths requiring signoff
+	RequiredLabel string   `yaml:"required_label,omitempty"` // GitHub label for signoff
 }

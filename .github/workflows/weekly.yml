@@ -1,0 +1,47 @@
+name: Certification Weekly Report
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # 8 AM UTC every Monday
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build certify
+        run: |
+          go build -ldflags "\
+            -X main.Version=0.1.0 \
+            -X main.Commit=$(git rev-parse --short HEAD) \
+            -X main.Date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            -o build/bin/certify ./cmd/certify/
+
+      - name: Scan
+        run: ./build/bin/certify scan
+
+      - name: Full certification
+        run: ./build/bin/certify certify --skip-agent --reset-queue
+
+      - name: Detailed report
+        run: ./build/bin/certify report --detailed
+
+      - name: JSON report
+        run: ./build/bin/certify report --format json > weekly-report.json
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-certification-report
+          path: weekly-report.json
