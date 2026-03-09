@@ -206,26 +206,64 @@ func setupAgent(cfg domain.Config, skip bool) *agent.Coordinator {
 
 // setupExplicitAgent builds the full agent pipeline from explicit config.
 func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
-	apiKey := os.Getenv(cfg.Agent.Provider.APIKeyEnv)
-	if apiKey == "" {
-		fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
-		return nil
+	baseURL := cfg.Agent.Provider.BaseURL
+	apiKey := ""
+
+	// Local providers (no API key needed)
+	isLocal := isLocalURL(baseURL)
+
+	if cfg.Agent.Provider.APIKeyEnv != "" {
+		apiKey = os.Getenv(cfg.Agent.Provider.APIKeyEnv)
+		if apiKey == "" && !isLocal {
+			fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
+			return nil
+		}
+	} else if !isLocal {
+		// No api_key_env and not local — check common env vars
+		apiKey, _ = agent.DetectAPIKey()
+		if apiKey == "" {
+			fmt.Fprintf(os.Stderr, "  Agent review configured but no API key found — skipping\n")
+			return nil
+		}
 	}
-	chain := agent.NewModelChain(
-		cfg.Agent.Provider.BaseURL, apiKey,
-		cfg.Agent.Provider.HTTPReferer, cfg.Agent.Provider.XTitle,
-		[]string{
-			cfg.Agent.Models.Prescreen, cfg.Agent.Models.Fallback,
-			"qwen/qwen-turbo", "qwen/qwen3-coder:free",
-			"mistralai/mistral-small-3.1-24b-instruct:free",
-			"google/gemma-3-12b-it:free",
-		},
-	)
-	cb := agent.NewCircuitBreaker(chain, 5)
-	fmt.Println("  Agent review: enabled (model chain with fallback)")
+
+	// Build model list from config
+	models := []string{}
+	if cfg.Agent.Models.Prescreen != "" {
+		models = append(models, cfg.Agent.Models.Prescreen)
+	}
+	if cfg.Agent.Models.Review != "" && cfg.Agent.Models.Review != cfg.Agent.Models.Prescreen {
+		models = append(models, cfg.Agent.Models.Review)
+	}
+	if cfg.Agent.Models.Fallback != "" {
+		models = append(models, cfg.Agent.Models.Fallback)
+	}
+	if len(models) == 0 {
+		models = []string{"qwen3:latest"}
+	}
+
+	var provider agent.Provider
+	if isLocal {
+		provider = agent.NewLocalProvider(baseURL, "local")
+		fmt.Printf("  Agent review: enabled (local %s, models: %v)\n", baseURL, models)
+	} else {
+		provider = agent.NewModelChain(
+			baseURL, apiKey,
+			cfg.Agent.Provider.HTTPReferer, cfg.Agent.Provider.XTitle,
+			models,
+		)
+		fmt.Println("  Agent review: enabled (model chain with fallback)")
+	}
+
+	cb := agent.NewCircuitBreaker(provider, 5)
 	return agent.NewCoordinator(cb, agent.CoordinatorConfig{
 		Models: cfg.Agent.Models, Strategy: agent.StrategyStandard, TokenBudget: 50000,
 	})
+}
+
+// isLocalURL returns true if the URL points to a local server.
+func isLocalURL(u string) bool {
+	return strings.Contains(u, "localhost") || strings.Contains(u, "127.0.0.1") || strings.Contains(u, "0.0.0.0")
 }
 
 // setupConservativeAgent auto-detects available providers and builds a conservative coordinator.
@@ -314,12 +352,16 @@ func (c *certifyContext) certifyUnit(cmd *cobra.Command, unit domain.Unit, unitI
 		ctx, cancel := context.WithTimeout(cmd.Context(), 30*time.Second)
 		result := c.coord.ReviewUnit(ctx, unit, srcCode, ev)
 		cancel()
+		model := ""
+		if len(result.ModelsUsed) > 0 {
+			model = result.ModelsUsed[0]
+		}
 		if result.Reviewed {
 			ev = append(ev, result.ToEvidence())
-			model := ""
-			if len(result.ModelsUsed) > 0 {
-				model = result.ModelsUsed[0]
-			}
+			c.wq.Complete(unitID, model)
+		} else if result.Prescreened {
+			// AI evaluated but determined no detailed review needed — still credit it
+			ev = append(ev, result.ToPrescreenEvidence())
 			c.wq.Complete(unitID, model)
 		} else {
 			c.wq.Skip(unitID, "prescreen: no review needed")

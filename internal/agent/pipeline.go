@@ -58,12 +58,13 @@ func NewPipeline(provider Provider, cfg PipelineConfig) *Pipeline {
 func (p *Pipeline) Run(ctx context.Context, input StageInput) (ReviewResult, error) {
 	var accumulated StageResult
 	reviewed := false
+	prescreened := false
 
 	for _, stage := range p.stages {
 		result, cont, err := stage.Execute(ctx, input)
 		if err != nil {
 			// Graceful degradation: stop pipeline, return what we have
-			return p.toResult(accumulated, reviewed), nil
+			return p.toResult(accumulated, reviewed, prescreened), nil
 		}
 
 		// Merge stage result into accumulated
@@ -87,17 +88,23 @@ func (p *Pipeline) Run(ctx context.Context, input StageInput) (ReviewResult, err
 			accumulated.Actions = result.Actions
 		}
 
+		// Track that AI evaluated even if it said "no review needed"
+		if len(result.ModelsUsed) > 0 {
+			prescreened = true
+		}
+
 		if !cont {
 			break
 		}
 	}
 
-	return p.toResult(accumulated, reviewed), nil
+	return p.toResult(accumulated, reviewed, prescreened), nil
 }
 
-func (p *Pipeline) toResult(sr StageResult, reviewed bool) ReviewResult {
+func (p *Pipeline) toResult(sr StageResult, reviewed, prescreened bool) ReviewResult {
 	return ReviewResult{
 		Reviewed:     reviewed,
+		Prescreened:  prescreened,
 		ReviewOutput: sr.ReviewOutput,
 		Scores:       sr.Scores,
 		Status:       sr.Status,
@@ -186,7 +193,7 @@ func (c *Coordinator) ReviewUnit(ctx context.Context, unit domain.Unit, source s
 func (c *Coordinator) Stats() (filesReviewed, totalFiles, tokensSpent int) {
 	reviewed := 0
 	for _, r := range c.reviewed {
-		if r.Reviewed {
+		if r.Reviewed || r.Prescreened {
 			reviewed++
 		}
 	}

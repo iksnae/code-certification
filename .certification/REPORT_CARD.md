@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `d64a80b`  
-**Generated:** 2026-03-09T19:44:41  
+**Commit:** `025a84e`  
+**Generated:** 2026-03-09T19:53:18  
 
 ---
 
@@ -23,8 +23,8 @@
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B+ | 353 | 65.5% | ████████████████████████████████ |
-| B | 186 | 34.5% | █████████████████ |
+| B+ | 354 | 65.7% | ████████████████████████████████ |
+| B | 185 | 34.3% | █████████████████ |
 
 ## Dimension Averages
 
@@ -45,14 +45,14 @@
 ### go — 🟢 B+ (87.4%)
 
 - **Units:** 472
-- **Score range:** 83.9% – 87.8%
+- **Score range:** 83.9% – 89.4%
 - **Grades:** 343×B+, 129×B
 
 ### ts — 🟢 B (86.6%)
 
 - **Units:** 67
-- **Score range:** 83.9% – 87.8%
-- **Grades:** 10×B+, 57×B
+- **Score range:** 83.9% – 88.3%
+- **Grades:** 11×B+, 56×B
 
 ## All Units
 
@@ -680,7 +680,7 @@
 | `LoadFile` | function | B | 86.7% | certified | 2026-04-23 |
 | `parseAction` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `rawOverride` | class | B+ | 87.8% | certified | 2026-04-23 |
-| `rawOverrideFile` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `rawOverrideFile` | class | B+ | 89.4% | certified | 2026-04-23 |
 | `loader_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 
 ### `internal/policy/` (14 units)
@@ -854,7 +854,7 @@
 | `unitReportFrom` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `writeAllUnits` | function | B | 86.7% | certified | 2026-04-23 |
 | `writeDimensionAverages` | function | B+ | 87.8% | certified | 2026-04-23 |
-| `writeGradeDistribution` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `writeGradeDistribution` | function | B+ | 89.4% | certified | 2026-04-23 |
 | `writeHeader` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `writeLanguageDetail` | function | B | 86.7% | certified | 2026-04-23 |
 | `writeSummary` | function | B+ | 87.8% | certified | 2026-04-23 |
@@ -899,7 +899,7 @@
 | `createStatusBarItem` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `AgentConfig` | class | B | 86.7% | certified | 2026-04-23 |
 | `BadgeJSON` | class | B | 86.7% | certified | 2026-04-23 |
-| `CertifyCard` | class | B | 86.7% | certified | 2026-04-23 |
+| `CertifyCard` | class | B+ | 88.3% | certified | 2026-04-23 |
 | `CertifyConfig` | class | B | 86.7% | certified | 2026-04-23 |
 | `FullReport` | class | B | 86.7% | certified | 2026-04-23 |
 | `IndexEntry` | class | B | 86.7% | certified | 2026-04-23 |

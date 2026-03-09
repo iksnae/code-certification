@@ -17,11 +17,11 @@ agent:
   enabled: true
   provider:
     type: openai-compatible
-    base_url: http://localhost:11434/v1
+    base_url: http://localhost:1234/v1
   models:
-    prescreen: qwen3:latest
-    review: qwen3:latest
-    scoring: qwen3:latest
+    prescreen: qwen/qwen3-coder-30b
+    review: qwen/qwen3-coder-30b
+    scoring: qwen/qwen3-coder-30b
 expiry:
   default_window_days: 90
   min_window_days: 7

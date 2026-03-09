@@ -19,6 +19,7 @@ type ReviewInput struct {
 // ReviewResult holds the outcome of an agent review.
 type ReviewResult struct {
 	Reviewed     bool               `json:"reviewed"`
+	Prescreened  bool               `json:"prescreened"`
 	ReviewOutput string             `json:"review_output,omitempty"`
 	Scores       map[string]float64 `json:"scores,omitempty"`
 	Status       string             `json:"status,omitempty"`
@@ -46,6 +47,30 @@ func (r ReviewResult) ToEvidence() domain.Evidence {
 		Kind:       domain.EvidenceKindAgentReview,
 		Source:     source,
 		Passed:     r.Status != "decertified",
+		Summary:    summary,
+		Details:    r,
+		Timestamp:  time.Now(),
+		Confidence: r.Confidence,
+	}
+}
+
+// ToPrescreenEvidence converts a prescreen-only result to evidence.
+// Used when AI evaluated but determined no detailed review was needed.
+func (r ReviewResult) ToPrescreenEvidence() domain.Evidence {
+	source := "agent-prescreen"
+	if len(r.ModelsUsed) > 0 {
+		source = "agent-prescreen:" + joinModels(r.ModelsUsed)
+	}
+
+	summary := fmt.Sprintf("AI prescreen: no issues found (confidence: %.0f%%)", r.Confidence*100)
+	if len(r.ModelsUsed) > 0 {
+		summary += fmt.Sprintf(" [model: %s]", joinModels(r.ModelsUsed))
+	}
+
+	return domain.Evidence{
+		Kind:       domain.EvidenceKindAgentReview,
+		Source:     source,
+		Passed:     true,
 		Summary:    summary,
 		Details:    r,
 		Timestamp:  time.Now(),
