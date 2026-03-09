@@ -89,6 +89,6 @@ jobs:
         run: |
           git config user.name "certify[bot]"
           git config user.email "certify@users.noreply.github.com"
-          git add .certification/REPORT_CARD.md .certification/badge.json .certification/records/ .certification/index.json
+          git add .certification/REPORT_CARD.md .certification/badge.json
           git diff --staged --quiet || git commit -m "chore: update report card [skip ci]"
           git push
