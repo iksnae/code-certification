@@ -1,0 +1,20 @@
+overrides:
+  - unit_id: "go://legacy/old.go#Deprecated"
+    action: exempt
+    rationale: "Legacy code scheduled for removal in Q3"
+    actor: "kmills"
+
+  - unit_id: "go://internal/crypto/hmac.go#Sign"
+    action: shorten_window
+    rationale: "Security-sensitive signing function needs frequent review"
+    actor: "security-team"
+
+  - unit_id: "go://internal/service/sync.go#Apply"
+    action: extend_window
+    rationale: "Stable, well-tested function with 100% coverage"
+    actor: "kmills"
+
+  - unit_id: "go://internal/auth/login.go#Authenticate"
+    action: force_review
+    rationale: "Recent vulnerability report requires immediate recertification"
+    actor: "security-team"
