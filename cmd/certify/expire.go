@@ -11,11 +11,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var expirePath string
+
 var expireCmd = &cobra.Command{
 	Use:   "expire",
 	Short: "Mark overdue certifications as expired",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := os.Getwd()
+		root := expirePath
+		if root == "" {
+			root, _ = os.Getwd()
+		}
 		certDir := filepath.Join(root, ".certification")
 		store := record.NewStore(filepath.Join(certDir, "records"))
 
@@ -46,5 +51,6 @@ var expireCmd = &cobra.Command{
 }
 
 func init() {
+	expireCmd.Flags().StringVar(&expirePath, "path", "", "Path to repository (default: current directory)")
 	rootCmd.AddCommand(expireCmd)
 }

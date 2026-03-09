@@ -10,24 +10,31 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var scanPath string
+
 var scanCmd = &cobra.Command{
 	Use:   "scan",
 	Short: "Discover and index certifiable code units",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := os.Getwd()
+		root := scanPath
+		if root == "" {
+			root, _ = os.Getwd()
+		}
 		certDir := filepath.Join(root, ".certification")
 
 		// Load config
 		cfg, err := config.LoadFromDir(certDir)
 		if err != nil {
-			// Use defaults if no config
 			cfg = defaultConfigObj()
 		}
 
-		// Run scanners
+		// Detect languages to choose adapters
+		langs := discovery.DetectLanguages(root)
+		adapters := discovery.DetectedAdapters(langs)
+
 		var allUnits []discovery.UnitList
 
-		// Generic file scanner
+		// Always run generic scanner for file-level coverage
 		generic := discovery.NewGenericScanner(cfg.Scope.Include, cfg.Scope.Exclude)
 		fileUnits, err := generic.Scan(root)
 		if err != nil {
@@ -35,26 +42,33 @@ var scanCmd = &cobra.Command{
 		}
 		allUnits = append(allUnits, fileUnits)
 
-		// Go adapter
-		goAdapter := discovery.NewGoAdapter()
-		goUnits, err := goAdapter.Scan(root)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "warning: Go adapter: %v\n", err)
-		} else {
-			allUnits = append(allUnits, goUnits)
+		// Run language-specific adapters based on detection
+		for _, adapter := range adapters {
+			switch adapter {
+			case "go":
+				goAdapter := discovery.NewGoAdapter()
+				goUnits, err := goAdapter.Scan(root)
+				if err != nil {
+					fmt.Fprintf(os.Stderr, "warning: Go adapter: %v\n", err)
+				} else {
+					allUnits = append(allUnits, goUnits)
+					fmt.Printf("  Go adapter: %d symbols\n", len(goUnits))
+				}
+			case "ts":
+				tsAdapter := discovery.NewTSAdapter()
+				tsUnits, err := tsAdapter.Scan(root)
+				if err != nil {
+					fmt.Fprintf(os.Stderr, "warning: TS adapter: %v\n", err)
+				} else {
+					allUnits = append(allUnits, tsUnits)
+					fmt.Printf("  TS adapter: %d symbols\n", len(tsUnits))
+				}
+			}
 		}
 
-		// TS adapter
-		tsAdapter := discovery.NewTSAdapter()
-		tsUnits, err := tsAdapter.Scan(root)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "warning: TS adapter: %v\n", err)
-		} else {
-			allUnits = append(allUnits, tsUnits)
-		}
-
-		// Merge and deduplicate
+		// Merge, deduplicate, and filter
 		merged := discovery.Merge(allUnits...)
+		merged = discovery.DeduplicateFileLevel(merged)
 		idx := discovery.NewIndex(merged)
 
 		// Save index
@@ -66,4 +80,8 @@ var scanCmd = &cobra.Command{
 		fmt.Printf("✓ Discovered %d code units (saved to .certification/index.json)\n", len(merged))
 		return nil
 	},
+}
+
+func init() {
+	scanCmd.Flags().StringVar(&scanPath, "path", "", "Path to repository (default: current directory)")
 }

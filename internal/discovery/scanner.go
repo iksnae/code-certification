@@ -38,3 +38,25 @@ func Merge(lists ...UnitList) []domain.Unit {
 	}
 	return result
 }
+
+// DeduplicateFileLevel removes file-level units when symbol-level units exist
+// for the same file from a language adapter.
+func DeduplicateFileLevel(units []domain.Unit) []domain.Unit {
+	// Track which paths have symbol-level units
+	hasSymbols := make(map[string]bool)
+	for _, u := range units {
+		if u.ID.Symbol() != "" {
+			hasSymbols[u.ID.Path()] = true
+		}
+	}
+
+	// Filter out file-level units for paths that have symbol-level entries
+	var result []domain.Unit
+	for _, u := range units {
+		if u.ID.Symbol() == "" && hasSymbols[u.ID.Path()] {
+			continue // Skip file-level, we have symbols
+		}
+		result = append(result, u)
+	}
+	return result
+}

@@ -10,13 +10,19 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var reportFormat string
+var (
+	reportFormat string
+	reportPath   string
+)
 
 var reportCmd = &cobra.Command{
 	Use:   "report",
 	Short: "Generate certification reports",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := os.Getwd()
+		root := reportPath
+		if root == "" {
+			root, _ = os.Getwd()
+		}
 		certDir := filepath.Join(root, ".certification")
 
 		store := record.NewStore(filepath.Join(certDir, "records"))
@@ -49,4 +55,5 @@ var reportCmd = &cobra.Command{
 
 func init() {
 	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "text", "Output format (text, json)")
+	reportCmd.Flags().StringVar(&reportPath, "path", "", "Path to repository (default: current directory)")
 }

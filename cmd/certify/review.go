@@ -12,12 +12,17 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var reviewPath string
+
 var reviewCmd = &cobra.Command{
 	Use:   "review",
 	Short: "Generate PR review annotation",
 	Long:  "Formats certification results as a PR comment. Use in GitHub Actions.",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := os.Getwd()
+		root := reviewPath
+		if root == "" {
+			root, _ = os.Getwd()
+		}
 		certDir := filepath.Join(root, ".certification")
 
 		// Load config for mode
@@ -41,5 +46,6 @@ var reviewCmd = &cobra.Command{
 }
 
 func init() {
+	reviewCmd.Flags().StringVar(&reviewPath, "path", "", "Path to repository (default: current directory)")
 	rootCmd.AddCommand(reviewCmd)
 }
