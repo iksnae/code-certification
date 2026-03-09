@@ -105,15 +105,15 @@ func parsePolicyPack(data []byte) (domain.PolicyPack, error) {
 // parseDimension maps a YAML string to a domain.Dimension.
 func parseDimension(s string) (domain.Dimension, error) {
 	m := map[string]domain.Dimension{
-		"correctness":                domain.DimCorrectness,
-		"maintainability":            domain.DimMaintainability,
-		"readability":                domain.DimReadability,
-		"testability":                domain.DimTestability,
-		"security":                   domain.DimSecurity,
-		"architectural_fitness":      domain.DimArchitecturalFitness,
-		"operational_quality":        domain.DimOperationalQuality,
+		"correctness":                 domain.DimCorrectness,
+		"maintainability":             domain.DimMaintainability,
+		"readability":                 domain.DimReadability,
+		"testability":                 domain.DimTestability,
+		"security":                    domain.DimSecurity,
+		"architectural_fitness":       domain.DimArchitecturalFitness,
+		"operational_quality":         domain.DimOperationalQuality,
 		"performance_appropriateness": domain.DimPerformanceAppropriateness,
-		"change_risk":                domain.DimChangeRisk,
+		"change_risk":                 domain.DimChangeRisk,
 	}
 	if d, ok := m[s]; ok {
 		return d, nil

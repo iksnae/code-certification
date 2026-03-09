@@ -56,17 +56,17 @@ type ScopeConfig struct {
 
 // AgentConfig configures the optional agent-assisted review.
 type AgentConfig struct {
-	Enabled  bool             `yaml:"enabled"`
-	Provider ProviderConfig   `yaml:"provider"`
-	Models   ModelAssignments `yaml:"models"`
-	RateLimit RateLimitConfig `yaml:"rate_limit"`
+	Enabled   bool             `yaml:"enabled"`
+	Provider  ProviderConfig   `yaml:"provider"`
+	Models    ModelAssignments `yaml:"models"`
+	RateLimit RateLimitConfig  `yaml:"rate_limit"`
 }
 
 // ProviderConfig defines the LLM provider settings.
 type ProviderConfig struct {
-	Type        string `yaml:"type"`          // openrouter, openai, local
+	Type        string `yaml:"type"` // openrouter, openai, local
 	BaseURL     string `yaml:"base_url"`
-	APIKeyEnv   string `yaml:"api_key_env"`   // Env var name (not the key itself)
+	APIKeyEnv   string `yaml:"api_key_env"` // Env var name (not the key itself)
 	HTTPReferer string `yaml:"http_referer"`
 	XTitle      string `yaml:"x_title"`
 }

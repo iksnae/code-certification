@@ -59,11 +59,11 @@ func TestParseUnitType(t *testing.T) {
 
 func TestNewUnitID(t *testing.T) {
 	tests := []struct {
-		name     string
-		lang     string
-		path     string
-		symbol   string
-		wantStr  string
+		name    string
+		lang    string
+		path    string
+		symbol  string
+		wantStr string
 	}{
 		{
 			name:    "go function",
@@ -120,7 +120,7 @@ func TestUnitID_Components(t *testing.T) {
 
 func TestParseUnitID(t *testing.T) {
 	tests := []struct {
-		input   string
+		input    string
 		wantLang string
 		wantPath string
 		wantSym  string

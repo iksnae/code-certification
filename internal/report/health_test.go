@@ -91,13 +91,13 @@ func TestFormatJSON(t *testing.T) {
 
 func TestFormatText(t *testing.T) {
 	h := report.HealthReport{
-		TotalUnits:      5,
-		Certified:       2,
+		TotalUnits:       5,
+		Certified:        2,
 		CertifiedWithObs: 1,
-		Probationary:    1,
-		Decertified:     1,
-		PassRate:        0.6,
-		AverageScore:    0.664,
+		Probationary:     1,
+		Decertified:      1,
+		PassRate:         0.6,
+		AverageScore:     0.664,
 	}
 	text := report.FormatText(h)
 	if len(text) == 0 {

@@ -61,12 +61,12 @@ func TestExpiryWindow_RemainingAt(t *testing.T) {
 
 func TestExpiryFactors(t *testing.T) {
 	f := domain.ExpiryFactors{
-		BaseWindowDays:   90,
-		ChurnRate:        0.5,
-		TestCoverage:     0.8,
-		Complexity:       15.0,
-		PriorPassCount:   3,
-		PriorFailCount:   1,
+		BaseWindowDays:    90,
+		ChurnRate:         0.5,
+		TestCoverage:      0.8,
+		Complexity:        15.0,
+		PriorPassCount:    3,
+		PriorFailCount:    1,
 		SecuritySensitive: false,
 	}
 

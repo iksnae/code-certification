@@ -95,10 +95,10 @@ func LoadDir(dir string) ([]domain.Override, error) {
 
 func parseAction(s string) (domain.OverrideAction, error) {
 	m := map[string]domain.OverrideAction{
-		"exempt":          domain.OverrideExempt,
-		"extend_window":   domain.OverrideExtendWindow,
-		"shorten_window":  domain.OverrideShortenWindow,
-		"force_review":    domain.OverrideForceReview,
+		"exempt":         domain.OverrideExempt,
+		"extend_window":  domain.OverrideExtendWindow,
+		"shorten_window": domain.OverrideShortenWindow,
+		"force_review":   domain.OverrideForceReview,
 	}
 	if a, ok := m[s]; ok {
 		return a, nil

@@ -11,11 +11,11 @@ import (
 
 func makeTestRecord(path, symbol string, status domain.Status, score float64) domain.CertificationRecord {
 	return domain.CertificationRecord{
-		UnitID:   domain.NewUnitID("go", path, symbol),
-		UnitPath: path,
-		Status:   status,
-		Score:    score,
-		Grade:    domain.GradeFromScore(score),
+		UnitID:    domain.NewUnitID("go", path, symbol),
+		UnitPath:  path,
+		Status:    status,
+		Score:     score,
+		Grade:     domain.GradeFromScore(score),
 		ExpiresAt: time.Now().Add(90 * 24 * time.Hour),
 	}
 }

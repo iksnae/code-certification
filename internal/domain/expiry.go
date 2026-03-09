@@ -31,9 +31,9 @@ func (w ExpiryWindow) RemainingAt(at time.Time) time.Duration {
 // ExpiryFactors holds the inputs used to compute an expiry window.
 type ExpiryFactors struct {
 	BaseWindowDays    int     `json:"base_window_days"`
-	ChurnRate         float64 `json:"churn_rate"`          // Changes per time period (0.0–1.0+)
-	TestCoverage      float64 `json:"test_coverage"`       // 0.0–1.0
-	Complexity        float64 `json:"complexity"`          // Cyclomatic complexity
+	ChurnRate         float64 `json:"churn_rate"`    // Changes per time period (0.0–1.0+)
+	TestCoverage      float64 `json:"test_coverage"` // 0.0–1.0
+	Complexity        float64 `json:"complexity"`    // Cyclomatic complexity
 	PriorPassCount    int     `json:"prior_pass_count"`
 	PriorFailCount    int     `json:"prior_fail_count"`
 	SecuritySensitive bool    `json:"security_sensitive"`

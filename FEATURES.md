@@ -1,62 +1,62 @@
 # Code Certification System — Feature Acceptance Checklist
 
 ## 1. Product Foundation
-- [ ] The system exists as a standalone, production-capable solution rather than an ad hoc collection of scripts.
+- [x] The system exists as a standalone, production-capable solution rather than an ad hoc collection of scripts.
 - [x] The system has a clearly defined core domain model independent of any single programming language being certified.
 - [x] The system is implementation-language specific internally and certification-language agnostic externally.
-- [ ] The system is designed so core governance logic is separated from repository host integrations, analyzer adapters, and reporting adapters.
-- [ ] The system supports repository-native operation without requiring a permanently online centralized control plane for basic functionality.
-- [ ] The system can operate in local CLI mode and GitHub workflow mode.
-- [ ] The system supports advisory mode and enforcing mode.
+- [x] The system is designed so core governance logic is separated from repository host integrations, analyzer adapters, and reporting adapters.
+- [x] The system supports repository-native operation without requiring a permanently online centralized control plane for basic functionality.
+- [x] The system can operate in local CLI mode and GitHub workflow mode.
+- [x] The system supports advisory mode and enforcing mode.
 - [ ] The system has a documented architecture, configuration model, data model, and operational model.
 
 ## 2. Repository Onboarding / Bootstrap
-- [ ] The system can be initialized in an existing GitHub repository.
+- [x] The system can be initialized in an existing GitHub repository.
 - [ ] Initialization can be triggered manually through a GitHub workflow dispatch and/or local CLI command.
 - [ ] Initialization inspects the target repository structure before generating configuration.
 - [ ] Initialization detects relevant repository languages and project characteristics.
-- [ ] Initialization creates a repository-local `.certification/` structure.
-- [ ] Initialization generates starter configuration files.
-- [ ] Initialization generates starter policy packs.
-- [ ] Initialization generates the recurring certification workflow file(s).
-- [ ] Initialization generates an initial unit index for certifiable code units.
+- [x] Initialization creates a repository-local `.certification/` structure.
+- [x] Initialization generates starter configuration files.
+- [x] Initialization generates starter policy packs.
+- [x] Initialization generates the recurring certification workflow file(s).
+- [x] Initialization generates an initial unit index for certifiable code units.
 - [ ] Initialization proposes changes through a pull request rather than mutating the default branch directly.
 - [ ] The initialization PR includes a human-readable summary of detected languages, assumptions, generated files, and next steps.
 - [ ] Maintainers can review and edit the generated setup before activation.
 - [ ] No recurring certification enforcement begins until the initialization PR is merged.
 
 ## 3. Repository-Local Configuration
-- [ ] Configuration is stored in the repository.
+- [x] Configuration is stored in the repository.
 - [ ] Configuration is versioned through normal source control.
-- [ ] Configuration is human-readable and machine-readable.
-- [ ] Configuration supports include/exclude patterns for certification scope.
+- [x] Configuration is human-readable and machine-readable.
+- [x] Configuration supports include/exclude patterns for certification scope.
 - [ ] Configuration supports enabling or disabling policy packs.
-- [ ] Configuration supports advisory vs enforcing mode.
+- [x] Configuration supports advisory vs enforcing mode.
 - [ ] Configuration supports GitHub issue synchronization settings.
 - [ ] Configuration supports recertification schedule settings.
-- [ ] Configuration supports expiry thresholds and risk weighting parameters.
+- [x] Configuration supports expiry thresholds and risk weighting parameters.
 - [ ] Configuration supports analyzer/tool adapter settings.
-- [ ] Configuration supports agent-review enablement and model/provider configuration where applicable.
+- [x] Configuration supports agent-review enablement and model/provider configuration where applicable.
 
 ## 4. Policy-as-Code
-- [ ] Policies are stored in repository-local files.
-- [ ] Policies are versioned.
-- [ ] Policies can target all code globally.
-- [ ] Policies can target specific languages.
-- [ ] Policies can target specific paths, file patterns, or unit types.
-- [ ] Policies can define thresholds for metrics such as size, complexity, test expectations, or disallowed constructs.
-- [ ] Policies can define severity levels for violations.
+- [x] Policies are stored in repository-local files.
+- [x] Policies are versioned.
+- [x] Policies can target all code globally.
+- [x] Policies can target specific languages.
+- [x] Policies can target specific paths, file patterns, or unit types.
+- [x] Policies can define thresholds for metrics such as size, complexity, test expectations, or disallowed constructs.
+- [x] Policies can define severity levels for violations.
 - [ ] Policies can be updated via normal pull request workflows.
-- [ ] Certification records retain the policy version under which the evaluation occurred.
+- [x] Certification records retain the policy version under which the evaluation occurred.
 - [ ] Policy changes can trigger recertification.
 - [ ] The system can distinguish policy drift from code changes.
-- [ ] The system supports repository-defined overrides or exemptions with explicit rationale.
+- [x] The system supports repository-defined overrides or exemptions with explicit rationale.
 
 ## 5. Certifiable Unit Discovery
-- [ ] The system can discover certifiable units automatically.
-- [ ] The system supports file-level unit discovery at minimum.
-- [ ] The system supports richer unit discovery such as function, method, class, module, package, route, workflow, or migration where adapters exist.
-- [ ] The system assigns stable identifiers to discovered units.
+- [x] The system can discover certifiable units automatically.
+- [x] The system supports file-level unit discovery.at minimum.
+- [x] The system supports richer unit discovery such as function, method, class, module, package, route, workflow, or migration where adapters exist.
+- [x] The system assigns stable identifiers to discovered units.
 - [ ] Stable identifiers include sufficient information to distinguish language, path, and symbol when available.
 - [ ] Unsupported or partially supported languages fall back to a generic file-level model rather than failing the scan.
 - [ ] Discovery respects include/exclude configuration.
@@ -121,7 +121,7 @@
 - [ ] Reports expose dimension-level breakdowns for evaluated units when configured.
 
 ## 10. Certification Records / Trust Ledger
-- [ ] Certification records are stored in a structured format.
+- [x] Certification records are stored in a structured format.
 - [ ] Certification records are versionable and auditable.
 - [ ] Each certification record includes the unit identifier.
 - [ ] Each certification record includes the unit type and path.
@@ -198,7 +198,7 @@
 - [ ] The system supports single-unit remediation issues and grouped remediation issues.
 
 ## 16. Agent-Assisted Review
-- [ ] Agent-assisted review is optional.
+- [x] Agent-assisted review is optional.
 - [ ] Agent-assisted review can be enabled or disabled by configuration.
 - [ ] Agent output is clearly distinguished from deterministic evidence.
 - [ ] Agent review can provide explanatory observations for borderline or failing units.
@@ -212,7 +212,7 @@
 - [ ] The system supports explicit exemptions.
 - [ ] The system supports explicit manual overrides.
 - [ ] Overrides are stored in a dedicated structured format.
-- [ ] Overrides require rationale.
+- [x] Overrides require rationale.
 - [ ] Overrides are visible in reports and certification records.
 - [ ] Overrides can extend trust windows when justified.
 - [ ] Overrides can shorten trust windows when justified.
@@ -223,7 +223,7 @@
 ## 18. Reporting
 - [ ] The system generates machine-readable reports.
 - [ ] The system generates human-readable reports.
-- [ ] Reports include total unit counts.
+- [x] Reports include total unit counts.
 - [ ] Reports include counts by certification status.
 - [ ] Reports include average grade and/or score summaries where configured.
 - [ ] Reports include expiring-soon units.

@@ -10,9 +10,9 @@ import (
 
 // GitStats holds parsed git history data for a file.
 type GitStats struct {
-	CommitCount int     `json:"commit_count"`
-	AuthorCount int     `json:"author_count"`
-	AgeDays     int     `json:"age_days"`
+	CommitCount int `json:"commit_count"`
+	AuthorCount int `json:"author_count"`
+	AgeDays     int `json:"age_days"`
 }
 
 // ChurnRate returns commits per day. Returns 0 if age is zero.

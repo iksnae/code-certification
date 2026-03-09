@@ -12,12 +12,12 @@ import (
 
 // rawConfig mirrors domain.Config but uses string fields for YAML unmarshaling.
 type rawConfig struct {
-	Mode     string              `yaml:"mode"`
-	Scope    domain.ScopeConfig  `yaml:"scope"`
-	Agent    domain.AgentConfig  `yaml:"agent"`
+	Mode     string                `yaml:"mode"`
+	Scope    domain.ScopeConfig    `yaml:"scope"`
+	Agent    domain.AgentConfig    `yaml:"agent"`
 	Schedule domain.ScheduleConfig `yaml:"schedule"`
-	Expiry   domain.ExpiryConfig `yaml:"expiry"`
-	Issues   domain.IssueConfig  `yaml:"issues"`
+	Expiry   domain.ExpiryConfig   `yaml:"expiry"`
+	Issues   domain.IssueConfig    `yaml:"issues"`
 }
 
 // LoadFile reads and parses a config YAML file.

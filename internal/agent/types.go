@@ -48,7 +48,7 @@ type ChatRequest struct {
 
 // ResponseFormat requests a specific output format.
 type ResponseFormat struct {
-	Type   string `json:"type"`             // "json_object" or "json_schema"
+	Type   string `json:"type"` // "json_object" or "json_schema"
 	Schema any    `json:"json_schema,omitempty"`
 }
 

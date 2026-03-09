@@ -16,21 +16,21 @@ import (
 
 // recordJSON is the JSON-serializable form of a CertificationRecord.
 type recordJSON struct {
-	UnitID       string                  `json:"unit_id"`
-	UnitType     string                  `json:"unit_type"`
-	UnitPath     string                  `json:"unit_path"`
-	PolicyVer    string                  `json:"policy_version"`
-	Status       string                  `json:"status"`
-	Grade        string                  `json:"grade"`
-	Score        float64                 `json:"score"`
-	Confidence   float64                 `json:"confidence"`
-	Observations []string                `json:"observations,omitempty"`
-	Actions      []string                `json:"actions,omitempty"`
-	CertifiedAt  string                  `json:"certified_at"`
-	ExpiresAt    string                  `json:"expires_at"`
-	Source       string                  `json:"source"`
-	RunID        string                  `json:"run_id,omitempty"`
-	Version      int                     `json:"version"`
+	UnitID       string   `json:"unit_id"`
+	UnitType     string   `json:"unit_type"`
+	UnitPath     string   `json:"unit_path"`
+	PolicyVer    string   `json:"policy_version"`
+	Status       string   `json:"status"`
+	Grade        string   `json:"grade"`
+	Score        float64  `json:"score"`
+	Confidence   float64  `json:"confidence"`
+	Observations []string `json:"observations,omitempty"`
+	Actions      []string `json:"actions,omitempty"`
+	CertifiedAt  string   `json:"certified_at"`
+	ExpiresAt    string   `json:"expires_at"`
+	Source       string   `json:"source"`
+	RunID        string   `json:"run_id,omitempty"`
+	Version      int      `json:"version"`
 }
 
 // Store manages certification record files.

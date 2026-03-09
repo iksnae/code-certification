@@ -4,7 +4,7 @@ package domain
 type PolicyPack struct {
 	Name         string       `json:"name" yaml:"name"`
 	Version      string       `json:"version" yaml:"version"`
-	Language     string       `json:"language,omitempty" yaml:"language,omitempty"`         // Empty = global (all languages)
+	Language     string       `json:"language,omitempty" yaml:"language,omitempty"`           // Empty = global (all languages)
 	PathPatterns []string     `json:"path_patterns,omitempty" yaml:"path_patterns,omitempty"` // Glob patterns
 	Rules        []PolicyRule `json:"rules" yaml:"rules"`
 }
