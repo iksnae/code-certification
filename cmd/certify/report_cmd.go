@@ -153,11 +153,14 @@ func detectRepoName(root string) string {
 	}
 	url := strings.TrimSpace(string(out))
 	url = strings.TrimSuffix(url, ".git")
-	if idx := strings.LastIndex(url, ":"); idx >= 0 {
-		return url[idx+1:]
-	}
+
+	// HTTPS: https://github.com/owner/repo
 	if idx := strings.Index(url, "github.com/"); idx >= 0 {
 		return url[idx+len("github.com/"):]
+	}
+	// SSH: git@github.com:owner/repo
+	if idx := strings.LastIndex(url, ":"); idx >= 0 && !strings.Contains(url[:idx], "//") {
+		return url[idx+1:]
 	}
 	return url
 }

@@ -17,6 +17,7 @@ import (
 	"github.com/iksnae/code-certification/internal/override"
 	"github.com/iksnae/code-certification/internal/queue"
 	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/report"
 	"github.com/spf13/cobra"
 )
 
@@ -89,6 +90,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	certified, observations, failed, processed := ctx.processQueue(cmd, remaining)
 
 	ctx.printSummary(certified, observations, failed, processed)
+	ctx.saveReportArtifacts()
 	ctx.wq.Save(ctx.queuePath)
 
 	if ctx.cfg.Mode == domain.ModeEnforcing && failed > 0 {
@@ -343,4 +345,27 @@ func (c *certifyContext) printSummary(certified, observations, failed, processed
 		fmt.Printf(" (%d need attention)", failed)
 	}
 	fmt.Println()
+}
+
+// saveReportArtifacts generates REPORT_CARD.md and badge.json after certification.
+func (c *certifyContext) saveReportArtifacts() {
+	records, err := c.store.ListAll()
+	if err != nil || len(records) == 0 {
+		return
+	}
+	now := time.Now()
+	repo := detectRepoName(c.root)
+	commit := detectCommit(c.root)
+
+	// Save report card
+	fr := report.GenerateFullReport(records, repo, commit, now)
+	md := report.FormatFullMarkdown(fr)
+	os.WriteFile(filepath.Join(c.certDir, "REPORT_CARD.md"), []byte(md), 0o644)
+
+	// Save badge
+	card := report.GenerateCard(records, repo, commit, now)
+	badge := report.GenerateBadge(card)
+	if data, err := report.FormatBadgeJSON(badge); err == nil {
+		os.WriteFile(filepath.Join(c.certDir, "badge.json"), data, 0o644)
+	}
 }
