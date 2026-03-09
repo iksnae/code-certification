@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `e952480`  
-**Generated:** 2026-03-09T21:13:52  
+**Commit:** `2607ed9`  
+**Generated:** 2026-03-09T22:48:01  
 
 ---
 
@@ -12,8 +12,8 @@
 |--------|-------|
 | **Overall Grade** | 🟢 **B+** |
 | **Overall Score** | 87.3% |
-| **Total Units** | 495 |
-| **Passing** | 495 |
+| **Total Units** | 581 |
+| **Passing** | 581 |
 | **Failing** | 0 |
 | **Pass Rate** | 100.0% |
 | **Observations** | 0 |
@@ -23,8 +23,8 @@
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B+ | 348 | 70.3% | ███████████████████████████████████ |
-| B | 147 | 29.7% | ██████████████ |
+| B+ | 381 | 65.6% | ████████████████████████████████ |
+| B | 200 | 34.4% | █████████████████ |
 
 ## Dimension Averages
 
@@ -33,10 +33,10 @@
 | architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 90.0% | █████████████████░░░ |
 | correctness | 95.0% | ██████████████████░░ |
-| maintainability | 93.4% | ██████████████████░░ |
+| maintainability | 93.6% | ██████████████████░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
 | performance_appropriateness | 80.0% | ████████████████░░░░ |
-| readability | 92.7% | ██████████████████░░ |
+| readability | 92.1% | ██████████████████░░ |
 | security | 80.0% | ████████████████░░░░ |
 | testability | 90.0% | █████████████████░░░ |
 
@@ -44,21 +44,21 @@
 
 ### go — 🟢 B+ (87.4%)
 
-- **Units:** 436
+- **Units:** 472
 - **Score range:** 83.9% – 87.8%
-- **Grades:** 315×B+, 121×B
+- **Grades:** 343×B+, 129×B
 
 ### file — 🟢 B (86.8%)
 
-- **Units:** 52
+- **Units:** 60
 - **Score range:** 83.9% – 87.8%
-- **Grades:** 26×B+, 26×B
+- **Grades:** 30×B+, 30×B
 
-### ts — 🟢 B+ (87.8%)
+### ts — 🟢 B (86.8%)
 
-- **Units:** 7
-- **Score range:** 87.8% – 87.8%
-- **Grades:** 7×B+
+- **Units:** 49
+- **Score range:** 86.1% – 87.8%
+- **Grades:** 8×B+, 41×B
 
 ## All Units
 
@@ -85,7 +85,7 @@
 | `logo-512.png` | file | B | 86.1% | certified | 2026-04-23 |
 | `logo-64.png` | file | B+ | 87.8% | certified | 2026-04-23 |
 
-### `cmd/certify/` (29 units)
+### `cmd/certify/` (35 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
@@ -103,12 +103,17 @@
 | `runCertify` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `saveReportArtifacts` | method | B+ | 87.8% | certified | 2026-04-23 |
 | `setupAgent` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `setupConservativeAgent` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `setupExplicitAgent` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `cli_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 | `init` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `generateConfig` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `init` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `languagePolicy` | function | B | 85.6% | certified | 2026-04-23 |
 | `main` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `init` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `listFromProvider` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `runModels` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `detectCommit` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `detectRepoName` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `init` | function | B+ | 87.8% | certified | 2026-04-23 |
@@ -117,6 +122,7 @@
 | `init` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `init` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `init` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `tryScanSuggestions` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `version.go` | file | B+ | 87.8% | certified | 2026-04-23 |
 
 <details>
@@ -162,11 +168,17 @@
 |------|------|:-----:|------:|--------|--------|
 | `integration_test.go` | file | B | 86.1% | certified | 2026-04-23 |
 
-### `internal/agent/` (97 units)
+### `internal/agent/` (126 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
 | `attribution_test.go` | file | B | 86.7% | certified | 2026-04-23 |
+| `DetectAPIKey` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `FormatProviderSummary` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `HasAnyProvider` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `NewConservativeCoordinator` | function | B | 86.7% | certified | 2026-04-23 |
+| `init` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `autodetect_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 | `Chat` | method | B+ | 87.8% | certified | 2026-04-23 |
 | `CircuitBreaker` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `IsOpen` | method | B+ | 87.8% | certified | 2026-04-23 |
@@ -181,13 +193,24 @@
 | `NewModelChain` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `modelPinnedProvider` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `fallback_test.go` | file | B | 86.7% | certified | 2026-04-23 |
+| `ListModels` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `ModelInfo` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `listOllamaModels` | function | B | 86.7% | certified | 2026-04-23 |
+| `listOpenAIModels` | function | B | 86.7% | certified | 2026-04-23 |
+| `ollamaModel` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `ollamaTagsResponse` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `openAIModel` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `openAIModelsResponse` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `models_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 | `APIError` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `Chat` | method | B | 86.1% | certified | 2026-04-23 |
 | `Error` | method | B+ | 87.8% | certified | 2026-04-23 |
 | `Name` | method | B+ | 87.8% | certified | 2026-04-23 |
+| `NewLocalProvider` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `NewOpenRouterProvider` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `OpenRouterProvider` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `doRequest` | method | B | 86.7% | certified | 2026-04-23 |
+| `isAPIError` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `isAuthError` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `isBudgetError` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `isRetryable` | function | B+ | 87.8% | certified | 2026-04-23 |
@@ -212,6 +235,13 @@
 | `Version` | method | B+ | 87.8% | certified | 2026-04-23 |
 | `prompts_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 | `Provider` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `provider_multi_test.go` | file | B | 86.1% | certified | 2026-04-23 |
+| `DetectProviders` | function | B | 85.6% | certified | 2026-04-23 |
+| `DetectedProvider` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `ProviderNames` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `init` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `normalizeLocalURL` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `probeLocal` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `Allow` | method | B+ | 87.8% | certified | 2026-04-23 |
 | `NewRateLimiter` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `RateLimiter` | class | B+ | 87.8% | certified | 2026-04-23 |
@@ -252,6 +282,11 @@
 | `reviewStage` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `scoringStage` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `stage_test.go` | file | B | 83.9% | certified | 2026-04-23 |
+| `RepoSummary` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `ScanSuggestion` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `SuggestForRepo` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `buildSuggestPrompt` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `suggest_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 | `ChatRequest` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `ChatResponse` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `Choice` | class | B+ | 87.8% | certified | 2026-04-23 |
@@ -264,16 +299,17 @@
 | `Usage` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `types_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 
-### `internal/config/` (21 units)
+### `internal/config/` (22 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| `Load` | function | B | 86.1% | certified | 2026-04-23 |
+| `Load` | function | B | 85.0% | certified | 2026-04-23 |
 | `LoadFile` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `LoadFromDir` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `rawAgent` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `rawConfig` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `validate` | function | B+ | 87.8% | certified | 2026-04-23 |
-| `loader_test.go` | file | B | 86.7% | certified | 2026-04-23 |
+| `loader_test.go` | file | B | 86.1% | certified | 2026-04-23 |
 | `FilterPolicyPacks` | function | B | 86.7% | certified | 2026-04-23 |
 | `NewPolicyMatcher` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `LoadPolicyPack` | function | B+ | 87.8% | certified | 2026-04-23 |
@@ -864,6 +900,90 @@
 | `formatDate` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `log` | function | B+ | 87.8% | certified | 2026-04-23 |
 
+### `vscode-certify/` (7 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `CHANGELOG.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `README.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `esbuild.mjs` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `icon.png` | file | B | 86.7% | certified | 2026-04-23 |
+| `package-lock.json` | file | B | 83.9% | certified | 2026-04-23 |
+| `package.json` | file | B | 86.7% | certified | 2026-04-23 |
+| `tsconfig.json` | file | B+ | 87.8% | certified | 2026-04-23 |
+
+### `vscode-certify/src/` (31 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `RunResult` | class | B | 86.7% | certified | 2026-04-23 |
+| `findCertifyBinary` | function | B | 86.7% | certified | 2026-04-23 |
+| `listModels` | function | B | 86.7% | certified | 2026-04-23 |
+| `promptInstall` | function | B | 86.7% | certified | 2026-04-23 |
+| `runCertify` | function | B | 86.7% | certified | 2026-04-23 |
+| `runCertifyJSON` | function | B | 86.7% | certified | 2026-04-23 |
+| `runInTerminal` | function | B | 86.7% | certified | 2026-04-23 |
+| `BRAND_COLORS` | function | B | 86.7% | certified | 2026-04-23 |
+| `DIMENSION_NAMES` | function | B | 86.7% | certified | 2026-04-23 |
+| `GRADE_COLORS` | function | B | 86.7% | certified | 2026-04-23 |
+| `GRADE_EMOJI` | function | B | 86.7% | certified | 2026-04-23 |
+| `PROVIDER_PRESETS` | function | B | 86.7% | certified | 2026-04-23 |
+| `CertifyDataLoader` | class | B | 86.7% | certified | 2026-04-23 |
+| `activate` | function | B | 86.7% | certified | 2026-04-23 |
+| `deactivate` | function | B | 86.7% | certified | 2026-04-23 |
+| `createStatusBarItem` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `AgentConfig` | class | B | 86.7% | certified | 2026-04-23 |
+| `BadgeJSON` | class | B | 86.7% | certified | 2026-04-23 |
+| `CertifyCard` | class | B | 86.7% | certified | 2026-04-23 |
+| `CertifyConfig` | class | B | 86.7% | certified | 2026-04-23 |
+| `FullReport` | class | B | 86.7% | certified | 2026-04-23 |
+| `IndexEntry` | class | B | 86.7% | certified | 2026-04-23 |
+| `IssueCard` | class | B | 86.7% | certified | 2026-04-23 |
+| `LanguageCard` | class | B | 86.7% | certified | 2026-04-23 |
+| `LanguageDetail` | class | B | 86.7% | certified | 2026-04-23 |
+| `ModelAssignments` | class | B | 86.7% | certified | 2026-04-23 |
+| `ModelInfo` | class | B | 86.7% | certified | 2026-04-23 |
+| `ProviderConfig` | class | B | 86.7% | certified | 2026-04-23 |
+| `ProviderPreset` | class | B | 86.7% | certified | 2026-04-23 |
+| `RecordJSON` | class | B | 86.7% | certified | 2026-04-23 |
+| `UnitReport` | class | B | 86.7% | certified | 2026-04-23 |
+
+### `vscode-certify/src/codeLens/` (2 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `CertifyCodeLensProvider` | class | B | 86.7% | certified | 2026-04-23 |
+| `showDimensionScores` | function | B | 86.7% | certified | 2026-04-23 |
+
+### `vscode-certify/src/config/` (5 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `ConfigPanel` | class | B | 86.1% | certified | 2026-04-23 |
+| `ConnectionTestResult` | class | B | 86.7% | certified | 2026-04-23 |
+| `readConfig` | function | B | 86.7% | certified | 2026-04-23 |
+| `testConnection` | function | B | 86.7% | certified | 2026-04-23 |
+| `writeConfig` | function | B | 86.7% | certified | 2026-04-23 |
+
+### `vscode-certify/src/dashboard/` (1 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `DashboardPanel` | class | B | 86.1% | certified | 2026-04-23 |
+
+### `vscode-certify/src/diagnostics/` (1 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `CertifyDiagnostics` | class | B | 86.7% | certified | 2026-04-23 |
+
+### `vscode-certify/src/treeView/` (2 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `CertificationTreeProvider` | class | B | 86.7% | certified | 2026-04-23 |
+| `CertifyTreeItem` | class | B | 86.7% | certified | 2026-04-23 |
+
 ### `website/` (5 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
@@ -926,7 +1046,7 @@
 | `dimensions.md` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `lifecycle.md` | file | B+ | 87.8% | certified | 2026-04-23 |
 
-### `website/src/content/docs/guides/` (4 units)
+### `website/src/content/docs/guides/` (5 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
@@ -934,6 +1054,7 @@
 | `installation.md` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `introduction.md` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `quickstart.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `vscode-extension.md` | file | B | 86.7% | certified | 2026-04-23 |
 
 ### `website/src/content/docs/reference/` (6 units)
 
@@ -954,4 +1075,4 @@
 
 ---
 
-*495 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
+*581 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*
