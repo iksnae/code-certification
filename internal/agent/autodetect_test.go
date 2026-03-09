@@ -70,7 +70,10 @@ func TestDetectAPIKey_Priority(t *testing.T) {
 }
 
 func TestNewConservativeCoordinator(t *testing.T) {
-	coord := NewConservativeCoordinator("sk-or-test-key")
+	providers := []DetectedProvider{
+		{Name: "openrouter", BaseURL: "https://openrouter.ai/api/v1", APIKey: "sk-or-test", Models: ConservativeModels},
+	}
+	coord := NewConservativeCoordinator(providers)
 	if coord == nil {
 		t.Fatal("NewConservativeCoordinator() returned nil")
 	}
@@ -82,6 +85,58 @@ func TestNewConservativeCoordinator(t *testing.T) {
 	if coord.config.TokenBudget != ConservativeTokenBudget {
 		t.Errorf("TokenBudget = %d, want %d", coord.config.TokenBudget, ConservativeTokenBudget)
 	}
+}
+
+func TestNewConservativeCoordinator_Empty(t *testing.T) {
+	coord := NewConservativeCoordinator(nil)
+	if coord != nil {
+		t.Error("NewConservativeCoordinator(nil) should return nil")
+	}
+}
+
+func TestNewConservativeCoordinator_MultiProvider(t *testing.T) {
+	providers := []DetectedProvider{
+		{Name: "groq", BaseURL: "https://api.groq.com/openai/v1", APIKey: "gsk-test", Models: GroqModels},
+		{Name: "ollama", BaseURL: "http://localhost:11434/v1", Models: OllamaModels, Local: true},
+	}
+	coord := NewConservativeCoordinator(providers)
+	if coord == nil {
+		t.Fatal("NewConservativeCoordinator(multi) returned nil")
+	}
+	if coord.config.Strategy != StrategyQuick {
+		t.Errorf("Strategy = %v, want StrategyQuick", coord.config.Strategy)
+	}
+}
+
+func TestNewConservativeCoordinator_LocalOnly(t *testing.T) {
+	providers := []DetectedProvider{
+		{Name: "ollama", BaseURL: "http://localhost:11434/v1", Models: OllamaModels, Local: true},
+	}
+	coord := NewConservativeCoordinator(providers)
+	if coord == nil {
+		t.Fatal("NewConservativeCoordinator(local) returned nil")
+	}
+}
+
+func TestFormatProviderSummary(t *testing.T) {
+	providers := []DetectedProvider{
+		{Name: "openrouter"},
+		{Name: "groq"},
+		{Name: "ollama", Local: true},
+	}
+	summary := FormatProviderSummary(providers)
+	want := "openrouter → groq → ollama (local)"
+	if summary != want {
+		t.Errorf("FormatProviderSummary() = %q, want %q", summary, want)
+	}
+}
+
+func TestHasAnyProvider_NoProviders(t *testing.T) {
+	clearProviderEnvVars()
+	defer clearProviderEnvVars()
+	// HasAnyProvider with no env vars — may detect local servers on test machine
+	// Just verify it doesn't panic
+	_ = HasAnyProvider()
 }
 
 func TestConservativeModels(t *testing.T) {

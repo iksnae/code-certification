@@ -29,10 +29,13 @@ func (f *FallbackProvider) Chat(ctx context.Context, req ChatRequest) (ChatRespo
 		if isAuthError(err) || isBudgetError(err) {
 			return ChatResponse{}, err
 		}
-		// Only fall through on retryable errors
-		if !isRetryable(err) {
+		// Fall through on retryable errors (429, 5xx) and connection errors.
+		// Connection errors (dial failures, timeouts) are non-APIError — always fall through.
+		// Only non-retryable API errors (400, 404) stop the chain.
+		if isAPIError(err) && !isRetryable(err) {
 			return ChatResponse{}, err
 		}
+		// Non-API errors (connection refused, DNS, timeout) → try next provider
 	}
 	return ChatResponse{}, fmt.Errorf("all providers failed: %w", lastErr)
 }

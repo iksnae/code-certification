@@ -233,7 +233,16 @@ rules:
 
 ### Agent-Assisted Review (Optional)
 
-Set `OPENROUTER_API_KEY` in your environment or as a GitHub secret — Certify auto-detects the key and enables conservative AI-assisted review (prescreen-only, free-tier models, 10k token budget). No config changes needed.
+Certify auto-detects available AI providers and enables conservative review — no config changes needed:
+
+| Provider | Detection | Cost |
+|----------|-----------|------|
+| **OpenRouter** | `OPENROUTER_API_KEY` | Free tier + paid |
+| **Groq** | `GROQ_API_KEY` | Free (30 req/min) |
+| **Ollama** | Auto-probe `localhost:11434` | Free (local) |
+| **LM Studio** | Auto-probe `localhost:1234` | Free (local) |
+
+Just set an env var or start a local server — Certify handles the rest.
 
 For full control, explicitly configure in `.certification/config.yml`:
 

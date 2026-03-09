@@ -15,14 +15,24 @@ export OPENROUTER_API_KEY=sk-or-v1-your-key-here
 
 For CI, add `OPENROUTER_API_KEY` as a GitHub repository secret. That's it — no config changes needed.
 
-When Certify detects an API key in the environment, it automatically enables **conservative mode**:
+When Certify detects an available provider, it automatically enables **conservative mode**:
 - **Prescreen only** — single cheap LLM call per file
 - **Free-tier models** — zero cost by default (`qwen/qwen3-coder:free`)
 - **10k token budget** — processes ~200 files before stopping
 - **Circuit breaker** — 3 consecutive failures → falls back to deterministic
 - **Scan suggestions** — `certify scan` prints AI-powered policy recommendations
+- **Multi-provider fallback** — cloud providers tried first, then local
 
-Certify checks `OPENROUTER_API_KEY` first, then `CERTIFY_API_KEY`.
+### Supported Providers
+
+| Provider | Detection | Cost | Setup |
+|----------|-----------|------|-------|
+| **OpenRouter** | `OPENROUTER_API_KEY` env var | Free tier + paid | [openrouter.ai](https://openrouter.ai) |
+| **Groq** | `GROQ_API_KEY` env var | Free tier (30 req/min) | [groq.com](https://groq.com) |
+| **Ollama** | `OLLAMA_HOST` env or auto-probe `localhost:11434` | Free (local) | [ollama.com](https://ollama.com) |
+| **LM Studio** | `LM_STUDIO_URL` env or auto-probe `localhost:1234` | Free (local) | [lmstudio.ai](https://lmstudio.ai) |
+
+Certify checks in this order: `OPENROUTER_API_KEY` → `CERTIFY_API_KEY` → `GROQ_API_KEY` → Ollama → LM Studio. Cloud providers come first, local providers serve as fallback.
 
 ### Disable Auto-Detection
 

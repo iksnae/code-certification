@@ -12,11 +12,14 @@ import (
 )
 
 // OpenRouterProvider implements Provider for the OpenRouter API.
+// Also works with any OpenAI-compatible endpoint (Groq, Ollama, LM Studio).
 type OpenRouterProvider struct {
 	baseURL     string
 	apiKey      string
 	httpReferer string
 	xTitle      string
+	name        string // provider name for display
+	local       bool   // local providers skip auth
 	client      *http.Client
 	maxRetries  int
 	backoffBase time.Duration
@@ -29,21 +32,35 @@ func NewOpenRouterProvider(baseURL, apiKey, httpReferer, xTitle string) *OpenRou
 		apiKey:      apiKey,
 		httpReferer: httpReferer,
 		xTitle:      xTitle,
+		name:        "openrouter",
 		client:      &http.Client{Timeout: 60 * time.Second},
 		maxRetries:  3,
 		backoffBase: 100 * time.Millisecond, // Short for tests, configurable for prod
 	}
 }
 
+// NewLocalProvider creates a provider for local OpenAI-compatible servers
+// (Ollama, LM Studio). No API key required, no auth headers sent.
+func NewLocalProvider(baseURL, name string) *OpenRouterProvider {
+	return &OpenRouterProvider{
+		baseURL:     baseURL,
+		name:        name,
+		local:       true,
+		client:      &http.Client{Timeout: 30 * time.Second},
+		maxRetries:  1,
+		backoffBase: 100 * time.Millisecond,
+	}
+}
+
 // Name returns the provider name.
 func (p *OpenRouterProvider) Name() string {
-	return "openrouter"
+	return p.name
 }
 
 // Chat sends a chat completion request with retry logic.
 func (p *OpenRouterProvider) Chat(ctx context.Context, req ChatRequest) (ChatResponse, error) {
-	if p.apiKey == "" {
-		return ChatResponse{}, fmt.Errorf("openrouter: API key not configured")
+	if !p.local && p.apiKey == "" {
+		return ChatResponse{}, fmt.Errorf("%s: API key not configured", p.name)
 	}
 
 	var lastErr error
@@ -90,7 +107,9 @@ func (p *OpenRouterProvider) doRequest(ctx context.Context, req ChatRequest) (Ch
 	}
 
 	httpReq.Header.Set("Content-Type", "application/json")
-	httpReq.Header.Set("Authorization", "Bearer "+p.apiKey)
+	if p.apiKey != "" {
+		httpReq.Header.Set("Authorization", "Bearer "+p.apiKey)
+	}
 	if p.httpReferer != "" {
 		httpReq.Header.Set("HTTP-Referer", p.httpReferer)
 	}
@@ -132,6 +151,11 @@ type APIError struct {
 
 func (e *APIError) Error() string {
 	return fmt.Sprintf("openrouter API error %d: %s", e.StatusCode, e.Body)
+}
+
+func isAPIError(err error) bool {
+	var apiErr *APIError
+	return errors.As(err, &apiErr)
 }
 
 func isAuthError(err error) bool {

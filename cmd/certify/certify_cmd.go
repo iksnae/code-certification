@@ -228,14 +228,15 @@ func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
 	})
 }
 
-// setupConservativeAgent auto-detects API key and builds a conservative coordinator.
+// setupConservativeAgent auto-detects available providers and builds a conservative coordinator.
 func setupConservativeAgent() *agent.Coordinator {
-	key, envVar := agent.DetectAPIKey()
-	if key == "" {
+	providers := agent.DetectProviders()
+	if len(providers) == 0 {
 		return nil
 	}
-	fmt.Printf("  Agent review: auto-detected via %s (conservative mode)\n", envVar)
-	return agent.NewConservativeCoordinator(key)
+	summary := agent.FormatProviderSummary(providers)
+	fmt.Printf("  Agent review: auto-detected [%s] (conservative mode)\n", summary)
+	return agent.NewConservativeCoordinator(providers)
 }
 
 func (c *certifyContext) collectRepoEvidence() {

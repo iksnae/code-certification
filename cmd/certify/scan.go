@@ -94,18 +94,25 @@ func init() {
 }
 
 // tryScanSuggestions attempts AI-powered policy/scope suggestions.
-// Silently does nothing if no API key is available or if the call fails.
+// Silently does nothing if no provider is available or if the call fails.
 func tryScanSuggestions(langs []discovery.LanguageInfo, unitCount int, adapters []string) {
-	key, _ := agent.DetectAPIKey()
-	if key == "" {
+	providers := agent.DetectProviders()
+	if len(providers) == 0 {
 		return
 	}
 
-	chain := agent.NewModelChain(
-		"https://openrouter.ai/api/v1", key,
-		"https://github.com/iksnae/code-certification", "Certify",
-		agent.ConservativeModels,
-	)
+	// Build a provider from the first detected source
+	dp := providers[0]
+	var provider agent.Provider
+	if dp.Local {
+		provider = agent.NewLocalProvider(dp.BaseURL, dp.Name)
+	} else {
+		provider = agent.NewModelChain(
+			dp.BaseURL, dp.APIKey,
+			"https://github.com/iksnae/code-certification", "Certify",
+			dp.Models,
+		)
+	}
 
 	var langNames []string
 	for _, l := range langs {
@@ -120,8 +127,8 @@ func tryScanSuggestions(langs []discovery.LanguageInfo, unitCount int, adapters 
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	result := agent.SuggestForRepo(ctx, chain, summary)
+	result := agent.SuggestForRepo(ctx, provider, summary)
 	if result.Suggestions != "" {
-		fmt.Printf("\n💡 AI Suggestions:\n%s\n", result.Suggestions)
+		fmt.Printf("\n💡 AI Suggestions (via %s):\n%s\n", dp.Name, result.Suggestions)
 	}
 }
