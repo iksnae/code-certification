@@ -7,7 +7,7 @@ import (
 )
 
 // Version is set at build time via -ldflags.
-// Release: v0.1.2
+// Release: v0.1.3
 var (
 	Version = "dev"
 	Commit  = "unknown"

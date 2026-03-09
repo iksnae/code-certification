@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3 — 2026-03-09
+
+### Fixed
+- **Local AI providers work**: Ollama, LM Studio, and any localhost endpoint no longer require an API key. Auto-detected from config `base_url`.
+- **AI prescreen credited in records**: When AI evaluates code and determines no detailed review needed, the model is still credited. Records show `source: deterministic+agent-prescreen:model-name` instead of plain `deterministic`.
+- **Agent stats accurate**: `Agent: 3/3 files reviewed` now correctly counts prescreened files (was showing `0/3`).
+- **CI no longer overwrites report card**: Incremental CI runs don't commit partial report cards. Full reports come from local or nightly/weekly runs.
+
 ## 0.1.2 — 2026-03-09
 
 ### Fixed
