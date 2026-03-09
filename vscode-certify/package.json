@@ -1,0 +1,104 @@
+{
+  "name": "certify-vscode",
+  "displayName": "Certify",
+  "description": "Code trust, with an expiration date — view report cards, configure AI providers, run certification",
+  "version": "0.1.0",
+  "publisher": "iksnae",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iksnae/code-certification"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:.certification/config.yml",
+    "onCommand:certify.openDashboard",
+    "onCommand:certify.scan",
+    "onCommand:certify.certify",
+    "onCommand:certify.report",
+    "onCommand:certify.configureProvider",
+    "onCommand:certify.listModels",
+    "onCommand:certify.installCLI"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "certify.scan",
+        "title": "Certify: Scan Repository"
+      },
+      {
+        "command": "certify.certify",
+        "title": "Certify: Run Certification"
+      },
+      {
+        "command": "certify.report",
+        "title": "Certify: Generate Report"
+      },
+      {
+        "command": "certify.openDashboard",
+        "title": "Certify: Open Dashboard"
+      },
+      {
+        "command": "certify.configureProvider",
+        "title": "Certify: Configure AI Provider"
+      },
+      {
+        "command": "certify.listModels",
+        "title": "Certify: Browse Available Models"
+      },
+      {
+        "command": "certify.installCLI",
+        "title": "Certify: Install CLI"
+      },
+      {
+        "command": "certify.openUnit",
+        "title": "Certify: Go to Unit Source"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "certifyUnits",
+          "name": "Certify",
+          "when": "certify:hasData"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Certify",
+      "properties": {
+        "certify.codeLens.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show certification grades inline on functions"
+        },
+        "certify.binaryPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to certify binary (auto-detected if empty)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.4.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "yaml": "^2.7.0"
+  }
+}

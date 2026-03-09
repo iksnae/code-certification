@@ -49,4 +49,7 @@ specs/
 # Website build output
 website/dist/
 website/node_modules/
+vscode-certify/node_modules/
+vscode-certify/dist/
+vscode-certify/*.vsix
 website/.astro/
