@@ -32,7 +32,9 @@ jobs:
         run: ./build/bin/certify scan
 
       - name: Full certification
-        run: ./build/bin/certify certify --skip-agent --reset-queue
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: ./build/bin/certify certify --reset-queue
 
       - name: Detailed report
         run: ./build/bin/certify report --detailed

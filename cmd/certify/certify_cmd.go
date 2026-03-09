@@ -192,9 +192,20 @@ func setupAgent(cfg domain.Config, skip bool) *agent.Coordinator {
 		fmt.Println("  Agent review: skipped (--skip-agent)")
 		return nil
 	}
-	if !cfg.Agent.Enabled {
+	// Explicit config takes priority
+	if cfg.Agent.Enabled {
+		return setupExplicitAgent(cfg)
+	}
+	// Respect explicit disable even when key is present
+	if cfg.Agent.ExplicitlyDisabled {
 		return nil
 	}
+	// Auto-detect: check for API key in environment
+	return setupConservativeAgent()
+}
+
+// setupExplicitAgent builds the full agent pipeline from explicit config.
+func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
 	apiKey := os.Getenv(cfg.Agent.Provider.APIKeyEnv)
 	if apiKey == "" {
 		fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
@@ -215,6 +226,16 @@ func setupAgent(cfg domain.Config, skip bool) *agent.Coordinator {
 	return agent.NewCoordinator(cb, agent.CoordinatorConfig{
 		Models: cfg.Agent.Models, Strategy: agent.StrategyStandard, TokenBudget: 50000,
 	})
+}
+
+// setupConservativeAgent auto-detects API key and builds a conservative coordinator.
+func setupConservativeAgent() *agent.Coordinator {
+	key, envVar := agent.DetectAPIKey()
+	if key == "" {
+		return nil
+	}
+	fmt.Printf("  Agent review: auto-detected via %s (conservative mode)\n", envVar)
+	return agent.NewConservativeCoordinator(key)
 }
 
 func (c *certifyContext) collectRepoEvidence() {

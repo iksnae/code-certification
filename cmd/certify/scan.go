@@ -1,10 +1,13 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"path/filepath"
+	"time"
 
+	"github.com/iksnae/code-certification/internal/agent"
 	"github.com/iksnae/code-certification/internal/config"
 	"github.com/iksnae/code-certification/internal/discovery"
 	"github.com/spf13/cobra"
@@ -78,10 +81,47 @@ var scanCmd = &cobra.Command{
 		}
 
 		fmt.Printf("✓ Discovered %d code units (saved to .certification/index.json)\n", len(merged))
+
+		// AI-powered scan suggestions (conservative, optional)
+		tryScanSuggestions(langs, len(merged), adapters)
+
 		return nil
 	},
 }
 
 func init() {
 	scanCmd.Flags().StringVar(&scanPath, "path", "", "Path to repository (default: current directory)")
+}
+
+// tryScanSuggestions attempts AI-powered policy/scope suggestions.
+// Silently does nothing if no API key is available or if the call fails.
+func tryScanSuggestions(langs []discovery.LanguageInfo, unitCount int, adapters []string) {
+	key, _ := agent.DetectAPIKey()
+	if key == "" {
+		return
+	}
+
+	chain := agent.NewModelChain(
+		"https://openrouter.ai/api/v1", key,
+		"https://github.com/iksnae/code-certification", "Certify",
+		agent.ConservativeModels,
+	)
+
+	var langNames []string
+	for _, l := range langs {
+		langNames = append(langNames, l.Name)
+	}
+	summary := agent.RepoSummary{
+		Languages:    langNames,
+		UnitCount:    unitCount,
+		FilePatterns: adapters,
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+
+	result := agent.SuggestForRepo(ctx, chain, summary)
+	if result.Suggestions != "" {
+		fmt.Printf("\n💡 AI Suggestions:\n%s\n", result.Suggestions)
+	}
 }

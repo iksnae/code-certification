@@ -50,9 +50,11 @@ jobs:
             -o build/bin/certify ./cmd/certify/
 
       - name: Certify
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           ./build/bin/certify scan
-          ./build/bin/certify certify --skip-agent --reset-queue
+          ./build/bin/certify certify --reset-queue
 
       - name: Commit report card
         run: |

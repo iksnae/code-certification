@@ -33,7 +33,9 @@ jobs:
         run: ./build/bin/certify scan
 
       - name: Certify (incremental batch)
-        run: ./build/bin/certify certify --skip-agent --batch 100
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: ./build/bin/certify certify --batch 100
 
       - name: Expire overdue
         run: ./build/bin/certify expire

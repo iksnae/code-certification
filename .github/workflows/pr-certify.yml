@@ -32,7 +32,9 @@ jobs:
         run: ./build/bin/certify scan
 
       - name: Certify changed files only
-        run: ./build/bin/certify certify --skip-agent --diff-base origin/main --reset-queue
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: ./build/bin/certify certify --diff-base origin/main --reset-queue
 
       - name: Generate report
         run: ./build/bin/certify report --detailed
