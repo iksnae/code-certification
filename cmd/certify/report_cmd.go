@@ -24,20 +24,20 @@ var (
 var reportCmd = &cobra.Command{
 	Use:   "report",
 	Short: "Generate certification reports",
-	Long: `Generate certification reports in various formats.
+	Long: `Generate certification reports.
 
-Formats:
-  text      Quick summary to terminal (default)
-  card      Visual report card box for terminal
-  json      Full report as machine-readable JSON
-  full      Complete per-unit report card (markdown)
-
-Every run generates:
+Every run updates:
   .certification/REPORT_CARD.md  — full per-unit report card
   .certification/badge.json      — shields.io endpoint badge
 
+Formats:
+  card      Visual report card in terminal (default)
+  full      Complete per-unit report card (markdown)
+  json      Machine-readable full report
+  text      Brief health summary
+
 Badge for your README:
-  certify report --badge    prints the markdown snippet`,
+  certify report --badge`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		root := reportPath
 		if root == "" {
@@ -81,15 +81,11 @@ Badge for your README:
 			}
 			output = string(data)
 
-		case "card":
-			c := report.GenerateCard(records, repo, commit, now)
-			output = report.FormatCardText(c)
-
 		case "full":
 			fr := report.GenerateFullReport(records, repo, commit, now)
 			output = report.FormatFullMarkdown(fr)
 
-		default:
+		case "text":
 			if reportDetailed {
 				d := report.Detailed(records, now)
 				output = report.FormatDetailedText(d)
@@ -97,6 +93,10 @@ Badge for your README:
 				h := report.Health(records)
 				output = report.FormatText(h)
 			}
+
+		default: // "card" or unrecognized
+			c := report.GenerateCard(records, repo, commit, now)
+			output = report.FormatCardText(c)
 		}
 
 		// Write to file or stdout
@@ -116,12 +116,16 @@ Badge for your README:
 		saveReportCard(certDir, records, repo, commit, now)
 		saveBadge(certDir, records, repo, commit, now)
 
+		cardPath := filepath.Join(certDir, "REPORT_CARD.md")
+		badgePath := filepath.Join(certDir, "badge.json")
+		fmt.Printf("\n✓ %s updated\n✓ %s updated\n", cardPath, badgePath)
+
 		return nil
 	},
 }
 
 func init() {
-	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "text", "Output format (text, json, card, full)")
+	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "card", "Output format (card, full, json, text)")
 	reportCmd.Flags().StringVar(&reportPath, "path", "", "Path to repository (default: current directory)")
 	reportCmd.Flags().BoolVar(&reportDetailed, "detailed", false, "Include dimension breakdowns, risk analysis, expiring units")
 	reportCmd.Flags().StringVarP(&reportOutput, "output", "o", "", "Write report to file instead of stdout")

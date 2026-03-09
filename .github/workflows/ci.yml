@@ -19,8 +19,8 @@ jobs:
         with:
           go-version: '1.22'
 
-      - name: Run tests
-        run: go test ./... -v -count=1
+      - name: Test
+        run: go test ./... -count=1
 
       - name: Vet
         run: go vet ./...
@@ -41,7 +41,7 @@ jobs:
         with:
           go-version: '1.22'
 
-      - name: Build certify
+      - name: Build
         run: |
           go build -ldflags "\
             -X main.Version=0.1.0 \
@@ -49,19 +49,15 @@ jobs:
             -X main.Date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             -o build/bin/certify ./cmd/certify/
 
-      - name: Scan
-        run: ./build/bin/certify scan
+      - name: Certify
+        run: |
+          ./build/bin/certify scan
+          ./build/bin/certify certify --skip-agent --reset-queue
 
-      - name: Certify (deterministic)
-        run: ./build/bin/certify certify --skip-agent --reset-queue
-
-      - name: Generate report card
-        run: ./build/bin/certify report --format full
-
-      - name: Commit report card + badge
+      - name: Commit report card
         run: |
           git config user.name "certify[bot]"
           git config user.email "certify@users.noreply.github.com"
           git add .certification/REPORT_CARD.md .certification/badge.json
-          git diff --staged --quiet || git commit -m "chore: update certification report card [skip ci]"
+          git diff --staged --quiet || git commit -m "chore: update report card [skip ci]"
           git push
