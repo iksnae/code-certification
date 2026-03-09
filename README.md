@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://github.com/iksnae/code-certification/actions/workflows/ci.yml"><img src="https://github.com/iksnae/code-certification/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   <a href="https://github.com/iksnae/code-certification/blob/main/.certification/REPORT_CARD.md"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/iksnae/code-certification/main/.certification/badge.json" alt="Certification" /></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=iksnae.certify-vscode"><img src="https://img.shields.io/visual-studio-marketplace/v/iksnae.certify-vscode?label=VSCode&logo=visualstudiocode&logoColor=white" alt="VS Marketplace" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
 </p>
 
