@@ -2,8 +2,8 @@
 
 ## 1. Product Foundation
 - [ ] The system exists as a standalone, production-capable solution rather than an ad hoc collection of scripts.
-- [ ] The system has a clearly defined core domain model independent of any single programming language being certified.
-- [ ] The system is implementation-language specific internally and certification-language agnostic externally.
+- [x] The system has a clearly defined core domain model independent of any single programming language being certified.
+- [x] The system is implementation-language specific internally and certification-language agnostic externally.
 - [ ] The system is designed so core governance logic is separated from repository host integrations, analyzer adapters, and reporting adapters.
 - [ ] The system supports repository-native operation without requiring a permanently online centralized control plane for basic functionality.
 - [ ] The system can operate in local CLI mode and GitHub workflow mode.
@@ -100,7 +100,7 @@
 - [ ] The system computes results across multiple quality dimensions.
 - [ ] Weighted scoring is supported.
 - [ ] The system assigns a status for each evaluated unit.
-- [ ] The system can assign statuses including `certified`, `certified_with_observations`, `probationary`, `expired`, `decertified`, and `exempt`.
+- [x] The system can assign statuses including `certified`, `certified_with_observations`, `probationary`, `expired`, `decertified`, and `exempt`.
 - [ ] The system can assign an overall grade and/or score where configured.
 - [ ] The system can attach confidence values where applicable.
 - [ ] The system can attach required remediation actions where appropriate.
@@ -108,16 +108,16 @@
 - [ ] The system does not falsely imply mathematical certainty where only heuristic evidence exists.
 
 ## 9. Certification Dimensions
-- [ ] The system supports evaluating correctness.
-- [ ] The system supports evaluating maintainability.
-- [ ] The system supports evaluating readability.
-- [ ] The system supports evaluating testability.
-- [ ] The system supports evaluating security.
-- [ ] The system supports evaluating architectural fitness.
-- [ ] The system supports evaluating operational quality.
-- [ ] The system supports evaluating performance appropriateness.
-- [ ] The system supports evaluating change risk.
-- [ ] The weighting of dimensions is configurable.
+- [x] The system supports evaluating correctness.
+- [x] The system supports evaluating maintainability.
+- [x] The system supports evaluating readability.
+- [x] The system supports evaluating testability.
+- [x] The system supports evaluating security.
+- [x] The system supports evaluating architectural fitness.
+- [x] The system supports evaluating operational quality.
+- [x] The system supports evaluating performance appropriateness.
+- [x] The system supports evaluating change risk.
+- [x] The weighting of dimensions is configurable.
 - [ ] Reports expose dimension-level breakdowns for evaluated units when configured.
 
 ## 10. Certification Records / Trust Ledger
@@ -267,7 +267,7 @@
 - [ ] Any use of privileged automation is clearly documented and isolated.
 
 ## 22. Storage, Schema, and Data Integrity
-- [ ] Structured schemas exist for configuration, policies, unit index, certification records, and reports.
+- [x] Structured schemas exist for configuration, policies, unit index, certification records, and reports.
 - [ ] Persisted artifacts are stable enough for downstream automation consumption.
 - [ ] Data files are reviewable in pull requests.
 - [ ] The system tolerates partially missing state by rebuilding what is derivable.
