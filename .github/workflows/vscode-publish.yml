@@ -33,7 +33,14 @@ jobs:
             echo "::error::VSCE_PAT secret not set"
             exit 1
           fi
-          npx @vscode/vsce publish --no-dependencies -p "$VSCE_PAT"
+          if npx @vscode/vsce publish --no-dependencies -p "$VSCE_PAT" 2>&1 | tee /tmp/vsce-output; then
+            echo "✅ Published successfully"
+          elif grep -q "already exists" /tmp/vsce-output; then
+            echo "::notice::Version already published — skipping"
+          else
+            echo "::error::Publish failed"
+            exit 1
+          fi
 
       - name: Package VSIX
         run: npx @vscode/vsce package --no-dependencies
