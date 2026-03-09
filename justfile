@@ -1,7 +1,7 @@
 # certify — code certification CLI
 # https://github.com/iksnae/code-certification
 
-version  := "0.1.0"
+version  := "0.1.1"
 build_dir := justfile_directory() / "build/bin"
 
 # ── Build ────────────────────────────────────────────────────────────────────

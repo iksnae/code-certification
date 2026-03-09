@@ -2,7 +2,7 @@
   "name": "certify-vscode",
   "displayName": "Certify",
   "description": "Code trust, with an expiration date — view report cards, configure AI providers, run certification",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "iksnae",
   "license": "MIT",
   "icon": "icon.png",
