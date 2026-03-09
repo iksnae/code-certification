@@ -1,0 +1,131 @@
+---
+title: Certify
+description: Code trust, with an expiration date.
+template: splash
+hero:
+  tagline: Continuously evaluate every code unit in your repository. Score against versioned policies. Assign time-bound certification you can actually trust.
+  image:
+    file: ../../assets/logo-dark.png
+  actions:
+    - text: Get Started
+      link: /code-certification/guides/introduction/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/iksnae/code-certification
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why Certify?
+
+CI tells you whether code passes right now.  
+**Certify tells you whether code should still be trusted.**
+
+Most engineering teams assume code that once passed review can be trusted indefinitely. That assumption is wrong. Standards evolve, dependencies change, systems grow more complex.
+
+Certify introduces **continuous code certification** — measurable quality scores with certification that **expires intentionally**. When certification lapses, code is re-evaluated against current standards.
+
+---
+
+## How It Works
+
+<CardGrid>
+	<Card title="Discover" icon="magnifier">
+		Finds every function, method, type, and file in your repository using language-aware adapters.
+	</Card>
+	<Card title="Evaluate" icon="approve-check-circle">
+		Collects deterministic evidence from linters, test runners, git history, and code metrics. Scores across 9 quality dimensions.
+	</Card>
+	<Card title="Certify" icon="document">
+		Assigns time-bound certification status — certified, probationary, or decertified — with expiration dates that enforce recertification.
+	</Card>
+	<Card title="Report" icon="open-book">
+		Generates a complete report card with per-unit scoring, dimension breakdowns, and a live README badge.
+	</Card>
+</CardGrid>
+
+---
+
+## Four Commands
+
+```bash
+certify init      # bootstrap config, policies, CI workflows
+certify scan      # discover all certifiable code units
+certify certify   # evaluate, score, and certify
+certify report    # generate your report card
+```
+
+---
+
+## 9 Quality Dimensions
+
+Every code unit is scored across:
+
+| Dimension | What it measures |
+|-----------|-----------------|
+| **Correctness** | Lint errors, vet issues, test failures |
+| **Maintainability** | Cyclomatic complexity, function length |
+| **Readability** | Line length, documentation, TODO count |
+| **Testability** | Test coverage, test existence |
+| **Security** | Security-sensitive patterns |
+| **Architectural Fitness** | Package structure, dependency patterns |
+| **Operational Quality** | Git churn, contributor count |
+| **Performance** | Algorithmic complexity indicators |
+| **Change Risk** | Recent changes, author concentration |
+
+---
+
+## Certification Lifecycle
+
+Certifications are **time-bound** — they expire by design.
+
+| Status | Meaning |
+|--------|---------|
+| 🟢 **Certified** | Meets all required policies |
+| 🟡 **Certified with Observations** | Acceptable but with minor issues |
+| 🟠 **Probationary** | Requires improvement soon |
+| 🔴 **Decertified** | Fails required policies |
+| ⚪ **Expired** | Certification window elapsed — needs recertification |
+
+Default certification window: **90 days**. Risk factors adjust automatically — high-churn code gets shorter windows, stable code gets longer ones.
+
+---
+
+## Report Card
+
+A complete per-unit certification of your entire codebase:
+
+```
+# 🟢 Certify — Report Card
+
+## Dimension Averages
+| correctness         | 95.0% | ██████████████████░░ |
+| maintainability     | 93.3% | ██████████████████░░ |
+| readability         | 92.4% | ██████████████████░░ |
+| testability         | 90.0% | █████████████████░░░ |
+
+## All Units
+| Score       | function | B+ | 87.4% | certified | 2026-06-07 |
+| CertifyUnit | function | B  | 85.6% | certified | 2026-06-07 |
+... every unit in your repo
+```
+
+---
+
+## Ready?
+
+<CardGrid>
+	<Card title="Install in 30 seconds" icon="rocket">
+		```bash
+		go install github.com/iksnae/code-certification/cmd/certify@latest
+		```
+		[Installation guide →](/code-certification/guides/installation/)
+	</Card>
+	<Card title="Certify your first repo" icon="star">
+		Walk through bootstrapping, scanning, certifying, and reading your first report card.
+
+		[Quick start →](/code-certification/guides/quickstart/)
+	</Card>
+</CardGrid>

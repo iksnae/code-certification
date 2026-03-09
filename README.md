@@ -1,8 +1,14 @@
-# Certify
+<p align="center">
+  <img src="assets/logo-256.png" alt="Certify" width="128" />
+</p>
 
-[![CI](https://github.com/iksnae/code-certification/actions/workflows/ci.yml/badge.svg)](https://github.com/iksnae/code-certification/actions/workflows/ci.yml)
-[![Certification](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/iksnae/code-certification/main/.certification/badge.json)](https://github.com/iksnae/code-certification/blob/main/.certification/REPORT_CARD.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<h1 align="center">Certify</h1>
+
+<p align="center">
+  <a href="https://github.com/iksnae/code-certification/actions/workflows/ci.yml"><img src="https://github.com/iksnae/code-certification/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/iksnae/code-certification/blob/main/.certification/REPORT_CARD.md"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/iksnae/code-certification/main/.certification/badge.json" alt="Certification" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+</p>
 
 **Code trust, with an expiration date.**
 
@@ -10,7 +16,7 @@ Certify continuously evaluates every code unit in your repository, scores it aga
 
 CI tells you whether code passes right now. **Certify tells you whether code should still be trusted.**
 
-[📋 View our report card →](.certification/REPORT_CARD.md)
+[📋 View our report card →](.certification/REPORT_CARD.md) · [📖 Documentation →](https://iksnae.github.io/code-certification/)
 
 ---
 

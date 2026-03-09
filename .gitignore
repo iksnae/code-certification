@@ -45,3 +45,8 @@ specs/
 
 # Regenerated per-run
 .certification/index.json
+
+# Website build output
+website/dist/
+website/node_modules/
+website/.astro/
