@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 — 2026-03-09
+
+### Fixed
+- **CI workflows**: Incremental certification (changed files only), concurrency guards, path filters. CI down from 25+ min to ~30 seconds.
+- **No wasted tokens**: OpenRouter only used on weekly runs, budget-capped. All other workflows are deterministic-only.
+- **Commit step**: Only commits tracked report card + badge, not gitignored records/index.
+
 ## 0.1.1 — 2026-03-09
 
 ### Fixed
