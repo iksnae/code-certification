@@ -26,7 +26,14 @@ jobs:
       - run: npm run build
 
       - name: Publish to Marketplace
-        run: npx @vscode/vsce publish --no-dependencies -p ${{ secrets.VSCE_PAT }}
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: |
+          if [ -z "$VSCE_PAT" ]; then
+            echo "::error::VSCE_PAT secret not set"
+            exit 1
+          fi
+          npx @vscode/vsce publish --no-dependencies -p "$VSCE_PAT"
 
       - name: Package VSIX
         run: npx @vscode/vsce package --no-dependencies
