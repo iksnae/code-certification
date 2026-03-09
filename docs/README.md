@@ -1,4 +1,4 @@
-# certify — Documentation
+# Certify — Documentation
 
 ## Install
 

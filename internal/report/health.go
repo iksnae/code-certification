@@ -71,7 +71,7 @@ func FormatJSON(v any) ([]byte, error) {
 func FormatText(h HealthReport) string {
 	var b strings.Builder
 	b.WriteString("═══════════════════════════════════════════\n")
-	b.WriteString("  Code Certification Health Report\n")
+	b.WriteString("  Certify — Health Report\n")
 	b.WriteString("═══════════════════════════════════════════\n\n")
 
 	fmt.Fprintf(&b, "  Total Units:            %d\n", h.TotalUnits)

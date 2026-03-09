@@ -104,8 +104,8 @@ func TestFormatCardText(t *testing.T) {
 	c := report.GenerateCard(records, "iksnae/code-certification", "abc1234", time.Now())
 	text := report.FormatCardText(c)
 
-	if !strings.Contains(text, "REPORT CARD") {
-		t.Error("should contain 'REPORT CARD'")
+	if !strings.Contains(text, "REPORT CARD") || !strings.Contains(text, "CERTIFY") {
+		t.Error("should contain 'CERTIFY' and 'REPORT CARD'")
 	}
 	if !strings.Contains(text, "iksnae/code-certification") {
 		t.Error("should contain repository name")
@@ -139,7 +139,7 @@ func TestFormatCardMarkdown(t *testing.T) {
 	if !strings.Contains(md, "Grade Distribution") {
 		t.Error("should contain grade distribution")
 	}
-	if !strings.Contains(md, "certify") {
+	if !strings.Contains(md, "Certify") {
 		t.Error("should contain attribution link")
 	}
 }

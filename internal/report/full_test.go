@@ -88,7 +88,7 @@ func TestFormatFullMarkdown(t *testing.T) {
 		"CertifyUnit",           // unit name in table
 		"parse",                 // ts unit
 		"complexity too high",   // observation detail
-		"certify",               // footer link
+		"Certify",               // footer link
 	}
 	for _, check := range checks {
 		if !strings.Contains(md, check) {

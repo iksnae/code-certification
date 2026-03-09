@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Code Certification System is a Go CLI that evaluates code units against versioned policies and assigns time-bound certification status.
+Certify is a Go CLI that continuously evaluates code units against versioned policies and assigns time-bound certification status.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

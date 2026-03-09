@@ -27,9 +27,9 @@ func TestGenerateBadge(t *testing.T) {
 	if !strings.Contains(badge.Message, "2 units") {
 		t.Errorf("message = %s, should contain unit count", badge.Message)
 	}
-	// avg 0.875 → B+ → yellowgreen
-	if badge.Color != "yellowgreen" {
-		t.Errorf("color = %s, want yellowgreen for grade B+", badge.Color)
+	// avg 0.875 → B+ → steel blue
+	if badge.Color != "4A6B82" {
+		t.Errorf("color = %s, want 4A6B82 for grade B+", badge.Color)
 	}
 }
 
@@ -38,13 +38,13 @@ func TestBadgeColors(t *testing.T) {
 		score float64
 		color string
 	}{
-		{0.98, "brightgreen"}, // A  (≥0.93)
-		{0.91, "green"},       // A- (≥0.90)
-		{0.88, "yellowgreen"}, // B+ (≥0.87)
-		{0.83, "blue"},        // B  (≥0.80)
-		{0.70, "yellow"},      // C  (≥0.70)
-		{0.60, "orange"},      // D  (≥0.60)
-		{0.30, "red"},         // F  (<0.60)
+		{0.98, "2E8B57"}, // A  — certified green
+		{0.91, "3DA06A"}, // A- — certified green (lighter)
+		{0.88, "4A6B82"}, // B+ — steel blue
+		{0.83, "4A6B82"}, // B  — steel blue
+		{0.70, "E0A100"}, // C  — observations amber
+		{0.60, "F59E0B"}, // D  — probationary warning
+		{0.30, "DC2626"}, // F  — decertified red
 	}
 	for _, tt := range tests {
 		records := []domain.CertificationRecord{
@@ -104,7 +104,7 @@ func TestBadge_Empty(t *testing.T) {
 	if badge.Message != "no data" {
 		t.Errorf("message = %s, want 'no data'", badge.Message)
 	}
-	if badge.Color != "lightgrey" {
-		t.Errorf("color = %s, want lightgrey for N/A", badge.Color)
+	if badge.Color != "9CA3AF" {
+		t.Errorf("color = %s, want 9CA3AF for N/A", badge.Color)
 	}
 }

@@ -6,10 +6,10 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "certify",
-	Short: "Code Certification System — time-bound trust for every code unit",
-	Long: `certify discovers code units, evaluates them against versioned policies,
-collects deterministic evidence, scores across 9 quality dimensions,
-assigns time-bound certification status, and generates reports.
+	Short: "Certify — code trust, with an expiration date",
+	Long: `Certify continuously evaluates every code unit in your repository,
+scores it against versioned policies, and assigns time-bound
+certification you can actually trust.
 
 Use 'certify init' to bootstrap certification in your repository.`,
 }

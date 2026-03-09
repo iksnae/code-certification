@@ -37,24 +37,27 @@ func badgeMessage(c Card) string {
 		c.OverallGrade, c.PassRate*100, c.TotalUnits)
 }
 
+// badgeColor maps grade to brand-consistent colors.
+// Brand palette: Certified #2E8B57, Observations #E0A100,
+// Probationary #F59E0B, Expired #9CA3AF, Decertified #DC2626.
 func badgeColor(grade string) string {
 	switch grade {
 	case "A":
-		return "brightgreen"
+		return "2E8B57" // certified green
 	case "A-":
-		return "green"
+		return "3DA06A" // certified green (lighter)
 	case "B+":
-		return "yellowgreen"
+		return "4A6B82" // steel blue (brand primary)
 	case "B":
-		return "blue"
+		return "4A6B82" // steel blue
 	case "C":
-		return "yellow"
+		return "E0A100" // observations amber
 	case "D":
-		return "orange"
+		return "F59E0B" // probationary warning
 	case "F":
-		return "red"
+		return "DC2626" // decertified red
 	default:
-		return "lightgrey"
+		return "9CA3AF" // expired gray
 	}
 }
 

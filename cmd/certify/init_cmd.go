@@ -174,7 +174,7 @@ func init() {
 }
 
 func generateConfig(langs []discovery.LanguageInfo) string {
-	cfg := `# Code Certification System Configuration
+	cfg := `# Certify — Configuration
 mode: advisory
 
 scope:

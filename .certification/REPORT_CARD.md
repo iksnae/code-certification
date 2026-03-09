@@ -1,8 +1,8 @@
-# 🔵 Code Certification — Full Report
+# 🟢 Certify — Report Card
 
-**Repository:** `//github.com/iksnae/code-certification`  
-**Commit:** `8842f82`  
-**Generated:** 2026-03-09T19:29:15  
+**Repository:** `iksnae/code-certification`  
+**Commit:** `05e2ab0`  
+**Generated:** 2026-03-09T16:09:35  
 
 ---
 
@@ -10,10 +10,10 @@
 
 | Metric | Value |
 |--------|-------|
-| **Overall Grade** | 🔵 **B+** |
-| **Overall Score** | 87.4% |
-| **Total Units** | 446 |
-| **Passing** | 446 |
+| **Overall Grade** | 🟢 **B+** |
+| **Overall Score** | 87.3% |
+| **Total Units** | 476 |
+| **Passing** | 476 |
 | **Failing** | 0 |
 | **Pass Rate** | 100.0% |
 | **Observations** | 0 |
@@ -23,8 +23,8 @@
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B+ | 318 | 71.3% | ███████████████████████████████████ |
-| B | 128 | 28.7% | ██████████████ |
+| B+ | 328 | 68.9% | ██████████████████████████████████ |
+| B | 148 | 31.1% | ███████████████ |
 
 ## Dimension Averages
 
@@ -33,30 +33,36 @@
 | architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 90.0% | █████████████████░░░ |
 | correctness | 95.0% | ██████████████████░░ |
-| maintainability | 93.2% | ██████████████████░░ |
+| maintainability | 93.3% | ██████████████████░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
 | performance_appropriateness | 80.0% | ████████████████░░░░ |
-| readability | 93.2% | ██████████████████░░ |
+| readability | 92.4% | ██████████████████░░ |
 | security | 80.0% | ████████████████░░░░ |
 | testability | 90.0% | █████████████████░░░ |
 
 ## By Language
 
-### go — 🔵 B+ (87.4%)
+### go — 🟢 B+ (87.4%)
 
 - **Units:** 435
 - **Score range:** 83.9% – 87.8%
-- **Grades:** 314×B+, 121×B
+- **Grades:** 315×B+, 120×B
 
-### file — 🔵 B (86.5%)
+### ts — 🟢 B (86.4%)
 
-- **Units:** 11
+- **Units:** 24
 - **Score range:** 83.9% – 87.8%
-- **Grades:** 4×B+, 7×B
+- **Grades:** 8×B+, 16×B
+
+### file — 🟢 B (86.2%)
+
+- **Units:** 17
+- **Score range:** 83.9% – 87.8%
+- **Grades:** 5×B+, 12×B
 
 ## All Units
 
-### `./` (5 units)
+### `./` (6 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
@@ -65,6 +71,7 @@
 | `README.md` | file | B | 86.1% | certified | 2026-04-23 |
 | `go.mod` | file | B+ | 87.8% | certified | 2026-04-23 |
 | `go.sum` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `logo-image.png` | file | B | 83.9% | certified | 2026-04-23 |
 
 ### `cmd/certify/` (28 units)
 
@@ -119,12 +126,13 @@
 
 </details>
 
-### `docs/` (4 units)
+### `docs/` (5 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
 | `README.md` | file | B | 86.7% | certified | 2026-04-23 |
 | `architecture.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `brand.md` | file | B | 86.7% | certified | 2026-04-23 |
 | `policy-authoring.md` | file | B | 86.7% | certified | 2026-04-23 |
 | `troubleshooting.md` | file | B+ | 87.8% | certified | 2026-04-23 |
 
@@ -134,6 +142,29 @@
 |------|------|:-----:|------:|--------|--------|
 | `PRD.md` | file | B | 83.9% | certified | 2026-04-23 |
 | `STORIES.md` | file | B | 83.9% | certified | 2026-04-23 |
+
+### `extensions/` (18 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `agent-chain.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `agent-team.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `cross-agent.ts` | file | B | 86.1% | certified | 2026-04-23 |
+| `damage-control.ts` | file | B | 86.1% | certified | 2026-04-23 |
+| `minimal.ts` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `pi-pi.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `pure-focus.ts` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `purpose-gate.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `session-replay.ts` | file | B | 86.1% | certified | 2026-04-23 |
+| `subagent-widget.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `system-select.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `theme-cycler.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `THEME_MAP` | function | B | 86.7% | certified | 2026-04-23 |
+| `applyExtensionDefaults` | function | B | 86.7% | certified | 2026-04-23 |
+| `applyExtensionTheme` | function | B | 86.7% | certified | 2026-04-23 |
+| `tilldone.ts` | file | B | 83.9% | certified | 2026-04-23 |
+| `tool-counter-widget.ts` | file | B | 86.7% | certified | 2026-04-23 |
+| `tool-counter.ts` | file | B | 86.7% | certified | 2026-04-23 |
 
 ### `internal/` (1 units)
 
@@ -791,7 +822,7 @@
 | `LanguageCard` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `buildLanguageCards` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `buildTopIssues` | function | B | 86.7% | certified | 2026-04-23 |
-| `gradeEmoji` | function | B | 86.7% | certified | 2026-04-23 |
+| `gradeEmoji` | function | B+ | 87.8% | certified | 2026-04-23 |
 | `card_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 | `AreaSummary` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `Detailed` | function | B+ | 87.8% | certified | 2026-04-23 |
@@ -832,6 +863,26 @@
 | `HealthReport` | class | B+ | 87.8% | certified | 2026-04-23 |
 | `health_test.go` | file | B | 86.7% | certified | 2026-04-23 |
 
+### `specs/` (4 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `agent-redesign.md` | file | B+ | 87.8% | certified | 2026-04-23 |
+| `close-feature-gaps.md` | file | B | 86.1% | certified | 2026-04-23 |
+| `dogfood-gaps.md` | file | B | 86.7% | certified | 2026-04-23 |
+| `v1-implementation.md` | file | B | 83.9% | certified | 2026-04-23 |
+
+### `testdata/repos/ts-simple/src/` (6 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `DialogueParser` | class | B+ | 87.8% | certified | 2026-04-23 |
+| `MAX_TOKENS` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `parseNode` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `tokenizeDialogue` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `formatDate` | function | B+ | 87.8% | certified | 2026-04-23 |
+| `log` | function | B+ | 87.8% | certified | 2026-04-23 |
+
 ---
 
-*446 units certified. Generated by [certify](https://github.com/iksnae/code-certification).*
+*476 units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*

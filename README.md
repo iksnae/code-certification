@@ -1,12 +1,26 @@
-# certify
+# Certify
 
 [![CI](https://github.com/iksnae/code-certification/actions/workflows/ci.yml/badge.svg)](https://github.com/iksnae/code-certification/actions/workflows/ci.yml)
 [![Certification](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/iksnae/code-certification/main/.certification/badge.json)](https://github.com/iksnae/code-certification/blob/main/.certification/REPORT_CARD.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Certify** evaluates every code unit in your repository against versioned policies, scores them across 9 quality dimensions, and generates a detailed **report card** with time-bound certification status.
+**Code trust, with an expiration date.**
 
-[📋 See our own report card →](.certification/REPORT_CARD.md)
+Certify continuously evaluates every code unit in your repository, scores it against versioned policies, and assigns time-bound certification you can actually trust.
+
+CI tells you whether code passes right now. **Certify tells you whether code should still be trusted.**
+
+[📋 View our report card →](.certification/REPORT_CARD.md)
+
+---
+
+## Why Certify
+
+Code that once passed review doesn't stay trustworthy forever. Standards evolve, dependencies change, systems grow more complex.
+
+Certify introduces **continuous code certification** — measurable quality scores with certification that expires intentionally. When certification lapses, code must be re-evaluated against current standards.
+
+Instead of treating quality as a one-time event, Certify makes it a **continuous process of trust, verification, and renewal**.
 
 ---
 
@@ -26,6 +40,8 @@ go build -o certify ./cmd/certify/
 
 **Requires:** Go 1.22+, Git
 
+---
+
 ## Quick Start
 
 ```bash
@@ -37,27 +53,29 @@ certify init
 # 2. Discover — finds every function, method, type, and file
 certify scan
 
-# 3. Certify — collects evidence, evaluates, scores, certifies
+# 3. Certify — collects evidence, evaluates, scores
 certify certify
 
 # 4. Report — generates your report card
 certify report --format full
 ```
 
-That's it. Your report card is at `.certification/REPORT_CARD.md`.
+Your report card is at `.certification/REPORT_CARD.md`.
+
+---
 
 ## What You Get
 
 ### Report Card
 
-A complete per-unit scoring of your entire codebase:
+A complete per-unit certification of your entire codebase:
 
 ```
-# 🔵 Code Certification — Full Report
+# 🟢 Certify — Full Report
 
 ## Summary
-| Overall Grade | 🔵 B |
-| Total Units   | 447  |
+| Overall Grade | 🟢 B |
+| Total Units   | 474  |
 | Pass Rate     | 100% |
 
 ## Dimension Averages
@@ -68,14 +86,14 @@ A complete per-unit scoring of your entire codebase:
 | security                 | 80.0% | ████████████████░░░░ |
 
 ## All Units (organized by directory)
-| `Score`       | function | B | 86.7% | certified | 2026-04-23 |
-| `CertifyUnit` | function | B | 85.6% | certified | 2026-04-23 |
+| Score         | function | B | 86.7% | certified | 2026-06-07 |
+| CertifyUnit   | function | B | 85.6% | certified | 2026-06-07 |
 ... every unit in your repo
 ```
 
-### Badge
+### Certification Badge
 
-Add this to your README — it updates automatically:
+Add a live badge to your README — it updates automatically:
 
 ```bash
 certify report --badge
@@ -97,9 +115,11 @@ Click the badge → full report card.
 - **Nightly** — Sweeps for expired certifications
 - **Weekly** — Full certification run + report card update
 
-## 9 Quality Dimensions
+---
 
-Every code unit is scored across:
+## Quality Dimensions
+
+Every code unit is scored across 9 quality dimensions:
 
 | Dimension | What it measures |
 |-----------|-----------------|
@@ -115,36 +135,40 @@ Every code unit is scored across:
 
 Dimensions are weighted and combined into a single score → grade (A through F).
 
+---
+
 ## Certification Status
 
-Certifications are **time-bound** — they expire:
+Certifications are **time-bound** — they expire by design.
 
 | Status | Meaning |
 |--------|---------|
-| `certified` | Meets all policies, score above threshold |
-| `certified_with_observations` | Passes but has warnings |
-| `probationary` | Below threshold, grace period |
-| `decertified` | Fails policy requirements |
-| `expired` | Certification window elapsed, needs re-evaluation |
-| `exempt` | Excluded by human override |
+| 🟢 **Certified** | Meets all required policies |
+| 🟡 **Certified with Observations** | Acceptable but with minor issues |
+| 🟠 **Probationary** | Requires improvement soon |
+| 🔴 **Decertified** | Fails required policies |
+| ⚪ **Expired** | Certification window has elapsed, needs recertification |
+| **Exempt** | Explicitly excluded by human override |
 
-Default window: 90 days. Risk factors adjust the window (high churn → shorter).
+Default certification window: **90 days**. Risk factors adjust the window — high churn shortens it, stable code extends it.
+
+---
 
 ## Commands
 
-| Command | What it does |
+| Command | Description |
 |---------|-------------|
-| `certify init` | Bootstrap `.certification/` with config + policies |
+| `certify init` | Bootstrap `.certification/` with config and policies |
 | `certify scan` | Discover all certifiable code units |
 | `certify certify` | Evaluate, score, and certify units |
-| `certify report` | Generate reports (text, card, full, json) |
+| `certify report` | Generate report card and badge |
 | `certify expire` | Mark overdue certifications as expired |
 | `certify version` | Show version |
 
-### Useful Flags
+### Flags
 
 ```bash
-certify certify --skip-agent         # no LLM review, deterministic only
+certify certify --skip-agent         # deterministic only, no LLM review
 certify certify --batch 20           # process 20 units at a time
 certify certify --diff-base main     # only changed files (for PRs)
 certify certify --target internal/   # scope to specific paths
@@ -155,6 +179,8 @@ certify report --format json         # machine-readable
 certify report --badge               # print README badge snippet
 certify report --output report.md    # write to file
 ```
+
+---
 
 ## Configuration
 
@@ -174,9 +200,9 @@ expiry:
   default_window_days: 90
 ```
 
-### Custom Policies
+### Policy Packs
 
-Add YAML policy files to `.certification/policies/`:
+Add YAML policy packs to `.certification/policies/`:
 
 ```yaml
 name: my-team-standards
@@ -201,7 +227,7 @@ rules:
 
 ### Agent-Assisted Review (Optional)
 
-Add LLM-powered code review using open-weight models:
+Supplement deterministic evidence with LLM-powered code review:
 
 ```yaml
 agent:
@@ -211,7 +237,9 @@ agent:
     api_key_env: OPENROUTER_API_KEY
 ```
 
-Uses Apache 2.0 licensed models (Qwen, Mistral). Agent review supplements deterministic evidence — the system works fully without it.
+Uses Apache 2.0 licensed models (Qwen, Mistral). Agent review supplements — it never overrides — deterministic evidence. Certify works fully without it.
+
+---
 
 ## Language Support
 
@@ -219,27 +247,33 @@ Uses Apache 2.0 licensed models (Qwen, Mistral). Agent review supplements determ
 |----------|---------|-----------|
 | **Go** | Full | Functions, methods, types via `go/ast` |
 | **TypeScript** | Basic | Classes, functions, exports via regex |
-| **Everything else** | File-level | One unit per file |
+| **Everything else** | File-level | One code unit per file |
 
-## Files Generated
+---
+
+## Repository Structure
 
 ```
 .certification/
-├── config.yml          # your configuration
-├── policies/           # policy packs (YAML)
-├── records/            # per-unit certification records (JSON)
+├── config.yml          # configuration
+├── policies/           # policy packs
+├── records/            # per-unit certification records
 ├── overrides/          # human governance overrides
-├── index.json          # discovered unit index
 ├── REPORT_CARD.md      # ← the report card
 └── badge.json          # shields.io badge endpoint
 ```
 
+---
+
 ## Documentation
 
-- [Architecture](docs/architecture.md) — system design + package diagram
-- [Policy Authoring](docs/policy-authoring.md) — writing custom policies
-- [Troubleshooting](docs/troubleshooting.md) — common issues
+- [Brand Guide](docs/brand.md) — identity, terminology, visual direction
+- [Architecture](docs/architecture.md) — system design and package structure
+- [Policy Authoring](docs/policy-authoring.md) — writing custom policy packs
+- [Troubleshooting](docs/troubleshooting.md) — common issues and solutions
 - [Contributor Guide](CLAUDE.md) — development setup
+
+---
 
 ## License
 

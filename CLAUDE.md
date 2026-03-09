@@ -1,8 +1,8 @@
-# Code Certification System — Contributor Guide
+# Certify — Contributor Guide
 
 ## Overview
 
-Go CLI (`certify`) that discovers code units in a repository, evaluates them against versioned policies, collects deterministic evidence, assigns time-bound certification status, and generates report cards.
+Go CLI that continuously evaluates every code unit in a repository, scores it against versioned policies, and assigns time-bound certification you can actually trust.
 
 **Module:** `github.com/iksnae/code-certification`  
 **Binary:** `certify` (built from `cmd/certify/`)  
