@@ -1,0 +1,32 @@
+name: go-standard
+version: "1.0.0"
+language: go
+
+rules:
+  - id: lint-clean
+    dimension: correctness
+    description: "Code must pass linter with zero errors"
+    severity: error
+    metric: lint_errors
+    threshold: 0
+
+  - id: test-pass
+    dimension: testability
+    description: "All tests must pass"
+    severity: error
+    metric: test_failures
+    threshold: 0
+
+  - id: no-todos
+    dimension: readability
+    description: "No TODO/FIXME comments in certified code"
+    severity: warning
+    metric: todo_count
+    threshold: 0
+
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity should be manageable"
+    severity: warning
+    threshold: 20
+    metric: complexity

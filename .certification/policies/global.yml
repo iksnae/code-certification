@@ -1,0 +1,17 @@
+name: global
+version: "1.0.0"
+
+rules:
+  - id: lint-clean
+    dimension: correctness
+    description: "Code must pass linter with zero errors"
+    severity: error
+    metric: lint_errors
+    threshold: 0
+
+  - id: test-pass
+    dimension: testability
+    description: "All tests must pass"
+    severity: error
+    metric: test_failures
+    threshold: 0
