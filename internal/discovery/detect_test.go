@@ -3,7 +3,7 @@ package discovery_test
 import (
 	"testing"
 
-	"github.com/code-certification/certify/internal/discovery"
+	"github.com/iksnae/code-certification/internal/discovery"
 )
 
 func TestDetectLanguages_GoRepo(t *testing.T) {

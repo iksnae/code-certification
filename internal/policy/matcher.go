@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // Matcher determines which policy packs apply to a given unit.

@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/code-certification/certify/internal/queue"
+	"github.com/iksnae/code-certification/internal/queue"
 )
 
 func TestNewQueue_Empty(t *testing.T) {

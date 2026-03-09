@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // EvaluationResult holds the outcome of evaluating rules against evidence.

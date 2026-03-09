@@ -3,8 +3,8 @@ package config_test
 import (
 	"testing"
 
-	"github.com/code-certification/certify/internal/config"
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/config"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 func TestValidateConfig_Valid(t *testing.T) {

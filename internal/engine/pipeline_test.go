@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/engine"
-	"github.com/code-certification/certify/internal/evidence"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/engine"
+	"github.com/iksnae/code-certification/internal/evidence"
 )
 
 func TestPipeline_CertifyUnit(t *testing.T) {

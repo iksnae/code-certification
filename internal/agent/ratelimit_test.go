@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/code-certification/certify/internal/agent"
+	"github.com/iksnae/code-certification/internal/agent"
 )
 
 func TestRateLimiter_AllowsWithinLimit(t *testing.T) {

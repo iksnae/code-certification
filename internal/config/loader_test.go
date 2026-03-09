@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/code-certification/certify/internal/config"
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/config"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 func testdataPath(name string) string {

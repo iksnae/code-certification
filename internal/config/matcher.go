@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/policy"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/policy"
 )
 
 // NewPolicyMatcher creates a policy matcher from loaded policy packs.

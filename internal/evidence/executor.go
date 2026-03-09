@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // ToolExecutor runs external tools and collects evidence.

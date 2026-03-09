@@ -1,6 +1,6 @@
 package agent
 
-import "github.com/code-certification/certify/internal/domain"
+import "github.com/iksnae/code-certification/internal/domain"
 
 // Router maps task types to specific models with fallback.
 type Router struct {

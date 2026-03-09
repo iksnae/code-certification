@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // StageInput holds all data flowing through the pipeline.

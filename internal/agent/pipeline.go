@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // Strategy determines how many pipeline stages to execute.

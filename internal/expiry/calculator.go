@@ -5,7 +5,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // Calculate computes an expiry window based on config, risk factors, and current time.

@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/report"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/report"
 )
 
 func makeDetailedRecord(lang, path, symbol string, status domain.Status, score float64, dims domain.DimensionScores, expiresIn time.Duration) domain.CertificationRecord {

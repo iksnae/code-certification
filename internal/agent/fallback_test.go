@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/code-certification/certify/internal/agent"
+	"github.com/iksnae/code-certification/internal/agent"
 )
 
 func TestFallbackProvider_TriesModelsInOrder(t *testing.T) {

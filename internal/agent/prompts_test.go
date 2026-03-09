@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/code-certification/certify/internal/agent"
+	"github.com/iksnae/code-certification/internal/agent"
 )
 
 func promptsDir() string {

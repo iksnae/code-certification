@@ -4,9 +4,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/expiry"
-	"github.com/code-certification/certify/internal/policy"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/expiry"
+	"github.com/iksnae/code-certification/internal/policy"
 )
 
 // CertifyUnit runs the full certification pipeline for a single unit.

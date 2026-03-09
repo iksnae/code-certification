@@ -1,41 +1,41 @@
-# Code Certification System — Documentation
+# certify — Documentation
 
-## Installation
-
-### From Source
+## Install
 
 ```bash
+# From Go module registry
+go install github.com/iksnae/code-certification/cmd/certify@latest
+
+# Or from source
 git clone https://github.com/iksnae/code-certification.git
 cd code-certification
 go build -o certify ./cmd/certify/
-sudo mv certify /usr/local/bin/  # optional: install globally
+sudo mv certify /usr/local/bin/    # optional: install globally
 ```
 
-### Requirements
+**Requirements:** Go 1.22+, Git
 
-- **Go 1.22+** for building
-- **Git** for evidence collection (history, churn metrics)
-- **golangci-lint** (optional) for enhanced lint evidence
-- **OPENROUTER_API_KEY** (optional) for agent-assisted review
+**Optional:** [golangci-lint](https://golangci-lint.run/) (enhanced lint evidence), [gh CLI](https://cli.github.com/) (PR/issue integration)
 
-## Quickstart
+## Quick Start
 
 ```bash
-# 1. Initialize in your repository
 cd /path/to/your-repo
+
+# 1. Bootstrap certification
 certify init
 
 # 2. Discover code units
 certify scan
 
-# 3. Run certification (deterministic only)
-certify certify --skip-agent
+# 3. Run certification
+certify certify
 
-# 4. View results
-certify report
-certify report --detailed
-certify report --format json
+# 4. View your report card
+certify report --format full
 ```
+
+Your report card is saved to `.certification/REPORT_CARD.md`.
 
 ## CLI Reference
 
@@ -44,7 +44,7 @@ certify report --format json
 | `certify init` | Bootstrap `.certification/` directory with config, policies, workflows |
 | `certify scan` | Discover certifiable code units, save to index |
 | `certify certify` | Evaluate units against policies, collect evidence, assign status |
-| `certify report` | Generate health report (text or JSON) |
+| `certify report` | Generate certification reports |
 | `certify expire` | Mark overdue certifications as expired |
 | `certify review` | Generate PR review annotation |
 | `certify version` | Show version information |
@@ -53,7 +53,7 @@ certify report --format json
 
 | Flag | Description |
 |------|-------------|
-| `--skip-agent` | Skip agent-assisted review |
+| `--skip-agent` | Deterministic only, no LLM review |
 | `--batch N` | Process N units per run (0=all) |
 | `--reset-queue` | Rebuild work queue from scratch |
 | `--target path` | Only certify units under given path(s) |
@@ -64,18 +64,48 @@ certify report --format json
 
 | Flag | Description |
 |------|-------------|
-| `--format text\|json` | Output format |
-| `--detailed` | Include dimension breakdowns, risk analysis |
+| `--format text` | Quick terminal summary (default) |
+| `--format card` | Visual report card box in terminal |
+| `--format full` | Complete per-unit report card (markdown) |
+| `--format json` | Full report as machine-readable JSON |
+| `--badge` | Print shields.io badge markdown for your README |
+| `--output file` | Write to file instead of stdout |
+| `--detailed` | Add dimension breakdowns to text format |
 | `--path dir` | Repository root |
+
+## Report Formats
+
+### Report Card (`--format full`)
+
+The **primary output** — a complete markdown document with:
+- Summary card (overall grade, pass rate, unit counts)
+- Dimension averages across all 9 quality dimensions
+- Per-language breakdown with score ranges
+- Every unit listed with type, grade, score, status, expiry
+- Expandable detail for units with observations
+
+Saved automatically to `.certification/REPORT_CARD.md`.
+
+### Badge
+
+```bash
+certify report --badge
+```
+
+Outputs a shields.io badge for your README that links to the report card.
+
+### JSON (`--format json`)
+
+Machine-readable version of the full report — same data, JSON format.
 
 ## Incremental Processing
 
-The certify command uses a persistent work queue for incremental processing:
+The certify command uses a persistent work queue:
 
 ```bash
 # Process 20 units at a time (useful with rate-limited agent review)
 certify certify --batch 20
-# ... wait, then resume
+# ... wait, then resume from where you left off
 certify certify --batch 20
 # ... repeat until "Queue complete!"
 
@@ -85,7 +115,7 @@ certify certify --reset-queue
 
 ## Agent-Assisted Review
 
-When enabled, the system uses open-weight LLM models via OpenRouter for code review:
+Optional LLM-powered code review using open-weight models via [OpenRouter](https://openrouter.ai/):
 
 ```yaml
 # .certification/config.yml
@@ -97,20 +127,18 @@ agent:
     api_key_env: OPENROUTER_API_KEY
 ```
 
-Set the API key as a repository secret for CI, or in `.env` for local use.
-
-Models are selected for open-weight licensing (Apache 2.0) and fine-tunability:
-- **Primary**: `qwen/qwen3-coder:free` (code-specialized, 262k context)
-- **Fallback**: `mistralai/mistral-nemo` (12B, clean JSON output)
+Models (Apache 2.0 licensed, fine-tunable):
+- **Primary**: `qwen/qwen3-coder:free` — code-specialized, 262k context
+- **Fallback**: `mistralai/mistral-nemo` — 12B, clean JSON output
 
 Agent review is always optional. The system works fully without it.
 
 ## GitHub Actions
 
-Initialize creates three workflow files:
-- `certification-pr.yml` — Runs on PRs, posts review comment
-- `certification-nightly.yml` — Nightly sweep, commits updated records
-- `certification-weekly.yml` — Weekly report generation
+`certify init` creates three workflow files:
+- **`certification-pr.yml`** — Runs on PRs, certifies changed files
+- **`certification-nightly.yml`** — Nightly sweep for expired certs
+- **`certification-weekly.yml`** — Weekly full certification + report card
 
 ## Further Reading
 

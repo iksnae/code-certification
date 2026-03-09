@@ -6,14 +6,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/code-certification/certify/internal/config"
-	"github.com/code-certification/certify/internal/discovery"
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/engine"
-	"github.com/code-certification/certify/internal/evidence"
-	"github.com/code-certification/certify/internal/override"
-	"github.com/code-certification/certify/internal/record"
-	"github.com/code-certification/certify/internal/report"
+	"github.com/iksnae/code-certification/internal/config"
+	"github.com/iksnae/code-certification/internal/discovery"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/engine"
+	"github.com/iksnae/code-certification/internal/evidence"
+	"github.com/iksnae/code-certification/internal/override"
+	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/report"
 )
 
 func TestE2E_GoSimpleRepo(t *testing.T) {

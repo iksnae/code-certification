@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/code-certification/certify/internal/domain"
-	gh "github.com/code-certification/certify/internal/github"
+	"github.com/iksnae/code-certification/internal/domain"
+	gh "github.com/iksnae/code-certification/internal/github"
 )
 
 func TestFormatIssueBody(t *testing.T) {

@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // Regex patterns for TypeScript symbol discovery.

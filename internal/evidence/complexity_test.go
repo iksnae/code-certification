@@ -3,7 +3,7 @@ package evidence_test
 import (
 	"testing"
 
-	"github.com/code-certification/certify/internal/evidence"
+	"github.com/iksnae/code-certification/internal/evidence"
 )
 
 func TestComputeGoComplexity_SimpleFunc(t *testing.T) {

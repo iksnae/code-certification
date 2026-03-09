@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	gh "github.com/code-certification/certify/internal/github"
+	gh "github.com/iksnae/code-certification/internal/github"
 )
 
 func TestGeneratePRWorkflow(t *testing.T) {

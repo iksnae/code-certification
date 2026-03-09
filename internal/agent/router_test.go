@@ -3,8 +3,8 @@ package agent_test
 import (
 	"testing"
 
-	"github.com/code-certification/certify/internal/agent"
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/agent"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 func TestRouter_SelectModel(t *testing.T) {

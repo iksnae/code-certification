@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // recordJSON is the JSON-serializable form of a CertificationRecord.

@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/code-certification/certify/internal/agent"
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/agent"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 func mockServer(responses map[int]string) *httptest.Server {

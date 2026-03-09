@@ -24,7 +24,7 @@ jobs:
           go-version: '1.22'
 
       - name: Install certify
-        run: go install github.com/code-certification/certify/cmd/certify@latest
+        run: go install github.com/iksnae/code-certification/cmd/certify@latest
 
       - name: Scan code units
         run: certify scan
@@ -69,7 +69,7 @@ jobs:
           go-version: '1.22'
 
       - name: Install certify
-        run: go install github.com/code-certification/certify/cmd/certify@latest
+        run: go install github.com/iksnae/code-certification/cmd/certify@latest
 
       - name: Scan code units
         run: certify scan
@@ -115,7 +115,7 @@ jobs:
           go-version: '1.22'
 
       - name: Install certify
-        run: go install github.com/code-certification/certify/cmd/certify@latest
+        run: go install github.com/iksnae/code-certification/cmd/certify@latest
 
       - name: Generate weekly report
         run: certify report --format text

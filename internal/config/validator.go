@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // ValidationError describes a single validation issue.

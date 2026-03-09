@@ -3,7 +3,7 @@ package domain_test
 import (
 	"testing"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 func TestConfig_Defaults(t *testing.T) {

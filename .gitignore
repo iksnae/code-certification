@@ -29,4 +29,19 @@ Thumbs.db
 # Environment
 .env
 .envrc
+
+# Certification records (regenerated per-run)
 .certification/records/
+.certification/queue.json
+
+# Personal workspace tooling (not part of the project)
+extensions/
+specs/
+.pi/
+.codex/
+.claude/commands/
+.claude/skills/
+.claude/hooks/
+
+# Regenerated per-run
+.certification/index.json

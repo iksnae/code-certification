@@ -1,28 +1,22 @@
-# Code Certification System
+# certify
 
 [![CI](https://github.com/iksnae/code-certification/actions/workflows/ci.yml/badge.svg)](https://github.com/iksnae/code-certification/actions/workflows/ci.yml)
 [![Certification](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/iksnae/code-certification/main/.certification/badge.json)](https://github.com/iksnae/code-certification/blob/main/.certification/REPORT_CARD.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A repository governance platform that continuously evaluates software code against defined engineering policies and assigns **time-bound certification status** to meaningful code units.
+**Certify** evaluates every code unit in your repository against versioned policies, scores them across 9 quality dimensions, and generates a detailed **report card** with time-bound certification status.
 
-Unlike CI pipelines that only validate whether code passes at a specific moment, Code Certification establishes **explicit trust with expiration**, ensuring that code quality, security posture, maintainability, and architectural compliance are periodically re-evaluated as standards evolve.
+[📋 See our own report card →](.certification/REPORT_CARD.md)
 
-## Status
+---
 
-**v1 complete** — 275/275 feature criteria implemented. 282 tests across 15 packages.
+## Install
 
-| Metric | Value |
-|--------|-------|
-| Code units | 416 |
-| Pass rate | 100% |
-| Average score | 0.861 |
-| Test count | 282 |
-| Packages | 15 |
+```bash
+go install github.com/iksnae/code-certification/cmd/certify@latest
+```
 
-## Installation
-
-### From Source
+Or build from source:
 
 ```bash
 git clone https://github.com/iksnae/code-certification.git
@@ -30,122 +24,222 @@ cd code-certification
 go build -o certify ./cmd/certify/
 ```
 
-### Prerequisites
-
-- [Go](https://go.dev/) 1.22+
-- [git](https://git-scm.com/)
-- [golangci-lint](https://golangci-lint.run/) (optional, for enhanced lint evidence)
-- [just](https://github.com/casey/just) command runner (optional, for dev workflows)
-- [gh](https://cli.github.com/) GitHub CLI (optional, for PR/issue integration)
+**Requires:** Go 1.22+, Git
 
 ## Quick Start
 
 ```bash
-# 1. Initialize certification in your repository
-cd /path/to/your-repo
+cd your-repo
+
+# 1. Bootstrap — creates config, policies, and CI workflows
 certify init
 
-# 2. Discover code units
+# 2. Discover — finds every function, method, type, and file
 certify scan
 
-# 3. Run certification
-certify certify --skip-agent
+# 3. Certify — collects evidence, evaluates, scores, certifies
+certify certify
 
-# 4. View results
-certify report
-certify report --detailed
-certify report --format json
+# 4. Report — generates your report card
+certify report --format full
 ```
 
-## CLI Reference
+That's it. Your report card is at `.certification/REPORT_CARD.md`.
 
-| Command | Description |
+## What You Get
+
+### Report Card
+
+A complete per-unit scoring of your entire codebase:
+
+```
+# 🔵 Code Certification — Full Report
+
+## Summary
+| Overall Grade | 🔵 B |
+| Total Units   | 447  |
+| Pass Rate     | 100% |
+
+## Dimension Averages
+| correctness              | 95.0% | ██████████████████░░ |
+| maintainability          | 93.3% | ██████████████████░░ |
+| readability              | 92.4% | ██████████████████░░ |
+| testability              | 90.0% | █████████████████░░░ |
+| security                 | 80.0% | ████████████████░░░░ |
+
+## All Units (organized by directory)
+| `Score`       | function | B | 86.7% | certified | 2026-04-23 |
+| `CertifyUnit` | function | B | 85.6% | certified | 2026-04-23 |
+... every unit in your repo
+```
+
+### Badge
+
+Add this to your README — it updates automatically:
+
+```bash
+certify report --badge
+```
+
+Outputs:
+
+```markdown
+[![Certification](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/OWNER/REPO/main/.certification/badge.json)](https://github.com/OWNER/REPO/blob/main/.certification/REPORT_CARD.md)
+```
+
+Click the badge → full report card.
+
+### CI Integration
+
+`certify init` generates GitHub Actions workflows:
+
+- **PR** — Certifies changed files, posts review summary
+- **Nightly** — Sweeps for expired certifications
+- **Weekly** — Full certification run + report card update
+
+## 9 Quality Dimensions
+
+Every code unit is scored across:
+
+| Dimension | What it measures |
+|-----------|-----------------|
+| **Correctness** | Lint errors, vet issues, test failures |
+| **Maintainability** | Cyclomatic complexity, function length |
+| **Readability** | Line length, documentation, TODO count |
+| **Testability** | Test coverage, test existence |
+| **Security** | Security-sensitive patterns |
+| **Architectural Fitness** | Package structure, dependency patterns |
+| **Operational Quality** | Git churn, contributor count |
+| **Performance** | Algorithmic complexity indicators |
+| **Change Risk** | Recent changes, author concentration |
+
+Dimensions are weighted and combined into a single score → grade (A through F).
+
+## Certification Status
+
+Certifications are **time-bound** — they expire:
+
+| Status | Meaning |
+|--------|---------|
+| `certified` | Meets all policies, score above threshold |
+| `certified_with_observations` | Passes but has warnings |
+| `probationary` | Below threshold, grace period |
+| `decertified` | Fails policy requirements |
+| `expired` | Certification window elapsed, needs re-evaluation |
+| `exempt` | Excluded by human override |
+
+Default window: 90 days. Risk factors adjust the window (high churn → shorter).
+
+## Commands
+
+| Command | What it does |
 |---------|-------------|
-| `certify init` | Bootstrap `.certification/` directory with config, policies, workflows |
-| `certify scan` | Discover certifiable code units, save to index |
-| `certify certify` | Evaluate units against policies, collect evidence, assign status |
-| `certify report` | Generate health report (text, JSON, or detailed) |
+| `certify init` | Bootstrap `.certification/` with config + policies |
+| `certify scan` | Discover all certifiable code units |
+| `certify certify` | Evaluate, score, and certify units |
+| `certify report` | Generate reports (text, card, full, json) |
 | `certify expire` | Mark overdue certifications as expired |
-| `certify review` | Generate PR review annotation |
-| `certify version` | Show version information |
+| `certify version` | Show version |
 
-### Key Flags
-
-```bash
-certify certify --skip-agent          # deterministic only, no LLM review
-certify certify --batch 20            # process 20 units then stop (incremental)
-certify certify --target internal/    # only certify units under internal/
-certify certify --diff-base origin/main  # only certify changed files (for PRs)
-certify certify --reset-queue         # rebuild queue, start over
-certify init --pr                     # create initialization as a pull request
-certify report --detailed             # include dimensions, risk, expiring units
-```
-
-## How It Works
-
-```
-┌─────────────┐     ┌──────────┐     ┌──────────┐     ┌──────────┐
-│  Discovery  │────▶│ Evidence │────▶│  Engine  │────▶│  Record  │
-│  (scan)     │     │(collect) │     │(certify) │     │ (store)  │
-└─────────────┘     └──────────┘     └──────────┘     └──────────┘
-       │                  │                │                │
-  Go/TS/generic    go vet, test,     Policy eval,     JSON files in
-  AST adapters     lint, git stats   9 dimensions,    .certification/
-                                     weighted score    records/
-```
-
-1. **Discover** — Finds certifiable units (functions, methods, types, files) using language-aware adapters
-2. **Collect** — Gathers evidence from linters, test runners, git history, and code metrics
-3. **Evaluate** — Checks evidence against versioned policy packs, scores across 9 quality dimensions
-4. **Certify** — Assigns time-bound status (certified, probationary, expired, decertified) with grade and score
-5. **Report** — Generates health reports with dimension breakdowns, risk analysis, and expiring-soon detection
-
-## Features
-
-- **Language-agnostic** — Go and TypeScript adapters built-in, generic file-level for everything else
-- **Policy-as-code** — Versioned YAML policies with language/path targeting and severity levels
-- **9 quality dimensions** — Correctness, maintainability, readability, testability, security, architecture, operational quality, performance, change risk
-- **Time-bound trust** — Every certification expires; risk factors shorten/lengthen windows
-- **Incremental processing** — Persistent work queue processes across multiple runs
-- **Agent-assisted review** — Optional LLM review via OpenRouter (open-weight models, Apache 2.0)
-- **GitHub integration** — PR certification, nightly sweeps, weekly reports, remediation issues
-- **Human governance** — Overrides with required rationale, exemptions, forced review
-- **Self-certifying** — The tool certifies its own codebase (416 units, 100% pass)
-
-## Agent-Assisted Review
-
-Optional LLM-powered code review using open-weight models via [OpenRouter](https://openrouter.ai/):
-
-- **Primary**: `qwen/qwen3-coder:free` — Apache 2.0, code-specialized, 262k context
-- **Fallback**: `mistralai/mistral-nemo` — Apache 2.0, 12B, clean JSON output
-
-Agent review supplements deterministic evidence — it never overrides tool results. The system works fully without it.
+### Useful Flags
 
 ```bash
-export OPENROUTER_API_KEY=sk-or-v1-your-key
-certify certify --batch 20    # process with agent review
+certify certify --skip-agent         # no LLM review, deterministic only
+certify certify --batch 20           # process 20 units at a time
+certify certify --diff-base main     # only changed files (for PRs)
+certify certify --target internal/   # scope to specific paths
+
+certify report --format full         # complete report card (markdown)
+certify report --format card         # terminal report card
+certify report --format json         # machine-readable
+certify report --badge               # print README badge snippet
+certify report --output report.md    # write to file
+```
+
+## Configuration
+
+`certify init` creates `.certification/config.yml`:
+
+```yaml
+mode: advisory        # advisory (report only) or enforcing (block on failure)
+
+scope:
+  include: []         # empty = everything
+  exclude:
+    - "vendor/**"
+    - "node_modules/**"
+    - "**/*_test.go"
+
+expiry:
+  default_window_days: 90
+```
+
+### Custom Policies
+
+Add YAML policy files to `.certification/policies/`:
+
+```yaml
+name: my-team-standards
+version: "1.0.0"
+language: go
+
+rules:
+  - id: no-todos
+    dimension: readability
+    description: "No TODO comments in certified code"
+    severity: warning
+    metric: todo_count
+    threshold: 0
+
+  - id: low-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity under 15"
+    severity: error
+    metric: cyclomatic_complexity
+    threshold: 15
+```
+
+### Agent-Assisted Review (Optional)
+
+Add LLM-powered code review using open-weight models:
+
+```yaml
+agent:
+  enabled: true
+  provider:
+    type: openrouter
+    api_key_env: OPENROUTER_API_KEY
+```
+
+Uses Apache 2.0 licensed models (Qwen, Mistral). Agent review supplements deterministic evidence — the system works fully without it.
+
+## Language Support
+
+| Language | Adapter | Discovery |
+|----------|---------|-----------|
+| **Go** | Full | Functions, methods, types via `go/ast` |
+| **TypeScript** | Basic | Classes, functions, exports via regex |
+| **Everything else** | File-level | One unit per file |
+
+## Files Generated
+
+```
+.certification/
+├── config.yml          # your configuration
+├── policies/           # policy packs (YAML)
+├── records/            # per-unit certification records (JSON)
+├── overrides/          # human governance overrides
+├── index.json          # discovered unit index
+├── REPORT_CARD.md      # ← the report card
+└── badge.json          # shields.io badge endpoint
 ```
 
 ## Documentation
 
-- **[docs/README.md](docs/README.md)** — Installation & quickstart
-- **[docs/architecture.md](docs/architecture.md)** — System design & package structure
-- **[docs/policy-authoring.md](docs/policy-authoring.md)** — Writing custom policies
-- **[docs/troubleshooting.md](docs/troubleshooting.md)** — Common issues & solutions
-- **[FEATURES.md](FEATURES.md)** — Feature acceptance checklist (275/275 ✅)
-- **[PRD.md](PRD.md)** — Full product requirements
-- **[STORIES.md](STORIES.md)** — User stories by epic
-
-## Development
-
-```bash
-just doctor     # verify development environment
-just build      # build CLI → build/bin/certify
-just test       # run all tests
-just lint       # run golangci-lint
-just check      # all quality gates (fmt + vet + lint + test)
-just cover      # generate test coverage report
-```
+- [Architecture](docs/architecture.md) — system design + package diagram
+- [Policy Authoring](docs/policy-authoring.md) — writing custom policies
+- [Troubleshooting](docs/troubleshooting.md) — common issues
+- [Contributor Guide](CLAUDE.md) — development setup
 
 ## License
 

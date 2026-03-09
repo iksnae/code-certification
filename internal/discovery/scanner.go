@@ -2,7 +2,7 @@
 package discovery
 
 import (
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // UnitList is a convenience alias for a slice of units.

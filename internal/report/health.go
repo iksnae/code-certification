@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // HealthReport summarizes the certification state of a repository.

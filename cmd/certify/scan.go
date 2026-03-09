@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/code-certification/certify/internal/config"
-	"github.com/code-certification/certify/internal/discovery"
+	"github.com/iksnae/code-certification/internal/config"
+	"github.com/iksnae/code-certification/internal/discovery"
 	"github.com/spf13/cobra"
 )
 

@@ -3,9 +3,9 @@ package policy_test
 import (
 	"testing"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/evidence"
-	"github.com/code-certification/certify/internal/policy"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/evidence"
+	"github.com/iksnae/code-certification/internal/policy"
 )
 
 func TestEvaluator_AllPass(t *testing.T) {

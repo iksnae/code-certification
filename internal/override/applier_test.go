@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/override"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/override"
 )
 
 func TestApply_Exempt(t *testing.T) {

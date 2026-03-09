@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // FormatPRComment generates a Markdown PR comment from certification records.

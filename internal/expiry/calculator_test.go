@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/expiry"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/expiry"
 )
 
 func TestCalculate_DefaultWindow(t *testing.T) {

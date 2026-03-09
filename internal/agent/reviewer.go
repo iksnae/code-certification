@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // ReviewInput holds everything needed for an agent review.

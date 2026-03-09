@@ -4,8 +4,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/code-certification/certify/internal/discovery"
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/discovery"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 func repoPath(name string) string {

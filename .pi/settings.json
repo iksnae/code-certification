@@ -1,6 +1,0 @@
-{
-  "theme": "synthwave",
-  "prompts": [
-    "../.claude/commands"
-  ]
-}

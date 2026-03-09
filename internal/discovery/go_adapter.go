@@ -9,7 +9,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // GoAdapter discovers Go code units using go/ast.

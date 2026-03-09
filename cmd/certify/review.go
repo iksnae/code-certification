@@ -5,10 +5,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/code-certification/certify/internal/config"
-	"github.com/code-certification/certify/internal/domain"
-	gh "github.com/code-certification/certify/internal/github"
-	"github.com/code-certification/certify/internal/record"
+	"github.com/iksnae/code-certification/internal/config"
+	"github.com/iksnae/code-certification/internal/domain"
+	gh "github.com/iksnae/code-certification/internal/github"
+	"github.com/iksnae/code-certification/internal/record"
 	"github.com/spf13/cobra"
 )
 

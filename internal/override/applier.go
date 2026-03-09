@@ -3,7 +3,7 @@ package override
 import (
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // Apply applies a single override to a certification record.

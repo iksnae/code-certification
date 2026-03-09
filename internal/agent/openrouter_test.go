@@ -8,7 +8,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/code-certification/certify/internal/agent"
+	"github.com/iksnae/code-certification/internal/agent"
 )
 
 func TestOpenRouter_SuccessfulChat(t *testing.T) {

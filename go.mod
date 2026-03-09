@@ -1,6 +1,6 @@
-module github.com/code-certification/certify
+module github.com/iksnae/code-certification
 
-go 1.25.5
+go 1.22
 
 require (
 	github.com/spf13/cobra v1.10.2

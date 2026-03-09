@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/record"
-	"github.com/code-certification/certify/internal/report"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/report"
 	"github.com/spf13/cobra"
 )
 

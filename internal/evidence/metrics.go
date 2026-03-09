@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // CodeMetrics holds basic code metrics for a file or symbol.

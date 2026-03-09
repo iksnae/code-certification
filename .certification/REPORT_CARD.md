@@ -1,8 +1,8 @@
 # 🔵 Code Certification — Full Report
 
-**Repository:** `//github.com/iksnae/code-certification`  
-**Commit:** `a089d30`  
-**Generated:** 2026-03-09T19:18:36  
+**Repository:** `iksnae/code-certification`  
+**Commit:** `d92bc36`  
+**Generated:** 2026-03-09T15:28:12  
 
 ---
 
@@ -12,19 +12,18 @@
 |--------|-------|
 | **Overall Grade** | 🔵 **B** |
 | **Overall Score** | 86.2% |
-| **Total Units** | 467 |
-| **Passing** | 467 |
+| **Total Units** | 474 |
+| **Passing** | 474 |
 | **Failing** | 0 |
 | **Pass Rate** | 100.0% |
-| **Observations** | 1 |
+| **Observations** | 0 |
 | **Expired** | 0 |
 
 ## Grade Distribution
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B | 466 | 99.8% | █████████████████████████████████████████████████ |
-| C | 1 | 0.2% | █ |
+| B | 474 | 100.0% | ██████████████████████████████████████████████████ |
 
 ## Dimension Averages
 
@@ -33,7 +32,7 @@
 | architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 80.0% | ████████████████░░░░ |
 | correctness | 95.0% | ██████████████████░░ |
-| maintainability | 93.2% | ██████████████████░░ |
+| maintainability | 93.3% | ██████████████████░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
 | performance_appropriateness | 80.0% | ████████████████░░░░ |
 | readability | 92.5% | ██████████████████░░ |
@@ -44,9 +43,9 @@
 
 ### go — 🔵 B (86.3%)
 
-- **Units:** 428
-- **Score range:** 79.4% – 86.7%
-- **Grades:** 427×B, 1×C
+- **Units:** 435
+- **Score range:** 82.8% – 86.7%
+- **Grades:** 435×B
 
 ### ts — 🔵 B (85.3%)
 
@@ -54,7 +53,7 @@
 - **Score range:** 82.8% – 86.7%
 - **Grades:** 24×B
 
-### file — 🔵 B (85.2%)
+### file — 🔵 B (85.3%)
 
 - **Units:** 15
 - **Score range:** 82.8% – 86.7%
@@ -62,15 +61,13 @@
 
 ## All Units
 
-### `./` (7 units)
+### `./` (5 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| `CLAUDE.md` | file | B | 85.6% | certified | 2026-04-23 |
+| `CLAUDE.md` | file | B | 86.7% | certified | 2026-04-23 |
 | `FEATURES.md` | file | B | 85.0% | certified | 2026-04-23 |
-| `PRD.md` | file | B | 82.8% | certified | 2026-04-23 |
-| `README.md` | file | B | 85.6% | certified | 2026-04-23 |
-| `STORIES.md` | file | B | 82.8% | certified | 2026-04-23 |
+| `README.md` | file | B | 85.0% | certified | 2026-04-23 |
 | `go.mod` | file | B | 86.7% | certified | 2026-04-23 |
 | `go.sum` | file | B | 86.7% | certified | 2026-04-23 |
 
@@ -135,6 +132,13 @@
 | `architecture.md` | file | B | 85.6% | certified | 2026-04-23 |
 | `policy-authoring.md` | file | B | 85.6% | certified | 2026-04-23 |
 | `troubleshooting.md` | file | B | 86.7% | certified | 2026-04-23 |
+
+### `docs/internal/` (2 units)
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------|
+| `PRD.md` | file | B | 82.8% | certified | 2026-04-23 |
+| `STORIES.md` | file | B | 82.8% | certified | 2026-04-23 |
 
 ### `extensions/` (18 units)
 
@@ -796,7 +800,7 @@
 | `toJSON` | function | B | 86.7% | certified | 2026-04-23 |
 | `store_test.go` | file | B | 85.6% | certified | 2026-04-23 |
 
-### `internal/report/` (48 units)
+### `internal/report/` (55 units)
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
@@ -832,7 +836,7 @@
 | `findRecurrentlyFailing` | function | B | 86.7% | certified | 2026-04-23 |
 | `unitSummaryFrom` | function | B | 86.7% | certified | 2026-04-23 |
 | `detailed_test.go` | file | B | 85.0% | certified | 2026-04-23 |
-| `FormatFullMarkdown` | function | C | 79.4% | certified_with_observations | 2026-04-23 |
+| `FormatFullMarkdown` | function | B | 86.7% | certified | 2026-04-23 |
 | `FullReport` | class | B | 86.7% | certified | 2026-04-23 |
 | `GenerateFullReport` | function | B | 86.7% | certified | 2026-04-23 |
 | `LanguageDetail` | class | B | 86.7% | certified | 2026-04-23 |
@@ -842,32 +846,19 @@
 | `shortFile` | function | B | 86.7% | certified | 2026-04-23 |
 | `sortedKeys` | function | B | 86.7% | certified | 2026-04-23 |
 | `unitReportFrom` | function | B | 86.7% | certified | 2026-04-23 |
+| `writeAllUnits` | function | B | 85.6% | certified | 2026-04-23 |
+| `writeDimensionAverages` | function | B | 86.7% | certified | 2026-04-23 |
+| `writeGradeDistribution` | function | B | 86.7% | certified | 2026-04-23 |
+| `writeHeader` | function | B | 86.7% | certified | 2026-04-23 |
+| `writeLanguageDetail` | function | B | 85.6% | certified | 2026-04-23 |
+| `writeSummary` | function | B | 86.7% | certified | 2026-04-23 |
+| `writeUnitDetails` | function | B | 85.6% | certified | 2026-04-23 |
 | `full_test.go` | file | B | 85.6% | certified | 2026-04-23 |
 | `FormatJSON` | function | B | 86.7% | certified | 2026-04-23 |
 | `FormatText` | function | B | 86.7% | certified | 2026-04-23 |
 | `Health` | function | B | 85.6% | certified | 2026-04-23 |
 | `HealthReport` | class | B | 86.7% | certified | 2026-04-23 |
 | `health_test.go` | file | B | 85.6% | certified | 2026-04-23 |
-
-<details>
-<summary>FormatFullMarkdown — certified_with_observations details</summary>
-
-| Dimension | Score |
-|-----------|------:|
-| architectural_fitness | 80.0% |
-| change_risk | 80.0% |
-| correctness | 95.0% |
-| maintainability | 40.0% |
-| operational_quality | 85.0% |
-| performance_appropriateness | 80.0% |
-| readability | 85.0% |
-| security | 80.0% |
-| testability | 90.0% |
-
-**Observations:**
-- complexity: 26 exceeds threshold 20
-
-</details>
 
 ### `specs/` (4 units)
 
@@ -891,4 +882,4 @@
 
 ---
 
-*467 units certified. Generated by [certify](https://github.com/iksnae/code-certification).*
+*474 units certified. Generated by [certify](https://github.com/iksnae/code-certification).*

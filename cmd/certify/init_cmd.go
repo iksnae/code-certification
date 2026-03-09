@@ -6,8 +6,8 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/code-certification/certify/internal/discovery"
-	gh "github.com/code-certification/certify/internal/github"
+	"github.com/iksnae/code-certification/internal/discovery"
+	gh "github.com/iksnae/code-certification/internal/github"
 	"github.com/spf13/cobra"
 )
 

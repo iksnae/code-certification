@@ -2,7 +2,7 @@
 package evidence
 
 import (
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // Collector gathers evidence for a code unit.

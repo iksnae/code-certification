@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/code-certification/certify/internal/domain"
+	"github.com/iksnae/code-certification/internal/domain"
 )
 
 // DetailedReport extends HealthReport with richer analysis.

@@ -3,8 +3,8 @@ package evidence_test
 import (
 	"testing"
 
-	"github.com/code-certification/certify/internal/domain"
-	"github.com/code-certification/certify/internal/evidence"
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/evidence"
 )
 
 func TestLintResult_Clean(t *testing.T) {
