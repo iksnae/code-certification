@@ -16,16 +16,18 @@ type DetectedProvider struct {
 	Local   bool     // True for local providers (no auth required)
 }
 
-// GroqModels lists preferred models for Groq, in fallback order.
-var GroqModels = []string{
+// Default model lists are suggestions used when model discovery is unavailable.
+// Users can specify any model their provider supports via config or the extension.
+
+// DefaultGroqModels lists suggested models for Groq.
+var DefaultGroqModels = []string{
 	"llama-3.3-70b-versatile",
 	"llama-3.1-8b-instant",
 	"gemma2-9b-it",
 }
 
-// OllamaModels lists common Ollama models, in preference order.
-// Users should have at least one of these installed.
-var OllamaModels = []string{
+// DefaultOllamaModels lists common Ollama models.
+var DefaultOllamaModels = []string{
 	"qwen2.5-coder:7b",
 	"qwen2.5-coder:3b",
 	"llama3.2:3b",
@@ -33,11 +35,31 @@ var OllamaModels = []string{
 	"gemma2:9b",
 }
 
-// LMStudioModels lists models for LM Studio.
-// LM Studio uses whatever model is loaded — these are hints.
-var LMStudioModels = []string{
-	"loaded-model", // LM Studio auto-routes to the loaded model
+// DefaultLMStudioModels lists models for LM Studio.
+var DefaultLMStudioModels = []string{
+	"loaded-model",
 }
+
+// DefaultModels maps provider name to default model suggestions.
+var DefaultModels = map[string][]string{
+	"openrouter": nil, // set from ConservativeModels in autodetect.go
+	"groq":       nil,
+	"ollama":     nil,
+	"lmstudio":   nil,
+}
+
+func init() {
+	DefaultModels["groq"] = DefaultGroqModels
+	DefaultModels["ollama"] = DefaultOllamaModels
+	DefaultModels["lmstudio"] = DefaultLMStudioModels
+}
+
+// Backward-compatible aliases
+var (
+	GroqModels     = DefaultGroqModels
+	OllamaModels   = DefaultOllamaModels
+	LMStudioModels = DefaultLMStudioModels
+)
 
 // DetectProviders checks for available LLM providers in priority order.
 // Cloud providers (requiring API keys) come first, local providers last.

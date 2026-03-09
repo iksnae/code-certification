@@ -20,12 +20,17 @@ const (
 var AutoDetectEnvVars = []string{"OPENROUTER_API_KEY", "CERTIFY_API_KEY", "GROQ_API_KEY"}
 
 // ConservativeModels lists free-tier OpenRouter models in fallback order.
+// These are default suggestions — users can choose any model via config or the extension.
 var ConservativeModels = []string{
 	"qwen/qwen3-coder:free",
 	"qwen/qwen-2.5-coder-32b-instruct:free",
 	"mistralai/mistral-small-3.1-24b-instruct:free",
 	"meta-llama/llama-3.3-70b-instruct:free",
 	"microsoft/phi-4:free",
+}
+
+func init() {
+	DefaultModels["openrouter"] = ConservativeModels
 }
 
 // DetectAPIKey checks environment variables for an API key (cloud providers).
