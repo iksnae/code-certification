@@ -1,116 +1,3468 @@
 {
   "items": [
     {
+      "unit_id": "go://internal/override/loader.go#parseAction",
+      "file_path": "internal/override/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779269-04:00",
+      "updated_at": "2026-03-09T15:00:27.643978-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/minimal.ts",
+      "file_path": "extensions/minimal.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77927-04:00",
+      "updated_at": "2026-03-09T15:00:27.64563-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/expire.go#init",
+      "file_path": "cmd/certify/expire.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77927-04:00",
+      "updated_at": "2026-03-09T15:00:27.646476-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#reviewStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77927-04:00",
+      "updated_at": "2026-03-09T15:00:27.647309-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router.go#ModelFor",
+      "file_path": "internal/agent/router.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779271-04:00",
+      "updated_at": "2026-03-09T15:00:27.648073-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#TSAdapter",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779271-04:00",
+      "updated_at": "2026-03-09T15:00:27.648864-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractTodoCount",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779271-04:00",
+      "updated_at": "2026-03-09T15:00:27.64973-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#LoadHistory",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779271-04:00",
+      "updated_at": "2026-03-09T15:00:27.650811-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#findExpiringSoon",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779272-04:00",
+      "updated_at": "2026-03-09T15:00:27.651888-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#extractJSON",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779272-04:00",
+      "updated_at": "2026-03-09T15:00:27.652788-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#Load",
+      "file_path": "internal/config/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779272-04:00",
+      "updated_at": "2026-03-09T15:00:27.653592-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#findRecurrentlyFailing",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779273-04:00",
+      "updated_at": "2026-03-09T15:00:27.65454-04:00"
+    },
+    {
       "unit_id": "go://internal/report/health.go#HealthReport",
       "file_path": "internal/report/health.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224089-04:00",
-      "updated_at": "2026-03-09T14:54:46.484092-04:00"
+      "created_at": "2026-03-09T15:00:20.779273-04:00",
+      "updated_at": "2026-03-09T15:00:27.655285-04:00"
     },
     {
-      "unit_id": "go://internal/report/health.go#FormatJSON",
-      "file_path": "internal/report/health.go",
+      "unit_id": "go://internal/agent/prompts.go#NewPromptRegistry",
+      "file_path": "internal/agent/prompts.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.22409-04:00",
-      "updated_at": "2026-03-09T14:54:46.484572-04:00"
+      "created_at": "2026-03-09T15:00:20.779273-04:00",
+      "updated_at": "2026-03-09T15:00:27.65626-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#DetailedReport",
+      "unit_id": "go://internal/evidence/lint.go#ToEvidence",
+      "file_path": "internal/evidence/lint.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779274-04:00",
+      "updated_at": "2026-03-09T15:00:27.656952-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#golangciLintOutput",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779276-04:00",
+      "updated_at": "2026-03-09T15:00:27.657695-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#recordJSON",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779276-04:00",
+      "updated_at": "2026-03-09T15:00:27.658419-04:00"
+    },
+    {
+      "unit_id": "file://FEATURES.md",
+      "file_path": "FEATURES.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779276-04:00",
+      "updated_at": "2026-03-09T15:00:27.659161-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Units",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779277-04:00",
+      "updated_at": "2026-03-09T15:00:27.659911-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#CollectAll",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779277-04:00",
+      "updated_at": "2026-03-09T15:00:27.660871-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#LoadPrompt",
+      "file_path": "internal/agent/prompts.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779277-04:00",
+      "updated_at": "2026-03-09T15:00:27.661578-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#LoadPolicyPack",
+      "file_path": "internal/config/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779277-04:00",
+      "updated_at": "2026-03-09T15:00:27.662345-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#IsGlobal",
+      "file_path": "internal/domain/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779278-04:00",
+      "updated_at": "2026-03-09T15:00:27.663005-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/agent-chain.ts",
+      "file_path": "extensions/agent-chain.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779278-04:00",
+      "updated_at": "2026-03-09T15:00:27.663785-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#FallbackProvider",
+      "file_path": "internal/agent/fallback.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779278-04:00",
+      "updated_at": "2026-03-09T15:00:27.664466-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#NewOpenRouterProvider",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779278-04:00",
+      "updated_at": "2026-03-09T15:00:27.665424-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#findFailing",
       "file_path": "internal/report/detailed.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.22409-04:00",
-      "updated_at": "2026-03-09T14:54:46.484907-04:00"
+      "created_at": "2026-03-09T15:00:20.779279-04:00",
+      "updated_at": "2026-03-09T15:00:27.666374-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#LanguageBreakdown",
+      "unit_id": "file://specs/dogfood-gaps.md",
+      "file_path": "specs/dogfood-gaps.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779279-04:00",
+      "updated_at": "2026-03-09T15:00:27.667072-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#runCertify",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779279-04:00",
+      "updated_at": "2026-03-09T15:00:27.668069-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#CoordinatorConfig",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77928-04:00",
+      "updated_at": "2026-03-09T15:00:27.668771-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#DimensionWeights",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77928-04:00",
+      "updated_at": "2026-03-09T15:00:27.669735-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#FormatIssueTitle",
+      "file_path": "internal/github/issues.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77928-04:00",
+      "updated_at": "2026-03-09T15:00:27.670515-04:00"
+    },
+    {
+      "unit_id": "file://CLAUDE.md",
+      "file_path": "CLAUDE.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779281-04:00",
+      "updated_at": "2026-03-09T15:00:27.67115-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer_test.go",
+      "file_path": "internal/agent/reviewer_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779282-04:00",
+      "updated_at": "2026-03-09T15:00:27.671764-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#toJSON",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779282-04:00",
+      "updated_at": "2026-03-09T15:00:27.672552-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/validator_test.go",
+      "file_path": "internal/config/validator_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779283-04:00",
+      "updated_at": "2026-03-09T15:00:27.673149-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#WeightedAverage",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779283-04:00",
+      "updated_at": "2026-03-09T15:00:27.67413-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity.go#ComputeSymbolMetrics",
+      "file_path": "internal/evidence/complexity.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779283-04:00",
+      "updated_at": "2026-03-09T15:00:27.674917-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#goTestEvent",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779283-04:00",
+      "updated_at": "2026-03-09T15:00:27.675621-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Stats",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779284-04:00",
+      "updated_at": "2026-03-09T15:00:27.676459-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#isBudgetError",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779284-04:00",
+      "updated_at": "2026-03-09T15:00:27.677254-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect.go#LanguageInfo",
+      "file_path": "internal/discovery/detect.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779284-04:00",
+      "updated_at": "2026-03-09T15:00:27.678113-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#PolicyRule",
+      "file_path": "internal/domain/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779285-04:00",
+      "updated_at": "2026-03-09T15:00:27.678791-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#LoadDir",
+      "file_path": "internal/override/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779285-04:00",
+      "updated_at": "2026-03-09T15:00:27.679485-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#filterUnits",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779285-04:00",
+      "updated_at": "2026-03-09T15:00:27.680447-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#DeduplicateFileLevel",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779286-04:00",
+      "updated_at": "2026-03-09T15:00:27.681081-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#parseGrade",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779286-04:00",
+      "updated_at": "2026-03-09T15:00:27.681891-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher_test.go",
+      "file_path": "internal/policy/matcher_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779286-04:00",
+      "updated_at": "2026-03-09T15:00:27.682492-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#NewModelChain",
+      "file_path": "internal/agent/fallback.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779286-04:00",
+      "updated_at": "2026-03-09T15:00:27.683386-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#Config",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779287-04:00",
+      "updated_at": "2026-03-09T15:00:27.684047-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#extractSummaryInt",
+      "file_path": "internal/engine/scorer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779287-04:00",
+      "updated_at": "2026-03-09T15:00:27.684981-04:00"
+    },
+    {
+      "unit_id": "file://docs/architecture.md",
+      "file_path": "docs/architecture.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779287-04:00",
+      "updated_at": "2026-03-09T15:00:27.685719-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics_test.go",
+      "file_path": "internal/evidence/metrics_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779287-04:00",
+      "updated_at": "2026-03-09T15:00:27.686421-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#parseFile",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779287-04:00",
+      "updated_at": "2026-03-09T15:00:27.68727-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#Symbol",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779288-04:00",
+      "updated_at": "2026-03-09T15:00:27.68816-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#NewMatcher",
+      "file_path": "internal/policy/matcher.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779288-04:00",
+      "updated_at": "2026-03-09T15:00:27.688926-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#NewStore",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779288-04:00",
+      "updated_at": "2026-03-09T15:00:27.689738-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#loadCertifyContext",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779289-04:00",
+      "updated_at": "2026-03-09T15:00:27.690693-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#DimensionScores",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77929-04:00",
+      "updated_at": "2026-03-09T15:00:27.69141-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#simpleAtoi",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77929-04:00",
+      "updated_at": "2026-03-09T15:00:27.692381-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#rawOverride",
+      "file_path": "internal/override/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77929-04:00",
+      "updated_at": "2026-03-09T15:00:27.693141-04:00"
+    },
+    {
+      "unit_id": "file://STORIES.md",
+      "file_path": "STORIES.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77929-04:00",
+      "updated_at": "2026-03-09T15:00:27.693957-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#IssueConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779291-04:00",
+      "updated_at": "2026-03-09T15:00:27.694687-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#PolicyConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779291-04:00",
+      "updated_at": "2026-03-09T15:00:27.695407-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#init",
+      "file_path": "internal/domain/record.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779291-04:00",
+      "updated_at": "2026-03-09T15:00:27.696127-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#Review",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779293-04:00",
+      "updated_at": "2026-03-09T15:00:27.69719-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect.go#DetectLanguages",
+      "file_path": "internal/discovery/detect.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779293-04:00",
+      "updated_at": "2026-03-09T15:00:27.698034-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#scoreFromGitHistory",
+      "file_path": "internal/engine/scorer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779293-04:00",
+      "updated_at": "2026-03-09T15:00:27.698954-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Save",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779293-04:00",
+      "updated_at": "2026-03-09T15:00:27.69978-04:00"
+    },
+    {
+      "unit_id": "file://specs/v1-implementation.md",
+      "file_path": "specs/v1-implementation.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779294-04:00",
+      "updated_at": "2026-03-09T15:00:27.700647-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry_test.go",
+      "file_path": "internal/domain/expiry_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779294-04:00",
+      "updated_at": "2026-03-09T15:00:27.701346-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/pipeline.go#CertifyUnit",
+      "file_path": "internal/engine/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779294-04:00",
+      "updated_at": "2026-03-09T15:00:27.702103-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#computeLanguageBreakdowns",
       "file_path": "internal/report/detailed.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224091-04:00",
-      "updated_at": "2026-03-09T14:54:46.485209-04:00"
+      "created_at": "2026-03-09T15:00:20.779295-04:00",
+      "updated_at": "2026-03-09T15:00:27.703195-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#unitSummaryFrom",
-      "file_path": "internal/report/detailed.go",
+      "unit_id": "go://internal/agent/schemas.go#PrescreenResponse",
+      "file_path": "internal/agent/schemas.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224091-04:00",
-      "updated_at": "2026-03-09T14:54:46.486039-04:00"
+      "created_at": "2026-03-09T15:00:20.779295-04:00",
+      "updated_at": "2026-03-09T15:00:27.703873-04:00"
     },
     {
-      "unit_id": "go://internal/report/health.go#Health",
-      "file_path": "internal/report/health.go",
+      "unit_id": "go://internal/agent/types.go#ResponseFormat",
+      "file_path": "internal/agent/types.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224091-04:00",
-      "updated_at": "2026-03-09T14:54:46.486382-04:00"
+      "created_at": "2026-03-09T15:00:20.779295-04:00",
+      "updated_at": "2026-03-09T15:00:27.704506-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#FormatDetailedText",
-      "file_path": "internal/report/detailed.go",
+      "unit_id": "go://internal/evidence/executor.go#ToolExecutor",
+      "file_path": "internal/evidence/executor.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224091-04:00",
-      "updated_at": "2026-03-09T14:54:46.48684-04:00"
+      "created_at": "2026-03-09T15:00:20.779295-04:00",
+      "updated_at": "2026-03-09T15:00:27.705212-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#explainStatus",
-      "file_path": "internal/report/detailed.go",
+      "unit_id": "go://internal/github/issues.go#FormatIssueBody",
+      "file_path": "internal/github/issues.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224092-04:00",
-      "updated_at": "2026-03-09T14:54:46.487253-04:00"
+      "created_at": "2026-03-09T15:00:20.779296-04:00",
+      "updated_at": "2026-03-09T15:00:27.705921-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#AreaSummary",
-      "file_path": "internal/report/detailed.go",
+      "unit_id": "go://internal/agent/router.go#NewRouter",
+      "file_path": "internal/agent/router.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224092-04:00",
-      "updated_at": "2026-03-09T14:54:46.487565-04:00"
+      "created_at": "2026-03-09T15:00:20.779296-04:00",
+      "updated_at": "2026-03-09T15:00:27.706552-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#UnitSummary",
-      "file_path": "internal/report/detailed.go",
+      "unit_id": "go://internal/domain/unit.go#Unit",
+      "file_path": "internal/domain/unit.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224092-04:00",
-      "updated_at": "2026-03-09T14:54:46.487857-04:00"
+      "created_at": "2026-03-09T15:00:20.779296-04:00",
+      "updated_at": "2026-03-09T15:00:27.707233-04:00"
     },
     {
-      "unit_id": "go://internal/report/health.go#FormatText",
-      "file_path": "internal/report/health.go",
+      "unit_id": "file://README.md",
+      "file_path": "README.md",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224093-04:00",
-      "updated_at": "2026-03-09T14:54:46.488098-04:00"
+      "created_at": "2026-03-09T15:00:20.779296-04:00",
+      "updated_at": "2026-03-09T15:00:27.70806-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed.go#Detailed",
-      "file_path": "internal/report/detailed.go",
+      "unit_id": "go://internal/agent/fallback.go#NewFallbackProvider",
+      "file_path": "internal/agent/fallback.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224093-04:00",
-      "updated_at": "2026-03-09T14:54:46.488541-04:00"
+      "created_at": "2026-03-09T15:00:20.779298-04:00",
+      "updated_at": "2026-03-09T15:00:27.70884-04:00"
     },
     {
-      "unit_id": "go://internal/report/detailed_test.go",
-      "file_path": "internal/report/detailed_test.go",
+      "unit_id": "go://internal/agent/pipeline.go#toResult",
+      "file_path": "internal/agent/pipeline.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224093-04:00",
-      "updated_at": "2026-03-09T14:54:46.488744-04:00"
+      "created_at": "2026-03-09T15:00:20.779298-04:00",
+      "updated_at": "2026-03-09T15:00:27.709643-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Choice",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779298-04:00",
+      "updated_at": "2026-03-09T15:00:27.710346-04:00"
+    },
+    {
+      "unit_id": "file://docs/policy-authoring.md",
+      "file_path": "docs/policy-authoring.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779299-04:00",
+      "updated_at": "2026-03-09T15:00:27.710963-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router.go#Router",
+      "file_path": "internal/agent/router.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779299-04:00",
+      "updated_at": "2026-03-09T15:00:27.711616-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#ScoringResponse",
+      "file_path": "internal/agent/schemas.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779299-04:00",
+      "updated_at": "2026-03-09T15:00:27.712213-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#scoringStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779299-04:00",
+      "updated_at": "2026-03-09T15:00:27.713066-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#CertificationRecord",
+      "file_path": "internal/domain/record.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.7793-04:00",
+      "updated_at": "2026-03-09T15:00:27.713746-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/utils.ts#log",
+      "file_path": "testdata/repos/ts-simple/src/utils.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.7793-04:00",
+      "updated_at": "2026-03-09T15:00:27.714364-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#NewCoordinator",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.7793-04:00",
+      "updated_at": "2026-03-09T15:00:27.715113-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/matcher.go#FilterPolicyPacks",
+      "file_path": "internal/config/matcher.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779301-04:00",
+      "updated_at": "2026-03-09T15:00:27.715766-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#parseSeverity",
+      "file_path": "internal/config/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779301-04:00",
+      "updated_at": "2026-03-09T15:00:27.71653-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#Violation",
+      "file_path": "internal/domain/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779301-04:00",
+      "updated_at": "2026-03-09T15:00:27.717316-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/diff.go#ChangedFiles",
+      "file_path": "internal/discovery/diff.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779302-04:00",
+      "updated_at": "2026-03-09T15:00:27.718086-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#ParseSeverity",
+      "file_path": "internal/domain/evidence.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779302-04:00",
+      "updated_at": "2026-03-09T15:00:27.718806-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGolangciLintJSON",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779302-04:00",
+      "updated_at": "2026-03-09T15:00:27.719637-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#golangciLintIssue",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779302-04:00",
+      "updated_at": "2026-03-09T15:00:27.720373-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#RemediationStep",
+      "file_path": "internal/agent/schemas.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779303-04:00",
+      "updated_at": "2026-03-09T15:00:27.721025-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router_test.go",
+      "file_path": "internal/agent/router_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779303-04:00",
+      "updated_at": "2026-03-09T15:00:27.721884-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ScopeConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779303-04:00",
+      "updated_at": "2026-03-09T15:00:27.722644-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#certifyUnit",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779303-04:00",
+      "updated_at": "2026-03-09T15:00:27.723689-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#defaultScores",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779304-04:00",
+      "updated_at": "2026-03-09T15:00:27.724568-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#ReviewUnit",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779304-04:00",
+      "updated_at": "2026-03-09T15:00:27.725415-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#ToEvidence",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779304-04:00",
+      "updated_at": "2026-03-09T15:00:27.7263-04:00"
+    },
+    {
+      "unit_id": "file://PRD.md",
+      "file_path": "PRD.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779304-04:00",
+      "updated_at": "2026-03-09T15:00:27.727186-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/themeMap.ts#applyExtensionDefaults",
+      "file_path": "extensions/themeMap.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779306-04:00",
+      "updated_at": "2026-03-09T15:00:27.727923-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/matcher.go#NewPolicyMatcher",
+      "file_path": "internal/config/matcher.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779306-04:00",
+      "updated_at": "2026-03-09T15:00:27.728677-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#String",
+      "file_path": "internal/domain/record.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779307-04:00",
+      "updated_at": "2026-03-09T15:00:27.729412-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#StageResult",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779307-04:00",
+      "updated_at": "2026-03-09T15:00:27.730148-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#Path",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779307-04:00",
+      "updated_at": "2026-03-09T15:00:27.730861-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#fromJSON",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779307-04:00",
+      "updated_at": "2026-03-09T15:00:27.731854-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts_test.go",
+      "file_path": "internal/agent/prompts_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779308-04:00",
+      "updated_at": "2026-03-09T15:00:27.732541-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint_test.go",
+      "file_path": "internal/evidence/lint_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779308-04:00",
+      "updated_at": "2026-03-09T15:00:27.733223-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#String",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779311-04:00",
+      "updated_at": "2026-03-09T15:00:27.733948-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint.go#TestResult",
+      "file_path": "internal/evidence/lint.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779311-04:00",
+      "updated_at": "2026-03-09T15:00:27.734662-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#BuildIssueUpdateCommand",
+      "file_path": "internal/github/issues.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779311-04:00",
+      "updated_at": "2026-03-09T15:00:27.735431-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit_test.go",
+      "file_path": "internal/domain/unit_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779312-04:00",
+      "updated_at": "2026-03-09T15:00:27.736132-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#prescreenStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779312-04:00",
+      "updated_at": "2026-03-09T15:00:27.736943-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Save",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779312-04:00",
+      "updated_at": "2026-03-09T15:00:27.737937-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#RemainingAt",
+      "file_path": "internal/domain/expiry.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779312-04:00",
+      "updated_at": "2026-03-09T15:00:27.738697-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#OverrideAction",
+      "file_path": "internal/domain/override.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779313-04:00",
+      "updated_at": "2026-03-09T15:00:27.739388-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseCoverProfile",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779313-04:00",
+      "updated_at": "2026-03-09T15:00:27.740185-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#NewCircuitBreaker",
+      "file_path": "internal/agent/circuit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779313-04:00",
+      "updated_at": "2026-03-09T15:00:27.740916-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr.go#FormatPRComment",
+      "file_path": "internal/github/pr.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779313-04:00",
+      "updated_at": "2026-03-09T15:00:27.741612-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#MAX_TOKENS",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779314-04:00",
+      "updated_at": "2026-03-09T15:00:27.742233-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/utils.ts#formatDate",
+      "file_path": "testdata/repos/ts-simple/src/utils.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779314-04:00",
+      "updated_at": "2026-03-09T15:00:27.743032-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#Name",
+      "file_path": "internal/agent/circuit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779314-04:00",
+      "updated_at": "2026-03-09T15:00:27.74379-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/validator.go#ValidateConfig",
+      "file_path": "internal/config/validator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779314-04:00",
+      "updated_at": "2026-03-09T15:00:27.744605-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/validator.go#ValidatePolicyPack",
+      "file_path": "internal/config/validator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779315-04:00",
+      "updated_at": "2026-03-09T15:00:27.745411-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#DefaultConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779315-04:00",
+      "updated_at": "2026-03-09T15:00:27.746183-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Stats",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779315-04:00",
+      "updated_at": "2026-03-09T15:00:27.747068-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#NewScoringStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779315-04:00",
+      "updated_at": "2026-03-09T15:00:27.748213-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Diff",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779316-04:00",
+      "updated_at": "2026-03-09T15:00:27.749143-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGoTestJSON",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779316-04:00",
+      "updated_at": "2026-03-09T15:00:27.749961-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/tool-counter.ts",
+      "file_path": "extensions/tool-counter.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779316-04:00",
+      "updated_at": "2026-03-09T15:00:27.750659-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#ComputeMetrics",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779316-04:00",
+      "updated_at": "2026-03-09T15:00:27.751398-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#defaultConfigObj",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779317-04:00",
+      "updated_at": "2026-03-09T15:00:27.752422-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#Merge",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779317-04:00",
+      "updated_at": "2026-03-09T15:00:27.753135-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy.go#PolicyPack",
+      "file_path": "internal/domain/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779317-04:00",
+      "updated_at": "2026-03-09T15:00:27.754-04:00"
     },
     {
       "unit_id": "go://internal/report/health_test.go",
       "file_path": "internal/report/health_test.go",
       "status": "completed",
       "retries": 0,
-      "created_at": "2026-03-09T14:54:40.224093-04:00",
-      "updated_at": "2026-03-09T14:54:46.488936-04:00"
+      "created_at": "2026-03-09T15:00:20.779317-04:00",
+      "updated_at": "2026-03-09T15:00:27.754668-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGolangciLint",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779318-04:00",
+      "updated_at": "2026-03-09T15:00:27.755512-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Enqueue",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779318-04:00",
+      "updated_at": "2026-03-09T15:00:27.756357-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#explainStatus",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779318-04:00",
+      "updated_at": "2026-03-09T15:00:27.757282-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback_test.go",
+      "file_path": "internal/agent/fallback_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779319-04:00",
+      "updated_at": "2026-03-09T15:00:27.757893-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter_test.go",
+      "file_path": "internal/discovery/go_adapter_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779319-04:00",
+      "updated_at": "2026-03-09T15:00:27.7587-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer_test.go",
+      "file_path": "internal/engine/scorer_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779319-04:00",
+      "updated_at": "2026-03-09T15:00:27.759396-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#certifyContext",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77932-04:00",
+      "updated_at": "2026-03-09T15:00:27.760179-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#ReviewInput",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77932-04:00",
+      "updated_at": "2026-03-09T15:00:27.760871-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#ChatResponse",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77932-04:00",
+      "updated_at": "2026-03-09T15:00:27.761565-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ProviderConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77932-04:00",
+      "updated_at": "2026-03-09T15:00:27.762224-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#rawConfig",
+      "file_path": "internal/config/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779321-04:00",
+      "updated_at": "2026-03-09T15:00:27.762961-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/diff.go#DetectMoves",
+      "file_path": "internal/discovery/diff.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779321-04:00",
+      "updated_at": "2026-03-09T15:00:27.763868-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#Validate",
+      "file_path": "internal/domain/override.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779321-04:00",
+      "updated_at": "2026-03-09T15:00:27.764599-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#NewUnit",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779321-04:00",
+      "updated_at": "2026-03-09T15:00:27.765283-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#ParseUnitType",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779321-04:00",
+      "updated_at": "2026-03-09T15:00:27.766013-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#ToEvidence",
+      "file_path": "internal/evidence/git.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779322-04:00",
+      "updated_at": "2026-03-09T15:00:27.766662-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Skip",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779322-04:00",
+      "updated_at": "2026-03-09T15:00:27.767451-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect_test.go",
+      "file_path": "internal/discovery/detect_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779322-04:00",
+      "updated_at": "2026-03-09T15:00:27.768089-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#processQueue",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779322-04:00",
+      "updated_at": "2026-03-09T15:00:27.769188-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#AllDimensions",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779323-04:00",
+      "updated_at": "2026-03-09T15:00:27.769886-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#FormatDetailedText",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779323-04:00",
+      "updated_at": "2026-03-09T15:00:27.770844-04:00"
+    },
+    {
+      "unit_id": "file://docs/troubleshooting.md",
+      "file_path": "docs/troubleshooting.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779323-04:00",
+      "updated_at": "2026-03-09T15:00:27.771496-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/validator.go#ValidationError",
+      "file_path": "internal/config/validator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779323-04:00",
+      "updated_at": "2026-03-09T15:00:27.772218-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#modelPinnedProvider",
+      "file_path": "internal/agent/fallback.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779324-04:00",
+      "updated_at": "2026-03-09T15:00:27.772904-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#NewPipeline",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779324-04:00",
+      "updated_at": "2026-03-09T15:00:27.773947-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#NewIndex",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779324-04:00",
+      "updated_at": "2026-03-09T15:00:27.774691-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#isRetryable",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779324-04:00",
+      "updated_at": "2026-03-09T15:00:27.775497-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#computeDimensionAverages",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779325-04:00",
+      "updated_at": "2026-03-09T15:00:27.776355-04:00"
+    },
+    {
+      "unit_id": "file://go.mod",
+      "file_path": "go.mod",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779325-04:00",
+      "updated_at": "2026-03-09T15:00:27.776981-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#NewPrescreenStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779325-04:00",
+      "updated_at": "2026-03-09T15:00:27.777825-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#TaskType",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779325-04:00",
+      "updated_at": "2026-03-09T15:00:27.778682-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#Scan",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779326-04:00",
+      "updated_at": "2026-03-09T15:00:27.779391-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#DiffResult",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779326-04:00",
+      "updated_at": "2026-03-09T15:00:27.780128-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGoVet",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779326-04:00",
+      "updated_at": "2026-03-09T15:00:27.780863-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect.go#buildLanguageList",
+      "file_path": "internal/discovery/detect.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779326-04:00",
+      "updated_at": "2026-03-09T15:00:27.78161-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#Index",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779327-04:00",
+      "updated_at": "2026-03-09T15:00:27.78224-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#ParseStatus",
+      "file_path": "internal/domain/record.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779327-04:00",
+      "updated_at": "2026-03-09T15:00:27.78292-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/init_cmd.go#languagePolicy",
+      "file_path": "cmd/certify/init_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779327-04:00",
+      "updated_at": "2026-03-09T15:00:27.783974-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#ParseGitLog",
+      "file_path": "internal/evidence/git.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779328-04:00",
+      "updated_at": "2026-03-09T15:00:27.784706-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#Get",
+      "file_path": "internal/agent/prompts.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779329-04:00",
+      "updated_at": "2026-03-09T15:00:27.785476-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#Wait",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779329-04:00",
+      "updated_at": "2026-03-09T15:00:27.78622-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#NewGoAdapter",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779329-04:00",
+      "updated_at": "2026-03-09T15:00:27.78704-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#ExpiryFactors",
+      "file_path": "internal/domain/expiry.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77933-04:00",
+      "updated_at": "2026-03-09T15:00:27.787795-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/applier.go#Apply",
+      "file_path": "internal/override/applier.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77933-04:00",
+      "updated_at": "2026-03-09T15:00:27.788727-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/pipeline_test.go",
+      "file_path": "internal/engine/pipeline_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77933-04:00",
+      "updated_at": "2026-03-09T15:00:27.789393-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#findHighestRisk",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77933-04:00",
+      "updated_at": "2026-03-09T15:00:27.790278-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint.go#LintResult",
+      "file_path": "internal/evidence/lint.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779331-04:00",
+      "updated_at": "2026-03-09T15:00:27.790965-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/review.go#init",
+      "file_path": "cmd/certify/review.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779331-04:00",
+      "updated_at": "2026-03-09T15:00:27.791589-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity.go#funcName",
+      "file_path": "internal/evidence/complexity.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779331-04:00",
+      "updated_at": "2026-03-09T15:00:27.792339-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/diff_test.go",
+      "file_path": "internal/discovery/diff_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779331-04:00",
+      "updated_at": "2026-03-09T15:00:27.793005-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git_test.go",
+      "file_path": "internal/evidence/git_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779331-04:00",
+      "updated_at": "2026-03-09T15:00:27.793831-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/agent-team.ts",
+      "file_path": "extensions/agent-team.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779332-04:00",
+      "updated_at": "2026-03-09T15:00:27.794613-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#NewRateLimiter",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779332-04:00",
+      "updated_at": "2026-03-09T15:00:27.795357-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#loadQueue",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779333-04:00",
+      "updated_at": "2026-03-09T15:00:27.796271-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows.go#GenerateNightlyWorkflow",
+      "file_path": "internal/github/workflows.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779334-04:00",
+      "updated_at": "2026-03-09T15:00:27.796932-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record_test.go",
+      "file_path": "internal/domain/record_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779334-04:00",
+      "updated_at": "2026-03-09T15:00:27.79763-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed_test.go",
+      "file_path": "internal/report/detailed_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779334-04:00",
+      "updated_at": "2026-03-09T15:00:27.798519-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#scoreFromMetrics",
+      "file_path": "internal/engine/scorer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779335-04:00",
+      "updated_at": "2026-03-09T15:00:27.799445-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractCoverage",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779335-04:00",
+      "updated_at": "2026-03-09T15:00:27.800286-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#Load",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779335-04:00",
+      "updated_at": "2026-03-09T15:00:27.801132-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#isAuthError",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779335-04:00",
+      "updated_at": "2026-03-09T15:00:27.80192-04:00"
+    },
+    {
+      "unit_id": "go://internal/integration_test.go",
+      "file_path": "internal/integration_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779336-04:00",
+      "updated_at": "2026-03-09T15:00:27.802745-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/cross-agent.ts",
+      "file_path": "extensions/cross-agent.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779336-04:00",
+      "updated_at": "2026-03-09T15:00:27.803501-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#IsOpen",
+      "file_path": "internal/agent/circuit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779336-04:00",
+      "updated_at": "2026-03-09T15:00:27.804159-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#Allow",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779336-04:00",
+      "updated_at": "2026-03-09T15:00:27.804823-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#NewTSAdapter",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779337-04:00",
+      "updated_at": "2026-03-09T15:00:27.805604-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#BuildIssueCreateCommand",
+      "file_path": "internal/github/issues.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779337-04:00",
+      "updated_at": "2026-03-09T15:00:27.806314-04:00"
+    },
+    {
+      "unit_id": "go://internal/expiry/calculator_test.go",
+      "file_path": "internal/expiry/calculator_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779337-04:00",
+      "updated_at": "2026-03-09T15:00:27.807097-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Pipeline",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779337-04:00",
+      "updated_at": "2026-03-09T15:00:27.8078-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#GoAdapter",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779338-04:00",
+      "updated_at": "2026-03-09T15:00:27.808523-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#Evidence",
+      "file_path": "internal/domain/evidence.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779338-04:00",
+      "updated_at": "2026-03-09T15:00:27.809202-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/main.go#main",
+      "file_path": "cmd/certify/main.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779338-04:00",
+      "updated_at": "2026-03-09T15:00:27.809905-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#Scanner",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779338-04:00",
+      "updated_at": "2026-03-09T15:00:27.810609-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/themeMap.ts#THEME_MAP",
+      "file_path": "extensions/themeMap.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779339-04:00",
+      "updated_at": "2026-03-09T15:00:27.811319-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator_test.go",
+      "file_path": "internal/policy/evaluator_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779339-04:00",
+      "updated_at": "2026-03-09T15:00:27.812154-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#Render",
+      "file_path": "internal/agent/prompts.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779339-04:00",
+      "updated_at": "2026-03-09T15:00:27.81293-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#unitSummaryFrom",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77934-04:00",
+      "updated_at": "2026-03-09T15:00:27.813887-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#LoadPolicyPacks",
+      "file_path": "internal/config/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77934-04:00",
+      "updated_at": "2026-03-09T15:00:27.814597-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#Override",
+      "file_path": "internal/domain/override.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77934-04:00",
+      "updated_at": "2026-03-09T15:00:27.815256-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#severityPenalty",
+      "file_path": "internal/engine/scorer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77934-04:00",
+      "updated_at": "2026-03-09T15:00:27.816107-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#ToEvidence",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779341-04:00",
+      "updated_at": "2026-03-09T15:00:27.81699-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractMetric",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779341-04:00",
+      "updated_at": "2026-03-09T15:00:27.817847-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#AnalyzerConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779341-04:00",
+      "updated_at": "2026-03-09T15:00:27.81858-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr.go#ComputeTrustDelta",
+      "file_path": "internal/github/pr.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779341-04:00",
+      "updated_at": "2026-03-09T15:00:27.819346-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit_test.go",
+      "file_path": "internal/agent/ratelimit_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779342-04:00",
+      "updated_at": "2026-03-09T15:00:27.820008-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader_test.go",
+      "file_path": "internal/config/loader_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779347-04:00",
+      "updated_at": "2026-03-09T15:00:27.82072-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue_test.go",
+      "file_path": "internal/queue/queue_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779347-04:00",
+      "updated_at": "2026-03-09T15:00:27.821402-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#CircuitBreaker",
+      "file_path": "internal/agent/circuit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779348-04:00",
+      "updated_at": "2026-03-09T15:00:27.822277-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#PipelineConfig",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779348-04:00",
+      "updated_at": "2026-03-09T15:00:27.822947-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#NewToolExecutor",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779348-04:00",
+      "updated_at": "2026-03-09T15:00:27.823695-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#extractComplexity",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779348-04:00",
+      "updated_at": "2026-03-09T15:00:27.824419-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues_test.go",
+      "file_path": "internal/github/issues_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779348-04:00",
+      "updated_at": "2026-03-09T15:00:27.825109-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#RateLimiter",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779349-04:00",
+      "updated_at": "2026-03-09T15:00:27.82586-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#Reviewer",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779349-04:00",
+      "updated_at": "2026-03-09T15:00:27.826687-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#rawPolicyPack",
+      "file_path": "internal/config/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779349-04:00",
+      "updated_at": "2026-03-09T15:00:27.827512-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/lint.go#LintFinding",
+      "file_path": "internal/evidence/lint.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779349-04:00",
+      "updated_at": "2026-03-09T15:00:27.828141-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#Matcher",
+      "file_path": "internal/policy/matcher.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77935-04:00",
+      "updated_at": "2026-03-09T15:00:27.82883-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#StageInput",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77935-04:00",
+      "updated_at": "2026-03-09T15:00:27.829532-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr.go#BuildPRCommentCommand",
+      "file_path": "internal/github/pr.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77935-04:00",
+      "updated_at": "2026-03-09T15:00:27.830292-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#AppendHistory",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77935-04:00",
+      "updated_at": "2026-03-09T15:00:27.831138-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store_test.go",
+      "file_path": "internal/record/store_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779351-04:00",
+      "updated_at": "2026-03-09T15:00:27.831983-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#Score",
+      "file_path": "internal/engine/scorer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779351-04:00",
+      "updated_at": "2026-03-09T15:00:27.832899-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/theme-cycler.ts",
+      "file_path": "extensions/theme-cycler.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779352-04:00",
+      "updated_at": "2026-03-09T15:00:27.833669-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#Error",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779353-04:00",
+      "updated_at": "2026-03-09T15:00:27.834507-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#ChatRequest",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779353-04:00",
+      "updated_at": "2026-03-09T15:00:27.835182-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#ModelConfig",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779353-04:00",
+      "updated_at": "2026-03-09T15:00:27.835868-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#parseDimension",
+      "file_path": "internal/config/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779353-04:00",
+      "updated_at": "2026-03-09T15:00:27.836781-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#GradeFromScore",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779354-04:00",
+      "updated_at": "2026-03-09T15:00:27.837519-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#FormatGroupedIssueBody",
+      "file_path": "internal/github/issues.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779354-04:00",
+      "updated_at": "2026-03-09T15:00:27.838192-04:00"
+    },
+    {
+      "unit_id": "file://specs/close-feature-gaps.md",
+      "file_path": "specs/close-feature-gaps.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779354-04:00",
+      "updated_at": "2026-03-09T15:00:27.838924-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#init",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779354-04:00",
+      "updated_at": "2026-03-09T15:00:27.839931-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/diff.go#MovedFile",
+      "file_path": "internal/discovery/diff.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779354-04:00",
+      "updated_at": "2026-03-09T15:00:27.840826-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Item",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779355-04:00",
+      "updated_at": "2026-03-09T15:00:27.841608-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/themeMap.ts#applyExtensionTheme",
+      "file_path": "extensions/themeMap.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779355-04:00",
+      "updated_at": "2026-03-09T15:00:27.842249-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#GitStats",
+      "file_path": "internal/evidence/git.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779355-04:00",
+      "updated_at": "2026-03-09T15:00:27.842941-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#rawOverrideFile",
+      "file_path": "internal/override/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779355-04:00",
+      "updated_at": "2026-03-09T15:00:27.843579-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#matchPath",
+      "file_path": "internal/policy/matcher.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779356-04:00",
+      "updated_at": "2026-03-09T15:00:27.844282-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Load",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779356-04:00",
+      "updated_at": "2026-03-09T15:00:27.845089-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#doRequest",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779356-04:00",
+      "updated_at": "2026-03-09T15:00:27.846053-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/diff.go#FilterChanged",
+      "file_path": "internal/discovery/diff.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779356-04:00",
+      "updated_at": "2026-03-09T15:00:27.846869-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/pure-focus.ts",
+      "file_path": "extensions/pure-focus.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779357-04:00",
+      "updated_at": "2026-03-09T15:00:27.847586-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#Chat",
+      "file_path": "internal/agent/fallback.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779357-04:00",
+      "updated_at": "2026-03-09T15:00:27.848401-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Message",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779357-04:00",
+      "updated_at": "2026-03-09T15:00:27.849149-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Queue",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779357-04:00",
+      "updated_at": "2026-03-09T15:00:27.84993-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#Save",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779358-04:00",
+      "updated_at": "2026-03-09T15:00:27.850933-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#DetailedReport",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779358-04:00",
+      "updated_at": "2026-03-09T15:00:27.851746-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types_test.go",
+      "file_path": "internal/agent/types_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779358-04:00",
+      "updated_at": "2026-03-09T15:00:27.852454-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/pi-pi.ts",
+      "file_path": "extensions/pi-pi.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779358-04:00",
+      "updated_at": "2026-03-09T15:00:27.853263-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#validate",
+      "file_path": "internal/config/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779359-04:00",
+      "updated_at": "2026-03-09T15:00:27.854081-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#indexEntry",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779359-04:00",
+      "updated_at": "2026-03-09T15:00:27.854835-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#persistedQueue",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779359-04:00",
+      "updated_at": "2026-03-09T15:00:27.855784-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#LanguageBreakdown",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779359-04:00",
+      "updated_at": "2026-03-09T15:00:27.856623-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config_test.go",
+      "file_path": "internal/domain/config_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77936-04:00",
+      "updated_at": "2026-03-09T15:00:27.857295-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#LoadFromDir",
+      "file_path": "internal/config/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77936-04:00",
+      "updated_at": "2026-03-09T15:00:27.858047-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/collector.go#Collector",
+      "file_path": "internal/evidence/collector.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77936-04:00",
+      "updated_at": "2026-03-09T15:00:27.858663-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#BatchNext",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77936-04:00",
+      "updated_at": "2026-03-09T15:00:27.859492-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#New",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779361-04:00",
+      "updated_at": "2026-03-09T15:00:27.860422-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#StatusFromScore",
+      "file_path": "internal/engine/scorer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779361-04:00",
+      "updated_at": "2026-03-09T15:00:27.861243-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#EvaluationResult",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779361-04:00",
+      "updated_at": "2026-03-09T15:00:27.861907-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#evaluateRule",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779361-04:00",
+      "updated_at": "2026-03-09T15:00:27.862639-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/applier_test.go",
+      "file_path": "internal/override/applier_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779362-04:00",
+      "updated_at": "2026-03-09T15:00:27.863331-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#DecisionResponse",
+      "file_path": "internal/agent/schemas.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779362-04:00",
+      "updated_at": "2026-03-09T15:00:27.863971-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#Stage",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779362-04:00",
+      "updated_at": "2026-03-09T15:00:27.864855-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override.go#String",
+      "file_path": "internal/domain/override.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779363-04:00",
+      "updated_at": "2026-03-09T15:00:27.865532-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health.go#Health",
+      "file_path": "internal/report/health.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779364-04:00",
+      "updated_at": "2026-03-09T15:00:27.866234-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/tilldone.ts",
+      "file_path": "extensions/tilldone.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779364-04:00",
+      "updated_at": "2026-03-09T15:00:27.866951-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/report_cmd.go#init",
+      "file_path": "cmd/certify/report_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779364-04:00",
+      "updated_at": "2026-03-09T15:00:27.867639-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#NewReviewer",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779365-04:00",
+      "updated_at": "2026-03-09T15:00:27.868416-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#EnforcingConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779365-04:00",
+      "updated_at": "2026-03-09T15:00:27.869229-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#Severity",
+      "file_path": "internal/domain/evidence.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779366-04:00",
+      "updated_at": "2026-03-09T15:00:27.869872-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#pathFor",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779366-04:00",
+      "updated_at": "2026-03-09T15:00:27.870696-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#Detailed",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779366-04:00",
+      "updated_at": "2026-03-09T15:00:27.871636-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#printSummary",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779368-04:00",
+      "updated_at": "2026-03-09T15:00:27.872719-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#containsTodo",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779368-04:00",
+      "updated_at": "2026-03-09T15:00:27.87351-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner.go#ParseGitLogWithAge",
+      "file_path": "internal/evidence/runner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779368-04:00",
+      "updated_at": "2026-03-09T15:00:27.87433-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader.go#LoadFile",
+      "file_path": "internal/override/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779368-04:00",
+      "updated_at": "2026-03-09T15:00:27.875078-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#historyEntry",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779369-04:00",
+      "updated_at": "2026-03-09T15:00:27.875844-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Next",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779369-04:00",
+      "updated_at": "2026-03-09T15:00:27.876655-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index_test.go",
+      "file_path": "internal/discovery/index_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779369-04:00",
+      "updated_at": "2026-03-09T15:00:27.877448-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/root.go#init",
+      "file_path": "cmd/certify/root.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779369-04:00",
+      "updated_at": "2026-03-09T15:00:27.87813-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#GenericScanner",
+      "file_path": "internal/discovery/generic.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77937-04:00",
+      "updated_at": "2026-03-09T15:00:27.878833-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#String",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77937-04:00",
+      "updated_at": "2026-03-09T15:00:27.879583-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#AgentConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77937-04:00",
+      "updated_at": "2026-03-09T15:00:27.880294-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#Grade",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77937-04:00",
+      "updated_at": "2026-03-09T15:00:27.881019-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGitStats",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779371-04:00",
+      "updated_at": "2026-03-09T15:00:27.88177-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#Match",
+      "file_path": "internal/policy/matcher.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779371-04:00",
+      "updated_at": "2026-03-09T15:00:27.882681-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#APIError",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779371-04:00",
+      "updated_at": "2026-03-09T15:00:27.883449-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/cli_test.go",
+      "file_path": "cmd/certify/cli_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779371-04:00",
+      "updated_at": "2026-03-09T15:00:27.884222-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/system-select.ts",
+      "file_path": "extensions/system-select.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779372-04:00",
+      "updated_at": "2026-03-09T15:00:27.884972-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#parsePolicyPack",
+      "file_path": "internal/config/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779372-04:00",
+      "updated_at": "2026-03-09T15:00:27.885752-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#Name",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779372-04:00",
+      "updated_at": "2026-03-09T15:00:27.886695-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#AdaptiveMessages",
+      "file_path": "internal/agent/fallback.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779372-04:00",
+      "updated_at": "2026-03-09T15:00:27.88749-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/override_test.go",
+      "file_path": "internal/domain/override_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779373-04:00",
+      "updated_at": "2026-03-09T15:00:27.888383-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#AreaSummary",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779373-04:00",
+      "updated_at": "2026-03-09T15:00:27.889283-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension_test.go",
+      "file_path": "internal/domain/dimension_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779373-04:00",
+      "updated_at": "2026-03-09T15:00:27.889999-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/purpose-gate.ts",
+      "file_path": "extensions/purpose-gate.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779373-04:00",
+      "updated_at": "2026-03-09T15:00:27.890649-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#historyPathFor",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779374-04:00",
+      "updated_at": "2026-03-09T15:00:27.891448-04:00"
+    },
+    {
+      "unit_id": "file://docs/README.md",
+      "file_path": "docs/README.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779374-04:00",
+      "updated_at": "2026-03-09T15:00:27.892076-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Coordinator",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779374-04:00",
+      "updated_at": "2026-03-09T15:00:27.892829-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#HasGoMod",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779374-04:00",
+      "updated_at": "2026-03-09T15:00:27.893802-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#HasPackageJSON",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779375-04:00",
+      "updated_at": "2026-03-09T15:00:27.894633-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows.go#GenerateWeeklyWorkflow",
+      "file_path": "internal/github/workflows.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779375-04:00",
+      "updated_at": "2026-03-09T15:00:27.895351-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/subagent-widget.ts",
+      "file_path": "extensions/subagent-widget.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779375-04:00",
+      "updated_at": "2026-03-09T15:00:27.896145-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#CertificationMode",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779375-04:00",
+      "updated_at": "2026-03-09T15:00:27.896926-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#UnitID",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779376-04:00",
+      "updated_at": "2026-03-09T15:00:27.897669-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#PromptRegistry",
+      "file_path": "internal/agent/prompts.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779376-04:00",
+      "updated_at": "2026-03-09T15:00:27.898411-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGoVet",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779376-04:00",
+      "updated_at": "2026-03-09T15:00:27.899397-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows.go#GeneratePRWorkflow",
+      "file_path": "internal/github/workflows.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779376-04:00",
+      "updated_at": "2026-03-09T15:00:27.900064-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/applier.go#ApplyAll",
+      "file_path": "internal/override/applier.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779377-04:00",
+      "updated_at": "2026-03-09T15:00:27.900751-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#matchAny",
+      "file_path": "internal/discovery/generic.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779377-04:00",
+      "updated_at": "2026-03-09T15:00:27.901504-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#BuildIssueSearchCommand",
+      "file_path": "internal/github/issues.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779377-04:00",
+      "updated_at": "2026-03-09T15:00:27.902175-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner_test.go",
+      "file_path": "internal/discovery/scanner_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779377-04:00",
+      "updated_at": "2026-03-09T15:00:27.90283-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#collectRepoEvidence",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779378-04:00",
+      "updated_at": "2026-03-09T15:00:27.903975-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#String",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779378-04:00",
+      "updated_at": "2026-03-09T15:00:27.90472-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/dimension.go#Dimension",
+      "file_path": "internal/domain/dimension.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779378-04:00",
+      "updated_at": "2026-03-09T15:00:27.905422-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/detailed.go#UnitSummary",
+      "file_path": "internal/report/detailed.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779378-04:00",
+      "updated_at": "2026-03-09T15:00:27.906165-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity_test.go",
+      "file_path": "internal/evidence/complexity_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779378-04:00",
+      "updated_at": "2026-03-09T15:00:27.906879-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#NewReviewStage",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779379-04:00",
+      "updated_at": "2026-03-09T15:00:27.907697-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/diff.go#FilterByPaths",
+      "file_path": "internal/discovery/diff.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779379-04:00",
+      "updated_at": "2026-03-09T15:00:27.90861-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy.go#rawPolicyRule",
+      "file_path": "internal/config/policy.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779379-04:00",
+      "updated_at": "2026-03-09T15:00:27.909342-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#String",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77938-04:00",
+      "updated_at": "2026-03-09T15:00:27.910127-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/attribution_test.go",
+      "file_path": "internal/agent/attribution_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77938-04:00",
+      "updated_at": "2026-03-09T15:00:27.910849-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/session-replay.ts",
+      "file_path": "extensions/session-replay.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77938-04:00",
+      "updated_at": "2026-03-09T15:00:27.91157-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#ReviewResult",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779381-04:00",
+      "updated_at": "2026-03-09T15:00:27.912377-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#Language",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779381-04:00",
+      "updated_at": "2026-03-09T15:00:27.913296-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health.go#FormatText",
+      "file_path": "internal/report/health.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779381-04:00",
+      "updated_at": "2026-03-09T15:00:27.914067-04:00"
+    },
+    {
+      "unit_id": "go://internal/override/loader_test.go",
+      "file_path": "internal/override/loader_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779381-04:00",
+      "updated_at": "2026-03-09T15:00:27.914733-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/reviewer.go#joinModels",
+      "file_path": "internal/agent/reviewer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779382-04:00",
+      "updated_at": "2026-03-09T15:00:27.915511-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/version.go",
+      "file_path": "cmd/certify/version.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779382-04:00",
+      "updated_at": "2026-03-09T15:00:27.916171-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#Status",
+      "file_path": "internal/domain/record.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779382-04:00",
+      "updated_at": "2026-03-09T15:00:27.916815-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#Name",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779382-04:00",
+      "updated_at": "2026-03-09T15:00:27.917754-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/init_cmd.go#init",
+      "file_path": "cmd/certify/init_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779383-04:00",
+      "updated_at": "2026-03-09T15:00:27.918615-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#Scan",
+      "file_path": "internal/discovery/generic.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779383-04:00",
+      "updated_at": "2026-03-09T15:00:27.919912-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/scanner.go#UnitList",
+      "file_path": "internal/discovery/scanner.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779383-04:00",
+      "updated_at": "2026-03-09T15:00:27.920666-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#tokenizeDialogue",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779383-04:00",
+      "updated_at": "2026-03-09T15:00:27.921309-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/policy_test.go",
+      "file_path": "internal/config/policy_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779383-04:00",
+      "updated_at": "2026-03-09T15:00:27.922027-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter_test.go",
+      "file_path": "internal/discovery/ts_adapter_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779384-04:00",
+      "updated_at": "2026-03-09T15:00:27.922875-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/tool-counter-widget.ts",
+      "file_path": "extensions/tool-counter-widget.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779384-04:00",
+      "updated_at": "2026-03-09T15:00:27.923623-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/circuit.go#Chat",
+      "file_path": "internal/agent/circuit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779384-04:00",
+      "updated_at": "2026-03-09T15:00:27.924354-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/git.go#ChurnRate",
+      "file_path": "internal/evidence/git.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779384-04:00",
+      "updated_at": "2026-03-09T15:00:27.925073-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#OpenRouterProvider",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779385-04:00",
+      "updated_at": "2026-03-09T15:00:27.925874-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/generic.go#NewGenericScanner",
+      "file_path": "internal/discovery/generic.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779385-04:00",
+      "updated_at": "2026-03-09T15:00:27.926668-04:00"
+    },
+    {
+      "unit_id": "file://go.sum",
+      "file_path": "go.sum",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779385-04:00",
+      "updated_at": "2026-03-09T15:00:27.927708-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/scan.go#init",
+      "file_path": "cmd/certify/scan.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779386-04:00",
+      "updated_at": "2026-03-09T15:00:27.928564-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Run",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779386-04:00",
+      "updated_at": "2026-03-09T15:00:27.92937-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas.go#RemediationResponse",
+      "file_path": "internal/agent/schemas.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779386-04:00",
+      "updated_at": "2026-03-09T15:00:27.929992-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/go_adapter.go#parseFile",
+      "file_path": "internal/discovery/go_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779386-04:00",
+      "updated_at": "2026-03-09T15:00:27.930747-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#init",
+      "file_path": "internal/domain/evidence.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779387-04:00",
+      "updated_at": "2026-03-09T15:00:27.931413-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/record.go#IsPassing",
+      "file_path": "internal/domain/record.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779387-04:00",
+      "updated_at": "2026-03-09T15:00:27.932109-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#init",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779387-04:00",
+      "updated_at": "2026-03-09T15:00:27.932843-04:00"
+    },
+    {
+      "unit_id": "go://internal/expiry/calculator.go#Calculate",
+      "file_path": "internal/expiry/calculator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779388-04:00",
+      "updated_at": "2026-03-09T15:00:27.933736-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#DialogueParser",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779388-04:00",
+      "updated_at": "2026-03-09T15:00:27.934438-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/executor.go#runGoTest",
+      "file_path": "internal/evidence/executor.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779388-04:00",
+      "updated_at": "2026-03-09T15:00:27.935217-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Complete",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779388-04:00",
+      "updated_at": "2026-03-09T15:00:27.935984-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/schemas_test.go",
+      "file_path": "internal/agent/schemas_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77939-04:00",
+      "updated_at": "2026-03-09T15:00:27.936607-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Usage",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77939-04:00",
+      "updated_at": "2026-03-09T15:00:27.937325-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#ParseUnitID",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.77939-04:00",
+      "updated_at": "2026-03-09T15:00:27.938066-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#UnitType",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779391-04:00",
+      "updated_at": "2026-03-09T15:00:27.938969-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Reset",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779391-04:00",
+      "updated_at": "2026-03-09T15:00:27.939776-04:00"
+    },
+    {
+      "unit_id": "file://specs/agent-redesign.md",
+      "file_path": "specs/agent-redesign.md",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779391-04:00",
+      "updated_at": "2026-03-09T15:00:27.94042-04:00"
+    },
+    {
+      "unit_id": "go://internal/engine/scorer.go#extractSummaryFloat",
+      "file_path": "internal/engine/scorer.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779391-04:00",
+      "updated_at": "2026-03-09T15:00:27.941302-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter_test.go",
+      "file_path": "internal/agent/openrouter_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779392-04:00",
+      "updated_at": "2026-03-09T15:00:27.941996-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/pipeline.go#Strategy",
+      "file_path": "internal/agent/pipeline.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779392-04:00",
+      "updated_at": "2026-03-09T15:00:27.943091-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#PromptTemplate",
+      "file_path": "internal/agent/prompts.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779392-04:00",
+      "updated_at": "2026-03-09T15:00:27.943793-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/provider.go#Provider",
+      "file_path": "internal/agent/provider.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779392-04:00",
+      "updated_at": "2026-03-09T15:00:27.944607-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/ratelimit.go#refill",
+      "file_path": "internal/agent/ratelimit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779393-04:00",
+      "updated_at": "2026-03-09T15:00:27.945332-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/types.go#Content",
+      "file_path": "internal/agent/types.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779393-04:00",
+      "updated_at": "2026-03-09T15:00:27.94609-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/ts_adapter.go#Scan",
+      "file_path": "internal/discovery/ts_adapter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779393-04:00",
+      "updated_at": "2026-03-09T15:00:27.946885-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/unit.go#NewUnitID",
+      "file_path": "internal/domain/unit.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779394-04:00",
+      "updated_at": "2026-03-09T15:00:27.947598-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr_test.go",
+      "file_path": "internal/github/pr_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779394-04:00",
+      "updated_at": "2026-03-09T15:00:27.948267-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#Store",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779394-04:00",
+      "updated_at": "2026-03-09T15:00:27.949309-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/workflows_test.go",
+      "file_path": "internal/github/workflows_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779395-04:00",
+      "updated_at": "2026-03-09T15:00:27.950378-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/index.go#LoadIndex",
+      "file_path": "internal/discovery/index.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779396-04:00",
+      "updated_at": "2026-03-09T15:00:27.951154-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ScheduleConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779396-04:00",
+      "updated_at": "2026-03-09T15:00:27.951865-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Fail",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779396-04:00",
+      "updated_at": "2026-03-09T15:00:27.952728-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage_test.go",
+      "file_path": "internal/agent/stage_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779397-04:00",
+      "updated_at": "2026-03-09T15:00:27.953489-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#SignoffConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779397-04:00",
+      "updated_at": "2026-03-09T15:00:27.95426-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#String",
+      "file_path": "internal/domain/evidence.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779397-04:00",
+      "updated_at": "2026-03-09T15:00:27.955329-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#Duration",
+      "file_path": "internal/domain/expiry.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779397-04:00",
+      "updated_at": "2026-03-09T15:00:27.956035-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/issues.go#BuildIssueCloseCommand",
+      "file_path": "internal/github/issues.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779398-04:00",
+      "updated_at": "2026-03-09T15:00:27.956811-04:00"
+    },
+    {
+      "unit_id": "ts://testdata/repos/ts-simple/src/parser.ts#parseNode",
+      "file_path": "testdata/repos/ts-simple/src/parser.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779398-04:00",
+      "updated_at": "2026-03-09T15:00:27.957495-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#Execute",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779398-04:00",
+      "updated_at": "2026-03-09T15:00:27.958635-04:00"
+    },
+    {
+      "unit_id": "go://internal/record/store.go#ListAll",
+      "file_path": "internal/record/store.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779398-04:00",
+      "updated_at": "2026-03-09T15:00:27.959673-04:00"
+    },
+    {
+      "unit_id": "ts://extensions/damage-control.ts",
+      "file_path": "extensions/damage-control.ts",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779399-04:00",
+      "updated_at": "2026-03-09T15:00:27.960423-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/loader.go#LoadFile",
+      "file_path": "internal/config/loader.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779399-04:00",
+      "updated_at": "2026-03-09T15:00:27.96118-04:00"
+    },
+    {
+      "unit_id": "go://internal/discovery/detect.go#DetectedAdapters",
+      "file_path": "internal/discovery/detect.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779399-04:00",
+      "updated_at": "2026-03-09T15:00:27.961925-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/stage.go#looseParseNeedsReview",
+      "file_path": "internal/agent/stage.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779399-04:00",
+      "updated_at": "2026-03-09T15:00:27.962704-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence_test.go",
+      "file_path": "internal/domain/evidence_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.7794-04:00",
+      "updated_at": "2026-03-09T15:00:27.963387-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#printQueueStatus",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.7794-04:00",
+      "updated_at": "2026-03-09T15:00:27.964502-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/prompts.go#Version",
+      "file_path": "internal/agent/prompts.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.7794-04:00",
+      "updated_at": "2026-03-09T15:00:27.96521-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ModelAssignments",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779401-04:00",
+      "updated_at": "2026-03-09T15:00:27.965899-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#ExpiryWindow",
+      "file_path": "internal/domain/expiry.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779401-04:00",
+      "updated_at": "2026-03-09T15:00:27.966566-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/evaluator.go#Evaluate",
+      "file_path": "internal/policy/evaluator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779401-04:00",
+      "updated_at": "2026-03-09T15:00:27.967378-04:00"
+    },
+    {
+      "unit_id": "go://internal/report/health.go#FormatJSON",
+      "file_path": "internal/report/health.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779401-04:00",
+      "updated_at": "2026-03-09T15:00:27.968171-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/router.go#directAssignment",
+      "file_path": "internal/agent/router.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779402-04:00",
+      "updated_at": "2026-03-09T15:00:27.968936-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#ExpiryConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779402-04:00",
+      "updated_at": "2026-03-09T15:00:27.96963-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/expiry.go#IsExpired",
+      "file_path": "internal/domain/expiry.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779402-04:00",
+      "updated_at": "2026-03-09T15:00:27.970321-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/metrics.go#CodeMetrics",
+      "file_path": "internal/evidence/metrics.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779402-04:00",
+      "updated_at": "2026-03-09T15:00:27.970999-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/init_cmd.go#generateConfig",
+      "file_path": "cmd/certify/init_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779403-04:00",
+      "updated_at": "2026-03-09T15:00:27.972187-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#ModelChain",
+      "file_path": "internal/agent/fallback.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779403-04:00",
+      "updated_at": "2026-03-09T15:00:27.97301-04:00"
+    },
+    {
+      "unit_id": "go://cmd/certify/certify_cmd.go#setupAgent",
+      "file_path": "cmd/certify/certify_cmd.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779403-04:00",
+      "updated_at": "2026-03-09T15:00:27.973984-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/config.go#RateLimitConfig",
+      "file_path": "internal/domain/config.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779404-04:00",
+      "updated_at": "2026-03-09T15:00:27.974663-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/complexity.go#ComputeGoComplexity",
+      "file_path": "internal/evidence/complexity.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779404-04:00",
+      "updated_at": "2026-03-09T15:00:27.975479-04:00"
+    },
+    {
+      "unit_id": "go://internal/policy/matcher.go#matchesPack",
+      "file_path": "internal/policy/matcher.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779404-04:00",
+      "updated_at": "2026-03-09T15:00:27.976181-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/evidence.go#EvidenceKind",
+      "file_path": "internal/domain/evidence.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779404-04:00",
+      "updated_at": "2026-03-09T15:00:27.977047-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#Len",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779405-04:00",
+      "updated_at": "2026-03-09T15:00:27.977915-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/openrouter.go#Chat",
+      "file_path": "internal/agent/openrouter.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779405-04:00",
+      "updated_at": "2026-03-09T15:00:27.978718-04:00"
+    },
+    {
+      "unit_id": "go://internal/domain/policy_test.go",
+      "file_path": "internal/domain/policy_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779405-04:00",
+      "updated_at": "2026-03-09T15:00:27.979394-04:00"
+    },
+    {
+      "unit_id": "go://internal/evidence/runner_test.go",
+      "file_path": "internal/evidence/runner_test.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779406-04:00",
+      "updated_at": "2026-03-09T15:00:27.980063-04:00"
+    },
+    {
+      "unit_id": "go://internal/config/validator.go#Error",
+      "file_path": "internal/config/validator.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779406-04:00",
+      "updated_at": "2026-03-09T15:00:27.980758-04:00"
+    },
+    {
+      "unit_id": "go://internal/queue/queue.go#ItemStatus",
+      "file_path": "internal/queue/queue.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779406-04:00",
+      "updated_at": "2026-03-09T15:00:27.98175-04:00"
+    },
+    {
+      "unit_id": "go://internal/agent/fallback.go#Name",
+      "file_path": "internal/agent/fallback.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779406-04:00",
+      "updated_at": "2026-03-09T15:00:27.98256-04:00"
+    },
+    {
+      "unit_id": "go://internal/github/pr.go#TrustDelta",
+      "file_path": "internal/github/pr.go",
+      "status": "completed",
+      "retries": 0,
+      "created_at": "2026-03-09T15:00:20.779407-04:00",
+      "updated_at": "2026-03-09T15:00:27.983251-04:00"
     }
   ]
 }

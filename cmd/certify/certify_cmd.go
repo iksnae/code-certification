@@ -55,54 +55,105 @@ func init() {
 	certifyCmd.Flags().StringVar(&certifyDiffBase, "diff-base", "", "Only certify files changed since this git ref")
 }
 
+// certifyContext holds all loaded state for a certification run.
+type certifyContext struct {
+	root      string
+	certDir   string
+	cfg       domain.Config
+	units     []domain.Unit
+	unitMap   map[string]domain.Unit
+	packs     []domain.PolicyPack
+	overrides []domain.Override
+	wq        *queue.Queue
+	queuePath string
+	store     *record.Store
+	coord     *agent.Coordinator
+	repoEv    []domain.Evidence
+}
+
 func runCertify(cmd *cobra.Command, args []string) error {
+	ctx, err := loadCertifyContext()
+	if err != nil {
+		return err
+	}
+
+	remaining := ctx.printQueueStatus()
+	if remaining == 0 {
+		ctx.wq.Save(ctx.queuePath)
+		return nil
+	}
+
+	ctx.coord = setupAgent(ctx.cfg, certifySkipAgent)
+	ctx.collectRepoEvidence()
+
+	certified, observations, failed, processed := ctx.processQueue(cmd, remaining)
+
+	ctx.printSummary(certified, observations, failed, processed)
+	ctx.wq.Save(ctx.queuePath)
+
+	if ctx.cfg.Mode == domain.ModeEnforcing && failed > 0 {
+		return fmt.Errorf("%d units failed certification in enforcing mode", failed)
+	}
+	return nil
+}
+
+func loadCertifyContext() (*certifyContext, error) {
 	root := certifyPath
 	if root == "" {
 		root, _ = os.Getwd()
 	}
 	certDir := filepath.Join(root, ".certification")
 
-	// Load config
 	cfg, err := config.LoadFromDir(certDir)
 	if err != nil {
-		cfg = defaultConfigObj()
+		cfg = domain.DefaultConfig()
 	}
 
-	// Load index
-	indexPath := filepath.Join(certDir, "index.json")
-	idx, err := discovery.LoadIndex(indexPath)
+	idx, err := discovery.LoadIndex(filepath.Join(certDir, "index.json"))
 	if err != nil {
-		return fmt.Errorf("loading index (run 'certify scan' first): %w", err)
+		return nil, fmt.Errorf("loading index (run 'certify scan' first): %w", err)
 	}
 
-	// Load policies
-	policyDir := filepath.Join(certDir, "policies")
-	packs, err := config.LoadPolicyPacks(policyDir)
+	packs, err := config.LoadPolicyPacks(filepath.Join(certDir, "policies"))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "warning: loading policies: %v\n", err)
 	}
 
-	// Load overrides
-	overrideDir := filepath.Join(certDir, "overrides")
-	overrides, err := override.LoadDir(overrideDir)
+	overrides, err := override.LoadDir(filepath.Join(certDir, "overrides"))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "warning: loading overrides: %v\n", err)
 	}
 
-	// --- Work Queue ---
-	queuePath := filepath.Join(certDir, "queue.json")
-	var wq *queue.Queue
+	wq := loadQueue(filepath.Join(certDir, "queue.json"))
+	units := filterUnits(root, idx)
 
-	if certifyResetQueue {
-		wq = queue.New()
-	} else {
-		wq, err = queue.Load(queuePath)
-		if err != nil {
-			wq = queue.New() // First run
-		}
+	unitMap := make(map[string]domain.Unit, len(units))
+	for _, u := range units {
+		unitMap[u.ID.String()] = u
+		wq.Enqueue(u.ID.String(), u.ID.Path())
 	}
 
-	// Filter units by --target or --diff-base
+	return &certifyContext{
+		root: root, certDir: certDir, cfg: cfg,
+		units: units, unitMap: unitMap,
+		packs: packs, overrides: overrides,
+		wq: wq, queuePath: filepath.Join(certDir, "queue.json"),
+		store: record.NewStore(filepath.Join(certDir, "records")),
+	}, nil
+}
+
+func loadQueue(queuePath string) *queue.Queue {
+	if certifyResetQueue {
+		return queue.New()
+	}
+	wq, err := queue.Load(queuePath)
+	if err != nil {
+		return queue.New()
+	}
+	return wq
+}
+
+func filterUnits(root string, idx *discovery.Index) []domain.Unit {
 	units := idx.Units()
 	if certifyDiffBase != "" {
 		changedFiles, err := discovery.ChangedFiles(root, certifyDiffBase, "HEAD")
@@ -117,90 +168,76 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		units = discovery.FilterByPaths(units, certifyTarget)
 		fmt.Printf("  Targeting %v: %d units\n", certifyTarget, len(units))
 	}
+	return units
+}
 
-	// Populate queue from index (only adds new units)
-	for _, u := range units {
-		wq.Enqueue(u.ID.String(), u.ID.Path())
-	}
-
-	stats := wq.Stats()
+func (c *certifyContext) printQueueStatus() int {
+	stats := c.wq.Stats()
 	remaining := stats.Pending + stats.InProgress
 	if remaining == 0 {
 		fmt.Printf("  Queue complete: %d/%d processed (%d skipped)\n",
 			stats.Completed, stats.Total, stats.Skipped)
 		fmt.Println("  Use --reset-queue to re-process all units.")
-		wq.Save(queuePath)
-		return nil
+		return 0
 	}
 	fmt.Printf("  Queue: %d pending, %d completed, %d skipped, %d failed of %d total\n",
 		remaining, stats.Completed, stats.Skipped, stats.Failed, stats.Total)
+	return remaining
+}
 
-	// --- Agent Setup ---
-	var coordinator *agent.Coordinator
-	if cfg.Agent.Enabled && !certifySkipAgent {
-		apiKey := os.Getenv(cfg.Agent.Provider.APIKeyEnv)
-		if apiKey != "" {
-			chain := agent.NewModelChain(
-				cfg.Agent.Provider.BaseURL,
-				apiKey,
-				cfg.Agent.Provider.HTTPReferer,
-				cfg.Agent.Provider.XTitle,
-				[]string{
-					cfg.Agent.Models.Prescreen,
-					cfg.Agent.Models.Fallback,
-					"qwen/qwen-turbo",
-					"qwen/qwen3-coder:free",
-					"mistralai/mistral-small-3.1-24b-instruct:free",
-					"google/gemma-3-12b-it:free",
-				},
-			)
-			cb := agent.NewCircuitBreaker(chain, 5)
-			coordinator = agent.NewCoordinator(cb, agent.CoordinatorConfig{
-				Models:      cfg.Agent.Models,
-				Strategy:    agent.StrategyStandard,
-				TokenBudget: 50000,
-			})
-			fmt.Println("  Agent review: enabled (model chain with fallback)")
-		} else {
-			fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
-		}
-	} else if certifySkipAgent {
+func setupAgent(cfg domain.Config, skip bool) *agent.Coordinator {
+	if skip {
 		fmt.Println("  Agent review: skipped (--skip-agent)")
+		return nil
 	}
+	if !cfg.Agent.Enabled {
+		return nil
+	}
+	apiKey := os.Getenv(cfg.Agent.Provider.APIKeyEnv)
+	if apiKey == "" {
+		fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
+		return nil
+	}
+	chain := agent.NewModelChain(
+		cfg.Agent.Provider.BaseURL, apiKey,
+		cfg.Agent.Provider.HTTPReferer, cfg.Agent.Provider.XTitle,
+		[]string{
+			cfg.Agent.Models.Prescreen, cfg.Agent.Models.Fallback,
+			"qwen/qwen-turbo", "qwen/qwen3-coder:free",
+			"mistralai/mistral-small-3.1-24b-instruct:free",
+			"google/gemma-3-12b-it:free",
+		},
+	)
+	cb := agent.NewCircuitBreaker(chain, 5)
+	fmt.Println("  Agent review: enabled (model chain with fallback)")
+	return agent.NewCoordinator(cb, agent.CoordinatorConfig{
+		Models: cfg.Agent.Models, Strategy: agent.StrategyStandard, TokenBudget: 50000,
+	})
+}
 
-	// --- Evidence Collection ---
+func (c *certifyContext) collectRepoEvidence() {
 	fmt.Println("  Collecting repo-level evidence...")
-	executor := evidence.NewToolExecutor(root)
-	repoEv := executor.CollectAll()
-	fmt.Printf("  Collected %d repo-level evidence items\n", len(repoEv))
+	executor := evidence.NewToolExecutor(c.root)
+	c.repoEv = executor.CollectAll()
+	fmt.Printf("  Collected %d repo-level evidence items\n", len(c.repoEv))
+}
 
-	// --- Build unit lookup ---
-	unitMap := make(map[string]domain.Unit)
-	for _, u := range units {
-		unitMap[u.ID.String()] = u
-	}
-
-	// --- Process Queue ---
-	store := record.NewStore(filepath.Join(certDir, "records"))
+func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certified, observations, failed, processed int) {
 	now := time.Now()
-
 	batchSize := remaining
 	if certifyBatch > 0 && certifyBatch < batchSize {
 		batchSize = certifyBatch
 	}
 
-	var certified, observations, failed, processed int
-
 	for processed < batchSize {
-		item, ok := wq.Next()
+		item, ok := c.wq.Next()
 		if !ok {
 			break
 		}
-
-		unit, exists := unitMap[item.UnitID]
+		unit, exists := c.unitMap[item.UnitID]
 		if !exists {
-			wq.Skip(item.UnitID, "unit not in index")
-			wq.Save(queuePath)
+			c.wq.Skip(item.UnitID, "unit not in index")
+			c.wq.Save(c.queuePath)
 			continue
 		}
 
@@ -209,61 +246,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 			fmt.Printf("\r  Processing... %d/%d", processed, batchSize)
 		}
 
-		// Match policies
-		matcher := config.NewPolicyMatcher(packs)
-		matched := matcher.Match(unit)
-		var rules []domain.PolicyRule
-		for _, p := range matched {
-			rules = append(rules, p.Rules...)
-		}
-
-		// Collect per-unit evidence
-		ev := make([]domain.Evidence, len(repoEv))
-		copy(ev, repoEv)
-
-		srcPath := filepath.Join(root, unit.ID.Path())
-		var srcCode string
-		if srcData, readErr := os.ReadFile(srcPath); readErr == nil {
-			srcCode = string(srcData)
-			sym := unit.ID.Symbol()
-			var metrics evidence.CodeMetrics
-			if sym != "" && strings.HasSuffix(unit.ID.Path(), ".go") {
-				metrics = evidence.ComputeSymbolMetrics(srcCode, sym)
-			} else {
-				metrics = evidence.ComputeMetrics(srcCode)
-			}
-			ev = append(ev, metrics.ToEvidence())
-		}
-
-		// Agent review
-		if coordinator != nil {
-			ctx, cancel := context.WithTimeout(cmd.Context(), 30*time.Second)
-			result := coordinator.ReviewUnit(ctx, unit, srcCode, ev)
-			cancel()
-
-			if result.Reviewed {
-				ev = append(ev, result.ToEvidence())
-				model := ""
-				if len(result.ModelsUsed) > 0 {
-					model = result.ModelsUsed[0]
-				}
-				wq.Complete(item.UnitID, model)
-			} else {
-				wq.Skip(item.UnitID, "prescreen: no review needed")
-			}
-		} else {
-			wq.Complete(item.UnitID, "")
-		}
-
-		// Certify
-		rec := engine.CertifyUnit(unit, rules, ev, cfg.Expiry, now)
-		if len(overrides) > 0 {
-			rec = override.ApplyAll(rec, overrides)
-		}
-		if err := store.Save(rec); err != nil {
-			fmt.Fprintf(os.Stderr, "\nwarning: saving record for %s: %v\n", unit.ID, err)
-		}
-		store.AppendHistory(rec) // best-effort history tracking
+		rec := c.certifyUnit(cmd, unit, item.UnitID, now)
 
 		switch {
 		case rec.Status == domain.StatusCertified:
@@ -273,24 +256,81 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		default:
 			failed++
 		}
+		c.wq.Save(c.queuePath)
+	}
+	return
+}
 
-		// Save queue after each item (crash-safe)
-		wq.Save(queuePath)
+func (c *certifyContext) certifyUnit(cmd *cobra.Command, unit domain.Unit, unitID string, now time.Time) domain.CertificationRecord {
+	matcher := config.NewPolicyMatcher(c.packs)
+	matched := matcher.Match(unit)
+	var rules []domain.PolicyRule
+	for _, p := range matched {
+		rules = append(rules, p.Rules...)
 	}
 
-	// --- Summary ---
+	ev := make([]domain.Evidence, len(c.repoEv))
+	copy(ev, c.repoEv)
+
+	srcPath := filepath.Join(c.root, unit.ID.Path())
+	var srcCode string
+	if srcData, readErr := os.ReadFile(srcPath); readErr == nil {
+		srcCode = string(srcData)
+		sym := unit.ID.Symbol()
+		var metrics evidence.CodeMetrics
+		if sym != "" && strings.HasSuffix(unit.ID.Path(), ".go") {
+			metrics = evidence.ComputeSymbolMetrics(srcCode, sym)
+		} else {
+			metrics = evidence.ComputeMetrics(srcCode)
+		}
+		ev = append(ev, metrics.ToEvidence())
+	}
+
+	if c.coord != nil {
+		ctx, cancel := context.WithTimeout(cmd.Context(), 30*time.Second)
+		result := c.coord.ReviewUnit(ctx, unit, srcCode, ev)
+		cancel()
+		if result.Reviewed {
+			ev = append(ev, result.ToEvidence())
+			model := ""
+			if len(result.ModelsUsed) > 0 {
+				model = result.ModelsUsed[0]
+			}
+			c.wq.Complete(unitID, model)
+		} else {
+			c.wq.Skip(unitID, "prescreen: no review needed")
+		}
+	} else {
+		c.wq.Complete(unitID, "")
+	}
+
+	rec := engine.CertifyUnit(unit, rules, ev, c.cfg.Expiry, now)
+	if len(c.overrides) > 0 {
+		rec = override.ApplyAll(rec, c.overrides)
+	}
+	if err := c.store.Save(rec); err != nil {
+		fmt.Fprintf(os.Stderr, "\nwarning: saving record for %s: %v\n", unit.ID, err)
+	}
+	c.store.AppendHistory(rec)
+	return rec
+}
+
+func defaultConfigObj() domain.Config {
+	return domain.DefaultConfig()
+}
+
+func (c *certifyContext) printSummary(certified, observations, failed, processed int) {
 	total := certified + observations + failed
-	if coordinator != nil {
-		filesReviewed, totalFiles, tokens := coordinator.Stats()
+	if c.coord != nil {
+		filesReviewed, totalFiles, tokens := c.coord.Stats()
 		fmt.Printf("\n  Agent: %d/%d files reviewed, %d tokens used\n", filesReviewed, totalFiles, tokens)
 	}
 
 	fmt.Printf("\n  Processed %d units this run\n", processed)
 
-	finalStats := wq.Stats()
-	pendingRemaining := finalStats.Pending
-	if pendingRemaining > 0 {
-		fmt.Printf("  %d units remaining — run again to continue\n", pendingRemaining)
+	finalStats := c.wq.Stats()
+	if finalStats.Pending > 0 {
+		fmt.Printf("  %d units remaining — run again to continue\n", finalStats.Pending)
 	} else {
 		fmt.Printf("  Queue complete!\n")
 	}
@@ -303,16 +343,4 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		fmt.Printf(" (%d need attention)", failed)
 	}
 	fmt.Println()
-
-	wq.Save(queuePath)
-
-	if cfg.Mode == domain.ModeEnforcing && failed > 0 {
-		return fmt.Errorf("%d units failed certification in enforcing mode", failed)
-	}
-
-	return nil
-}
-
-func defaultConfigObj() domain.Config {
-	return domain.DefaultConfig()
 }

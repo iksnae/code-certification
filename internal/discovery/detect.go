@@ -15,6 +15,49 @@ type LanguageInfo struct {
 	Adapter   string // "go", "ts", "generic"
 }
 
+// extToLanguage maps file extensions to language names.
+var extToLanguage = map[string]string{
+	".go":   "go",
+	".ts":   "typescript",
+	".tsx":  "typescript",
+	".js":   "javascript",
+	".jsx":  "javascript",
+	".py":   "python",
+	".rs":   "rust",
+	".rb":   "ruby",
+	".java": "java",
+	".kt":   "kotlin",
+	".sh":   "shell",
+	".bash": "shell",
+}
+
+// configToLanguages maps config filenames to the languages they indicate.
+var configToLanguages = map[string][]string{
+	"go.mod":           {"go"},
+	"package.json":     {"typescript", "javascript"},
+	"tsconfig.json":    {"typescript"},
+	"pyproject.toml":   {"python"},
+	"setup.py":         {"python"},
+	"requirements.txt": {"python"},
+	"Cargo.toml":       {"rust"},
+	"Gemfile":          {"ruby"},
+	"pom.xml":          {"java"},
+	"build.gradle":     {"java"},
+}
+
+// languageToAdapter maps language names to adapter identifiers.
+var languageToAdapter = map[string]string{
+	"go":         "go",
+	"typescript": "ts",
+	"javascript": "ts",
+}
+
+// skipDirs are directories to skip during language detection.
+var skipDirs = map[string]bool{
+	"vendor": true, "node_modules": true, "dist": true,
+	"build": true, "testdata": true,
+}
+
 // DetectLanguages walks a directory and detects programming languages present.
 func DetectLanguages(root string) []LanguageInfo {
 	counts := make(map[string]int)
@@ -26,79 +69,40 @@ func DetectLanguages(root string) []LanguageInfo {
 		}
 		if d.IsDir() {
 			name := d.Name()
-			if strings.HasPrefix(name, ".") || name == "vendor" || name == "node_modules" ||
-				name == "dist" || name == "build" || name == "testdata" {
+			if strings.HasPrefix(name, ".") || skipDirs[name] {
 				return filepath.SkipDir
 			}
 			return nil
 		}
 
 		name := d.Name()
-		ext := filepath.Ext(name)
 
 		// Count files by extension
-		switch ext {
-		case ".go":
-			counts["go"]++
-		case ".ts", ".tsx":
-			counts["typescript"]++
-		case ".js", ".jsx":
-			counts["javascript"]++
-		case ".py":
-			counts["python"]++
-		case ".rs":
-			counts["rust"]++
-		case ".rb":
-			counts["ruby"]++
-		case ".java":
-			counts["java"]++
-		case ".kt":
-			counts["kotlin"]++
-		case ".sh", ".bash":
-			counts["shell"]++
+		if lang, ok := extToLanguage[filepath.Ext(name)]; ok {
+			counts[lang]++
 		}
 
 		// Detect config files
-		switch name {
-		case "go.mod":
-			configs["go"] = true
-		case "package.json":
-			configs["typescript"] = true
-			configs["javascript"] = true
-		case "tsconfig.json":
-			configs["typescript"] = true
-		case "pyproject.toml", "setup.py", "requirements.txt":
-			configs["python"] = true
-		case "Cargo.toml":
-			configs["rust"] = true
-		case "Gemfile":
-			configs["ruby"] = true
-		case "pom.xml", "build.gradle":
-			configs["java"] = true
+		if langs, ok := configToLanguages[name]; ok {
+			for _, l := range langs {
+				configs[l] = true
+			}
 		}
 
 		return nil
 	})
 
-	// Build results
-	adapterMap := map[string]string{
-		"go":         "go",
-		"typescript": "ts",
-		"javascript": "ts",
-		"python":     "generic",
-		"rust":       "generic",
-		"ruby":       "generic",
-		"java":       "generic",
-		"kotlin":     "generic",
-		"shell":      "generic",
-	}
+	return buildLanguageList(counts, configs)
+}
 
+// buildLanguageList converts raw counts and config flags into sorted LanguageInfo.
+func buildLanguageList(counts map[string]int, configs map[string]bool) []LanguageInfo {
 	var langs []LanguageInfo
 	for lang, count := range counts {
 		if count == 0 {
 			continue
 		}
-		adapter := adapterMap[lang]
+		adapter := languageToAdapter[lang]
 		if adapter == "" {
 			adapter = "generic"
 		}
@@ -110,7 +114,6 @@ func DetectLanguages(root string) []LanguageInfo {
 		})
 	}
 
-	// Sort by file count descending
 	sort.Slice(langs, func(i, j int) bool {
 		return langs[i].FileCount > langs[j].FileCount
 	})

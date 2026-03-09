@@ -61,6 +61,7 @@ type UnitSummary struct {
 }
 
 // Detailed computes a full detailed report from certification records.
+// Detailed computes a full detailed report from certification records.
 func Detailed(records []domain.CertificationRecord, now time.Time) DetailedReport {
 	d := DetailedReport{
 		HealthReport: Health(records),
@@ -72,79 +73,103 @@ func Detailed(records []domain.CertificationRecord, now time.Time) DetailedRepor
 		return d
 	}
 
-	// Dimension averages
-	dimSums := make(map[string]float64)
-	dimCounts := make(map[string]int)
+	d.Dimensions = computeDimensionAverages(records)
+	d.ByLanguage = computeLanguageBreakdowns(records)
+	d.ExpiringSoon = findExpiringSoon(records, now)
+	d.HighestRisk = findHighestRisk(records)
+	d.Failing = findFailing(records)
+	d.RecurrentlyFailing = findRecurrentlyFailing(records)
+
+	return d
+}
+
+func computeDimensionAverages(records []domain.CertificationRecord) map[string]float64 {
+	sums := make(map[string]float64)
+	counts := make(map[string]int)
 	for _, r := range records {
 		for dim, score := range r.Dimensions {
-			dimSums[dim.String()] += score
-			dimCounts[dim.String()]++
+			sums[dim.String()] += score
+			counts[dim.String()]++
 		}
 	}
-	for dim, sum := range dimSums {
-		if dimCounts[dim] > 0 {
-			d.Dimensions[dim] = sum / float64(dimCounts[dim])
+	result := make(map[string]float64, len(sums))
+	for dim, sum := range sums {
+		if counts[dim] > 0 {
+			result[dim] = sum / float64(counts[dim])
 		}
 	}
+	return result
+}
 
-	// By-language breakdown
-	langTotals := make(map[string]int)
-	langPassing := make(map[string]int)
-	langScores := make(map[string]float64)
+func computeLanguageBreakdowns(records []domain.CertificationRecord) map[string]LanguageBreakdown {
+	totals := make(map[string]int)
+	passing := make(map[string]int)
+	scores := make(map[string]float64)
 	for _, r := range records {
 		lang := r.UnitID.Language()
-		langTotals[lang]++
-		langScores[lang] += r.Score
+		totals[lang]++
+		scores[lang] += r.Score
 		if r.Status.IsPassing() {
-			langPassing[lang]++
+			passing[lang]++
 		}
 	}
-	for lang, total := range langTotals {
-		d.ByLanguage[lang] = LanguageBreakdown{
+	result := make(map[string]LanguageBreakdown, len(totals))
+	for lang, total := range totals {
+		result[lang] = LanguageBreakdown{
 			Total:        total,
-			Passing:      langPassing[lang],
-			AverageScore: langScores[lang] / float64(total),
+			Passing:      passing[lang],
+			AverageScore: scores[lang] / float64(total),
 		}
 	}
+	return result
+}
 
-	// Expiring soon (within 14 days)
+func findExpiringSoon(records []domain.CertificationRecord, now time.Time) []UnitSummary {
 	threshold := now.Add(14 * 24 * time.Hour)
+	var result []UnitSummary
 	for _, r := range records {
-		if r.Status.IsPassing() && !r.ExpiresAt.IsZero() && r.ExpiresAt.Before(threshold) && r.ExpiresAt.After(now) {
-			d.ExpiringSoon = append(d.ExpiringSoon, unitSummaryFrom(r))
+		isExpiringSoon := r.Status.IsPassing() && !r.ExpiresAt.IsZero() &&
+			r.ExpiresAt.Before(threshold) && r.ExpiresAt.After(now)
+		if isExpiringSoon {
+			result = append(result, unitSummaryFrom(r))
 		}
 	}
-	sort.Slice(d.ExpiringSoon, func(i, j int) bool {
-		return d.ExpiringSoon[i].ExpiresAt < d.ExpiringSoon[j].ExpiresAt
+	sort.Slice(result, func(i, j int) bool {
+		return result[i].ExpiresAt < result[j].ExpiresAt
 	})
+	return result
+}
 
-	// Highest risk (bottom 10 by score, non-exempt)
+func findHighestRisk(records []domain.CertificationRecord) []UnitSummary {
 	sorted := make([]domain.CertificationRecord, len(records))
 	copy(sorted, records)
 	sort.Slice(sorted, func(i, j int) bool {
 		return sorted[i].Score < sorted[j].Score
 	})
-	for i, r := range sorted {
-		if i >= 10 {
-			break
-		}
-		if r.Status == domain.StatusExempt {
+	var result []UnitSummary
+	for _, r := range sorted {
+		if len(result) >= 10 || r.Status == domain.StatusExempt {
 			continue
 		}
-		d.HighestRisk = append(d.HighestRisk, unitSummaryFrom(r))
+		result = append(result, unitSummaryFrom(r))
 	}
+	return result
+}
 
-	// Failing units with explanations
+func findFailing(records []domain.CertificationRecord) []UnitSummary {
+	var result []UnitSummary
 	for _, r := range records {
 		if !r.Status.IsPassing() {
 			s := unitSummaryFrom(r)
 			s.Explanation = explainStatus(r)
 			s.Observations = r.Observations
-			d.Failing = append(d.Failing, s)
+			result = append(result, s)
 		}
 	}
+	return result
+}
 
-	// Recurrently failing areas (directories with 2+ failing units)
+func findRecurrentlyFailing(records []domain.CertificationRecord) []AreaSummary {
 	dirTotals := make(map[string]int)
 	dirFailing := make(map[string]int)
 	dirScores := make(map[string]float64)
@@ -156,9 +181,10 @@ func Detailed(records []domain.CertificationRecord, now time.Time) DetailedRepor
 			dirFailing[dir]++
 		}
 	}
+	var result []AreaSummary
 	for dir, failing := range dirFailing {
 		if failing >= 2 {
-			d.RecurrentlyFailing = append(d.RecurrentlyFailing, AreaSummary{
+			result = append(result, AreaSummary{
 				Path:         dir,
 				Total:        dirTotals[dir],
 				Failing:      failing,
@@ -166,11 +192,10 @@ func Detailed(records []domain.CertificationRecord, now time.Time) DetailedRepor
 			})
 		}
 	}
-	sort.Slice(d.RecurrentlyFailing, func(i, j int) bool {
-		return d.RecurrentlyFailing[i].Failing > d.RecurrentlyFailing[j].Failing
+	sort.Slice(result, func(i, j int) bool {
+		return result[i].Failing > result[j].Failing
 	})
-
-	return d
+	return result
 }
 
 func unitSummaryFrom(r domain.CertificationRecord) UnitSummary {
