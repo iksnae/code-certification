@@ -53,9 +53,15 @@ Major architecture improvements across the certification engine, plus a new inte
 - **15 test packages**, all passing with zero regressions
 - **559 units certified**, 100% pass rate, B+ overall
 
+### VS Code Extension
+
+- **fix(vscode): update types for unified LanguageDetail** — Removed `LanguageCard` interface, `CertifyCard.languages` now `LanguageDetail[]`. Local data loader builds full `LanguageDetail` with passing count, grade distribution, top/bottom scores. Dashboard language table gains Passing column. ([#e6af6b0](../../commit/e6af6b0), Refs #18)
+
 ## Full Changelog
 
 ```
+e6af6b0 fix(vscode): update types for unified LanguageDetail (Refs #18)
+7d577d9 docs: update docs for v0.2.0
 b7a7b83 chore: unify language summary types into LanguageDetail (Refs #18)
 df55ebd chore: gitignore per-unit markdown reports (Refs #17)
 95aa6ea feat: wire/remove unused interfaces (Refs #15)
