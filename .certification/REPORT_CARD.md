@@ -1,9 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `b7a7b83`  
-**Generated:** 2026-03-10T12:46:56  
-**[Browse full report →](site/index.html)**  
+**Commit:** `e6b8c8d`  
+**Generated:** 2026-03-10T13:09:06  
 
 ---
 
@@ -47,26 +46,26 @@
 
 ### Top Suggestions
 
+- 💡 Initialize `bottom` in buildLanguageDetail to the first score value or use math.Inf(1) to ensure correct min calculation ×19
+- 💡 Validate and sanitize AI observation prefixes in writeAIInsights to prevent malformed markdown or injection ×19
+- 💡 Optimize sortedKeys to reuse or pre-sort keys rather than allocating new slices each time ×19
+- 💡 Fix unitAnchor to handle all special characters that can break HTML IDs (e.g., '+', '#') ×19
 - 💡 Add error handling for time formatting in unitReportFrom to prevent panics on invalid timestamps ×19
 - 💡 Replace `r.GeneratedAt[:19]` in writeSummary with a proper time formatting function or use time.RFC3339 directly ×19
-- 💡 Validate and sanitize AI observation prefixes in writeAIInsights to prevent malformed markdown or injection ×19
-- 💡 Fix unitAnchor to handle all special characters that can break HTML IDs (e.g., '+', '#') ×19
-- 💡 Initialize `bottom` in buildLanguageDetail to the first score value or use math.Inf(1) to ensure correct min calculation ×19
-- 💡 Optimize sortedKeys to reuse or pre-sort keys rather than allocating new slices each time ×19
-- 💡 Add comprehensive test cases for isLocalURL covering edge cases like encoded URLs, different protocols, and port numbers ×17
 - 💡 Replace isLocalURL with a proper URL parsing and validation function using net/url package to correctly identify local endpoints ×17
-- 💡 Add a mutex to the Queue struct and synchronize all public methods (Len, Enqueue, Next, etc.) to make it safe for concurrent use ×16
+- 💡 Add comprehensive test cases for isLocalURL covering edge cases like encoded URLs, different protocols, and port numbers ×17
 - 💡 Consider adding a Validate() method or function to Config that checks the integrity of all nested config types, particularly ExpiryConfig ×16
+- 💡 Add a mutex to the Queue struct and synchronize all public methods (Len, Enqueue, Next, etc.) to make it safe for concurrent use ×16
+- 💡 Add unit tests for DefaultConfig() to verify that ExpiryConfig defaults are valid and consistent ×16
 - 💡 Add validation logic to ExpiryConfig to ensure DefaultWindowDays is between MinWindowDays and MaxWindowDays, and that all three fields are positive integers ×16
 - 💡 Consider adding a unit test that verifies the behavior of Len() under concurrent access to expose race conditions ×16
-- 💡 Add unit tests for DefaultConfig() to verify that ExpiryConfig defaults are valid and consistent ×16
-- 💡 Change `pathFor` to use full 32-byte hash or implement a more robust collision-resistant naming scheme ×15
-- 💡 Replace `domain.ParseUnitID(...)` with error checking and return an appropriate error instead of ignoring the error ×15
 - 💡 Add logging or error propagation in `ListAll` when individual file reads fail ×15
-- 💡 Replace `Record<string, number>` with strongly typed enums or known key-value mappings where possible (e.g., for `grade_distribution` or `dimensions`) to prevent invalid keys from being accepted ×15
+- 💡 Replace `domain.ParseUnitID(...)` with error checking and return an appropriate error instead of ignoring the error ×15
+- 💡 Change `pathFor` to use full 32-byte hash or implement a more robust collision-resistant naming scheme ×15
 - 💡 Use sync.RWMutex or similar to protect concurrent access to files in the store ×15
-- 💡 Add runtime validation or Zod schemas to ensure data conforms to defined interfaces before processing ×15
 - 💡 Make file permissions configurable via environment variables or config options ×15
+- 💡 Add runtime validation or Zod schemas to ensure data conforms to defined interfaces before processing ×15
+- 💡 Replace `Record<string, number>` with strongly typed enums or known key-value mappings where possible (e.g., for `grade_distribution` or `dimensions`) to prevent invalid keys from being accepted ×15
 
 *...and 625 more suggestions across individual units*
 
@@ -90,42 +89,42 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`certifyContext`](reports/cmd-certify-certify-cmd-go-certifycontext.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`certifyUnit`](reports/cmd-certify-certify-cmd-go-certifyunit.md) | method | B+ | 87.2% | certified | 2026-04-23 |
-| [`collectRepoEvidence`](reports/cmd-certify-certify-cmd-go-collectrepoevidence.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`defaultConfigObj`](reports/cmd-certify-certify-cmd-go-defaultconfigobj.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`filterUnits`](reports/cmd-certify-certify-cmd-go-filterunits.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-certify-cmd-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`isLocalURL`](reports/cmd-certify-certify-cmd-go-islocalurl.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`loadCertifyContext`](reports/cmd-certify-certify-cmd-go-loadcertifycontext.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`loadQueue`](reports/cmd-certify-certify-cmd-go-loadqueue.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`printQueueStatus`](reports/cmd-certify-certify-cmd-go-printqueuestatus.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`printSummary`](reports/cmd-certify-certify-cmd-go-printsummary.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`processQueue`](reports/cmd-certify-certify-cmd-go-processqueue.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`runCertify`](reports/cmd-certify-certify-cmd-go-runcertify.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`saveReportArtifacts`](reports/cmd-certify-certify-cmd-go-savereportartifacts.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`setupAgent`](reports/cmd-certify-certify-cmd-go-setupagent.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`setupConservativeAgent`](reports/cmd-certify-certify-cmd-go-setupconservativeagent.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`setupExplicitAgent`](reports/cmd-certify-certify-cmd-go-setupexplicitagent.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`cli_test.go`](reports/cmd-certify-cli-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-expire-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`generateConfig`](reports/cmd-certify-init-cmd-go-generateconfig.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-init-cmd-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`languagePolicy`](reports/cmd-certify-init-cmd-go-languagepolicy.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`main`](reports/cmd-certify-main-go-main.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-models-cmd-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`listFromProvider`](reports/cmd-certify-models-cmd-go-listfromprovider.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`runModels`](reports/cmd-certify-models-cmd-go-runmodels.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`detectCommit`](reports/cmd-certify-report-cmd-go-detectcommit.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`detectRepoName`](reports/cmd-certify-report-cmd-go-detectreponame.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-report-cmd-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`saveBadge`](reports/cmd-certify-report-cmd-go-savebadge.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`saveReportCard`](reports/cmd-certify-report-cmd-go-savereportcard.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-review-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-root-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/cmd-certify-scan-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`tryScanSuggestions`](reports/cmd-certify-scan-go-tryscansuggestions.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`version.go`](reports/cmd-certify-version-go.md) | file | B+ | 89.4% | certified | 2026-04-23 |
+| [`certifyContext`](#cmd-certify-certify-cmd-go-certifycontext) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`certifyUnit`](#cmd-certify-certify-cmd-go-certifyunit) | method | B+ | 87.2% | certified | 2026-04-23 |
+| [`collectRepoEvidence`](#cmd-certify-certify-cmd-go-collectrepoevidence) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`defaultConfigObj`](#cmd-certify-certify-cmd-go-defaultconfigobj) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`filterUnits`](#cmd-certify-certify-cmd-go-filterunits) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-certify-cmd-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`isLocalURL`](#cmd-certify-certify-cmd-go-islocalurl) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`loadCertifyContext`](#cmd-certify-certify-cmd-go-loadcertifycontext) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`loadQueue`](#cmd-certify-certify-cmd-go-loadqueue) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`printQueueStatus`](#cmd-certify-certify-cmd-go-printqueuestatus) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`printSummary`](#cmd-certify-certify-cmd-go-printsummary) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`processQueue`](#cmd-certify-certify-cmd-go-processqueue) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`runCertify`](#cmd-certify-certify-cmd-go-runcertify) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`saveReportArtifacts`](#cmd-certify-certify-cmd-go-savereportartifacts) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`setupAgent`](#cmd-certify-certify-cmd-go-setupagent) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`setupConservativeAgent`](#cmd-certify-certify-cmd-go-setupconservativeagent) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`setupExplicitAgent`](#cmd-certify-certify-cmd-go-setupexplicitagent) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`cli_test.go`](#cmd-certify-cli-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-expire-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`generateConfig`](#cmd-certify-init-cmd-go-generateconfig) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-init-cmd-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`languagePolicy`](#cmd-certify-init-cmd-go-languagepolicy) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`main`](#cmd-certify-main-go-main) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-models-cmd-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`listFromProvider`](#cmd-certify-models-cmd-go-listfromprovider) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`runModels`](#cmd-certify-models-cmd-go-runmodels) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`detectCommit`](#cmd-certify-report-cmd-go-detectcommit) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`detectRepoName`](#cmd-certify-report-cmd-go-detectreponame) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-report-cmd-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`saveBadge`](#cmd-certify-report-cmd-go-savebadge) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`saveReportCard`](#cmd-certify-report-cmd-go-savereportcard) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-review-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-root-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#cmd-certify-scan-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`tryScanSuggestions`](#cmd-certify-scan-go-tryscansuggestions) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`version.go`](#cmd-certify-version-go) | file | B+ | 89.4% | certified | 2026-04-23 |
 
 <a id="cmd-certify-certify-cmd-go-certifycontext"></a>
 <details>
@@ -1149,24 +1148,24 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`agent-chain.ts`](reports/extensions-agent-chain-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`agent-team.ts`](reports/extensions-agent-team-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`cross-agent.ts`](reports/extensions-cross-agent-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`damage-control.ts`](reports/extensions-damage-control-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`minimal.ts`](reports/extensions-minimal-ts.md) | file | B+ | 89.4% | certified | 2026-04-23 |
-| [`pi-pi.ts`](reports/extensions-pi-pi-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`pure-focus.ts`](reports/extensions-pure-focus-ts.md) | file | B+ | 89.4% | certified | 2026-04-23 |
-| [`purpose-gate.ts`](reports/extensions-purpose-gate-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`session-replay.ts`](reports/extensions-session-replay-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`subagent-widget.ts`](reports/extensions-subagent-widget-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`system-select.ts`](reports/extensions-system-select-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`theme-cycler.ts`](reports/extensions-theme-cycler-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`THEME_MAP`](reports/extensions-thememap-ts-theme-map.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`applyExtensionDefaults`](reports/extensions-thememap-ts-applyextensiondefaults.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`applyExtensionTheme`](reports/extensions-thememap-ts-applyextensiontheme.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`tilldone.ts`](reports/extensions-tilldone-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`tool-counter-widget.ts`](reports/extensions-tool-counter-widget-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`tool-counter.ts`](reports/extensions-tool-counter-ts.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`agent-chain.ts`](#extensions-agent-chain-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`agent-team.ts`](#extensions-agent-team-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`cross-agent.ts`](#extensions-cross-agent-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`damage-control.ts`](#extensions-damage-control-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`minimal.ts`](#extensions-minimal-ts) | file | B+ | 89.4% | certified | 2026-04-23 |
+| [`pi-pi.ts`](#extensions-pi-pi-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`pure-focus.ts`](#extensions-pure-focus-ts) | file | B+ | 89.4% | certified | 2026-04-23 |
+| [`purpose-gate.ts`](#extensions-purpose-gate-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`session-replay.ts`](#extensions-session-replay-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`subagent-widget.ts`](#extensions-subagent-widget-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`system-select.ts`](#extensions-system-select-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`theme-cycler.ts`](#extensions-theme-cycler-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`THEME_MAP`](#extensions-thememap-ts-theme-map) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`applyExtensionDefaults`](#extensions-thememap-ts-applyextensiondefaults) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`applyExtensionTheme`](#extensions-thememap-ts-applyextensiontheme) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`tilldone.ts`](#extensions-tilldone-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`tool-counter-widget.ts`](#extensions-tool-counter-widget-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`tool-counter.ts`](#extensions-tool-counter-ts) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="extensions-agent-chain-ts"></a>
 <details>
@@ -1706,7 +1705,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`integration_test.go`](reports/internal-integration-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`integration_test.go`](#internal-integration-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-integration-test-go"></a>
 <details>
@@ -1742,144 +1741,144 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`attribution_test.go`](reports/internal-agent-attribution-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`DetectAPIKey`](reports/internal-agent-autodetect-go-detectapikey.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatProviderSummary`](reports/internal-agent-autodetect-go-formatprovidersummary.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`HasAnyProvider`](reports/internal-agent-autodetect-go-hasanyprovider.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewConservativeCoordinator`](reports/internal-agent-autodetect-go-newconservativecoordinator.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`init`](reports/internal-agent-autodetect-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`autodetect_test.go`](reports/internal-agent-autodetect-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Chat`](reports/internal-agent-circuit-go-chat.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`CircuitBreaker`](reports/internal-agent-circuit-go-circuitbreaker.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`IsOpen`](reports/internal-agent-circuit-go-isopen.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Name`](reports/internal-agent-circuit-go-name.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewCircuitBreaker`](reports/internal-agent-circuit-go-newcircuitbreaker.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`AdaptiveMessages`](reports/internal-agent-fallback-go-adaptivemessages.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Chat`](reports/internal-agent-fallback-go-chat.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`FallbackProvider`](reports/internal-agent-fallback-go-fallbackprovider.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ModelChain`](reports/internal-agent-fallback-go-modelchain.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Name`](reports/internal-agent-fallback-go-name.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewFallbackProvider`](reports/internal-agent-fallback-go-newfallbackprovider.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewModelChain`](reports/internal-agent-fallback-go-newmodelchain.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`modelPinnedProvider`](reports/internal-agent-fallback-go-modelpinnedprovider.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`fallback_test.go`](reports/internal-agent-fallback-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`ListModels`](reports/internal-agent-models-go-listmodels.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ModelInfo`](reports/internal-agent-models-go-modelinfo.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`listOllamaModels`](reports/internal-agent-models-go-listollamamodels.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`listOpenAIModels`](reports/internal-agent-models-go-listopenaimodels.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ollamaModel`](reports/internal-agent-models-go-ollamamodel.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ollamaTagsResponse`](reports/internal-agent-models-go-ollamatagsresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`openAIModel`](reports/internal-agent-models-go-openaimodel.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`openAIModelsResponse`](reports/internal-agent-models-go-openaimodelsresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`models_test.go`](reports/internal-agent-models-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`APIError`](reports/internal-agent-openrouter-go-apierror.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Chat`](reports/internal-agent-openrouter-go-chat.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`Error`](reports/internal-agent-openrouter-go-error.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Name`](reports/internal-agent-openrouter-go-name.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewLocalProvider`](reports/internal-agent-openrouter-go-newlocalprovider.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewOpenRouterProvider`](reports/internal-agent-openrouter-go-newopenrouterprovider.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`OpenRouterProvider`](reports/internal-agent-openrouter-go-openrouterprovider.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`doRequest`](reports/internal-agent-openrouter-go-dorequest.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`isAPIError`](reports/internal-agent-openrouter-go-isapierror.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`isAuthError`](reports/internal-agent-openrouter-go-isautherror.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`isBudgetError`](reports/internal-agent-openrouter-go-isbudgeterror.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`isRetryable`](reports/internal-agent-openrouter-go-isretryable.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`openrouter_test.go`](reports/internal-agent-openrouter-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Coordinator`](reports/internal-agent-pipeline-go-coordinator.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`CoordinatorConfig`](reports/internal-agent-pipeline-go-coordinatorconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`IsLocal`](reports/internal-agent-pipeline-go-islocal.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewCoordinator`](reports/internal-agent-pipeline-go-newcoordinator.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewPipeline`](reports/internal-agent-pipeline-go-newpipeline.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`Pipeline`](reports/internal-agent-pipeline-go-pipeline.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`PipelineConfig`](reports/internal-agent-pipeline-go-pipelineconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ReviewUnit`](reports/internal-agent-pipeline-go-reviewunit.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`Run`](reports/internal-agent-pipeline-go-run.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`Stats`](reports/internal-agent-pipeline-go-stats.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Strategy`](reports/internal-agent-pipeline-go-strategy.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`toResult`](reports/internal-agent-pipeline-go-toresult.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Get`](reports/internal-agent-prompts-go-get.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`LoadPrompt`](reports/internal-agent-prompts-go-loadprompt.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewPromptRegistry`](reports/internal-agent-prompts-go-newpromptregistry.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`PromptRegistry`](reports/internal-agent-prompts-go-promptregistry.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`PromptTemplate`](reports/internal-agent-prompts-go-prompttemplate.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Render`](reports/internal-agent-prompts-go-render.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Version`](reports/internal-agent-prompts-go-version.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`prompts_test.go`](reports/internal-agent-prompts-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Provider`](reports/internal-agent-provider-go-provider.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`provider_multi_test.go`](reports/internal-agent-provider-multi-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`DetectProviders`](reports/internal-agent-providers-go-detectproviders.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`DetectedProvider`](reports/internal-agent-providers-go-detectedprovider.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ProviderNames`](reports/internal-agent-providers-go-providernames.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/internal-agent-providers-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`normalizeLocalURL`](reports/internal-agent-providers-go-normalizelocalurl.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`probeLocal`](reports/internal-agent-providers-go-probelocal.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Allow`](reports/internal-agent-ratelimit-go-allow.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewRateLimiter`](reports/internal-agent-ratelimit-go-newratelimiter.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`RateLimiter`](reports/internal-agent-ratelimit-go-ratelimiter.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Wait`](reports/internal-agent-ratelimit-go-wait.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`refill`](reports/internal-agent-ratelimit-go-refill.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`ratelimit_test.go`](reports/internal-agent-ratelimit-test-go.md) | file | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewReviewer`](reports/internal-agent-reviewer-go-newreviewer.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Review`](reports/internal-agent-reviewer-go-review.md) | method | B+ | 87.2% | certified | 2026-04-23 |
-| [`ReviewInput`](reports/internal-agent-reviewer-go-reviewinput.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ReviewResult`](reports/internal-agent-reviewer-go-reviewresult.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Reviewer`](reports/internal-agent-reviewer-go-reviewer.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ToEvidence`](reports/internal-agent-reviewer-go-toevidence.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`ToPrescreenEvidence`](reports/internal-agent-reviewer-go-toprescreenevidence.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`joinModels`](reports/internal-agent-reviewer-go-joinmodels.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`reviewer_test.go`](reports/internal-agent-reviewer-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`ModelFor`](reports/internal-agent-router-go-modelfor.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewRouter`](reports/internal-agent-router-go-newrouter.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Router`](reports/internal-agent-router-go-router.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`directAssignment`](reports/internal-agent-router-go-directassignment.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`router_test.go`](reports/internal-agent-router-test-go.md) | file | B+ | 89.4% | certified | 2026-04-23 |
-| [`DecisionResponse`](reports/internal-agent-schemas-go-decisionresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`PrescreenResponse`](reports/internal-agent-schemas-go-prescreenresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`RemediationResponse`](reports/internal-agent-schemas-go-remediationresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`RemediationStep`](reports/internal-agent-schemas-go-remediationstep.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ScoringResponse`](reports/internal-agent-schemas-go-scoringresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`schemas_test.go`](reports/internal-agent-schemas-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Execute`](reports/internal-agent-stage-go-execute.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Name`](reports/internal-agent-stage-go-name.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewPrescreenStage`](reports/internal-agent-stage-go-newprescreenstage.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewReviewStage`](reports/internal-agent-stage-go-newreviewstage.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewScoringStage`](reports/internal-agent-stage-go-newscoringstage.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Stage`](reports/internal-agent-stage-go-stage.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`StageInput`](reports/internal-agent-stage-go-stageinput.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`StageResult`](reports/internal-agent-stage-go-stageresult.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`defaultScores`](reports/internal-agent-stage-go-defaultscores.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`extractJSON`](reports/internal-agent-stage-go-extractjson.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`looseParseNeedsReview`](reports/internal-agent-stage-go-looseparseneedsreview.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`prescreenStage`](reports/internal-agent-stage-go-prescreenstage.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`reviewStage`](reports/internal-agent-stage-go-reviewstage.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`scoringStage`](reports/internal-agent-stage-go-scoringstage.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`DeepReviewResponse`](reports/internal-agent-stage-deep-go-deepreviewresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Execute`](reports/internal-agent-stage-deep-go-execute.md) | method | B+ | 87.2% | certified | 2026-04-23 |
-| [`FormatDeepObservations`](reports/internal-agent-stage-deep-go-formatdeepobservations.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`FormatReviewForRecord`](reports/internal-agent-stage-deep-go-formatreviewforrecord.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`IsDeepReview`](reports/internal-agent-stage-deep-go-isdeepreview.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Name`](reports/internal-agent-stage-deep-go-name.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewDeepReviewStage`](reports/internal-agent-stage-deep-go-newdeepreviewstage.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ToDeepEvidence`](reports/internal-agent-stage-deep-go-todeepevidence.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`deepReviewStage`](reports/internal-agent-stage-deep-go-deepreviewstage.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`extractFirstSentence`](reports/internal-agent-stage-deep-go-extractfirstsentence.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`stage_test.go`](reports/internal-agent-stage-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`RepoSummary`](reports/internal-agent-suggest-go-reposummary.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ScanSuggestion`](reports/internal-agent-suggest-go-scansuggestion.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`SuggestForRepo`](reports/internal-agent-suggest-go-suggestforrepo.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`buildSuggestPrompt`](reports/internal-agent-suggest-go-buildsuggestprompt.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`suggest_test.go`](reports/internal-agent-suggest-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`ChatRequest`](reports/internal-agent-types-go-chatrequest.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ChatResponse`](reports/internal-agent-types-go-chatresponse.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Choice`](reports/internal-agent-types-go-choice.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Content`](reports/internal-agent-types-go-content.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Message`](reports/internal-agent-types-go-message.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ModelConfig`](reports/internal-agent-types-go-modelconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ResponseFormat`](reports/internal-agent-types-go-responseformat.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`String`](reports/internal-agent-types-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`TaskType`](reports/internal-agent-types-go-tasktype.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Usage`](reports/internal-agent-types-go-usage.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`types_test.go`](reports/internal-agent-types-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`attribution_test.go`](#internal-agent-attribution-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`DetectAPIKey`](#internal-agent-autodetect-go-detectapikey) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatProviderSummary`](#internal-agent-autodetect-go-formatprovidersummary) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`HasAnyProvider`](#internal-agent-autodetect-go-hasanyprovider) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewConservativeCoordinator`](#internal-agent-autodetect-go-newconservativecoordinator) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`init`](#internal-agent-autodetect-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`autodetect_test.go`](#internal-agent-autodetect-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Chat`](#internal-agent-circuit-go-chat) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`CircuitBreaker`](#internal-agent-circuit-go-circuitbreaker) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`IsOpen`](#internal-agent-circuit-go-isopen) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Name`](#internal-agent-circuit-go-name) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewCircuitBreaker`](#internal-agent-circuit-go-newcircuitbreaker) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`AdaptiveMessages`](#internal-agent-fallback-go-adaptivemessages) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Chat`](#internal-agent-fallback-go-chat) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`FallbackProvider`](#internal-agent-fallback-go-fallbackprovider) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ModelChain`](#internal-agent-fallback-go-modelchain) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Name`](#internal-agent-fallback-go-name) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewFallbackProvider`](#internal-agent-fallback-go-newfallbackprovider) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewModelChain`](#internal-agent-fallback-go-newmodelchain) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`modelPinnedProvider`](#internal-agent-fallback-go-modelpinnedprovider) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`fallback_test.go`](#internal-agent-fallback-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`ListModels`](#internal-agent-models-go-listmodels) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ModelInfo`](#internal-agent-models-go-modelinfo) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`listOllamaModels`](#internal-agent-models-go-listollamamodels) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`listOpenAIModels`](#internal-agent-models-go-listopenaimodels) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ollamaModel`](#internal-agent-models-go-ollamamodel) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ollamaTagsResponse`](#internal-agent-models-go-ollamatagsresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`openAIModel`](#internal-agent-models-go-openaimodel) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`openAIModelsResponse`](#internal-agent-models-go-openaimodelsresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`models_test.go`](#internal-agent-models-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`APIError`](#internal-agent-openrouter-go-apierror) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Chat`](#internal-agent-openrouter-go-chat) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`Error`](#internal-agent-openrouter-go-error) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Name`](#internal-agent-openrouter-go-name) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewLocalProvider`](#internal-agent-openrouter-go-newlocalprovider) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewOpenRouterProvider`](#internal-agent-openrouter-go-newopenrouterprovider) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`OpenRouterProvider`](#internal-agent-openrouter-go-openrouterprovider) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`doRequest`](#internal-agent-openrouter-go-dorequest) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`isAPIError`](#internal-agent-openrouter-go-isapierror) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`isAuthError`](#internal-agent-openrouter-go-isautherror) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`isBudgetError`](#internal-agent-openrouter-go-isbudgeterror) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`isRetryable`](#internal-agent-openrouter-go-isretryable) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`openrouter_test.go`](#internal-agent-openrouter-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Coordinator`](#internal-agent-pipeline-go-coordinator) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`CoordinatorConfig`](#internal-agent-pipeline-go-coordinatorconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`IsLocal`](#internal-agent-pipeline-go-islocal) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewCoordinator`](#internal-agent-pipeline-go-newcoordinator) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewPipeline`](#internal-agent-pipeline-go-newpipeline) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`Pipeline`](#internal-agent-pipeline-go-pipeline) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`PipelineConfig`](#internal-agent-pipeline-go-pipelineconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ReviewUnit`](#internal-agent-pipeline-go-reviewunit) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`Run`](#internal-agent-pipeline-go-run) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`Stats`](#internal-agent-pipeline-go-stats) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Strategy`](#internal-agent-pipeline-go-strategy) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`toResult`](#internal-agent-pipeline-go-toresult) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Get`](#internal-agent-prompts-go-get) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`LoadPrompt`](#internal-agent-prompts-go-loadprompt) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewPromptRegistry`](#internal-agent-prompts-go-newpromptregistry) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`PromptRegistry`](#internal-agent-prompts-go-promptregistry) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`PromptTemplate`](#internal-agent-prompts-go-prompttemplate) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Render`](#internal-agent-prompts-go-render) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Version`](#internal-agent-prompts-go-version) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`prompts_test.go`](#internal-agent-prompts-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Provider`](#internal-agent-provider-go-provider) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`provider_multi_test.go`](#internal-agent-provider-multi-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`DetectProviders`](#internal-agent-providers-go-detectproviders) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`DetectedProvider`](#internal-agent-providers-go-detectedprovider) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ProviderNames`](#internal-agent-providers-go-providernames) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#internal-agent-providers-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`normalizeLocalURL`](#internal-agent-providers-go-normalizelocalurl) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`probeLocal`](#internal-agent-providers-go-probelocal) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Allow`](#internal-agent-ratelimit-go-allow) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewRateLimiter`](#internal-agent-ratelimit-go-newratelimiter) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`RateLimiter`](#internal-agent-ratelimit-go-ratelimiter) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Wait`](#internal-agent-ratelimit-go-wait) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`refill`](#internal-agent-ratelimit-go-refill) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`ratelimit_test.go`](#internal-agent-ratelimit-test-go) | file | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewReviewer`](#internal-agent-reviewer-go-newreviewer) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Review`](#internal-agent-reviewer-go-review) | method | B+ | 87.2% | certified | 2026-04-23 |
+| [`ReviewInput`](#internal-agent-reviewer-go-reviewinput) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ReviewResult`](#internal-agent-reviewer-go-reviewresult) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Reviewer`](#internal-agent-reviewer-go-reviewer) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ToEvidence`](#internal-agent-reviewer-go-toevidence) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`ToPrescreenEvidence`](#internal-agent-reviewer-go-toprescreenevidence) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`joinModels`](#internal-agent-reviewer-go-joinmodels) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`reviewer_test.go`](#internal-agent-reviewer-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`ModelFor`](#internal-agent-router-go-modelfor) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewRouter`](#internal-agent-router-go-newrouter) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Router`](#internal-agent-router-go-router) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`directAssignment`](#internal-agent-router-go-directassignment) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`router_test.go`](#internal-agent-router-test-go) | file | B+ | 89.4% | certified | 2026-04-23 |
+| [`DecisionResponse`](#internal-agent-schemas-go-decisionresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`PrescreenResponse`](#internal-agent-schemas-go-prescreenresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`RemediationResponse`](#internal-agent-schemas-go-remediationresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`RemediationStep`](#internal-agent-schemas-go-remediationstep) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ScoringResponse`](#internal-agent-schemas-go-scoringresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`schemas_test.go`](#internal-agent-schemas-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Execute`](#internal-agent-stage-go-execute) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Name`](#internal-agent-stage-go-name) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewPrescreenStage`](#internal-agent-stage-go-newprescreenstage) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewReviewStage`](#internal-agent-stage-go-newreviewstage) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewScoringStage`](#internal-agent-stage-go-newscoringstage) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Stage`](#internal-agent-stage-go-stage) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`StageInput`](#internal-agent-stage-go-stageinput) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`StageResult`](#internal-agent-stage-go-stageresult) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`defaultScores`](#internal-agent-stage-go-defaultscores) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`extractJSON`](#internal-agent-stage-go-extractjson) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`looseParseNeedsReview`](#internal-agent-stage-go-looseparseneedsreview) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`prescreenStage`](#internal-agent-stage-go-prescreenstage) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`reviewStage`](#internal-agent-stage-go-reviewstage) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`scoringStage`](#internal-agent-stage-go-scoringstage) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`DeepReviewResponse`](#internal-agent-stage-deep-go-deepreviewresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Execute`](#internal-agent-stage-deep-go-execute) | method | B+ | 87.2% | certified | 2026-04-23 |
+| [`FormatDeepObservations`](#internal-agent-stage-deep-go-formatdeepobservations) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`FormatReviewForRecord`](#internal-agent-stage-deep-go-formatreviewforrecord) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`IsDeepReview`](#internal-agent-stage-deep-go-isdeepreview) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Name`](#internal-agent-stage-deep-go-name) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewDeepReviewStage`](#internal-agent-stage-deep-go-newdeepreviewstage) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ToDeepEvidence`](#internal-agent-stage-deep-go-todeepevidence) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`deepReviewStage`](#internal-agent-stage-deep-go-deepreviewstage) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`extractFirstSentence`](#internal-agent-stage-deep-go-extractfirstsentence) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`stage_test.go`](#internal-agent-stage-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`RepoSummary`](#internal-agent-suggest-go-reposummary) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ScanSuggestion`](#internal-agent-suggest-go-scansuggestion) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`SuggestForRepo`](#internal-agent-suggest-go-suggestforrepo) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`buildSuggestPrompt`](#internal-agent-suggest-go-buildsuggestprompt) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`suggest_test.go`](#internal-agent-suggest-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`ChatRequest`](#internal-agent-types-go-chatrequest) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ChatResponse`](#internal-agent-types-go-chatresponse) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Choice`](#internal-agent-types-go-choice) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Content`](#internal-agent-types-go-content) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Message`](#internal-agent-types-go-message) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ModelConfig`](#internal-agent-types-go-modelconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ResponseFormat`](#internal-agent-types-go-responseformat) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`String`](#internal-agent-types-go-string) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`TaskType`](#internal-agent-types-go-tasktype) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Usage`](#internal-agent-types-go-usage) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`types_test.go`](#internal-agent-types-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-agent-attribution-test-go"></a>
 <details>
@@ -5958,28 +5957,28 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`Load`](reports/internal-config-loader-go-load.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`LoadFile`](reports/internal-config-loader-go-loadfile.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`LoadFromDir`](reports/internal-config-loader-go-loadfromdir.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`rawAgent`](reports/internal-config-loader-go-rawagent.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`rawConfig`](reports/internal-config-loader-go-rawconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`validate`](reports/internal-config-loader-go-validate.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`loader_test.go`](reports/internal-config-loader-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`FilterPolicyPacks`](reports/internal-config-matcher-go-filterpolicypacks.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`NewPolicyMatcher`](reports/internal-config-matcher-go-newpolicymatcher.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`LoadPolicyPack`](reports/internal-config-policy-go-loadpolicypack.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`LoadPolicyPacks`](reports/internal-config-policy-go-loadpolicypacks.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`parseDimension`](reports/internal-config-policy-go-parsedimension.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`parsePolicyPack`](reports/internal-config-policy-go-parsepolicypack.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`parseSeverity`](reports/internal-config-policy-go-parseseverity.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`rawPolicyPack`](reports/internal-config-policy-go-rawpolicypack.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`rawPolicyRule`](reports/internal-config-policy-go-rawpolicyrule.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`policy_test.go`](reports/internal-config-policy-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Error`](reports/internal-config-validator-go-error.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`ValidateConfig`](reports/internal-config-validator-go-validateconfig.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ValidatePolicyPack`](reports/internal-config-validator-go-validatepolicypack.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ValidationError`](reports/internal-config-validator-go-validationerror.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`validator_test.go`](reports/internal-config-validator-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Load`](#internal-config-loader-go-load) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`LoadFile`](#internal-config-loader-go-loadfile) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`LoadFromDir`](#internal-config-loader-go-loadfromdir) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`rawAgent`](#internal-config-loader-go-rawagent) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`rawConfig`](#internal-config-loader-go-rawconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`validate`](#internal-config-loader-go-validate) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`loader_test.go`](#internal-config-loader-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`FilterPolicyPacks`](#internal-config-matcher-go-filterpolicypacks) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`NewPolicyMatcher`](#internal-config-matcher-go-newpolicymatcher) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`LoadPolicyPack`](#internal-config-policy-go-loadpolicypack) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`LoadPolicyPacks`](#internal-config-policy-go-loadpolicypacks) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`parseDimension`](#internal-config-policy-go-parsedimension) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`parsePolicyPack`](#internal-config-policy-go-parsepolicypack) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`parseSeverity`](#internal-config-policy-go-parseseverity) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`rawPolicyPack`](#internal-config-policy-go-rawpolicypack) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`rawPolicyRule`](#internal-config-policy-go-rawpolicyrule) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`policy_test.go`](#internal-config-policy-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Error`](#internal-config-validator-go-error) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`ValidateConfig`](#internal-config-validator-go-validateconfig) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ValidatePolicyPack`](#internal-config-validator-go-validatepolicypack) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ValidationError`](#internal-config-validator-go-validationerror) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`validator_test.go`](#internal-config-validator-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-config-loader-go-load"></a>
 <details>
@@ -6599,45 +6598,45 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`DetectLanguages`](reports/internal-discovery-detect-go-detectlanguages.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`DetectedAdapters`](reports/internal-discovery-detect-go-detectedadapters.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`LanguageInfo`](reports/internal-discovery-detect-go-languageinfo.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`buildLanguageList`](reports/internal-discovery-detect-go-buildlanguagelist.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`detect_test.go`](reports/internal-discovery-detect-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`ChangedFiles`](reports/internal-discovery-diff-go-changedfiles.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`DetectMoves`](reports/internal-discovery-diff-go-detectmoves.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FilterByPaths`](reports/internal-discovery-diff-go-filterbypaths.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`FilterChanged`](reports/internal-discovery-diff-go-filterchanged.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`MovedFile`](reports/internal-discovery-diff-go-movedfile.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`diff_test.go`](reports/internal-discovery-diff-test-go.md) | file | B+ | 89.4% | certified | 2026-04-23 |
-| [`GenericScanner`](reports/internal-discovery-generic-go-genericscanner.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewGenericScanner`](reports/internal-discovery-generic-go-newgenericscanner.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Scan`](reports/internal-discovery-generic-go-scan.md) | method | B+ | 87.2% | certified | 2026-04-23 |
-| [`matchAny`](reports/internal-discovery-generic-go-matchany.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`GoAdapter`](reports/internal-discovery-go-adapter-go-goadapter.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewGoAdapter`](reports/internal-discovery-go-adapter-go-newgoadapter.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Scan`](reports/internal-discovery-go-adapter-go-scan.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`parseFile`](reports/internal-discovery-go-adapter-go-parsefile.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`go_adapter_test.go`](reports/internal-discovery-go-adapter-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Diff`](reports/internal-discovery-index-go-diff.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`DiffResult`](reports/internal-discovery-index-go-diffresult.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Index`](reports/internal-discovery-index-go-index.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`LoadIndex`](reports/internal-discovery-index-go-loadindex.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewIndex`](reports/internal-discovery-index-go-newindex.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Save`](reports/internal-discovery-index-go-save.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Units`](reports/internal-discovery-index-go-units.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`indexEntry`](reports/internal-discovery-index-go-indexentry.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`index_test.go`](reports/internal-discovery-index-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`DeduplicateFileLevel`](reports/internal-discovery-scanner-go-deduplicatefilelevel.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`Merge`](reports/internal-discovery-scanner-go-merge.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`Scanner`](reports/internal-discovery-scanner-go-scanner.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`UnitList`](reports/internal-discovery-scanner-go-unitlist.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`scanner_test.go`](reports/internal-discovery-scanner-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`NewTSAdapter`](reports/internal-discovery-ts-adapter-go-newtsadapter.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Scan`](reports/internal-discovery-ts-adapter-go-scan.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`TSAdapter`](reports/internal-discovery-ts-adapter-go-tsadapter.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`parseFile`](reports/internal-discovery-ts-adapter-go-parsefile.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`ts_adapter_test.go`](reports/internal-discovery-ts-adapter-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`DetectLanguages`](#internal-discovery-detect-go-detectlanguages) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`DetectedAdapters`](#internal-discovery-detect-go-detectedadapters) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`LanguageInfo`](#internal-discovery-detect-go-languageinfo) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`buildLanguageList`](#internal-discovery-detect-go-buildlanguagelist) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`detect_test.go`](#internal-discovery-detect-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`ChangedFiles`](#internal-discovery-diff-go-changedfiles) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`DetectMoves`](#internal-discovery-diff-go-detectmoves) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FilterByPaths`](#internal-discovery-diff-go-filterbypaths) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`FilterChanged`](#internal-discovery-diff-go-filterchanged) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`MovedFile`](#internal-discovery-diff-go-movedfile) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`diff_test.go`](#internal-discovery-diff-test-go) | file | B+ | 89.4% | certified | 2026-04-23 |
+| [`GenericScanner`](#internal-discovery-generic-go-genericscanner) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewGenericScanner`](#internal-discovery-generic-go-newgenericscanner) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Scan`](#internal-discovery-generic-go-scan) | method | B+ | 87.2% | certified | 2026-04-23 |
+| [`matchAny`](#internal-discovery-generic-go-matchany) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`GoAdapter`](#internal-discovery-go-adapter-go-goadapter) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewGoAdapter`](#internal-discovery-go-adapter-go-newgoadapter) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Scan`](#internal-discovery-go-adapter-go-scan) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`parseFile`](#internal-discovery-go-adapter-go-parsefile) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`go_adapter_test.go`](#internal-discovery-go-adapter-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Diff`](#internal-discovery-index-go-diff) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`DiffResult`](#internal-discovery-index-go-diffresult) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Index`](#internal-discovery-index-go-index) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`LoadIndex`](#internal-discovery-index-go-loadindex) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewIndex`](#internal-discovery-index-go-newindex) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Save`](#internal-discovery-index-go-save) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Units`](#internal-discovery-index-go-units) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`indexEntry`](#internal-discovery-index-go-indexentry) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`index_test.go`](#internal-discovery-index-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`DeduplicateFileLevel`](#internal-discovery-scanner-go-deduplicatefilelevel) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`Merge`](#internal-discovery-scanner-go-merge) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`Scanner`](#internal-discovery-scanner-go-scanner) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`UnitList`](#internal-discovery-scanner-go-unitlist) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`scanner_test.go`](#internal-discovery-scanner-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`NewTSAdapter`](#internal-discovery-ts-adapter-go-newtsadapter) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Scan`](#internal-discovery-ts-adapter-go-scan) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`TSAdapter`](#internal-discovery-ts-adapter-go-tsadapter) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`parseFile`](#internal-discovery-ts-adapter-go-parsefile) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`ts_adapter_test.go`](#internal-discovery-ts-adapter-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-discovery-detect-go-detectlanguages"></a>
 <details>
@@ -7788,75 +7787,75 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`AgentConfig`](reports/internal-domain-config-go-agentconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`AnalyzerConfig`](reports/internal-domain-config-go-analyzerconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`CertificationMode`](reports/internal-domain-config-go-certificationmode.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Config`](reports/internal-domain-config-go-config.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`DefaultConfig`](reports/internal-domain-config-go-defaultconfig.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`EnforcingConfig`](reports/internal-domain-config-go-enforcingconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ExpiryConfig`](reports/internal-domain-config-go-expiryconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`IssueConfig`](reports/internal-domain-config-go-issueconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ModelAssignments`](reports/internal-domain-config-go-modelassignments.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`PolicyConfig`](reports/internal-domain-config-go-policyconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ProviderConfig`](reports/internal-domain-config-go-providerconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`RateLimitConfig`](reports/internal-domain-config-go-ratelimitconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ScheduleConfig`](reports/internal-domain-config-go-scheduleconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ScopeConfig`](reports/internal-domain-config-go-scopeconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`SignoffConfig`](reports/internal-domain-config-go-signoffconfig.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`String`](reports/internal-domain-config-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`config_test.go`](reports/internal-domain-config-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`AllDimensions`](reports/internal-domain-dimension-go-alldimensions.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Dimension`](reports/internal-domain-dimension-go-dimension.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`DimensionScores`](reports/internal-domain-dimension-go-dimensionscores.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`DimensionWeights`](reports/internal-domain-dimension-go-dimensionweights.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Grade`](reports/internal-domain-dimension-go-grade.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`GradeFromScore`](reports/internal-domain-dimension-go-gradefromscore.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`String`](reports/internal-domain-dimension-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`WeightedAverage`](reports/internal-domain-dimension-go-weightedaverage.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`dimension_test.go`](reports/internal-domain-dimension-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Evidence`](reports/internal-domain-evidence-go-evidence.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`EvidenceKind`](reports/internal-domain-evidence-go-evidencekind.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ParseSeverity`](reports/internal-domain-evidence-go-parseseverity.md) | function | B+ | 87.8% | certified | 2026-04-24 |
-| [`Severity`](reports/internal-domain-evidence-go-severity.md) | class | B+ | 87.8% | certified | 2026-04-24 |
-| [`String`](reports/internal-domain-evidence-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/internal-domain-evidence-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`evidence_test.go`](reports/internal-domain-evidence-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Duration`](reports/internal-domain-expiry-go-duration.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`ExpiryFactors`](reports/internal-domain-expiry-go-expiryfactors.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ExpiryWindow`](reports/internal-domain-expiry-go-expirywindow.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`IsExpired`](reports/internal-domain-expiry-go-isexpired.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`RemainingAt`](reports/internal-domain-expiry-go-remainingat.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`expiry_test.go`](reports/internal-domain-expiry-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Override`](reports/internal-domain-override-go-override.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`OverrideAction`](reports/internal-domain-override-go-overrideaction.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`String`](reports/internal-domain-override-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Validate`](reports/internal-domain-override-go-validate.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`override_test.go`](reports/internal-domain-override-test-go.md) | file | B+ | 89.4% | certified | 2026-04-23 |
-| [`IsGlobal`](reports/internal-domain-policy-go-isglobal.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`PolicyPack`](reports/internal-domain-policy-go-policypack.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`PolicyRule`](reports/internal-domain-policy-go-policyrule.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Violation`](reports/internal-domain-policy-go-violation.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`policy_test.go`](reports/internal-domain-policy-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`CertificationRecord`](reports/internal-domain-record-go-certificationrecord.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`IsPassing`](reports/internal-domain-record-go-ispassing.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`ParseStatus`](reports/internal-domain-record-go-parsestatus.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Status`](reports/internal-domain-record-go-status.md) | class | B+ | 87.8% | certified | 2026-04-24 |
-| [`String`](reports/internal-domain-record-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/internal-domain-record-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`record_test.go`](reports/internal-domain-record-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Language`](reports/internal-domain-unit-go-language.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewUnit`](reports/internal-domain-unit-go-newunit.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewUnitID`](reports/internal-domain-unit-go-newunitid.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ParseUnitID`](reports/internal-domain-unit-go-parseunitid.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ParseUnitType`](reports/internal-domain-unit-go-parseunittype.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Path`](reports/internal-domain-unit-go-path.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`String`](reports/internal-domain-unit-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Symbol`](reports/internal-domain-unit-go-symbol.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Unit`](reports/internal-domain-unit-go-unit.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`UnitID`](reports/internal-domain-unit-go-unitid.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`UnitType`](reports/internal-domain-unit-go-unittype.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`init`](reports/internal-domain-unit-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`unit_test.go`](reports/internal-domain-unit-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`AgentConfig`](#internal-domain-config-go-agentconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`AnalyzerConfig`](#internal-domain-config-go-analyzerconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`CertificationMode`](#internal-domain-config-go-certificationmode) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Config`](#internal-domain-config-go-config) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`DefaultConfig`](#internal-domain-config-go-defaultconfig) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`EnforcingConfig`](#internal-domain-config-go-enforcingconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ExpiryConfig`](#internal-domain-config-go-expiryconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`IssueConfig`](#internal-domain-config-go-issueconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ModelAssignments`](#internal-domain-config-go-modelassignments) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`PolicyConfig`](#internal-domain-config-go-policyconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ProviderConfig`](#internal-domain-config-go-providerconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`RateLimitConfig`](#internal-domain-config-go-ratelimitconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ScheduleConfig`](#internal-domain-config-go-scheduleconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ScopeConfig`](#internal-domain-config-go-scopeconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`SignoffConfig`](#internal-domain-config-go-signoffconfig) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`String`](#internal-domain-config-go-string) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`config_test.go`](#internal-domain-config-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`AllDimensions`](#internal-domain-dimension-go-alldimensions) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Dimension`](#internal-domain-dimension-go-dimension) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`DimensionScores`](#internal-domain-dimension-go-dimensionscores) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`DimensionWeights`](#internal-domain-dimension-go-dimensionweights) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Grade`](#internal-domain-dimension-go-grade) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`GradeFromScore`](#internal-domain-dimension-go-gradefromscore) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`String`](#internal-domain-dimension-go-string) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`WeightedAverage`](#internal-domain-dimension-go-weightedaverage) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`dimension_test.go`](#internal-domain-dimension-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Evidence`](#internal-domain-evidence-go-evidence) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`EvidenceKind`](#internal-domain-evidence-go-evidencekind) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ParseSeverity`](#internal-domain-evidence-go-parseseverity) | function | B+ | 87.8% | certified | 2026-04-24 |
+| [`Severity`](#internal-domain-evidence-go-severity) | class | B+ | 87.8% | certified | 2026-04-24 |
+| [`String`](#internal-domain-evidence-go-string) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#internal-domain-evidence-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`evidence_test.go`](#internal-domain-evidence-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Duration`](#internal-domain-expiry-go-duration) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`ExpiryFactors`](#internal-domain-expiry-go-expiryfactors) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ExpiryWindow`](#internal-domain-expiry-go-expirywindow) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`IsExpired`](#internal-domain-expiry-go-isexpired) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`RemainingAt`](#internal-domain-expiry-go-remainingat) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`expiry_test.go`](#internal-domain-expiry-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Override`](#internal-domain-override-go-override) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`OverrideAction`](#internal-domain-override-go-overrideaction) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`String`](#internal-domain-override-go-string) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Validate`](#internal-domain-override-go-validate) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`override_test.go`](#internal-domain-override-test-go) | file | B+ | 89.4% | certified | 2026-04-23 |
+| [`IsGlobal`](#internal-domain-policy-go-isglobal) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`PolicyPack`](#internal-domain-policy-go-policypack) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`PolicyRule`](#internal-domain-policy-go-policyrule) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Violation`](#internal-domain-policy-go-violation) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`policy_test.go`](#internal-domain-policy-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertificationRecord`](#internal-domain-record-go-certificationrecord) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`IsPassing`](#internal-domain-record-go-ispassing) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`ParseStatus`](#internal-domain-record-go-parsestatus) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Status`](#internal-domain-record-go-status) | class | B+ | 87.8% | certified | 2026-04-24 |
+| [`String`](#internal-domain-record-go-string) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#internal-domain-record-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`record_test.go`](#internal-domain-record-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Language`](#internal-domain-unit-go-language) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewUnit`](#internal-domain-unit-go-newunit) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewUnitID`](#internal-domain-unit-go-newunitid) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ParseUnitID`](#internal-domain-unit-go-parseunitid) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ParseUnitType`](#internal-domain-unit-go-parseunittype) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Path`](#internal-domain-unit-go-path) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`String`](#internal-domain-unit-go-string) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Symbol`](#internal-domain-unit-go-symbol) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Unit`](#internal-domain-unit-go-unit) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`UnitID`](#internal-domain-unit-go-unitid) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`UnitType`](#internal-domain-unit-go-unittype) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`init`](#internal-domain-unit-go-init) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`unit_test.go`](#internal-domain-unit-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-domain-config-go-agentconfig"></a>
 <details>
@@ -9810,16 +9809,16 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`CertifyUnit`](reports/internal-engine-pipeline-go-certifyunit.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`pipeline_test.go`](reports/internal-engine-pipeline-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Score`](reports/internal-engine-scorer-go-score.md) | function | B | 86.1% | certified | 2026-04-24 |
-| [`StatusFromScore`](reports/internal-engine-scorer-go-statusfromscore.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`extractSummaryFloat`](reports/internal-engine-scorer-go-extractsummaryfloat.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`extractSummaryInt`](reports/internal-engine-scorer-go-extractsummaryint.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`scoreFromGitHistory`](reports/internal-engine-scorer-go-scorefromgithistory.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`scoreFromMetrics`](reports/internal-engine-scorer-go-scorefrommetrics.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`severityPenalty`](reports/internal-engine-scorer-go-severitypenalty.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`scorer_test.go`](reports/internal-engine-scorer-test-go.md) | file | B+ | 87.2% | certified | 2026-04-23 |
+| [`CertifyUnit`](#internal-engine-pipeline-go-certifyunit) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`pipeline_test.go`](#internal-engine-pipeline-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Score`](#internal-engine-scorer-go-score) | function | B | 86.1% | certified | 2026-04-24 |
+| [`StatusFromScore`](#internal-engine-scorer-go-statusfromscore) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`extractSummaryFloat`](#internal-engine-scorer-go-extractsummaryfloat) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`extractSummaryInt`](#internal-engine-scorer-go-extractsummaryint) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`scoreFromGitHistory`](#internal-engine-scorer-go-scorefromgithistory) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`scoreFromMetrics`](#internal-engine-scorer-go-scorefrommetrics) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`severityPenalty`](#internal-engine-scorer-go-severitypenalty) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`scorer_test.go`](#internal-engine-scorer-test-go) | file | B+ | 87.2% | certified | 2026-04-23 |
 
 <a id="internal-engine-pipeline-go-certifyunit"></a>
 <details>
@@ -10113,45 +10112,45 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`Collector`](reports/internal-evidence-collector-go-collector.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ComputeGoComplexity`](reports/internal-evidence-complexity-go-computegocomplexity.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ComputeSymbolMetrics`](reports/internal-evidence-complexity-go-computesymbolmetrics.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`funcName`](reports/internal-evidence-complexity-go-funcname.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`complexity_test.go`](reports/internal-evidence-complexity-test-go.md) | file | B+ | 87.2% | certified | 2026-04-23 |
-| [`CollectAll`](reports/internal-evidence-executor-go-collectall.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`HasGoMod`](reports/internal-evidence-executor-go-hasgomod.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`HasPackageJSON`](reports/internal-evidence-executor-go-haspackagejson.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewToolExecutor`](reports/internal-evidence-executor-go-newtoolexecutor.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ToolExecutor`](reports/internal-evidence-executor-go-toolexecutor.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`runGitStats`](reports/internal-evidence-executor-go-rungitstats.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`runGoTest`](reports/internal-evidence-executor-go-rungotest.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`runGoVet`](reports/internal-evidence-executor-go-rungovet.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`runGolangciLint`](reports/internal-evidence-executor-go-rungolangcilint.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`ChurnRate`](reports/internal-evidence-git-go-churnrate.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`GitStats`](reports/internal-evidence-git-go-gitstats.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ParseGitLog`](reports/internal-evidence-git-go-parsegitlog.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ToEvidence`](reports/internal-evidence-git-go-toevidence.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`git_test.go`](reports/internal-evidence-git-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`LintFinding`](reports/internal-evidence-lint-go-lintfinding.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`LintResult`](reports/internal-evidence-lint-go-lintresult.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`TestResult`](reports/internal-evidence-lint-go-testresult.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ToEvidence`](reports/internal-evidence-lint-go-toevidence.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`lint_test.go`](reports/internal-evidence-lint-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`CodeMetrics`](reports/internal-evidence-metrics-go-codemetrics.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`ComputeMetrics`](reports/internal-evidence-metrics-go-computemetrics.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`ToEvidence`](reports/internal-evidence-metrics-go-toevidence.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`containsTodo`](reports/internal-evidence-metrics-go-containstodo.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`metrics_test.go`](reports/internal-evidence-metrics-test-go.md) | file | B+ | 87.2% | certified | 2026-04-23 |
-| [`ParseCoverProfile`](reports/internal-evidence-runner-go-parsecoverprofile.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ParseGitLogWithAge`](reports/internal-evidence-runner-go-parsegitlogwithage.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ParseGoTestJSON`](reports/internal-evidence-runner-go-parsegotestjson.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ParseGoVet`](reports/internal-evidence-runner-go-parsegovet.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ParseGolangciLintJSON`](reports/internal-evidence-runner-go-parsegolangcilintjson.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`goTestEvent`](reports/internal-evidence-runner-go-gotestevent.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`golangciLintIssue`](reports/internal-evidence-runner-go-golangcilintissue.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`golangciLintOutput`](reports/internal-evidence-runner-go-golangcilintoutput.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`simpleAtoi`](reports/internal-evidence-runner-go-simpleatoi.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`runner_test.go`](reports/internal-evidence-runner-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Collector`](#internal-evidence-collector-go-collector) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ComputeGoComplexity`](#internal-evidence-complexity-go-computegocomplexity) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ComputeSymbolMetrics`](#internal-evidence-complexity-go-computesymbolmetrics) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`funcName`](#internal-evidence-complexity-go-funcname) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`complexity_test.go`](#internal-evidence-complexity-test-go) | file | B+ | 87.2% | certified | 2026-04-23 |
+| [`CollectAll`](#internal-evidence-executor-go-collectall) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`HasGoMod`](#internal-evidence-executor-go-hasgomod) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`HasPackageJSON`](#internal-evidence-executor-go-haspackagejson) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewToolExecutor`](#internal-evidence-executor-go-newtoolexecutor) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ToolExecutor`](#internal-evidence-executor-go-toolexecutor) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`runGitStats`](#internal-evidence-executor-go-rungitstats) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`runGoTest`](#internal-evidence-executor-go-rungotest) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`runGoVet`](#internal-evidence-executor-go-rungovet) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`runGolangciLint`](#internal-evidence-executor-go-rungolangcilint) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`ChurnRate`](#internal-evidence-git-go-churnrate) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`GitStats`](#internal-evidence-git-go-gitstats) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ParseGitLog`](#internal-evidence-git-go-parsegitlog) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ToEvidence`](#internal-evidence-git-go-toevidence) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`git_test.go`](#internal-evidence-git-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`LintFinding`](#internal-evidence-lint-go-lintfinding) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`LintResult`](#internal-evidence-lint-go-lintresult) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`TestResult`](#internal-evidence-lint-go-testresult) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ToEvidence`](#internal-evidence-lint-go-toevidence) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`lint_test.go`](#internal-evidence-lint-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`CodeMetrics`](#internal-evidence-metrics-go-codemetrics) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`ComputeMetrics`](#internal-evidence-metrics-go-computemetrics) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`ToEvidence`](#internal-evidence-metrics-go-toevidence) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`containsTodo`](#internal-evidence-metrics-go-containstodo) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`metrics_test.go`](#internal-evidence-metrics-test-go) | file | B+ | 87.2% | certified | 2026-04-23 |
+| [`ParseCoverProfile`](#internal-evidence-runner-go-parsecoverprofile) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ParseGitLogWithAge`](#internal-evidence-runner-go-parsegitlogwithage) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ParseGoTestJSON`](#internal-evidence-runner-go-parsegotestjson) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ParseGoVet`](#internal-evidence-runner-go-parsegovet) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ParseGolangciLintJSON`](#internal-evidence-runner-go-parsegolangcilintjson) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`goTestEvent`](#internal-evidence-runner-go-gotestevent) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`golangciLintIssue`](#internal-evidence-runner-go-golangcilintissue) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`golangciLintOutput`](#internal-evidence-runner-go-golangcilintoutput) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`simpleAtoi`](#internal-evidence-runner-go-simpleatoi) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`runner_test.go`](#internal-evidence-runner-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-evidence-collector-go-collector"></a>
 <details>
@@ -11301,8 +11300,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`Calculate`](reports/internal-expiry-calculator-go-calculate.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`calculator_test.go`](reports/internal-expiry-calculator-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Calculate`](#internal-expiry-calculator-go-calculate) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`calculator_test.go`](#internal-expiry-calculator-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-expiry-calculator-go-calculate"></a>
 <details>
@@ -11366,23 +11365,23 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`BuildIssueCloseCommand`](reports/internal-github-issues-go-buildissueclosecommand.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`BuildIssueCreateCommand`](reports/internal-github-issues-go-buildissuecreatecommand.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`BuildIssueSearchCommand`](reports/internal-github-issues-go-buildissuesearchcommand.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`BuildIssueUpdateCommand`](reports/internal-github-issues-go-buildissueupdatecommand.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatGroupedIssueBody`](reports/internal-github-issues-go-formatgroupedissuebody.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatIssueBody`](reports/internal-github-issues-go-formatissuebody.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatIssueTitle`](reports/internal-github-issues-go-formatissuetitle.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`issues_test.go`](reports/internal-github-issues-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`BuildPRCommentCommand`](reports/internal-github-pr-go-buildprcommentcommand.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`ComputeTrustDelta`](reports/internal-github-pr-go-computetrustdelta.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`FormatPRComment`](reports/internal-github-pr-go-formatprcomment.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`TrustDelta`](reports/internal-github-pr-go-trustdelta.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`pr_test.go`](reports/internal-github-pr-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`GenerateNightlyWorkflow`](reports/internal-github-workflows-go-generatenightlyworkflow.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`GeneratePRWorkflow`](reports/internal-github-workflows-go-generateprworkflow.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`GenerateWeeklyWorkflow`](reports/internal-github-workflows-go-generateweeklyworkflow.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`workflows_test.go`](reports/internal-github-workflows-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`BuildIssueCloseCommand`](#internal-github-issues-go-buildissueclosecommand) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`BuildIssueCreateCommand`](#internal-github-issues-go-buildissuecreatecommand) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`BuildIssueSearchCommand`](#internal-github-issues-go-buildissuesearchcommand) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`BuildIssueUpdateCommand`](#internal-github-issues-go-buildissueupdatecommand) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatGroupedIssueBody`](#internal-github-issues-go-formatgroupedissuebody) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatIssueBody`](#internal-github-issues-go-formatissuebody) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatIssueTitle`](#internal-github-issues-go-formatissuetitle) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`issues_test.go`](#internal-github-issues-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`BuildPRCommentCommand`](#internal-github-pr-go-buildprcommentcommand) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`ComputeTrustDelta`](#internal-github-pr-go-computetrustdelta) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`FormatPRComment`](#internal-github-pr-go-formatprcomment) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`TrustDelta`](#internal-github-pr-go-trustdelta) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`pr_test.go`](#internal-github-pr-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`GenerateNightlyWorkflow`](#internal-github-workflows-go-generatenightlyworkflow) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`GeneratePRWorkflow`](#internal-github-workflows-go-generateprworkflow) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`GenerateWeeklyWorkflow`](#internal-github-workflows-go-generateweeklyworkflow) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`workflows_test.go`](#internal-github-workflows-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-github-issues-go-buildissueclosecommand"></a>
 <details>
@@ -11872,15 +11871,15 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`Apply`](reports/internal-override-applier-go-apply.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`ApplyAll`](reports/internal-override-applier-go-applyall.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`applier_test.go`](reports/internal-override-applier-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`LoadDir`](reports/internal-override-loader-go-loaddir.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`LoadFile`](reports/internal-override-loader-go-loadfile.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`parseAction`](reports/internal-override-loader-go-parseaction.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`rawOverride`](reports/internal-override-loader-go-rawoverride.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`rawOverrideFile`](reports/internal-override-loader-go-rawoverridefile.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`loader_test.go`](reports/internal-override-loader-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Apply`](#internal-override-applier-go-apply) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ApplyAll`](#internal-override-applier-go-applyall) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`applier_test.go`](#internal-override-applier-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`LoadDir`](#internal-override-loader-go-loaddir) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`LoadFile`](#internal-override-loader-go-loadfile) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`parseAction`](#internal-override-loader-go-parseaction) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`rawOverride`](#internal-override-loader-go-rawoverride) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`rawOverrideFile`](#internal-override-loader-go-rawoverridefile) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`loader_test.go`](#internal-override-loader-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-override-applier-go-apply"></a>
 <details>
@@ -12146,20 +12145,20 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`Evaluate`](reports/internal-policy-evaluator-go-evaluate.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`EvaluationResult`](reports/internal-policy-evaluator-go-evaluationresult.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`evaluateRule`](reports/internal-policy-evaluator-go-evaluaterule.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`extractComplexity`](reports/internal-policy-evaluator-go-extractcomplexity.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`extractCoverage`](reports/internal-policy-evaluator-go-extractcoverage.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`extractMetric`](reports/internal-policy-evaluator-go-extractmetric.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`extractTodoCount`](reports/internal-policy-evaluator-go-extracttodocount.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`evaluator_test.go`](reports/internal-policy-evaluator-test-go.md) | file | B+ | 87.2% | certified | 2026-04-23 |
-| [`Match`](reports/internal-policy-matcher-go-match.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Matcher`](reports/internal-policy-matcher-go-matcher.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`NewMatcher`](reports/internal-policy-matcher-go-newmatcher.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`matchPath`](reports/internal-policy-matcher-go-matchpath.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`matchesPack`](reports/internal-policy-matcher-go-matchespack.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`matcher_test.go`](reports/internal-policy-matcher-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Evaluate`](#internal-policy-evaluator-go-evaluate) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`EvaluationResult`](#internal-policy-evaluator-go-evaluationresult) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`evaluateRule`](#internal-policy-evaluator-go-evaluaterule) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`extractComplexity`](#internal-policy-evaluator-go-extractcomplexity) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`extractCoverage`](#internal-policy-evaluator-go-extractcoverage) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`extractMetric`](#internal-policy-evaluator-go-extractmetric) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`extractTodoCount`](#internal-policy-evaluator-go-extracttodocount) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`evaluator_test.go`](#internal-policy-evaluator-test-go) | file | B+ | 87.2% | certified | 2026-04-23 |
+| [`Match`](#internal-policy-matcher-go-match) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Matcher`](#internal-policy-matcher-go-matcher) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`NewMatcher`](#internal-policy-matcher-go-newmatcher) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`matchPath`](#internal-policy-matcher-go-matchpath) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`matchesPack`](#internal-policy-matcher-go-matchespack) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`matcher_test.go`](#internal-policy-matcher-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-policy-evaluator-go-evaluate"></a>
 <details>
@@ -12564,23 +12563,23 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`BatchNext`](reports/internal-queue-queue-go-batchnext.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`Complete`](reports/internal-queue-queue-go-complete.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Enqueue`](reports/internal-queue-queue-go-enqueue.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Fail`](reports/internal-queue-queue-go-fail.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Item`](reports/internal-queue-queue-go-item.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ItemStatus`](reports/internal-queue-queue-go-itemstatus.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Len`](reports/internal-queue-queue-go-len.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Load`](reports/internal-queue-queue-go-load.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`New`](reports/internal-queue-queue-go-new.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Next`](reports/internal-queue-queue-go-next.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Queue`](reports/internal-queue-queue-go-queue.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Reset`](reports/internal-queue-queue-go-reset.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Save`](reports/internal-queue-queue-go-save.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Skip`](reports/internal-queue-queue-go-skip.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Stats`](reports/internal-queue-queue-go-stats.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`persistedQueue`](reports/internal-queue-queue-go-persistedqueue.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`queue_test.go`](reports/internal-queue-queue-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`BatchNext`](#internal-queue-queue-go-batchnext) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`Complete`](#internal-queue-queue-go-complete) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Enqueue`](#internal-queue-queue-go-enqueue) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Fail`](#internal-queue-queue-go-fail) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Item`](#internal-queue-queue-go-item) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ItemStatus`](#internal-queue-queue-go-itemstatus) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Len`](#internal-queue-queue-go-len) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Load`](#internal-queue-queue-go-load) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`New`](#internal-queue-queue-go-new) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Next`](#internal-queue-queue-go-next) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Queue`](#internal-queue-queue-go-queue) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Reset`](#internal-queue-queue-go-reset) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Save`](#internal-queue-queue-go-save) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Skip`](#internal-queue-queue-go-skip) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Stats`](#internal-queue-queue-go-stats) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`persistedQueue`](#internal-queue-queue-go-persistedqueue) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`queue_test.go`](#internal-queue-queue-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-queue-queue-go-batchnext"></a>
 <details>
@@ -13048,23 +13047,23 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`AppendHistory`](reports/internal-record-store-go-appendhistory.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`ListAll`](reports/internal-record-store-go-listall.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`Load`](reports/internal-record-store-go-load.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`LoadHistory`](reports/internal-record-store-go-loadhistory.md) | method | B+ | 88.3% | certified | 2026-04-23 |
-| [`NewStore`](reports/internal-record-store-go-newstore.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Save`](reports/internal-record-store-go-save.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`Store`](reports/internal-record-store-go-store.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`dimensionsToMap`](reports/internal-record-store-go-dimensionstomap.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`fromJSON`](reports/internal-record-store-go-fromjson.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`historyEntry`](reports/internal-record-store-go-historyentry.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`historyPathFor`](reports/internal-record-store-go-historypathfor.md) | method | B+ | 89.4% | certified | 2026-04-23 |
-| [`mapToDimensions`](reports/internal-record-store-go-maptodimensions.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`parseGrade`](reports/internal-record-store-go-parsegrade.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`pathFor`](reports/internal-record-store-go-pathfor.md) | method | B+ | 87.8% | certified | 2026-04-24 |
-| [`recordJSON`](reports/internal-record-store-go-recordjson.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`toJSON`](reports/internal-record-store-go-tojson.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`store_test.go`](reports/internal-record-store-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`AppendHistory`](#internal-record-store-go-appendhistory) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`ListAll`](#internal-record-store-go-listall) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`Load`](#internal-record-store-go-load) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`LoadHistory`](#internal-record-store-go-loadhistory) | method | B+ | 88.3% | certified | 2026-04-23 |
+| [`NewStore`](#internal-record-store-go-newstore) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Save`](#internal-record-store-go-save) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`Store`](#internal-record-store-go-store) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`dimensionsToMap`](#internal-record-store-go-dimensionstomap) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`fromJSON`](#internal-record-store-go-fromjson) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`historyEntry`](#internal-record-store-go-historyentry) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`historyPathFor`](#internal-record-store-go-historypathfor) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`mapToDimensions`](#internal-record-store-go-maptodimensions) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`parseGrade`](#internal-record-store-go-parsegrade) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`pathFor`](#internal-record-store-go-pathfor) | method | B+ | 87.8% | certified | 2026-04-24 |
+| [`recordJSON`](#internal-record-store-go-recordjson) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`toJSON`](#internal-record-store-go-tojson) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`store_test.go`](#internal-record-store-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="internal-record-store-go-appendhistory"></a>
 <details>
@@ -13567,68 +13566,68 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`Badge`](reports/internal-report-badge-go-badge.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`BadgeMarkdown`](reports/internal-report-badge-go-badgemarkdown.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatBadgeJSON`](reports/internal-report-badge-go-formatbadgejson.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`GenerateBadge`](reports/internal-report-badge-go-generatebadge.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`badgeColor`](reports/internal-report-badge-go-badgecolor.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`badgeMessage`](reports/internal-report-badge-go-badgemessage.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`badge_test.go`](reports/internal-report-badge-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Card`](reports/internal-report-card-go-card.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatCardMarkdown`](reports/internal-report-card-go-formatcardmarkdown.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`FormatCardText`](reports/internal-report-card-go-formatcardtext.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`GenerateCard`](reports/internal-report-card-go-generatecard.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`IssueCard`](reports/internal-report-card-go-issuecard.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`LanguageCard`](reports/internal-report-card-go-languagecard.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`buildLanguageCards`](reports/internal-report-card-go-buildlanguagecards.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`buildTopIssues`](reports/internal-report-card-go-buildtopissues.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`gradeEmoji`](reports/internal-report-card-go-gradeemoji.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`card_test.go`](reports/internal-report-card-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`AreaSummary`](reports/internal-report-detailed-go-areasummary.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`Detailed`](reports/internal-report-detailed-go-detailed.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`DetailedReport`](reports/internal-report-detailed-go-detailedreport.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatDetailedText`](reports/internal-report-detailed-go-formatdetailedtext.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`LanguageBreakdown`](reports/internal-report-detailed-go-languagebreakdown.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`UnitSummary`](reports/internal-report-detailed-go-unitsummary.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`computeDimensionAverages`](reports/internal-report-detailed-go-computedimensionaverages.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`computeLanguageBreakdowns`](reports/internal-report-detailed-go-computelanguagebreakdowns.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`explainStatus`](reports/internal-report-detailed-go-explainstatus.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`findExpiringSoon`](reports/internal-report-detailed-go-findexpiringsoon.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`findFailing`](reports/internal-report-detailed-go-findfailing.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`findHighestRisk`](reports/internal-report-detailed-go-findhighestrisk.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`findRecurrentlyFailing`](reports/internal-report-detailed-go-findrecurrentlyfailing.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`unitSummaryFrom`](reports/internal-report-detailed-go-unitsummaryfrom.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`detailed_test.go`](reports/internal-report-detailed-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`FormatFullMarkdown`](reports/internal-report-full-go-formatfullmarkdown.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FullReport`](reports/internal-report-full-go-fullreport.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`GenerateFullReport`](reports/internal-report-full-go-generatefullreport.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`LanguageDetail`](reports/internal-report-full-go-languagedetail.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`UnitReport`](reports/internal-report-full-go-unitreport.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`buildLanguageDetail`](reports/internal-report-full-go-buildlanguagedetail.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`dirOf`](reports/internal-report-full-go-dirof.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`shortFile`](reports/internal-report-full-go-shortfile.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`sortedKeys`](reports/internal-report-full-go-sortedkeys.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`unitAnchor`](reports/internal-report-full-go-unitanchor.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`unitReportFrom`](reports/internal-report-full-go-unitreportfrom.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`writeAIInsights`](reports/internal-report-full-go-writeaiinsights.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`writeAllUnits`](reports/internal-report-full-go-writeallunits.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`writeDimensionAverages`](reports/internal-report-full-go-writedimensionaverages.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`writeGradeDistribution`](reports/internal-report-full-go-writegradedistribution.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`writeHeader`](reports/internal-report-full-go-writeheader.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`writeLanguageDetail`](reports/internal-report-full-go-writelanguagedetail.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`writeSummary`](reports/internal-report-full-go-writesummary.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`writeUnitDetails`](reports/internal-report-full-go-writeunitdetails.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`full_test.go`](reports/internal-report-full-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`FormatJSON`](reports/internal-report-health-go-formatjson.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`FormatText`](reports/internal-report-health-go-formattext.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Health`](reports/internal-report-health-go-health.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`HealthReport`](reports/internal-report-health-go-healthreport.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`health_test.go`](reports/internal-report-health-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`FormatUnitMarkdown`](reports/internal-report-unit-report-go-formatunitmarkdown.md) | function | B+ | 87.2% | certified | 2026-04-23 |
-| [`GenerateUnitReports`](reports/internal-report-unit-report-go-generateunitreports.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`formatDate`](reports/internal-report-unit-report-go-formatdate.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`scoreBar`](reports/internal-report-unit-report-go-scorebar.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`splitObservations`](reports/internal-report-unit-report-go-splitobservations.md) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Badge`](#internal-report-badge-go-badge) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`BadgeMarkdown`](#internal-report-badge-go-badgemarkdown) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatBadgeJSON`](#internal-report-badge-go-formatbadgejson) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`GenerateBadge`](#internal-report-badge-go-generatebadge) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`badgeColor`](#internal-report-badge-go-badgecolor) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`badgeMessage`](#internal-report-badge-go-badgemessage) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`badge_test.go`](#internal-report-badge-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`Card`](#internal-report-card-go-card) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatCardMarkdown`](#internal-report-card-go-formatcardmarkdown) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`FormatCardText`](#internal-report-card-go-formatcardtext) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`GenerateCard`](#internal-report-card-go-generatecard) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`IssueCard`](#internal-report-card-go-issuecard) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`LanguageCard`](#internal-report-card-go-languagecard) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`buildLanguageCards`](#internal-report-card-go-buildlanguagecards) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`buildTopIssues`](#internal-report-card-go-buildtopissues) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`gradeEmoji`](#internal-report-card-go-gradeemoji) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`card_test.go`](#internal-report-card-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`AreaSummary`](#internal-report-detailed-go-areasummary) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Detailed`](#internal-report-detailed-go-detailed) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`DetailedReport`](#internal-report-detailed-go-detailedreport) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatDetailedText`](#internal-report-detailed-go-formatdetailedtext) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`LanguageBreakdown`](#internal-report-detailed-go-languagebreakdown) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`UnitSummary`](#internal-report-detailed-go-unitsummary) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`computeDimensionAverages`](#internal-report-detailed-go-computedimensionaverages) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`computeLanguageBreakdowns`](#internal-report-detailed-go-computelanguagebreakdowns) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`explainStatus`](#internal-report-detailed-go-explainstatus) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`findExpiringSoon`](#internal-report-detailed-go-findexpiringsoon) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`findFailing`](#internal-report-detailed-go-findfailing) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`findHighestRisk`](#internal-report-detailed-go-findhighestrisk) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`findRecurrentlyFailing`](#internal-report-detailed-go-findrecurrentlyfailing) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`unitSummaryFrom`](#internal-report-detailed-go-unitsummaryfrom) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`detailed_test.go`](#internal-report-detailed-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`FormatFullMarkdown`](#internal-report-full-go-formatfullmarkdown) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FullReport`](#internal-report-full-go-fullreport) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`GenerateFullReport`](#internal-report-full-go-generatefullreport) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`LanguageDetail`](#internal-report-full-go-languagedetail) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`UnitReport`](#internal-report-full-go-unitreport) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`buildLanguageDetail`](#internal-report-full-go-buildlanguagedetail) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`dirOf`](#internal-report-full-go-dirof) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`shortFile`](#internal-report-full-go-shortfile) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`sortedKeys`](#internal-report-full-go-sortedkeys) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`unitAnchor`](#internal-report-full-go-unitanchor) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`unitReportFrom`](#internal-report-full-go-unitreportfrom) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`writeAIInsights`](#internal-report-full-go-writeaiinsights) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`writeAllUnits`](#internal-report-full-go-writeallunits) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`writeDimensionAverages`](#internal-report-full-go-writedimensionaverages) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`writeGradeDistribution`](#internal-report-full-go-writegradedistribution) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`writeHeader`](#internal-report-full-go-writeheader) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`writeLanguageDetail`](#internal-report-full-go-writelanguagedetail) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`writeSummary`](#internal-report-full-go-writesummary) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`writeUnitDetails`](#internal-report-full-go-writeunitdetails) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`full_test.go`](#internal-report-full-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`FormatJSON`](#internal-report-health-go-formatjson) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`FormatText`](#internal-report-health-go-formattext) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`Health`](#internal-report-health-go-health) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`HealthReport`](#internal-report-health-go-healthreport) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`health_test.go`](#internal-report-health-test-go) | file | B+ | 88.3% | certified | 2026-04-23 |
+| [`FormatUnitMarkdown`](#internal-report-unit-report-go-formatunitmarkdown) | function | B+ | 87.2% | certified | 2026-04-23 |
+| [`GenerateUnitReports`](#internal-report-unit-report-go-generateunitreports) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`formatDate`](#internal-report-unit-report-go-formatdate) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`scoreBar`](#internal-report-unit-report-go-scorebar) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`splitObservations`](#internal-report-unit-report-go-splitobservations) | function | B+ | 89.4% | certified | 2026-04-23 |
 
 <a id="internal-report-badge-go-badge"></a>
 <details>
@@ -15502,12 +15501,12 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`DialogueParser`](reports/testdata-repos-ts-simple-src-parser-ts-dialogueparser.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`MAX_TOKENS`](reports/testdata-repos-ts-simple-src-parser-ts-max-tokens.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`parseNode`](reports/testdata-repos-ts-simple-src-parser-ts-parsenode.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`tokenizeDialogue`](reports/testdata-repos-ts-simple-src-parser-ts-tokenizedialogue.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`formatDate`](reports/testdata-repos-ts-simple-src-utils-ts-formatdate.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`log`](reports/testdata-repos-ts-simple-src-utils-ts-log.md) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`DialogueParser`](#testdata-repos-ts-simple-src-parser-ts-dialogueparser) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`MAX_TOKENS`](#testdata-repos-ts-simple-src-parser-ts-max-tokens) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`parseNode`](#testdata-repos-ts-simple-src-parser-ts-parsenode) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`tokenizeDialogue`](#testdata-repos-ts-simple-src-parser-ts-tokenizedialogue) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`formatDate`](#testdata-repos-ts-simple-src-utils-ts-formatdate) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`log`](#testdata-repos-ts-simple-src-utils-ts-log) | function | B+ | 89.4% | certified | 2026-04-23 |
 
 <a id="testdata-repos-ts-simple-src-parser-ts-dialogueparser"></a>
 <details>
@@ -15683,37 +15682,37 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`RunResult`](reports/vscode-certify-src-certifybinary-ts-runresult.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`findCertifyBinary`](reports/vscode-certify-src-certifybinary-ts-findcertifybinary.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`listModels`](reports/vscode-certify-src-certifybinary-ts-listmodels.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`promptInstall`](reports/vscode-certify-src-certifybinary-ts-promptinstall.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`runCertify`](reports/vscode-certify-src-certifybinary-ts-runcertify.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`runCertifyJSON`](reports/vscode-certify-src-certifybinary-ts-runcertifyjson.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`runInTerminal`](reports/vscode-certify-src-certifybinary-ts-runinterminal.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`BRAND_COLORS`](reports/vscode-certify-src-constants-ts-brand-colors.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`DIMENSION_NAMES`](reports/vscode-certify-src-constants-ts-dimension-names.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`GRADE_COLORS`](reports/vscode-certify-src-constants-ts-grade-colors.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`GRADE_EMOJI`](reports/vscode-certify-src-constants-ts-grade-emoji.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`PROVIDER_PRESETS`](reports/vscode-certify-src-constants-ts-provider-presets.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`CertifyDataLoader`](reports/vscode-certify-src-dataloader-ts-certifydataloader.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`activate`](reports/vscode-certify-src-extension-ts-activate.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`deactivate`](reports/vscode-certify-src-extension-ts-deactivate.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`createStatusBarItem`](reports/vscode-certify-src-statusbar-ts-createstatusbaritem.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`AgentConfig`](reports/vscode-certify-src-types-ts-agentconfig.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`BadgeJSON`](reports/vscode-certify-src-types-ts-badgejson.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`CertifyCard`](reports/vscode-certify-src-types-ts-certifycard.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`CertifyConfig`](reports/vscode-certify-src-types-ts-certifyconfig.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`FullReport`](reports/vscode-certify-src-types-ts-fullreport.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`IndexEntry`](reports/vscode-certify-src-types-ts-indexentry.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`IssueCard`](reports/vscode-certify-src-types-ts-issuecard.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`LanguageCard`](reports/vscode-certify-src-types-ts-languagecard.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`LanguageDetail`](reports/vscode-certify-src-types-ts-languagedetail.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`ModelAssignments`](reports/vscode-certify-src-types-ts-modelassignments.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`ModelInfo`](reports/vscode-certify-src-types-ts-modelinfo.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`ProviderConfig`](reports/vscode-certify-src-types-ts-providerconfig.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`ProviderPreset`](reports/vscode-certify-src-types-ts-providerpreset.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`RecordJSON`](reports/vscode-certify-src-types-ts-recordjson.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`UnitReport`](reports/vscode-certify-src-types-ts-unitreport.md) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`RunResult`](#vscode-certify-src-certifybinary-ts-runresult) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`findCertifyBinary`](#vscode-certify-src-certifybinary-ts-findcertifybinary) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`listModels`](#vscode-certify-src-certifybinary-ts-listmodels) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`promptInstall`](#vscode-certify-src-certifybinary-ts-promptinstall) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`runCertify`](#vscode-certify-src-certifybinary-ts-runcertify) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`runCertifyJSON`](#vscode-certify-src-certifybinary-ts-runcertifyjson) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`runInTerminal`](#vscode-certify-src-certifybinary-ts-runinterminal) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`BRAND_COLORS`](#vscode-certify-src-constants-ts-brand-colors) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`DIMENSION_NAMES`](#vscode-certify-src-constants-ts-dimension-names) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`GRADE_COLORS`](#vscode-certify-src-constants-ts-grade-colors) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`GRADE_EMOJI`](#vscode-certify-src-constants-ts-grade-emoji) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`PROVIDER_PRESETS`](#vscode-certify-src-constants-ts-provider-presets) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertifyDataLoader`](#vscode-certify-src-dataloader-ts-certifydataloader) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`activate`](#vscode-certify-src-extension-ts-activate) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`deactivate`](#vscode-certify-src-extension-ts-deactivate) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`createStatusBarItem`](#vscode-certify-src-statusbar-ts-createstatusbaritem) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`AgentConfig`](#vscode-certify-src-types-ts-agentconfig) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`BadgeJSON`](#vscode-certify-src-types-ts-badgejson) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertifyCard`](#vscode-certify-src-types-ts-certifycard) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertifyConfig`](#vscode-certify-src-types-ts-certifyconfig) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`FullReport`](#vscode-certify-src-types-ts-fullreport) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`IndexEntry`](#vscode-certify-src-types-ts-indexentry) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`IssueCard`](#vscode-certify-src-types-ts-issuecard) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`LanguageCard`](#vscode-certify-src-types-ts-languagecard) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`LanguageDetail`](#vscode-certify-src-types-ts-languagedetail) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`ModelAssignments`](#vscode-certify-src-types-ts-modelassignments) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`ModelInfo`](#vscode-certify-src-types-ts-modelinfo) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`ProviderConfig`](#vscode-certify-src-types-ts-providerconfig) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`ProviderPreset`](#vscode-certify-src-types-ts-providerpreset) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`RecordJSON`](#vscode-certify-src-types-ts-recordjson) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`UnitReport`](#vscode-certify-src-types-ts-unitreport) | class | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="vscode-certify-src-certifybinary-ts-runresult"></a>
 <details>
@@ -16597,8 +16596,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`CertifyCodeLensProvider`](reports/vscode-certify-src-codelens-certifycodelensprovider-ts-certifycodelensprovider.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`showDimensionScores`](reports/vscode-certify-src-codelens-certifycodelensprovider-ts-showdimensionscores.md) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertifyCodeLensProvider`](#vscode-certify-src-codelens-certifycodelensprovider-ts-certifycodelensprovider) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`showDimensionScores`](#vscode-certify-src-codelens-certifycodelensprovider-ts-showdimensionscores) | function | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="vscode-certify-src-codelens-certifycodelensprovider-ts-certifycodelensprovider"></a>
 <details>
@@ -16662,11 +16661,11 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`ConfigPanel`](reports/vscode-certify-src-config-configpanel-ts-configpanel.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`ConnectionTestResult`](reports/vscode-certify-src-config-configwriter-ts-connectiontestresult.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`readConfig`](reports/vscode-certify-src-config-configwriter-ts-readconfig.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`testConnection`](reports/vscode-certify-src-config-configwriter-ts-testconnection.md) | function | B+ | 88.3% | certified | 2026-04-23 |
-| [`writeConfig`](reports/vscode-certify-src-config-configwriter-ts-writeconfig.md) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`ConfigPanel`](#vscode-certify-src-config-configpanel-ts-configpanel) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`ConnectionTestResult`](#vscode-certify-src-config-configwriter-ts-connectiontestresult) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`readConfig`](#vscode-certify-src-config-configwriter-ts-readconfig) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`testConnection`](#vscode-certify-src-config-configwriter-ts-testconnection) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`writeConfig`](#vscode-certify-src-config-configwriter-ts-writeconfig) | function | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="vscode-certify-src-config-configpanel-ts-configpanel"></a>
 <details>
@@ -16822,7 +16821,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`DashboardPanel`](reports/vscode-certify-src-dashboard-dashboardpanel-ts-dashboardpanel.md) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`DashboardPanel`](#vscode-certify-src-dashboard-dashboardpanel-ts-dashboardpanel) | class | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="vscode-certify-src-dashboard-dashboardpanel-ts-dashboardpanel"></a>
 <details>
@@ -16859,7 +16858,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`CertifyDiagnostics`](reports/vscode-certify-src-diagnostics-certifydiagnostics-ts-certifydiagnostics.md) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertifyDiagnostics`](#vscode-certify-src-diagnostics-certifydiagnostics-ts-certifydiagnostics) | class | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="vscode-certify-src-diagnostics-certifydiagnostics-ts-certifydiagnostics"></a>
 <details>
@@ -16895,8 +16894,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`CertificationTreeProvider`](reports/vscode-certify-src-treeview-certificationtreeprovider-ts-certificationtreeprovider.md) | class | B+ | 88.3% | certified | 2026-04-23 |
-| [`CertifyTreeItem`](reports/vscode-certify-src-treeview-certificationtreeprovider-ts-certifytreeitem.md) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertificationTreeProvider`](#vscode-certify-src-treeview-certificationtreeprovider-ts-certificationtreeprovider) | class | B+ | 88.3% | certified | 2026-04-23 |
+| [`CertifyTreeItem`](#vscode-certify-src-treeview-certificationtreeprovider-ts-certifytreeitem) | class | B+ | 88.3% | certified | 2026-04-23 |
 
 <a id="vscode-certify-src-treeview-certificationtreeprovider-ts-certificationtreeprovider"></a>
 <details>
@@ -16962,7 +16961,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------|
-| [`collections`](reports/website-src-content-config-ts-collections.md) | function | B+ | 89.4% | certified | 2026-04-23 |
+| [`collections`](#website-src-content-config-ts-collections) | function | B+ | 89.4% | certified | 2026-04-23 |
 
 <a id="website-src-content-config-ts-collections"></a>
 <details>

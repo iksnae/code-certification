@@ -96,9 +96,12 @@ func TestFormatFullMarkdown(t *testing.T) {
 		}
 	}
 
-	// Verify links point to report files
-	if !strings.Contains(md, "](reports/") {
-		t.Error("markdown should contain links to unit report files (](reports/...))")
+	// Verify links are self-contained anchors (not external report files)
+	if strings.Contains(md, "](reports/") {
+		t.Error("markdown should NOT contain external report file links — use #anchor links")
+	}
+	if !strings.Contains(md, "](#") {
+		t.Error("markdown should contain self-contained #anchor links")
 	}
 
 	// Verify every unit has a corresponding <a id="..."> anchor for back-navigation
@@ -107,17 +110,17 @@ func TestFormatFullMarkdown(t *testing.T) {
 		if name == "" {
 			name = u.Path[strings.LastIndex(u.Path, "/")+1:]
 		}
-		// Find the anchor from the link in the table
-		linkPrefix := "](reports/"
-		idx := strings.Index(md, "[`"+name+"`](reports/")
+		// Find the anchor link in the table
+		idx := strings.Index(md, "[`"+name+"`](#")
 		if idx < 0 {
 			t.Errorf("missing table link for unit %s", name)
 			continue
 		}
+		// Extract anchor name from ](#anchor-name)
 		rest := md[idx:]
-		start := strings.Index(rest, linkPrefix)
-		end := strings.Index(rest[start+len(linkPrefix):], ".md)")
-		anchor := rest[start+len(linkPrefix) : start+len(linkPrefix)+end]
+		start := strings.Index(rest, "](#")
+		end := strings.Index(rest[start+3:], ")")
+		anchor := rest[start+3 : start+3+end]
 
 		anchorTag := `<a id="` + anchor + `">`
 		if !strings.Contains(md, anchorTag) {
@@ -144,9 +147,9 @@ func TestFormatFullMarkdown_AllUnitsHaveAnchors(t *testing.T) {
 		t.Error("missing anchor for FuncB (certified, no observations)")
 	}
 
-	// Should have external report links
-	if !strings.Contains(md, "](reports/") {
-		t.Error("should contain report file links")
+	// Should have self-contained anchor links (not external report files)
+	if !strings.Contains(md, "](#") {
+		t.Error("should contain self-contained #anchor links")
 	}
 }
 

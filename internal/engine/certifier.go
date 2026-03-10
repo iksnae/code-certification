@@ -132,16 +132,16 @@ func (c *Certifier) CollectRepoEvidence() []domain.Evidence {
 }
 
 // SaveReportArtifacts writes REPORT_CARD.md, badge.json, and per-unit reports
-// from a pre-computed FullReport. The caller is responsible for generating the
-// FullReport once; this function only writes artifacts to disk.
+// from a pre-computed FullReport. REPORT_CARD.md is the full markdown report
+// with self-contained anchor links (no external report file dependencies).
 func SaveReportArtifacts(certDir string, fr report.FullReport) error {
-	// Full report card (markdown)
+	// Full report card (self-contained markdown with anchor links)
 	md := report.FormatFullMarkdown(fr)
 	if err := os.WriteFile(filepath.Join(certDir, "REPORT_CARD.md"), []byte(md), 0o644); err != nil {
 		return fmt.Errorf("writing REPORT_CARD.md: %w", err)
 	}
 
-	// Per-unit reports
+	// Per-unit reports (gitignored, regenerated on demand)
 	reportsDir := filepath.Join(certDir, "reports")
 	if _, err := report.GenerateUnitReports(fr, reportsDir); err != nil {
 		return fmt.Errorf("writing unit reports: %w", err)
