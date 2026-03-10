@@ -85,7 +85,7 @@ export class DashboardPanel {
     }).join('');
 
     const langs = c.languages.map(l =>
-      `<tr><td>${l.name}</td><td>${l.units}</td><td>${l.grade}</td><td>${(l.average_score * 100).toFixed(1)}%</td></tr>`
+      `<tr><td>${l.name}</td><td>${l.units}</td><td>${l.passing}/${l.units}</td><td>${l.grade}</td><td>${(l.average_score * 100).toFixed(1)}%</td></tr>`
     ).join('');
 
     const unitRows = report.units.slice(0, 200).map(u => {
@@ -153,7 +153,7 @@ export class DashboardPanel {
 
   <div class="section">
     <h2>Languages</h2>
-    <table><tr><th>Language</th><th>Units</th><th>Grade</th><th>Avg Score</th></tr>${langs}</table>
+    <table><tr><th>Language</th><th>Units</th><th>Passing</th><th>Grade</th><th>Avg Score</th></tr>${langs}</table>
   </div>
 
   <div class="section">

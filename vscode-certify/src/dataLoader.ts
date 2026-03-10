@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
-import type { IndexEntry, RecordJSON, BadgeJSON, FullReport, CertifyConfig } from './types.js';
+import type { IndexEntry, RecordJSON, BadgeJSON, FullReport, CertifyConfig, LanguageDetail } from './types.js';
 import { GRADE_COLORS } from './constants.js';
 import { runCertifyJSON } from './certifyBinary.js';
 
@@ -130,17 +130,33 @@ export class CertifyDataLoader {
     }
 
     // Language breakdown
-    const langMap = new Map<string, { scores: number[]; grades: string[] }>();
+    const langMap = new Map<string, { scores: number[]; grades: string[]; passing: number }>();
     for (const r of records) {
       const lang = r.unit_path.endsWith('.go') ? 'Go' : r.unit_path.endsWith('.ts') ? 'TypeScript' : 'Other';
-      if (!langMap.has(lang)) langMap.set(lang, { scores: [], grades: [] });
-      langMap.get(lang)!.scores.push(r.score);
-      langMap.get(lang)!.grades.push(r.grade);
+      if (!langMap.has(lang)) langMap.set(lang, { scores: [], grades: [], passing: 0 });
+      const entry = langMap.get(lang)!;
+      entry.scores.push(r.score);
+      entry.grades.push(r.grade);
+      if (r.status === 'certified' || r.status === 'certified_with_observations') {
+        entry.passing++;
+      }
     }
 
-    const languages = Array.from(langMap.entries()).map(([name, data]) => {
+    const languages: LanguageDetail[] = Array.from(langMap.entries()).map(([name, data]) => {
       const avg = data.scores.reduce((s, v) => s + v, 0) / data.scores.length;
-      return { name, units: data.scores.length, average_score: avg, grade: computeGrade(avg) };
+      const gradeDist: Record<string, number> = {};
+      for (const g of data.grades) { gradeDist[g] = (gradeDist[g] ?? 0) + 1; }
+      const sorted = [...data.scores].sort((a, b) => a - b);
+      return {
+        name,
+        units: data.scores.length,
+        passing: data.passing,
+        average_score: avg,
+        grade: computeGrade(avg),
+        grade_distribution: gradeDist,
+        top_score: sorted[sorted.length - 1] ?? 0,
+        bottom_score: sorted[0] ?? 0,
+      };
     });
 
     // Build units
@@ -183,12 +199,7 @@ export class CertifyDataLoader {
       },
       units,
       dimension_averages: dimensionAverages,
-      language_detail: languages.map(l => ({
-        ...l,
-        grade_distribution: {},
-        top_score: 0,
-        bottom_score: 0,
-      })),
+      language_detail: languages,
     };
   }
 

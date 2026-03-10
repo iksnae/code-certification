@@ -14,15 +14,8 @@ export interface CertifyCard {
   expired: number;
   observations: number;
   grade_distribution: Record<string, number>;
-  languages: LanguageCard[];
+  languages: LanguageDetail[];
   top_issues?: IssueCard[];
-}
-
-export interface LanguageCard {
-  name: string;
-  units: number;
-  average_score: number;
-  grade: string;
 }
 
 export interface IssueCard {
@@ -63,6 +56,7 @@ export interface UnitReport {
 export interface LanguageDetail {
   name: string;
   units: number;
+  passing: number;
   average_score: number;
   grade: string;
   grade_distribution: Record<string, number>;
