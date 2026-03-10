@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1 — 2026-03-10
+
+### Fixed
+- **Dashboard only shows measured dimensions**: Quality dimension bars now exclude unmeasured dimensions instead of showing misleading 0% bars. Only dimensions with actual evidence appear.
+- **CodeLens dimension picker shows measured only**: `showDimensionScores` quick pick filters to dimensions present in the unit's record. Title shows how many dimensions were measured.
+
+### Changed
+- **Aligned with CLI scoring integrity fix**: CLI v0.5.1 removed fictional 0.80 base scores for unmeasured dimensions. The extension now correctly renders variable dimension counts per unit — some units have 6, some have 7, penalty-only dimensions (architectural_fitness, performance_appropriateness) appear only when violations exist.
+
 ## 0.1.7 — 2026-03-10
 
 ### Fixed

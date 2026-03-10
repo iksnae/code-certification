@@ -98,13 +98,15 @@ function findSymbolLine(text: string, symbol: string, langId: string): number {
 }
 
 export async function showDimensionScores(record: RecordJSON): Promise<void> {
-  if (!record.dimensions) {
+  if (!record.dimensions || Object.keys(record.dimensions).length === 0) {
     vscode.window.showInformationMessage(`${record.unit_id}: Grade ${record.grade} (${Math.round(record.score * 100)}%)`);
     return;
   }
 
-  const items = DIMENSION_NAMES.map(dim => {
-    const val = record.dimensions?.[dim] ?? 0;
+  // Only show dimensions that have actual measurements for this unit
+  const measuredDims = DIMENSION_NAMES.filter(dim => dim in record.dimensions!);
+  const items = measuredDims.map(dim => {
+    const val = record.dimensions![dim];
     const bar = '█'.repeat(Math.round(val * 10)) + '░'.repeat(10 - Math.round(val * 10));
     return {
       label: `${bar} ${(val * 100).toFixed(0)}%`,
@@ -113,7 +115,7 @@ export async function showDimensionScores(record: RecordJSON): Promise<void> {
   });
 
   await vscode.window.showQuickPick(items, {
-    title: `${record.unit_id} — ${record.grade} (${Math.round(record.score * 100)}%)`,
-    placeHolder: 'Dimension Scores',
+    title: `${record.unit_id} — ${record.grade} (${Math.round(record.score * 100)}%) — ${measuredDims.length} dimensions measured`,
+    placeHolder: 'Dimension Scores (measured only)',
   });
 }

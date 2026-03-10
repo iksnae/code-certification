@@ -74,8 +74,10 @@ export class DashboardPanel {
       })
       .join('');
 
-    const dimensions = DIMENSION_NAMES.map(dim => {
-      const val = (report.dimension_averages[dim] ?? 0) * 100;
+    // Only show dimensions that have actual measurements
+    const measuredDims = DIMENSION_NAMES.filter(dim => dim in report.dimension_averages);
+    const dimensions = measuredDims.map(dim => {
+      const val = report.dimension_averages[dim] * 100;
       const label = dim.replace(/_/g, ' ');
       return `<div class="dim-row">
         <span class="dim-label">${label}</span>
