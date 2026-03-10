@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
@@ -313,6 +314,142 @@ export function add(a: number, b: number): number {
 	}
 	if metricsEv.Source != "metrics" {
 		t.Errorf("metrics Source = %q, want 'metrics'", metricsEv.Source)
+	}
+}
+
+func TestCertifier_Certify_StructuralEvidence(t *testing.T) {
+	// Create a temp Go source file with a known exported function
+	tmpDir := t.TempDir()
+	src := `package example
+
+// Add adds two integers and returns the result.
+func Add(a, b int) int {
+	return a + b
+}
+`
+	if err := os.WriteFile(filepath.Join(tmpDir, "math.go"), []byte(src), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	certifier := &engine.Certifier{
+		Root:      tmpDir,
+		ExpiryCfg: testExpiryCfg(),
+	}
+
+	unit := domain.NewUnit(
+		domain.NewUnitID("go", "math.go", "Add"),
+		domain.UnitTypeFunction,
+	)
+
+	result, err := certifier.Certify(context.Background(), unit, nil, time.Now())
+	if err != nil {
+		t.Fatalf("Certify() error: %v", err)
+	}
+
+	// Find structural evidence
+	var structEv *domain.Evidence
+	for i, e := range result.Record.Evidence {
+		if e.Kind == domain.EvidenceKindStructural {
+			structEv = &result.Record.Evidence[i]
+			break
+		}
+	}
+	if structEv == nil {
+		t.Fatal("no structural evidence found for Go function")
+	}
+	if structEv.Source != "structural" {
+		t.Errorf("Source = %q, want structural", structEv.Source)
+	}
+	if structEv.Metrics["has_doc_comment"] != 1.0 {
+		t.Errorf("has_doc_comment = %f, want 1.0", structEv.Metrics["has_doc_comment"])
+	}
+	if structEv.Metrics["param_count"] != 2 {
+		t.Errorf("param_count = %f, want 2", structEv.Metrics["param_count"])
+	}
+	if structEv.Metrics["exported_name"] != 1.0 {
+		t.Errorf("exported_name = %f, want 1.0", structEv.Metrics["exported_name"])
+	}
+}
+
+func TestCertifier_Certify_NoStructuralForNonGo(t *testing.T) {
+	tmpDir := t.TempDir()
+	src := `export function greet() { return "hi"; }`
+	if err := os.WriteFile(filepath.Join(tmpDir, "greet.ts"), []byte(src), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	certifier := &engine.Certifier{
+		Root:      tmpDir,
+		ExpiryCfg: testExpiryCfg(),
+	}
+
+	unit := domain.NewUnit(
+		domain.NewUnitID("ts", "greet.ts", "greet"),
+		domain.UnitTypeFunction,
+	)
+
+	result, err := certifier.Certify(context.Background(), unit, nil, time.Now())
+	if err != nil {
+		t.Fatalf("Certify() error: %v", err)
+	}
+
+	for _, e := range result.Record.Evidence {
+		if e.Kind == domain.EvidenceKindStructural {
+			t.Error("non-Go unit should not have structural evidence")
+		}
+	}
+}
+
+func TestCertifier_Certify_PerUnitLintAttribution(t *testing.T) {
+	tmpDir := t.TempDir()
+	src := `package example
+
+func Foo() {}
+`
+	if err := os.WriteFile(filepath.Join(tmpDir, "foo.go"), []byte(src), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	certifier := &engine.Certifier{
+		Root:      tmpDir,
+		ExpiryCfg: testExpiryCfg(),
+	}
+
+	unit := domain.NewUnit(
+		domain.NewUnitID("go", "foo.go", "Foo"),
+		domain.UnitTypeFunction,
+	)
+
+	// Simulate repo evidence with lint findings for a different file
+	repoEv := []domain.Evidence{
+		evidence.LintResult{
+			Tool: "golangci-lint", ErrorCount: 1,
+			Findings: []evidence.LintFinding{
+				{File: "bar.go", Line: 5, Message: "unused", Severity: "error"},
+			},
+		}.ToEvidence(),
+	}
+
+	// Set lint findings on the certifier for per-unit attribution
+	certifier.RepoLintFindings = []evidence.LintFinding{
+		{File: "bar.go", Line: 5, Message: "unused", Severity: "error"},
+	}
+
+	result, err := certifier.Certify(context.Background(), unit, repoEv, time.Now())
+	if err != nil {
+		t.Fatalf("Certify() error: %v", err)
+	}
+
+	// Check that per-unit lint evidence is clean (findings were for bar.go, not foo.go)
+	for _, e := range result.Record.Evidence {
+		if e.Kind == domain.EvidenceKindLint && strings.Contains(e.Source, ":unit") {
+			if !e.Passed {
+				t.Error("per-unit lint for foo.go should pass (findings are in bar.go)")
+			}
+			if e.Metrics["unit_lint_errors"] != 0 {
+				t.Errorf("unit_lint_errors = %f, want 0", e.Metrics["unit_lint_errors"])
+			}
+		}
 	}
 }
 

@@ -36,6 +36,10 @@ type Certifier struct {
 	AgentTimeout   time.Duration       // per-unit timeout for agent calls
 	RunID          string              // current run ID (set once per invocation)
 	PolicyVersions []string            // active policy pack versions ("name@version")
+
+	// Per-unit attribution data (set by CollectRepoEvidence or manually for tests)
+	RepoLintFindings  []evidence.LintFinding // raw lint findings for per-unit attribution
+	RepoCoverProfile  string                 // raw coverage profile for per-unit coverage
 }
 
 // Certify runs the full certification pipeline for a single unit.
@@ -56,16 +60,61 @@ func (c *Certifier) Certify(ctx context.Context, unit domain.Unit, repoEvidence 
 	// 3. Read source + compute per-unit metrics
 	var srcCode string
 	srcPath := filepath.Join(c.Root, unit.ID.Path())
+	isGo := strings.HasSuffix(unit.ID.Path(), ".go")
 	if srcData, err := os.ReadFile(srcPath); err == nil {
 		srcCode = string(srcData)
 		sym := unit.ID.Symbol()
 		var metrics evidence.CodeMetrics
-		if sym != "" && strings.HasSuffix(unit.ID.Path(), ".go") {
+		if sym != "" && isGo {
 			metrics = evidence.ComputeSymbolMetrics(srcCode, sym)
 		} else {
 			metrics = evidence.ComputeMetrics(srcCode)
 		}
 		ev = append(ev, metrics.ToEvidence())
+
+		// 3b. Per-unit lint attribution
+		if len(c.RepoLintFindings) > 0 {
+			unitLint := evidence.AttributeLintToFile(c.RepoLintFindings, unit.ID.Path())
+			unitLintEv := unitLint.ToEvidence()
+			unitLintEv.Source = "golangci-lint:unit"
+			unitLintEv.Metrics["unit_lint_errors"] = float64(unitLint.ErrorCount)
+			unitLintEv.Metrics["unit_lint_warnings"] = float64(unitLint.WarnCount)
+			ev = append(ev, unitLintEv)
+		}
+
+		// 3c. Per-unit coverage attribution
+		if c.RepoCoverProfile != "" {
+			cm := evidence.ParseCoverProfilePerFunc(c.RepoCoverProfile)
+			// Try matching by file path (coverage profiles use module-qualified paths)
+			unitCov := float64(-1)
+			for filePath := range cm {
+				if strings.HasSuffix(filePath, "/"+unit.ID.Path()) || filePath == unit.ID.Path() {
+					unitCov = evidence.CoverageForFile(cm, filePath)
+					break
+				}
+			}
+			if unitCov >= 0 {
+				covEv := domain.Evidence{
+					Kind:    domain.EvidenceKindTest,
+					Source:  "coverage:unit",
+					Passed:  true,
+					Summary: fmt.Sprintf("per-unit coverage: %.0f%%", unitCov*100),
+					Metrics: map[string]float64{
+						"unit_test_coverage": unitCov,
+					},
+					Confidence: 1.0,
+				}
+				ev = append(ev, covEv)
+			}
+		}
+
+		// 3d. Structural analysis (Go only)
+		if isGo && sym != "" {
+			structural := evidence.AnalyzeGoFunc(srcCode, sym)
+			ev = append(ev, structural.ToEvidence())
+		} else if isGo && sym == "" {
+			// File-level: no structural analysis for file units
+		}
 	}
 
 	// 4. Agent review (optional)
@@ -126,9 +175,13 @@ func (c *Certifier) Certify(ctx context.Context, unit domain.Unit, repoEvidence 
 }
 
 // CollectRepoEvidence runs all available tool runners and returns repo-level evidence.
+// Also retains raw lint findings and coverage profile for per-unit attribution.
 func (c *Certifier) CollectRepoEvidence() []domain.Evidence {
 	executor := evidence.NewToolExecutor(c.Root)
-	return executor.CollectAll()
+	ev := executor.CollectAll()
+	c.RepoLintFindings = executor.LintFindings()
+	c.RepoCoverProfile = executor.CoverageProfile()
+	return ev
 }
 
 // SaveReportArtifacts writes REPORT_CARD.md (compact summary), badge.json,
