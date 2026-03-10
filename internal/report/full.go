@@ -350,9 +350,6 @@ func writeAIInsights(b *strings.Builder, r FullReport) {
 
 func writeUnitDetails(b *strings.Builder, units []UnitReport) {
 	for _, u := range units {
-		if len(u.Observations) == 0 && u.Status == "certified" {
-			continue
-		}
 		anchor := unitAnchor(u)
 		fmt.Fprintf(b, "<a id=\"%s\"></a>\n<details>\n<summary>%s — %s details</summary>\n\n", anchor, u.Symbol, u.Status)
 		if len(u.Dimensions) > 0 {

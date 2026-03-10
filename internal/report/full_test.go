@@ -95,6 +95,59 @@ func TestFormatFullMarkdown(t *testing.T) {
 			t.Errorf("markdown should contain %q", check)
 		}
 	}
+
+	// Verify links point to report files
+	if !strings.Contains(md, "](reports/") {
+		t.Error("markdown should contain links to unit report files (](reports/...))")
+	}
+
+	// Verify every unit has a corresponding <a id="..."> anchor for back-navigation
+	for _, u := range r.Units {
+		name := u.Symbol
+		if name == "" {
+			name = u.Path[strings.LastIndex(u.Path, "/")+1:]
+		}
+		// Find the anchor from the link in the table
+		linkPrefix := "](reports/"
+		idx := strings.Index(md, "[`"+name+"`](reports/")
+		if idx < 0 {
+			t.Errorf("missing table link for unit %s", name)
+			continue
+		}
+		rest := md[idx:]
+		start := strings.Index(rest, linkPrefix)
+		end := strings.Index(rest[start+len(linkPrefix):], ".md)")
+		anchor := rest[start+len(linkPrefix) : start+len(linkPrefix)+end]
+
+		anchorTag := `<a id="` + anchor + `">`
+		if !strings.Contains(md, anchorTag) {
+			t.Errorf("missing anchor tag %s for unit %s", anchorTag, name)
+		}
+	}
+}
+
+func TestFormatFullMarkdown_AllUnitsHaveAnchors(t *testing.T) {
+	// All certified, no observations — previously these were skipped
+	records := []domain.CertificationRecord{
+		makeFullRecord("go", "pkg/a.go", "FuncA", domain.UnitTypeFunction, domain.StatusCertified, 0.92),
+		makeFullRecord("go", "pkg/b.go", "FuncB", domain.UnitTypeFunction, domain.StatusCertified, 0.88),
+	}
+
+	r := report.GenerateFullReport(records, "test/repo", "abc123", time.Now())
+	md := report.FormatFullMarkdown(r)
+
+	// Both units must have anchor tags even though they have no observations
+	if !strings.Contains(md, `<a id="pkg-a-go-funca">`) {
+		t.Error("missing anchor for FuncA (certified, no observations)")
+	}
+	if !strings.Contains(md, `<a id="pkg-b-go-funcb">`) {
+		t.Error("missing anchor for FuncB (certified, no observations)")
+	}
+
+	// Should have external report links
+	if !strings.Contains(md, "](reports/") {
+		t.Error("should contain report file links")
+	}
 }
 
 func TestFullReport_LanguageDetail(t *testing.T) {

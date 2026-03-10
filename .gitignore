@@ -32,7 +32,7 @@ Thumbs.db
 
 # Certification records (regenerated per-run)
 .certification/records/
-.certification/reports/
+# .certification/reports/ — tracked: unit reports are a critical deliverable
 .certification/queue.json
 
 # Personal workspace tooling (not part of the project)
