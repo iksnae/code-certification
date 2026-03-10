@@ -18,6 +18,7 @@ func TestEvidenceKind_String(t *testing.T) {
 		{domain.EvidenceKindMetrics, "metrics"},
 		{domain.EvidenceKindGitHistory, "git_history"},
 		{domain.EvidenceKindAgentReview, "agent_review"},
+		{domain.EvidenceKindStructural, "structural"},
 	}
 	for _, tt := range tests {
 		if got := tt.ek.String(); got != tt.want {
@@ -86,6 +87,7 @@ func TestParseEvidenceKind(t *testing.T) {
 		{"metrics", domain.EvidenceKindMetrics, true},
 		{"git_history", domain.EvidenceKindGitHistory, true},
 		{"agent_review", domain.EvidenceKindAgentReview, true},
+		{"structural", domain.EvidenceKindStructural, true},
 		{"unknown", 0, false},
 		{"", 0, false},
 	}

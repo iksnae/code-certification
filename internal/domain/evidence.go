@@ -15,6 +15,7 @@ const (
 	EvidenceKindStaticAnalysis                     // Static analysis results
 	EvidenceKindMetrics                            // Code metrics (complexity, size)
 	EvidenceKindGitHistory                         // Git history analysis
+	EvidenceKindStructural                         // AST-derived structural analysis
 	EvidenceKindAgentReview                        // Agent-assisted review output
 )
 
@@ -25,6 +26,7 @@ var evidenceKindStrings = map[EvidenceKind]string{
 	EvidenceKindStaticAnalysis: "static_analysis",
 	EvidenceKindMetrics:        "metrics",
 	EvidenceKindGitHistory:     "git_history",
+	EvidenceKindStructural:     "structural",
 	EvidenceKindAgentReview:    "agent_review",
 }
 
