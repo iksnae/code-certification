@@ -2,8 +2,8 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 34 · **Passing:** 34 / 34
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 33 · **Passing:** 33 / 33
 
 ## Units
 
@@ -11,30 +11,29 @@
 |------|------|:-----:|------:|--------|--------:|
 | [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 B | 85.8% | certified | 2026-04-24 |
 | [CertifyDataLoader](dataLoader.ts/CertifyDataLoader.md) | class | 🟢 B | 85.8% | certified | 2026-04-24 |
-| [LanguageCard](types.ts/LanguageCard.md) | class | 🟢 B | 86.7% | certified | 2026-04-24 |
-| [DIMENSION_NAMES](constants.ts/DIMENSION_NAMES.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [LanguageDetail](types.ts/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [BadgeJSON](types.ts/BadgeJSON.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [runCertify](certifyBinary.ts/runCertify.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [runCertifyJSON](certifyBinary.ts/runCertifyJSON.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [runInTerminal](certifyBinary.ts/runInTerminal.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [BRAND_COLORS](constants.ts/BRAND_COLORS.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [RunResult](certifyBinary.ts/RunResult.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [DIMENSION_NAMES](constants.ts/DIMENSION_NAMES.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [GRADE_COLORS](constants.ts/GRADE_COLORS.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [GRADE_EMOJI](constants.ts/GRADE_EMOJI.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [PROVIDER_PRESETS](constants.ts/PROVIDER_PRESETS.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [promptInstall](certifyBinary.ts/promptInstall.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [listModels](certifyBinary.ts/listModels.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [findCertifyBinary](certifyBinary.ts/findCertifyBinary.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [activate](extension.ts/activate.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [deactivate](extension.ts/deactivate.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [promptInstall](certifyBinary.ts/promptInstall.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [UnitReport](types.ts/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [runCertify](certifyBinary.ts/runCertify.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [CertifyConfig](types.ts/CertifyConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [FullReport](types.ts/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [CertifyConfig](types.ts/CertifyConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [BadgeJSON](types.ts/BadgeJSON.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [IndexEntry](types.ts/IndexEntry.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [IssueCard](types.ts/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [findCertifyBinary](certifyBinary.ts/findCertifyBinary.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [LanguageDetail](types.ts/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [RunResult](certifyBinary.ts/RunResult.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [ModelAssignments](types.ts/ModelAssignments.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [ModelInfo](types.ts/ModelInfo.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [ProjectState](types.ts/ProjectState.md) | class | 🟢 A- | 90.0% | certified | 2026-04-24 |
