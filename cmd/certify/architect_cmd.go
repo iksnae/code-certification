@@ -46,7 +46,7 @@ func bindArchitectFlags() {
 }
 
 func runArchitect(cmd *cobra.Command, args []string) error {
-	root, _ := cmd.Flags().GetString("path")
+	root := flagString(cmd, "path")
 	if root == "" {
 		var err error
 		root, err = os.Getwd()
@@ -70,7 +70,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	}
 
 	// Override model if specified
-	architectModel, _ := cmd.Flags().GetString("model")
+	architectModel := flagString(cmd, "model")
 	if architectModel != "" {
 		model = architectModel
 	}
@@ -106,7 +106,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	fmt.Println()
 
 	// Build reviewer
-	architectVerbose, _ := cmd.Flags().GetBool("verbose")
+	architectVerbose := flagBool(cmd, "verbose")
 	reviewer := &agent.ArchitectReviewer{
 		Provider: provider,
 		Model:    model,
@@ -120,7 +120,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	}
 
 	// Determine phases
-	architectPhase, _ := cmd.Flags().GetInt("phase")
+	architectPhase := flagInt(cmd, "phase")
 	var phases []int
 	if architectPhase > 0 {
 		phases = []int{architectPhase}
@@ -146,7 +146,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	output := report.FormatArchitectReport(result, pc)
 
 	// Write output
-	outputPath, _ := cmd.Flags().GetString("output")
+	outputPath := flagString(cmd, "output")
 	if outputPath == "" {
 		outputPath = filepath.Join(certDir, "ARCHITECT_REVIEW.md")
 	}
@@ -189,7 +189,7 @@ func setupArchitectProvider(cfg domain.Config) (agent.Provider, string) {
 			apiKey = os.Getenv(cfg.Agent.Provider.APIKeyEnv)
 		}
 		if apiKey == "" && !isLocal {
-			apiKey, _ = agent.DetectAPIKey() //nolint: second return is env var name, not error
+			apiKey = detectAPIKeyOnly()
 		}
 		if apiKey == "" && !isLocal {
 			return nil, ""

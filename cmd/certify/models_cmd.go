@@ -35,8 +35,8 @@ func runModels(cmd *cobra.Command, args []string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	modelsProviderURL, _ := cmd.Flags().GetString("provider-url")
-	modelsAPIKeyEnv, _ := cmd.Flags().GetString("api-key-env")
+	modelsProviderURL := flagString(cmd, "provider-url")
+	modelsAPIKeyEnv := flagString(cmd, "api-key-env")
 	if modelsProviderURL != "" {
 		return listFromProvider(ctx, modelsProviderURL, modelsAPIKeyEnv)
 	}

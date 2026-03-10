@@ -38,7 +38,7 @@ Static site (for large repos):
   certify report --format site
   certify report --site`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := cmd.Flags().GetString("path")
+		root := flagString(cmd, "path")
 		if root == "" {
 			var err error
 			root, err = os.Getwd()
@@ -47,7 +47,7 @@ Static site (for large repos):
 			}
 		}
 
-		wsMode, _ := cmd.Flags().GetBool("workspace")
+		wsMode := flagBool(cmd, "workspace")
 		if wsMode {
 			return runWorkspaceReport(root)
 		}
@@ -55,7 +55,7 @@ Static site (for large repos):
 		certDir := filepath.Join(root, ".certification")
 
 		// --badge flag just prints the snippet
-		if showBadge, _ := cmd.Flags().GetBool("badge"); showBadge {
+		if showBadge := flagBool(cmd, "badge"); showBadge {
 			repo := detectRepoName(root)
 			if repo == "" {
 				return fmt.Errorf("could not detect repository name (no git remote)")
@@ -81,10 +81,10 @@ Static site (for large repos):
 		commit := detectCommit(root)
 
 		// Read format flags
-		reportFormat, _ := cmd.Flags().GetString("format")
-		reportSite, _ := cmd.Flags().GetBool("site")
-		reportDetailed, _ := cmd.Flags().GetBool("detailed")
-		reportOutput, _ := cmd.Flags().GetString("output")
+		reportFormat := flagString(cmd, "format")
+		reportSite := flagBool(cmd, "site")
+		reportDetailed := flagBool(cmd, "detailed")
+		reportOutput := flagString(cmd, "output")
 
 		// --site flag overrides format
 		if reportSite {

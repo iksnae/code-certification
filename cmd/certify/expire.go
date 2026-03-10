@@ -16,7 +16,7 @@ var expireCmd = &cobra.Command{
 	Use:   "expire",
 	Short: "Mark overdue certifications as expired",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := cmd.Flags().GetString("path")
+		root := flagString(cmd, "path")
 		if root == "" {
 			var err error
 			root, err = os.Getwd()
@@ -25,7 +25,7 @@ var expireCmd = &cobra.Command{
 			}
 		}
 
-		wsMode, _ := cmd.Flags().GetBool("workspace")
+		wsMode := flagBool(cmd, "workspace")
 		if wsMode {
 			return runWorkspaceExpire(root)
 		}

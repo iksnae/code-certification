@@ -362,14 +362,6 @@ func writeArchAppendix(b *strings.Builder, result *agent.ArchitectResult, pc *ag
 	if snap != nil {
 		fmt.Fprintf(b, "- **%d** units across **%d** packages", snap.Metrics.TotalUnits, snap.Metrics.TotalPackages)
 		if snap.Metrics.AvgScore > 0 {
-			grade := "N/A"
-			for _, g := range []string{"A", "A-", "B+", "B", "C", "D", "F"} {
-				if snap.Metrics.GradeDistribution[g] > 0 {
-					grade = g // just use first non-zero as representative
-					break
-				}
-			}
-			_ = grade
 			fmt.Fprintf(b, " · Score: %.1f%%", snap.Metrics.AvgScore*100)
 		}
 		b.WriteString("\n")

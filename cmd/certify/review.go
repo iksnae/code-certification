@@ -17,7 +17,7 @@ var reviewCmd = &cobra.Command{
 	Short: "Generate PR review annotation",
 	Long:  "Formats certification results as a PR comment. Use in GitHub Actions.",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := cmd.Flags().GetString("path")
+		root := flagString(cmd, "path")
 		if root == "" {
 			var err error
 			root, err = os.Getwd()

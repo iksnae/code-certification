@@ -17,7 +17,7 @@ var initCmd = &cobra.Command{
 	Short: "Bootstrap certification in the current repository",
 	Long:  "Creates .certification/ directory with config, policies, records, overrides, and GitHub workflows.",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := cmd.Flags().GetString("path")
+		root := flagString(cmd, "path")
 		if root == "" {
 			var err error
 			root, err = os.Getwd()
@@ -26,7 +26,7 @@ var initCmd = &cobra.Command{
 			}
 		}
 
-		wsMode, _ := cmd.Flags().GetBool("workspace")
+		wsMode := flagBool(cmd, "workspace")
 		if wsMode {
 			return runWorkspaceInit(root)
 		}
@@ -132,7 +132,7 @@ var initCmd = &cobra.Command{
 			"3. Run `certify certify` to evaluate\n" +
 			"4. Run `certify report` to see results\n"
 
-		initPR, _ := cmd.Flags().GetBool("pr")
+		initPR := flagBool(cmd, "pr")
 		if initPR {
 			// Create a branch and PR
 			branchName := "certify/bootstrap"

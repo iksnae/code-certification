@@ -19,7 +19,7 @@ var scanCmd = &cobra.Command{
 	Use:   "scan",
 	Short: "Discover and index certifiable code units",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root, _ := cmd.Flags().GetString("path")
+		root := flagString(cmd, "path")
 		if root == "" {
 			var err error
 			root, err = os.Getwd()
@@ -28,7 +28,7 @@ var scanCmd = &cobra.Command{
 			}
 		}
 
-		wsMode, _ := cmd.Flags().GetBool("workspace")
+		wsMode := flagBool(cmd, "workspace")
 		if wsMode {
 			return runWorkspaceScan(root)
 		}

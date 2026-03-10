@@ -149,6 +149,8 @@ func extractComplexity(e domain.Evidence) float64 {
 // extractCoverage pulls coverage from test evidence.
 func extractCoverage(e domain.Evidence) float64 {
 	var coverage float64
-	_, _ = fmt.Sscanf(e.Summary, "%*s %*d/%*d passed (%f%% coverage)", &coverage)
+	if _, err := fmt.Sscanf(e.Summary, "%*s %*d/%*d passed (%f%% coverage)", &coverage); err != nil {
+		return 0 // summary doesn't match coverage pattern
+	}
 	return coverage / 100
 }

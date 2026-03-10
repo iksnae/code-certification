@@ -57,13 +57,14 @@ type certifyFlags struct {
 }
 
 func getCertifyFlags(cmd *cobra.Command) certifyFlags {
-	path, _ := cmd.Flags().GetString("path")
-	skipAgent, _ := cmd.Flags().GetBool("skip-agent")
-	batch, _ := cmd.Flags().GetInt("batch")
-	resetQueue, _ := cmd.Flags().GetBool("reset-queue")
-	target, _ := cmd.Flags().GetStringSlice("target")
-	diffBase, _ := cmd.Flags().GetString("diff-base")
-	return certifyFlags{path: path, skipAgent: skipAgent, batch: batch, resetQueue: resetQueue, target: target, diffBase: diffBase}
+	return certifyFlags{
+		path:       flagString(cmd, "path"),
+		skipAgent:  flagBool(cmd, "skip-agent"),
+		batch:      flagInt(cmd, "batch"),
+		resetQueue: flagBool(cmd, "reset-queue"),
+		target:     flagStringSlice(cmd, "target"),
+		diffBase:   flagString(cmd, "diff-base"),
+	}
 }
 
 // certifyContext holds all loaded state for a certification run.
@@ -80,7 +81,7 @@ type certifyContext struct {
 
 func runCertify(cmd *cobra.Command, args []string) error {
 	flags := getCertifyFlags(cmd)
-	wsMode, _ := cmd.Flags().GetBool("workspace")
+	wsMode := flagBool(cmd, "workspace")
 	if wsMode {
 		return runWorkspaceCertify(cmd, flags)
 	}
@@ -117,7 +118,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	repo := detectRepoName(ctx.root)
 	commit := detectCommit(ctx.root)
 	if err := engine.SaveReportArtifactsFromStore(ctx.certDir, ctx.certifier.Store, repo, commit, now); err == nil {
-		if n, _ := os.ReadDir(filepath.Join(ctx.certDir, "reports")); len(n) > 0 {
+		if n, err := os.ReadDir(filepath.Join(ctx.certDir, "reports")); err == nil && len(n) > 0 {
 			fmt.Printf("✓ Unit certificates written to %s\n", filepath.Join(ctx.certDir, "reports"))
 		}
 	}
@@ -465,7 +466,7 @@ func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
 			return nil
 		}
 	} else if !isLocal {
-		apiKey, _ = agent.DetectAPIKey() //nolint: second return is env var name, not error
+		apiKey = detectAPIKeyOnly()
 		if apiKey == "" {
 			fmt.Fprintf(os.Stderr, "  Agent review configured but no API key found — skipping\n")
 			return nil
@@ -563,4 +564,11 @@ func buildCertificationRun(runID string, startedAt time.Time, commit string, pol
 	}
 
 	return run
+}
+
+// detectAPIKeyOnly wraps agent.DetectAPIKey() returning only the key.
+// DetectAPIKey returns (key, envVarName) — we only need the key here.
+func detectAPIKeyOnly() string {
+	key, _ := agent.DetectAPIKey()
+	return key
 }

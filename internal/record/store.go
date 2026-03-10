@@ -448,12 +448,20 @@ func evidenceToJSON(ev domain.Evidence) evidenceJSON {
 }
 
 func evidenceFromJSON(ej evidenceJSON) domain.Evidence {
-	kind, _ := domain.ParseEvidenceKind(ej.Kind)
-	ts, _ := time.Parse(time.RFC3339, ej.Timestamp)
+	kind, err := domain.ParseEvidenceKind(ej.Kind)
+	if err != nil {
+		kind = domain.EvidenceKindLint // fallback for unknown kinds
+	}
+	ts, err := time.Parse(time.RFC3339, ej.Timestamp)
+	if err != nil {
+		ts = time.Time{} // zero time for unparseable timestamps
+	}
 
 	var details any
 	if len(ej.Details) > 0 {
-		_ = json.Unmarshal(ej.Details, &details)
+		if err := json.Unmarshal(ej.Details, &details); err != nil {
+			details = nil // graceful fallback: raw details not parseable
+		}
 	}
 
 	return domain.Evidence{
