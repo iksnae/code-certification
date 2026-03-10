@@ -12,8 +12,12 @@ import (
 )
 
 // ToolExecutor runs external tools and collects evidence.
+// After CollectAll(), raw lint findings and coverage profile are retained
+// for per-unit attribution by the certification pipeline.
 type ToolExecutor struct {
-	root string
+	root             string
+	rawLintFindings  []LintFinding
+	rawCoverProfile  string
 }
 
 // NewToolExecutor creates a tool executor rooted at the given directory.
@@ -72,6 +76,7 @@ func (te *ToolExecutor) runGoVet() *domain.Evidence {
 	}
 
 	result := ParseGoVet(string(output), exitCode)
+	te.rawLintFindings = append(te.rawLintFindings, result.Findings...)
 	ev := result.ToEvidence()
 	return &ev
 }
@@ -105,7 +110,8 @@ func (te *ToolExecutor) runGoTest() *domain.Evidence {
 	coverCmd.Run() // Best effort
 
 	if data, err := os.ReadFile(coverFile); err == nil {
-		result.Coverage = ParseCoverProfile(string(data))
+		te.rawCoverProfile = string(data)
+		result.Coverage = ParseCoverProfile(te.rawCoverProfile)
 	}
 
 	ev := result.ToEvidence()
@@ -125,6 +131,7 @@ func (te *ToolExecutor) runGolangciLint() *domain.Evidence {
 	output, _ := cmd.CombinedOutput()
 
 	result := ParseGolangciLintJSON(string(output))
+	te.rawLintFindings = append(te.rawLintFindings, result.Findings...)
 	ev := result.ToEvidence()
 	return &ev
 }
@@ -155,4 +162,16 @@ func (te *ToolExecutor) runGitStats() *domain.Evidence {
 	stats := ParseGitLogWithAge(string(output), earliest)
 	ev := stats.ToEvidence()
 	return &ev
+}
+
+// LintFindings returns all lint findings collected during CollectAll().
+// Returns nil if no lint tools were run or found no issues.
+func (te *ToolExecutor) LintFindings() []LintFinding {
+	return te.rawLintFindings
+}
+
+// CoverageProfile returns the raw Go coverage profile collected during CollectAll().
+// Returns empty string if coverage was not collected.
+func (te *ToolExecutor) CoverageProfile() string {
+	return te.rawCoverProfile
 }
