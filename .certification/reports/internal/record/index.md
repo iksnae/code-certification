@@ -2,42 +2,42 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
+**Grade:** 🟢 B (87.0%)  
 **Units:** 29 · **Passing:** 29 / 29
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [store_test.go](store_test.go.md) | file | 🟢 B | 84.3% | certified | 2026-04-24 |
-| [Store](store.go/Store.md) | class | 🟢 B | 86.4% | certified | 2026-04-24 |
-| [SaveSnapshot](store.go/SaveSnapshot.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [listAllFromDir](store.go/listAllFromDir.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [LoadHistory](store.go/LoadHistory.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [LoadRuns](store.go/LoadRuns.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [evidenceJSON](store.go/evidenceJSON.md) | class | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [historyEntry](store.go/historyEntry.md) | class | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [NewStoreWithSnapshot](store.go/NewStoreWithSnapshot.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [Save](store.go/Save.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [LoadSnapshot](store.go/LoadSnapshot.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [Load](store.go/Load.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [dimensionsToMap](store.go/dimensionsToMap.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [evidenceFromJSON](store.go/evidenceFromJSON.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [AppendHistory](store.go/AppendHistory.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [evidenceToJSON](store.go/evidenceToJSON.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [fromJSON](store.go/fromJSON.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [NewStore](store.go/NewStore.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [historyPathFor](store.go/historyPathFor.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [ListAll](store.go/ListAll.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [listAllFromSnapshot](store.go/listAllFromSnapshot.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [mapToDimensions](store.go/mapToDimensions.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [parseGrade](store.go/parseGrade.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [pathFor](store.go/pathFor.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [recordJSON](store.go/recordJSON.md) | class | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [runsPath](store.go/runsPath.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [snapshotJSON](store.go/snapshotJSON.md) | class | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [toJSON](store.go/toJSON.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [AppendRun](store.go/AppendRun.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [AppendRun](store.go/AppendRun.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
+| [store_test.go](store_test.go.md) | file | 🟢 B | 82.8% | certified | 2026-04-24 |
+| [AppendHistory](store.go/AppendHistory.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
+| [Store](store.go/Store.md) | class | 🟢 B | 84.4% | certified | 2026-04-24 |
+| [SaveSnapshot](store.go/SaveSnapshot.md) | method | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [listAllFromDir](store.go/listAllFromDir.md) | method | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [LoadHistory](store.go/LoadHistory.md) | method | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [LoadRuns](store.go/LoadRuns.md) | method | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [evidenceJSON](store.go/evidenceJSON.md) | class | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [Load](store.go/Load.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [NewStoreWithSnapshot](store.go/NewStoreWithSnapshot.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [NewStore](store.go/NewStore.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [dimensionsToMap](store.go/dimensionsToMap.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [evidenceFromJSON](store.go/evidenceFromJSON.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [LoadSnapshot](store.go/LoadSnapshot.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [evidenceToJSON](store.go/evidenceToJSON.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [fromJSON](store.go/fromJSON.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [historyEntry](store.go/historyEntry.md) | class | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [historyPathFor](store.go/historyPathFor.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [Save](store.go/Save.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [listAllFromSnapshot](store.go/listAllFromSnapshot.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [mapToDimensions](store.go/mapToDimensions.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [parseGrade](store.go/parseGrade.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [pathFor](store.go/pathFor.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [recordJSON](store.go/recordJSON.md) | class | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [runsPath](store.go/runsPath.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [snapshotJSON](store.go/snapshotJSON.md) | class | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [toJSON](store.go/toJSON.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [ListAll](store.go/ListAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
 
 ---
 
