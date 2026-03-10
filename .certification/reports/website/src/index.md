@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
+**Grade:** 🟢 B+ (87.8%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [collections](content.config.ts/collections.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-23 |
+| [collections](content.config.ts/collections.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
 
 ---
 

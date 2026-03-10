@@ -2,15 +2,15 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
+**Grade:** 🟢 B (86.7%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertifyCodeLensProvider](CertifyCodeLensProvider.ts/CertifyCodeLensProvider.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [showDimensionScores](CertifyCodeLensProvider.ts/showDimensionScores.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [CertifyCodeLensProvider](CertifyCodeLensProvider.ts/CertifyCodeLensProvider.md) | class | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [showDimensionScores](CertifyCodeLensProvider.ts/showDimensionScores.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |
 
 ---
 

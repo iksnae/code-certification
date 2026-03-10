@@ -2,14 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
+**Grade:** 🟢 B (86.1%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DashboardPanel](DashboardPanel.ts/DashboardPanel.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [DashboardPanel](DashboardPanel.ts/DashboardPanel.md) | class | 🟢 B | 86.1% | certified | 2026-04-24 |
 
 ---
 
