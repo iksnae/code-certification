@@ -279,8 +279,9 @@ func writeAllUnits(b *strings.Builder, r FullReport) {
 			if name == "" {
 				name = shortFile(u.Path)
 			}
-			fmt.Fprintf(b, "| `%s` | %s | %s | %.1f%% | %s | %s |\n",
-				name, u.UnitType, u.Grade, u.Score*100, u.Status, u.ExpiresAt[:10])
+			anchor := unitAnchor(u)
+			fmt.Fprintf(b, "| [`%s`](#%s) | %s | %s | %.1f%% | %s | %s |\n",
+				name, anchor, u.UnitType, u.Grade, u.Score*100, u.Status, u.ExpiresAt[:10])
 		}
 		b.WriteString("\n")
 		writeUnitDetails(b, units)
@@ -352,7 +353,8 @@ func writeUnitDetails(b *strings.Builder, units []UnitReport) {
 		if len(u.Observations) == 0 && u.Status == "certified" {
 			continue
 		}
-		fmt.Fprintf(b, "<details>\n<summary>%s — %s details</summary>\n\n", u.Symbol, u.Status)
+		anchor := unitAnchor(u)
+		fmt.Fprintf(b, "<a id=\"%s\"></a>\n<details>\n<summary>%s — %s details</summary>\n\n", anchor, u.Symbol, u.Status)
 		if len(u.Dimensions) > 0 {
 			b.WriteString("| Dimension | Score |\n|-----------|------:|\n")
 			for _, d := range sortedKeys(u.Dimensions) {
@@ -385,6 +387,25 @@ func shortFile(path string) string {
 		return path
 	}
 	return path[idx+1:]
+}
+
+// unitAnchor generates a stable, GitHub-compatible anchor ID for a unit.
+func unitAnchor(u UnitReport) string {
+	// Use path + symbol for uniqueness, sanitized for HTML IDs
+	raw := u.Path
+	if u.Symbol != "" {
+		raw += "-" + u.Symbol
+	}
+	var sb strings.Builder
+	for _, r := range strings.ToLower(raw) {
+		switch {
+		case r >= 'a' && r <= 'z', r >= '0' && r <= '9':
+			sb.WriteRune(r)
+		case r == '/' || r == '.' || r == '_' || r == '-' || r == ' ':
+			sb.WriteRune('-')
+		}
+	}
+	return sb.String()
 }
 
 func sortedKeys(m map[string]float64) []string {
