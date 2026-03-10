@@ -1,34 +1,35 @@
-# Release v0.1.5
+# Release v0.1.6
 
 **Date:** 2026-03-09
 
 ## Highlights
 
-The VS Code extension's AI provider configuration has moved from a custom webview panel to native VS Code Settings — searchable, familiar, and synced with `.certification/config.yml`.
+Provider configuration restored and improved — the visual configurator is back alongside new VS Code Settings integration. Documentation updated across the entire project to reflect all 10 supported AI providers.
 
 ## What's Changed
 
-### Features
+### Bug Fixes
 
-- **feat(vscode): native Settings UI for AI provider config** — All provider configuration now lives in VS Code Settings (`Ctrl+,` → search "certify"). Select a preset, set your model, and choose a strategy — all from the standard settings editor. ([#41ced73](../../commit/41ced73))
+- **fix(vscode): restore ConfigPanel for provider configuration** — The visual configurator webview was accidentally removed in v0.1.5. It's back, and now syncs saved config into VS Code Settings bidirectionally. ([#23010ad](../../commit/23010ad))
 
-  - **Provider presets** — Dropdown with 10 presets (OpenRouter, Groq, Ollama, LM Studio, etc.) that auto-fill base URL and API key env var
-  - **Browse Models** — `Certify: Browse Available Models` now uses a native QuickPick with search instead of a webview list
-  - **Test Connection** — New `Certify: Test Provider Connection` command with notification feedback
-  - **Settings sync** — Changes in VS Code Settings automatically sync to `.certification/config.yml`; existing config.yml values bootstrap into settings on activation
+### Improvements
 
-### Removed
+- **docs: comprehensive provider documentation** — All 10 supported providers (OpenRouter, OpenAI, Google AI Studio, Groq, Together, Fireworks, Ollama, LM Studio, vLLM, Custom) are now consistently documented across README, extension README, website docs, and troubleshooting guide. ([#ca969fb](../../commit/ca969fb))
 
-- **ConfigPanel webview** — The custom HTML/CSS/JS webview panel has been removed in favor of native settings
+- **docs: multi-provider config examples** — Configuration reference now includes OpenAI, OpenRouter, and local Ollama examples side by side. Troubleshooting updated with API key setup for all major providers. ([#ca969fb](../../commit/ca969fb))
 
-## Upgrade Notes
+## VS Code Extension (v0.1.6)
 
-- Your existing `.certification/config.yml` values will auto-populate into VS Code Settings on first activation
-- Use `Ctrl+,` (or `Cmd+,`) → search `certify.provider` to configure your AI provider
-- The `Certify: Configure AI Provider` command now opens Settings instead of a webview
+- ConfigPanel restored for guided provider setup
+- ConfigPanel saves now sync into VS Code Settings
+- Both configuration paths work: visual configurator + native Settings
+- `Certify: Test Provider Connection` command added
+- All 6 new settings documented: `provider.preset`, `provider.baseUrl`, `provider.apiKeyEnvVar`, `agent.enabled`, `agent.model`, `agent.strategy`
 
 ## Full Changelog
 
 ```
-41ced73 feat(vscode): move AI provider config to native VS Code settings
+ca969fb docs: update provider docs across repo + extension
+23010ad fix(vscode): restore ConfigPanel for provider configuration
+2c5c7e2 chore(vscode): bump extension version to 0.1.4
 ```
