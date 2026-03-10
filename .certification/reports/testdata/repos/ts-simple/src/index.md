@@ -2,19 +2,19 @@
 
 [← All Packages](../../../../index.md) · [← Report Card](../../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.7%)  
+**Grade:** 🟢 A (93.3%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DialogueParser](parser.ts/DialogueParser.md) | class | 🟢 A- | 91.7% | certified | 2026-04-24 |
-| [MAX_TOKENS](parser.ts/MAX_TOKENS.md) | function | 🟢 A- | 91.7% | certified | 2026-04-24 |
-| [parseNode](parser.ts/parseNode.md) | function | 🟢 A- | 91.7% | certified | 2026-04-24 |
-| [tokenizeDialogue](parser.ts/tokenizeDialogue.md) | function | 🟢 A- | 91.7% | certified | 2026-04-24 |
-| [formatDate](utils.ts/formatDate.md) | function | 🟢 A- | 91.7% | certified | 2026-04-24 |
-| [log](utils.ts/log.md) | function | 🟢 A- | 91.7% | certified | 2026-04-24 |
+| [DialogueParser](parser.ts/DialogueParser.md) | class | 🟢 A | 93.3% | certified | 2026-04-24 |
+| [MAX_TOKENS](parser.ts/MAX_TOKENS.md) | function | 🟢 A | 93.3% | certified | 2026-04-24 |
+| [parseNode](parser.ts/parseNode.md) | function | 🟢 A | 93.3% | certified | 2026-04-24 |
+| [tokenizeDialogue](parser.ts/tokenizeDialogue.md) | function | 🟢 A | 93.3% | certified | 2026-04-24 |
+| [formatDate](utils.ts/formatDate.md) | function | 🟢 A | 93.3% | certified | 2026-04-24 |
+| [log](utils.ts/log.md) | function | 🟢 A | 93.3% | certified | 2026-04-24 |
 
 ---
 

@@ -536,10 +536,10 @@ func isConstLikeCall(call *ast.CallExpr) bool {
 	}
 	// Known immutable constructors
 	constLikeConstructors := map[string]bool{
-		"errors.New":          true,
-		"fmt.Errorf":          true,
-		"regexp.MustCompile":  true,
-		"regexp.Compile":      true,
+		"errors.New":         true,
+		"fmt.Errorf":         true,
+		"regexp.MustCompile": true,
+		"regexp.Compile":     true,
 	}
 	if constLikeConstructors[name] {
 		return true

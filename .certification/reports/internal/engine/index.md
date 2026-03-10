@@ -2,33 +2,33 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
+**Grade:** 🟢 A- (90.8%)  
 **Units:** 20 · **Passing:** 20 / 20
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [scorer_test.go](scorer_test.go.md) | file | 🟢 B | 85.7% | certified | 2026-04-24 |
-| [certifier_test.go](certifier_test.go.md) | file | 🟢 B | 85.7% | certified | 2026-04-24 |
-| [Score](scorer.go/Score.md) | function | 🟢 B | 86.4% | certified | 2026-04-24 |
-| [extractSummaryInt](scorer.go/extractSummaryInt.md) | function | 🟢 B | 86.4% | certified | 2026-04-24 |
-| [Certify](certifier.go/Certify.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [scoreFromMetrics](scorer.go/scoreFromMetrics.md) | function | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [extractSummaryFloat](scorer.go/extractSummaryFloat.md) | function | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [CertifyUnit](pipeline.go/CertifyUnit.md) | function | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [pipeline_test.go](pipeline_test.go.md) | file | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [StatusFromScore](scorer.go/StatusFromScore.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [Certifier](certifier.go/Certifier.md) | class | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [SaveReportArtifactsFromStore](certifier.go/SaveReportArtifactsFromStore.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [SaveReportArtifacts](certifier.go/SaveReportArtifacts.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [metricOrSummaryFloat](scorer.go/metricOrSummaryFloat.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [metricOrSummaryInt](scorer.go/metricOrSummaryInt.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [scorer_test.go](scorer_test.go.md) | file | 🟢 B+ | 87.1% | certified | 2026-04-24 |
+| [certifier_test.go](certifier_test.go.md) | file | 🟢 B+ | 87.1% | certified | 2026-04-24 |
+| [extractSummaryInt](scorer.go/extractSummaryInt.md) | function | 🟢 B+ | 87.9% | certified | 2026-04-24 |
+| [Score](scorer.go/Score.md) | function | 🟢 B+ | 87.9% | certified | 2026-04-24 |
+| [extractSummaryFloat](scorer.go/extractSummaryFloat.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [Certify](certifier.go/Certify.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [scoreFromMetrics](scorer.go/scoreFromMetrics.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
 | [scoreFromGitHistory](scorer.go/scoreFromGitHistory.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [CollectRepoEvidence](certifier.go/CollectRepoEvidence.md) | method | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [scoreFromStructural](scorer.go/scoreFromStructural.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [severityPenalty](scorer.go/severityPenalty.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [CertifyResult](certifier.go/CertifyResult.md) | class | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [CertifyUnit](pipeline.go/CertifyUnit.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [pipeline_test.go](pipeline_test.go.md) | file | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [SaveReportArtifactsFromStore](certifier.go/SaveReportArtifactsFromStore.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [StatusFromScore](scorer.go/StatusFromScore.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [Certifier](certifier.go/Certifier.md) | class | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [metricOrSummaryFloat](scorer.go/metricOrSummaryFloat.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [metricOrSummaryInt](scorer.go/metricOrSummaryInt.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [SaveReportArtifacts](certifier.go/SaveReportArtifacts.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [CollectRepoEvidence](certifier.go/CollectRepoEvidence.md) | method | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [scoreFromStructural](scorer.go/scoreFromStructural.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [severityPenalty](scorer.go/severityPenalty.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [CertifyResult](certifier.go/CertifyResult.md) | class | 🟢 A- | 92.1% | certified | 2026-04-24 |
 
 ---
 

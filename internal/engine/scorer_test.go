@@ -52,11 +52,11 @@ func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
 	// architectural_fitness should only appear when there's a violation
 	cleanEv := []domain.Evidence{
 		{
-			Kind:    domain.EvidenceKindStructural,
-			Source:  "structural",
-			Passed:  true,
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
 			Metrics: map[string]float64{
-				"method_count":     5,
+				"method_count":      5,
 				"context_not_first": 0,
 			},
 		},
@@ -72,13 +72,13 @@ func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
 	// But when violations exist, the penalty dims should appear
 	badEv := []domain.Evidence{
 		{
-			Kind:    domain.EvidenceKindStructural,
-			Source:  "structural",
-			Passed:  true,
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
 			Metrics: map[string]float64{
-				"method_count":     20,
+				"method_count":      20,
 				"context_not_first": 1,
-				"defer_in_loop":    1,
+				"defer_in_loop":     1,
 			},
 		},
 	}
@@ -106,9 +106,9 @@ func TestScorer_SecurityOnlyWhenMeasured(t *testing.T) {
 	// Security should appear when structural evidence checks global state
 	cleanGlobals := []domain.Evidence{
 		{
-			Kind:    domain.EvidenceKindStructural,
-			Source:  "structural",
-			Passed:  true,
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
 			Metrics: map[string]float64{
 				"global_mutable_count": 0,
 			},
@@ -122,9 +122,9 @@ func TestScorer_SecurityOnlyWhenMeasured(t *testing.T) {
 	// With globals, security should be penalized
 	dirtyGlobals := []domain.Evidence{
 		{
-			Kind:    domain.EvidenceKindStructural,
-			Source:  "structural",
-			Passed:  true,
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
 			Metrics: map[string]float64{
 				"global_mutable_count": 5,
 			},
