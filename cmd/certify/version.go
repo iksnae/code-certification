@@ -38,6 +38,10 @@ var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Print version information",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("certify %s (commit: %s, built: %s)\n", Version, Commit, Date)
+		if Commit != "unknown" {
+			fmt.Printf("certify %s (commit: %s, built: %s)\n", Version, Commit, Date)
+		} else {
+			fmt.Printf("certify %s\n", Version)
+		}
 	},
 }
