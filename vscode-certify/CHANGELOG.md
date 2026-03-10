@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.7 — 2026-03-10
+
+### Fixed
+- **Unified LanguageDetail type**: `LanguageCard` interface removed. `CertifyCard.languages` now uses `LanguageDetail[]` matching the Go CLI JSON output. Prevents type mismatch when reading `certify report --format json`.
+
+### Changed
+- **Dashboard language table**: Now shows a **Passing** column (e.g. `559/559`) alongside Units, Grade, and Avg Score.
+- **Local data loader**: Builds full `LanguageDetail` with `passing` count, `grade_distribution`, `top_score`, and `bottom_score` when constructing reports from raw records.
+
 ## 0.1.5 — 2026-03-09
 
 ### Changed
