@@ -5,9 +5,10 @@ import { CertificationTreeProvider } from './treeView/CertificationTreeProvider.
 import { CertifyCodeLensProvider, showDimensionScores } from './codeLens/CertifyCodeLensProvider.js';
 import { CertifyDiagnostics } from './diagnostics/CertifyDiagnostics.js';
 import { DashboardPanel } from './dashboard/DashboardPanel.js';
-import { ConfigPanel } from './config/ConfigPanel.js';
-import { findCertifyBinary, runInTerminal, promptInstall } from './certifyBinary.js';
-import type { RecordJSON } from './types.js';
+import { activateSettingsSync, bootstrapFromConfig } from './config/settingsSync.js';
+import { testConnection } from './config/configWriter.js';
+import { findCertifyBinary, runInTerminal, promptInstall, listModels } from './certifyBinary.js';
+import type { RecordJSON, ModelInfo } from './types.js';
 
 export function activate(context: vscode.ExtensionContext): void {
   const workspaceFolders = vscode.workspace.workspaceFolders;
@@ -49,7 +50,7 @@ export function activate(context: vscode.ExtensionContext): void {
     }),
 
     vscode.commands.registerCommand('certify.configureProvider', () => {
-      ConfigPanel.createOrShow(workspaceRoot, context.secrets);
+      vscode.commands.executeCommand('workbench.action.openSettings', '@ext:iksnae.certify-vscode certify.provider');
     }),
 
     vscode.commands.registerCommand('certify.scan', async () => {
@@ -74,8 +75,85 @@ export function activate(context: vscode.ExtensionContext): void {
       DashboardPanel.createOrShow(dataLoader);
     }),
 
-    vscode.commands.registerCommand('certify.listModels', () => {
-      ConfigPanel.createOrShow(workspaceRoot, context.secrets);
+    vscode.commands.registerCommand('certify.listModels', async () => {
+      const cfg = vscode.workspace.getConfiguration('certify');
+      const baseUrl = cfg.get<string>('provider.baseUrl', '');
+      const apiKeyEnv = cfg.get<string>('provider.apiKeyEnvVar', '');
+
+      if (!baseUrl) {
+        const action = await vscode.window.showWarningMessage(
+          'No provider configured. Set up a provider first.',
+          'Open Settings',
+        );
+        if (action === 'Open Settings') {
+          vscode.commands.executeCommand('workbench.action.openSettings', '@ext:iksnae.certify-vscode certify.provider');
+        }
+        return;
+      }
+
+      try {
+        const models = await vscode.window.withProgress(
+          { location: vscode.ProgressLocation.Notification, title: 'Fetching models...' },
+          () => listModels(baseUrl, apiKeyEnv || undefined, workspaceRoot),
+        );
+
+        if (!models.length) {
+          vscode.window.showWarningMessage('No models found at the configured provider.');
+          return;
+        }
+
+        const items = models.map((m: ModelInfo) => ({
+          label: m.id,
+          description: [
+            m.owned_by ? `by ${m.owned_by}` : '',
+            m.context_window ? `${Math.round(m.context_window / 1000)}k ctx` : '',
+          ].filter(Boolean).join(' · '),
+        }));
+
+        const picked = await vscode.window.showQuickPick(items, {
+          title: 'Certify: Select Model',
+          placeHolder: 'Search models...',
+          matchOnDescription: true,
+        });
+
+        if (picked) {
+          await cfg.update('agent.model', picked.label, vscode.ConfigurationTarget.Workspace);
+          vscode.window.showInformationMessage(`Certify: Model set to ${picked.label}`);
+        }
+      } catch (err) {
+        vscode.window.showErrorMessage(`Failed to fetch models: ${(err as Error).message}`);
+      }
+    }),
+
+    vscode.commands.registerCommand('certify.testConnection', async () => {
+      const cfg = vscode.workspace.getConfiguration('certify');
+      const baseUrl = cfg.get<string>('provider.baseUrl', '');
+      const apiKeyEnv = cfg.get<string>('provider.apiKeyEnvVar', '');
+
+      if (!baseUrl) {
+        const action = await vscode.window.showWarningMessage(
+          'No provider configured. Set up a provider first.',
+          'Open Settings',
+        );
+        if (action === 'Open Settings') {
+          vscode.commands.executeCommand('workbench.action.openSettings', '@ext:iksnae.certify-vscode certify.provider');
+        }
+        return;
+      }
+
+      const apiKey = apiKeyEnv ? process.env[apiKeyEnv] ?? '' : '';
+
+      const result = await vscode.window.withProgress(
+        { location: vscode.ProgressLocation.Notification, title: 'Testing connection...' },
+        () => testConnection(baseUrl, apiKey || undefined),
+      );
+
+      if (result.ok) {
+        const detail = result.modelCount ? ` (${result.modelCount} models, ${result.latencyMs}ms)` : ` (${result.latencyMs}ms)`;
+        vscode.window.showInformationMessage(`✓ Connected to provider${detail}`);
+      } else {
+        vscode.window.showErrorMessage(`✗ Connection failed: ${result.error}`);
+      }
     }),
 
     vscode.commands.registerCommand('certify.installCLI', () => {
@@ -95,6 +173,10 @@ export function activate(context: vscode.ExtensionContext): void {
       showDimensionScores(record);
     }),
   );
+
+  // Settings sync: VS Code settings ↔ .certification/config.yml
+  activateSettingsSync(context, workspaceRoot);
+  bootstrapFromConfig(workspaceRoot);
 
   // Cleanup
   context.subscriptions.push({ dispose: () => dataLoader.dispose() });
