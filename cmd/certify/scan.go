@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"github.com/iksnae/code-certification/internal/agent"
@@ -45,27 +46,19 @@ var scanCmd = &cobra.Command{
 		}
 		allUnits = append(allUnits, fileUnits)
 
-		// Run language-specific adapters based on detection
+		// Run language-specific adapters based on detection (polymorphic dispatch)
+		scanners := discovery.Scanners()
 		for _, adapter := range adapters {
-			switch adapter {
-			case "go":
-				goAdapter := discovery.NewGoAdapter()
-				goUnits, err := goAdapter.Scan(root)
-				if err != nil {
-					fmt.Fprintf(os.Stderr, "warning: Go adapter: %v\n", err)
-				} else {
-					allUnits = append(allUnits, goUnits)
-					fmt.Printf("  Go adapter: %d symbols\n", len(goUnits))
-				}
-			case "ts":
-				tsAdapter := discovery.NewTSAdapter()
-				tsUnits, err := tsAdapter.Scan(root)
-				if err != nil {
-					fmt.Fprintf(os.Stderr, "warning: TS adapter: %v\n", err)
-				} else {
-					allUnits = append(allUnits, tsUnits)
-					fmt.Printf("  TS adapter: %d symbols\n", len(tsUnits))
-				}
+			s, ok := scanners[adapter]
+			if !ok {
+				continue
+			}
+			units, err := s.Scan(root)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "warning: %s adapter: %v\n", strings.ToUpper(adapter), err)
+			} else {
+				allUnits = append(allUnits, units)
+				fmt.Printf("  %s adapter: %d symbols\n", strings.ToUpper(adapter), len(units))
 			}
 		}
 

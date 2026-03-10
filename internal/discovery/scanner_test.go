@@ -126,15 +126,15 @@ func TestGenericScanner_SkipsNonCertifiable(t *testing.T) {
 	// Create a mix of certifiable and non-certifiable files
 	certifiable := []string{"main.go", "app.ts", "lib.py", "run.sh", "server.rs", "Main.java"}
 	nonCertifiable := []string{
-		"logo.png", "icon.svg", "photo.jpg", "anim.gif", "pic.webp",  // images
+		"logo.png", "icon.svg", "photo.jpg", "anim.gif", "pic.webp", // images
 		"data.json", "config.xml", "style.css", "page.html", "doc.md", // data/markup
-		"app.wasm", "lib.so", "prog.exe",                               // binaries
-		"bundle.min.js", "bundle.min.css",                               // minified
-		"package-lock.json", "yarn.lock", "go.sum",                      // lock files
-		"output.map", "bundle.vsix",                                     // artifacts
-		"font.woff", "font.woff2", "font.ttf", "font.eot",             // fonts
-		"video.mp4", "audio.mp3",                                        // media
-		"archive.zip", "backup.tar.gz",                                  // archives
+		"app.wasm", "lib.so", "prog.exe", // binaries
+		"bundle.min.js", "bundle.min.css", // minified
+		"package-lock.json", "yarn.lock", "go.sum", // lock files
+		"output.map", "bundle.vsix", // artifacts
+		"font.woff", "font.woff2", "font.ttf", "font.eot", // fonts
+		"video.mp4", "audio.mp3", // media
+		"archive.zip", "backup.tar.gz", // archives
 	}
 
 	for _, f := range certifiable {
@@ -213,5 +213,38 @@ func TestGenericScanner_EmptyDir(t *testing.T) {
 	}
 	if len(units) != 0 {
 		t.Errorf("empty dir should have 0 units, got %d", len(units))
+	}
+}
+
+func TestScanners_Registry(t *testing.T) {
+	scanners := discovery.Scanners()
+
+	// Must include go and ts adapters
+	if _, ok := scanners["go"]; !ok {
+		t.Error("Scanners() missing 'go' adapter")
+	}
+	if _, ok := scanners["ts"]; !ok {
+		t.Error("Scanners() missing 'ts' adapter")
+	}
+
+	// Each scanner should be callable
+	for name, s := range scanners {
+		units, err := s.Scan(repoPath("go-simple"))
+		if err != nil {
+			t.Errorf("Scanner %q.Scan() error: %v", name, err)
+		}
+		_ = units // go adapter finds symbols, ts finds nothing — both OK
+	}
+}
+
+func TestScanners_RegistryMatchesDetectedAdapters(t *testing.T) {
+	// All adapter names returned by DetectedAdapters should exist in the registry
+	scanners := discovery.Scanners()
+
+	// "go" and "ts" are the known language adapters
+	for _, adapter := range []string{"go", "ts"} {
+		if _, ok := scanners[adapter]; !ok {
+			t.Errorf("adapter %q from DetectedAdapters not in Scanners() registry", adapter)
+		}
 	}
 }

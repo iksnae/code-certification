@@ -14,6 +14,16 @@ type Scanner interface {
 	Scan(root string) ([]domain.Unit, error)
 }
 
+// Scanners returns a registry mapping adapter names to Scanner implementations.
+// Use this for polymorphic dispatch instead of switch statements on adapter names.
+// GenericScanner is excluded because it requires config params and always runs unconditionally.
+func Scanners() map[string]Scanner {
+	return map[string]Scanner{
+		"go": NewGoAdapter(),
+		"ts": NewTSAdapter(),
+	}
+}
+
 // Merge combines multiple unit lists, deduplicating by UnitID string.
 // When duplicate IDs exist, the more specific type wins (function > file).
 func Merge(lists ...UnitList) []domain.Unit {
