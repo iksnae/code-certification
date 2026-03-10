@@ -2,28 +2,28 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
+**Grade:** 🟢 B+ (88.5%)  
 **Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 B | 80.0% | certified | 2026-04-24 |
-| [matchPath](matcher.go/matchPath.md) | function | 🟢 B | 81.1% | certified | 2026-04-24 |
-| [extractComplexity](evaluator.go/extractComplexity.md) | function | 🟢 B | 82.8% | certified | 2026-04-24 |
-| [extractCoverage](evaluator.go/extractCoverage.md) | function | 🟢 B | 82.8% | certified | 2026-04-24 |
-| [extractMetric](evaluator.go/extractMetric.md) | function | 🟢 B | 84.4% | certified | 2026-04-24 |
-| [evaluator_test.go](evaluator_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-04-24 |
-| [matchesPack](matcher.go/matchesPack.md) | method | 🟢 B | 86.7% | certified | 2026-04-24 |
-| [matcher_test.go](matcher_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-24 |
-| [Evaluate](evaluator.go/Evaluate.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
-| [evaluateRule](evaluator.go/evaluateRule.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
-| [Match](matcher.go/Match.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
-| [Matcher](matcher.go/Matcher.md) | class | 🟢 B+ | 87.8% | certified | 2026-04-24 |
-| [NewMatcher](matcher.go/NewMatcher.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
-| [Packs](matcher.go/Packs.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
-| [EvaluationResult](evaluator.go/EvaluationResult.md) | class | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 B | 81.1% | certified | 2026-04-24 |
+| [matchPath](matcher.go/matchPath.md) | function | 🟢 B | 82.2% | certified | 2026-04-24 |
+| [extractComplexity](evaluator.go/extractComplexity.md) | function | 🟢 B | 85.0% | certified | 2026-04-24 |
+| [extractCoverage](evaluator.go/extractCoverage.md) | function | 🟢 B | 85.0% | certified | 2026-04-24 |
+| [extractMetric](evaluator.go/extractMetric.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-24 |
+| [evaluator_test.go](evaluator_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-04-24 |
+| [matchesPack](matcher.go/matchesPack.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-24 |
+| [matcher_test.go](matcher_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-04-24 |
+| [evaluateRule](evaluator.go/evaluateRule.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
+| [Evaluate](evaluator.go/Evaluate.md) | function | 🟢 A- | 91.7% | certified | 2026-04-24 |
+| [Match](matcher.go/Match.md) | method | 🟢 A- | 91.7% | certified | 2026-04-24 |
+| [Matcher](matcher.go/Matcher.md) | class | 🟢 A- | 91.7% | certified | 2026-04-24 |
+| [NewMatcher](matcher.go/NewMatcher.md) | function | 🟢 A- | 91.7% | certified | 2026-04-24 |
+| [Packs](matcher.go/Packs.md) | method | 🟢 A- | 91.7% | certified | 2026-04-24 |
+| [EvaluationResult](evaluator.go/EvaluationResult.md) | class | 🟢 A- | 91.7% | certified | 2026-04-24 |
 
 ---
 

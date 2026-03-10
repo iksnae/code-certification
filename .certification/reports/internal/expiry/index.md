@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Calculate](calculator.go/Calculate.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |
-| [calculator_test.go](calculator_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [Calculate](calculator.go/Calculate.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-24 |
+| [calculator_test.go](calculator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-04-24 |
 
 ---
 
