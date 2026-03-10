@@ -46,7 +46,7 @@ Examples:
 	RunE: runCertify,
 }
 
-func init() {
+func bindCertifyFlags() {
 	certifyCmd.Flags().StringVar(&certifyPath, "path", "", "Path to repository (default: current directory)")
 	certifyCmd.Flags().BoolVar(&certifySkipAgent, "skip-agent", false, "Skip agent-assisted review")
 	certifyCmd.Flags().IntVar(&certifyBatch, "batch", 0, "Max units to process per run (0=all)")

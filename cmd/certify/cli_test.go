@@ -7,6 +7,11 @@ import (
 	"testing"
 )
 
+func TestMain(m *testing.M) {
+	registerCommands()
+	os.Exit(m.Run())
+}
+
 func TestVersionCmd(t *testing.T) {
 	// Just verify it doesn't panic
 	versionCmd.Run(versionCmd, nil)

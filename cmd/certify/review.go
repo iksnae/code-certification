@@ -45,7 +45,6 @@ var reviewCmd = &cobra.Command{
 	},
 }
 
-func init() {
+func bindReviewFlags() {
 	reviewCmd.Flags().StringVar(&reviewPath, "path", "", "Path to repository (default: current directory)")
-	rootCmd.AddCommand(reviewCmd)
 }

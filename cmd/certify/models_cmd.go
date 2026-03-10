@@ -31,7 +31,7 @@ Examples:
 	RunE: runModels,
 }
 
-func init() {
+func bindModelsFlags() {
 	modelsCmd.Flags().StringVar(&modelsProviderURL, "provider-url", "", "Provider API base URL (e.g., https://openrouter.ai/api/v1)")
 	modelsCmd.Flags().StringVar(&modelsAPIKeyEnv, "api-key-env", "", "Environment variable containing the API key")
 }

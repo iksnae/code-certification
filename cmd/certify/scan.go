@@ -88,7 +88,7 @@ var scanCmd = &cobra.Command{
 	},
 }
 
-func init() {
+func bindScanFlags() {
 	scanCmd.Flags().StringVar(&scanPath, "path", "", "Path to repository (default: current directory)")
 }
 

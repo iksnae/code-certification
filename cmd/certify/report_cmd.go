@@ -174,7 +174,7 @@ Static site (for large repos):
 	},
 }
 
-func init() {
+func bindReportFlags() {
 	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "card", "Output format (card, full, json, text)")
 	reportCmd.Flags().StringVar(&reportPath, "path", "", "Path to repository (default: current directory)")
 	reportCmd.Flags().BoolVar(&reportDetailed, "detailed", false, "Include dimension breakdowns, risk analysis, expiring units")

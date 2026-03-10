@@ -56,9 +56,8 @@ var expireCmd = &cobra.Command{
 	},
 }
 
-func init() {
+func bindExpireFlags() {
 	expireCmd.Flags().StringVar(&expirePath, "path", "", "Path to repository (default: current directory)")
-	rootCmd.AddCommand(expireCmd)
 }
 
 func runWorkspaceExpire(root string) error {

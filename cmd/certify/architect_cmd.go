@@ -45,13 +45,12 @@ Examples:
 	RunE: runArchitect,
 }
 
-func init() {
+func bindArchitectFlags() {
 	architectCmd.Flags().StringVar(&architectPath, "path", "", "Path to repository (default: current directory)")
 	architectCmd.Flags().StringVar(&architectModel, "model", "", "Override model for all phases")
 	architectCmd.Flags().StringVar(&architectOutput, "output", "", "Output file path (default: .certification/ARCHITECT_REVIEW.md)")
 	architectCmd.Flags().IntVar(&architectPhase, "phase", 0, "Run specific phase (1-6, default: all)")
 	architectCmd.Flags().BoolVar(&architectVerbose, "verbose", false, "Print full LLM responses")
-	rootCmd.AddCommand(architectCmd)
 }
 
 func runArchitect(cmd *cobra.Command, args []string) error {

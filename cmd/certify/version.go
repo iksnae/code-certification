@@ -14,9 +14,8 @@ var (
 	Date    = "unknown"
 )
 
-func init() {
-	// When installed via `go install`, ldflags aren't set.
-	// Fall back to embedded build info from the Go toolchain.
+// bindVersionInfo populates version fields from build info when ldflags aren't set.
+func bindVersionInfo() {
 	if Version == "dev" {
 		if info, ok := debug.ReadBuildInfo(); ok {
 			if info.Main.Version != "" && info.Main.Version != "(devel)" {

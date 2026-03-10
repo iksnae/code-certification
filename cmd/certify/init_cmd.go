@@ -174,7 +174,7 @@ var initCmd = &cobra.Command{
 	},
 }
 
-func init() {
+func bindInitFlags() {
 	initCmd.Flags().StringVar(&initPath, "path", "", "Path to repository (default: current directory)")
 	initCmd.Flags().BoolVar(&initPR, "pr", false, "Create initialization as a pull request")
 }
