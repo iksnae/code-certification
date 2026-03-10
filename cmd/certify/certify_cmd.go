@@ -94,6 +94,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	fmt.Println("  Collecting repo-level evidence...")
 	ctx.repoEv = ctx.certifier.CollectRepoEvidence()
 	fmt.Printf("  Collected %d repo-level evidence items\n", len(ctx.repoEv))
+	fmt.Println()
 
 	certified, observations, failed, processed := ctx.processQueue(cmd, remaining)
 
@@ -233,6 +234,8 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certif
 		batchSize = certifyBatch
 	}
 
+	startTime := time.Now()
+
 	for processed < batchSize {
 		item, ok := c.wq.Next()
 		if !ok {
@@ -246,13 +249,10 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certif
 		}
 
 		processed++
-		if processed%20 == 0 || processed == batchSize {
-			fmt.Printf("\r  Processing... %d/%d", processed, batchSize)
-		}
 
 		result, err := c.certifier.Certify(cmd.Context(), unit, c.repoEv, now)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "\nwarning: certifying %s: %v\n", unit.ID, err)
+			fmt.Fprintf(os.Stderr, "\n  ✗ %s — error: %v\n", unit.ID, err)
 			c.wq.Fail(item.UnitID, err.Error())
 			failed++
 			c.wq.Save(c.queuePath)
@@ -260,15 +260,21 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certif
 		}
 
 		// Update queue based on agent result
+		agentTag := ""
 		if result.AgentReview != nil {
 			model := ""
 			if len(result.AgentReview.ModelsUsed) > 0 {
 				model = result.AgentReview.ModelsUsed[0]
 			}
-			if result.AgentReview.Reviewed || result.AgentReview.Prescreened {
+			if result.AgentReview.Reviewed {
 				c.wq.Complete(item.UnitID, model)
+				agentTag = fmt.Sprintf(" 🤖 %s", model)
+			} else if result.AgentReview.Prescreened {
+				c.wq.Complete(item.UnitID, model)
+				agentTag = " 🤖 prescreened"
 			} else {
 				c.wq.Skip(item.UnitID, "prescreen: no review needed")
+				agentTag = " 🤖 skipped"
 			}
 		} else {
 			c.wq.Complete(item.UnitID, "")
@@ -282,19 +288,72 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certif
 		default:
 			failed++
 		}
+
+		// Per-unit progress line
+		grade := result.Record.Grade.String()
+		emoji := gradeEmoji(grade)
+		elapsed := time.Since(startTime)
+		rate := float64(processed) / elapsed.Seconds()
+		eta := time.Duration(float64(batchSize-processed)/rate) * time.Second
+
+		obsTag := ""
+		if len(result.Record.Observations) > 0 {
+			obsTag = fmt.Sprintf(" ⚠ %d obs", len(result.Record.Observations))
+		}
+		failTag := ""
+		if !result.Record.Status.IsPassing() {
+			failTag = " ✗"
+		}
+
+		fmt.Printf("  [%d/%d] %s %-2s  %-55s %5.1f%%%s%s%s  (%.1f/s, ~%s)\n",
+			processed, batchSize,
+			emoji, grade,
+			unit.ID,
+			result.Record.Score*100,
+			agentTag, obsTag, failTag,
+			rate, formatETA(eta))
+
 		c.wq.Save(c.queuePath)
 	}
 	return
 }
 
+func formatETA(d time.Duration) string {
+	if d < time.Second {
+		return "<1s"
+	}
+	if d < time.Minute {
+		return fmt.Sprintf("%ds", int(d.Seconds()))
+	}
+	return fmt.Sprintf("%dm%ds", int(d.Minutes()), int(d.Seconds())%60)
+}
+
+func gradeEmoji(g string) string {
+	switch g {
+	case "A", "A-":
+		return "🟢"
+	case "B+", "B":
+		return "🟢"
+	case "C":
+		return "🟡"
+	case "D":
+		return "🟠"
+	case "F":
+		return "🔴"
+	default:
+		return "⚪"
+	}
+}
+
 func (c *certifyContext) printSummary(certified, observations, failed, processed int) {
 	total := certified + observations + failed
+	fmt.Println()
 	if c.certifier.Agent != nil {
 		filesReviewed, totalFiles, tokens := c.certifier.Agent.Stats()
-		fmt.Printf("\n  Agent: %d/%d files reviewed, %d tokens used\n", filesReviewed, totalFiles, tokens)
+		fmt.Printf("  🤖 Agent: %d/%d files reviewed, %d tokens used\n", filesReviewed, totalFiles, tokens)
 	}
 
-	fmt.Printf("\n  Processed %d units this run\n", processed)
+	fmt.Printf("  Processed %d units this run\n", processed)
 
 	finalStats := c.wq.Stats()
 	if finalStats.Pending > 0 {

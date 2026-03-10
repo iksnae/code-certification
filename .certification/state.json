@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-03-10T18:28:12Z",
-  "commit": "47d89d9",
+  "generated_at": "2026-03-10T18:42:55Z",
+  "commit": "252ce7f",
   "unit_count": 615,
   "records": [
     {
@@ -8569,7 +8569,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -8578,21 +8578,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -8609,25 +8609,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -8651,7 +8651,7 @@
             "todo_count": 0,
             "total_lines": 145
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
@@ -8660,10 +8660,10 @@
         "missing evidence for metric \"max_nesting_depth\"",
         "missing evidence for metric \"errors_ignored\""
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -8857,7 +8857,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -8866,21 +8866,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -8897,25 +8897,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -8939,7 +8939,7 @@
             "todo_count": 0,
             "total_lines": 6
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -8957,25 +8957,25 @@
           "kind": "structural",
           "source": "structural",
           "passed": true,
-          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
             "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
             "is_constructor": 0,
             "max_nesting_depth": 0,
             "naked_returns": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -9799,7 +9799,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -9808,21 +9808,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -9839,25 +9839,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -9881,7 +9881,7 @@
             "todo_count": 0,
             "total_lines": 3
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -9899,25 +9899,25 @@
           "kind": "structural",
           "source": "structural",
           "passed": true,
-          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=false",
           "metrics": {
             "errors_ignored": 0,
             "exported_name": 0,
-            "has_doc_comment": 0,
+            "has_doc_comment": 1,
             "is_constructor": 0,
             "max_nesting_depth": 0,
             "naked_returns": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -14587,7 +14587,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -14596,21 +14596,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -14627,25 +14627,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -14669,7 +14669,7 @@
             "todo_count": 0,
             "total_lines": 4
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -14687,25 +14687,25 @@
           "kind": "structural",
           "source": "structural",
           "passed": true,
-          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
             "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
             "is_constructor": 0,
             "max_nesting_depth": 0,
             "naked_returns": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -15187,7 +15187,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -15196,21 +15196,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -15227,25 +15227,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -15269,32 +15269,32 @@
             "todo_count": 0,
             "total_lines": 7
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "structural",
           "source": "structural",
           "passed": true,
-          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
             "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
             "is_constructor": 0,
             "max_nesting_depth": 0,
             "naked_returns": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -18092,7 +18092,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -18101,21 +18101,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -18132,25 +18132,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -18174,7 +18174,7 @@
             "todo_count": 0,
             "total_lines": 31
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -18203,14 +18203,14 @@
             "param_count": 0,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -24493,7 +24493,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -24502,21 +24502,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -24533,25 +24533,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -24575,7 +24575,7 @@
             "todo_count": 0,
             "total_lines": 37
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -24604,14 +24604,14 @@
             "param_count": 3,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -32284,7 +32284,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -32293,21 +32293,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -32324,25 +32324,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -32366,7 +32366,7 @@
             "todo_count": 0,
             "total_lines": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -32384,25 +32384,25 @@
           "kind": "structural",
           "source": "structural",
           "passed": true,
-          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
             "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
             "is_constructor": 0,
             "max_nesting_depth": 0,
             "naked_returns": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -41329,7 +41329,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -41338,21 +41338,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -41369,25 +41369,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -41411,7 +41411,7 @@
             "todo_count": 0,
             "total_lines": 4
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -41440,14 +41440,14 @@
             "param_count": 0,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -50685,7 +50685,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -50694,21 +50694,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -50725,25 +50725,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -50767,7 +50767,7 @@
             "todo_count": 0,
             "total_lines": 19
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -50796,14 +50796,14 @@
             "param_count": 0,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -78067,7 +78067,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -78076,21 +78076,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -78107,25 +78107,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -78149,7 +78149,7 @@
             "todo_count": 0,
             "total_lines": 39
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -78178,14 +78178,14 @@
             "param_count": 1,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -80851,7 +80851,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -80860,21 +80860,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -80891,25 +80891,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -80933,7 +80933,7 @@
             "todo_count": 0,
             "total_lines": 7
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -80962,14 +80962,14 @@
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -83130,7 +83130,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -83139,21 +83139,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -83170,25 +83170,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -83212,14 +83212,14 @@
             "todo_count": 0,
             "total_lines": 797
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -83765,7 +83765,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -83774,21 +83774,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -83805,25 +83805,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -83847,14 +83847,14 @@
             "todo_count": 0,
             "total_lines": 633
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -90115,7 +90115,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:42:43-04:00",
           "confidence": 1
         },
         {
@@ -90124,21 +90124,21 @@
           "passed": true,
           "summary": "go test: 466/466 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6455929856945085,
             "test_failed": 0,
             "test_passed": 466,
             "test_skipped": 0,
             "test_total": 466
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6455929856945085,
             "failed_count": 0,
             "passed_count": 466,
             "skip_count": 0,
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -90155,25 +90155,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         },
         {
@@ -90197,14 +90197,14 @@
             "todo_count": 0,
             "total_lines": 160
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:42:54-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T14:42:54-04:00",
+      "expires_at": "2026-04-24T14:42:54-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T184242Z",
       "version": 1
     },
     {
@@ -91916,6 +91916,36 @@
       ],
       "units_processed": 609,
       "units_certified": 609,
+      "units_failed": 0,
+      "overall_grade": "B",
+      "overall_score": 0.8665311653116545
+    },
+    {
+      "id": "run-20260310T184218Z",
+      "started_at": "2026-03-10T14:42:18.335214-04:00",
+      "completed_at": "2026-03-10T14:42:30.739779-04:00",
+      "commit": "252ce7f",
+      "policy_versions": [
+        "global@1.0.0",
+        "go-standard@1.0.0"
+      ],
+      "units_processed": 10,
+      "units_certified": 10,
+      "units_failed": 0,
+      "overall_grade": "B",
+      "overall_score": 0.8666034327009952
+    },
+    {
+      "id": "run-20260310T184242Z",
+      "started_at": "2026-03-10T14:42:42.852703-04:00",
+      "completed_at": "2026-03-10T14:42:55.167257-04:00",
+      "commit": "252ce7f",
+      "policy_versions": [
+        "global@1.0.0",
+        "go-standard@1.0.0"
+      ],
+      "units_processed": 15,
+      "units_certified": 15,
       "units_failed": 0,
       "overall_grade": "B",
       "overall_score": 0.8665311653116545
