@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -27,6 +28,7 @@ type ArchitectResult struct {
 	Phase5         *ArchPhase5Result
 	Phase6         *ArchPhase6Result
 	RawOutputs     []string // raw LLM responses per phase
+	Thinking       []string // chain-of-thought reasoning per phase (from <think> tags)
 	TotalTokens    int
 	Duration       time.Duration
 	Model          string
@@ -147,6 +149,7 @@ func (ar *ArchitectReviewer) Review(ctx context.Context, pc *ProjectContext, pha
 		Snapshot:   pc.Snapshot,
 		Model:      ar.Model,
 		RawOutputs: make([]string, 6),
+		Thinking:   make([]string, 6),
 	}
 
 	// Build the shared context that all phases receive
@@ -186,6 +189,12 @@ func (ar *ArchitectReviewer) Review(ctx context.Context, pc *ProjectContext, pha
 		// Build user prompt with context + prior outputs
 		userPrompt := buildArchitectUserPrompt(contextBlock, priorOutputs, phaseNum)
 
+		// Generous token limits — architect phases produce detailed analysis
+		maxTokens := 8192
+		if phaseNum == 5 {
+			maxTokens = 12288 // Phase 5 (comparative recommendations) needs the most room
+		}
+
 		resp, err := ar.Provider.Chat(ctx, ChatRequest{
 			Model: ar.Model,
 			Messages: []Message{
@@ -193,7 +202,7 @@ func (ar *ArchitectReviewer) Review(ctx context.Context, pc *ProjectContext, pha
 				{Role: "user", Content: userPrompt},
 			},
 			Temperature: 0.3,
-			MaxTokens:   4096,
+			MaxTokens:   maxTokens,
 		})
 		if err != nil {
 			result.Errors = append(result.Errors, fmt.Sprintf("Phase %d (%s): %v", phaseNum, phaseName, err))
@@ -206,8 +215,14 @@ func (ar *ArchitectReviewer) Review(ctx context.Context, pc *ProjectContext, pha
 		result.TotalTokens += resp.Usage.TotalTokens
 		result.PhasesComplete++
 
+		// Capture chain-of-thought reasoning before stripping
+		result.Thinking[i] = extractThinking(content)
+
+		// Strip <think>...</think> blocks (qwen3 chain-of-thought) before JSON extraction
+		cleaned := stripThinkTags(content)
+
 		// Parse structured response
-		jsonStr := extractJSON(content)
+		jsonStr := extractJSON(cleaned)
 		ar.parsePhaseResult(result, phaseNum, jsonStr, content)
 
 		priorOutputs = append(priorOutputs, content)
@@ -281,6 +296,35 @@ func (ar *ArchitectReviewer) parsePhaseResult(result *ArchitectResult, phase int
 			result.Phase6 = &ArchPhase6Result{ExecutiveSummary: raw}
 		}
 	}
+}
+
+// thinkTagRegex matches <think>...</think> blocks from chain-of-thought models.
+// Qwen3 and similar models wrap reasoning in these tags.
+var thinkTagRegex = regexp.MustCompile(`(?s)<think>(.*?)</think>`)
+
+// extractThinking pulls all <think> block content from model output.
+// Returns concatenated thinking text, or empty string if none found.
+func extractThinking(s string) string {
+	matches := thinkTagRegex.FindAllStringSubmatch(s, -1)
+	if len(matches) == 0 {
+		return ""
+	}
+	var parts []string
+	for _, m := range matches {
+		if len(m) > 1 {
+			t := strings.TrimSpace(m[1])
+			if t != "" {
+				parts = append(parts, t)
+			}
+		}
+	}
+	return strings.Join(parts, "\n\n")
+}
+
+// stripThinkTags removes <think>...</think> blocks from model output
+// so JSON extraction doesn't pick up braces from reasoning text.
+func stripThinkTags(s string) string {
+	return strings.TrimSpace(thinkTagRegex.ReplaceAllString(s, ""))
 }
 
 // buildArchitectUserPrompt builds the user message for a phase.

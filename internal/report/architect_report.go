@@ -23,6 +23,7 @@ func FormatArchitectReport(result *agent.ArchitectResult, pc *agent.ProjectConte
 	writeArchRiskMatrix(&b, result)
 	writeArchRoadmap(&b, result)
 	writeArchErrors(&b, result)
+	writeArchThinking(&b, result)
 	writeArchAppendix(&b, result, pc)
 
 	return b.String()
@@ -314,6 +315,36 @@ func writeArchErrors(b *strings.Builder, result *agent.ArchitectResult) {
 		fmt.Fprintf(b, "- %s\n", e)
 	}
 	b.WriteString("\n")
+}
+
+func writeArchThinking(b *strings.Builder, result *agent.ArchitectResult) {
+	// Collect all non-empty thinking blocks
+	var hasThinking bool
+	for _, t := range result.Thinking {
+		if t != "" {
+			hasThinking = true
+			break
+		}
+	}
+	if !hasThinking {
+		return
+	}
+
+	phaseNames := agent.ArchitectPhaseNames()
+
+	b.WriteString("## 🧠 Agent Reasoning\n\n")
+	for i, t := range result.Thinking {
+		if t == "" {
+			continue
+		}
+		name := "Unknown"
+		if i < len(phaseNames) {
+			name = phaseNames[i]
+		}
+		fmt.Fprintf(b, "<details>\n<summary>Phase %d: %s</summary>\n\n", i+1, name)
+		b.WriteString(t)
+		b.WriteString("\n\n</details>\n\n")
+	}
 }
 
 func writeArchAppendix(b *strings.Builder, result *agent.ArchitectResult, pc *agent.ProjectContext) {

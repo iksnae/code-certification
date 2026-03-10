@@ -52,6 +52,12 @@ func NewLocalProvider(baseURL, name string) *OpenRouterProvider {
 	}
 }
 
+// SetTimeout overrides the HTTP client timeout.
+// Use for long-running requests like architectural reviews with local models.
+func (p *OpenRouterProvider) SetTimeout(d time.Duration) {
+	p.client.Timeout = d
+}
+
 // Name returns the provider name.
 func (p *OpenRouterProvider) Name() string {
 	return p.name

@@ -459,5 +459,73 @@ func TestArchitectE2E(t *testing.T) {
 	}
 }
 
+func TestArchitectReview_ThinkTags(t *testing.T) {
+	snap := agent.BuildSnapshot(nil, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	// Model wraps response in <think> tags (qwen3 pattern)
+	callCount := 0
+	thinkWrapped := `<think>
+Let me analyze the architecture. The project has a clear layered structure
+with cmd → internal → domain. There are some coupling concerns between
+the engine and evidence packages.
+</think>
+
+{"layers":[{"name":"internal","packages":["engine"],"description":"core"}],"data_flows":[],"dependency_assessment":"clean"}`
+
+	responses := []string{
+		thinkWrapped,
+		`<think>Checking quality metrics...</think>{"findings":[]}`,
+		`{"coverage_gaps":[],"strategy_assessment":"ok"}`,
+		`{"concerns":[]}`,
+		`{"recommendations":[]}`,
+		`{"executive_summary":"Done.","risk_matrix":[],"roadmap":[]}`,
+	}
+	mock := &sequenceProvider{responses: responses, callCount: &callCount}
+
+	reviewer := &agent.ArchitectReviewer{
+		Provider: mock,
+		Model:    "test-model",
+	}
+
+	result, err := reviewer.Review(context.Background(), pc, nil)
+	if err != nil {
+		t.Fatalf("Review failed: %v", err)
+	}
+
+	if result.PhasesComplete != 6 {
+		t.Errorf("expected 6 phases, got %d (errors: %v)", result.PhasesComplete, result.Errors)
+	}
+
+	// Phase 1 should parse JSON despite <think> tags
+	if result.Phase1 == nil {
+		t.Fatal("Phase1 should be parsed despite think tags")
+	}
+	if result.Phase1.DependencyAssessment != "clean" {
+		t.Errorf("Phase1 dependency assessment should be 'clean', got %q", result.Phase1.DependencyAssessment)
+	}
+
+	// Thinking should be captured
+	if result.Thinking[0] == "" {
+		t.Error("Phase 1 thinking should be captured")
+	}
+	if !strings.Contains(result.Thinking[0], "layered structure") {
+		t.Error("Phase 1 thinking should contain the reasoning text")
+	}
+
+	// Phase 2 thinking should also be captured
+	if result.Thinking[1] == "" {
+		t.Error("Phase 2 thinking should be captured")
+	}
+
+	// Phase 3 had no think tags — thinking should be empty
+	if result.Thinking[2] != "" {
+		t.Error("Phase 3 thinking should be empty (no think tags)")
+	}
+}
+
 // The test helpers (mockProvider, sequenceProvider, etc.) are in stage_test.go.
 var _ = time.Now // reference time package

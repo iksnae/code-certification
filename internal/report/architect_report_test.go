@@ -208,6 +208,63 @@ func TestFormatArchitectReport_PartialResults(t *testing.T) {
 	}
 }
 
+func TestFormatArchitectReport_ThinkingSection(t *testing.T) {
+	snap := &agent.ArchSnapshot{
+		Metrics: agent.SnapshotMetrics{
+			GradeDistribution: map[string]int{},
+			TopObservations:   map[string]int{},
+		},
+	}
+
+	result := &agent.ArchitectResult{
+		Snapshot:       snap,
+		PhasesComplete: 2,
+		Thinking: []string{
+			"Let me analyze the architecture carefully...",
+			"The code quality metrics show some concerns...",
+			"", "", "", "",
+		},
+	}
+	pc := &agent.ProjectContext{RepoName: "test", Snapshot: snap}
+
+	output := FormatArchitectReport(result, pc)
+
+	if !strings.Contains(output, "Agent Reasoning") {
+		t.Error("should contain Agent Reasoning section")
+	}
+	if !strings.Contains(output, "<details>") {
+		t.Error("thinking should be in collapsible details tags")
+	}
+	if !strings.Contains(output, "Phase 1: Architecture Narration") {
+		t.Error("should label thinking with phase name")
+	}
+	if !strings.Contains(output, "analyze the architecture carefully") {
+		t.Error("should contain the thinking text")
+	}
+}
+
+func TestFormatArchitectReport_NoThinking(t *testing.T) {
+	snap := &agent.ArchSnapshot{
+		Metrics: agent.SnapshotMetrics{
+			GradeDistribution: map[string]int{},
+			TopObservations:   map[string]int{},
+		},
+	}
+
+	result := &agent.ArchitectResult{
+		Snapshot:       snap,
+		PhasesComplete: 1,
+		Thinking:       []string{"", "", "", "", "", ""},
+	}
+	pc := &agent.ProjectContext{RepoName: "test", Snapshot: snap}
+
+	output := FormatArchitectReport(result, pc)
+
+	if strings.Contains(output, "Agent Reasoning") {
+		t.Error("should NOT contain Agent Reasoning when all thinking is empty")
+	}
+}
+
 func TestFormatArchitectReport_ComparativeFormat(t *testing.T) {
 	snap := &agent.ArchSnapshot{
 		Packages: []agent.PackageNode{

@@ -178,6 +178,9 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 // setupArchitectProvider creates a Provider for the architect command.
 // Unlike setupAgent which returns a Coordinator, this returns the raw Provider.
 func setupArchitectProvider(cfg domain.Config) (agent.Provider, string) {
+	// Architect needs generous timeouts — local 30B+ models can take several minutes per phase
+	architectTimeout := 10 * time.Minute
+
 	// Try explicit config first
 	if cfg.Agent.Enabled {
 		baseURL := cfg.Agent.Provider.BaseURL
@@ -203,12 +206,16 @@ func setupArchitectProvider(cfg domain.Config) (agent.Provider, string) {
 		}
 
 		if isLocal {
-			return agent.NewLocalProvider(baseURL, "local"), model
+			p := agent.NewLocalProvider(baseURL, "local")
+			p.SetTimeout(architectTimeout)
+			return p, model
 		}
-		return agent.NewOpenRouterProvider(
+		p := agent.NewOpenRouterProvider(
 			baseURL, apiKey,
 			cfg.Agent.Provider.HTTPReferer, cfg.Agent.Provider.XTitle,
-		), model
+		)
+		p.SetTimeout(architectTimeout)
+		return p, model
 	}
 
 	// Auto-detect providers
@@ -224,11 +231,15 @@ func setupArchitectProvider(cfg domain.Config) (agent.Provider, string) {
 	}
 
 	if dp.Local {
-		return agent.NewLocalProvider(dp.BaseURL, dp.Name), model
+		p := agent.NewLocalProvider(dp.BaseURL, dp.Name)
+		p.SetTimeout(architectTimeout)
+		return p, model
 	}
 
-	return agent.NewOpenRouterProvider(
+	p := agent.NewOpenRouterProvider(
 		dp.BaseURL, dp.APIKey,
 		"https://github.com/iksnae/code-certification", "Certify",
-	), model
+	)
+	p.SetTimeout(architectTimeout)
+	return p, model
 }
