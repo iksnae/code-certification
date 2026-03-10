@@ -2,7 +2,7 @@
   "name": "certify-vscode",
   "displayName": "Certify",
   "description": "Code trust, with an expiration date — view report cards, configure AI providers, run certification",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "iksnae",
   "license": "MIT",
   "icon": "icon.png",
@@ -49,7 +49,9 @@
     "onCommand:certify.installCLI",
     "onCommand:certify.workspaceScan",
     "onCommand:certify.workspaceCertify",
-    "onCommand:certify.workspaceReport"
+    "onCommand:certify.workspaceReport",
+    "onCommand:certify.architect",
+    "onCommand:certify.openArchitectReview"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -95,6 +97,16 @@
       {
         "command": "certify.installCLI",
         "title": "Certify: Install CLI"
+      },
+      {
+        "command": "certify.architect",
+        "title": "Certify: Run Architect Review",
+        "icon": "$(beaker)"
+      },
+      {
+        "command": "certify.openArchitectReview",
+        "title": "Certify: Open Architect Review",
+        "icon": "$(book)"
       },
       {
         "command": "certify.openUnit",

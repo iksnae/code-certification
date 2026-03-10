@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import type { CertifyDataLoader } from '../dataLoader.js';
+import type { CertifyDataLoader, ArchitectMeta } from '../dataLoader.js';
 import type { RecordJSON, ProjectState, SubmoduleInfo } from '../types.js';
 import { GRADE_EMOJI } from '../constants.js';
 
@@ -10,7 +10,7 @@ export class CertifyTreeItem extends vscode.TreeItem {
     public readonly collapsibleState: vscode.TreeItemCollapsibleState,
     public readonly record?: RecordJSON,
     public readonly dirPath?: string,
-    public readonly itemType?: 'action' | 'info' | 'submodule' | 'unit' | 'directory',
+    public readonly itemType?: 'action' | 'info' | 'submodule' | 'unit' | 'directory' | 'architect',
   ) {
     super(label, collapsibleState);
   }
@@ -21,6 +21,7 @@ export class CertificationTreeProvider implements vscode.TreeDataProvider<Certif
   readonly onDidChangeTreeData = this._onDidChangeTreeData.event;
   private records: RecordJSON[] = [];
   private _projectState: ProjectState = 'no-config';
+  private architectMeta: ArchitectMeta | null = null;
 
   constructor(
     private dataLoader: CertifyDataLoader,
@@ -38,8 +39,10 @@ export class CertificationTreeProvider implements vscode.TreeDataProvider<Certif
     this._projectState = this.dataLoader.detectProjectState();
     if (this._projectState === 'ready') {
       this.records = await this.dataLoader.loadAllRecords();
+      this.architectMeta = await this.dataLoader.loadArchitectMeta();
     } else {
       this.records = [];
+      this.architectMeta = null;
     }
     this._onDidChangeTreeData.fire(undefined);
   }
@@ -127,6 +130,12 @@ export class CertificationTreeProvider implements vscode.TreeDataProvider<Certif
 
   // --- ready state (existing behavior + action items) ---
   private buildReadyItems(): CertifyTreeItem[] {
+    const items: CertifyTreeItem[] = [];
+
+    // Architect Review section
+    items.push(...this.buildArchitectItems());
+
+    // Package directories
     const dirs = new Map<string, RecordJSON[]>();
     for (const r of this.records) {
       const dir = path.dirname(r.unit_path) || '.';
@@ -134,7 +143,7 @@ export class CertificationTreeProvider implements vscode.TreeDataProvider<Certif
       dirs.get(dir)!.push(r);
     }
 
-    return Array.from(dirs.entries())
+    const dirItems = Array.from(dirs.entries())
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([dir, records]) => {
         const grades = records.map(r => r.grade);
@@ -151,6 +160,52 @@ export class CertificationTreeProvider implements vscode.TreeDataProvider<Certif
         item.iconPath = new vscode.ThemeIcon('folder');
         return item;
       });
+
+    items.push(...dirItems);
+    return items;
+  }
+
+  private buildArchitectItems(): CertifyTreeItem[] {
+    const items: CertifyTreeItem[] = [];
+
+    if (this.architectMeta) {
+      // Review exists — show summary and open action
+      const meta = this.architectMeta;
+      const label = `🏗 Architect Review`;
+      const item = new CertifyTreeItem(label, vscode.TreeItemCollapsibleState.None, undefined, undefined, 'architect');
+      const parts: string[] = [];
+      if (meta.phases) parts.push(meta.phases);
+      if (meta.recommendations) parts.push(`${meta.recommendations} recs`);
+      if (meta.model) parts.push(meta.model.split('/').pop() ?? meta.model);
+      item.description = parts.join(' · ');
+      item.iconPath = new vscode.ThemeIcon('book');
+      item.tooltip = [
+        'Architectural Review',
+        meta.model ? `Model: ${meta.model}` : '',
+        meta.tokens ? `Tokens: ${meta.tokens.toLocaleString()}` : '',
+        meta.duration ? `Duration: ${meta.duration}` : '',
+        meta.phases ? `Phases: ${meta.phases}` : '',
+        meta.recommendations ? `Recommendations: ${meta.recommendations}` : '',
+      ].filter(Boolean).join('\n');
+      item.command = {
+        command: 'certify.openArchitectReview',
+        title: 'Open Architect Review',
+      };
+      items.push(item);
+    } else {
+      // No review — show action to run one
+      const item = new CertifyTreeItem('🏗 Run Architect Review', vscode.TreeItemCollapsibleState.None, undefined, undefined, 'action');
+      item.iconPath = new vscode.ThemeIcon('beaker');
+      item.description = 'AI architectural analysis';
+      item.tooltip = 'Run certify architect to generate a comprehensive architectural review with comparative recommendations';
+      item.command = {
+        command: 'certify.architect',
+        title: 'Run Architect Review',
+      };
+      items.push(item);
+    }
+
+    return items;
   }
 
   private getDirectoryChildren(dirPath: string): CertifyTreeItem[] {

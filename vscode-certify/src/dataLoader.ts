@@ -156,6 +156,28 @@ export class CertifyDataLoader {
     }
   }
 
+  hasArchitectReview(): boolean {
+    return fs.existsSync(path.join(this.certDir, 'ARCHITECT_REVIEW.md'));
+  }
+
+  architectReviewPath(): string {
+    return path.join(this.certDir, 'ARCHITECT_REVIEW.md');
+  }
+
+  /**
+   * Load architect review metadata from ARCHITECT_REVIEW.md header.
+   * Parses the header line for model, tokens, phases, and duration.
+   */
+  async loadArchitectMeta(): Promise<ArchitectMeta | null> {
+    if (!this.hasArchitectReview()) return null;
+    try {
+      const data = await fs.promises.readFile(this.architectReviewPath(), 'utf-8');
+      return parseArchitectMeta(data);
+    } catch {
+      return null;
+    }
+  }
+
   async loadBadge(): Promise<BadgeJSON | null> {
     const badgePath = path.join(this.certDir, 'badge.json');
     try {
@@ -303,6 +325,45 @@ export class CertifyDataLoader {
     this.watcher?.dispose();
     this._onDataChanged.dispose();
   }
+}
+
+export interface ArchitectMeta {
+  model?: string;
+  tokens?: number;
+  duration?: string;
+  phases?: string; // e.g. "6/6"
+  recommendations?: number;
+  hasThinking?: boolean;
+}
+
+function parseArchitectMeta(content: string): ArchitectMeta {
+  const meta: ArchitectMeta = {};
+
+  // Parse header: **Model:** `qwen/qwen3-coder-30b` · **Tokens:** 49843 · **Duration:** 3m45s · **Phases:** 6/6
+  const modelMatch = content.match(/\*\*Model:\*\*\s*`([^`]+)`/);
+  if (modelMatch) meta.model = modelMatch[1];
+
+  const tokensMatch = content.match(/\*\*Tokens:\*\*\s*(\d+)/);
+  if (tokensMatch) meta.tokens = parseInt(tokensMatch[1]);
+
+  const durationMatch = content.match(/\*\*Duration:\*\*\s*(\S+)/);
+  if (durationMatch) meta.duration = durationMatch[1];
+
+  const phasesMatch = content.match(/\*\*Phases:\*\*\s*(\d+\/\d+)/);
+  if (phasesMatch) meta.phases = phasesMatch[1];
+
+  // Count recommendations (### headings in Part III)
+  const partIII = content.indexOf('## Part III:');
+  if (partIII >= 0) {
+    const rest = content.slice(partIII);
+    const endIdx = rest.indexOf('\n## Risk Matrix') || rest.indexOf('\n---\n\n## Risk');
+    const section = endIdx > 0 ? rest.slice(0, endIdx) : rest;
+    meta.recommendations = (section.match(/^### /gm) || []).length;
+  }
+
+  meta.hasThinking = content.includes('Agent Reasoning');
+
+  return meta;
 }
 
 function computeGrade(score: number): string {

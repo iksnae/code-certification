@@ -111,6 +111,20 @@ export function activate(context: vscode.ExtensionContext): void {
       runInTerminal(['report', '--workspace'], workspaceRoot);
     }),
 
+    // Architect Review
+    vscode.commands.registerCommand('certify.architect', async () => {
+      if (!await ensureBinary()) return;
+      const modelSetting = vscode.workspace.getConfiguration('certify.agent').get<string>('model');
+      const args = ['architect'];
+      if (modelSetting) args.push('--model', modelSetting);
+      runInTerminal(args, workspaceRoot);
+    }),
+
+    vscode.commands.registerCommand('certify.openArchitectReview', () => {
+      const reviewPath = dataLoader.architectReviewPath();
+      vscode.commands.executeCommand('markdown.showPreview', vscode.Uri.file(reviewPath));
+    }),
+
     // Existing utility commands
     vscode.commands.registerCommand('certify.listModels', () => {
       ConfigPanel.createOrShow(workspaceRoot, context.secrets);
