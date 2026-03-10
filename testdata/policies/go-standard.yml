@@ -51,3 +51,61 @@ rules:
     severity: warning
     metric: errors_ignored
     threshold: 0
+
+  - id: max-func-lines
+    dimension: readability
+    description: "Functions should be concise (under 100 lines)"
+    severity: warning
+    metric: func_lines
+    threshold: 100
+
+  - id: no-panic
+    dimension: correctness
+    description: "Library code should not call panic()"
+    severity: error
+    metric: panic_calls
+    threshold: 0
+
+  - id: no-os-exit
+    dimension: correctness
+    description: "Library code should not call os.Exit()"
+    severity: warning
+    metric: os_exit_calls
+    threshold: 0
+
+  - id: no-defer-in-loop
+    dimension: correctness
+    description: "defer inside loops causes resource leaks"
+    severity: error
+    metric: defer_in_loop
+    threshold: 0
+
+  - id: context-first-param
+    dimension: correctness
+    description: "context.Context should be the first parameter"
+    severity: warning
+    metric: context_not_first
+    threshold: 0
+
+  - id: no-init-func
+    dimension: maintainability
+    description: "Avoid init() functions — prefer explicit initialization"
+    severity: warning
+    metric: has_init_func
+    threshold: 0
+
+  - id: limit-global-mutable
+    dimension: security
+    description: "Minimize package-level mutable variables"
+    severity: warning
+    metric: global_mutable_count
+    threshold: 2
+
+  - id: max-methods
+    dimension: maintainability
+    description: "Types should not have more than 15 methods (god object)"
+    severity: warning
+    metric: method_count
+    threshold: 15
+
+  # min-coverage requires "less than" comparison — tracked for future operator support

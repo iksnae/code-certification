@@ -31,8 +31,8 @@ func TestLoadPolicyPack_GoStandard(t *testing.T) {
 	if pack.IsGlobal() {
 		t.Error("go-standard should not be global")
 	}
-	if len(pack.Rules) != 7 {
-		t.Fatalf("len(Rules) = %d, want 7", len(pack.Rules))
+	if len(pack.Rules) != 15 {
+		t.Fatalf("len(Rules) = %d, want 15", len(pack.Rules))
 	}
 
 	// Check first rule
