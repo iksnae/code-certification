@@ -180,7 +180,8 @@ func writeHeader(b *strings.Builder, r FullReport) {
 	if r.CommitSHA != "" {
 		fmt.Fprintf(b, "**Commit:** `%s`  \n", r.CommitSHA)
 	}
-	fmt.Fprintf(b, "**Generated:** %s  \n\n", r.GeneratedAt[:19])
+	fmt.Fprintf(b, "**Generated:** %s  \n", r.GeneratedAt[:19])
+	fmt.Fprintf(b, "**[Browse full report →](site/index.html)**  \n\n")
 }
 
 func writeSummary(b *strings.Builder, r FullReport) {

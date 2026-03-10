@@ -249,7 +249,7 @@ func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
 	if isLocal {
 		provider = agent.NewLocalProvider(baseURL, "local")
 		strategy = agent.StrategyLocal // deep review, no prescreen gate
-		tokenBudget = 0               // unlimited — local tokens are free
+		tokenBudget = 0                // unlimited — local tokens are free
 		fmt.Printf("  Agent review: enabled (local %s, deep review, models: %v)\n", baseURL, models)
 	} else {
 		provider = agent.NewModelChain(

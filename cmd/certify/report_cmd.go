@@ -19,6 +19,7 @@ var (
 	reportPath     string
 	reportDetailed bool
 	reportOutput   string
+	reportSite     bool
 )
 
 var reportCmd = &cobra.Command{
@@ -35,9 +36,14 @@ Formats:
   full      Complete per-unit report card (markdown)
   json      Machine-readable full report
   text      Brief health summary
+  site      Static HTML site (browsable, searchable, works offline)
 
 Badge for your README:
-  certify report --badge`,
+  certify report --badge
+
+Static site (for large repos):
+  certify report --format site
+  certify report --site`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		root := reportPath
 		if root == "" {
@@ -70,9 +76,47 @@ Badge for your README:
 		repo := detectRepoName(root)
 		commit := detectCommit(root)
 
+		// --site flag overrides format
+		if reportSite {
+			reportFormat = "site"
+		}
+
 		var output string
 
 		switch reportFormat {
+		case "site":
+			fr := report.GenerateFullReport(records, repo, commit, now)
+			siteDir := filepath.Join(certDir, "site")
+			cfg := report.SiteConfig{
+				OutputDir:     siteDir,
+				Title:         repo,
+				IncludeSearch: true,
+			}
+			if cfg.Title == "" {
+				cfg.Title = "Certification Report"
+			}
+			if err := report.GenerateSite(fr, cfg); err != nil {
+				return fmt.Errorf("generating site: %w", err)
+			}
+			// Count generated pages
+			pageCount := len(fr.Units) + 1 // units + index
+			dirs := make(map[string]bool)
+			for _, u := range fr.Units {
+				dirs[reportDirOf(u.Path)] = true
+			}
+			pageCount += len(dirs) // package pages
+			fmt.Printf("✓ Static site generated → %s (%d pages)\n", siteDir, pageCount)
+			fmt.Println("  Open .certification/site/index.html in a browser")
+
+			// Still save markdown report + badge
+			saveReportCard(certDir, records, repo, commit, now)
+			saveBadge(certDir, records, repo, commit, now)
+
+			cardPath := filepath.Join(certDir, "REPORT_CARD.md")
+			badgePath := filepath.Join(certDir, "badge.json")
+			fmt.Printf("\n✓ %s updated\n✓ %s updated\n", cardPath, badgePath)
+			return nil
+
 		case "json":
 			fr := report.GenerateFullReport(records, repo, commit, now)
 			data, err := report.FormatJSON(fr)
@@ -130,6 +174,7 @@ func init() {
 	reportCmd.Flags().BoolVar(&reportDetailed, "detailed", false, "Include dimension breakdowns, risk analysis, expiring units")
 	reportCmd.Flags().StringVarP(&reportOutput, "output", "o", "", "Write report to file instead of stdout")
 	reportCmd.Flags().Bool("badge", false, "Print the shields.io badge markdown for your README")
+	reportCmd.Flags().BoolVar(&reportSite, "site", false, "Generate a static HTML site (shorthand for --format site)")
 }
 
 func saveReportCard(certDir string, records []domain.CertificationRecord, repo, commit string, now time.Time) {
@@ -152,6 +197,14 @@ func saveBadge(certDir string, records []domain.CertificationRecord, repo, commi
 		return
 	}
 	os.WriteFile(filepath.Join(certDir, "badge.json"), data, 0o644)
+}
+
+func reportDirOf(path string) string {
+	idx := strings.LastIndex(path, "/")
+	if idx < 0 {
+		return "."
+	}
+	return path[:idx]
 }
 
 func detectRepoName(root string) string {

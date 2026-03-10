@@ -76,6 +76,11 @@ report-card: build
   ./build/bin/certify report --format full
   @echo "✓ Report card → .certification/REPORT_CARD.md"
 
+# Generate static certification site
+site: build
+  ./build/bin/certify report --format site
+  @echo "✓ Open .certification/site/index.html in a browser"
+
 # ── Doctor ───────────────────────────────────────────────────────────────────
 
 # Check development environment
