@@ -361,6 +361,103 @@ func TestArchitectPrompts(t *testing.T) {
 	}
 }
 
-// context.Background() was added in Go 1.24. For older Go versions, use context.Background()
+func TestArchitectE2E(t *testing.T) {
+	// End-to-end test: GatherContext → Review → verify result
+	tmpDir := t.TempDir()
+	certDir := filepath.Join(tmpDir, ".certification")
+	os.MkdirAll(filepath.Join(certDir, "records"), 0755)
+	os.MkdirAll(filepath.Join(certDir, "policies"), 0755)
+
+	// Create sample Go files
+	os.MkdirAll(filepath.Join(tmpDir, "internal", "engine"), 0755)
+	os.MkdirAll(filepath.Join(tmpDir, "internal", "domain"), 0755)
+	os.WriteFile(filepath.Join(tmpDir, "go.mod"), []byte("module github.com/test/repo\n\ngo 1.22\n"), 0644)
+	os.WriteFile(filepath.Join(tmpDir, "internal", "engine", "scorer.go"),
+		[]byte("package engine\n\nimport \"github.com/test/repo/internal/domain\"\n\nfunc Score(u domain.Unit) float64 { return 0 }\n"), 0644)
+	os.WriteFile(filepath.Join(tmpDir, "internal", "domain", "unit.go"),
+		[]byte("package domain\n\ntype Unit struct{ Name string }\n"), 0644)
+	os.WriteFile(filepath.Join(tmpDir, "README.md"), []byte("# Test Project"), 0644)
+	os.WriteFile(filepath.Join(certDir, "policies", "go-standard.yml"), []byte("name: go-standard\n"), 0644)
+
+	records := []domain.CertificationRecord{
+		makeRecord("go://internal/engine/scorer.go#Score", 0.80, []string{"errors_ignored: 2"}),
+		makeRecord("go://internal/domain/unit.go#Unit", 0.95, nil),
+	}
+
+	// 1. Gather context
+	pc, err := agent.GatherContext(tmpDir, certDir, records)
+	if err != nil {
+		t.Fatalf("GatherContext: %v", err)
+	}
+	pc.RepoName = "test/repo"
+	pc.CommitSHA = "abc123"
+
+	if len(pc.Snapshot.DependencyEdges) == 0 {
+		t.Error("snapshot should have dependency edges from Go import analysis")
+	}
+	if pc.Documentation["README.md"] == "" {
+		t.Error("should load README")
+	}
+	if len(pc.PolicyRules) == 0 {
+		t.Error("should detect policy files")
+	}
+
+	// 2. Run review with mock
+	callCount := 0
+	responses := []string{
+		`{"layers":[{"name":"internal","packages":["engine","domain"],"description":"core"}],"data_flows":[{"from":"engine","to":"domain","description":"uses types"}],"dependency_assessment":"clean"}`,
+		`{"findings":[{"package":"internal/engine","issue":"ignored errors","current_metrics":{"errors_ignored":2},"severity":"high"}]}`,
+		`{"coverage_gaps":[],"strategy_assessment":"minimal tests"}`,
+		`{"concerns":[]}`,
+		`{"recommendations":[{"title":"Fix ignored errors","current_state":"2 errors ignored","proposed_state":"0 errors","deltas":[{"metric":"errors_ignored","current":"2","projected":"0"}],"affected_units":["internal/engine/scorer.go#Score"],"effort":"S","justification":"Standard practice"}]}`,
+		`{"executive_summary":"Well-structured project.","risk_matrix":[{"risk":"Ignored errors","severity":"high","likelihood":"medium","recommendation_ref":"Fix ignored errors"}],"roadmap":[{"priority":1,"title":"Fix errors","effort":"S","impact":"high","recommendation_ref":"Fix ignored errors","delta_summary":"errors_ignored: 2 → 0"}]}`,
+	}
+	mock := &sequenceProvider{responses: responses, callCount: &callCount}
+
+	var phaseStarts, phaseDones int
+	reviewer := &agent.ArchitectReviewer{
+		Provider:     mock,
+		Model:        "test-model",
+		OnPhaseStart: func(int, string) { phaseStarts++ },
+		OnPhaseDone:  func(int, string, int) { phaseDones++ },
+	}
+
+	result, err := reviewer.Review(context.Background(), pc, nil)
+	if err != nil {
+		t.Fatalf("Review: %v", err)
+	}
+
+	if result.PhasesComplete != 6 {
+		t.Errorf("expected 6 phases, got %d", result.PhasesComplete)
+	}
+	if phaseStarts != 6 || phaseDones != 6 {
+		t.Errorf("callbacks: starts=%d dones=%d, expected 6/6", phaseStarts, phaseDones)
+	}
+
+	// 3. Verify LLM context includes snapshot data
+	llmContext := pc.FormatForLLM(4000)
+	if !strings.Contains(llmContext, "internal/engine") {
+		t.Error("LLM context should contain package names")
+	}
+	if !strings.Contains(llmContext, "errors_ignored") {
+		t.Error("LLM context should contain observation types")
+	}
+
+	// 4. Verify result integrity
+	if result.Snapshot == nil {
+		t.Fatal("result should carry snapshot")
+	}
+	if result.Phase5 == nil || len(result.Phase5.Recommendations) == 0 {
+		t.Fatal("Phase5 should have recommendations")
+	}
+	rec := result.Phase5.Recommendations[0]
+	if len(rec.Deltas) == 0 {
+		t.Error("recommendation should have deltas")
+	}
+	if result.Phase6 == nil || result.Phase6.ExecutiveSummary == "" {
+		t.Error("Phase6 should have executive summary")
+	}
+}
+
 // The test helpers (mockProvider, sequenceProvider, etc.) are in stage_test.go.
 var _ = time.Now // reference time package
