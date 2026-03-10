@@ -148,6 +148,63 @@ func TestEvaluator_ComplexityFromMetrics(t *testing.T) {
 	}
 }
 
+func TestEvaluator_ParamCountFromStructural(t *testing.T) {
+	rules := []domain.PolicyRule{
+		{ID: "max-params", Dimension: domain.DimMaintainability, Severity: domain.SeverityWarning, Metric: "param_count", Threshold: 5},
+	}
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{"param_count": 7},
+		},
+	}
+	result := policy.Evaluate(rules, ev)
+	if len(result.Violations) != 1 {
+		t.Errorf("expected 1 violation for param_count=7 > 5, got %d", len(result.Violations))
+	}
+	if !result.Passed {
+		t.Error("warning violation should not block")
+	}
+}
+
+func TestEvaluator_NestingDepthFromStructural(t *testing.T) {
+	rules := []domain.PolicyRule{
+		{ID: "max-nesting", Dimension: domain.DimReadability, Severity: domain.SeverityWarning, Metric: "max_nesting_depth", Threshold: 4},
+	}
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{"max_nesting_depth": 3},
+		},
+	}
+	result := policy.Evaluate(rules, ev)
+	if len(result.Violations) != 0 {
+		t.Errorf("nesting=3 should not violate threshold=4, got %d violations", len(result.Violations))
+	}
+}
+
+func TestEvaluator_ErrorsIgnoredFromStructural(t *testing.T) {
+	rules := []domain.PolicyRule{
+		{ID: "no-ignored-errors", Dimension: domain.DimCorrectness, Severity: domain.SeverityWarning, Metric: "errors_ignored", Threshold: 0},
+	}
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{"errors_ignored": 2},
+		},
+	}
+	result := policy.Evaluate(rules, ev)
+	if len(result.Violations) != 1 {
+		t.Errorf("expected 1 violation for errors_ignored=2 > 0, got %d", len(result.Violations))
+	}
+}
+
 func TestEvaluator_MissingEvidence(t *testing.T) {
 	rules := []domain.PolicyRule{
 		{ID: "lint-clean", Dimension: domain.DimCorrectness, Severity: domain.SeverityError, Metric: "lint_errors", Threshold: 0},

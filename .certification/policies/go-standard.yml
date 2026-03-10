@@ -30,3 +30,24 @@ rules:
     severity: warning
     threshold: 20
     metric: complexity
+
+  - id: max-params
+    dimension: maintainability
+    description: "Functions should have at most 5 parameters"
+    severity: warning
+    metric: param_count
+    threshold: 5
+
+  - id: max-nesting
+    dimension: readability
+    description: "Function body nesting should not exceed 4 levels"
+    severity: warning
+    metric: max_nesting_depth
+    threshold: 4
+
+  - id: no-ignored-errors
+    dimension: correctness
+    description: "Error returns should not be silently discarded"
+    severity: warning
+    metric: errors_ignored
+    threshold: 0

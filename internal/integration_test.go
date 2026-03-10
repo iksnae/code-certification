@@ -300,3 +300,121 @@ func TestE2E_Certifier(t *testing.T) {
 		t.Error("badge.json not generated")
 	}
 }
+
+func TestE2E_StructuralEvidence(t *testing.T) {
+	// Create a temp Go repo with functions that have known structural properties
+	tmpDir := t.TempDir()
+
+	// Well-structured function: documented, few params, low nesting
+	goodSrc := `package example
+
+// Add adds two integers.
+func Add(a, b int) int {
+	return a + b
+}
+`
+	if err := os.WriteFile(filepath.Join(tmpDir, "good.go"), []byte(goodSrc), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	// Poorly-structured function: no doc, many params, deep nesting, ignored errors
+	badSrc := `package example
+
+import "os"
+
+func Process(a int, b string, c bool, d float64, e []byte, f int64) {
+	if a > 0 {
+		for i := 0; i < a; i++ {
+			if c {
+				if d > 0 {
+					_, _ = os.Open(b)
+				}
+			}
+		}
+	}
+}
+`
+	if err := os.WriteFile(filepath.Join(tmpDir, "bad.go"), []byte(badSrc), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	certifier := &engine.Certifier{
+		Root: tmpDir,
+		ExpiryCfg: domain.ExpiryConfig{
+			DefaultWindowDays: 90,
+			MinWindowDays:     7,
+			MaxWindowDays:     365,
+		},
+	}
+
+	ctx := context.Background()
+	now := time.Now()
+
+	// Certify good function
+	goodUnit := domain.NewUnit(
+		domain.NewUnitID("go", "good.go", "Add"),
+		domain.UnitTypeFunction,
+	)
+	goodResult, err := certifier.Certify(ctx, goodUnit, nil, now)
+	if err != nil {
+		t.Fatalf("Certify(Add) error: %v", err)
+	}
+
+	// Certify bad function
+	badUnit := domain.NewUnit(
+		domain.NewUnitID("go", "bad.go", "Process"),
+		domain.UnitTypeFunction,
+	)
+	badResult, err := certifier.Certify(ctx, badUnit, nil, now)
+	if err != nil {
+		t.Fatalf("Certify(Process) error: %v", err)
+	}
+
+	// Good function should have structural evidence with doc comment
+	hasStructural := false
+	for _, e := range goodResult.Record.Evidence {
+		if e.Kind == domain.EvidenceKindStructural {
+			hasStructural = true
+			if e.Metrics["has_doc_comment"] != 1.0 {
+				t.Errorf("Add: has_doc_comment = %f, want 1.0", e.Metrics["has_doc_comment"])
+			}
+			if e.Metrics["param_count"] != 2 {
+				t.Errorf("Add: param_count = %f, want 2", e.Metrics["param_count"])
+			}
+		}
+	}
+	if !hasStructural {
+		t.Error("Add should have structural evidence")
+	}
+
+	// Bad function should have structural evidence showing problems
+	for _, e := range badResult.Record.Evidence {
+		if e.Kind == domain.EvidenceKindStructural {
+			if e.Metrics["has_doc_comment"] != 0.0 {
+				t.Errorf("Process: has_doc_comment = %f, want 0.0", e.Metrics["has_doc_comment"])
+			}
+			if e.Metrics["param_count"] != 6 {
+				t.Errorf("Process: param_count = %f, want 6", e.Metrics["param_count"])
+			}
+			if e.Metrics["max_nesting_depth"] < 3 {
+				t.Errorf("Process: max_nesting_depth = %f, want >= 3", e.Metrics["max_nesting_depth"])
+			}
+			if e.Metrics["errors_ignored"] < 1 {
+				t.Errorf("Process: errors_ignored = %f, want >= 1", e.Metrics["errors_ignored"])
+			}
+		}
+	}
+
+	// Good function should score higher than bad function
+	if goodResult.Record.Score <= badResult.Record.Score {
+		t.Errorf("Good score (%f) should be > bad score (%f)",
+			goodResult.Record.Score, badResult.Record.Score)
+	}
+
+	// Good function readability should be better
+	goodRead := goodResult.Record.Dimensions[domain.DimReadability]
+	badRead := badResult.Record.Dimensions[domain.DimReadability]
+	if goodRead <= badRead {
+		t.Errorf("Good readability (%f) should be > bad readability (%f)", goodRead, badRead)
+	}
+}
