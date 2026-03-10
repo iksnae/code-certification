@@ -1,6 +1,7 @@
 package agent_test
 
 import (
+	"context"
 	"os"
 	"path/filepath"
 	"strings"
@@ -176,7 +177,7 @@ func TestArchitectReview_MockProvider(t *testing.T) {
 		Model:    "test-model",
 	}
 
-	result, err := reviewer.Review(t.Context(), pc, nil)
+	result, err := reviewer.Review(context.Background(), pc, nil)
 	if err != nil {
 		t.Fatalf("Review failed: %v", err)
 	}
@@ -244,7 +245,7 @@ func TestArchitectReview_PhaseFailure(t *testing.T) {
 		Model:    "test-model",
 	}
 
-	result, err := reviewer.Review(t.Context(), pc, nil)
+	result, err := reviewer.Review(context.Background(), pc, nil)
 	if err != nil {
 		t.Fatalf("Review should not fail entirely: %v", err)
 	}
@@ -277,7 +278,7 @@ func TestArchitectReview_SinglePhase(t *testing.T) {
 	}
 
 	// Run only phase 3
-	result, err := reviewer.Review(t.Context(), pc, []int{3})
+	result, err := reviewer.Review(context.Background(), pc, []int{3})
 	if err != nil {
 		t.Fatalf("Review failed: %v", err)
 	}
@@ -317,7 +318,7 @@ func TestArchitectReview_Phase5Validation(t *testing.T) {
 		Model:    "test-model",
 	}
 
-	result, err := reviewer.Review(t.Context(), pc, nil)
+	result, err := reviewer.Review(context.Background(), pc, nil)
 	if err != nil {
 		t.Fatalf("Review failed: %v", err)
 	}
@@ -360,6 +361,6 @@ func TestArchitectPrompts(t *testing.T) {
 	}
 }
 
-// t.Context() was added in Go 1.24. For older Go versions, use context.Background()
+// context.Background() was added in Go 1.24. For older Go versions, use context.Background()
 // The test helpers (mockProvider, sequenceProvider, etc.) are in stage_test.go.
 var _ = time.Now // reference time package

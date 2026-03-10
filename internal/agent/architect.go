@@ -12,15 +12,15 @@ import (
 
 // ProjectContext aggregates everything the architect reviewer needs.
 type ProjectContext struct {
-	RepoName    string
-	CommitSHA   string
-	Languages   []string
-	Snapshot    *ArchSnapshot
-	LowestUnits []UnitSummary     // bottom 20 by score
+	RepoName      string
+	CommitSHA     string
+	Languages     []string
+	Snapshot      *ArchSnapshot
+	LowestUnits   []UnitSummary     // bottom 20 by score
 	Documentation map[string]string // filename → content (README, PRD, etc.)
-	FileTree    string
-	PolicyRules []string
-	GitSummary  string
+	FileTree      string
+	PolicyRules   []string
+	GitSummary    string
 }
 
 // UnitSummary is a lightweight unit representation for LLM context.
