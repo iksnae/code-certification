@@ -3,6 +3,7 @@ package record_test
 import (
 	"crypto/sha256"
 	"encoding/hex"
+	"encoding/json"
 	"os"
 	"path/filepath"
 	"testing"
@@ -344,5 +345,180 @@ func TestStore_BackwardCompatibility(t *testing.T) {
 	// Evidence should be nil/empty — not an error
 	if len(loaded.Evidence) != 0 {
 		t.Errorf("Evidence = %d items, want 0 for old format", len(loaded.Evidence))
+	}
+}
+
+func TestStore_SaveAndLoadSnapshot(t *testing.T) {
+	// Save 3 records, snapshot them, load into a fresh store
+	srcDir := t.TempDir()
+	store := record.NewStore(srcDir)
+
+	recs := []domain.CertificationRecord{
+		sampleRecord("main.go", "main"),
+		sampleRecord("util.go", "helper"),
+		sampleRecord("service/sync.go", "Apply"),
+	}
+	for _, r := range recs {
+		if err := store.Save(r); err != nil {
+			t.Fatalf("Save() error: %v", err)
+		}
+	}
+
+	snapshotPath := filepath.Join(t.TempDir(), "state.json")
+	if err := store.SaveSnapshot(snapshotPath, "abc123"); err != nil {
+		t.Fatalf("SaveSnapshot() error: %v", err)
+	}
+
+	// Load into a fresh store with empty records dir
+	dstDir := t.TempDir()
+	dst := record.NewStore(dstDir)
+	if err := dst.LoadSnapshot(snapshotPath); err != nil {
+		t.Fatalf("LoadSnapshot() error: %v", err)
+	}
+
+	// All 3 should be loadable
+	for _, r := range recs {
+		loaded, err := dst.Load(r.UnitID)
+		if err != nil {
+			t.Errorf("Load(%s) after snapshot: %v", r.UnitID, err)
+			continue
+		}
+		if loaded.Score != r.Score {
+			t.Errorf("Score for %s = %f, want %f", r.UnitID, loaded.Score, r.Score)
+		}
+	}
+
+	all, err := dst.ListAll()
+	if err != nil {
+		t.Fatalf("ListAll() error: %v", err)
+	}
+	if len(all) != 3 {
+		t.Errorf("ListAll() = %d, want 3", len(all))
+	}
+}
+
+func TestStore_SnapshotFormat(t *testing.T) {
+	dir := t.TempDir()
+	store := record.NewStore(dir)
+
+	_ = store.Save(sampleRecord("a.go", "A"))
+	_ = store.Save(sampleRecord("b.go", "B"))
+
+	snapshotPath := filepath.Join(t.TempDir(), "state.json")
+	if err := store.SaveSnapshot(snapshotPath, "deadbeef"); err != nil {
+		t.Fatalf("SaveSnapshot() error: %v", err)
+	}
+
+	data, err := os.ReadFile(snapshotPath)
+	if err != nil {
+		t.Fatalf("reading snapshot: %v", err)
+	}
+
+	var snap struct {
+		Version     int               `json:"version"`
+		GeneratedAt string            `json:"generated_at"`
+		Commit      string            `json:"commit"`
+		UnitCount   int               `json:"unit_count"`
+		Records     []json.RawMessage `json:"records"`
+	}
+	if err := json.Unmarshal(data, &snap); err != nil {
+		t.Fatalf("parsing snapshot: %v", err)
+	}
+
+	if snap.Version != 1 {
+		t.Errorf("version = %d, want 1", snap.Version)
+	}
+	if snap.Commit != "deadbeef" {
+		t.Errorf("commit = %q, want deadbeef", snap.Commit)
+	}
+	if snap.UnitCount != 2 {
+		t.Errorf("unit_count = %d, want 2", snap.UnitCount)
+	}
+	if len(snap.Records) != 2 {
+		t.Errorf("records array len = %d, want 2", len(snap.Records))
+	}
+	if snap.GeneratedAt == "" {
+		t.Error("generated_at should not be empty")
+	}
+}
+
+func TestStore_ListAllFallbackToSnapshot(t *testing.T) {
+	// Build a snapshot from a populated store
+	srcDir := t.TempDir()
+	src := record.NewStore(srcDir)
+	_ = src.Save(sampleRecord("x.go", "X"))
+	_ = src.Save(sampleRecord("y.go", "Y"))
+
+	snapshotPath := filepath.Join(t.TempDir(), "state.json")
+	if err := src.SaveSnapshot(snapshotPath, "snap1"); err != nil {
+		t.Fatalf("SaveSnapshot() error: %v", err)
+	}
+
+	// Create a store pointing to an empty records dir, with snapshot fallback
+	emptyDir := filepath.Join(t.TempDir(), "records") // doesn't exist
+	store := record.NewStoreWithSnapshot(emptyDir, snapshotPath)
+
+	records, err := store.ListAll()
+	if err != nil {
+		t.Fatalf("ListAll() error: %v", err)
+	}
+	if len(records) != 2 {
+		t.Errorf("ListAll() fallback = %d, want 2", len(records))
+	}
+}
+
+func TestStore_ListAllPrefersRecordsDir(t *testing.T) {
+	// Populate both records dir and a snapshot with different data
+	recDir := t.TempDir()
+	store := record.NewStore(recDir)
+
+	// Save 3 records to the dir
+	_ = store.Save(sampleRecord("a.go", "A"))
+	_ = store.Save(sampleRecord("b.go", "B"))
+	_ = store.Save(sampleRecord("c.go", "C"))
+
+	// Create a snapshot with only 1 record
+	snapDir := t.TempDir()
+	snapStore := record.NewStore(snapDir)
+	_ = snapStore.Save(sampleRecord("only.go", "Only"))
+	snapshotPath := filepath.Join(t.TempDir(), "state.json")
+	_ = snapStore.SaveSnapshot(snapshotPath, "old")
+
+	// Store with both records dir and snapshot
+	combined := record.NewStoreWithSnapshot(recDir, snapshotPath)
+	records, err := combined.ListAll()
+	if err != nil {
+		t.Fatalf("ListAll() error: %v", err)
+	}
+	// Should return 3 from records dir, NOT 1 from snapshot
+	if len(records) != 3 {
+		t.Errorf("ListAll() = %d, want 3 (from records dir, not snapshot)", len(records))
+	}
+}
+
+func TestStore_SnapshotSortsDeterministically(t *testing.T) {
+	dir := t.TempDir()
+	store := record.NewStore(dir)
+
+	// Save records in a specific order
+	_ = store.Save(sampleRecord("z.go", "Z"))
+	_ = store.Save(sampleRecord("a.go", "A"))
+	_ = store.Save(sampleRecord("m.go", "M"))
+
+	snap1 := filepath.Join(t.TempDir(), "state1.json")
+	snap2 := filepath.Join(t.TempDir(), "state2.json")
+
+	if err := store.SaveSnapshot(snap1, "same"); err != nil {
+		t.Fatalf("SaveSnapshot(1) error: %v", err)
+	}
+	if err := store.SaveSnapshot(snap2, "same"); err != nil {
+		t.Fatalf("SaveSnapshot(2) error: %v", err)
+	}
+
+	data1, _ := os.ReadFile(snap1)
+	data2, _ := os.ReadFile(snap2)
+
+	if string(data1) != string(data2) {
+		t.Error("snapshot output should be byte-identical across calls")
 	}
 }

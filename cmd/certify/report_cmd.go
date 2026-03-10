@@ -61,7 +61,8 @@ Static site (for large repos):
 			return nil
 		}
 
-		store := record.NewStore(filepath.Join(certDir, "records"))
+		snapshotPath := filepath.Join(certDir, "state.json")
+		store := record.NewStoreWithSnapshot(filepath.Join(certDir, "records"), snapshotPath)
 		records, err := store.ListAll()
 		if err != nil {
 			return fmt.Errorf("loading records: %w", err)

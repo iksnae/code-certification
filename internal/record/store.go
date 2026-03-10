@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 	"time"
 
@@ -51,14 +52,92 @@ type evidenceJSON struct {
 	Confidence float64            `json:"confidence"`
 }
 
+// snapshotJSON is the JSON-serializable form of a state snapshot.
+type snapshotJSON struct {
+	Version     int          `json:"version"`
+	GeneratedAt string       `json:"generated_at"`
+	Commit      string       `json:"commit"`
+	UnitCount   int          `json:"unit_count"`
+	Records     []recordJSON `json:"records"`
+}
+
 // Store manages certification record files.
 type Store struct {
-	dir string
+	dir          string
+	snapshotPath string // optional: path to state.json for ListAll fallback
 }
 
 // NewStore creates a new record store rooted at the given directory.
 func NewStore(dir string) *Store {
 	return &Store{dir: dir}
+}
+
+// NewStoreWithSnapshot creates a record store with a snapshot fallback path.
+// When ListAll finds no individual record files, it reads from the snapshot.
+func NewStoreWithSnapshot(dir, snapshotPath string) *Store {
+	return &Store{dir: dir, snapshotPath: snapshotPath}
+}
+
+// SaveSnapshot writes all current records to a single JSON snapshot file.
+// Records are sorted by UnitID for deterministic output (clean git diffs).
+func (s *Store) SaveSnapshot(path string, commit string) error {
+	records, err := s.listAllFromDir()
+	if err != nil {
+		return fmt.Errorf("listing records for snapshot: %w", err)
+	}
+
+	// Sort by UnitID for deterministic output
+	sort.Slice(records, func(i, j int) bool {
+		return records[i].UnitID.String() < records[j].UnitID.String()
+	})
+
+	var recs []recordJSON
+	for _, r := range records {
+		recs = append(recs, toJSON(r))
+	}
+
+	snap := snapshotJSON{
+		Version:     1,
+		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
+		Commit:      commit,
+		UnitCount:   len(recs),
+		Records:     recs,
+	}
+
+	data, err := json.MarshalIndent(snap, "", "  ")
+	if err != nil {
+		return fmt.Errorf("marshaling snapshot: %w", err)
+	}
+
+	if dir := filepath.Dir(path); dir != "" {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return fmt.Errorf("creating snapshot directory: %w", err)
+		}
+	}
+
+	return os.WriteFile(path, data, 0o644)
+}
+
+// LoadSnapshot reads records from a snapshot file and populates the store
+// by writing individual record files. Use this to restore state after clone.
+func (s *Store) LoadSnapshot(path string) error {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return fmt.Errorf("reading snapshot: %w", err)
+	}
+
+	var snap snapshotJSON
+	if err := json.Unmarshal(data, &snap); err != nil {
+		return fmt.Errorf("parsing snapshot: %w", err)
+	}
+
+	for _, rj := range snap.Records {
+		rec := fromJSON(rj)
+		if err := s.Save(rec); err != nil {
+			return fmt.Errorf("restoring record %s: %w", rj.UnitID, err)
+		}
+	}
+	return nil
 }
 
 // Save writes a certification record to the store.
@@ -94,7 +173,26 @@ func (s *Store) Load(id domain.UnitID) (domain.CertificationRecord, error) {
 }
 
 // ListAll returns all records in the store.
+// If the records directory is empty or missing and a snapshot path is configured,
+// it falls back to reading from the snapshot file.
 func (s *Store) ListAll() ([]domain.CertificationRecord, error) {
+	records, err := s.listAllFromDir()
+	if err != nil {
+		return nil, err
+	}
+	if len(records) > 0 {
+		return records, nil
+	}
+
+	// Fallback to snapshot if configured and records dir is empty
+	if s.snapshotPath != "" {
+		return s.listAllFromSnapshot()
+	}
+	return records, nil
+}
+
+// listAllFromDir reads records from the individual files in the records directory.
+func (s *Store) listAllFromDir() ([]domain.CertificationRecord, error) {
 	entries, err := os.ReadDir(s.dir)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -116,6 +214,29 @@ func (s *Store) ListAll() ([]domain.CertificationRecord, error) {
 		if err := json.Unmarshal(data, &rj); err != nil {
 			continue
 		}
+		records = append(records, fromJSON(rj))
+	}
+	return records, nil
+}
+
+// listAllFromSnapshot reads records from a snapshot file without writing
+// individual record files. Used as a read-only fallback for ListAll.
+func (s *Store) listAllFromSnapshot() ([]domain.CertificationRecord, error) {
+	data, err := os.ReadFile(s.snapshotPath)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("reading snapshot: %w", err)
+	}
+
+	var snap snapshotJSON
+	if err := json.Unmarshal(data, &snap); err != nil {
+		return nil, fmt.Errorf("parsing snapshot: %w", err)
+	}
+
+	records := make([]domain.CertificationRecord, 0, len(snap.Records))
+	for _, rj := range snap.Records {
 		records = append(records, fromJSON(rj))
 	}
 	return records, nil

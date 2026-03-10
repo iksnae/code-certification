@@ -96,6 +96,12 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		}
 	}
 
+	// Save state snapshot for git tracking
+	snapshotPath := filepath.Join(ctx.certDir, "state.json")
+	if err := ctx.certifier.Store.SaveSnapshot(snapshotPath, commit); err != nil {
+		fmt.Fprintf(os.Stderr, "warning: saving state snapshot: %v\n", err)
+	}
+
 	ctx.wq.Save(ctx.queuePath)
 
 	if ctx.cfg.Mode == domain.ModeEnforcing && failed > 0 {
@@ -140,7 +146,8 @@ func loadCertifyContext() (*certifyContext, error) {
 		wq.Enqueue(u.ID.String(), u.ID.Path())
 	}
 
-	store := record.NewStore(filepath.Join(certDir, "records"))
+	snapshotPath := filepath.Join(certDir, "state.json")
+	store := record.NewStoreWithSnapshot(filepath.Join(certDir, "records"), snapshotPath)
 
 	certifier := &engine.Certifier{
 		Root:      root,
