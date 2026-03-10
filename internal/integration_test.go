@@ -1,6 +1,7 @@
 package internal_test
 
 import (
+	"context"
 	"os"
 	"path/filepath"
 	"testing"
@@ -12,6 +13,7 @@ import (
 	"github.com/iksnae/code-certification/internal/engine"
 	"github.com/iksnae/code-certification/internal/evidence"
 	"github.com/iksnae/code-certification/internal/override"
+	"github.com/iksnae/code-certification/internal/policy"
 	"github.com/iksnae/code-certification/internal/record"
 	"github.com/iksnae/code-certification/internal/report"
 )
@@ -214,5 +216,87 @@ func TestE2E_IndexDiff(t *testing.T) {
 	}
 	if len(diff.Removed) != 0 {
 		t.Errorf("Removed = %d, want 0", len(diff.Removed))
+	}
+}
+
+// TestE2E_Certifier proves the engine.Certifier is usable as a library
+// without any CLI dependency.
+func TestE2E_Certifier(t *testing.T) {
+	root := filepath.Join("..", "testdata", "repos", "go-simple")
+	certDir := t.TempDir()
+
+	// 1. Discover units
+	goAdapter := discovery.NewGoAdapter()
+	units, err := goAdapter.Scan(root)
+	if err != nil {
+		t.Fatalf("scan error: %v", err)
+	}
+	if len(units) == 0 {
+		t.Fatal("should discover at least one unit")
+	}
+
+	// 2. Load policies
+	policyDir := filepath.Join("..", "testdata", "policies")
+	packs, err := config.LoadPolicyPacks(policyDir)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	// 3. Construct Certifier (library usage — no CLI)
+	store := record.NewStore(filepath.Join(certDir, "records"))
+	certifier := &engine.Certifier{
+		Root:    root,
+		Store:   store,
+		Matcher: policy.NewMatcher(packs),
+		ExpiryCfg: domain.ExpiryConfig{
+			DefaultWindowDays: 90,
+			MinWindowDays:     7,
+			MaxWindowDays:     365,
+		},
+	}
+
+	// 4. Certify each unit via the Certifier service
+	now := time.Now()
+	ctx := context.Background()
+	var results []*engine.CertifyResult
+	for _, unit := range units {
+		result, err := certifier.Certify(ctx, unit, nil, now)
+		if err != nil {
+			t.Fatalf("Certify(%s) error: %v", unit.ID, err)
+		}
+		results = append(results, result)
+	}
+
+	// 5. Verify all records were saved
+	allRecords, err := store.ListAll()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(allRecords) != len(units) {
+		t.Errorf("saved %d records, expected %d", len(allRecords), len(units))
+	}
+
+	// 6. Verify records are loadable individually
+	for _, result := range results {
+		loaded, err := store.Load(result.Record.UnitID)
+		if err != nil {
+			t.Errorf("Load(%s) error: %v", result.Record.UnitID, err)
+			continue
+		}
+		if loaded.Score != result.Record.Score {
+			t.Errorf("Score mismatch for %s: loaded=%f, result=%f",
+				result.Record.UnitID, loaded.Score, result.Record.Score)
+		}
+	}
+
+	// 7. Verify SaveReportArtifacts works from the library
+	if err := engine.SaveReportArtifacts(certDir, store, "test/repo", "abc123", now); err != nil {
+		t.Fatalf("SaveReportArtifacts() error: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(certDir, "REPORT_CARD.md")); err != nil {
+		t.Error("REPORT_CARD.md not generated")
+	}
+	if _, err := os.Stat(filepath.Join(certDir, "badge.json")); err != nil {
+		t.Error("badge.json not generated")
 	}
 }

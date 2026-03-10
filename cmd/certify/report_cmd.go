@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/engine"
 	"github.com/iksnae/code-certification/internal/record"
 	"github.com/iksnae/code-certification/internal/report"
 	"github.com/spf13/cobra"
@@ -108,9 +108,8 @@ Static site (for large repos):
 			fmt.Printf("✓ Static site generated → %s (%d pages)\n", siteDir, pageCount)
 			fmt.Println("  Open .certification/site/index.html in a browser")
 
-			// Still save markdown report + badge
-			saveReportCard(certDir, records, repo, commit, now)
-			saveBadge(certDir, records, repo, commit, now)
+			// Still save markdown report + badge via consolidated function
+			engine.SaveReportArtifacts(certDir, store, repo, commit, now)
 
 			cardPath := filepath.Join(certDir, "REPORT_CARD.md")
 			badgePath := filepath.Join(certDir, "badge.json")
@@ -156,9 +155,8 @@ Static site (for large repos):
 			fmt.Print(output)
 		}
 
-		// Always save the full report card + badge
-		saveReportCard(certDir, records, repo, commit, now)
-		saveBadge(certDir, records, repo, commit, now)
+		// Always save the full report card + badge via consolidated function
+		engine.SaveReportArtifacts(certDir, store, repo, commit, now)
 
 		cardPath := filepath.Join(certDir, "REPORT_CARD.md")
 		badgePath := filepath.Join(certDir, "badge.json")
@@ -175,28 +173,6 @@ func init() {
 	reportCmd.Flags().StringVarP(&reportOutput, "output", "o", "", "Write report to file instead of stdout")
 	reportCmd.Flags().Bool("badge", false, "Print the shields.io badge markdown for your README")
 	reportCmd.Flags().BoolVar(&reportSite, "site", false, "Generate a static HTML site (shorthand for --format site)")
-}
-
-func saveReportCard(certDir string, records []domain.CertificationRecord, repo, commit string, now time.Time) {
-	fr := report.GenerateFullReport(records, repo, commit, now)
-	md := report.FormatFullMarkdown(fr)
-	os.WriteFile(filepath.Join(certDir, "REPORT_CARD.md"), []byte(md), 0o644)
-
-	// Per-unit reports
-	reportsDir := filepath.Join(certDir, "reports")
-	if n, err := report.GenerateUnitReports(fr, reportsDir); err == nil && n > 0 {
-		fmt.Printf("✓ %d unit report cards written to %s\n", n, reportsDir)
-	}
-}
-
-func saveBadge(certDir string, records []domain.CertificationRecord, repo, commit string, now time.Time) {
-	c := report.GenerateCard(records, repo, commit, now)
-	badge := report.GenerateBadge(c)
-	data, err := report.FormatBadgeJSON(badge)
-	if err != nil {
-		return
-	}
-	os.WriteFile(filepath.Join(certDir, "badge.json"), data, 0o644)
 }
 
 func reportDirOf(path string) string {
@@ -217,11 +193,9 @@ func detectRepoName(root string) string {
 	url := strings.TrimSpace(string(out))
 	url = strings.TrimSuffix(url, ".git")
 
-	// HTTPS: https://github.com/owner/repo
 	if idx := strings.Index(url, "github.com/"); idx >= 0 {
 		return url[idx+len("github.com/"):]
 	}
-	// SSH: git@github.com:owner/repo
 	if idx := strings.LastIndex(url, ":"); idx >= 0 && !strings.Contains(url[:idx], "//") {
 		return url[idx+1:]
 	}

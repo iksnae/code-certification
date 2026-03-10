@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -13,11 +12,9 @@ import (
 	"github.com/iksnae/code-certification/internal/discovery"
 	"github.com/iksnae/code-certification/internal/domain"
 	"github.com/iksnae/code-certification/internal/engine"
-	"github.com/iksnae/code-certification/internal/evidence"
 	"github.com/iksnae/code-certification/internal/override"
 	"github.com/iksnae/code-certification/internal/queue"
 	"github.com/iksnae/code-certification/internal/record"
-	"github.com/iksnae/code-certification/internal/report"
 	"github.com/spf13/cobra"
 )
 
@@ -61,14 +58,10 @@ type certifyContext struct {
 	root      string
 	certDir   string
 	cfg       domain.Config
-	units     []domain.Unit
 	unitMap   map[string]domain.Unit
-	packs     []domain.PolicyPack
-	overrides []domain.Override
 	wq        *queue.Queue
 	queuePath string
-	store     *record.Store
-	coord     *agent.Coordinator
+	certifier *engine.Certifier
 	repoEv    []domain.Evidence
 }
 
@@ -84,13 +77,25 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		return nil
 	}
 
-	ctx.coord = setupAgent(ctx.cfg, certifySkipAgent)
-	ctx.collectRepoEvidence()
+	ctx.certifier.Agent = setupAgent(ctx.cfg, certifySkipAgent)
+
+	fmt.Println("  Collecting repo-level evidence...")
+	ctx.repoEv = ctx.certifier.CollectRepoEvidence()
+	fmt.Printf("  Collected %d repo-level evidence items\n", len(ctx.repoEv))
 
 	certified, observations, failed, processed := ctx.processQueue(cmd, remaining)
 
 	ctx.printSummary(certified, observations, failed, processed)
-	ctx.saveReportArtifacts()
+
+	now := time.Now()
+	repo := detectRepoName(ctx.root)
+	commit := detectCommit(ctx.root)
+	if err := engine.SaveReportArtifacts(ctx.certDir, ctx.certifier.Store, repo, commit, now); err == nil {
+		if n, _ := os.ReadDir(filepath.Join(ctx.certDir, "reports")); len(n) > 0 {
+			fmt.Printf("✓ %d unit report cards written to %s\n", len(n), filepath.Join(ctx.certDir, "reports"))
+		}
+	}
+
 	ctx.wq.Save(ctx.queuePath)
 
 	if ctx.cfg.Mode == domain.ModeEnforcing && failed > 0 {
@@ -135,12 +140,21 @@ func loadCertifyContext() (*certifyContext, error) {
 		wq.Enqueue(u.ID.String(), u.ID.Path())
 	}
 
+	store := record.NewStore(filepath.Join(certDir, "records"))
+
+	certifier := &engine.Certifier{
+		Root:      root,
+		Store:     store,
+		Matcher:   config.NewPolicyMatcher(packs),
+		Overrides: overrides,
+		ExpiryCfg: cfg.Expiry,
+	}
+
 	return &certifyContext{
 		root: root, certDir: certDir, cfg: cfg,
-		units: units, unitMap: unitMap,
-		packs: packs, overrides: overrides,
-		wq: wq, queuePath: filepath.Join(certDir, "queue.json"),
-		store: record.NewStore(filepath.Join(certDir, "records")),
+		unitMap: unitMap,
+		wq:      wq, queuePath: filepath.Join(certDir, "queue.json"),
+		certifier: certifier,
 	}, nil
 }
 
@@ -187,108 +201,6 @@ func (c *certifyContext) printQueueStatus() int {
 	return remaining
 }
 
-func setupAgent(cfg domain.Config, skip bool) *agent.Coordinator {
-	if skip {
-		fmt.Println("  Agent review: skipped (--skip-agent)")
-		return nil
-	}
-	// Explicit config takes priority
-	if cfg.Agent.Enabled {
-		return setupExplicitAgent(cfg)
-	}
-	// Respect explicit disable even when key is present
-	if cfg.Agent.ExplicitlyDisabled {
-		return nil
-	}
-	// Auto-detect: check for API key in environment
-	return setupConservativeAgent()
-}
-
-// setupExplicitAgent builds the full agent pipeline from explicit config.
-func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
-	baseURL := cfg.Agent.Provider.BaseURL
-	apiKey := ""
-
-	// Local providers (no API key needed)
-	isLocal := isLocalURL(baseURL)
-
-	if cfg.Agent.Provider.APIKeyEnv != "" {
-		apiKey = os.Getenv(cfg.Agent.Provider.APIKeyEnv)
-		if apiKey == "" && !isLocal {
-			fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
-			return nil
-		}
-	} else if !isLocal {
-		// No api_key_env and not local — check common env vars
-		apiKey, _ = agent.DetectAPIKey()
-		if apiKey == "" {
-			fmt.Fprintf(os.Stderr, "  Agent review configured but no API key found — skipping\n")
-			return nil
-		}
-	}
-
-	// Build model list from config
-	models := []string{}
-	if cfg.Agent.Models.Prescreen != "" {
-		models = append(models, cfg.Agent.Models.Prescreen)
-	}
-	if cfg.Agent.Models.Review != "" && cfg.Agent.Models.Review != cfg.Agent.Models.Prescreen {
-		models = append(models, cfg.Agent.Models.Review)
-	}
-	if cfg.Agent.Models.Fallback != "" {
-		models = append(models, cfg.Agent.Models.Fallback)
-	}
-	if len(models) == 0 {
-		models = []string{"qwen3:latest"}
-	}
-
-	var provider agent.Provider
-	strategy := agent.StrategyStandard
-	tokenBudget := 50000
-
-	if isLocal {
-		provider = agent.NewLocalProvider(baseURL, "local")
-		strategy = agent.StrategyLocal // deep review, no prescreen gate
-		tokenBudget = 0                // unlimited — local tokens are free
-		fmt.Printf("  Agent review: enabled (local %s, deep review, models: %v)\n", baseURL, models)
-	} else {
-		provider = agent.NewModelChain(
-			baseURL, apiKey,
-			cfg.Agent.Provider.HTTPReferer, cfg.Agent.Provider.XTitle,
-			models,
-		)
-		fmt.Println("  Agent review: enabled (model chain with fallback)")
-	}
-
-	cb := agent.NewCircuitBreaker(provider, 5)
-	return agent.NewCoordinator(cb, agent.CoordinatorConfig{
-		Models: cfg.Agent.Models, Strategy: strategy, TokenBudget: tokenBudget,
-	})
-}
-
-// isLocalURL returns true if the URL points to a local server.
-func isLocalURL(u string) bool {
-	return strings.Contains(u, "localhost") || strings.Contains(u, "127.0.0.1") || strings.Contains(u, "0.0.0.0")
-}
-
-// setupConservativeAgent auto-detects available providers and builds a conservative coordinator.
-func setupConservativeAgent() *agent.Coordinator {
-	providers := agent.DetectProviders()
-	if len(providers) == 0 {
-		return nil
-	}
-	summary := agent.FormatProviderSummary(providers)
-	fmt.Printf("  Agent review: auto-detected [%s] (conservative mode)\n", summary)
-	return agent.NewConservativeCoordinator(providers)
-}
-
-func (c *certifyContext) collectRepoEvidence() {
-	fmt.Println("  Collecting repo-level evidence...")
-	executor := evidence.NewToolExecutor(c.root)
-	c.repoEv = executor.CollectAll()
-	fmt.Printf("  Collected %d repo-level evidence items\n", len(c.repoEv))
-}
-
 func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certified, observations, failed, processed int) {
 	now := time.Now()
 	batchSize := remaining
@@ -313,12 +225,34 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certif
 			fmt.Printf("\r  Processing... %d/%d", processed, batchSize)
 		}
 
-		rec := c.certifyUnit(cmd, unit, item.UnitID, now)
+		result, err := c.certifier.Certify(cmd.Context(), unit, c.repoEv, now)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "\nwarning: certifying %s: %v\n", unit.ID, err)
+			c.wq.Fail(item.UnitID, err.Error())
+			failed++
+			c.wq.Save(c.queuePath)
+			continue
+		}
+
+		// Update queue based on agent result
+		if result.AgentReview != nil {
+			model := ""
+			if len(result.AgentReview.ModelsUsed) > 0 {
+				model = result.AgentReview.ModelsUsed[0]
+			}
+			if result.AgentReview.Reviewed || result.AgentReview.Prescreened {
+				c.wq.Complete(item.UnitID, model)
+			} else {
+				c.wq.Skip(item.UnitID, "prescreen: no review needed")
+			}
+		} else {
+			c.wq.Complete(item.UnitID, "")
+		}
 
 		switch {
-		case rec.Status == domain.StatusCertified:
+		case result.Record.Status == domain.StatusCertified:
 			certified++
-		case rec.Status == domain.StatusCertifiedWithObservations || rec.Status == domain.StatusExempt:
+		case result.Record.Status == domain.StatusCertifiedWithObservations || result.Record.Status == domain.StatusExempt:
 			observations++
 		default:
 			failed++
@@ -328,82 +262,10 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certif
 	return
 }
 
-func (c *certifyContext) certifyUnit(cmd *cobra.Command, unit domain.Unit, unitID string, now time.Time) domain.CertificationRecord {
-	matcher := config.NewPolicyMatcher(c.packs)
-	matched := matcher.Match(unit)
-	var rules []domain.PolicyRule
-	for _, p := range matched {
-		rules = append(rules, p.Rules...)
-	}
-
-	ev := make([]domain.Evidence, len(c.repoEv))
-	copy(ev, c.repoEv)
-	var aiObs []string
-
-	srcPath := filepath.Join(c.root, unit.ID.Path())
-	var srcCode string
-	if srcData, readErr := os.ReadFile(srcPath); readErr == nil {
-		srcCode = string(srcData)
-		sym := unit.ID.Symbol()
-		var metrics evidence.CodeMetrics
-		if sym != "" && strings.HasSuffix(unit.ID.Path(), ".go") {
-			metrics = evidence.ComputeSymbolMetrics(srcCode, sym)
-		} else {
-			metrics = evidence.ComputeMetrics(srcCode)
-		}
-		ev = append(ev, metrics.ToEvidence())
-	}
-
-	if c.coord != nil {
-		// Local models are slower — give them more time
-		timeout := 30 * time.Second
-		if c.coord.IsLocal() {
-			timeout = 120 * time.Second
-		}
-		ctx, cancel := context.WithTimeout(cmd.Context(), timeout)
-		result := c.coord.ReviewUnit(ctx, unit, srcCode, ev)
-		cancel()
-		model := ""
-		if len(result.ModelsUsed) > 0 {
-			model = result.ModelsUsed[0]
-		}
-		if result.Reviewed {
-			ev = append(ev, result.ToEvidence())
-			c.wq.Complete(unitID, model)
-		} else if result.Prescreened {
-			ev = append(ev, result.ToPrescreenEvidence())
-			c.wq.Complete(unitID, model)
-		} else {
-			c.wq.Skip(unitID, "prescreen: no review needed")
-		}
-		// Collect AI observations for the record
-		aiObs = append(aiObs, agent.FormatDeepObservations(result)...)
-	} else {
-		c.wq.Complete(unitID, "")
-	}
-
-	rec := engine.CertifyUnit(unit, rules, ev, c.cfg.Expiry, now)
-	if len(aiObs) > 0 {
-		rec.Observations = append(rec.Observations, aiObs...)
-	}
-	if len(c.overrides) > 0 {
-		rec = override.ApplyAll(rec, c.overrides)
-	}
-	if err := c.store.Save(rec); err != nil {
-		fmt.Fprintf(os.Stderr, "\nwarning: saving record for %s: %v\n", unit.ID, err)
-	}
-	c.store.AppendHistory(rec)
-	return rec
-}
-
-func defaultConfigObj() domain.Config {
-	return domain.DefaultConfig()
-}
-
 func (c *certifyContext) printSummary(certified, observations, failed, processed int) {
 	total := certified + observations + failed
-	if c.coord != nil {
-		filesReviewed, totalFiles, tokens := c.coord.Stats()
+	if c.certifier.Agent != nil {
+		filesReviewed, totalFiles, tokens := c.certifier.Agent.Stats()
 		fmt.Printf("\n  Agent: %d/%d files reviewed, %d tokens used\n", filesReviewed, totalFiles, tokens)
 	}
 
@@ -426,31 +288,91 @@ func (c *certifyContext) printSummary(certified, observations, failed, processed
 	fmt.Println()
 }
 
-// saveReportArtifacts generates REPORT_CARD.md and badge.json after certification.
-func (c *certifyContext) saveReportArtifacts() {
-	records, err := c.store.ListAll()
-	if err != nil || len(records) == 0 {
-		return
-	}
-	now := time.Now()
-	repo := detectRepoName(c.root)
-	commit := detectCommit(c.root)
+func defaultConfigObj() domain.Config {
+	return domain.DefaultConfig()
+}
 
-	// Save report card
-	fr := report.GenerateFullReport(records, repo, commit, now)
-	md := report.FormatFullMarkdown(fr)
-	os.WriteFile(filepath.Join(c.certDir, "REPORT_CARD.md"), []byte(md), 0o644)
+func setupAgent(cfg domain.Config, skip bool) *agent.Coordinator {
+	if skip {
+		fmt.Println("  Agent review: skipped (--skip-agent)")
+		return nil
+	}
+	if cfg.Agent.Enabled {
+		return setupExplicitAgent(cfg)
+	}
+	if cfg.Agent.ExplicitlyDisabled {
+		return nil
+	}
+	return setupConservativeAgent()
+}
 
-	// Save per-unit reports
-	reportsDir := filepath.Join(c.certDir, "reports")
-	if n, err := report.GenerateUnitReports(fr, reportsDir); err == nil {
-		fmt.Printf("✓ %d unit report cards written to %s\n", n, reportsDir)
+func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
+	baseURL := cfg.Agent.Provider.BaseURL
+	apiKey := ""
+	isLocal := isLocalURL(baseURL)
+
+	if cfg.Agent.Provider.APIKeyEnv != "" {
+		apiKey = os.Getenv(cfg.Agent.Provider.APIKeyEnv)
+		if apiKey == "" && !isLocal {
+			fmt.Fprintf(os.Stderr, "  Agent review configured but %s not set — skipping\n", cfg.Agent.Provider.APIKeyEnv)
+			return nil
+		}
+	} else if !isLocal {
+		apiKey, _ = agent.DetectAPIKey()
+		if apiKey == "" {
+			fmt.Fprintf(os.Stderr, "  Agent review configured but no API key found — skipping\n")
+			return nil
+		}
 	}
 
-	// Save badge
-	card := report.GenerateCard(records, repo, commit, now)
-	badge := report.GenerateBadge(card)
-	if data, err := report.FormatBadgeJSON(badge); err == nil {
-		os.WriteFile(filepath.Join(c.certDir, "badge.json"), data, 0o644)
+	models := []string{}
+	if cfg.Agent.Models.Prescreen != "" {
+		models = append(models, cfg.Agent.Models.Prescreen)
 	}
+	if cfg.Agent.Models.Review != "" && cfg.Agent.Models.Review != cfg.Agent.Models.Prescreen {
+		models = append(models, cfg.Agent.Models.Review)
+	}
+	if cfg.Agent.Models.Fallback != "" {
+		models = append(models, cfg.Agent.Models.Fallback)
+	}
+	if len(models) == 0 {
+		models = []string{"qwen3:latest"}
+	}
+
+	var provider agent.Provider
+	strategy := agent.StrategyStandard
+	tokenBudget := 50000
+
+	if isLocal {
+		provider = agent.NewLocalProvider(baseURL, "local")
+		strategy = agent.StrategyLocal
+		tokenBudget = 0
+		fmt.Printf("  Agent review: enabled (local %s, deep review, models: %v)\n", baseURL, models)
+	} else {
+		provider = agent.NewModelChain(
+			baseURL, apiKey,
+			cfg.Agent.Provider.HTTPReferer, cfg.Agent.Provider.XTitle,
+			models,
+		)
+		fmt.Println("  Agent review: enabled (model chain with fallback)")
+	}
+
+	cb := agent.NewCircuitBreaker(provider, 5)
+	return agent.NewCoordinator(cb, agent.CoordinatorConfig{
+		Models: cfg.Agent.Models, Strategy: strategy, TokenBudget: tokenBudget,
+	})
+}
+
+func isLocalURL(u string) bool {
+	return strings.Contains(u, "localhost") || strings.Contains(u, "127.0.0.1") || strings.Contains(u, "0.0.0.0")
+}
+
+func setupConservativeAgent() *agent.Coordinator {
+	providers := agent.DetectProviders()
+	if len(providers) == 0 {
+		return nil
+	}
+	summary := agent.FormatProviderSummary(providers)
+	fmt.Printf("  Agent review: auto-detected [%s] (conservative mode)\n", summary)
+	return agent.NewConservativeCoordinator(providers)
 }
