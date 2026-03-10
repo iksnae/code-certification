@@ -87,10 +87,10 @@ type ArchPhase4Result struct {
 }
 
 type ArchConcern struct {
-	Area             string            `json:"area"`
-	Description      string            `json:"description"`
-	AffectedPackages []string          `json:"affected_packages"`
-	Metrics          map[string]string `json:"metrics"`
+	Area             string         `json:"area"`
+	Description      string         `json:"description"`
+	AffectedPackages []string       `json:"affected_packages"`
+	Metrics          map[string]any `json:"metrics"`
 }
 
 // ArchPhase5Result holds comparative recommendations.

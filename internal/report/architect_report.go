@@ -216,6 +216,14 @@ func writeArchPartII(b *strings.Builder, result *agent.ArchitectResult) {
 			if len(c.AffectedPackages) > 0 {
 				fmt.Fprintf(b, "  Affected: `%s`\n", strings.Join(c.AffectedPackages, "`, `"))
 			}
+			if len(c.Metrics) > 0 {
+				var metricParts []string
+				for k, v := range c.Metrics {
+					metricParts = append(metricParts, fmt.Sprintf("%s: %v", k, v))
+				}
+				sort.Strings(metricParts)
+				fmt.Fprintf(b, "  Metrics: %s\n", strings.Join(metricParts, ", "))
+			}
 			b.WriteString("\n")
 		}
 	} else {
