@@ -47,7 +47,7 @@ func CertifyUnit(
 	// 8. Determine source attribution
 	source := "deterministic"
 	for _, e := range ev {
-		if e.Kind == domain.EvidenceKindAgentReview && (strings.HasPrefix(e.Source, "agent:") || strings.HasPrefix(e.Source, "agent-prescreen:")) {
+		if e.Kind == domain.EvidenceKindAgentReview && (strings.HasPrefix(e.Source, "agent:") || strings.HasPrefix(e.Source, "agent-prescreen:") || strings.HasPrefix(e.Source, "agent-deep-review:")) {
 			source = "deterministic+" + e.Source
 			break
 		}

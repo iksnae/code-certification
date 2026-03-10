@@ -136,6 +136,12 @@ func saveReportCard(certDir string, records []domain.CertificationRecord, repo, 
 	fr := report.GenerateFullReport(records, repo, commit, now)
 	md := report.FormatFullMarkdown(fr)
 	os.WriteFile(filepath.Join(certDir, "REPORT_CARD.md"), []byte(md), 0o644)
+
+	// Per-unit reports
+	reportsDir := filepath.Join(certDir, "reports")
+	if n, err := report.GenerateUnitReports(fr, reportsDir); err == nil && n > 0 {
+		fmt.Printf("✓ %d unit report cards written to %s\n", n, reportsDir)
+	}
 }
 
 func saveBadge(certDir string, records []domain.CertificationRecord, repo, commit string, now time.Time) {

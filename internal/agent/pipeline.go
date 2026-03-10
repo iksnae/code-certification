@@ -17,6 +17,9 @@ const (
 	StrategyStandard
 	// StrategyFull runs all 5 stages including decision and remediation.
 	StrategyFull
+	// StrategyLocal skips prescreen gate, runs deep review → scoring.
+	// Designed for local models with zero token cost.
+	StrategyLocal
 )
 
 // PipelineConfig configures the review pipeline.
@@ -34,20 +37,30 @@ type Pipeline struct {
 func NewPipeline(provider Provider, cfg PipelineConfig) *Pipeline {
 	var stages []Stage
 
-	if cfg.Models.Prescreen != "" {
-		stages = append(stages, NewPrescreenStage(provider, cfg.Models.Prescreen))
-	}
-
-	if cfg.Strategy >= StrategyStandard {
-		if cfg.Models.Review != "" {
-			stages = append(stages, NewReviewStage(provider, cfg.Models.Review))
+	if cfg.Strategy == StrategyLocal {
+		// Local models: skip prescreen gate, always do deep review + scoring.
+		// Zero token cost means we maximize insight per unit.
+		model := cfg.Models.Review
+		if model == "" {
+			model = cfg.Models.Prescreen
 		}
+		stages = append(stages, NewDeepReviewStage(provider, model))
 		if cfg.Models.Scoring != "" {
 			stages = append(stages, NewScoringStage(provider, cfg.Models.Scoring))
 		}
+	} else {
+		if cfg.Models.Prescreen != "" {
+			stages = append(stages, NewPrescreenStage(provider, cfg.Models.Prescreen))
+		}
+		if cfg.Strategy >= StrategyStandard {
+			if cfg.Models.Review != "" {
+				stages = append(stages, NewReviewStage(provider, cfg.Models.Review))
+			}
+			if cfg.Models.Scoring != "" {
+				stages = append(stages, NewScoringStage(provider, cfg.Models.Scoring))
+			}
+		}
 	}
-
-	// Full strategy adds decision + remediation (not implemented as stages yet)
 
 	return &Pipeline{stages: stages}
 }
@@ -196,6 +209,11 @@ func (c *Coordinator) ReviewUnit(ctx context.Context, unit domain.Unit, source s
 	c.tokensSpent += result.TokensUsed
 	c.reviewed[filePath] = result
 	return result
+}
+
+// IsLocal returns true if the coordinator is using a local strategy.
+func (c *Coordinator) IsLocal() bool {
+	return c.config.Strategy == StrategyLocal
 }
 
 // Stats returns coordinator statistics.

@@ -243,9 +243,14 @@ func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
 	}
 
 	var provider agent.Provider
+	strategy := agent.StrategyStandard
+	tokenBudget := 50000
+
 	if isLocal {
 		provider = agent.NewLocalProvider(baseURL, "local")
-		fmt.Printf("  Agent review: enabled (local %s, models: %v)\n", baseURL, models)
+		strategy = agent.StrategyLocal // deep review, no prescreen gate
+		tokenBudget = 0               // unlimited — local tokens are free
+		fmt.Printf("  Agent review: enabled (local %s, deep review, models: %v)\n", baseURL, models)
 	} else {
 		provider = agent.NewModelChain(
 			baseURL, apiKey,
@@ -257,7 +262,7 @@ func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
 
 	cb := agent.NewCircuitBreaker(provider, 5)
 	return agent.NewCoordinator(cb, agent.CoordinatorConfig{
-		Models: cfg.Agent.Models, Strategy: agent.StrategyStandard, TokenBudget: 50000,
+		Models: cfg.Agent.Models, Strategy: strategy, TokenBudget: tokenBudget,
 	})
 }
 
@@ -350,7 +355,12 @@ func (c *certifyContext) certifyUnit(cmd *cobra.Command, unit domain.Unit, unitI
 	}
 
 	if c.coord != nil {
-		ctx, cancel := context.WithTimeout(cmd.Context(), 30*time.Second)
+		// Local models are slower — give them more time
+		timeout := 30 * time.Second
+		if c.coord.IsLocal() {
+			timeout = 120 * time.Second
+		}
+		ctx, cancel := context.WithTimeout(cmd.Context(), timeout)
 		result := c.coord.ReviewUnit(ctx, unit, srcCode, ev)
 		cancel()
 		model := ""
@@ -361,21 +371,13 @@ func (c *certifyContext) certifyUnit(cmd *cobra.Command, unit domain.Unit, unitI
 			ev = append(ev, result.ToEvidence())
 			c.wq.Complete(unitID, model)
 		} else if result.Prescreened {
-			// AI evaluated but determined no detailed review needed — still credit it
 			ev = append(ev, result.ToPrescreenEvidence())
 			c.wq.Complete(unitID, model)
 		} else {
 			c.wq.Skip(unitID, "prescreen: no review needed")
 		}
-		// Collect AI suggestions as observations for the record
-		if result.PrescreenReason != "" {
-			aiObs = append(aiObs, "🤖 "+result.PrescreenReason)
-		}
-		for _, s := range result.Suggestions {
-			if s != "" {
-				aiObs = append(aiObs, "💡 "+s)
-			}
-		}
+		// Collect AI observations for the record
+		aiObs = append(aiObs, agent.FormatDeepObservations(result)...)
 	} else {
 		c.wq.Complete(unitID, "")
 	}
@@ -438,6 +440,12 @@ func (c *certifyContext) saveReportArtifacts() {
 	fr := report.GenerateFullReport(records, repo, commit, now)
 	md := report.FormatFullMarkdown(fr)
 	os.WriteFile(filepath.Join(c.certDir, "REPORT_CARD.md"), []byte(md), 0o644)
+
+	// Save per-unit reports
+	reportsDir := filepath.Join(c.certDir, "reports")
+	if n, err := report.GenerateUnitReports(fr, reportsDir); err == nil {
+		fmt.Printf("✓ %d unit report cards written to %s\n", n, reportsDir)
+	}
 
 	// Save badge
 	card := report.GenerateCard(records, repo, commit, now)
