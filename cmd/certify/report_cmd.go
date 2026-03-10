@@ -11,6 +11,7 @@ import (
 	"github.com/iksnae/code-certification/internal/engine"
 	"github.com/iksnae/code-certification/internal/record"
 	"github.com/iksnae/code-certification/internal/report"
+	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
 
@@ -49,6 +50,11 @@ Static site (for large repos):
 		if root == "" {
 			root, _ = os.Getwd()
 		}
+
+		if workspaceMode {
+			return runWorkspaceReport(root)
+		}
+
 		certDir := filepath.Join(root, ".certification")
 
 		// --badge flag just prints the snippet
@@ -175,6 +181,115 @@ func init() {
 	reportCmd.Flags().StringVarP(&reportOutput, "output", "o", "", "Write report to file instead of stdout")
 	reportCmd.Flags().Bool("badge", false, "Print the shields.io badge markdown for your README")
 	reportCmd.Flags().BoolVar(&reportSite, "site", false, "Generate a static HTML site (shorthand for --format site)")
+}
+
+func runWorkspaceReport(root string) error {
+	subs, err := workspace.DiscoverSubmodules(root)
+	if err != nil {
+		return fmt.Errorf("discovering submodules: %w", err)
+	}
+
+	if len(subs) == 0 {
+		return fmt.Errorf("no git submodules found in %s", root)
+	}
+
+	fmt.Printf("🔍 Workspace report: %d submodule(s)\n\n", len(subs))
+
+	// Build submodule summaries
+	var summaries []workspace.SubmoduleSummary
+	for _, s := range subs {
+		summary := workspace.SubmoduleSummary{
+			Name:       s.Name,
+			Path:       s.Path,
+			HasCertify: s.HasConfig,
+			Commit:     s.Commit,
+		}
+
+		if s.HasConfig {
+			card, err := workspace.LoadSubmoduleCard(root, s)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "  warning: loading %s: %v\n", s.Path, err)
+			} else if card != nil {
+				summary.Grade = card.OverallGrade
+				summary.Score = card.OverallScore
+				summary.Units = card.TotalUnits
+				summary.Passing = card.Passing
+				summary.Failing = card.Failing
+				summary.PassRate = card.PassRate
+				summary.StateAt = card.GeneratedAt
+			}
+		}
+
+		summaries = append(summaries, summary)
+	}
+
+	// Aggregate
+	wc := workspace.AggregateCards(summaries)
+
+	// Create workspace .certification directory
+	certDir := filepath.Join(root, ".certification")
+	if err := os.MkdirAll(certDir, 0o755); err != nil {
+		return fmt.Errorf("creating workspace .certification: %w", err)
+	}
+
+	// Write workspace REPORT_CARD.md
+	md := workspace.FormatWorkspaceCardMarkdown(wc)
+	cardPath := filepath.Join(certDir, "REPORT_CARD.md")
+	if err := os.WriteFile(cardPath, []byte(md), 0o644); err != nil {
+		return fmt.Errorf("writing workspace REPORT_CARD.md: %w", err)
+	}
+
+	// Write workspace report tree
+	reportsDir := filepath.Join(certDir, "reports")
+	count, err := workspace.GenerateWorkspaceReportTree(wc, reportsDir)
+	if err != nil {
+		return fmt.Errorf("generating workspace report tree: %w", err)
+	}
+
+	// Print summary
+	emoji := "🟢"
+	switch {
+	case wc.OverallGrade == "F":
+		emoji = "🔴"
+	case wc.OverallGrade == "D":
+		emoji = "🟠"
+	case wc.OverallGrade == "C":
+		emoji = "🟡"
+	}
+
+	fmt.Printf("  %s Workspace: %s (%.1f%%)\n", emoji, wc.OverallGrade, wc.OverallScore*100)
+	fmt.Printf("  Units: %d · Passing: %d · Failing: %d\n\n", wc.TotalUnits, wc.TotalPassing, wc.TotalFailing)
+
+	for _, s := range summaries {
+		if !s.HasCertify {
+			fmt.Printf("  %-30s  — not configured\n", s.Name)
+		} else if s.Units == 0 {
+			fmt.Printf("  %-30s  — no data\n", s.Name)
+		} else {
+			fmt.Printf("  %-30s  %s %-3s %5.1f%%  %d units\n",
+				s.Name, gradeEmojiShort(s.Grade), s.Grade, s.Score*100, s.Units)
+		}
+	}
+
+	fmt.Printf("\n✓ %s updated\n", cardPath)
+	fmt.Printf("✓ %d report files written to %s\n", count, reportsDir)
+
+	return nil
+}
+
+func gradeEmojiShort(grade string) string {
+	switch grade {
+	case "A", "A-", "B+", "B":
+		return "🟢"
+	case "C":
+		return "🟡"
+	case "D":
+		return "🟠"
+	case "F":
+		return "🔴"
+	default:
+		return "⚪"
+	}
 }
 
 func reportDirOf(path string) string {

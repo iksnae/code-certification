@@ -16,6 +16,7 @@ import (
 	"github.com/iksnae/code-certification/internal/policy"
 	"github.com/iksnae/code-certification/internal/queue"
 	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
 
@@ -67,6 +68,10 @@ type certifyContext struct {
 }
 
 func runCertify(cmd *cobra.Command, args []string) error {
+	if workspaceMode {
+		return runWorkspaceCertify()
+	}
+
 	ctx, err := loadCertifyContext()
 	if err != nil {
 		return err
@@ -306,6 +311,48 @@ func (c *certifyContext) printSummary(certified, observations, failed, processed
 		fmt.Printf(" (%d need attention)", failed)
 	}
 	fmt.Println()
+}
+
+func runWorkspaceCertify() error {
+	root := certifyPath
+	if root == "" {
+		root, _ = os.Getwd()
+	}
+
+	subs, err := workspace.DiscoverSubmodules(root)
+	if err != nil {
+		return fmt.Errorf("discovering submodules: %w", err)
+	}
+
+	configured := workspace.ConfiguredSubmodules(subs)
+	if len(configured) == 0 {
+		return fmt.Errorf("no configured submodules found — run 'certify init --workspace' first")
+	}
+
+	fmt.Printf("🔍 Workspace certify: %d submodule(s)\n\n", len(configured))
+
+	// Forward relevant flags to subcommand
+	for _, s := range configured {
+		fmt.Printf("═══ %s ═══\n", s.Path)
+		subPath := filepath.Join(root, s.Path)
+		args := []string{"certify", "--path", subPath}
+		if certifySkipAgent {
+			args = append(args, "--skip-agent")
+		}
+		if certifyBatch > 0 {
+			args = append(args, "--batch", fmt.Sprintf("%d", certifyBatch))
+		}
+		if certifyResetQueue {
+			args = append(args, "--reset-queue")
+		}
+		if err := runSubcommand(args...); err != nil {
+			fmt.Fprintf(os.Stderr, "  warning: certify failed for %s: %v\n", s.Path, err)
+		}
+		fmt.Println()
+	}
+
+	fmt.Println("✓ Workspace certification complete.")
+	return nil
 }
 
 func defaultConfigObj() domain.Config {

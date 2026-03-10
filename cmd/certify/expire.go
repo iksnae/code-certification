@@ -8,6 +8,7 @@ import (
 
 	"github.com/iksnae/code-certification/internal/domain"
 	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
 
@@ -21,6 +22,11 @@ var expireCmd = &cobra.Command{
 		if root == "" {
 			root, _ = os.Getwd()
 		}
+
+		if workspaceMode {
+			return runWorkspaceExpire(root)
+		}
+
 		certDir := filepath.Join(root, ".certification")
 		store := record.NewStore(filepath.Join(certDir, "records"))
 
@@ -53,4 +59,29 @@ var expireCmd = &cobra.Command{
 func init() {
 	expireCmd.Flags().StringVar(&expirePath, "path", "", "Path to repository (default: current directory)")
 	rootCmd.AddCommand(expireCmd)
+}
+
+func runWorkspaceExpire(root string) error {
+	subs, err := workspace.DiscoverSubmodules(root)
+	if err != nil {
+		return fmt.Errorf("discovering submodules: %w", err)
+	}
+
+	configured := workspace.ConfiguredSubmodules(subs)
+	if len(configured) == 0 {
+		return fmt.Errorf("no configured submodules found — run 'certify init --workspace' first")
+	}
+
+	fmt.Printf("🔍 Workspace expire: %d submodule(s)\n\n", len(configured))
+
+	for _, s := range configured {
+		fmt.Printf("  → Expiring %s...\n", s.Path)
+		subPath := filepath.Join(root, s.Path)
+		if err := runSubcommand("expire", "--path", subPath); err != nil {
+			fmt.Fprintf(os.Stderr, "    warning: expire failed for %s: %v\n", s.Path, err)
+		}
+	}
+
+	fmt.Println("\n✓ Workspace expiry complete.")
+	return nil
 }

@@ -8,6 +8,7 @@ import (
 
 	"github.com/iksnae/code-certification/internal/discovery"
 	gh "github.com/iksnae/code-certification/internal/github"
+	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
 
@@ -25,6 +26,11 @@ var initCmd = &cobra.Command{
 		if root == "" {
 			root, _ = os.Getwd()
 		}
+
+		if workspaceMode {
+			return runWorkspaceInit(root)
+		}
+
 		certDir := filepath.Join(root, ".certification")
 
 		// Create directory structure
@@ -171,6 +177,53 @@ var initCmd = &cobra.Command{
 func init() {
 	initCmd.Flags().StringVar(&initPath, "path", "", "Path to repository (default: current directory)")
 	initCmd.Flags().BoolVar(&initPR, "pr", false, "Create initialization as a pull request")
+}
+
+func runWorkspaceInit(root string) error {
+	fmt.Println("🔍 Workspace mode: discovering git submodules...")
+
+	subs, err := workspace.DiscoverSubmodules(root)
+	if err != nil {
+		return fmt.Errorf("discovering submodules: %w", err)
+	}
+
+	if len(subs) == 0 {
+		return fmt.Errorf("no git submodules found in %s", root)
+	}
+
+	fmt.Printf("  Found %d submodule(s):\n\n", len(subs))
+
+	var unconfigured []workspace.Submodule
+	for _, s := range subs {
+		status := "✓ certify configured"
+		if !s.HasConfig {
+			status = "✗ no certify setup"
+			unconfigured = append(unconfigured, s)
+		}
+		fmt.Printf("  %-40s %s\n", s.Path, status)
+	}
+	fmt.Println()
+
+	if len(unconfigured) == 0 {
+		fmt.Println("✓ All submodules have certify configured.")
+		return nil
+	}
+
+	fmt.Printf("  Initializing %d unconfigured submodule(s)...\n\n", len(unconfigured))
+	for _, s := range unconfigured {
+		fmt.Printf("  → %s\n", s.Path)
+		subRoot := filepath.Join(root, s.Path)
+		if err := runSubcommand("init", "--path", subRoot); err != nil {
+			fmt.Fprintf(os.Stderr, "    warning: init failed for %s: %v\n", s.Path, err)
+		}
+	}
+
+	// Create workspace-level .certification directory
+	certDir := filepath.Join(root, ".certification")
+	os.MkdirAll(certDir, 0o755)
+
+	fmt.Println("\n✓ Workspace initialized. Run 'certify scan --workspace' next.")
+	return nil
 }
 
 func generateConfig(langs []discovery.LanguageInfo) string {

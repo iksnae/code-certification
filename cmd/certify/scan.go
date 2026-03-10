@@ -11,6 +11,7 @@ import (
 	"github.com/iksnae/code-certification/internal/agent"
 	"github.com/iksnae/code-certification/internal/config"
 	"github.com/iksnae/code-certification/internal/discovery"
+	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
 
@@ -24,6 +25,11 @@ var scanCmd = &cobra.Command{
 		if root == "" {
 			root, _ = os.Getwd()
 		}
+
+		if workspaceMode {
+			return runWorkspaceScan(root)
+		}
+
 		certDir := filepath.Join(root, ".certification")
 
 		// Load config
@@ -84,6 +90,31 @@ var scanCmd = &cobra.Command{
 
 func init() {
 	scanCmd.Flags().StringVar(&scanPath, "path", "", "Path to repository (default: current directory)")
+}
+
+func runWorkspaceScan(root string) error {
+	subs, err := workspace.DiscoverSubmodules(root)
+	if err != nil {
+		return fmt.Errorf("discovering submodules: %w", err)
+	}
+
+	configured := workspace.ConfiguredSubmodules(subs)
+	if len(configured) == 0 {
+		return fmt.Errorf("no configured submodules found — run 'certify init --workspace' first")
+	}
+
+	fmt.Printf("🔍 Workspace scan: %d submodule(s)\n\n", len(configured))
+
+	for _, s := range configured {
+		fmt.Printf("  → Scanning %s...\n", s.Path)
+		subPath := filepath.Join(root, s.Path)
+		if err := runSubcommand("scan", "--path", subPath); err != nil {
+			fmt.Fprintf(os.Stderr, "    warning: scan failed for %s: %v\n", s.Path, err)
+		}
+	}
+
+	fmt.Println("\n✓ Workspace scan complete.")
+	return nil
 }
 
 // tryScanSuggestions attempts AI-powered policy/scope suggestions.
