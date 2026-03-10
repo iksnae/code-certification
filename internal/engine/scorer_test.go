@@ -26,6 +26,116 @@ func TestScorer_AllClean(t *testing.T) {
 	}
 }
 
+func TestScorer_OnlyMeasuredDimensionsPresent(t *testing.T) {
+	// With only lint evidence, only correctness should be scored
+	ev := []domain.Evidence{
+		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 0}.ToEvidence(),
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+
+	if _, ok := scores[domain.DimCorrectness]; !ok {
+		t.Error("lint evidence should set correctness")
+	}
+	// Dimensions with no evidence should be absent
+	for _, dim := range []domain.Dimension{
+		domain.DimTestability,
+		domain.DimArchitecturalFitness,
+		domain.DimPerformanceAppropriateness,
+	} {
+		if _, ok := scores[dim]; ok {
+			t.Errorf("dimension %s should not be set with only lint evidence", dim)
+		}
+	}
+}
+
+func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
+	// architectural_fitness should only appear when there's a violation
+	cleanEv := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{
+				"method_count":     5,
+				"context_not_first": 0,
+			},
+		},
+	}
+	cleanScores := engine.Score(cleanEv, policy.EvaluationResult{Passed: true})
+	if _, ok := cleanScores[domain.DimArchitecturalFitness]; ok {
+		t.Error("architectural_fitness should not be set when no violations found")
+	}
+	if _, ok := cleanScores[domain.DimPerformanceAppropriateness]; ok {
+		t.Error("performance_appropriateness should not be set when no violations found")
+	}
+
+	// But when violations exist, the penalty dims should appear
+	badEv := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{
+				"method_count":     20,
+				"context_not_first": 1,
+				"defer_in_loop":    1,
+			},
+		},
+	}
+	badScores := engine.Score(badEv, policy.EvaluationResult{Passed: true})
+	if v, ok := badScores[domain.DimArchitecturalFitness]; !ok || v >= 0.80 {
+		t.Errorf("architectural_fitness with god object = %v (present=%v), want present and < 0.80", v, ok)
+	}
+	if v, ok := badScores[domain.DimPerformanceAppropriateness]; !ok || v >= 0.80 {
+		t.Errorf("performance_appropriateness with defer_in_loop = %v (present=%v), want present and < 0.80", v, ok)
+	}
+}
+
+func TestScorer_NoEvidenceNoScore(t *testing.T) {
+	scores := engine.Score(nil, policy.EvaluationResult{Passed: true})
+	if len(scores) != 0 {
+		t.Errorf("no evidence should produce empty scores, got %d dimensions", len(scores))
+	}
+	avg := scores.WeightedAverage(nil)
+	if avg != 0 {
+		t.Errorf("no evidence average = %f, want 0", avg)
+	}
+}
+
+func TestScorer_SecurityOnlyWhenMeasured(t *testing.T) {
+	// Security should appear when structural evidence checks global state
+	cleanGlobals := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{
+				"global_mutable_count": 0,
+			},
+		},
+	}
+	cleanScores := engine.Score(cleanGlobals, policy.EvaluationResult{Passed: true})
+	if v, ok := cleanScores[domain.DimSecurity]; !ok || v < 0.85 {
+		t.Errorf("clean globals security = %v (present=%v), want present and >= 0.85", v, ok)
+	}
+
+	// With globals, security should be penalized
+	dirtyGlobals := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{
+				"global_mutable_count": 5,
+			},
+		},
+	}
+	dirtyScores := engine.Score(dirtyGlobals, policy.EvaluationResult{Passed: true})
+	if v, ok := dirtyScores[domain.DimSecurity]; !ok || v >= 0.70 {
+		t.Errorf("5 globals security = %v (present=%v), want present and < 0.70", v, ok)
+	}
+}
+
 func TestScorer_WithViolations(t *testing.T) {
 	ev := []domain.Evidence{
 		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 5}.ToEvidence(),

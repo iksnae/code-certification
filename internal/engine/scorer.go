@@ -10,43 +10,37 @@ import (
 )
 
 // Score computes dimension scores from evidence and evaluation results.
+// Only dimensions with actual evidence are included in the returned map.
+// Dimensions without evidence are absent — they don't dilute the average.
 func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.DimensionScores {
 	scores := make(domain.DimensionScores)
 
-	// Base all dimensions at 0.80 (neutral — evidence adjusts up or down)
-	for _, d := range domain.AllDimensions() {
-		scores[d] = 0.80
-	}
-
-	// Adjust based on evidence
 	for _, e := range ev {
 		switch e.Kind {
 		case domain.EvidenceKindLint:
 			if e.Passed {
-				scores[domain.DimCorrectness] = max(scores[domain.DimCorrectness], 0.95)
+				setMax(scores, domain.DimCorrectness, 0.95)
 			} else {
-				scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.4)
+				setMin(scores, domain.DimCorrectness, 0.4)
 			}
 
 		case domain.EvidenceKindTest:
 			if e.Passed {
-				scores[domain.DimTestability] = max(scores[domain.DimTestability], 0.90)
-				// Boost further with coverage
+				setMax(scores, domain.DimTestability, 0.90)
 				cov := metricOrSummaryFloat(e, "test_coverage", "coverage")
 				if cov > 0 {
-					// Metrics stores as 0.0-1.0, summary as percentage
 					covPct := cov
 					if covPct <= 1.0 {
 						covPct = cov * 100
 					}
 					if covPct >= 80 {
-						scores[domain.DimTestability] = max(scores[domain.DimTestability], 0.95)
+						setMax(scores, domain.DimTestability, 0.95)
 					} else if covPct >= 60 {
-						scores[domain.DimTestability] = max(scores[domain.DimTestability], 0.85)
+						setMax(scores, domain.DimTestability, 0.85)
 					}
 				}
 			} else {
-				scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.3)
+				setMin(scores, domain.DimTestability, 0.3)
 			}
 
 		case domain.EvidenceKindMetrics:
@@ -59,56 +53,82 @@ func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.Dime
 			scoreFromStructural(e, scores)
 
 		case domain.EvidenceKindAgentReview:
-			// Agent review provides direct confidence-weighted scores
+			// Agent review boosts only dimensions it can actually assess from code
 			if e.Passed {
-				for _, d := range domain.AllDimensions() {
-					scores[d] = max(scores[d], 0.85)
+				for _, d := range []domain.Dimension{
+					domain.DimCorrectness,
+					domain.DimMaintainability,
+					domain.DimReadability,
+					domain.DimTestability,
+				} {
+					setMax(scores, d, 0.85)
 				}
 			}
 		}
 	}
 
-	// Penalize for violations
+	// Penalize for violations — only affects dimensions already in the map
 	for _, v := range evalResult.Violations {
 		penalty := severityPenalty(v.Severity)
-		scores[v.Dimension] = max(0, scores[v.Dimension]-penalty)
+		if _, ok := scores[v.Dimension]; ok {
+			scores[v.Dimension] = max(0, scores[v.Dimension]-penalty)
+		} else {
+			// Violation introduces the dimension at a penalized value
+			scores[v.Dimension] = max(0, 0.80-penalty)
+		}
 	}
 
 	return scores
 }
 
+// setMax sets scores[dim] = max(existing, value).
+// If the dimension hasn't been set yet, it's initialized to value.
+func setMax(scores domain.DimensionScores, dim domain.Dimension, value float64) {
+	if existing, ok := scores[dim]; ok {
+		scores[dim] = max(existing, value)
+	} else {
+		scores[dim] = value
+	}
+}
+
+// setMin sets scores[dim] = min(existing, value).
+// If the dimension hasn't been set yet, it's initialized to value.
+func setMin(scores domain.DimensionScores, dim domain.Dimension, value float64) {
+	if existing, ok := scores[dim]; ok {
+		scores[dim] = min(existing, value)
+	} else {
+		scores[dim] = value
+	}
+}
+
 func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
-	// Extract complexity — prefer Metrics, fall back to Summary
 	complexity := metricOrSummaryInt(e, "complexity", "complexity")
 	if complexity >= 0 {
 		switch {
 		case complexity <= 5:
-			scores[domain.DimMaintainability] = max(scores[domain.DimMaintainability], 0.95)
+			setMax(scores, domain.DimMaintainability, 0.95)
 		case complexity <= 10:
-			scores[domain.DimMaintainability] = max(scores[domain.DimMaintainability], 0.85)
+			setMax(scores, domain.DimMaintainability, 0.85)
 		case complexity <= 20:
-			scores[domain.DimMaintainability] = max(scores[domain.DimMaintainability], 0.70)
+			setMax(scores, domain.DimMaintainability, 0.70)
 		default:
-			scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.50)
+			setMin(scores, domain.DimMaintainability, 0.50)
 		}
 	}
 
-	// Extract code lines for readability — prefer Metrics, fall back to Summary
 	codeLines := metricOrSummaryInt(e, "code_lines", "code")
 	if codeLines >= 0 {
 		switch {
 		case codeLines <= 50:
-			scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.95)
+			setMax(scores, domain.DimReadability, 0.95)
 		case codeLines <= 150:
-			scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.85)
+			setMax(scores, domain.DimReadability, 0.85)
 		case codeLines <= 300:
-			scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.75)
+			setMax(scores, domain.DimReadability, 0.75)
 		default:
-			scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.60)
+			setMin(scores, domain.DimReadability, 0.60)
 		}
 	}
-
-	// Note: todo_count observation already handled by policy violation penalties
 }
 
 func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
@@ -124,45 +144,57 @@ func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
 // based on code shape metrics: docs, params, nesting, length.
 func scoreStructuralReadability(m map[string]float64, scores domain.DimensionScores) {
 	if m["has_doc_comment"] == 1.0 {
-		scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.90)
+		setMax(scores, domain.DimReadability, 0.90)
 	} else if m["exported_name"] == 1.0 {
-		scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.70)
+		setMin(scores, domain.DimReadability, 0.70)
 	}
 
 	if params := int(m["param_count"]); params > 5 {
 		penalty := float64(params-5) * 0.10
-		scores[domain.DimMaintainability] = max(0, scores[domain.DimMaintainability]-penalty)
+		if v, ok := scores[domain.DimMaintainability]; ok {
+			scores[domain.DimMaintainability] = max(0, v-penalty)
+		} else {
+			scores[domain.DimMaintainability] = max(0, 0.80-penalty)
+		}
 	}
 
 	if nesting := int(m["max_nesting_depth"]); nesting > 3 {
 		penalty := float64(nesting-3) * 0.05
-		scores[domain.DimReadability] = max(0, scores[domain.DimReadability]-penalty)
+		if v, ok := scores[domain.DimReadability]; ok {
+			scores[domain.DimReadability] = max(0, v-penalty)
+		} else {
+			scores[domain.DimReadability] = max(0, 0.80-penalty)
+		}
 	}
 
 	if naked := int(m["naked_returns"]); naked > 0 {
 		penalty := float64(naked) * 0.05
-		scores[domain.DimReadability] = max(0, scores[domain.DimReadability]-penalty)
+		if v, ok := scores[domain.DimReadability]; ok {
+			scores[domain.DimReadability] = max(0, v-penalty)
+		} else {
+			scores[domain.DimReadability] = max(0, 0.80-penalty)
+		}
 	}
 
 	funcLines := int(m["func_lines"])
 	if funcLines > 0 {
 		switch {
 		case funcLines <= 30:
-			scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.90)
+			setMax(scores, domain.DimReadability, 0.90)
 		case funcLines <= 60:
-			// neutral
+			// neutral — don't set if not already set
 		case funcLines <= 100:
-			scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.70)
+			setMin(scores, domain.DimReadability, 0.70)
 		default:
-			scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.50)
-			scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.60)
+			setMin(scores, domain.DimReadability, 0.50)
+			setMin(scores, domain.DimMaintainability, 0.60)
 		}
 	}
 
 	if methodCount := int(m["method_count"]); methodCount > 15 {
-		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.50)
+		setMin(scores, domain.DimMaintainability, 0.50)
 	} else if methodCount > 10 {
-		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.65)
+		setMin(scores, domain.DimMaintainability, 0.65)
 	}
 }
 
@@ -170,59 +202,72 @@ func scoreStructuralReadability(m map[string]float64, scores domain.DimensionSco
 // and performance based on error handling, panics, exits, and global state.
 func scoreStructuralCorrectness(m map[string]float64, scores domain.DimensionScores) {
 	if ignored := int(m["errors_ignored"]); ignored > 0 {
-		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.60)
+		setMin(scores, domain.DimCorrectness, 0.60)
 	}
 
 	if panicCalls := int(m["panic_calls"]); panicCalls > 0 {
-		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.50)
+		setMin(scores, domain.DimCorrectness, 0.50)
 	}
 
 	if osExitCalls := int(m["os_exit_calls"]); osExitCalls > 0 {
-		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.55)
-		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.50)
+		setMin(scores, domain.DimCorrectness, 0.55)
+		setMin(scores, domain.DimTestability, 0.50)
 	}
 
+	// defer_in_loop: penalty-only — introduces performance_appropriateness
+	// only when the problem exists (steers you to fix it)
 	if deferInLoop := int(m["defer_in_loop"]); deferInLoop > 0 {
-		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.55)
-		scores[domain.DimPerformanceAppropriateness] = min(scores[domain.DimPerformanceAppropriateness], 0.50)
+		setMin(scores, domain.DimCorrectness, 0.55)
+		setMin(scores, domain.DimPerformanceAppropriateness, 0.50)
 	}
 
 	if m["has_init_func"] == 1.0 {
-		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.65)
-		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.70)
+		setMin(scores, domain.DimTestability, 0.65)
+		setMin(scores, domain.DimMaintainability, 0.70)
 	}
 
-	if globalMut := int(m["global_mutable_count"]); globalMut > 0 {
-		penalty := float64(globalMut) * 0.05
-		scores[domain.DimSecurity] = max(0, scores[domain.DimSecurity]-penalty)
-		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.65)
+	// Security: measured via global mutable state analysis.
+	// Clean = 0.85 (checked, no issues). Dirty = penalized below 0.80.
+	if _, checked := m["global_mutable_count"]; checked {
+		globalMut := int(m["global_mutable_count"])
+		if globalMut > 0 {
+			penalty := float64(globalMut) * 0.05
+			setMin(scores, domain.DimSecurity, max(0, 0.85-penalty))
+			setMin(scores, domain.DimTestability, 0.65)
+		} else {
+			setMax(scores, domain.DimSecurity, 0.85)
+		}
 	}
 }
 
 // scoreStructuralArchitecture adjusts architectural fitness based on
 // API design patterns: context position, god objects.
+// Penalty-only — architectural_fitness only enters the score when
+// violations are found, steering you to fix them.
 func scoreStructuralArchitecture(m map[string]float64, scores domain.DimensionScores) {
 	if m["context_not_first"] == 1.0 {
-		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.70)
-		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.65)
+		setMin(scores, domain.DimCorrectness, 0.70)
+		setMin(scores, domain.DimArchitecturalFitness, 0.65)
 	}
 
 	if methodCount := int(m["method_count"]); methodCount > 15 {
-		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.55)
+		setMin(scores, domain.DimArchitecturalFitness, 0.55)
 	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {
-	// Multiple authors = lower change risk (bus factor)
 	authors := metricOrSummaryInt(e, "author_count", "author")
 	if authors > 1 {
-		scores[domain.DimChangeRisk] = max(scores[domain.DimChangeRisk], 0.90)
+		setMax(scores, domain.DimChangeRisk, 0.90)
+	} else if authors == 1 {
+		setMax(scores, domain.DimChangeRisk, 0.70)
 	}
 
-	// More commits = more stable, better operational quality
 	commits := metricOrSummaryInt(e, "commit_count", "commit")
 	if commits > 10 {
-		scores[domain.DimOperationalQuality] = max(scores[domain.DimOperationalQuality], 0.85)
+		setMax(scores, domain.DimOperationalQuality, 0.85)
+	} else if commits > 0 {
+		setMax(scores, domain.DimOperationalQuality, 0.75)
 	}
 }
 
