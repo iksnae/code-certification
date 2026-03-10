@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
+**Grade:** 🟢 B+ (89.7%)  
 **Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [matchPath](matcher.go/matchPath.md) | function | 🟢 B | 82.1% | certified | 2026-04-24 |
-| [extractMetric](evaluator.go/extractMetric.md) | function | 🟢 B | 85.0% | certified | 2026-04-24 |
-| [evaluator_test.go](evaluator_test.go.md) | file | 🟢 B | 86.4% | certified | 2026-04-24 |
+| [extractMetric](evaluator.go/extractMetric.md) | function | 🟢 B | 86.4% | certified | 2026-04-24 |
 | [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 B+ | 87.1% | certified | 2026-04-24 |
+| [evaluator_test.go](evaluator_test.go.md) | file | 🟢 B+ | 87.9% | certified | 2026-04-24 |
+| [matchPath](matcher.go/matchPath.md) | function | 🟢 B+ | 88.6% | certified | 2026-04-24 |
 | [matcher_test.go](matcher_test.go.md) | file | 🟢 B+ | 89.3% | certified | 2026-04-24 |
 | [matchesPack](matcher.go/matchesPack.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
 | [extractComplexity](evaluator.go/extractComplexity.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |

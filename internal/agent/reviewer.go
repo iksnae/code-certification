@@ -131,121 +131,121 @@ func (rv *Reviewer) Review(ctx context.Context, input ReviewInput) (ReviewResult
 		return ReviewResult{}, nil
 	}
 
-	var result ReviewResult
-	var totalTokens int
-
-	// Step 1: Prescreen
-	prescreenModel := rv.router.ModelFor(TaskPrescreen)
-	if prescreenModel == "" {
-		return ReviewResult{}, nil
+	// Step 1: Prescreen — decide if full review is needed
+	prescreen, tokens, err := rv.runPrescreen(ctx, input)
+	if err != nil || !prescreen.NeedsReview {
+		return ReviewResult{Reviewed: false, Confidence: prescreen.Confidence, TokensUsed: tokens}, nil
 	}
 
+	// Steps 2-5: Full review pipeline
+	result := ReviewResult{Reviewed: true, TokensUsed: tokens}
+	rv.runCodeReview(ctx, input, &result)
+	rv.runScoring(ctx, input, &result)
+	rv.runDecision(ctx, input, &result)
+	rv.runRemediation(ctx, input, &result)
+
+	return result, nil
+}
+
+func (rv *Reviewer) runPrescreen(ctx context.Context, input ReviewInput) (PrescreenResponse, int, error) {
+	model := rv.router.ModelFor(TaskPrescreen)
+	if model == "" {
+		return PrescreenResponse{}, 0, fmt.Errorf("no prescreen model")
+	}
 	resp, err := rv.provider.Chat(ctx, ChatRequest{
-		Model: prescreenModel,
-		Messages: []Message{
-			{Role: "user", Content: fmt.Sprintf("Prescreen unit %s. Evidence count: %d", input.Unit.ID, len(input.Evidence))},
-		},
+		Model:       model,
+		Messages:    []Message{{Role: "user", Content: fmt.Sprintf("Prescreen unit %s. Evidence count: %d", input.Unit.ID, len(input.Evidence))}},
 		Temperature: 0.1,
 		MaxTokens:   256,
 	})
 	if err != nil {
-		// Graceful degradation: skip agent review
-		return ReviewResult{}, nil
+		return PrescreenResponse{}, 0, err
 	}
-	totalTokens += resp.Usage.TotalTokens
-
 	var prescreen PrescreenResponse
 	if err := json.Unmarshal([]byte(resp.Content()), &prescreen); err != nil {
-		// Can't parse prescreen, skip review
-		return ReviewResult{}, nil
+		return PrescreenResponse{}, resp.Usage.TotalTokens, err
 	}
+	return prescreen, resp.Usage.TotalTokens, nil
+}
 
-	if !prescreen.NeedsReview {
-		return ReviewResult{Reviewed: false, Confidence: prescreen.Confidence, TokensUsed: totalTokens}, nil
+func (rv *Reviewer) runCodeReview(ctx context.Context, input ReviewInput, result *ReviewResult) {
+	model := rv.router.ModelFor(TaskReview)
+	if model == "" {
+		return
 	}
+	resp, err := rv.provider.Chat(ctx, ChatRequest{
+		Model:       model,
+		Messages:    []Message{{Role: "user", Content: fmt.Sprintf("Review code unit %s:\n%s", input.Unit.ID, input.SourceCode)}},
+		Temperature: 0.3,
+		MaxTokens:   2048,
+	})
+	if err == nil {
+		result.ReviewOutput = resp.Content()
+		result.TokensUsed += resp.Usage.TotalTokens
+	}
+}
 
-	// Step 2: Review
-	reviewModel := rv.router.ModelFor(TaskReview)
-	if reviewModel != "" {
-		resp, err = rv.provider.Chat(ctx, ChatRequest{
-			Model: reviewModel,
-			Messages: []Message{
-				{Role: "user", Content: fmt.Sprintf("Review code unit %s:\n%s", input.Unit.ID, input.SourceCode)},
-			},
-			Temperature: 0.3,
-			MaxTokens:   2048,
-		})
-		if err == nil {
-			result.ReviewOutput = resp.Content()
-			totalTokens += resp.Usage.TotalTokens
+func (rv *Reviewer) runScoring(ctx context.Context, input ReviewInput, result *ReviewResult) {
+	model := rv.router.ModelFor(TaskScoring)
+	if model == "" {
+		return
+	}
+	resp, err := rv.provider.Chat(ctx, ChatRequest{
+		Model:       model,
+		Messages:    []Message{{Role: "user", Content: fmt.Sprintf("Score unit %s. Review: %s", input.Unit.ID, result.ReviewOutput)}},
+		Temperature: 0.1,
+		MaxTokens:   512,
+	})
+	if err == nil {
+		var scoring ScoringResponse
+		if json.Unmarshal([]byte(resp.Content()), &scoring) == nil {
+			result.Scores = scoring.Scores
+			result.Confidence = scoring.Confidence
 		}
+		result.TokensUsed += resp.Usage.TotalTokens
 	}
+}
 
-	// Step 3: Scoring
-	scoringModel := rv.router.ModelFor(TaskScoring)
-	if scoringModel != "" {
-		resp, err = rv.provider.Chat(ctx, ChatRequest{
-			Model: scoringModel,
-			Messages: []Message{
-				{Role: "user", Content: fmt.Sprintf("Score unit %s. Review: %s", input.Unit.ID, result.ReviewOutput)},
-			},
-			Temperature: 0.1,
-			MaxTokens:   512,
-		})
-		if err == nil {
-			var scoring ScoringResponse
-			if json.Unmarshal([]byte(resp.Content()), &scoring) == nil {
-				result.Scores = scoring.Scores
-				result.Confidence = scoring.Confidence
-			}
-			totalTokens += resp.Usage.TotalTokens
+func (rv *Reviewer) runDecision(ctx context.Context, input ReviewInput, result *ReviewResult) {
+	model := rv.router.ModelFor(TaskDecision)
+	if model == "" {
+		return
+	}
+	resp, err := rv.provider.Chat(ctx, ChatRequest{
+		Model:       model,
+		Messages:    []Message{{Role: "user", Content: fmt.Sprintf("Decide certification for %s. Scores: %v", input.Unit.ID, result.Scores)}},
+		Temperature: 0.1,
+		MaxTokens:   512,
+	})
+	if err == nil {
+		var decision DecisionResponse
+		if json.Unmarshal([]byte(resp.Content()), &decision) == nil {
+			result.Status = decision.Status
+			result.Actions = decision.Actions
 		}
+		result.TokensUsed += resp.Usage.TotalTokens
 	}
+}
 
-	// Step 4: Decision
-	decisionModel := rv.router.ModelFor(TaskDecision)
-	if decisionModel != "" {
-		resp, err = rv.provider.Chat(ctx, ChatRequest{
-			Model: decisionModel,
-			Messages: []Message{
-				{Role: "user", Content: fmt.Sprintf("Decide certification for %s. Scores: %v", input.Unit.ID, result.Scores)},
-			},
-			Temperature: 0.1,
-			MaxTokens:   512,
-		})
-		if err == nil {
-			var decision DecisionResponse
-			if json.Unmarshal([]byte(resp.Content()), &decision) == nil {
-				result.Status = decision.Status
-				result.Actions = decision.Actions
-			}
-			totalTokens += resp.Usage.TotalTokens
+func (rv *Reviewer) runRemediation(ctx context.Context, input ReviewInput, result *ReviewResult) {
+	if result.Status == "certified" || result.Status == "" {
+		return
+	}
+	model := rv.router.ModelFor(TaskRemediation)
+	if model == "" {
+		return
+	}
+	resp, err := rv.provider.Chat(ctx, ChatRequest{
+		Model:       model,
+		Messages:    []Message{{Role: "user", Content: fmt.Sprintf("Generate remediation for %s. Status: %s", input.Unit.ID, result.Status)}},
+		Temperature: 0.3,
+		MaxTokens:   1024,
+	})
+	if err == nil {
+		var rem RemediationResponse
+		if json.Unmarshal([]byte(resp.Content()), &rem) == nil {
+			result.Remediation = rem.Steps
 		}
+		result.TokensUsed += resp.Usage.TotalTokens
 	}
-
-	// Step 5: Remediation (only for non-certified)
-	if result.Status != "certified" && result.Status != "" {
-		remModel := rv.router.ModelFor(TaskRemediation)
-		if remModel != "" {
-			resp, err = rv.provider.Chat(ctx, ChatRequest{
-				Model: remModel,
-				Messages: []Message{
-					{Role: "user", Content: fmt.Sprintf("Generate remediation for %s. Status: %s", input.Unit.ID, result.Status)},
-				},
-				Temperature: 0.3,
-				MaxTokens:   1024,
-			})
-			if err == nil {
-				var rem RemediationResponse
-				if json.Unmarshal([]byte(resp.Content()), &rem) == nil {
-					result.Remediation = rem.Steps
-				}
-				totalTokens += resp.Usage.TotalTokens
-			}
-		}
-	}
-
-	result.Reviewed = true
-	result.TokensUsed = totalTokens
-	return result, nil
 }

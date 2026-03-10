@@ -63,6 +63,36 @@ func TestCodeMetrics_TodoCount(t *testing.T) {
 	}
 }
 
+func TestCodeMetrics_TodoCount_NoFalsePositives(t *testing.T) {
+	src := `type CodeMetrics struct {
+	TodoCount int
+}
+
+func (m CodeMetrics) reset() {
+	m.TodoCount = 0
+}
+
+var policy = "No TODO/FIXME comments"
+`
+	m := evidence.ComputeMetrics(src)
+	if m.TodoCount != 0 {
+		t.Errorf("TodoCount = %d, want 0 (false positives from struct fields and strings)", m.TodoCount)
+	}
+}
+
+func TestCodeMetrics_TodoCount_InlineComment(t *testing.T) {
+	src := `func main() {
+	x := 1 // TODO: refactor this
+	y := 2 // this is fine
+	z := 3 // FIXME: broken
+}
+`
+	m := evidence.ComputeMetrics(src)
+	if m.TodoCount != 2 {
+		t.Errorf("TodoCount = %d, want 2 (inline comment TODOs)", m.TodoCount)
+	}
+}
+
 func TestCodeMetrics_Empty(t *testing.T) {
 	m := evidence.ComputeMetrics("")
 	if m.TotalLines != 0 {

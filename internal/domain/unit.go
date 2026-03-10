@@ -54,6 +54,15 @@ func ParseUnitType(s string) (UnitType, error) {
 	return 0, fmt.Errorf("unknown unit type: %q", s)
 }
 
+// ParseUnitTypeOrDefault converts a string to a UnitType,
+// returning UnitTypeFunction for unrecognized values.
+func ParseUnitTypeOrDefault(s string) UnitType {
+	if ut, ok := stringToUnitType[s]; ok {
+		return ut
+	}
+	return UnitTypeFunction
+}
+
 // UnitID is a stable identifier for a certifiable code unit.
 // Format: <language>://<path>[#<symbol>]
 // Examples:

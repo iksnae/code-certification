@@ -45,9 +45,11 @@ func ComputeMetrics(src string) CodeMetrics {
 			}
 		default:
 			m.CodeLines++
-			// Check inline comments
-			if containsTodo(trimmed) {
-				m.TodoCount++
+			// Only count TODOs in inline comments (after //), not in code
+			if idx := strings.Index(trimmed, "//"); idx >= 0 {
+				if containsTodo(trimmed[idx:]) {
+					m.TodoCount++
+				}
 			}
 		}
 	}

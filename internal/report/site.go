@@ -355,124 +355,119 @@ func generateUnitPages(r FullReport, cfg SiteConfig) error {
 		return fmt.Errorf("parsing unit template: %w", err)
 	}
 
-	// Group units by directory for prev/next navigation
-	dirUnits := make(map[string][]UnitReport)
-	for _, u := range r.Units {
-		dir := dirOf(u.Path)
-		dirUnits[dir] = append(dirUnits[dir], u)
-	}
-
-	// Build prev/next maps
-	type navLink struct {
-		URL  string
-		Name string
-	}
-	prevMap := make(map[string]navLink) // unitID -> prev
-	nextMap := make(map[string]navLink) // unitID -> next
-
-	for _, units := range dirUnits {
-		for i, u := range units {
-			if i > 0 {
-				prev := units[i-1]
-				prevName := prev.Symbol
-				if prevName == "" {
-					prevName = shortFile(prev.Path)
-				}
-				prevMap[u.UnitID] = navLink{
-					URL:  unitAnchor(prev) + ".html",
-					Name: prevName,
-				}
-			}
-			if i < len(units)-1 {
-				next := units[i+1]
-				nextName := next.Symbol
-				if nextName == "" {
-					nextName = shortFile(next.Path)
-				}
-				nextMap[u.UnitID] = navLink{
-					URL:  unitAnchor(next) + ".html",
-					Name: nextName,
-				}
-			}
-		}
-	}
+	prevMap, nextMap := buildUnitNavMaps(r.Units)
 
 	for _, u := range r.Units {
-		name := u.Symbol
-		if name == "" {
-			name = shortFile(u.Path)
-		}
-		dir := dirOf(u.Path)
+		data := buildUnitPageData(u, cfg, prevMap, nextMap)
 		anchor := unitAnchor(u)
-
-		// Relative paths from units/ to other directories
-		packageURL := "../packages/" + dir + "/index.html"
-		indexURL := "../index.html"
-
-		ai, suggestions, other := splitObservations(u.Observations)
-		// Strip emoji prefixes for display
-		cleanAI := make([]string, len(ai))
-		for i, o := range ai {
-			cleanAI[i] = strings.TrimPrefix(o, "🤖 ")
-		}
-		cleanSuggestions := make([]string, len(suggestions))
-		for i, o := range suggestions {
-			cleanSuggestions[i] = strings.TrimPrefix(o, "💡 ")
-		}
-
-		var dims []dimRow
-		for _, key := range sortedKeys(u.Dimensions) {
-			dims = append(dims, dimRow{Name: key, Score: u.Dimensions[key]})
-		}
-
-		data := unitPageData{
-			Title:                cfg.Title,
-			Name:                 name,
-			GradeEmoji:           gradeEmoji(u.Grade),
-			UnitID:               u.UnitID,
-			UnitType:             u.UnitType,
-			Path:                 u.Path,
-			Language:             u.Language,
-			Symbol:               u.Symbol,
-			Grade:                u.Grade,
-			CSSClass:             gradeCSSClass(u.Grade),
-			Score:                u.Score,
-			Status:               u.Status,
-			Confidence:           u.Confidence,
-			CertifiedAt:          formatDate(u.CertifiedAt),
-			ExpiresAt:            formatDate(u.ExpiresAt),
-			Source:               u.Source,
-			HasDimensions:        len(dims) > 0,
-			Dimensions:           dims,
-			HasAIObservations:    len(cleanAI) > 0,
-			AIObservations:       cleanAI,
-			HasSuggestions:       len(cleanSuggestions) > 0,
-			Suggestions:          cleanSuggestions,
-			HasOtherObservations: len(other) > 0,
-			OtherObservations:    other,
-			HasActions:           len(u.Actions) > 0,
-			Actions:              u.Actions,
-			PackagePath:          dir,
-			PackageURL:           packageURL,
-			IndexURL:             indexURL,
-		}
-
-		if prev, ok := prevMap[u.UnitID]; ok {
-			data.PrevURL = prev.URL
-			data.PrevName = prev.Name
-		}
-		if next, ok := nextMap[u.UnitID]; ok {
-			data.NextURL = next.URL
-			data.NextName = next.Name
-		}
-
 		outPath := filepath.Join(cfg.OutputDir, "units", anchor+".html")
 		if err := writeTemplate(tmpl, data, outPath); err != nil {
 			return fmt.Errorf("writing unit page %s: %w", u.UnitID, err)
 		}
 	}
-
 	return nil
+}
+
+type navLink struct {
+	URL  string
+	Name string
+}
+
+func buildUnitNavMaps(units []UnitReport) (prev, next map[string]navLink) {
+	dirUnits := make(map[string][]UnitReport)
+	for _, u := range units {
+		dir := dirOf(u.Path)
+		dirUnits[dir] = append(dirUnits[dir], u)
+	}
+
+	prev = make(map[string]navLink)
+	next = make(map[string]navLink)
+	for _, units := range dirUnits {
+		for i, u := range units {
+			if i > 0 {
+				p := units[i-1]
+				name := p.Symbol
+				if name == "" {
+					name = shortFile(p.Path)
+				}
+				prev[u.UnitID] = navLink{URL: unitAnchor(p) + ".html", Name: name}
+			}
+			if i < len(units)-1 {
+				n := units[i+1]
+				name := n.Symbol
+				if name == "" {
+					name = shortFile(n.Path)
+				}
+				next[u.UnitID] = navLink{URL: unitAnchor(n) + ".html", Name: name}
+			}
+		}
+	}
+	return prev, next
+}
+
+func buildUnitPageData(u UnitReport, cfg SiteConfig, prevMap, nextMap map[string]navLink) unitPageData {
+	name := u.Symbol
+	if name == "" {
+		name = shortFile(u.Path)
+	}
+	dir := dirOf(u.Path)
+
+	ai, suggestions, other := splitObservations(u.Observations)
+	cleanAI := make([]string, len(ai))
+	for i, o := range ai {
+		cleanAI[i] = strings.TrimPrefix(o, "🤖 ")
+	}
+	cleanSuggestions := make([]string, len(suggestions))
+	for i, o := range suggestions {
+		cleanSuggestions[i] = strings.TrimPrefix(o, "💡 ")
+	}
+
+	var dims []dimRow
+	for _, key := range sortedKeys(u.Dimensions) {
+		dims = append(dims, dimRow{Name: key, Score: u.Dimensions[key]})
+	}
+
+	data := unitPageData{
+		Title:                cfg.Title,
+		Name:                 name,
+		GradeEmoji:           gradeEmoji(u.Grade),
+		UnitID:               u.UnitID,
+		UnitType:             u.UnitType,
+		Path:                 u.Path,
+		Language:             u.Language,
+		Symbol:               u.Symbol,
+		Grade:                u.Grade,
+		CSSClass:             gradeCSSClass(u.Grade),
+		Score:                u.Score,
+		Status:               u.Status,
+		Confidence:           u.Confidence,
+		CertifiedAt:          formatDate(u.CertifiedAt),
+		ExpiresAt:            formatDate(u.ExpiresAt),
+		Source:               u.Source,
+		HasDimensions:        len(dims) > 0,
+		Dimensions:           dims,
+		HasAIObservations:    len(cleanAI) > 0,
+		AIObservations:       cleanAI,
+		HasSuggestions:       len(cleanSuggestions) > 0,
+		Suggestions:          cleanSuggestions,
+		HasOtherObservations: len(other) > 0,
+		OtherObservations:    other,
+		HasActions:           len(u.Actions) > 0,
+		Actions:              u.Actions,
+		PackagePath:          dir,
+		PackageURL:           "../packages/" + dir + "/index.html",
+		IndexURL:             "../index.html",
+	}
+
+	if p, ok := prevMap[u.UnitID]; ok {
+		data.PrevURL = p.URL
+		data.PrevName = p.Name
+	}
+	if n, ok := nextMap[u.UnitID]; ok {
+		data.NextURL = n.URL
+		data.NextName = n.Name
+	}
+	return data
 }
 
 // --- Helpers ---

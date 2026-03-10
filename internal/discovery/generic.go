@@ -170,7 +170,7 @@ func (s *GenericScanner) Scan(root string) ([]domain.Unit, error) {
 // matchAny checks if the path matches any of the glob patterns.
 func matchAny(patterns []string, path string) bool {
 	for _, p := range patterns {
-		if matched, _ := filepath.Match(p, filepath.Base(path)); matched {
+		if matched, err := filepath.Match(p, filepath.Base(path)); err == nil && matched {
 			return true
 		}
 		// Also try matching against full path for ** patterns

@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
+**Grade:** 🟢 A- (90.2%)  
 **Units:** 29 · **Passing:** 29 / 29
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [store_test.go](store_test.go.md) | file | 🟢 B | 84.3% | certified | 2026-04-24 |
+| [store_test.go](store_test.go.md) | file | 🟢 B | 85.7% | certified | 2026-04-24 |
 | [Store](store.go/Store.md) | class | 🟢 B | 86.4% | certified | 2026-04-24 |
 | [SaveSnapshot](store.go/SaveSnapshot.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
 | [listAllFromDir](store.go/listAllFromDir.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |

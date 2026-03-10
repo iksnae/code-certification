@@ -152,11 +152,27 @@ func (ar *ArchitectReviewer) Review(ctx context.Context, pc *ProjectContext, pha
 		Thinking:   make([]string, 6),
 	}
 
-	// Build the shared context that all phases receive
 	contextBlock := pc.FormatForLLM(4000)
 	prompts := architectPhasePrompts()
+	runPhase := buildPhaseSet(phases)
 
-	// Determine which phases to run
+	var priorOutputs []string
+	for i := 0; i < 6; i++ {
+		phaseNum := i + 1
+		if !runPhase[phaseNum] {
+			priorOutputs = append(priorOutputs, "")
+			continue
+		}
+		output := ar.runPhase(ctx, result, phaseNum, contextBlock, prompts[i], priorOutputs)
+		priorOutputs = append(priorOutputs, output)
+	}
+
+	result.Duration = time.Since(start)
+	validatePhase5(result)
+	return result, nil
+}
+
+func buildPhaseSet(phases []int) map[int]bool {
 	runPhase := make(map[int]bool)
 	if len(phases) == 0 {
 		for i := 1; i <= 6; i++ {
@@ -169,82 +185,60 @@ func (ar *ArchitectReviewer) Review(ctx context.Context, pc *ProjectContext, pha
 			}
 		}
 	}
+	return runPhase
+}
 
-	// Track prior outputs for feed-forward
-	var priorOutputs []string
-
-	for i := 0; i < 6; i++ {
-		phaseNum := i + 1
-		phaseName := architectPhaseNames[i]
-
-		if !runPhase[phaseNum] {
-			priorOutputs = append(priorOutputs, "")
-			continue
-		}
-
-		if ar.OnPhaseStart != nil {
-			ar.OnPhaseStart(phaseNum, phaseName)
-		}
-
-		// Build user prompt with context + prior outputs
-		userPrompt := buildArchitectUserPrompt(contextBlock, priorOutputs, phaseNum)
-
-		// Generous token limits — architect phases produce detailed analysis
-		maxTokens := 8192
-		if phaseNum == 5 {
-			maxTokens = 12288 // Phase 5 (comparative recommendations) needs the most room
-		}
-
-		resp, err := ar.Provider.Chat(ctx, ChatRequest{
-			Model: ar.Model,
-			Messages: []Message{
-				{Role: "system", Content: prompts[i]},
-				{Role: "user", Content: userPrompt},
-			},
-			Temperature: 0.3,
-			MaxTokens:   maxTokens,
-		})
-		if err != nil {
-			result.Errors = append(result.Errors, fmt.Sprintf("Phase %d (%s): %v", phaseNum, phaseName, err))
-			priorOutputs = append(priorOutputs, "")
-			continue
-		}
-
-		content := resp.Content()
-		result.RawOutputs[i] = content
-		result.TotalTokens += resp.Usage.TotalTokens
-		result.PhasesComplete++
-
-		// Capture chain-of-thought reasoning before stripping
-		result.Thinking[i] = extractThinking(content)
-
-		// Strip <think>...</think> blocks (qwen3 chain-of-thought) before JSON extraction
-		cleaned := stripThinkTags(content)
-
-		// Parse structured response
-		jsonStr := extractJSON(cleaned)
-		ar.parsePhaseResult(result, phaseNum, jsonStr, content)
-
-		priorOutputs = append(priorOutputs, content)
-
-		if ar.OnPhaseDone != nil {
-			ar.OnPhaseDone(phaseNum, phaseName, resp.Usage.TotalTokens)
-		}
+func (ar *ArchitectReviewer) runPhase(ctx context.Context, result *ArchitectResult, phaseNum int, contextBlock, systemPrompt string, priorOutputs []string) string {
+	phaseName := architectPhaseNames[phaseNum-1]
+	if ar.OnPhaseStart != nil {
+		ar.OnPhaseStart(phaseNum, phaseName)
 	}
 
-	result.Duration = time.Since(start)
-
-	// Validate Phase 5 recommendations
-	if result.Phase5 != nil {
-		for i := range result.Phase5.Recommendations {
-			rec := &result.Phase5.Recommendations[i]
-			if len(rec.Deltas) == 0 {
-				rec.Deltas = []ArchDelta{{Metric: "unknown", Current: "unknown", Projected: "unknown"}}
-			}
-		}
+	maxTokens := 8192
+	if phaseNum == 5 {
+		maxTokens = 12288
 	}
 
-	return result, nil
+	resp, err := ar.Provider.Chat(ctx, ChatRequest{
+		Model: ar.Model,
+		Messages: []Message{
+			{Role: "system", Content: systemPrompt},
+			{Role: "user", Content: buildArchitectUserPrompt(contextBlock, priorOutputs, phaseNum)},
+		},
+		Temperature: 0.3,
+		MaxTokens:   maxTokens,
+	})
+	if err != nil {
+		result.Errors = append(result.Errors, fmt.Sprintf("Phase %d (%s): %v", phaseNum, phaseName, err))
+		return ""
+	}
+
+	content := resp.Content()
+	result.RawOutputs[phaseNum-1] = content
+	result.TotalTokens += resp.Usage.TotalTokens
+	result.PhasesComplete++
+	result.Thinking[phaseNum-1] = extractThinking(content)
+
+	cleaned := stripThinkTags(content)
+	jsonStr := extractJSON(cleaned)
+	ar.parsePhaseResult(result, phaseNum, jsonStr, content)
+
+	if ar.OnPhaseDone != nil {
+		ar.OnPhaseDone(phaseNum, phaseName, resp.Usage.TotalTokens)
+	}
+	return content
+}
+
+func validatePhase5(result *ArchitectResult) {
+	if result.Phase5 == nil {
+		return
+	}
+	for i := range result.Phase5.Recommendations {
+		rec := &result.Phase5.Recommendations[i]
+		if len(rec.Deltas) == 0 {
+			rec.Deltas = []ArchDelta{{Metric: "unknown", Current: "unknown", Projected: "unknown"}}
+		}
+	}
 }
 
 // parsePhaseResult parses the LLM response into the appropriate phase result type.

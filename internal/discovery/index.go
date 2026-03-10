@@ -75,7 +75,7 @@ func LoadIndex(path string) (*Index, error) {
 	units := make([]domain.Unit, len(entries))
 	for i, e := range entries {
 		id := domain.NewUnitID(e.Language, e.Path, e.Symbol)
-		ut, _ := domain.ParseUnitType(e.Type)
+		ut := domain.ParseUnitTypeOrDefault(e.Type)
 		units[i] = domain.NewUnit(id, ut)
 	}
 

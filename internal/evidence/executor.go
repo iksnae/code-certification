@@ -128,7 +128,11 @@ func (te *ToolExecutor) runGolangciLint() *domain.Evidence {
 
 	cmd := exec.Command("golangci-lint", "run", "--out-format", "json", "./...")
 	cmd.Dir = te.root
-	output, _ := cmd.CombinedOutput()
+	// golangci-lint returns non-zero when findings exist, but output is still valid JSON
+	output, err := cmd.CombinedOutput()
+	if err != nil && len(output) == 0 {
+		return nil // actual failure (not just lint findings)
+	}
 
 	result := ParseGolangciLintJSON(string(output))
 	te.rawLintFindings = append(te.rawLintFindings, result.Findings...)

@@ -582,8 +582,8 @@ func buildCertificationRun(p runParams, store *record.Store) domain.Certificatio
 }
 
 // detectAPIKeyOnly wraps agent.DetectAPIKey() returning only the key.
-// DetectAPIKey returns (key, envVarName) — we only need the key here.
 func detectAPIKeyOnly() string {
-	key, _ := agent.DetectAPIKey()
+	key, envVar := agent.DetectAPIKey()
+	_ = envVar // only need the key, not which env var it came from
 	return key
 }

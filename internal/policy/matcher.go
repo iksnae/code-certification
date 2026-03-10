@@ -73,23 +73,23 @@ func matchPath(pattern, path string) bool {
 		rest := parts[1]
 		pathParts := strings.Split(path, "/")
 		for i, part := range pathParts {
-			if ok, _ := filepath.Match(dir, part); ok {
-				// Match the rest against remaining path
+			if globMatch(dir, part) {
 				remaining := strings.Join(pathParts[i+1:], "/")
 				if rest == "*" || rest == "**" {
 					return true
 				}
-				if ok2, _ := filepath.Match(rest, remaining); ok2 {
+				if globMatch(rest, remaining) {
 					return true
 				}
 			}
 		}
 	}
 
-	// Direct match
-	if ok, _ := filepath.Match(pattern, path); ok {
-		return true
-	}
+	return globMatch(pattern, path)
+}
 
-	return false
+// globMatch wraps filepath.Match, treating pattern errors as non-match.
+func globMatch(pattern, name string) bool {
+	ok, err := filepath.Match(pattern, name)
+	return err == nil && ok
 }
