@@ -215,6 +215,34 @@ func formatUnitMarkdownWithNav(u UnitReport, r FullReport, pkg, backLink string)
 		b.WriteString("\n")
 	}
 
+	// Evidence
+	if len(u.Evidence) > 0 {
+		b.WriteString("## Evidence\n\n")
+		for _, ev := range u.Evidence {
+			pass := "✅"
+			if !ev.Passed {
+				pass = "❌"
+			}
+			fmt.Fprintf(&b, "### %s %s (`%s`)\n\n", pass, ev.Kind, ev.Source)
+			if ev.Summary != "" {
+				fmt.Fprintf(&b, "%s\n\n", ev.Summary)
+			}
+			if len(ev.Metrics) > 0 {
+				b.WriteString("| Metric | Value |\n")
+				b.WriteString("|--------|------:|\n")
+				for _, k := range sortedKeys(ev.Metrics) {
+					v := ev.Metrics[k]
+					if v == float64(int(v)) {
+						fmt.Fprintf(&b, "| `%s` | %d |\n", k, int(v))
+					} else {
+						fmt.Fprintf(&b, "| `%s` | %.2f |\n", k, v)
+					}
+				}
+				b.WriteString("\n")
+			}
+		}
+	}
+
 	// AI Observations
 	aiObs, suggestions, otherObs := splitObservations(u.Observations)
 	if len(aiObs) > 0 || len(suggestions) > 0 {

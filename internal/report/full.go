@@ -29,6 +29,15 @@ type FullReport struct {
 	LanguageDetail []LanguageDetail `json:"language_detail"`
 }
 
+// EvidenceSummary is a flattened view of a single evidence item for reports.
+type EvidenceSummary struct {
+	Kind    string             `json:"kind"`
+	Source  string             `json:"source"`
+	Passed  bool               `json:"passed"`
+	Summary string             `json:"summary,omitempty"`
+	Metrics map[string]float64 `json:"metrics,omitempty"`
+}
+
 // UnitReport is the complete certification detail for a single unit.
 type UnitReport struct {
 	UnitID       string             `json:"unit_id"`
@@ -41,6 +50,7 @@ type UnitReport struct {
 	Score        float64            `json:"score"`
 	Confidence   float64            `json:"confidence"`
 	Dimensions   map[string]float64 `json:"dimensions"`
+	Evidence     []EvidenceSummary  `json:"evidence,omitempty"`
 	Observations []string           `json:"observations,omitempty"`
 	Actions      []string           `json:"actions,omitempty"`
 	CertifiedAt  string             `json:"certified_at"`
@@ -92,6 +102,23 @@ func unitReportFrom(rec domain.CertificationRecord) UnitReport {
 		dims[d.String()] = v
 	}
 
+	var evSummaries []EvidenceSummary
+	for _, e := range rec.Evidence {
+		es := EvidenceSummary{
+			Kind:    e.Kind.String(),
+			Source:  e.Source,
+			Passed:  e.Passed,
+			Summary: e.Summary,
+		}
+		if len(e.Metrics) > 0 {
+			es.Metrics = make(map[string]float64, len(e.Metrics))
+			for k, v := range e.Metrics {
+				es.Metrics[k] = v
+			}
+		}
+		evSummaries = append(evSummaries, es)
+	}
+
 	return UnitReport{
 		UnitID:       rec.UnitID.String(),
 		UnitType:     rec.UnitType.String(),
@@ -103,6 +130,7 @@ func unitReportFrom(rec domain.CertificationRecord) UnitReport {
 		Score:        rec.Score,
 		Confidence:   rec.Confidence,
 		Dimensions:   dims,
+		Evidence:     evSummaries,
 		Observations: rec.Observations,
 		Actions:      rec.Actions,
 		CertifiedAt:  rec.CertifiedAt.Format(time.RFC3339),
