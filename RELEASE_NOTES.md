@@ -1,75 +1,79 @@
-# Release v0.2.0
+# Release v0.6.0
 
 **Date:** 2026-03-10
 
 ## Highlights
 
-Major architecture improvements across the certification engine, plus a new interactive HTML site report for browsing certification results at scale. All 10 architecture issues identified in the evaluation are now resolved. Three redundant types eliminated through report type consolidation. Derived report files are now gitignored — certification state is tracked via `state.json` for post-clone completeness.
+New `certify architect` command — an AI-powered architectural review that produces a comprehensive report with a deterministic architecture snapshot, 6-phase LLM analysis, and comparative recommendations with current→projected metric deltas.
 
 ## What's Changed
 
 ### New Features
 
-- **feat: interactive HTML site report** — `certify report --site` generates a self-contained static HTML site under `.certification/site/` with a dashboard, per-package roll-ups, per-unit detail pages, and client-side search. Works offline via `file://`, zero external dependencies, dark mode support. At 559 units, generates 584 pages in under 2 seconds. ([#b5805f9](../../commit/b5805f9))
+- **feat: `certify architect` command** — AI-driven architectural review of an entire project. Builds a deterministic architecture snapshot from certification data (package graph, dependency analysis, hotspots, coupling), then runs 6 LLM phases producing a bespoke report with comparative recommendations. Output: `.certification/ARCHITECT_REVIEW.md`.
 
-### Architecture Improvements
+- **feat: architecture snapshot** — `BuildSnapshot()` computes a complete structural model from certification records: package metrics, Go import dependency graph, layer classification, hotspot ranking (`units × (1 - score)`), coupling pair analysis. Fully deterministic — same records always produce identical output.
 
-- **feat: persist evidence in records** — Evidence details stored as `json.RawMessage` in certification records. Records now carry full evidence context for auditability. ([#a23f933](../../commit/a23f933), Refs #9)
+- **feat: 6-phase review pipeline** — Sequential LLM phases with feed-forward context:
+  1. Architecture Narration (as-is description, no recommendations)
+  2. Code Quality & Patterns (findings citing snapshot metrics)
+  3. Test Strategy & Coverage (coverage gaps per package)
+  4. Security & Operations (global state, error handling, init funcs)
+  5. Comparative Recommendations (current→projected deltas)
+  6. Synthesis & Roadmap (executive summary, risk matrix, prioritized roadmap)
 
-- **feat: extract Certifier service** — `internal/engine/certifier.go` with `Certifier` struct owning the full certification pipeline. CLI constructs it, calls `Certify()` per unit. Clean separation of orchestration from CLI concerns. ([#b617e53](../../commit/b617e53), Refs #10)
+- **feat: comparative recommendation format** — Every recommendation includes a delta table (`| Metric | Current | Projected | Delta |`), affected units, effort estimate, and justification grounded in snapshot data. Phase 5 validates that all recommendations have deltas.
 
-- **feat: typed evidence metrics** — `Metrics map[string]float64` on `Evidence`, replacing string-based metric extraction. All 5 evidence producers updated, evaluator rewritten for map lookup, 11 new tests. ([#df9fb30](../../commit/df9fb30), Refs #11)
+- **feat: chain-of-thought capture** — `<think>` tags from reasoning models (qwen3, etc.) are captured per-phase in `result.Thinking[]` and rendered in the report under collapsible "🧠 Agent Reasoning" sections.
 
-- **feat: track certification state in git** — `SaveSnapshot()`/`LoadSnapshot()` on `record.Store`, `state.json` tracked in git for post-clone completeness. 5 new tests. ([#136f372](../../commit/136f372), Refs #12)
+- **feat: 3-part report structure** —
+  - Part I: Architecture Snapshot (deterministic tables from data, always present even if LLM fails)
+  - Part II: Analysis (LLM narrative grounded in snapshot numbers)
+  - Part III: Recommendations (comparative before/after with delta tables)
 
-- **feat: certification run tracking** — `CertificationRun` domain type with `GenerateRunID()`, JSONL persistence in `.certification/runs.jsonl`, `RunID`/`PolicyVersion` populated on all records. 7 new tests. ([#eb4d464](../../commit/eb4d464), Refs #13)
+### Bug Fixes
 
-- **feat: consolidate report generation** — `SaveReportArtifacts()` accepts `FullReport`, eliminates redundant `GenerateFullReport()` calls (was 2-3×, now 1×). ([#784c165](../../commit/784c165), Refs #14)
+- **fix: Phase 4 JSON parsing** — `ArchConcern.Metrics` changed from `map[string]string` to `map[string]any` to handle numeric metric values from LLM responses.
+- **fix: think tag interference** — Qwen3 `<think>` blocks containing braces confused `extractJSON`. Added `stripThinkTags()` before JSON extraction.
+- **fix: timeout for local models** — Added `SetTimeout()` on `OpenRouterProvider`. Architect command sets 10-minute timeout for local models that need several minutes per phase.
 
-- **feat: wire/remove unused interfaces** — Deleted dead `evidence.Collector` interface, added `discovery.Scanners()` registry for polymorphic dispatch. 2 new tests. ([#95aa6ea](../../commit/95aa6ea), Refs #15)
+### CLI
 
-### Chores
+```
+certify architect                    # full 6-phase review
+certify architect --model gpt-4o     # use specific model
+certify architect --phase 1          # run only architecture narration
+certify architect --verbose          # print full LLM responses
+certify architect --output FILE      # custom output path
+```
 
-- **chore: gitignore per-unit markdown reports** — `.certification/reports/` (559 files, 2.2MB) removed from git tracking. Reports regenerate on demand via `certify report`. State tracked via `state.json`. ([#df55ebd](../../commit/df55ebd), Refs #17)
+## New Files
 
-- **chore: unify language summary types** — Deleted `LanguageCard`, `LanguageBreakdown`, and `langRow`. `LanguageDetail` is now the single language summary type with `Passing` count. `Card.Languages` and `DetailedReport.ByLanguage` both use `LanguageDetail`. JSON backward-compatible (additive fields only). 4 new tests. ([#7791751](../../commit/7791751), Refs #18)
-
-### Documentation
-
-- **docs: update README, architecture, CLI docs for site report** — Added site report to quick start, flags, repository structure, and feature descriptions. Updated architecture docs with certification state model and report package description.
-
-## Breaking Changes
-
-- `Card.Languages` type changed from `[]LanguageCard` to `[]LanguageDetail`. JSON output gains new fields (`passing`, `grade_distribution`, `top_score`, `bottom_score`) — existing fields unchanged.
-- `DetailedReport.ByLanguage` type changed from `map[string]LanguageBreakdown` to `map[string]LanguageDetail`. The `.Total` field is now `.Units`.
-- `.certification/reports/` is now gitignored. Run `certify report` to regenerate. No data loss — all state is in `state.json`.
+| File | Purpose |
+|------|---------|
+| `cmd/certify/architect_cmd.go` | CLI command + provider setup |
+| `internal/agent/architect_snapshot.go` | ArchSnapshot, BuildSnapshot, import analysis |
+| `internal/agent/architect.go` | ProjectContext, GatherContext, FormatForLLM |
+| `internal/agent/architect_review.go` | 6-phase orchestrator, response types |
+| `internal/agent/architect_prompts.go` | Phase system prompts |
+| `internal/report/architect_report.go` | Report formatter (Part I/II/III) |
 
 ## Stats
 
-- **10 architecture issues resolved** (#9–#18, all closed)
-- **3 types deleted** (LanguageCard, LanguageBreakdown, langRow)
-- **1 dead interface deleted** (evidence.Collector)
-- **~40 new tests** across all changes
-- **15 test packages**, all passing with zero regressions
-- **559 units certified**, 100% pass rate, B+ overall
-
-### VS Code Extension
-
-- **fix(vscode): update types for unified LanguageDetail** — Removed `LanguageCard` interface, `CertifyCard.languages` now `LanguageDetail[]`. Local data loader builds full `LanguageDetail` with passing count, grade distribution, top/bottom scores. Dashboard language table gains Passing column. ([#e6af6b0](../../commit/e6af6b0), Refs #18)
+- **9 new files**, 2,837 lines added
+- **23 new tests** across 3 test files, all passing
+- **16 packages** pass with zero regressions
+- Dogfood: 615 units, 24 packages, 6/6 phases, 7 recommendations, 50K tokens, 3m46s
 
 ## Full Changelog
 
 ```
-e6af6b0 fix(vscode): update types for unified LanguageDetail (Refs #18)
-7d577d9 docs: update docs for v0.2.0
-b7a7b83 chore: unify language summary types into LanguageDetail (Refs #18)
-df55ebd chore: gitignore per-unit markdown reports (Refs #17)
-95aa6ea feat: wire/remove unused interfaces (Refs #15)
-784c165 feat: consolidate report generation (Refs #14)
-eb4d464 feat: certification run tracking with JSONL persistence (Refs #13)
-136f372 feat: track certification state in git via state.json (Refs #12)
-df9fb30 feat: typed metrics map on Evidence (Refs #11)
-b617e53 feat: extract Certifier service (Refs #10)
-a23f933 feat: persist evidence in records (Refs #9)
-b5805f9 feat: add static HTML site report output
+3f696eb chore: architect dogfood — 6/6 phases, 7 recommendations, 615 units reviewed
+6f62d32 fix: Phase 4 JSON parsing — ArchConcern.Metrics map[string]any
+2d2d6ef fix: architect — 10min timeout, 8K-12K token limits, think tag capture
+1d6d4ea feat: architect E2E integration test
+ec3f3ff feat: certify architect CLI command
+7c28fa9 feat: architect report formatter — Part I/II/III
+cf63155 feat: architect review pipeline — 6-phase orchestrator
+108abc3 feat: architect snapshot + context gathering
 ```
