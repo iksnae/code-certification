@@ -155,6 +155,59 @@ print('A GRADES UNLOCKED')
 "
 ```
 
+## Report
+
+**Date:** 2026-03-10
+
+### What Was Implemented
+
+Added 4 positive structural score boosts in `scoreFromStructural()` that reward clean code practices in dimensions previously stuck at the 0.80 base:
+
+1. **security** → 0.90 when `errors_ignored == 0 && global_mutable_count == 0 && panic_calls == 0`
+2. **architectural_fitness** → 0.90 when `param_count <= 3 && has_doc_comment == 1 && context_not_first == 0 && method_count <= 10`
+3. **performance_appropriateness** → 0.90 when `(func_lines == 0 || func_lines <= 30) && defer_in_loop == 0 && nesting <= 3`
+4. **operational_quality** → 0.90 when `errors_ignored == 0 && os_exit_calls == 0 && panic_calls == 0`
+
+### Results
+
+| Metric | Before | After | Delta |
+|--------|--------|-------|-------|
+| Overall Score | 85.8% | **88.4%** | **+2.6%** |
+| Overall Grade | B | **B+** | ⬆ |
+| A- units | 0 | **340** | **+340** |
+| B+ units | 326 | 186 | -140 (promoted to A-) |
+| B units | 400 | 229 | -171 |
+| C units | 22 | 11 | -11 |
+| Observations | 29 | 18 | -11 |
+| Go score | 85.7% | **88.6%** | **+2.9%** |
+
+### Tests Added (4 new, 19 total)
+
+1. `TestScoreFromStructural_AMinusGrade` — Clean unit achieves A- (≥0.90) with all 4 dimension boosts
+2. `TestScoreFromStructural_PenaltyOverridesBoost` — `errors_ignored: 1` prevents security/operational boosts but not architectural
+3. `TestScoreFromStructural_PartialBoosts` — Long function blocks performance boost but other boosts still apply
+4. `TestScoreFromStructural_FileLevelUnit` — `func_lines: 0` (type/var units) treated as clean for performance boost
+
+### Issues Encountered
+
+1. **Complexity metric not in structural evidence**: Plan assumed `complexity` was available in structural evidence; it's only in metrics evidence. Replaced with `nesting <= 3` (available in structural) as the performance complexity proxy.
+
+2. **File-level units have `func_lines: 0`**: Types and variable declarations don't have function bodies. The original plan condition `funcLines > 0 && funcLines <= 30` would exclude all file-level units. Fixed with `funcLines == 0 || funcLines <= 30`.
+
+### Refactoring
+
+- No refactoring needed — the change was a clean 16-line addition to the existing `scoreFromStructural` function, using variables already computed earlier in the same function.
+
+### FEATURES.md
+
+All criteria were already checked off. This change improves scoring calibration without adding features.
+
+### Commits
+
+```
+d05496f feat: unlock A grades — add positive structural boosts for 4 stuck dimensions
+```
+
 ## Notes
 
 - **Boosts use `max()` not assignment:** This ensures they don't accidentally lower a score already above 0.90 from other evidence (e.g., agent review giving higher).
