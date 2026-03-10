@@ -29,13 +29,13 @@ var unitTypeStrings = map[UnitType]string{
 	UnitTypePackage:  "package",
 }
 
-var stringToUnitType map[string]UnitType
-
-func init() {
-	stringToUnitType = make(map[string]UnitType, len(unitTypeStrings))
-	for k, v := range unitTypeStrings {
-		stringToUnitType[v] = k
-	}
+var stringToUnitType = map[string]UnitType{
+	"file":     UnitTypeFile,
+	"function": UnitTypeFunction,
+	"method":   UnitTypeMethod,
+	"class":    UnitTypeClass,
+	"module":   UnitTypeModule,
+	"package":  UnitTypePackage,
 }
 
 // String returns the string representation of a UnitType.

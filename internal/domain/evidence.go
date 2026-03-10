@@ -30,13 +30,15 @@ var evidenceKindStrings = map[EvidenceKind]string{
 	EvidenceKindAgentReview:    "agent_review",
 }
 
-var stringToEvidenceKind map[string]EvidenceKind
-
-func init() {
-	stringToEvidenceKind = make(map[string]EvidenceKind, len(evidenceKindStrings))
-	for k, v := range evidenceKindStrings {
-		stringToEvidenceKind[v] = k
-	}
+var stringToEvidenceKind = map[string]EvidenceKind{
+	"lint":            EvidenceKindLint,
+	"type_check":      EvidenceKindTypeCheck,
+	"test":            EvidenceKindTest,
+	"static_analysis": EvidenceKindStaticAnalysis,
+	"metrics":         EvidenceKindMetrics,
+	"git_history":     EvidenceKindGitHistory,
+	"structural":      EvidenceKindStructural,
+	"agent_review":    EvidenceKindAgentReview,
 }
 
 // String returns the string representation of an EvidenceKind.
@@ -85,13 +87,11 @@ var severityStrings = map[Severity]string{
 	SeverityCritical: "critical",
 }
 
-var stringToSeverity map[string]Severity
-
-func init() {
-	stringToSeverity = make(map[string]Severity, len(severityStrings))
-	for k, v := range severityStrings {
-		stringToSeverity[v] = k
-	}
+var stringToSeverity = map[string]Severity{
+	"info":     SeverityInfo,
+	"warning":  SeverityWarning,
+	"error":    SeverityError,
+	"critical": SeverityCritical,
 }
 
 // String returns the string representation of a Severity.

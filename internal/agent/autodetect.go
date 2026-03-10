@@ -29,10 +29,6 @@ var ConservativeModels = []string{
 	"microsoft/phi-4:free",
 }
 
-func init() {
-	DefaultModels["openrouter"] = ConservativeModels
-}
-
 // DetectAPIKey checks environment variables for an API key (cloud providers).
 // Returns the key and the env var name it was found in.
 // Returns empty strings if no key is found.

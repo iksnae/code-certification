@@ -26,13 +26,13 @@ var statusStrings = map[Status]string{
 	StatusExempt:                    "exempt",
 }
 
-var stringToStatus map[string]Status
-
-func init() {
-	stringToStatus = make(map[string]Status, len(statusStrings))
-	for k, v := range statusStrings {
-		stringToStatus[v] = k
-	}
+var stringToStatus = map[string]Status{
+	"certified":                  StatusCertified,
+	"certified_with_observations": StatusCertifiedWithObservations,
+	"probationary":               StatusProbationary,
+	"expired":                    StatusExpired,
+	"decertified":                StatusDecertified,
+	"exempt":                     StatusExempt,
 }
 
 // String returns the string representation of a Status.

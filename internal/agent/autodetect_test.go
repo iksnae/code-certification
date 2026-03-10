@@ -139,6 +139,26 @@ func TestHasAnyProvider_NoProviders(t *testing.T) {
 	_ = HasAnyProvider()
 }
 
+func TestDefaultModels_AllProvidersPopulated(t *testing.T) {
+	// Regression: after removing init() functions, DefaultModels must still
+	// contain all provider entries with non-nil model slices.
+	expected := []string{"openrouter", "openai", "groq", "ollama", "lmstudio"}
+	for _, name := range expected {
+		models, ok := DefaultModels[name]
+		if !ok {
+			t.Errorf("DefaultModels missing provider %q", name)
+			continue
+		}
+		if models == nil || len(models) == 0 {
+			t.Errorf("DefaultModels[%q] is nil or empty", name)
+		}
+	}
+	// openrouter should use ConservativeModels
+	if DefaultModels["openrouter"][0] != ConservativeModels[0] {
+		t.Errorf("DefaultModels[openrouter][0] = %q, want %q", DefaultModels["openrouter"][0], ConservativeModels[0])
+	}
+}
+
 func TestConservativeModels(t *testing.T) {
 	if len(ConservativeModels) == 0 {
 		t.Fatal("ConservativeModels should not be empty")

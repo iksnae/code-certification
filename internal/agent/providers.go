@@ -50,19 +50,14 @@ var DefaultLMStudioModels = []string{
 }
 
 // DefaultModels maps provider name to default model suggestions.
+// ConservativeModels (declared in autodetect.go) is resolved at package init time
+// since Go initializes all package-level vars before any code runs.
 var DefaultModels = map[string][]string{
-	"openrouter": nil, // set from ConservativeModels in autodetect.go
-	"openai":     nil,
-	"groq":       nil,
-	"ollama":     nil,
-	"lmstudio":   nil,
-}
-
-func init() {
-	DefaultModels["openai"] = DefaultOpenAIModels
-	DefaultModels["groq"] = DefaultGroqModels
-	DefaultModels["ollama"] = DefaultOllamaModels
-	DefaultModels["lmstudio"] = DefaultLMStudioModels
+	"openrouter": ConservativeModels,
+	"openai":     DefaultOpenAIModels,
+	"groq":       DefaultGroqModels,
+	"ollama":     DefaultOllamaModels,
+	"lmstudio":   DefaultLMStudioModels,
 }
 
 // Backward-compatible aliases
