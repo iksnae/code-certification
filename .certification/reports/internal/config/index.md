@@ -2,23 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
+**Grade:** 🟢 B+ (87.1%)  
 **Units:** 22 · **Passing:** 22 / 22
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [loader_test.go](loader_test.go.md) | file | 🟢 B | 82.8% | certified | 2026-04-24 |
-| [validator_test.go](validator_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-04-24 |
-| [policy_test.go](policy_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-04-24 |
-| [Error](validator.go/Error.md) | method | 🟢 B | 85.0% | certified | 2026-04-24 |
-| [Load](loader.go/Load.md) | function | 🟢 B | 85.6% | certified | 2026-04-24 |
+| [Load](loader.go/Load.md) | function | 🟢 B | 83.3% | certified | 2026-04-24 |
+| [loader_test.go](loader_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-04-24 |
 | [LoadPolicyPacks](policy.go/LoadPolicyPacks.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [validator_test.go](validator_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-24 |
 | [ValidatePolicyPack](validator.go/ValidatePolicyPack.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |
 | [ValidateConfig](validator.go/ValidateConfig.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |
 | [FilterPolicyPacks](matcher.go/FilterPolicyPacks.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [policy_test.go](policy_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-24 |
 | [parsePolicyPack](policy.go/parsePolicyPack.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |
+| [Error](validator.go/Error.md) | method | 🟢 B+ | 87.2% | certified | 2026-04-24 |
 | [validate](loader.go/validate.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
 | [parseDimension](policy.go/parseDimension.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |
 | [LoadPolicyPack](policy.go/LoadPolicyPack.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |

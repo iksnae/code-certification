@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
+**Grade:** 🟢 B+ (87.3%)  
 **Units:** 17 · **Passing:** 17 / 17
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [queue_test.go](queue_test.go.md) | file | 🟢 B | 82.8% | certified | 2026-04-24 |
 | [Enqueue](queue.go/Enqueue.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
+| [queue_test.go](queue_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-04-24 |
 | [BatchNext](queue.go/BatchNext.md) | method | 🟢 B | 86.7% | certified | 2026-04-24 |
 | [Stats](queue.go/Stats.md) | class | 🟢 B | 86.7% | certified | 2026-04-24 |
 | [New](queue.go/New.md) | function | 🟢 B+ | 87.8% | certified | 2026-04-24 |

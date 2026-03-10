@@ -1,4 +1,4 @@
-# 🟢 `probeLocal`
+# 🟡 `probeLocal`
 
 [← internal/agent](../index.md)
 
@@ -18,27 +18,27 @@
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **B** |
-| **Score** | 86.1% |
-| **Status** | certified |
+| **Grade** | 🟡 **C** |
+| **Score** | 75.0% |
+| **Status** | certified_with_observations |
 | **Confidence** | 100% |
 | **Certified** | 2026-03-10 |
 | **Expires** | 2026-04-24 |
-| **Source** | `deterministic+agent:qwen/qwen3-coder-30b` |
+| **Source** | `deterministic` |
 
 ## Dimension Scores
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 85.0% | █████████████████░░░ |
+| architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 90.0% | ██████████████████░░ |
-| correctness | 85.0% | █████████████████░░░ |
-| maintainability | 85.0% | █████████████████░░░ |
+| correctness | 95.0% | ███████████████████░ |
+| maintainability | 60.0% | ████████████░░░░░░░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
-| performance_appropriateness | 85.0% | █████████████████░░░ |
-| readability | 85.0% | █████████████████░░░ |
-| security | 85.0% | █████████████████░░░ |
-| testability | 90.0% | ██████████████████░░ |
+| performance_appropriateness | 80.0% | ████████████████░░░░ |
+| readability | 95.0% | ███████████████████░ |
+| security | 25.0% | █████░░░░░░░░░░░░░░░ |
+| testability | 65.0% | █████████████░░░░░░░ |
 
 ## Evidence
 
@@ -53,15 +53,15 @@ go vet: 0 errors, 0 warnings
 
 ### ✅ test (`go test`)
 
-go test: 466/466 passed (65% coverage)
+go test: 482/482 passed (65% coverage)
 
 | Metric | Value |
 |--------|------:|
 | `test_coverage` | 0.65 |
 | `test_failed` | 0 |
-| `test_passed` | 466 |
+| `test_passed` | 482 |
 | `test_skipped` | 0 |
-| `test_total` | 466 |
+| `test_total` | 482 |
 
 ### ✅ lint (`golangci-lint`)
 
@@ -74,13 +74,13 @@ golangci-lint: 0 errors, 0 warnings
 
 ### ✅ git_history (`git`)
 
-119 commits by 2 authors over 2 days
+127 commits by 2 authors over 2 days
 
 | Metric | Value |
 |--------|------:|
 | `age_days` | 2 |
 | `author_count` | 2 |
-| `commit_count` | 119 |
+| `commit_count` | 127 |
 
 ### ✅ metrics (`metrics`)
 
@@ -95,46 +95,43 @@ golangci-lint: 0 errors, 0 warnings
 | `todo_count` | 0 |
 | `total_lines` | 10 |
 
-### ✅ agent_review (`agent:qwen/qwen3-coder-30b`)
+### ✅ test (`coverage:unit`)
 
-Agent review:  (confidence: 70%) [models: qwen/qwen3-coder-30b]
+per-unit coverage: 84%
 
 | Metric | Value |
 |--------|------:|
-| `architectural_fitness` | 0.30 |
-| `change_risk` | 0.40 |
-| `confidence` | 0.70 |
-| `correctness` | 0.30 |
-| `maintainability` | 0.40 |
-| `operational_quality` | 0.40 |
-| `performance_appropriateness` | 0.60 |
-| `readability` | 0.60 |
-| `security` | 0.20 |
-| `testability` | 0.50 |
-| `tokens_used` | 2920 |
+| `unit_test_coverage` | 0.84 |
 
-## 🤖 AI Assessment
+### ✅ structural (`structural`)
 
-The code correctly detects cloud and local LLM providers but has security and correctness issues in URL handling, API key exposure, and missing error handling.
+structural: params=1 returns=1 nesting=1 doc=true exported=false
 
-### Suggestions
-
-- Modify `probeLocal` to check for specific response content or status codes that confirm LLM service availability, not just any 2xx response
-- Add validation in `normalizeLocalURL` to ensure that appending /v1 is only done for endpoints known to support it or validate the endpoint before appending
-- Use a more robust configuration approach for local provider endpoints instead of hardcoded values like `http://localhost:11434`
-- Implement logging or error handling that avoids exposing API keys in logs or user-facing messages
+| Metric | Value |
+|--------|------:|
+| `context_not_first` | 0 |
+| `defer_in_loop` | 0 |
+| `errors_ignored` | 0 |
+| `exported_name` | 0 |
+| `func_lines` | 7 |
+| `global_mutable_count` | 9 |
+| `has_doc_comment` | 1 |
+| `has_init_func` | 1 |
+| `is_constructor` | 0 |
+| `max_nesting_depth` | 1 |
+| `method_count` | 0 |
+| `naked_returns` | 0 |
+| `os_exit_calls` | 0 |
+| `panic_calls` | 0 |
+| `param_count` | 1 |
+| `return_count` | 1 |
 
 ## Observations
 
-- missing evidence for metric "param_count"
-- missing evidence for metric "max_nesting_depth"
-- missing evidence for metric "errors_ignored"
-- ⚠️ False positive detection from probeLocal due to insufficient health check validation
-- ⚠️ Potential misrouting or silent failure when normalizeLocalURL appends /v1 to non-compliant URLs
-- 🔗 The function introduces tight coupling to hardcoded local endpoints (e.g., Ollama on port 11434), reducing flexibility for custom deployments
-- 🔗 The use of environment variables for API keys increases risk of exposure in logs or error traces if not handled carefully
+- has_init_func: 1 exceeds threshold 0
+- global_mutable_count: 9 exceeds threshold 2
 
 ---
 
-*Repository: `iksnae/code-certification` · Commit: `02a3a91` · Generated: 2026-03-10T15:10:53-04:00*
+*Repository: `iksnae/code-certification` · Commit: `cdfb8d4` · Generated: 2026-03-10T15:11:39-04:00*
 *Generated by [Certify](https://github.com/iksnae/code-certification)*

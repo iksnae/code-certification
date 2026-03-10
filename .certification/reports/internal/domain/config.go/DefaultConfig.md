@@ -19,26 +19,26 @@
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **B** |
-| **Score** | 86.1% |
+| **Score** | 84.4% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-03-10 |
 | **Expires** | 2026-04-24 |
-| **Source** | `deterministic+agent:qwen/qwen3-coder-30b` |
+| **Source** | `deterministic` |
 
 ## Dimension Scores
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 85.0% | █████████████████░░░ |
+| architectural_fitness | 80.0% | ████████████████░░░░ |
 | change_risk | 90.0% | ██████████████████░░ |
-| correctness | 85.0% | █████████████████░░░ |
-| maintainability | 85.0% | █████████████████░░░ |
+| correctness | 95.0% | ███████████████████░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 85.0% | █████████████████░░░ |
-| performance_appropriateness | 85.0% | █████████████████░░░ |
-| readability | 85.0% | █████████████████░░░ |
-| security | 85.0% | █████████████████░░░ |
-| testability | 90.0% | ██████████████████░░ |
+| performance_appropriateness | 80.0% | ████████████████░░░░ |
+| readability | 95.0% | ███████████████████░ |
+| security | 75.0% | ███████████████░░░░░ |
+| testability | 65.0% | █████████████░░░░░░░ |
 
 ## Evidence
 
@@ -53,15 +53,15 @@ go vet: 0 errors, 0 warnings
 
 ### ✅ test (`go test`)
 
-go test: 466/466 passed (65% coverage)
+go test: 482/482 passed (65% coverage)
 
 | Metric | Value |
 |--------|------:|
 | `test_coverage` | 0.65 |
 | `test_failed` | 0 |
-| `test_passed` | 466 |
+| `test_passed` | 482 |
 | `test_skipped` | 0 |
-| `test_total` | 466 |
+| `test_total` | 482 |
 
 ### ✅ lint (`golangci-lint`)
 
@@ -74,13 +74,13 @@ golangci-lint: 0 errors, 0 warnings
 
 ### ✅ git_history (`git`)
 
-119 commits by 2 authors over 2 days
+127 commits by 2 authors over 2 days
 
 | Metric | Value |
 |--------|------:|
 | `age_days` | 2 |
 | `author_count` | 2 |
-| `commit_count` | 119 |
+| `commit_count` | 127 |
 
 ### ✅ metrics (`metrics`)
 
@@ -95,46 +95,38 @@ golangci-lint: 0 errors, 0 warnings
 | `todo_count` | 0 |
 | `total_lines` | 14 |
 
-### ✅ agent_review (`agent:qwen/qwen3-coder-30b`)
+### ✅ test (`coverage:unit`)
 
-Agent review:  (confidence: 70%) [models: qwen/qwen3-coder-30b]
+per-unit coverage: 75%
 
 | Metric | Value |
 |--------|------:|
-| `architectural_fitness` | 0.30 |
-| `change_risk` | 0.60 |
-| `confidence` | 0.70 |
-| `correctness` | 0.30 |
-| `maintainability` | 0.40 |
-| `operational_quality` | 0.40 |
-| `performance_appropriateness` | 0.80 |
-| `readability` | 0.60 |
-| `security` | 0.40 |
-| `testability` | 0.50 |
-| `tokens_used` | 2792 |
+| `unit_test_coverage` | 0.75 |
 
-## 🤖 AI Assessment
+### ✅ structural (`structural`)
 
-The DefaultConfig function provides sensible defaults but omits several fields in the returned Config struct, which could lead to unexpected runtime behavior or incomplete configuration.
+structural: params=0 returns=1 nesting=0 doc=true exported=true
 
-### Suggestions
-
-- Initialize all fields in DefaultConfig with appropriate default values to prevent nil pointer dereferences and ensure consistent behavior across environments.
-- Set defaults for AnalyzerConfig fields like GoVet, GoTest, GolangciLint, and ESLint to match common expectations (e.g., auto-detect behavior or enablement based on environment).
-- Ensure that all nested struct fields in DefaultConfig are explicitly initialized to avoid runtime panics or undefined behavior.
-- Add comments or documentation to clarify which fields are intentionally left uninitialized and why, especially if they're expected to be overridden by user config.
-
-## Observations
-
-- missing evidence for metric "param_count"
-- missing evidence for metric "max_nesting_depth"
-- missing evidence for metric "errors_ignored"
-- ⚠️ Uninitialized nested structs (Scope, Policies, Analyzers, Schedule, Issues) may cause nil pointer dereferences or incorrect logic if accessed without explicit initialization.
-- ⚠️ Missing default values for tool adapters (GoVet, GoTest, etc.) in AnalyzerConfig can lead to silent failures or misconfigured tooling.
-- 🔗 DefaultConfig is used as a baseline for configuration, so any missing or incorrect defaults propagate throughout the system and affect all downstream consumers.
-- 🔗 The omission of key fields like Scope, Policies, and Schedule means that configurations derived from DefaultConfig will not behave as expected in environments where these fields are required or assumed to have defaults.
+| Metric | Value |
+|--------|------:|
+| `context_not_first` | 0 |
+| `defer_in_loop` | 0 |
+| `errors_ignored` | 0 |
+| `exported_name` | 1 |
+| `func_lines` | 11 |
+| `global_mutable_count` | 1 |
+| `has_doc_comment` | 1 |
+| `has_init_func` | 0 |
+| `is_constructor` | 0 |
+| `max_nesting_depth` | 0 |
+| `method_count` | 0 |
+| `naked_returns` | 0 |
+| `os_exit_calls` | 0 |
+| `panic_calls` | 0 |
+| `param_count` | 0 |
+| `return_count` | 1 |
 
 ---
 
-*Repository: `iksnae/code-certification` · Commit: `02a3a91` · Generated: 2026-03-10T15:10:53-04:00*
+*Repository: `iksnae/code-certification` · Commit: `cdfb8d4` · Generated: 2026-03-10T15:11:39-04:00*
 *Generated by [Certify](https://github.com/iksnae/code-certification)*
