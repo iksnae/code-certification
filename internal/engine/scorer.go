@@ -115,46 +115,36 @@ func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
 	if e.Metrics == nil {
 		return
 	}
+	scoreStructuralReadability(e.Metrics, scores)
+	scoreStructuralCorrectness(e.Metrics, scores)
+	scoreStructuralArchitecture(e.Metrics, scores)
+}
 
-	// Doc comment presence
-	hasDoc := e.Metrics["has_doc_comment"]
-	exported := e.Metrics["exported_name"]
-	if hasDoc == 1.0 {
+// scoreStructuralReadability adjusts readability and maintainability
+// based on code shape metrics: docs, params, nesting, length.
+func scoreStructuralReadability(m map[string]float64, scores domain.DimensionScores) {
+	if m["has_doc_comment"] == 1.0 {
 		scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.90)
-	} else if exported == 1.0 {
-		// Exported without doc = readability penalty
+	} else if m["exported_name"] == 1.0 {
 		scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.70)
 	}
 
-	// Parameter count
-	params := int(e.Metrics["param_count"])
-	if params > 5 {
+	if params := int(m["param_count"]); params > 5 {
 		penalty := float64(params-5) * 0.10
 		scores[domain.DimMaintainability] = max(0, scores[domain.DimMaintainability]-penalty)
 	}
 
-	// Nesting depth
-	nesting := int(e.Metrics["max_nesting_depth"])
-	if nesting > 3 {
+	if nesting := int(m["max_nesting_depth"]); nesting > 3 {
 		penalty := float64(nesting-3) * 0.05
 		scores[domain.DimReadability] = max(0, scores[domain.DimReadability]-penalty)
 	}
 
-	// Ignored errors
-	ignored := int(e.Metrics["errors_ignored"])
-	if ignored > 0 {
-		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.60)
-	}
-
-	// Naked returns
-	naked := int(e.Metrics["naked_returns"])
-	if naked > 0 {
+	if naked := int(m["naked_returns"]); naked > 0 {
 		penalty := float64(naked) * 0.05
 		scores[domain.DimReadability] = max(0, scores[domain.DimReadability]-penalty)
 	}
 
-	// Function length
-	funcLines := int(e.Metrics["func_lines"])
+	funcLines := int(m["func_lines"])
 	if funcLines > 0 {
 		switch {
 		case funcLines <= 30:
@@ -169,56 +159,57 @@ func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
 		}
 	}
 
-	// Panic in library code
-	panicCalls := int(e.Metrics["panic_calls"])
-	if panicCalls > 0 {
+	if methodCount := int(m["method_count"]); methodCount > 15 {
+		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.50)
+	} else if methodCount > 10 {
+		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.65)
+	}
+}
+
+// scoreStructuralCorrectness adjusts correctness, testability, security,
+// and performance based on error handling, panics, exits, and global state.
+func scoreStructuralCorrectness(m map[string]float64, scores domain.DimensionScores) {
+	if ignored := int(m["errors_ignored"]); ignored > 0 {
+		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.60)
+	}
+
+	if panicCalls := int(m["panic_calls"]); panicCalls > 0 {
 		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.50)
 	}
 
-	// os.Exit in library code
-	osExitCalls := int(e.Metrics["os_exit_calls"])
-	if osExitCalls > 0 {
+	if osExitCalls := int(m["os_exit_calls"]); osExitCalls > 0 {
 		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.55)
 		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.50)
 	}
 
-	// Defer in loop
-	deferInLoop := int(e.Metrics["defer_in_loop"])
-	if deferInLoop > 0 {
+	if deferInLoop := int(m["defer_in_loop"]); deferInLoop > 0 {
 		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.55)
 		scores[domain.DimPerformanceAppropriateness] = min(scores[domain.DimPerformanceAppropriateness], 0.50)
 	}
 
-	// context.Context not first parameter
-	if e.Metrics["context_not_first"] == 1.0 {
-		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.70)
-		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.65)
-	}
-
-	// init() function present
-	if e.Metrics["has_init_func"] == 1.0 {
+	if m["has_init_func"] == 1.0 {
 		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.65)
 		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.70)
 	}
 
-	// Global mutable state
-	globalMut := int(e.Metrics["global_mutable_count"])
-	if globalMut > 0 {
+	if globalMut := int(m["global_mutable_count"]); globalMut > 0 {
 		penalty := float64(globalMut) * 0.05
 		scores[domain.DimSecurity] = max(0, scores[domain.DimSecurity]-penalty)
 		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.65)
 	}
+}
 
-	// God object: too many methods
-	methodCount := int(e.Metrics["method_count"])
-	if methodCount > 15 {
-		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.50)
-		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.55)
-	} else if methodCount > 10 {
-		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.65)
+// scoreStructuralArchitecture adjusts architectural fitness based on
+// API design patterns: context position, god objects.
+func scoreStructuralArchitecture(m map[string]float64, scores domain.DimensionScores) {
+	if m["context_not_first"] == 1.0 {
+		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.70)
+		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.65)
 	}
 
-
+	if methodCount := int(m["method_count"]); methodCount > 15 {
+		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.55)
+	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {

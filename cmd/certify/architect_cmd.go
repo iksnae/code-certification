@@ -54,28 +54,44 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 			return fmt.Errorf("getting working directory: %w", err)
 		}
 	}
-
 	certDir := filepath.Join(root, ".certification")
 
-	// Load config
+	provider, model, err := resolveArchitectProvider(cmd, certDir)
+	if err != nil {
+		return err
+	}
+
+	pc, err := buildArchitectContext(root, certDir)
+	if err != nil {
+		return err
+	}
+
+	printArchitectHeader(pc, model)
+
+	result, duration, err := executeArchitectReview(cmd, provider, model, pc)
+	if err != nil {
+		return err
+	}
+
+	return writeArchitectOutput(cmd, result, pc, certDir, duration)
+}
+
+func resolveArchitectProvider(cmd *cobra.Command, certDir string) (agent.Provider, string, error) {
 	cfg, err := config.LoadFromDir(certDir)
 	if err != nil {
 		cfg = defaultConfigObj()
 	}
-
-	// Setup agent — required for architect
 	provider, model := setupArchitectProvider(cfg)
 	if provider == nil {
-		return fmt.Errorf("architect requires an AI provider. Set OPENROUTER_API_KEY, configure agent in .certification/config.yml, or run a local model (Ollama)")
+		return nil, "", fmt.Errorf("architect requires an AI provider. Set OPENROUTER_API_KEY, configure agent in .certification/config.yml, or run a local model (Ollama)")
 	}
-
-	// Override model if specified
-	architectModel := flagString(cmd, "model")
-	if architectModel != "" {
-		model = architectModel
+	if m := flagString(cmd, "model"); m != "" {
+		model = m
 	}
+	return provider, model, nil
+}
 
-	// Load certification records
+func buildArchitectContext(root, certDir string) (*agent.ProjectContext, error) {
 	store := record.NewStore(filepath.Join(certDir, "records"))
 	records, err := store.ListAll()
 	if err != nil {
@@ -83,16 +99,17 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 		records = nil
 	}
 
-	// Gather context
 	fmt.Println("🏗  Gathering project context...")
 	pc, err := agent.GatherContext(root, certDir, records)
 	if err != nil {
-		return fmt.Errorf("gathering context: %w", err)
+		return nil, fmt.Errorf("gathering context: %w", err)
 	}
 	pc.RepoName = detectRepoName(root)
 	pc.CommitSHA = detectCommit(root)
+	return pc, nil
+}
 
-	// Print header
+func printArchitectHeader(pc *agent.ProjectContext, model string) {
 	unitCount := 0
 	if pc.Snapshot != nil {
 		unitCount = pc.Snapshot.Metrics.TotalUnits
@@ -104,13 +121,14 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 		fmt.Printf("  Current Score: %.1f%%\n", pc.Snapshot.Metrics.AvgScore*100)
 	}
 	fmt.Println()
+}
 
-	// Build reviewer
-	architectVerbose := flagBool(cmd, "verbose")
+func executeArchitectReview(cmd *cobra.Command, provider agent.Provider, model string, pc *agent.ProjectContext) (*agent.ArchitectResult, time.Duration, error) {
+	verbose := flagBool(cmd, "verbose")
 	reviewer := &agent.ArchitectReviewer{
 		Provider: provider,
 		Model:    model,
-		Verbose:  architectVerbose,
+		Verbose:  verbose,
 		OnPhaseStart: func(phase int, name string) {
 			fmt.Printf("  [%d/6] 🔄 %s...\n", phase, name)
 		},
@@ -119,44 +137,41 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 		},
 	}
 
-	// Determine phases
-	architectPhase := flagInt(cmd, "phase")
 	var phases []int
-	if architectPhase > 0 {
-		phases = []int{architectPhase}
+	if p := flagInt(cmd, "phase"); p > 0 {
+		phases = []int{p}
 	}
 
-	// Run review
 	start := time.Now()
 	result, err := reviewer.Review(context.Background(), pc, phases)
 	if err != nil {
-		return fmt.Errorf("architect review: %w", err)
+		return nil, 0, fmt.Errorf("architect review: %w", err)
 	}
 
-	// Print verbose output
-	if architectVerbose {
+	if verbose {
 		for i, raw := range result.RawOutputs {
 			if raw != "" {
 				fmt.Printf("\n--- Phase %d Raw Output ---\n%s\n", i+1, raw)
 			}
 		}
 	}
+	return result, time.Since(start), nil
+}
 
-	// Format report
+func writeArchitectOutput(cmd *cobra.Command, result *agent.ArchitectResult, pc *agent.ProjectContext, certDir string, duration time.Duration) error {
 	output := report.FormatArchitectReport(result, pc)
 
-	// Write output
 	outputPath := flagString(cmd, "output")
 	if outputPath == "" {
 		outputPath = filepath.Join(certDir, "ARCHITECT_REVIEW.md")
 	}
-	os.MkdirAll(filepath.Dir(outputPath), 0755)
+	if err := os.MkdirAll(filepath.Dir(outputPath), 0755); err != nil {
+		return fmt.Errorf("creating output directory: %w", err)
+	}
 	if err := os.WriteFile(outputPath, []byte(output), 0644); err != nil {
 		return fmt.Errorf("writing report: %w", err)
 	}
 
-	// Print summary
-	duration := time.Since(start)
 	fmt.Println()
 	fmt.Printf("🏗  Architectural Review Complete\n")
 	fmt.Printf("  Phases: %d/6 completed\n", result.PhasesComplete)
@@ -169,7 +184,6 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 		fmt.Printf("  ⚠️  %d phase(s) failed\n", len(result.Errors))
 	}
 	fmt.Printf("  Output: %s\n", outputPath)
-
 	return nil
 }
 

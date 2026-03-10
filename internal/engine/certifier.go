@@ -46,138 +46,34 @@ type Certifier struct {
 // repoEvidence is shared across units and should be collected once via CollectRepoEvidence().
 func (c *Certifier) Certify(ctx context.Context, unit domain.Unit, repoEvidence []domain.Evidence, now time.Time) (*CertifyResult, error) {
 	// 1. Match policies → extract rules
-	var rules []domain.PolicyRule
-	if c.Matcher != nil {
-		for _, p := range c.Matcher.Match(unit) {
-			rules = append(rules, p.Rules...)
-		}
-	}
+	rules := c.matchRules(unit)
 
 	// 2. Build evidence: start with repo evidence copy
 	ev := make([]domain.Evidence, len(repoEvidence))
 	copy(ev, repoEvidence)
 
-	// 3. Read source + compute per-unit metrics
-	var srcCode string
-	srcPath := filepath.Join(c.Root, unit.ID.Path())
-	isGo := strings.HasSuffix(unit.ID.Path(), ".go")
-	if srcData, err := os.ReadFile(srcPath); err == nil {
-		srcCode = string(srcData)
-		sym := unit.ID.Symbol()
-		var metrics evidence.CodeMetrics
-		if sym != "" && isGo {
-			metrics = evidence.ComputeSymbolMetrics(srcCode, sym)
-		} else {
-			metrics = evidence.ComputeMetrics(srcCode)
-		}
-		ev = append(ev, metrics.ToEvidence())
-
-		// 3b. Per-unit lint attribution
-		if len(c.RepoLintFindings) > 0 {
-			unitLint := evidence.AttributeLintToFile(c.RepoLintFindings, unit.ID.Path())
-			unitLintEv := unitLint.ToEvidence()
-			unitLintEv.Source = "golangci-lint:unit"
-			unitLintEv.Metrics["unit_lint_errors"] = float64(unitLint.ErrorCount)
-			unitLintEv.Metrics["unit_lint_warnings"] = float64(unitLint.WarnCount)
-			ev = append(ev, unitLintEv)
-		}
-
-		// 3c. Per-unit coverage attribution
-		if c.RepoCoverProfile != "" {
-			cm := evidence.ParseCoverProfilePerFunc(c.RepoCoverProfile)
-			// Try matching by file path (coverage profiles use module-qualified paths)
-			unitCov := float64(-1)
-			for filePath := range cm {
-				if strings.HasSuffix(filePath, "/"+unit.ID.Path()) || filePath == unit.ID.Path() {
-					unitCov = evidence.CoverageForFile(cm, filePath)
-					break
-				}
-			}
-			if unitCov >= 0 {
-				covEv := domain.Evidence{
-					Kind:    domain.EvidenceKindTest,
-					Source:  "coverage:unit",
-					Passed:  true,
-					Summary: fmt.Sprintf("per-unit coverage: %.0f%%", unitCov*100),
-					Metrics: map[string]float64{
-						"unit_test_coverage": unitCov,
-					},
-					Confidence: 1.0,
-				}
-				ev = append(ev, covEv)
-			}
-		}
-
-		// 3d. Structural analysis (Go only)
-		if isGo && sym != "" {
-			var structural evidence.StructuralMetrics
-			if unit.Type == domain.UnitTypeClass {
-				structural = evidence.AnalyzeGoType(srcCode, sym)
-			} else {
-				structural = evidence.AnalyzeGoFunc(srcCode, sym)
-			}
-
-			// Merge file-level metrics into the structural evidence
-			fileMeta := evidence.AnalyzeGoFile(srcCode)
-			structural.HasInitFunc = fileMeta.HasInitFunc
-			structural.GlobalMutableCount = fileMeta.GlobalMutableCount
-
-			ev = append(ev, structural.ToEvidence())
-		} else if isGo && sym == "" {
-			// File-level Go unit: only file metrics
-			fileMeta := evidence.AnalyzeGoFile(srcCode)
-			structural := evidence.StructuralMetrics{
-				HasInitFunc:        fileMeta.HasInitFunc,
-				GlobalMutableCount: fileMeta.GlobalMutableCount,
-			}
-			ev = append(ev, structural.ToEvidence())
-		}
-	}
+	// 3. Read source + compute per-unit evidence
+	srcCode := c.collectUnitEvidence(unit, &ev)
 
 	// 4. Agent review (optional)
-	var agentResult *agent.ReviewResult
-	var aiObs []string
-	if c.Agent != nil {
-		timeout := c.AgentTimeout
-		if timeout == 0 {
-			timeout = 30 * time.Second
-		}
-		if c.Agent.IsLocal() && timeout < 120*time.Second {
-			timeout = 120 * time.Second
-		}
-		agentCtx, cancel := context.WithTimeout(ctx, timeout)
-		result := c.Agent.ReviewUnit(agentCtx, unit, srcCode, ev)
-		cancel()
+	agentResult, aiObs := c.runAgentReview(ctx, unit, srcCode, &ev)
 
-		if result.Reviewed {
-			ev = append(ev, result.ToEvidence())
-		} else if result.Prescreened {
-			ev = append(ev, result.ToPrescreenEvidence())
-		}
-		aiObs = agent.FormatDeepObservations(result)
-		agentResult = &result
-	}
-
-	// 5. Build record via existing CertifyUnit
+	// 5. Build record
 	rec := CertifyUnit(unit, rules, ev, c.ExpiryCfg, now)
-
-	// 5b. Populate run metadata
 	rec.RunID = c.RunID
 	if len(c.PolicyVersions) > 0 {
 		rec.PolicyVersion = strings.Join(c.PolicyVersions, ",")
 	}
-
-	// 6. Merge AI observations
 	if len(aiObs) > 0 {
 		rec.Observations = append(rec.Observations, aiObs...)
 	}
 
-	// 7. Apply overrides
+	// 6. Apply overrides
 	if len(c.Overrides) > 0 {
 		rec = override.ApplyAll(rec, c.Overrides)
 	}
 
-	// 8. Persist (if store available)
+	// 7. Persist (if store available)
 	if c.Store != nil {
 		if err := c.Store.Save(rec); err != nil {
 			return nil, fmt.Errorf("saving record for %s: %w", unit.ID, err)
@@ -189,6 +85,137 @@ func (c *Certifier) Certify(ctx context.Context, unit domain.Unit, repoEvidence 
 		Record:      rec,
 		AgentReview: agentResult,
 	}, nil
+}
+
+// matchRules returns all policy rules that apply to the given unit.
+func (c *Certifier) matchRules(unit domain.Unit) []domain.PolicyRule {
+	var rules []domain.PolicyRule
+	if c.Matcher != nil {
+		for _, p := range c.Matcher.Match(unit) {
+			rules = append(rules, p.Rules...)
+		}
+	}
+	return rules
+}
+
+// collectUnitEvidence reads source code and computes per-unit metrics,
+// lint attribution, coverage, and structural analysis.
+func (c *Certifier) collectUnitEvidence(unit domain.Unit, ev *[]domain.Evidence) string {
+	srcPath := filepath.Join(c.Root, unit.ID.Path())
+	isGo := strings.HasSuffix(unit.ID.Path(), ".go")
+
+	srcData, err := os.ReadFile(srcPath)
+	if err != nil {
+		return ""
+	}
+	srcCode := string(srcData)
+	sym := unit.ID.Symbol()
+
+	// Code metrics
+	var metrics evidence.CodeMetrics
+	if sym != "" && isGo {
+		metrics = evidence.ComputeSymbolMetrics(srcCode, sym)
+	} else {
+		metrics = evidence.ComputeMetrics(srcCode)
+	}
+	*ev = append(*ev, metrics.ToEvidence())
+
+	// Per-unit lint attribution
+	if len(c.RepoLintFindings) > 0 {
+		unitLint := evidence.AttributeLintToFile(c.RepoLintFindings, unit.ID.Path())
+		unitLintEv := unitLint.ToEvidence()
+		unitLintEv.Source = "golangci-lint:unit"
+		unitLintEv.Metrics["unit_lint_errors"] = float64(unitLint.ErrorCount)
+		unitLintEv.Metrics["unit_lint_warnings"] = float64(unitLint.WarnCount)
+		*ev = append(*ev, unitLintEv)
+	}
+
+	// Per-unit coverage attribution
+	if c.RepoCoverProfile != "" {
+		if covEv, ok := c.buildCoverageEvidence(unit); ok {
+			*ev = append(*ev, covEv)
+		}
+	}
+
+	// Structural analysis (Go only)
+	c.collectStructuralEvidence(unit, srcCode, isGo, sym, ev)
+
+	return srcCode
+}
+
+// buildCoverageEvidence extracts per-unit coverage from the repo cover profile.
+func (c *Certifier) buildCoverageEvidence(unit domain.Unit) (domain.Evidence, bool) {
+	cm := evidence.ParseCoverProfilePerFunc(c.RepoCoverProfile)
+	unitCov := float64(-1)
+	for filePath := range cm {
+		if strings.HasSuffix(filePath, "/"+unit.ID.Path()) || filePath == unit.ID.Path() {
+			unitCov = evidence.CoverageForFile(cm, filePath)
+			break
+		}
+	}
+	if unitCov < 0 {
+		return domain.Evidence{}, false
+	}
+	return domain.Evidence{
+		Kind:    domain.EvidenceKindTest,
+		Source:  "coverage:unit",
+		Passed:  true,
+		Summary: fmt.Sprintf("per-unit coverage: %.0f%%", unitCov*100),
+		Metrics: map[string]float64{
+			"unit_test_coverage": unitCov,
+		},
+		Confidence: 1.0,
+	}, true
+}
+
+// collectStructuralEvidence runs Go AST analysis and appends structural evidence.
+func (c *Certifier) collectStructuralEvidence(unit domain.Unit, srcCode string, isGo bool, sym string, ev *[]domain.Evidence) {
+	if !isGo {
+		return
+	}
+	if sym != "" {
+		var structural evidence.StructuralMetrics
+		if unit.Type == domain.UnitTypeClass {
+			structural = evidence.AnalyzeGoType(srcCode, sym)
+		} else {
+			structural = evidence.AnalyzeGoFunc(srcCode, sym)
+		}
+		fileMeta := evidence.AnalyzeGoFile(srcCode)
+		structural.HasInitFunc = fileMeta.HasInitFunc
+		structural.GlobalMutableCount = fileMeta.GlobalMutableCount
+		*ev = append(*ev, structural.ToEvidence())
+	} else {
+		fileMeta := evidence.AnalyzeGoFile(srcCode)
+		structural := evidence.StructuralMetrics{
+			HasInitFunc:        fileMeta.HasInitFunc,
+			GlobalMutableCount: fileMeta.GlobalMutableCount,
+		}
+		*ev = append(*ev, structural.ToEvidence())
+	}
+}
+
+// runAgentReview optionally runs agent-assisted review for the unit.
+func (c *Certifier) runAgentReview(ctx context.Context, unit domain.Unit, srcCode string, ev *[]domain.Evidence) (*agent.ReviewResult, []string) {
+	if c.Agent == nil {
+		return nil, nil
+	}
+	timeout := c.AgentTimeout
+	if timeout == 0 {
+		timeout = 30 * time.Second
+	}
+	if c.Agent.IsLocal() && timeout < 120*time.Second {
+		timeout = 120 * time.Second
+	}
+	agentCtx, cancel := context.WithTimeout(ctx, timeout)
+	result := c.Agent.ReviewUnit(agentCtx, unit, srcCode, *ev)
+	cancel()
+
+	if result.Reviewed {
+		*ev = append(*ev, result.ToEvidence())
+	} else if result.Prescreened {
+		*ev = append(*ev, result.ToPrescreenEvidence())
+	}
+	return &result, agent.FormatDeepObservations(result)
 }
 
 // CollectRepoEvidence runs all available tool runners and returns repo-level evidence.
