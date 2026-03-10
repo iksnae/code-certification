@@ -131,12 +131,18 @@ func (c *Certifier) CollectRepoEvidence() []domain.Evidence {
 	return executor.CollectAll()
 }
 
-// SaveReportArtifacts writes REPORT_CARD.md, badge.json, and per-unit reports
-// from a pre-computed FullReport. REPORT_CARD.md is the full markdown report
-// with self-contained anchor links (no external report file dependencies).
+// SaveReportArtifacts writes REPORT_CARD.md (compact summary), badge.json,
+// and per-unit markdown reports from a pre-computed FullReport.
+//
+// REPORT_CARD.md is the Card format — a compact summary with overall grade,
+// language breakdown, and top issues. It stays under 5KB regardless of repo
+// size, so it renders on GitHub even for repos with thousands of units.
+//
+// For the full per-unit report, use `certify report --format full`.
+// For interactive browsing, use `certify report --site`.
 func SaveReportArtifacts(certDir string, fr report.FullReport) error {
-	// Full report card (self-contained markdown with anchor links)
-	md := report.FormatFullMarkdown(fr)
+	// Compact report card (summary only — scales to any repo size)
+	md := report.FormatCardMarkdown(fr.Card)
 	if err := os.WriteFile(filepath.Join(certDir, "REPORT_CARD.md"), []byte(md), 0o644); err != nil {
 		return fmt.Errorf("writing REPORT_CARD.md: %w", err)
 	}
