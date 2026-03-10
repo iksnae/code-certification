@@ -141,7 +141,225 @@ func TestFormatForLLM_Empty(t *testing.T) {
 	_ = output
 }
 
-// makeRecord is defined in architect_snapshot_test.go — using the same helper
-// This file and architect_snapshot_test.go are in the same test package (agent_test)
-// so makeRecord is shared.
-var _ = time.Now // silence unused import
+func TestArchitectReview_MockProvider(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecord("go://internal/engine/scorer.go#Score", 0.85, []string{"errors_ignored: 2"}),
+		makeRecord("go://internal/domain/unit.go#NewUnit", 0.95, nil),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	callCount := 0
+	responses := []string{
+		// Phase 1
+		`{"layers":[{"name":"internal","packages":["engine","domain"],"description":"core logic"}],"data_flows":[],"dependency_assessment":"clean"}`,
+		// Phase 2
+		`{"findings":[{"package":"internal/engine","issue":"high complexity","current_metrics":{"avg_score":0.85},"severity":"medium"}]}`,
+		// Phase 3
+		`{"coverage_gaps":[{"package":"internal/engine","current_score":0.85,"issue":"no integration tests"}],"strategy_assessment":"adequate"}`,
+		// Phase 4
+		`{"concerns":[{"area":"operations","description":"no structured logging","affected_packages":["internal/engine"],"metrics":{}}]}`,
+		// Phase 5
+		`{"recommendations":[{"title":"Add structured logging","current_state":"No logging in engine","proposed_state":"Add slog-based logging","deltas":[{"metric":"observability","current":"none","projected":"structured"}],"affected_units":["internal/engine/scorer.go#Score"],"effort":"S","justification":"Standard practice"}]}`,
+		// Phase 6
+		`{"executive_summary":"The project is well-structured.","risk_matrix":[{"risk":"No logging","severity":"medium","likelihood":"high","recommendation_ref":"Add structured logging"}],"roadmap":[{"priority":1,"title":"Add logging","effort":"S","impact":"medium","recommendation_ref":"Add structured logging","delta_summary":"observability: none → structured"}]}`,
+	}
+
+	mock := &sequenceProvider{responses: responses, callCount: &callCount}
+
+	reviewer := &agent.ArchitectReviewer{
+		Provider: mock,
+		Model:    "test-model",
+	}
+
+	result, err := reviewer.Review(t.Context(), pc, nil)
+	if err != nil {
+		t.Fatalf("Review failed: %v", err)
+	}
+
+	if result.PhasesComplete != 6 {
+		t.Errorf("expected 6 phases complete, got %d", result.PhasesComplete)
+	}
+	if result.TotalTokens == 0 {
+		t.Error("expected non-zero token count")
+	}
+	if result.Snapshot == nil {
+		t.Error("snapshot should be carried through")
+	}
+
+	// Verify Phase 1 parsed
+	if result.Phase1 == nil {
+		t.Fatal("Phase1 should be parsed")
+	}
+	if len(result.Phase1.Layers) != 1 {
+		t.Errorf("expected 1 layer, got %d", len(result.Phase1.Layers))
+	}
+
+	// Verify Phase 5 has recommendations with deltas
+	if result.Phase5 == nil {
+		t.Fatal("Phase5 should be parsed")
+	}
+	if len(result.Phase5.Recommendations) != 1 {
+		t.Fatalf("expected 1 recommendation, got %d", len(result.Phase5.Recommendations))
+	}
+	rec := result.Phase5.Recommendations[0]
+	if len(rec.Deltas) == 0 {
+		t.Error("recommendation should have deltas")
+	}
+
+	// Verify Phase 6 synthesis
+	if result.Phase6 == nil {
+		t.Fatal("Phase6 should be parsed")
+	}
+	if result.Phase6.ExecutiveSummary == "" {
+		t.Error("executive summary should not be empty")
+	}
+}
+
+func TestArchitectReview_PhaseFailure(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecord("go://internal/engine/scorer.go#Score", 0.85, nil),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	// Provider that fails on phase 2 (second call)
+	callCount := 0
+	mock := &conditionalProvider{
+		failUntil: 1, // fail first call (phase 1), succeed rest
+		response:  `{"findings":[]}`,
+		callCount: &callCount,
+	}
+
+	reviewer := &agent.ArchitectReviewer{
+		Provider: mock,
+		Model:    "test-model",
+	}
+
+	result, err := reviewer.Review(t.Context(), pc, nil)
+	if err != nil {
+		t.Fatalf("Review should not fail entirely: %v", err)
+	}
+
+	// Should have partial results
+	if result.PhasesComplete == 6 {
+		t.Error("should not complete all phases when one fails")
+	}
+	if len(result.Errors) == 0 {
+		t.Error("should record errors for failed phases")
+	}
+	// Snapshot should always be present
+	if result.Snapshot == nil {
+		t.Error("snapshot should always be present even with failures")
+	}
+}
+
+func TestArchitectReview_SinglePhase(t *testing.T) {
+	snap := agent.BuildSnapshot(nil, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	mock := &mockProvider{response: `{"coverage_gaps":[],"strategy_assessment":"looks good"}`}
+
+	reviewer := &agent.ArchitectReviewer{
+		Provider: mock,
+		Model:    "test-model",
+	}
+
+	// Run only phase 3
+	result, err := reviewer.Review(t.Context(), pc, []int{3})
+	if err != nil {
+		t.Fatalf("Review failed: %v", err)
+	}
+
+	if result.PhasesComplete != 1 {
+		t.Errorf("expected 1 phase complete, got %d", result.PhasesComplete)
+	}
+	if result.Phase3 == nil {
+		t.Error("Phase3 should be parsed")
+	}
+	if result.Phase1 != nil {
+		t.Error("Phase1 should be nil when only phase 3 runs")
+	}
+}
+
+func TestArchitectReview_Phase5Validation(t *testing.T) {
+	snap := agent.BuildSnapshot(nil, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	// Phase 5 response with a recommendation missing deltas
+	callCount := 0
+	responses := []string{
+		`{"layers":[],"data_flows":[],"dependency_assessment":"ok"}`,
+		`{"findings":[]}`,
+		`{"coverage_gaps":[],"strategy_assessment":"ok"}`,
+		`{"concerns":[]}`,
+		`{"recommendations":[{"title":"Fix X","current_state":"bad","proposed_state":"good","deltas":[],"affected_units":[],"effort":"S","justification":"because"}]}`,
+		`{"executive_summary":"done","risk_matrix":[],"roadmap":[]}`,
+	}
+	mock := &sequenceProvider{responses: responses, callCount: &callCount}
+
+	reviewer := &agent.ArchitectReviewer{
+		Provider: mock,
+		Model:    "test-model",
+	}
+
+	result, err := reviewer.Review(t.Context(), pc, nil)
+	if err != nil {
+		t.Fatalf("Review failed: %v", err)
+	}
+
+	// Recommendations with empty deltas should get a placeholder
+	if result.Phase5 == nil || len(result.Phase5.Recommendations) == 0 {
+		t.Fatal("Phase5 should have recommendations")
+	}
+	rec := result.Phase5.Recommendations[0]
+	if len(rec.Deltas) == 0 {
+		t.Error("empty deltas should be filled with placeholder")
+	}
+}
+
+func TestArchitectPrompts(t *testing.T) {
+	prompts := agent.ArchitectPhasePrompts()
+	names := agent.ArchitectPhaseNames()
+
+	if len(prompts) != 6 {
+		t.Fatalf("expected 6 prompts, got %d", len(prompts))
+	}
+	if len(names) != 6 {
+		t.Fatalf("expected 6 phase names, got %d", len(names))
+	}
+
+	// Phase 5 should require comparative format
+	if !strings.Contains(prompts[4], "deltas") {
+		t.Error("Phase 5 prompt should mention deltas")
+	}
+	if !strings.Contains(prompts[4], "current_state") {
+		t.Error("Phase 5 prompt should mention current_state")
+	}
+	if !strings.Contains(prompts[4], "proposed_state") {
+		t.Error("Phase 5 prompt should mention proposed_state")
+	}
+
+	// Phase 1 should not recommend changes
+	if !strings.Contains(prompts[0], "DO NOT recommend") {
+		t.Error("Phase 1 should say DO NOT recommend")
+	}
+}
+
+// t.Context() was added in Go 1.24. For older Go versions, use context.Background()
+// The test helpers (mockProvider, sequenceProvider, etc.) are in stage_test.go.
+var _ = time.Now // reference time package
