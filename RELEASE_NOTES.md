@@ -1,39 +1,34 @@
-# Release v0.1.4
+# Release v0.1.5
 
 **Date:** 2026-03-09
 
 ## Highlights
 
-Per-unit report cards are now a first-class deliverable — every certified unit gets its own detailed markdown report, and all links from the report card resolve correctly on GitHub.
+The VS Code extension's AI provider configuration has moved from a custom webview panel to native VS Code Settings — searchable, familiar, and synced with `.certification/config.yml`.
 
 ## What's Changed
 
-### Bug Fixes
-
-- **fix: broken unit report links in report card** — Unit name links in `REPORT_CARD.md` previously pointed to files in `.certification/reports/` which were gitignored, causing 404s on GitHub. Reports are now tracked in git and all links resolve correctly. ([#7c0397b](../../commit/7c0397b))
-
-- **fix: missing inline anchors for certified units** — The report card's `<details>` blocks were only generated for units with observations, leaving certified units without anchor targets. All units now get inline anchors for consistent back-navigation from individual reports. ([#7c0397b](../../commit/7c0397b))
-
 ### Features
 
-- **feat: per-unit report cards** — Each unit gets a standalone markdown report with identity, certification status, dimension scores, AI assessment, suggestions, and observations. Reports link back to the main report card. ([#6a451cb](../../commit/6a451cb))
+- **feat(vscode): native Settings UI for AI provider config** — All provider configuration now lives in VS Code Settings (`Ctrl+,` → search "certify"). Select a preset, set your model, and choose a strategy — all from the standard settings editor. ([#41ced73](../../commit/41ced73))
 
-- **feat: deep review for local models** — Local LLM providers now support deep review stages alongside remote providers. ([#6a451cb](../../commit/6a451cb))
+  - **Provider presets** — Dropdown with 10 presets (OpenRouter, Groq, Ollama, LM Studio, etc.) that auto-fill base URL and API key env var
+  - **Browse Models** — `Certify: Browse Available Models` now uses a native QuickPick with search instead of a webview list
+  - **Test Connection** — New `Certify: Test Provider Connection` command with notification feedback
+  - **Settings sync** — Changes in VS Code Settings automatically sync to `.certification/config.yml`; existing config.yml values bootstrap into settings on activation
 
-- **feat: unit table links to per-unit detail sections** — Report card unit tables link directly to expandable detail sections for quick navigation. ([#df2cdd4](../../commit/df2cdd4))
+### Removed
 
-- **feat: AI guidance in report card + prescreen suggestions** — Report cards now include an AI Insights section with top suggestions aggregated across all units, powered by the configured LLM. ([#84930b9](../../commit/84930b9))
+- **ConfigPanel webview** — The custom HTML/CSS/JS webview panel has been removed in favor of native settings
 
 ## Upgrade Notes
 
-- `.certification/reports/` is no longer gitignored. After upgrading, run `certify report` to generate unit reports, then commit the new `reports/` directory.
-- No breaking changes to CLI flags or configuration.
+- Your existing `.certification/config.yml` values will auto-populate into VS Code Settings on first activation
+- Use `Ctrl+,` (or `Cmd+,`) → search `certify.provider` to configure your AI provider
+- The `Certify: Configure AI Provider` command now opens Settings instead of a webview
 
 ## Full Changelog
 
 ```
-7c0397b fix: track unit reports and ensure all units have inline anchors
-6a451cb feat: deep review for local models + per-unit report cards
-df2cdd4 feat: unit table links to per-unit detail sections in report card
-84930b9 feat: AI guidance in report card + prescreen suggestions
+41ced73 feat(vscode): move AI provider config to native VS Code settings
 ```
