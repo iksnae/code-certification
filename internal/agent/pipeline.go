@@ -88,6 +88,13 @@ func (p *Pipeline) Run(ctx context.Context, input StageInput) (ReviewResult, err
 			accumulated.Actions = result.Actions
 		}
 
+		if result.PrescreenReason != "" {
+			accumulated.PrescreenReason = result.PrescreenReason
+		}
+		if len(result.Suggestions) > 0 {
+			accumulated.Suggestions = append(accumulated.Suggestions, result.Suggestions...)
+		}
+
 		// Track that AI evaluated even if it said "no review needed"
 		if len(result.ModelsUsed) > 0 {
 			prescreened = true
@@ -103,16 +110,18 @@ func (p *Pipeline) Run(ctx context.Context, input StageInput) (ReviewResult, err
 
 func (p *Pipeline) toResult(sr StageResult, reviewed, prescreened bool) ReviewResult {
 	return ReviewResult{
-		Reviewed:     reviewed,
-		Prescreened:  prescreened,
-		ReviewOutput: sr.ReviewOutput,
-		Scores:       sr.Scores,
-		Status:       sr.Status,
-		Actions:      sr.Actions,
-		Remediation:  sr.Remediation,
-		Confidence:   sr.Confidence,
-		TokensUsed:   sr.TokensUsed,
-		ModelsUsed:   sr.ModelsUsed,
+		Reviewed:        reviewed,
+		Prescreened:     prescreened,
+		ReviewOutput:    sr.ReviewOutput,
+		Scores:          sr.Scores,
+		Status:          sr.Status,
+		Actions:         sr.Actions,
+		Remediation:     sr.Remediation,
+		Confidence:      sr.Confidence,
+		TokensUsed:      sr.TokensUsed,
+		ModelsUsed:      sr.ModelsUsed,
+		PrescreenReason: sr.PrescreenReason,
+		Suggestions:     sr.Suggestions,
 	}
 }
 

@@ -333,6 +333,7 @@ func (c *certifyContext) certifyUnit(cmd *cobra.Command, unit domain.Unit, unitI
 
 	ev := make([]domain.Evidence, len(c.repoEv))
 	copy(ev, c.repoEv)
+	var aiObs []string
 
 	srcPath := filepath.Join(c.root, unit.ID.Path())
 	var srcCode string
@@ -366,11 +367,23 @@ func (c *certifyContext) certifyUnit(cmd *cobra.Command, unit domain.Unit, unitI
 		} else {
 			c.wq.Skip(unitID, "prescreen: no review needed")
 		}
+		// Collect AI suggestions as observations for the record
+		if result.PrescreenReason != "" {
+			aiObs = append(aiObs, "🤖 "+result.PrescreenReason)
+		}
+		for _, s := range result.Suggestions {
+			if s != "" {
+				aiObs = append(aiObs, "💡 "+s)
+			}
+		}
 	} else {
 		c.wq.Complete(unitID, "")
 	}
 
 	rec := engine.CertifyUnit(unit, rules, ev, c.cfg.Expiry, now)
+	if len(aiObs) > 0 {
+		rec.Observations = append(rec.Observations, aiObs...)
+	}
 	if len(c.overrides) > 0 {
 		rec = override.ApplyAll(rec, c.overrides)
 	}

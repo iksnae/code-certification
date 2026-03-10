@@ -2,9 +2,10 @@ package agent
 
 // PrescreenResponse is the structured output from the prescreen step.
 type PrescreenResponse struct {
-	NeedsReview bool    `json:"needs_review"`
-	Reason      string  `json:"reason"`
-	Confidence  float64 `json:"confidence"`
+	NeedsReview bool     `json:"needs_review"`
+	Reason      string   `json:"reason"`
+	Confidence  float64  `json:"confidence"`
+	Suggestions []string `json:"suggestions,omitempty"`
 }
 
 // ScoringResponse is the structured output from the scoring step.

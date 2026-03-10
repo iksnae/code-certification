@@ -20,15 +20,17 @@ type StageInput struct {
 
 // StageResult accumulates output from pipeline stages.
 type StageResult struct {
-	Reviewed     bool
-	ReviewOutput string
-	Scores       map[string]float64
-	Status       string
-	Actions      []string
-	Remediation  []RemediationStep
-	Confidence   float64
-	TokensUsed   int
-	ModelsUsed   []string // attribution: which models contributed
+	Reviewed        bool
+	ReviewOutput    string
+	Scores          map[string]float64
+	Status          string
+	Actions         []string
+	Remediation     []RemediationStep
+	Confidence      float64
+	TokensUsed      int
+	ModelsUsed      []string // attribution: which models contributed
+	PrescreenReason string   // brief quality assessment from prescreen
+	Suggestions     []string // actionable improvement suggestions
 }
 
 // Stage is a single step in the review pipeline.
@@ -56,13 +58,15 @@ func (s *prescreenStage) Execute(ctx context.Context, input StageInput) (StageRe
 	resp, err := s.provider.Chat(ctx, ChatRequest{
 		Model: s.model,
 		Messages: AdaptiveMessages(
-			"You are a code quality prescreen filter. Respond with ONLY JSON: {\"needs_review\": true/false, \"reason\": \"...\", \"confidence\": 0.0-1.0}. Units that pass all checks do NOT need review.",
-			fmt.Sprintf("Unit: %s (%s)\nEvidence: %s\n\nDoes this unit need detailed review?",
+			`You are a code quality prescreen filter. Respond with ONLY JSON:
+{"needs_review": true/false, "reason": "one-line quality assessment", "confidence": 0.0-1.0, "suggestions": ["actionable suggestion 1", "suggestion 2"]}
+The "reason" should always describe the code quality briefly. "suggestions" lists 0-3 brief improvement ideas (even for passing code). Units that pass all checks do NOT need detailed review.`,
+			fmt.Sprintf("Unit: %s (%s)\nEvidence: %s\n\nAssess this unit's quality and determine if it needs detailed review.",
 				input.Unit.ID, input.Unit.Type, input.EvidenceSummary),
 			false, // user-only for maximum compatibility
 		),
 		Temperature: 0.1,
-		MaxTokens:   256,
+		MaxTokens:   512,
 	})
 	if err != nil {
 		return StageResult{}, false, err
@@ -77,8 +81,10 @@ func (s *prescreenStage) Execute(ctx context.Context, input StageInput) (StageRe
 
 	// Try strict JSON parse first
 	var prescreen PrescreenResponse
-	if err := json.Unmarshal([]byte(content), &prescreen); err == nil {
+	if err := json.Unmarshal([]byte(extractJSON(content)), &prescreen); err == nil {
 		result.Confidence = prescreen.Confidence
+		result.PrescreenReason = prescreen.Reason
+		result.Suggestions = prescreen.Suggestions
 		return result, prescreen.NeedsReview, nil
 	}
 
@@ -86,6 +92,7 @@ func (s *prescreenStage) Execute(ctx context.Context, input StageInput) (StageRe
 	lower := strings.ToLower(content)
 	needsReview := looseParseNeedsReview(lower)
 	result.Confidence = 0.5 // lower confidence for loose parse
+	result.PrescreenReason = "could not parse structured response"
 	return result, needsReview, nil
 }
 

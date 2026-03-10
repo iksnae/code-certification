@@ -18,16 +18,18 @@ type ReviewInput struct {
 
 // ReviewResult holds the outcome of an agent review.
 type ReviewResult struct {
-	Reviewed     bool               `json:"reviewed"`
-	Prescreened  bool               `json:"prescreened"`
-	ReviewOutput string             `json:"review_output,omitempty"`
-	Scores       map[string]float64 `json:"scores,omitempty"`
-	Status       string             `json:"status,omitempty"`
-	Actions      []string           `json:"actions,omitempty"`
-	Remediation  []RemediationStep  `json:"remediation,omitempty"`
-	Confidence   float64            `json:"confidence"`
-	TokensUsed   int                `json:"tokens_used"`
-	ModelsUsed   []string           `json:"models_used,omitempty"`
+	Reviewed        bool               `json:"reviewed"`
+	Prescreened     bool               `json:"prescreened"`
+	ReviewOutput    string             `json:"review_output,omitempty"`
+	Scores          map[string]float64 `json:"scores,omitempty"`
+	Status          string             `json:"status,omitempty"`
+	Actions         []string           `json:"actions,omitempty"`
+	Remediation     []RemediationStep  `json:"remediation,omitempty"`
+	Confidence      float64            `json:"confidence"`
+	TokensUsed      int                `json:"tokens_used"`
+	ModelsUsed      []string           `json:"models_used,omitempty"`
+	PrescreenReason string             `json:"prescreen_reason,omitempty"`
+	Suggestions     []string           `json:"suggestions,omitempty"`
 }
 
 // ToEvidence converts the review result to a domain.Evidence.
@@ -63,6 +65,9 @@ func (r ReviewResult) ToPrescreenEvidence() domain.Evidence {
 	}
 
 	summary := fmt.Sprintf("AI prescreen: no issues found (confidence: %.0f%%)", r.Confidence*100)
+	if r.PrescreenReason != "" {
+		summary = fmt.Sprintf("AI: %s (confidence: %.0f%%)", r.PrescreenReason, r.Confidence*100)
+	}
 	if len(r.ModelsUsed) > 0 {
 		summary += fmt.Sprintf(" [model: %s]", joinModels(r.ModelsUsed))
 	}
