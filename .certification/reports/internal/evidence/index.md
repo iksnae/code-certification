@@ -2,25 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.0%)  
+**Grade:** 🟢 B (86.1%)  
 **Units:** 39 · **Passing:** 39 / 39
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runGoTest](executor.go/runGoTest.md) | method | 🟢 B | 81.7% | certified | 2026-04-24 |
 | [complexity_test.go](complexity_test.go.md) | file | 🟢 B | 82.2% | certified | 2026-04-24 |
 | [metrics_test.go](metrics_test.go.md) | file | 🟢 B | 82.2% | certified | 2026-04-24 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
+| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
 | [runGolangciLint](executor.go/runGolangciLint.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
 | [runGoVet](executor.go/runGoVet.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
+| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
 | [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 82.8% | certified | 2026-04-24 |
 | [runner_test.go](runner_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-04-24 |
 | [lint_test.go](lint_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-04-24 |
 | [git_test.go](git_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-04-24 |
 | [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 B | 85.0% | certified | 2026-04-24 |
+| [runGoTest](executor.go/runGoTest.md) | method | 🟢 B | 85.0% | certified | 2026-04-24 |
 | [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 85.6% | certified | 2026-04-24 |
 | [ComputeGoComplexity](complexity.go/ComputeGoComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-04-24 |
 | [containsTodo](metrics.go/containsTodo.md) | function | 🟢 B | 86.7% | certified | 2026-04-24 |

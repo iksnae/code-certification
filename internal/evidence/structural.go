@@ -25,14 +25,14 @@ type StructuralMetrics struct {
 	IsConstructor   bool   // Function name matches New* pattern
 
 	// Tier 1: new metrics
-	FuncLines        int  // Number of lines in function body
-	PanicCalls       int  // Count of panic() calls
-	OsExitCalls      int  // Count of os.Exit() calls
-	DeferInLoop      int  // Count of defer statements inside for/range loops
-	ContextNotFirst  bool // context.Context param exists but is not the first param
-	MethodCount      int  // Number of methods on a type (type-level only)
-	HasInitFunc      bool // File contains an init() function (file-level only)
-	GlobalMutableCount int // Number of package-level var declarations (file-level only)
+	FuncLines          int  // Number of lines in function body
+	PanicCalls         int  // Count of panic() calls
+	OsExitCalls        int  // Count of os.Exit() calls
+	DeferInLoop        int  // Count of defer statements inside for/range loops
+	ContextNotFirst    bool // context.Context param exists but is not the first param
+	MethodCount        int  // Number of methods on a type (type-level only)
+	HasInitFunc        bool // File contains an init() function (file-level only)
+	GlobalMutableCount int  // Number of package-level var declarations (file-level only)
 }
 
 // FileMetrics holds file-level structural analysis results.

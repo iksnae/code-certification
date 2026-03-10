@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-03-10T18:42:55Z",
-  "commit": "252ce7f",
+  "generated_at": "2026-03-10T19:10:53Z",
+  "commit": "02a3a91",
   "unit_count": 615,
   "records": [
     {
@@ -6069,17 +6069,17 @@
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B",
-      "score": 0.8666666666666667,
+      "score": 0.85,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.8,
+        "architectural_fitness": 0.85,
         "change_risk": 0.9,
-        "correctness": 0.95,
-        "maintainability": 0.85,
+        "correctness": 0.85,
+        "maintainability": 0.75,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.8,
-        "readability": 0.95,
-        "security": 0.8,
+        "performance_appropriateness": 0.85,
+        "readability": 0.85,
+        "security": 0.85,
         "testability": 0.9
       },
       "evidence": [
@@ -6097,7 +6097,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:38:22-04:00",
           "confidence": 1
         },
         {
@@ -6120,7 +6120,7 @@
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -6137,25 +6137,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -6179,43 +6179,64 @@
             "todo_count": 0,
             "total_lines": 50
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:44:52-04:00",
           "confidence": 1
         },
         {
-          "kind": "test",
-          "source": "coverage:unit",
+          "kind": "agent_review",
+          "source": "agent:qwen/qwen3-coder-30b",
           "passed": true,
-          "summary": "per-unit coverage: 100%",
+          "summary": "Agent review:  (confidence: 70%) [models: qwen/qwen3-coder-30b]",
           "metrics": {
-            "unit_test_coverage": 1
+            "architectural_fitness": 0.3,
+            "change_risk": 0.3,
+            "confidence": 0.7,
+            "correctness": 0.2,
+            "maintainability": 0.3,
+            "operational_quality": 0.2,
+            "performance_appropriateness": 0.6,
+            "readability": 0.4,
+            "security": 0.5,
+            "testability": 0.3,
+            "tokens_used": 2914
           },
-          "timestamp": "0001-01-01T00:00:00Z",
-          "confidence": 1
-        },
-        {
-          "kind": "structural",
-          "source": "structural",
-          "passed": true,
-          "summary": "structural: params=1 returns=1 nesting=3 doc=true exported=true",
-          "metrics": {
-            "errors_ignored": 0,
-            "exported_name": 1,
-            "has_doc_comment": 1,
-            "is_constructor": 1,
-            "max_nesting_depth": 3,
-            "naked_returns": 0,
-            "param_count": 1,
-            "return_count": 1
+          "details": {
+            "confidence": 0.7,
+            "models_used": [
+              "qwen/qwen3-coder-30b",
+              "qwen/qwen3-coder-30b"
+            ],
+            "prescreen_reason": "\n    \"summary\": \"The code is functionally correct but has a critical logic flaw in provider selection and lacks proper error handling for edge cases.\",\n    \"review\": \"The `NewConservativeCoordinator` ...",
+            "prescreened": true,
+            "review_output": "{\n    \"summary\": \"The code is functionally correct but has a critical logic flaw in provider selection and lacks proper error handling for edge cases.\",\n    \"review\": \"The `NewConservativeCoordinator` function attempts to build a coordinator using detected providers, but it has a critical flaw in how it handles model assignment and provider prioritization. Specifically, line 73 uses `providers[0].Models[0]` to assign the prescreen model, which assumes that at least one provider exists and has at least one model. This is not guaranteed in all cases, particularly when providers are filtered or have empty models lists. Additionally, the function does not validate that `dp.Models` is non-empty before iterating over it (lines 54-62), which could lead to panics or incorrect behavior if a provider has no models. The use of `ConservativeModels` as the default for local providers (via `DefaultModels[\"openrouter\"]`) is problematic because it's hardcoded to a specific list and doesn't support dynamic model configuration. Furthermore, the function does not consider the order of providers or whether they are valid before constructing the coordinator. The `DetectAPIKey` function (lines 38-45) correctly returns an empty string if no key is found, but there's no validation or logging to indicate when keys are missing or misconfigured. Also, the `HasAnyProvider` function (lines 50-52) calls `DetectProviders()` but that function isn't defined in the provided code, which introduces a potential coupling and runtime dependency issue.\",\n    \"risks\": [\n        \"Index out of bounds panic if providers list is empty or first provider has no models\",\n        \"Hardcoded model list in DefaultModels may cause unexpected behavior when models change or are not supported\"\n    ],\n    \"system_impact\": [\n        \"The function assumes all detected providers have models, which introduces a failure point in the system if providers are misconfigured or filtered incorrectly\",\n        \"The hardcoded ConservativeModels list creates tight coupling between the auto-detection logic and specific model names, reducing flexibility for future changes\"\n    ],\n    \"suggestions\": [\n        \"Validate that `dp.Models` is not empty before iterating over it in the loop starting at line 54\",\n        \"Add a check to ensure that `providers` is not empty and that the first provider has at least one model before assigning `prescreen`\",\n        \"Refactor `DefaultModels[\\\"openrouter\\\"] = ConservativeModels` to avoid hardcoding and allow for configurable or dynamic model lists\",\n        \"Add logging or error handling in `DetectAPIKey` to report when no keys are found for troubleshooting purposes\"\n    ],\n    \"strengths\": [\n        \"The code uses a clear separation of concerns with distinct provider types (local vs cloud) and appropriate strategies\",\n        \"The circuit breaker and fallback provider patterns are correctly implemented for resilience\",\n        \"The use of `StrategyQuick` and token budget aligns with the intended conservative behavior\"\n    ]\n}",
+            "reviewed": true,
+            "scores": {
+              "architectural_fitness": 0.3,
+              "change_risk": 0.3,
+              "correctness": 0.2,
+              "maintainability": 0.3,
+              "operational_quality": 0.2,
+              "performance_appropriateness": 0.6,
+              "readability": 0.4,
+              "security": 0.5,
+              "testability": 0.3
+            },
+            "tokens_used": 2914
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
-          "confidence": 1
+          "timestamp": "2026-03-10T14:45:10-04:00",
+          "confidence": 0.7
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
-      "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "observations": [
+        "missing evidence for metric \"param_count\"",
+        "missing evidence for metric \"max_nesting_depth\"",
+        "missing evidence for metric \"errors_ignored\"",
+        "🤖 \n    \"summary\": \"The code is functionally correct but has a critical logic flaw in provider selection and lacks proper error handling for edge cases.\",\n    \"review\": \"The `NewConservativeCoordinator` ..."
+      ],
+      "certified_at": "2026-03-10T14:38:28-04:00",
+      "expires_at": "2026-04-24T14:38:28-04:00",
+      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "run_id": "run-20260310T183821Z",
       "version": 1
     },
     {
@@ -8541,16 +8562,16 @@
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B",
-      "score": 0.8333333333333334,
+      "score": 0.8666666666666667,
       "confidence": 1,
       "dimensions": {
         "architectural_fitness": 0.8,
         "change_risk": 0.9,
-        "correctness": 0.85,
-        "maintainability": 0.85,
+        "correctness": 0.95,
+        "maintainability": 0.95,
         "operational_quality": 0.85,
         "performance_appropriateness": 0.8,
-        "readability": 0.75,
+        "readability": 0.85,
         "security": 0.8,
         "testability": 0.9
       },
@@ -8569,30 +8590,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -8609,25 +8630,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -8651,19 +8672,40 @@
             "todo_count": 0,
             "total_lines": 145
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
+            "errors_ignored": 0,
+            "exported_name": 0,
+            "func_lines": 0,
+            "global_mutable_count": 0,
+            "has_doc_comment": 0,
+            "has_init_func": 0,
+            "is_constructor": 0,
+            "max_nesting_depth": 0,
+            "method_count": 0,
+            "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
+            "param_count": 0,
+            "return_count": 0
+          },
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "observations": [
-        "missing evidence for metric \"param_count\"",
-        "missing evidence for metric \"max_nesting_depth\"",
-        "missing evidence for metric \"errors_ignored\""
-      ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -8857,30 +8899,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -8897,25 +8939,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -8939,7 +8981,7 @@
             "todo_count": 0,
             "total_lines": 6
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -8959,23 +9001,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 0,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -9799,30 +9849,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -9839,25 +9889,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -9881,7 +9931,7 @@
             "todo_count": 0,
             "total_lines": 3
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -9901,23 +9951,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=false",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 0,
+            "func_lines": 0,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -14402,8 +14460,8 @@
       "unit_path": "internal/agent/prompts.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.8444444444444444,
       "confidence": 1,
       "dimensions": {
         "architectural_fitness": 0.8,
@@ -14413,8 +14471,8 @@
         "operational_quality": 0.85,
         "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.8,
-        "testability": 0.9
+        "security": 0.75,
+        "testability": 0.65
       },
       "evidence": [
         {
@@ -14431,30 +14489,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -14471,25 +14529,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -14513,7 +14571,7 @@
             "todo_count": 0,
             "total_lines": 5
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -14531,25 +14589,33 @@
           "kind": "structural",
           "source": "structural",
           "passed": true,
-          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 0,
+            "exported_name": 1,
+            "func_lines": 0,
+            "global_mutable_count": 1,
+            "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 1,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -14558,8 +14624,8 @@
       "unit_path": "internal/agent/prompts.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.8444444444444444,
       "confidence": 1,
       "dimensions": {
         "architectural_fitness": 0.8,
@@ -14569,8 +14635,8 @@
         "operational_quality": 0.85,
         "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.8,
-        "testability": 0.9
+        "security": 0.75,
+        "testability": 0.65
       },
       "evidence": [
         {
@@ -14587,30 +14653,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -14627,25 +14693,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -14669,7 +14735,7 @@
             "todo_count": 0,
             "total_lines": 4
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -14689,23 +14755,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 0,
+            "global_mutable_count": 1,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 2,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -15187,30 +15261,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -15227,25 +15301,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -15269,7 +15343,7 @@
             "todo_count": 0,
             "total_lines": 7
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -15278,23 +15352,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 0,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -16215,18 +16297,18 @@
       "unit_path": "internal/agent/providers.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.861111111111111,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.8,
+        "architectural_fitness": 0.85,
         "change_risk": 0.9,
-        "correctness": 0.95,
-        "maintainability": 0.95,
+        "correctness": 0.85,
+        "maintainability": 0.85,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.8,
-        "readability": 0.95,
-        "security": 0.8,
+        "performance_appropriateness": 0.85,
+        "readability": 0.85,
+        "security": 0.85,
         "testability": 0.9
       },
       "evidence": [
@@ -16244,7 +16326,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:38:22-04:00",
           "confidence": 1
         },
         {
@@ -16267,7 +16349,7 @@
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -16284,25 +16366,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -16326,43 +16408,82 @@
             "todo_count": 0,
             "total_lines": 10
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:45:10-04:00",
           "confidence": 1
         },
         {
-          "kind": "test",
-          "source": "coverage:unit",
+          "kind": "agent_review",
+          "source": "agent:qwen/qwen3-coder-30b",
           "passed": true,
-          "summary": "per-unit coverage: 84%",
+          "summary": "Agent review:  (confidence: 70%) [models: qwen/qwen3-coder-30b]",
           "metrics": {
-            "unit_test_coverage": 0.8421052631578947
+            "architectural_fitness": 0.3,
+            "change_risk": 0.4,
+            "confidence": 0.7,
+            "correctness": 0.3,
+            "maintainability": 0.4,
+            "operational_quality": 0.4,
+            "performance_appropriateness": 0.6,
+            "readability": 0.6,
+            "security": 0.2,
+            "testability": 0.5,
+            "tokens_used": 2920
           },
-          "timestamp": "0001-01-01T00:00:00Z",
-          "confidence": 1
-        },
-        {
-          "kind": "structural",
-          "source": "structural",
-          "passed": true,
-          "summary": "structural: params=1 returns=1 nesting=1 doc=true exported=false",
-          "metrics": {
-            "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 1,
-            "is_constructor": 0,
-            "max_nesting_depth": 1,
-            "naked_returns": 0,
-            "param_count": 1,
-            "return_count": 1
+          "details": {
+            "confidence": 0.7,
+            "models_used": [
+              "qwen/qwen3-coder-30b",
+              "qwen/qwen3-coder-30b"
+            ],
+            "prescreen_reason": "The code correctly detects cloud and local LLM providers but has security and correctness issues in URL handling, API key exposure, and missing error handling.",
+            "prescreened": true,
+            "review_output": "This function `DetectProviders` attempts to auto-detect LLM providers by checking environment variables and probing local endpoints. It correctly prioritizes cloud providers over local ones, but several issues exist: First, `probeLocal` makes a GET request without checking the response body or content-type, which could lead to false positives if a non-LLM server responds with 2xx status. Second, `normalizeLocalURL` blindly appends `/v1` to any URL without validating whether the endpoint actually supports it, potentially causing silent failures or misrouting. Third, the code exposes API keys in logs or error messages if they are ever logged or printed (though not directly here). Additionally, the use of `os.Getenv` in a loop without caching or checking for duplicates may cause redundant lookups. The default model lists are initialized in `init()` which is acceptable but can be harder to test and reason about. Finally, the hardcoded local endpoints like `http://localhost:11434` and `http://localhost:1234` are not configurable, which reduces flexibility in deployment environments.",
+            "reviewed": true,
+            "scores": {
+              "architectural_fitness": 0.3,
+              "change_risk": 0.4,
+              "correctness": 0.3,
+              "maintainability": 0.4,
+              "operational_quality": 0.4,
+              "performance_appropriateness": 0.6,
+              "readability": 0.6,
+              "security": 0.2,
+              "testability": 0.5
+            },
+            "suggestions": [
+              "Modify `probeLocal` to check for specific response content or status codes that confirm LLM service availability, not just any 2xx response",
+              "Add validation in `normalizeLocalURL` to ensure that appending /v1 is only done for endpoints known to support it or validate the endpoint before appending",
+              "Use a more robust configuration approach for local provider endpoints instead of hardcoded values like `http://localhost:11434`",
+              "Implement logging or error handling that avoids exposing API keys in logs or user-facing messages",
+              "⚠️ False positive detection from probeLocal due to insufficient health check validation",
+              "⚠️ Potential misrouting or silent failure when normalizeLocalURL appends /v1 to non-compliant URLs",
+              "🔗 The function introduces tight coupling to hardcoded local endpoints (e.g., Ollama on port 11434), reducing flexibility for custom deployments",
+              "🔗 The use of environment variables for API keys increases risk of exposure in logs or error traces if not handled carefully"
+            ],
+            "tokens_used": 2920
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
-          "confidence": 1
+          "timestamp": "2026-03-10T14:45:27-04:00",
+          "confidence": 0.7
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
-      "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "observations": [
+        "missing evidence for metric \"param_count\"",
+        "missing evidence for metric \"max_nesting_depth\"",
+        "missing evidence for metric \"errors_ignored\"",
+        "🤖 The code correctly detects cloud and local LLM providers but has security and correctness issues in URL handling, API key exposure, and missing error handling.",
+        "💡 Modify `probeLocal` to check for specific response content or status codes that confirm LLM service availability, not just any 2xx response",
+        "💡 Add validation in `normalizeLocalURL` to ensure that appending /v1 is only done for endpoints known to support it or validate the endpoint before appending",
+        "💡 Use a more robust configuration approach for local provider endpoints instead of hardcoded values like `http://localhost:11434`",
+        "💡 Implement logging or error handling that avoids exposing API keys in logs or user-facing messages",
+        "⚠️ False positive detection from probeLocal due to insufficient health check validation",
+        "⚠️ Potential misrouting or silent failure when normalizeLocalURL appends /v1 to non-compliant URLs",
+        "🔗 The function introduces tight coupling to hardcoded local endpoints (e.g., Ollama on port 11434), reducing flexibility for custom deployments",
+        "🔗 The use of environment variables for API keys increases risk of exposure in logs or error traces if not handled carefully"
+      ],
+      "certified_at": "2026-03-10T14:38:28-04:00",
+      "expires_at": "2026-04-24T14:38:28-04:00",
+      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "run_id": "run-20260310T183821Z",
       "version": 1
     },
     {
@@ -18092,30 +18213,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -18132,25 +18253,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -18174,7 +18295,7 @@
             "todo_count": 0,
             "total_lines": 31
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -18194,23 +18315,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=1 nesting=1 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 27,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 1,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -21865,30 +21994,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -21905,25 +22034,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -21947,7 +22076,7 @@
             "todo_count": 0,
             "total_lines": 30
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -21967,23 +22096,31 @@
           "passed": true,
           "summary": "structural: params=1 returns=1 nesting=2 doc=true exported=false",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 0,
+            "func_lines": 27,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 2,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 1,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -24493,30 +24630,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -24533,25 +24670,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -24575,7 +24712,7 @@
             "todo_count": 0,
             "total_lines": 37
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -24595,23 +24732,31 @@
           "passed": true,
           "summary": "structural: params=3 returns=1 nesting=1 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 32,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 1,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 3,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -29961,7 +30106,7 @@
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B",
-      "score": 0.8666666666666667,
+      "score": 0.8055555555555556,
       "confidence": 1,
       "dimensions": {
         "architectural_fitness": 0.8,
@@ -29971,8 +30116,8 @@
         "operational_quality": 0.85,
         "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.8,
-        "testability": 0.9
+        "security": 0.5000000000000001,
+        "testability": 0.65
       },
       "evidence": [
         {
@@ -29989,30 +30134,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -30029,25 +30174,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -30071,7 +30216,7 @@
             "todo_count": 0,
             "total_lines": 36
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -30091,23 +30236,34 @@
           "passed": true,
           "summary": "structural: params=1 returns=1 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 33,
+            "global_mutable_count": 4,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 1,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "observations": [
+        "global_mutable_count: 4 exceeds threshold 2"
+      ],
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -32284,30 +32440,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -32324,25 +32480,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -32366,7 +32522,7 @@
             "todo_count": 0,
             "total_lines": 1
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -32386,23 +32542,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 0,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 2,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -35312,8 +35476,8 @@
       "unit_path": "internal/discovery/ts_adapter.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.8055555555555555,
       "confidence": 1,
       "dimensions": {
         "architectural_fitness": 0.8,
@@ -35323,8 +35487,8 @@
         "operational_quality": 0.85,
         "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.8,
-        "testability": 0.9
+        "security": 0.4,
+        "testability": 0.65
       },
       "evidence": [
         {
@@ -35341,30 +35505,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -35381,25 +35545,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -35423,7 +35587,7 @@
             "todo_count": 0,
             "total_lines": 4
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -35443,23 +35607,34 @@
           "passed": true,
           "summary": "structural: params=0 returns=1 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 1,
+            "global_mutable_count": 6,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 1,
             "max_nesting_depth": 0,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "observations": [
+        "global_mutable_count: 6 exceeds threshold 2"
+      ],
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -36692,18 +36867,18 @@
       "unit_path": "internal/domain/config.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.861111111111111,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.8,
+        "architectural_fitness": 0.85,
         "change_risk": 0.9,
-        "correctness": 0.95,
-        "maintainability": 0.95,
+        "correctness": 0.85,
+        "maintainability": 0.85,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.8,
-        "readability": 0.95,
-        "security": 0.8,
+        "performance_appropriateness": 0.85,
+        "readability": 0.85,
+        "security": 0.85,
         "testability": 0.9
       },
       "evidence": [
@@ -36721,7 +36896,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:38:22-04:00",
           "confidence": 1
         },
         {
@@ -36744,7 +36919,7 @@
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -36761,25 +36936,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -36803,43 +36978,82 @@
             "todo_count": 0,
             "total_lines": 14
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:43:54-04:00",
           "confidence": 1
         },
         {
-          "kind": "test",
-          "source": "coverage:unit",
+          "kind": "agent_review",
+          "source": "agent:qwen/qwen3-coder-30b",
           "passed": true,
-          "summary": "per-unit coverage: 75%",
+          "summary": "Agent review:  (confidence: 70%) [models: qwen/qwen3-coder-30b]",
           "metrics": {
-            "unit_test_coverage": 0.75
+            "architectural_fitness": 0.3,
+            "change_risk": 0.6,
+            "confidence": 0.7,
+            "correctness": 0.3,
+            "maintainability": 0.4,
+            "operational_quality": 0.4,
+            "performance_appropriateness": 0.8,
+            "readability": 0.6,
+            "security": 0.4,
+            "testability": 0.5,
+            "tokens_used": 2792
           },
-          "timestamp": "0001-01-01T00:00:00Z",
-          "confidence": 1
-        },
-        {
-          "kind": "structural",
-          "source": "structural",
-          "passed": true,
-          "summary": "structural: params=0 returns=1 nesting=0 doc=true exported=true",
-          "metrics": {
-            "errors_ignored": 0,
-            "exported_name": 1,
-            "has_doc_comment": 1,
-            "is_constructor": 0,
-            "max_nesting_depth": 0,
-            "naked_returns": 0,
-            "param_count": 0,
-            "return_count": 1
+          "details": {
+            "confidence": 0.7,
+            "models_used": [
+              "qwen/qwen3-coder-30b",
+              "qwen/qwen3-coder-30b"
+            ],
+            "prescreen_reason": "The DefaultConfig function provides sensible defaults but omits several fields in the returned Config struct, which could lead to unexpected runtime behavior or incomplete configuration.",
+            "prescreened": true,
+            "review_output": "The DefaultConfig function returns a Config struct with only Mode, Agent, and Expiry fields initialized. It omits Scope, Policies, Analyzers, Schedule, Issues, and other nested configurations. This can lead to nil pointer dereferences or unexpected behavior when these fields are accessed without proper initialization in downstream logic. For example, the Scope field is not initialized and will be a zero-value slice, which may cause issues in glob matching logic. Similarly, the Analyzers field is not set to any default values (e.g., GoVet, GoTest), which may result in tools not being enabled when they should be by default. The AgentConfig has Enabled set to false, which is appropriate but not consistent with how other fields like Analyzers or Schedule are handled. Additionally, the struct tags on nested types such as AgentConfig and others do not consistently use `yaml:\"-\"` for runtime-only fields (e.g., ExplicitlyDisabled in AgentConfig), which might lead to confusion or incorrect serialization if those fields are ever included in YAML output.",
+            "reviewed": true,
+            "scores": {
+              "architectural_fitness": 0.3,
+              "change_risk": 0.6,
+              "correctness": 0.3,
+              "maintainability": 0.4,
+              "operational_quality": 0.4,
+              "performance_appropriateness": 0.8,
+              "readability": 0.6,
+              "security": 0.4,
+              "testability": 0.5
+            },
+            "suggestions": [
+              "Initialize all fields in DefaultConfig with appropriate default values to prevent nil pointer dereferences and ensure consistent behavior across environments.",
+              "Set defaults for AnalyzerConfig fields like GoVet, GoTest, GolangciLint, and ESLint to match common expectations (e.g., auto-detect behavior or enablement based on environment).",
+              "Ensure that all nested struct fields in DefaultConfig are explicitly initialized to avoid runtime panics or undefined behavior.",
+              "Add comments or documentation to clarify which fields are intentionally left uninitialized and why, especially if they're expected to be overridden by user config.",
+              "⚠️ Uninitialized nested structs (Scope, Policies, Analyzers, Schedule, Issues) may cause nil pointer dereferences or incorrect logic if accessed without explicit initialization.",
+              "⚠️ Missing default values for tool adapters (GoVet, GoTest, etc.) in AnalyzerConfig can lead to silent failures or misconfigured tooling.",
+              "🔗 DefaultConfig is used as a baseline for configuration, so any missing or incorrect defaults propagate throughout the system and affect all downstream consumers.",
+              "🔗 The omission of key fields like Scope, Policies, and Schedule means that configurations derived from DefaultConfig will not behave as expected in environments where these fields are required or assumed to have defaults."
+            ],
+            "tokens_used": 2792
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
-          "confidence": 1
+          "timestamp": "2026-03-10T14:44:13-04:00",
+          "confidence": 0.7
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
-      "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "observations": [
+        "missing evidence for metric \"param_count\"",
+        "missing evidence for metric \"max_nesting_depth\"",
+        "missing evidence for metric \"errors_ignored\"",
+        "🤖 The DefaultConfig function provides sensible defaults but omits several fields in the returned Config struct, which could lead to unexpected runtime behavior or incomplete configuration.",
+        "💡 Initialize all fields in DefaultConfig with appropriate default values to prevent nil pointer dereferences and ensure consistent behavior across environments.",
+        "💡 Set defaults for AnalyzerConfig fields like GoVet, GoTest, GolangciLint, and ESLint to match common expectations (e.g., auto-detect behavior or enablement based on environment).",
+        "💡 Ensure that all nested struct fields in DefaultConfig are explicitly initialized to avoid runtime panics or undefined behavior.",
+        "💡 Add comments or documentation to clarify which fields are intentionally left uninitialized and why, especially if they're expected to be overridden by user config.",
+        "⚠️ Uninitialized nested structs (Scope, Policies, Analyzers, Schedule, Issues) may cause nil pointer dereferences or incorrect logic if accessed without explicit initialization.",
+        "⚠️ Missing default values for tool adapters (GoVet, GoTest, etc.) in AnalyzerConfig can lead to silent failures or misconfigured tooling.",
+        "🔗 DefaultConfig is used as a baseline for configuration, so any missing or incorrect defaults propagate throughout the system and affect all downstream consumers.",
+        "🔗 The omission of key fields like Scope, Policies, and Schedule means that configurations derived from DefaultConfig will not behave as expected in environments where these fields are required or assumed to have defaults."
+      ],
+      "certified_at": "2026-03-10T14:38:28-04:00",
+      "expires_at": "2026-04-24T14:38:28-04:00",
+      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "run_id": "run-20260310T183821Z",
       "version": 1
     },
     {
@@ -41329,30 +41543,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -41369,25 +41583,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -41411,7 +41625,7 @@
             "todo_count": 0,
             "total_lines": 4
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -41431,23 +41645,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=1 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 1,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -42368,8 +42590,8 @@
       "unit_path": "internal/domain/override.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.8444444444444444,
       "confidence": 1,
       "dimensions": {
         "architectural_fitness": 0.8,
@@ -42379,8 +42601,8 @@
         "operational_quality": 0.85,
         "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.8,
-        "testability": 0.9
+        "security": 0.75,
+        "testability": 0.65
       },
       "evidence": [
         {
@@ -42397,30 +42619,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6502440158029282,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6502440158029282,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -42437,25 +42659,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -42479,7 +42701,7 @@
             "todo_count": 0,
             "total_lines": 1
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -42497,25 +42719,33 @@
           "kind": "structural",
           "source": "structural",
           "passed": true,
-          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "summary": "structural: params=0 returns=0 nesting=0 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 0,
+            "exported_name": 1,
+            "func_lines": 0,
+            "global_mutable_count": 1,
+            "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 1,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -50685,30 +50915,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -50725,25 +50955,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -50767,7 +50997,7 @@
             "todo_count": 0,
             "total_lines": 19
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -50787,23 +51017,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=1 nesting=1 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 16,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 1,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -51602,17 +51840,17 @@
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B",
-      "score": 0.8166666666666667,
+      "score": 0.85,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.8,
+        "architectural_fitness": 0.85,
         "change_risk": 0.9,
-        "correctness": 0.5,
-        "maintainability": 0.85,
+        "correctness": 0.85,
+        "maintainability": 0.75,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.8,
-        "readability": 0.95,
-        "security": 0.8,
+        "performance_appropriateness": 0.85,
+        "readability": 0.85,
+        "security": 0.85,
         "testability": 0.9
       },
       "evidence": [
@@ -51630,7 +51868,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:38:22-04:00",
           "confidence": 1
         },
         {
@@ -51653,7 +51891,7 @@
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -51670,25 +51908,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -51712,46 +51950,86 @@
             "todo_count": 0,
             "total_lines": 36
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:44:13-04:00",
           "confidence": 1
         },
         {
-          "kind": "test",
-          "source": "coverage:unit",
+          "kind": "agent_review",
+          "source": "agent:qwen/qwen3-coder-30b",
           "passed": true,
-          "summary": "per-unit coverage: 4%",
+          "summary": "Agent review:  (confidence: 60%) [models: qwen/qwen3-coder-30b]",
           "metrics": {
-            "unit_test_coverage": 0.0375
+            "architectural_fitness": 0.2,
+            "change_risk": 0.1,
+            "confidence": 0.6,
+            "correctness": 0.2,
+            "maintainability": 0.1,
+            "operational_quality": 0.1,
+            "performance_appropriateness": 0.2,
+            "readability": 0.3,
+            "security": 0.1,
+            "testability": 0.2,
+            "tokens_used": 3242
           },
-          "timestamp": "0001-01-01T00:00:00Z",
-          "confidence": 1
-        },
-        {
-          "kind": "structural",
-          "source": "structural",
-          "passed": true,
-          "summary": "structural: params=0 returns=1 nesting=1 doc=false exported=false",
-          "metrics": {
-            "errors_ignored": 1,
-            "exported_name": 0,
-            "has_doc_comment": 0,
-            "is_constructor": 0,
-            "max_nesting_depth": 1,
-            "naked_returns": 0,
-            "param_count": 0,
-            "return_count": 1
+          "details": {
+            "confidence": 0.6,
+            "models_used": [
+              "qwen/qwen3-coder-30b",
+              "qwen/qwen3-coder-30b"
+            ],
+            "prescreen_reason": "The code has functional correctness but suffers from poor error handling, resource leaks, and missing input validation; it's not production-ready due to lack of proper cleanup and error propagation.",
+            "prescreened": true,
+            "review_output": "This code implements a tool executor that runs external commands like `go vet`, `go test`, `golangci-lint`, and `git log` to collect evidence. The design is generally reasonable, but several critical issues exist:\n\n1. **Resource Leak in `runGoTest`**: The temporary coverage file (`coverFile`) is created via `filepath.Join(os.TempDir(), ...)` but never explicitly closed or removed if the process crashes or panics. While `defer os.Remove(coverFile)` exists, it's not guaranteed to execute in all failure paths (e.g., panic before defer). Also, `coverCmd.Run()` is called without checking its error, which means any failure in generating the coverage profile silently fails.\n\n2. **Unreliable Error Handling in `runGoTest`**: The logic for handling test failures is flawed. Specifically, `if err != nil \u0026\u0026 result.TotalCount == 0` assumes that if there's an error and no tests were parsed, then it’s a complete failure. However, `cmd.CombinedOutput()` may return an error even when some JSON output is produced (e.g., due to test failures or timeouts), and this condition does not correctly capture that.\n\n3. **Inconsistent Use of `exec.Command`**: In `runGoVet`, `cmd.CombinedOutput()` is used correctly, but in `runGolangciLint`, the error from `cmd.CombinedOutput()` is ignored (`output, _ := cmd.CombinedOutput()`), which hides potential command execution errors.\n\n4. **No Input Validation or Sanitization**: There's no validation of `te.root` path for malicious or invalid paths, which could lead to command injection or unintended directory traversal.\n\n5. **Race Condition Potential**: If `CollectAll()` is called concurrently from multiple goroutines, `te.rawLintFindings` and `te.rawCoverProfile` can be mutated without synchronization, leading to data races.\n\n6. **No Timeout on External Commands**: All external commands run without timeout, which can cause the system to hang indefinitely if a command is stuck or unresponsive.",
+            "reviewed": true,
+            "scores": {
+              "architectural_fitness": 0.2,
+              "change_risk": 0.1,
+              "correctness": 0.2,
+              "maintainability": 0.1,
+              "operational_quality": 0.1,
+              "performance_appropriateness": 0.2,
+              "readability": 0.3,
+              "security": 0.1,
+              "testability": 0.2
+            },
+            "suggestions": [
+              "Add context with timeout to all external command executions using `context.WithTimeout`",
+              "Ensure proper cleanup of temporary files by wrapping the file creation in a defer that checks for existence before removal, and consider using `os.TempDir()` with better naming to avoid conflicts",
+              "Fix error handling in `runGoTest` by checking for all errors and ensuring that partial JSON output is still processed",
+              "Add input validation to `te.root` to prevent path traversal or injection attacks",
+              "Use sync.Mutex to guard access to `te.rawLintFindings` and `te.rawCoverProfile` in concurrent environments",
+              "Log or return errors from `coverCmd.Run()` in `runGoTest` to ensure coverage generation failures are not silently ignored",
+              "⚠️ Resource leak in temporary coverage file due to incomplete defer cleanup",
+              "⚠️ Race condition when CollectAll() is called concurrently",
+              "🔗 This unit tightly couples to external tools (go, golangci-lint, git) and assumes their presence and correct behavior; failure to find one or more tools causes silent skips, reducing reliability",
+              "🔗 The ToolExecutor mutates shared state (`rawLintFindings`, `rawCoverProfile`) without synchronization, increasing coupling between concurrent callers and reducing testability"
+            ],
+            "tokens_used": 3242
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
-          "confidence": 1
+          "timestamp": "2026-03-10T14:44:13-04:00",
+          "confidence": 0.6
         }
       ],
       "observations": [
-        "errors_ignored: 1 exceeds threshold 0"
+        "missing evidence for metric \"param_count\"",
+        "missing evidence for metric \"max_nesting_depth\"",
+        "missing evidence for metric \"errors_ignored\"",
+        "🤖 The code has functional correctness but suffers from poor error handling, resource leaks, and missing input validation; it's not production-ready due to lack of proper cleanup and error propagation.",
+        "💡 Add context with timeout to all external command executions using `context.WithTimeout`",
+        "💡 Ensure proper cleanup of temporary files by wrapping the file creation in a defer that checks for existence before removal, and consider using `os.TempDir()` with better naming to avoid conflicts",
+        "💡 Fix error handling in `runGoTest` by checking for all errors and ensuring that partial JSON output is still processed",
+        "💡 Add input validation to `te.root` to prevent path traversal or injection attacks",
+        "💡 Use sync.Mutex to guard access to `te.rawLintFindings` and `te.rawCoverProfile` in concurrent environments",
+        "💡 Log or return errors from `coverCmd.Run()` in `runGoTest` to ensure coverage generation failures are not silently ignored",
+        "⚠️ Resource leak in temporary coverage file due to incomplete defer cleanup",
+        "⚠️ Race condition when CollectAll() is called concurrently",
+        "🔗 This unit tightly couples to external tools (go, golangci-lint, git) and assumes their presence and correct behavior; failure to find one or more tools causes silent skips, reducing reliability",
+        "🔗 The ToolExecutor mutates shared state (`rawLintFindings`, `rawCoverProfile`) without synchronization, increasing coupling between concurrent callers and reducing testability"
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
-      "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "certified_at": "2026-03-10T14:38:28-04:00",
+      "expires_at": "2026-04-24T14:38:28-04:00",
+      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "run_id": "run-20260310T183821Z",
       "version": 1
     },
     {
@@ -56339,18 +56617,18 @@
       "unit_path": "internal/github/issues.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.861111111111111,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.8,
+        "architectural_fitness": 0.85,
         "change_risk": 0.9,
-        "correctness": 0.95,
-        "maintainability": 0.95,
+        "correctness": 0.85,
+        "maintainability": 0.85,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.8,
-        "readability": 0.95,
-        "security": 0.8,
+        "performance_appropriateness": 0.85,
+        "readability": 0.85,
+        "security": 0.85,
         "testability": 0.9
       },
       "evidence": [
@@ -56368,7 +56646,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:38:22-04:00",
           "confidence": 1
         },
         {
@@ -56391,7 +56669,7 @@
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -56408,25 +56686,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -56450,43 +56728,82 @@
             "todo_count": 0,
             "total_lines": 8
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:44:13-04:00",
           "confidence": 1
         },
         {
-          "kind": "test",
-          "source": "coverage:unit",
+          "kind": "agent_review",
+          "source": "agent:qwen/qwen3-coder-30b",
           "passed": true,
-          "summary": "per-unit coverage: 51%",
+          "summary": "Agent review:  (confidence: 70%) [models: qwen/qwen3-coder-30b]",
           "metrics": {
-            "unit_test_coverage": 0.5121951219512195
+            "architectural_fitness": 0.5,
+            "change_risk": 0.3,
+            "confidence": 0.7,
+            "correctness": 0.3,
+            "maintainability": 0.4,
+            "operational_quality": 0.4,
+            "performance_appropriateness": 0.9,
+            "readability": 0.8,
+            "security": 0.2,
+            "testability": 0.6,
+            "tokens_used": 2357
           },
-          "timestamp": "0001-01-01T00:00:00Z",
-          "confidence": 1
-        },
-        {
-          "kind": "structural",
-          "source": "structural",
-          "passed": true,
-          "summary": "structural: params=3 returns=1 nesting=1 doc=true exported=true",
-          "metrics": {
-            "errors_ignored": 0,
-            "exported_name": 1,
-            "has_doc_comment": 1,
-            "is_constructor": 0,
-            "max_nesting_depth": 1,
-            "naked_returns": 0,
-            "param_count": 3,
-            "return_count": 1
+          "details": {
+            "confidence": 0.7,
+            "models_used": [
+              "qwen/qwen3-coder-30b",
+              "qwen/qwen3-coder-30b"
+            ],
+            "prescreen_reason": "Well-structured, readable Go code with low complexity but missing input validation and potential command injection risks.",
+            "prescreened": true,
+            "review_output": "The code is clean, modular, and easy to understand. Each function serves a clear purpose and follows Go idioms like using `strings.Builder` for efficient string concatenation. The formatting functions (`FormatIssueTitle`, `FormatIssueBody`) are well-defined and handle edge cases such as empty observations or actions. However, there are several critical issues: 1) `BuildIssueCreateCommand` does not sanitize or validate the `title` and `body` parameters before inserting them into shell commands, which introduces a potential command injection vulnerability if user-provided data is passed directly. 2) `BuildIssueSearchCommand` uses `--search` with raw `unitPath`, which could lead to unintended behavior or injection if the path contains special characters or spaces without proper escaping. 3) `FormatGroupedIssueBody` hardcodes the GitHub repo link in the footer (`*Generated by [certify](https://github.com/iksnae/code-certification/certify)*`) but doesn't allow customization or configuration of this URL, making it brittle for future changes. 4) There's no handling of malformed or unexpected `domain.CertificationRecord` fields (e.g., invalid scores, grades) in any of the formatting functions.",
+            "reviewed": true,
+            "scores": {
+              "architectural_fitness": 0.5,
+              "change_risk": 0.3,
+              "correctness": 0.3,
+              "maintainability": 0.4,
+              "operational_quality": 0.4,
+              "performance_appropriateness": 0.9,
+              "readability": 0.8,
+              "security": 0.2,
+              "testability": 0.6
+            },
+            "suggestions": [
+              "Sanitize or escape title and body parameters in BuildIssueCreateCommand before inserting into command arguments to prevent command injection",
+              "Escape or quote unitPath in BuildIssueSearchCommand when used as a search term to avoid unintended filtering or injection",
+              "Add input validation in FormatIssueBody and FormatGroupedIssueBody to ensure Score and Grade fields are valid before formatting",
+              "Externalize the GitHub repo URL in FormatGroupedIssueBody to a configurable constant or environment variable",
+              "⚠️ Command injection vulnerability in BuildIssueCreateCommand due to unescaped title/body inputs",
+              "⚠️ Improper search query handling in BuildIssueSearchCommand with unitPath potentially containing special characters",
+              "🔗 These commands are used to interact with external GitHub CLI (`gh`) and thus propagate errors or security flaws to the execution environment",
+              "🔗 The hardcoded GitHub URL in FormatGroupedIssueBody tightly couples this module to a specific repo and makes it non-configurable"
+            ],
+            "tokens_used": 2357
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
-          "confidence": 1
+          "timestamp": "2026-03-10T14:44:28-04:00",
+          "confidence": 0.7
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
-      "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "observations": [
+        "missing evidence for metric \"param_count\"",
+        "missing evidence for metric \"max_nesting_depth\"",
+        "missing evidence for metric \"errors_ignored\"",
+        "🤖 Well-structured, readable Go code with low complexity but missing input validation and potential command injection risks.",
+        "💡 Sanitize or escape title and body parameters in BuildIssueCreateCommand before inserting into command arguments to prevent command injection",
+        "💡 Escape or quote unitPath in BuildIssueSearchCommand when used as a search term to avoid unintended filtering or injection",
+        "💡 Add input validation in FormatIssueBody and FormatGroupedIssueBody to ensure Score and Grade fields are valid before formatting",
+        "💡 Externalize the GitHub repo URL in FormatGroupedIssueBody to a configurable constant or environment variable",
+        "⚠️ Command injection vulnerability in BuildIssueCreateCommand due to unescaped title/body inputs",
+        "⚠️ Improper search query handling in BuildIssueSearchCommand with unitPath potentially containing special characters",
+        "🔗 These commands are used to interact with external GitHub CLI (`gh`) and thus propagate errors or security flaws to the execution environment",
+        "🔗 The hardcoded GitHub URL in FormatGroupedIssueBody tightly couples this module to a specific repo and makes it non-configurable"
+      ],
+      "certified_at": "2026-03-10T14:38:28-04:00",
+      "expires_at": "2026-04-24T14:38:28-04:00",
+      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "run_id": "run-20260310T183821Z",
       "version": 1
     },
     {
@@ -68794,18 +69111,18 @@
       "unit_path": "internal/record/store.go",
       "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8777777777777778,
+      "grade": "B",
+      "score": 0.861111111111111,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.8,
+        "architectural_fitness": 0.85,
         "change_risk": 0.9,
-        "correctness": 0.95,
-        "maintainability": 0.95,
+        "correctness": 0.85,
+        "maintainability": 0.85,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.8,
-        "readability": 0.95,
-        "security": 0.8,
+        "performance_appropriateness": 0.85,
+        "readability": 0.85,
+        "security": 0.85,
         "testability": 0.9
       },
       "evidence": [
@@ -68823,7 +69140,7 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:03-04:00",
+          "timestamp": "2026-03-10T14:38:22-04:00",
           "confidence": 1
         },
         {
@@ -68846,7 +69163,7 @@
             "tool": "go test",
             "total_count": 466
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -68863,25 +69180,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "117 commits by 2 authors over 2 days",
+          "summary": "119 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 117
+            "commit_count": 119
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:38:28-04:00",
           "confidence": 1
         },
         {
@@ -68905,43 +69222,88 @@
             "todo_count": 0,
             "total_lines": 6
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
+          "timestamp": "2026-03-10T14:44:28-04:00",
           "confidence": 1
         },
         {
-          "kind": "test",
-          "source": "coverage:unit",
+          "kind": "agent_review",
+          "source": "agent:qwen/qwen3-coder-30b",
           "passed": true,
-          "summary": "per-unit coverage: 70%",
+          "summary": "Agent review:  (confidence: 60%) [models: qwen/qwen3-coder-30b]",
           "metrics": {
-            "unit_test_coverage": 0.6989247311827957
+            "architectural_fitness": 0.2,
+            "change_risk": 0.1,
+            "confidence": 0.6,
+            "correctness": 0.2,
+            "maintainability": 0.3,
+            "operational_quality": 0.2,
+            "performance_appropriateness": 0.3,
+            "readability": 0.4,
+            "security": 0.1,
+            "testability": 0.3,
+            "tokens_used": 5687
           },
-          "timestamp": "0001-01-01T00:00:00Z",
-          "confidence": 1
-        },
-        {
-          "kind": "structural",
-          "source": "structural",
-          "passed": true,
-          "summary": "structural: params=1 returns=1 nesting=0 doc=false exported=false",
-          "metrics": {
-            "errors_ignored": 0,
-            "exported_name": 0,
-            "has_doc_comment": 0,
-            "is_constructor": 0,
-            "max_nesting_depth": 0,
-            "naked_returns": 0,
-            "param_count": 1,
-            "return_count": 1
+          "details": {
+            "confidence": 0.6,
+            "models_used": [
+              "qwen/qwen3-coder-30b",
+              "qwen/qwen3-coder-30b"
+            ],
+            "prescreen_reason": "The code is functionally correct but has several security and robustness issues including potential race conditions, error handling gaps, and hardcoded assumptions.",
+            "prescreened": true,
+            "review_output": "This code implements a certification record storage system with support for individual JSON files and snapshot fallbacks. Several critical issues exist: First, the `pathFor` method uses only 8 bytes of SHA256 hash which creates a high probability of hash collisions (1 in 2^32 chance for 8 bytes), potentially causing data corruption or overwrites. Second, the `Load` method returns a zero-value record instead of an error when file reading fails, masking underlying problems. Third, `AppendRun` opens the runs.jsonl file without proper locking, creating potential race conditions during concurrent writes. Fourth, `LoadHistory` silently ignores JSON unmarshaling errors from history entries rather than propagating them. Fifth, `fromJSON` and `evidenceFromJSON` ignore parsing errors from string-to-type conversions (like `domain.ParseUnitID`) which can silently introduce invalid records. Sixth, `listAllFromDir` silently skips invalid JSON files instead of logging or returning errors. Seventh, the `SaveSnapshot` method uses `os.MkdirAll` without proper permissions validation or atomicity guarantees. Finally, the code assumes that all `UnitID` strings are valid and can be safely hashed without checking for invalid characters or lengths that might cause issues in the filesystem.",
+            "reviewed": true,
+            "scores": {
+              "architectural_fitness": 0.2,
+              "change_risk": 0.1,
+              "correctness": 0.2,
+              "maintainability": 0.3,
+              "operational_quality": 0.2,
+              "performance_appropriateness": 0.3,
+              "readability": 0.4,
+              "security": 0.1,
+              "testability": 0.3
+            },
+            "suggestions": [
+              "Change `pathFor` to use full 32-byte SHA256 hash or increase the truncated length to at least 16 bytes to reduce collision probability",
+              "Modify `Load` to return an error instead of a zero-value record when file reading fails",
+              "Add file locking or atomic write operations to `AppendRun` to prevent concurrent access issues",
+              "Improve error handling in `LoadHistory` to propagate JSON unmarshaling errors instead of silently skipping entries",
+              "Replace silent error ignores in `fromJSON` and `evidenceFromJSON` with proper error propagation or logging",
+              "Add validation of UnitID strings before hashing to ensure they're safe for filesystem use",
+              "⚠️ Hash collision risk due to truncation of SHA256 hash to 8 bytes in pathFor method",
+              "⚠️ Race condition in AppendRun due to lack of file locking when appending to runs.jsonl",
+              "🔗 The pathFor method's hash truncation creates a high probability of file overwrites and data corruption",
+              "🔗 The error handling in Load, LoadHistory, and listAllFromDir masks real problems and makes debugging difficult",
+              "🔗 The runs.jsonl file is not protected from concurrent writes, leading to potential data loss or corruption"
+            ],
+            "tokens_used": 5687
           },
-          "timestamp": "2026-03-10T14:28:10-04:00",
-          "confidence": 1
+          "timestamp": "2026-03-10T14:44:52-04:00",
+          "confidence": 0.6
         }
       ],
-      "certified_at": "2026-03-10T14:28:10-04:00",
-      "expires_at": "2026-04-24T14:28:10-04:00",
-      "source": "deterministic",
-      "run_id": "run-20260310T182803Z",
+      "observations": [
+        "missing evidence for metric \"param_count\"",
+        "missing evidence for metric \"max_nesting_depth\"",
+        "missing evidence for metric \"errors_ignored\"",
+        "🤖 The code is functionally correct but has several security and robustness issues including potential race conditions, error handling gaps, and hardcoded assumptions.",
+        "💡 Change `pathFor` to use full 32-byte SHA256 hash or increase the truncated length to at least 16 bytes to reduce collision probability",
+        "💡 Modify `Load` to return an error instead of a zero-value record when file reading fails",
+        "💡 Add file locking or atomic write operations to `AppendRun` to prevent concurrent access issues",
+        "💡 Improve error handling in `LoadHistory` to propagate JSON unmarshaling errors instead of silently skipping entries",
+        "💡 Replace silent error ignores in `fromJSON` and `evidenceFromJSON` with proper error propagation or logging",
+        "💡 Add validation of UnitID strings before hashing to ensure they're safe for filesystem use",
+        "⚠️ Hash collision risk due to truncation of SHA256 hash to 8 bytes in pathFor method",
+        "⚠️ Race condition in AppendRun due to lack of file locking when appending to runs.jsonl",
+        "🔗 The pathFor method's hash truncation creates a high probability of file overwrites and data corruption",
+        "🔗 The error handling in Load, LoadHistory, and listAllFromDir masks real problems and makes debugging difficult",
+        "🔗 The runs.jsonl file is not protected from concurrent writes, leading to potential data loss or corruption"
+      ],
+      "certified_at": "2026-03-10T14:38:28-04:00",
+      "expires_at": "2026-04-24T14:38:28-04:00",
+      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "run_id": "run-20260310T183821Z",
       "version": 1
     },
     {
@@ -78067,30 +78429,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -78107,25 +78469,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -78149,7 +78511,7 @@
             "todo_count": 0,
             "total_lines": 39
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -78169,23 +78531,31 @@
           "passed": true,
           "summary": "structural: params=1 returns=1 nesting=2 doc=true exported=true",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 1,
+            "func_lines": 36,
+            "global_mutable_count": 0,
             "has_doc_comment": 1,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 2,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 1,
             "return_count": 1
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -80851,30 +81221,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -80891,25 +81261,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -80933,7 +81303,7 @@
             "todo_count": 0,
             "total_lines": 7
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -80953,23 +81323,31 @@
           "passed": true,
           "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
           "metrics": {
+            "context_not_first": 0,
+            "defer_in_loop": 0,
             "errors_ignored": 0,
             "exported_name": 0,
+            "func_lines": 0,
+            "global_mutable_count": 0,
             "has_doc_comment": 0,
+            "has_init_func": 0,
             "is_constructor": 0,
             "max_nesting_depth": 0,
+            "method_count": 0,
             "naked_returns": 0,
+            "os_exit_calls": 0,
+            "panic_calls": 0,
             "param_count": 0,
             "return_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -83130,30 +83508,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -83170,25 +83548,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -83212,14 +83590,14 @@
             "todo_count": 0,
             "total_lines": 797
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -83765,30 +84143,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -83805,25 +84183,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -83847,14 +84225,14 @@
             "todo_count": 0,
             "total_lines": 633
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -90115,30 +90493,30 @@
             "tool": "go vet",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:43-04:00",
+          "timestamp": "2026-03-10T15:10:47-04:00",
           "confidence": 1
         },
         {
           "kind": "test",
           "source": "go test",
           "passed": true,
-          "summary": "go test: 466/466 passed (65% coverage)",
+          "summary": "go test: 482/482 passed (65% coverage)",
           "metrics": {
-            "test_coverage": 0.6455929856945085,
+            "test_coverage": 0.6518155491200713,
             "test_failed": 0,
-            "test_passed": 466,
+            "test_passed": 482,
             "test_skipped": 0,
-            "test_total": 466
+            "test_total": 482
           },
           "details": {
-            "coverage": 0.6455929856945085,
+            "coverage": 0.6518155491200713,
             "failed_count": 0,
-            "passed_count": 466,
+            "passed_count": 482,
             "skip_count": 0,
             "tool": "go test",
-            "total_count": 466
+            "total_count": 482
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -90155,25 +90533,25 @@
             "tool": "golangci-lint",
             "warn_count": 0
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
           "kind": "git_history",
           "source": "git",
           "passed": true,
-          "summary": "119 commits by 2 authors over 2 days",
+          "summary": "126 commits by 2 authors over 2 days",
           "metrics": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
           "details": {
             "age_days": 2,
             "author_count": 2,
-            "commit_count": 119
+            "commit_count": 126
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         },
         {
@@ -90197,14 +90575,14 @@
             "todo_count": 0,
             "total_lines": 160
           },
-          "timestamp": "2026-03-10T14:42:54-04:00",
+          "timestamp": "2026-03-10T15:10:53-04:00",
           "confidence": 1
         }
       ],
-      "certified_at": "2026-03-10T14:42:54-04:00",
-      "expires_at": "2026-04-24T14:42:54-04:00",
+      "certified_at": "2026-03-10T15:10:53-04:00",
+      "expires_at": "2026-04-24T15:10:53-04:00",
       "source": "deterministic",
-      "run_id": "run-20260310T184242Z",
+      "run_id": "run-20260310T191046Z",
       "version": 1
     },
     {
@@ -91949,6 +92327,21 @@
       "units_failed": 0,
       "overall_grade": "B",
       "overall_score": 0.8665311653116545
+    },
+    {
+      "id": "run-20260310T191046Z",
+      "started_at": "2026-03-10T15:10:46.835071-04:00",
+      "completed_at": "2026-03-10T15:10:53.853407-04:00",
+      "commit": "02a3a91",
+      "policy_versions": [
+        "global@1.0.0",
+        "go-standard@1.0.0"
+      ],
+      "units_processed": 20,
+      "units_certified": 20,
+      "units_failed": 0,
+      "overall_grade": "B",
+      "overall_score": 0.8661246612466139
     }
   ]
 }
