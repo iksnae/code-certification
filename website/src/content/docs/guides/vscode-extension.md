@@ -125,7 +125,7 @@ Supports **any OpenAI-compatible API**:
 | Provider | Type | Free Tier |
 |----------|------|-----------|
 | OpenRouter | Cloud | ✅ 200+ models |
-| OpenAI | Cloud | ❌ (gpt-4o-mini, gpt-4o, o3-mini) |
+| OpenAI | Cloud | Paid (gpt-4o-mini, gpt-4o, o3-mini) |
 | Google AI Studio | Cloud | ✅ (Gemini 2.0 Flash) |
 | Groq | Cloud | ✅ 30 req/min |
 | Together | Cloud | ✅ $1 credit |
