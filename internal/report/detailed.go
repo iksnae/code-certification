@@ -18,7 +18,7 @@ type DetailedReport struct {
 	Dimensions map[string]float64 `json:"dimensions,omitempty"`
 
 	// By-language breakdown
-	ByLanguage map[string]LanguageBreakdown `json:"by_language,omitempty"`
+	ByLanguage map[string]LanguageDetail `json:"by_language,omitempty"`
 
 	// Expiring-soon units (within 14 days)
 	ExpiringSoon []UnitSummary `json:"expiring_soon,omitempty"`
@@ -41,13 +41,6 @@ type AreaSummary struct {
 	AverageScore float64 `json:"average_score"`
 }
 
-// LanguageBreakdown summarizes certification status for a single language.
-type LanguageBreakdown struct {
-	Total        int     `json:"total"`
-	Passing      int     `json:"passing"`
-	AverageScore float64 `json:"average_score"`
-}
-
 // UnitSummary is a compact representation of a unit for report lists.
 type UnitSummary struct {
 	UnitID       string   `json:"unit_id"`
@@ -66,7 +59,7 @@ func Detailed(records []domain.CertificationRecord, now time.Time) DetailedRepor
 	d := DetailedReport{
 		HealthReport: Health(records),
 		Dimensions:   make(map[string]float64),
-		ByLanguage:   make(map[string]LanguageBreakdown),
+		ByLanguage:   make(map[string]LanguageDetail),
 	}
 
 	if len(records) == 0 {
@@ -101,7 +94,7 @@ func computeDimensionAverages(records []domain.CertificationRecord) map[string]f
 	return result
 }
 
-func computeLanguageBreakdowns(records []domain.CertificationRecord) map[string]LanguageBreakdown {
+func computeLanguageBreakdowns(records []domain.CertificationRecord) map[string]LanguageDetail {
 	totals := make(map[string]int)
 	passing := make(map[string]int)
 	scores := make(map[string]float64)
@@ -113,12 +106,15 @@ func computeLanguageBreakdowns(records []domain.CertificationRecord) map[string]
 			passing[lang]++
 		}
 	}
-	result := make(map[string]LanguageBreakdown, len(totals))
+	result := make(map[string]LanguageDetail, len(totals))
 	for lang, total := range totals {
-		result[lang] = LanguageBreakdown{
-			Total:        total,
+		avg := scores[lang] / float64(total)
+		result[lang] = LanguageDetail{
+			Name:         lang,
+			Units:        total,
 			Passing:      passing[lang],
-			AverageScore: scores[lang] / float64(total),
+			AverageScore: avg,
+			Grade:        domain.GradeFromScore(avg).String(),
 		}
 	}
 	return result
@@ -256,7 +252,7 @@ func FormatDetailedText(d DetailedReport) string {
 		sort.Strings(langs)
 		for _, lang := range langs {
 			lb := d.ByLanguage[lang]
-			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %.3f\n", lang, lb.Total, lb.Passing, lb.AverageScore)
+			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %.3f\n", lang, lb.Units, lb.Passing, lb.AverageScore)
 		}
 	}
 

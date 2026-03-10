@@ -33,18 +33,10 @@ type Card struct {
 	GradeDistribution map[string]int `json:"grade_distribution"`
 
 	// By-language summary
-	Languages []LanguageCard `json:"languages"`
+	Languages []LanguageDetail `json:"languages"`
 
 	// Top issues (up to 10)
 	TopIssues []IssueCard `json:"top_issues,omitempty"`
-}
-
-// LanguageCard summarizes one language in the report card.
-type LanguageCard struct {
-	Name         string  `json:"name"`
-	Units        int     `json:"units"`
-	AverageScore float64 `json:"average_score"`
-	Grade        string  `json:"grade"`
 }
 
 // IssueCard describes a single unit needing attention.
@@ -92,35 +84,10 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 	c.OverallScore = totalScore / float64(c.TotalUnits)
 	c.OverallGrade = domain.GradeFromScore(c.OverallScore).String()
 	c.PassRate = float64(c.Passing) / float64(c.TotalUnits)
-	c.Languages = buildLanguageCards(records)
+	c.Languages = buildLanguageDetail(records)
 	c.TopIssues = buildTopIssues(records)
 
 	return c
-}
-
-func buildLanguageCards(records []domain.CertificationRecord) []LanguageCard {
-	totals := make(map[string]int)
-	scores := make(map[string]float64)
-	for _, r := range records {
-		lang := r.UnitID.Language()
-		totals[lang]++
-		scores[lang] += r.Score
-	}
-
-	var cards []LanguageCard
-	for lang, total := range totals {
-		avg := scores[lang] / float64(total)
-		cards = append(cards, LanguageCard{
-			Name:         lang,
-			Units:        total,
-			AverageScore: avg,
-			Grade:        domain.GradeFromScore(avg).String(),
-		})
-	}
-	sort.Slice(cards, func(i, j int) bool {
-		return cards[i].Units > cards[j].Units
-	})
-	return cards
 }
 
 func buildTopIssues(records []domain.CertificationRecord) []IssueCard {

@@ -173,3 +173,81 @@ func TestFullReport_LanguageDetail(t *testing.T) {
 		t.Errorf("bottom = %f, want ~0.75", ld.BottomScore)
 	}
 }
+
+func TestLanguageDetail_PassingCount(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeFullRecord("go", "a.go", "A", domain.UnitTypeFunction, domain.StatusCertified, 0.95),
+		makeFullRecord("go", "b.go", "B", domain.UnitTypeFunction, domain.StatusDecertified, 0.30),
+		makeFullRecord("go", "c.go", "C", domain.UnitTypeFunction, domain.StatusCertified, 0.85),
+		makeFullRecord("ts", "d.ts", "D", domain.UnitTypeFunction, domain.StatusExpired, 0.70),
+		makeFullRecord("ts", "e.ts", "E", domain.UnitTypeFunction, domain.StatusCertified, 0.88),
+	}
+
+	r := report.GenerateFullReport(records, "test/repo", "", time.Now())
+
+	// Verify LanguageDetail has correct Passing counts
+	langMap := make(map[string]report.LanguageDetail)
+	for _, ld := range r.LanguageDetail {
+		langMap[ld.Name] = ld
+	}
+
+	goLang := langMap["go"]
+	if goLang.Units != 3 {
+		t.Errorf("go units = %d, want 3", goLang.Units)
+	}
+	if goLang.Passing != 2 {
+		t.Errorf("go passing = %d, want 2", goLang.Passing)
+	}
+
+	tsLang := langMap["ts"]
+	if tsLang.Units != 2 {
+		t.Errorf("ts units = %d, want 2", tsLang.Units)
+	}
+	if tsLang.Passing != 1 {
+		t.Errorf("ts passing = %d, want 1", tsLang.Passing)
+	}
+
+	// Verify Card.Languages uses the same unified type with Passing
+	cardLangMap := make(map[string]report.LanguageDetail)
+	for _, ld := range r.Card.Languages {
+		cardLangMap[ld.Name] = ld
+	}
+	if cardLangMap["go"].Passing != 2 {
+		t.Errorf("card go passing = %d, want 2", cardLangMap["go"].Passing)
+	}
+	if cardLangMap["go"].GradeDistribution == nil {
+		t.Error("card language should have GradeDistribution (unified type)")
+	}
+}
+
+func TestLanguageDetail_AllPassing(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeFullRecord("go", "a.go", "A", domain.UnitTypeFunction, domain.StatusCertified, 0.90),
+		makeFullRecord("go", "b.go", "B", domain.UnitTypeFunction, domain.StatusCertified, 0.85),
+	}
+
+	r := report.GenerateFullReport(records, "", "", time.Now())
+	if len(r.LanguageDetail) != 1 {
+		t.Fatalf("expected 1 language, got %d", len(r.LanguageDetail))
+	}
+	ld := r.LanguageDetail[0]
+	if ld.Passing != ld.Units {
+		t.Errorf("all units passing: passing=%d should equal units=%d", ld.Passing, ld.Units)
+	}
+}
+
+func TestLanguageDetail_NonePassing(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeFullRecord("go", "a.go", "A", domain.UnitTypeFunction, domain.StatusDecertified, 0.20),
+		makeFullRecord("go", "b.go", "B", domain.UnitTypeFunction, domain.StatusExpired, 0.30),
+	}
+
+	r := report.GenerateFullReport(records, "", "", time.Now())
+	if len(r.LanguageDetail) != 1 {
+		t.Fatalf("expected 1 language, got %d", len(r.LanguageDetail))
+	}
+	ld := r.LanguageDetail[0]
+	if ld.Passing != 0 {
+		t.Errorf("no units passing: passing=%d, want 0", ld.Passing)
+	}
+}

@@ -60,8 +60,8 @@ func TestDetailedReport_ByLanguage(t *testing.T) {
 	d := report.Detailed(records, time.Now())
 
 	goLang := d.ByLanguage["go"]
-	if goLang.Total != 2 {
-		t.Errorf("go total = %d, want 2", goLang.Total)
+	if goLang.Units != 2 {
+		t.Errorf("go total = %d, want 2", goLang.Units)
 	}
 	if goLang.Passing != 2 {
 		t.Errorf("go passing = %d, want 2", goLang.Passing)
@@ -71,8 +71,8 @@ func TestDetailedReport_ByLanguage(t *testing.T) {
 	}
 
 	tsLang := d.ByLanguage["ts"]
-	if tsLang.Total != 1 {
-		t.Errorf("ts total = %d, want 1", tsLang.Total)
+	if tsLang.Units != 1 {
+		t.Errorf("ts total = %d, want 1", tsLang.Units)
 	}
 	if tsLang.Passing != 0 {
 		t.Errorf("ts passing = %d, want 0", tsLang.Passing)

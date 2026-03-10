@@ -1,8 +1,9 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `dcf319d`  
-**Generated:** 2026-03-10T10:15:13  
+**Commit:** `df55ebd`  
+**Generated:** 2026-03-10T12:34:15  
+**[Browse full report →](site/index.html)**  
 
 ---
 
@@ -23,20 +24,21 @@
 
 | Grade | Count | % | Bar |
 |:-----:|------:|----:|-----|
-| B+ | 559 | 100.0% | ██████████████████████████████████████████████████ |
+| B+ | 558 | 99.8% | █████████████████████████████████████████████████ |
+| B | 1 | 0.2% | █ |
 
 ## Dimension Averages
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 85.0% | █████████████████░░░ |
+| architectural_fitness | 85.0% | ████████████████░░░░ |
 | change_risk | 90.0% | █████████████████░░░ |
 | correctness | 95.0% | ██████████████████░░ |
 | maintainability | 93.5% | ██████████████████░░ |
 | operational_quality | 85.0% | █████████████████░░░ |
-| performance_appropriateness | 85.0% | █████████████████░░░ |
+| performance_appropriateness | 85.0% | ████████████████░░░░ |
 | readability | 92.6% | ██████████████████░░ |
-| security | 85.0% | █████████████████░░░ |
+| security | 85.0% | ████████████████░░░░ |
 | testability | 90.0% | █████████████████░░░ |
 
 ## 🤖 AI Insights
@@ -45,36 +47,36 @@
 
 ### Top Suggestions
 
-- 💡 Validate and sanitize AI observation prefixes in writeAIInsights to prevent malformed markdown or injection ×19
-- 💡 Initialize `bottom` in buildLanguageDetail to the first score value or use math.Inf(1) to ensure correct min calculation ×19
-- 💡 Optimize sortedKeys to reuse or pre-sort keys rather than allocating new slices each time ×19
 - 💡 Fix unitAnchor to handle all special characters that can break HTML IDs (e.g., '+', '#') ×19
 - 💡 Replace `r.GeneratedAt[:19]` in writeSummary with a proper time formatting function or use time.RFC3339 directly ×19
+- 💡 Validate and sanitize AI observation prefixes in writeAIInsights to prevent malformed markdown or injection ×19
 - 💡 Add error handling for time formatting in unitReportFrom to prevent panics on invalid timestamps ×19
-- 💡 Add comprehensive test cases for isLocalURL covering edge cases like encoded URLs, different protocols, and port numbers ×17
+- 💡 Optimize sortedKeys to reuse or pre-sort keys rather than allocating new slices each time ×19
+- 💡 Initialize `bottom` in buildLanguageDetail to the first score value or use math.Inf(1) to ensure correct min calculation ×19
 - 💡 Replace isLocalURL with a proper URL parsing and validation function using net/url package to correctly identify local endpoints ×17
-- 💡 Add unit tests for DefaultConfig() to verify that ExpiryConfig defaults are valid and consistent ×16
-- 💡 Add logging or error propagation in `ListAll` when individual file reads fail ×16
-- 💡 Change `pathFor` to use full 32-byte hash or implement a more robust collision-resistant naming scheme ×16
-- 💡 Add a mutex to the Queue struct and synchronize all public methods (Len, Enqueue, Next, etc.) to make it safe for concurrent use ×16
+- 💡 Add comprehensive test cases for isLocalURL covering edge cases like encoded URLs, different protocols, and port numbers ×17
 - 💡 Consider adding a Validate() method or function to Config that checks the integrity of all nested config types, particularly ExpiryConfig ×16
-- 💡 Make file permissions configurable via environment variables or config options ×16
-- 💡 Use sync.RWMutex or similar to protect concurrent access to files in the store ×16
 - 💡 Add validation logic to ExpiryConfig to ensure DefaultWindowDays is between MinWindowDays and MaxWindowDays, and that all three fields are positive integers ×16
-- 💡 Replace `domain.ParseUnitID(...)` with error checking and return an appropriate error instead of ignoring the error ×16
+- 💡 Add unit tests for DefaultConfig() to verify that ExpiryConfig defaults are valid and consistent ×16
+- 💡 Add a mutex to the Queue struct and synchronize all public methods (Len, Enqueue, Next, etc.) to make it safe for concurrent use ×16
 - 💡 Consider adding a unit test that verifies the behavior of Len() under concurrent access to expose race conditions ×16
-- 💡 Replace `Record<string, number>` with strongly typed enums or known key-value mappings where possible (e.g., for `grade_distribution` or `dimensions`) to prevent invalid keys from being accepted ×15
+- 💡 Change `pathFor` to use full 32-byte hash or implement a more robust collision-resistant naming scheme ×15
+- 💡 Replace `domain.ParseUnitID(...)` with error checking and return an appropriate error instead of ignoring the error ×15
 - 💡 Add runtime validation or Zod schemas to ensure data conforms to defined interfaces before processing ×15
+- 💡 Replace `Record<string, number>` with strongly typed enums or known key-value mappings where possible (e.g., for `grade_distribution` or `dimensions`) to prevent invalid keys from being accepted ×15
+- 💡 Make file permissions configurable via environment variables or config options ×15
+- 💡 Use sync.RWMutex or similar to protect concurrent access to files in the store ×15
+- 💡 Add logging or error propagation in `ListAll` when individual file reads fail ×15
 
-*...and 629 more suggestions across individual units*
+*...and 625 more suggestions across individual units*
 
 ## By Language
 
 ### go — 🟢 B+ (89.1%)
 
 - **Units:** 492
-- **Score range:** 87.2% – 89.4%
-- **Grades:** 492×B+
+- **Score range:** 86.1% – 89.4%
+- **Grades:** 491×B+, 1×B
 
 ### ts — 🟢 B+ (88.5%)
 
@@ -7814,8 +7816,8 @@
 | [`dimension_test.go`](reports/internal-domain-dimension-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
 | [`Evidence`](reports/internal-domain-evidence-go-evidence.md) | class | B+ | 89.4% | certified | 2026-04-23 |
 | [`EvidenceKind`](reports/internal-domain-evidence-go-evidencekind.md) | class | B+ | 89.4% | certified | 2026-04-23 |
-| [`ParseSeverity`](reports/internal-domain-evidence-go-parseseverity.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Severity`](reports/internal-domain-evidence-go-severity.md) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`ParseSeverity`](reports/internal-domain-evidence-go-parseseverity.md) | function | B+ | 87.8% | certified | 2026-04-24 |
+| [`Severity`](reports/internal-domain-evidence-go-severity.md) | class | B+ | 87.8% | certified | 2026-04-24 |
 | [`String`](reports/internal-domain-evidence-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
 | [`init`](reports/internal-domain-evidence-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
 | [`evidence_test.go`](reports/internal-domain-evidence-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
@@ -7838,7 +7840,7 @@
 | [`CertificationRecord`](reports/internal-domain-record-go-certificationrecord.md) | class | B+ | 89.4% | certified | 2026-04-23 |
 | [`IsPassing`](reports/internal-domain-record-go-ispassing.md) | method | B+ | 89.4% | certified | 2026-04-23 |
 | [`ParseStatus`](reports/internal-domain-record-go-parsestatus.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`Status`](reports/internal-domain-record-go-status.md) | class | B+ | 89.4% | certified | 2026-04-23 |
+| [`Status`](reports/internal-domain-record-go-status.md) | class | B+ | 87.8% | certified | 2026-04-24 |
 | [`String`](reports/internal-domain-record-go-string.md) | method | B+ | 89.4% | certified | 2026-04-23 |
 | [`init`](reports/internal-domain-record-go-init.md) | function | B+ | 89.4% | certified | 2026-04-23 |
 | [`record_test.go`](reports/internal-domain-record-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
@@ -8654,24 +8656,15 @@
 
 | Dimension | Score |
 |-----------|------:|
-| architectural_fitness | 85.0% |
+| architectural_fitness | 80.0% |
 | change_risk | 90.0% |
 | correctness | 95.0% |
 | maintainability | 95.0% |
 | operational_quality | 85.0% |
-| performance_appropriateness | 85.0% |
+| performance_appropriateness | 80.0% |
 | readability | 95.0% |
-| security | 85.0% |
+| security | 80.0% |
 | testability | 90.0% |
-
-**Observations:**
-- 🤖 The ParseSeverity function has a critical runtime bug due to incorrect map initialization, and the code lacks test coverage for key logic paths.
-- 💡 Fix the `init()` function to correctly populate `stringToSeverity` by swapping key and value: `stringToSeverity[v] = k` should be `stringToSeverity[v] = k` (but the current logic is backwards). Correctly assign keys and values so that `stringToSeverity["info"]` resolves to `SeverityInfo`.
-- 💡 Replace `any` with a concrete type or interface for `Details` to improve type safety and maintainability.
-- ⚠️ Runtime panic or incorrect severity parsing due to flawed map initialization in `init()`
-- ⚠️ Type safety degradation with use of `any` for `Details` field
-- 🔗 The `ParseSeverity` function is part of the policy evaluation system and may misinterpret severity levels, leading to incorrect policy enforcement decisions
-- 🔗 The use of `any` in `Evidence.Details` increases coupling between components and makes refactoring more difficult
 
 </details>
 
@@ -8681,26 +8674,15 @@
 
 | Dimension | Score |
 |-----------|------:|
-| architectural_fitness | 85.0% |
+| architectural_fitness | 80.0% |
 | change_risk | 90.0% |
 | correctness | 95.0% |
 | maintainability | 95.0% |
 | operational_quality | 85.0% |
-| performance_appropriateness | 85.0% |
+| performance_appropriateness | 80.0% |
 | readability | 95.0% |
-| security | 85.0% |
+| security | 80.0% |
 | testability | 90.0% |
-
-**Observations:**
-- 🤖 Well-structured domain types with minor correctness and performance issues in string conversion mapping.
-- 💡 Fix the `init()` function to correctly populate `stringToSeverity` with `stringToSeverity[s] = k` instead of `stringToSeverity[v] = k`
-- 💡 Replace `any` with a concrete type or interface (e.g., `interface{}` or a specific type like `map[string]interface{}` if needed) for the `Details` field in `Evidence`
-- 💡 Consider using a switch statement or lookup table for `Severity.String()` to improve performance and readability, similar to how `EvidenceKind` is handled
-- 💡 Add unit tests for `ParseSeverity` and ensure it works correctly with all valid severity strings
-- ⚠️ ParseSeverity function fails for all inputs due to incorrect mapping in init()
-- ⚠️ Use of 'any' type for Details field reduces type safety and makes future refactoring harder
-- 🔗 The ParseSeverity function is likely used across the system to parse policy severity strings, so this bug affects all consumers of that functionality
-- 🔗 The use of 'any' in Evidence.Details increases coupling between components and makes it harder to enforce type consistency in downstream logic
 
 </details>
 
@@ -9348,27 +9330,15 @@
 
 | Dimension | Score |
 |-----------|------:|
-| architectural_fitness | 85.0% |
+| architectural_fitness | 80.0% |
 | change_risk | 90.0% |
 | correctness | 95.0% |
 | maintainability | 95.0% |
 | operational_quality | 85.0% |
-| performance_appropriateness | 85.0% |
+| performance_appropriateness | 80.0% |
 | readability | 95.0% |
-| security | 85.0% |
+| security | 80.0% |
 | testability | 90.0% |
-
-**Observations:**
-- 🤖 Well-structured status enum with string conversion, but contains a critical race condition in initialization and lacks proper error handling for malformed inputs.
-- 💡 Use atomic operations or sync.Once to ensure `stringToStatus` initialization is safe for concurrent access.
-- 💡 Add input sanitization in `ParseStatus` to trim whitespace and normalize case before lookup.
-- 💡 Validate `Score` and `Confidence` fields to ensure they fall within expected ranges (e.g., 0.0 to 1.0).
-- 💡 Add validation logic in `CertificationRecord` struct methods or constructors to ensure data integrity (e.g., `ExpiresAt` after `CertifiedAt`).
-- 💡 Consider adding unit tests for edge cases in `ParseStatus` (e.g., empty string, whitespace-only strings, case variations).
-- ⚠️ Race condition in `init()` function where `stringToStatus` is populated non-atomically, leading to potential data races during concurrent access.
-- ⚠️ Lack of input sanitization in `ParseStatus` — does not trim whitespace or normalize case, which can cause silent failures or misinterpretation of inputs.
-- 🔗 The `Status` enum and its string conversion functions form part of the public API surface for certification systems, so any change here affects all consumers relying on string parsing.
-- 🔗 The `CertificationRecord` struct tightly couples status, grade, and evidence fields without validation or consistency checks, increasing the risk of propagating invalid or inconsistent state across services.
 
 </details>
 
@@ -9842,7 +9812,7 @@
 |------|------|:-----:|------:|--------|--------|
 | [`CertifyUnit`](reports/internal-engine-pipeline-go-certifyunit.md) | function | B+ | 88.3% | certified | 2026-04-23 |
 | [`pipeline_test.go`](reports/internal-engine-pipeline-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
-| [`Score`](reports/internal-engine-scorer-go-score.md) | function | B+ | 88.3% | certified | 2026-04-23 |
+| [`Score`](reports/internal-engine-scorer-go-score.md) | function | B | 86.1% | certified | 2026-04-24 |
 | [`StatusFromScore`](reports/internal-engine-scorer-go-statusfromscore.md) | function | B+ | 89.4% | certified | 2026-04-23 |
 | [`extractSummaryFloat`](reports/internal-engine-scorer-go-extractsummaryfloat.md) | function | B+ | 88.3% | certified | 2026-04-23 |
 | [`extractSummaryInt`](reports/internal-engine-scorer-go-extractsummaryint.md) | function | B+ | 88.3% | certified | 2026-04-23 |
@@ -9916,27 +9886,15 @@
 
 | Dimension | Score |
 |-----------|------:|
-| architectural_fitness | 85.0% |
+| architectural_fitness | 80.0% |
 | change_risk | 90.0% |
 | correctness | 95.0% |
-| maintainability | 85.0% |
+| maintainability | 80.0% |
 | operational_quality | 85.0% |
-| performance_appropriateness | 85.0% |
+| performance_appropriateness | 80.0% |
 | readability | 95.0% |
-| security | 85.0% |
+| security | 80.0% |
 | testability | 90.0% |
-
-**Observations:**
-- 🤖 The scoring logic is functionally sound but has several correctness and robustness issues related to parsing, edge case handling, and inconsistent use of min/max functions.
-- 💡 Replace `max(scores[domain.DimMaintainability], 0.95)` with direct assignment `scores[domain.DimMaintainability] = 0.95` to avoid overwriting higher scores
-- 💡 Fix `extractSummaryInt` to properly parse numeric values by using regex or a more robust scanning method that handles all edge cases including numbers followed by non-numeric characters
-- 💡 Add nil checks for `e.Summary` in all parsing functions and return early or default to safe values
-- 💡 Use consistent logic for applying scores from evidence (e.g., always use max or always assign) to prevent overwriting
-- 💡 Add unit tests for `extractSummaryInt` and `extractSummaryFloat` with various malformed inputs to ensure robustness
-- ⚠️ Potential panic from `strings.Index(summary, keyword)` when summary is nil or malformed
-- ⚠️ Incorrect score calculation due to improper use of max() in metrics and git history scoring
-- 🔗 The `Score` function is a core part of certification logic and directly influences status determination, so any incorrect score can cause certification failures or false positives
-- 🔗 The parsing functions (`extractSummaryInt`, `extractSummaryFloat`) are tightly coupled to evidence format and can break if input changes, affecting downstream systems that depend on consistent parsing
 
 </details>
 
@@ -13103,7 +13061,7 @@
 | [`historyPathFor`](reports/internal-record-store-go-historypathfor.md) | method | B+ | 89.4% | certified | 2026-04-23 |
 | [`mapToDimensions`](reports/internal-record-store-go-maptodimensions.md) | function | B+ | 89.4% | certified | 2026-04-23 |
 | [`parseGrade`](reports/internal-record-store-go-parsegrade.md) | function | B+ | 89.4% | certified | 2026-04-23 |
-| [`pathFor`](reports/internal-record-store-go-pathfor.md) | method | B+ | 89.4% | certified | 2026-04-23 |
+| [`pathFor`](reports/internal-record-store-go-pathfor.md) | method | B+ | 87.8% | certified | 2026-04-24 |
 | [`recordJSON`](reports/internal-record-store-go-recordjson.md) | class | B+ | 89.4% | certified | 2026-04-23 |
 | [`toJSON`](reports/internal-record-store-go-tojson.md) | function | B+ | 89.4% | certified | 2026-04-23 |
 | [`store_test.go`](reports/internal-record-store-test-go.md) | file | B+ | 88.3% | certified | 2026-04-23 |
@@ -13504,27 +13462,15 @@
 
 | Dimension | Score |
 |-----------|------:|
-| architectural_fitness | 85.0% |
+| architectural_fitness | 80.0% |
 | change_risk | 90.0% |
 | correctness | 95.0% |
 | maintainability | 95.0% |
 | operational_quality | 85.0% |
-| performance_appropriateness | 85.0% |
+| performance_appropriateness | 80.0% |
 | readability | 95.0% |
-| security | 85.0% |
+| security | 80.0% |
 | testability | 90.0% |
-
-**Observations:**
-- 🤖 The code is functionally correct but has several maintainability and error handling issues, including unhandled errors in parsing and potential security risks from file naming.
-- 💡 Replace `domain.ParseUnitID(...)` with error checking and return an appropriate error instead of ignoring the error
-- 💡 Change `pathFor` to use full 32-byte hash or implement a more robust collision-resistant naming scheme
-- 💡 Add logging or error propagation in `ListAll` when individual file reads fail
-- 💡 Use sync.RWMutex or similar to protect concurrent access to files in the store
-- 💡 Make file permissions configurable via environment variables or config options
-- ⚠️ Uncaught parsing errors from domain.Parse* and time.Parse in fromJSON
-- ⚠️ SHA256 hash collision risk in pathFor due to truncation to 8 bytes
-- 🔗 The Store type tightly couples to filesystem I/O, making it hard to swap out for other storage backends like databases or cloud storage
-- 🔗 The pathFor method creates a flat directory structure that can become unwieldy with many records and increases risk of name collisions
 
 </details>
 

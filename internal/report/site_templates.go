@@ -131,6 +131,7 @@ var siteFuncMap = template.FuncMap{
 	"gradeClass": func(grade string) string {
 		return "grade-" + strings.ToLower(strings.ReplaceAll(grade, "+", "\\+"))
 	},
+	"gradeCSSClass": gradeCSSClass,
 	"gradeClassSafe": func(grade string) string {
 		g := strings.ToLower(grade)
 		g = strings.ReplaceAll(g, "+", "plus")
@@ -229,7 +230,7 @@ const indexTemplateStr = `<!DOCTYPE html>
 <tr><th>Language</th><th>Units</th><th>Grade</th><th>Score</th></tr>
 {{range .Languages}}<tr>
 <td>{{.Name}}</td><td>{{.Units}}</td>
-<td><span class="grade grade-{{.CSSClass}}">{{.Grade}}</span></td>
+<td><span class="grade grade-{{gradeCSSClass .Grade}}">{{.Grade}}</span></td>
 <td>{{pct .AverageScore}}</td>
 </tr>{{end}}
 </table>

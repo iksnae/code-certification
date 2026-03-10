@@ -48,10 +48,12 @@ type UnitReport struct {
 	Source       string             `json:"source"`
 }
 
-// LanguageDetail extends LanguageCard with grade distribution.
+// LanguageDetail is the unified language summary type used across all report formats.
+// It replaces the former LanguageCard, LanguageBreakdown, and langRow types.
 type LanguageDetail struct {
 	Name              string         `json:"name"`
 	Units             int            `json:"units"`
+	Passing           int            `json:"passing"`
 	AverageScore      float64        `json:"average_score"`
 	Grade             string         `json:"grade"`
 	GradeDistribution map[string]int `json:"grade_distribution"`
@@ -111,8 +113,9 @@ func unitReportFrom(rec domain.CertificationRecord) UnitReport {
 
 func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail {
 	type langAccum struct {
-		scores []float64
-		grades map[string]int
+		scores  []float64
+		grades  map[string]int
+		passing int
 	}
 	accum := make(map[string]*langAccum)
 
@@ -125,6 +128,9 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 		}
 		a.scores = append(a.scores, r.Score)
 		a.grades[r.Grade.String()]++
+		if r.Status.IsPassing() {
+			a.passing++
+		}
 	}
 
 	var details []LanguageDetail
@@ -144,6 +150,7 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 		details = append(details, LanguageDetail{
 			Name:              lang,
 			Units:             len(a.scores),
+			Passing:           a.passing,
 			AverageScore:      avg,
 			Grade:             domain.GradeFromScore(avg).String(),
 			GradeDistribution: a.grades,

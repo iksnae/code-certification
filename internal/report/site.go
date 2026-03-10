@@ -71,7 +71,7 @@ type indexData struct {
 	HasDimensions  bool
 	Dimensions     []dimRow
 	HasLanguages   bool
-	Languages      []langRow
+	Languages      []LanguageDetail
 	HasPackages    bool
 	Packages       []pkgRow
 	HasTopIssues   bool
@@ -90,14 +90,6 @@ type gradeRow struct {
 type dimRow struct {
 	Name  string
 	Score float64
-}
-
-type langRow struct {
-	Name         string
-	Units        int
-	Grade        string
-	CSSClass     string
-	AverageScore float64
 }
 
 type pkgRow struct {
@@ -162,15 +154,7 @@ func generateIndex(r FullReport, cfg SiteConfig) error {
 	data.HasDimensions = len(data.Dimensions) > 0
 
 	// Languages
-	for _, l := range r.LanguageDetail {
-		data.Languages = append(data.Languages, langRow{
-			Name:         l.Name,
-			Units:        l.Units,
-			Grade:        l.Grade,
-			CSSClass:     gradeCSSClass(l.Grade),
-			AverageScore: l.AverageScore,
-		})
-	}
+	data.Languages = r.LanguageDetail
 	data.HasLanguages = len(data.Languages) > 0
 
 	// Packages
