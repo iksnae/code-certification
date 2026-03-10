@@ -563,6 +563,118 @@ func Foo() {}
 	}
 }
 
+func TestAnalyzeGoFile_ConstLikeVars(t *testing.T) {
+	tests := []struct {
+		name    string
+		src     string
+		wantGMC int
+	}{
+		{
+			name: "map literal is const-like",
+			src: `package lib
+var lookupTable = map[string]string{"a": "b", "c": "d"}
+`,
+			wantGMC: 0,
+		},
+		{
+			name: "slice literal is const-like",
+			src: `package lib
+var names = []string{"alice", "bob"}
+`,
+			wantGMC: 0,
+		},
+		{
+			name: "uninitialized var is mutable",
+			src: `package lib
+var counter int
+`,
+			wantGMC: 1,
+		},
+		{
+			name: "make() is mutable",
+			src: `package lib
+var cache = make(map[string]int)
+`,
+			wantGMC: 1,
+		},
+		{
+			name: "make chan is mutable",
+			src: `package lib
+var ch = make(chan int)
+`,
+			wantGMC: 1,
+		},
+		{
+			name: "new() is mutable",
+			src: `package lib
+import "bytes"
+var buf = new(bytes.Buffer)
+`,
+			wantGMC: 1,
+		},
+		{
+			name: "errors.New is const-like",
+			src: `package lib
+import "errors"
+var ErrNotFound = errors.New("not found")
+`,
+			wantGMC: 0,
+		},
+		{
+			name: "regexp.MustCompile is const-like",
+			src: `package lib
+import "regexp"
+var re = regexp.MustCompile("^[a-z]+$")
+`,
+			wantGMC: 0,
+		},
+		{
+			name: "struct literal is const-like",
+			src: `package lib
+type config struct{ name string }
+var defaultCfg = config{name: "default"}
+`,
+			wantGMC: 0,
+		},
+		{
+			name: "mixed const-like and mutable",
+			src: `package lib
+import "errors"
+var lookupTable = map[string]int{"a": 1}
+var ErrBad = errors.New("bad")
+var counter int
+var cache = make(map[string]string)
+`,
+			wantGMC: 2,
+		},
+		{
+			name: "var block with mixed",
+			src: `package lib
+var (
+	names = []string{"a", "b"}
+	counter int
+)
+`,
+			wantGMC: 1,
+		},
+		{
+			name: "cobra command is const-like",
+			src: `package lib
+var rootCmd = &cobra.Command{Use: "certify"}
+`,
+			wantGMC: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			m := evidence.AnalyzeGoFile(tt.src)
+			if m.GlobalMutableCount != tt.wantGMC {
+				t.Errorf("GlobalMutableCount = %d, want %d", m.GlobalMutableCount, tt.wantGMC)
+			}
+		})
+	}
+}
+
 func TestAnalyzeGoType_MethodCount(t *testing.T) {
 	src := `package lib
 

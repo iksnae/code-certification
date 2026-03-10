@@ -470,14 +470,100 @@ func AnalyzeGoFile(src string) FileMetrics {
 			}
 		case *ast.GenDecl:
 			if d.Tok == token.VAR {
-				for range d.Specs {
-					fm.GlobalMutableCount++
+				for _, spec := range d.Specs {
+					vs, ok := spec.(*ast.ValueSpec)
+					if !ok {
+						fm.GlobalMutableCount++
+						continue
+					}
+					if isMutableVar(vs) {
+						fm.GlobalMutableCount++
+					}
 				}
 			}
 		}
 	}
 
 	return fm
+}
+
+// isMutableVar returns true if a package-level var declaration represents
+// truly mutable state. Const-like vars (composite literals, error sentinels,
+// compiled regexes, etc.) return false.
+func isMutableVar(vs *ast.ValueSpec) bool {
+	// No initializer → mutable (e.g., `var counter int`)
+	if len(vs.Values) == 0 {
+		return true
+	}
+	// Check each initializer expression
+	for _, val := range vs.Values {
+		if !isConstLikeExpr(val) {
+			return true
+		}
+	}
+	return false
+}
+
+// isConstLikeExpr returns true if the expression produces an effectively
+// immutable value when used as a package-level var initializer.
+func isConstLikeExpr(expr ast.Expr) bool {
+	switch e := expr.(type) {
+	case *ast.CompositeLit:
+		// map/slice/struct literals: var x = map[K]V{...}, var x = []T{...}
+		return true
+	case *ast.UnaryExpr:
+		// &T{...} (pointer to composite literal, e.g. &cobra.Command{})
+		if e.Op == token.AND {
+			_, isLit := e.X.(*ast.CompositeLit)
+			return isLit
+		}
+		return false
+	case *ast.CallExpr:
+		return isConstLikeCall(e)
+	default:
+		return false
+	}
+}
+
+// isConstLikeCall returns true for calls to known constructors that produce
+// effectively immutable values: errors.New, fmt.Errorf, regexp.MustCompile, etc.
+func isConstLikeCall(call *ast.CallExpr) bool {
+	name := callFuncName(call)
+	switch name {
+	case "make", "new":
+		// make(map/slice/chan) and new(T) produce mutable containers
+		return false
+	}
+	// Known immutable constructors
+	constLikeConstructors := map[string]bool{
+		"errors.New":          true,
+		"fmt.Errorf":          true,
+		"regexp.MustCompile":  true,
+		"regexp.Compile":      true,
+	}
+	if constLikeConstructors[name] {
+		return true
+	}
+	// Any other function call — treat as const-like.
+	// Rationale: most package-level var = someFunc() patterns produce
+	// values that are never reassigned (loggers, compiled templates, etc.).
+	// The truly mutable patterns (make, new, no-init) are caught above.
+	return true
+}
+
+// callFuncName extracts a readable name from a call expression.
+// Returns "pkg.Func" for selector calls, "Func" for ident calls.
+func callFuncName(call *ast.CallExpr) string {
+	switch fn := call.Fun.(type) {
+	case *ast.SelectorExpr:
+		if ident, ok := fn.X.(*ast.Ident); ok {
+			return ident.Name + "." + fn.Sel.Name
+		}
+		return fn.Sel.Name
+	case *ast.Ident:
+		return fn.Name
+	}
+	return ""
 }
 
 func isExported(name string) bool {
