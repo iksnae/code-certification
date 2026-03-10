@@ -124,7 +124,11 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	}
 
 	// Persist run record
-	run := buildCertificationRun(runID, startedAt, commit, ctx.certifier.PolicyVersions, certified+observations, failed, processed, ctx.certifier.Store)
+	run := buildCertificationRun(runParams{
+		runID: runID, startedAt: startedAt, commit: commit,
+		policyVersions: ctx.certifier.PolicyVersions,
+		certified: certified + observations, failed: failed, processed: processed,
+	}, ctx.certifier.Store)
 	if err := ctx.certifier.Store.AppendRun(run); err != nil {
 		fmt.Fprintf(os.Stderr, "warning: saving run record: %v\n", err)
 	}
@@ -537,18 +541,29 @@ func policyVersions(matcher *policy.Matcher) []string {
 	return vers
 }
 
+// runParams holds parameters for building a CertificationRun record.
+type runParams struct {
+	runID          string
+	startedAt      time.Time
+	commit         string
+	policyVersions []string
+	certified      int
+	failed         int
+	processed      int
+}
+
 // buildCertificationRun creates a CertificationRun from run results.
 // It computes overall grade/score from all records currently in the store.
-func buildCertificationRun(runID string, startedAt time.Time, commit string, policyVers []string, certified, failed, processed int, store *record.Store) domain.CertificationRun {
+func buildCertificationRun(p runParams, store *record.Store) domain.CertificationRun {
 	run := domain.CertificationRun{
-		ID:             runID,
-		StartedAt:      startedAt,
+		ID:             p.runID,
+		StartedAt:      p.startedAt,
 		CompletedAt:    time.Now(),
-		Commit:         commit,
-		PolicyVersions: policyVers,
-		UnitsProcessed: processed,
-		UnitsCertified: certified,
-		UnitsFailed:    failed,
+		Commit:         p.commit,
+		PolicyVersions: p.policyVersions,
+		UnitsProcessed: p.processed,
+		UnitsCertified: p.certified,
+		UnitsFailed:    p.failed,
 	}
 
 	// Compute overall grade/score from all records in store

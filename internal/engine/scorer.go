@@ -108,7 +108,7 @@ func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
 		}
 	}
 
-	// TODO count already handled by violation penalties
+	// Note: todo_count observation already handled by policy violation penalties
 }
 
 func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
