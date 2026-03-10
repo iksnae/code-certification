@@ -89,16 +89,25 @@ func CheckHasConfig(root string, sub Submodule) bool {
 }
 
 // LoadSubmoduleCard loads certification state from a submodule and generates
-// a report Card. Returns (nil, nil) if the submodule has no state.json.
+// a report Card. Returns (nil, nil) if no certification data exists.
+// Tries state.json first (fast), falls back to scanning records/ directory.
 func LoadSubmoduleCard(root string, sub Submodule) (*report.Card, error) {
 	certDir := filepath.Join(root, sub.Path, ".certification")
+	recordsDir := filepath.Join(certDir, "records")
 	statePath := filepath.Join(certDir, "state.json")
 
-	if _, err := os.Stat(statePath); os.IsNotExist(err) {
+	var store *record.Store
+
+	if _, err := os.Stat(statePath); err == nil {
+		// Fast path: load from state.json snapshot
+		store = record.NewStoreWithSnapshot(recordsDir, statePath)
+	} else if _, err := os.Stat(recordsDir); err == nil {
+		// Fallback: scan records directory directly
+		store = record.NewStore(recordsDir)
+	} else {
 		return nil, nil
 	}
 
-	store := record.NewStoreWithSnapshot(filepath.Join(certDir, "records"), statePath)
 	records, err := store.ListAll()
 	if err != nil {
 		return nil, fmt.Errorf("loading records for %s: %w", sub.Name, err)
