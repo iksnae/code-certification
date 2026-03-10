@@ -28,12 +28,29 @@ var evidenceKindStrings = map[EvidenceKind]string{
 	EvidenceKindAgentReview:    "agent_review",
 }
 
+var stringToEvidenceKind map[string]EvidenceKind
+
+func init() {
+	stringToEvidenceKind = make(map[string]EvidenceKind, len(evidenceKindStrings))
+	for k, v := range evidenceKindStrings {
+		stringToEvidenceKind[v] = k
+	}
+}
+
 // String returns the string representation of an EvidenceKind.
 func (ek EvidenceKind) String() string {
 	if s, ok := evidenceKindStrings[ek]; ok {
 		return s
 	}
 	return fmt.Sprintf("EvidenceKind(%d)", ek)
+}
+
+// ParseEvidenceKind converts a string to an EvidenceKind.
+func ParseEvidenceKind(s string) (EvidenceKind, error) {
+	if ek, ok := stringToEvidenceKind[s]; ok {
+		return ek, nil
+	}
+	return 0, fmt.Errorf("unknown evidence kind: %q", s)
 }
 
 // Evidence represents a piece of evaluation data attached to a certification record.

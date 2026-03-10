@@ -73,6 +73,39 @@ func TestParseSeverity(t *testing.T) {
 	}
 }
 
+func TestParseEvidenceKind(t *testing.T) {
+	tests := []struct {
+		input string
+		want  domain.EvidenceKind
+		ok    bool
+	}{
+		{"lint", domain.EvidenceKindLint, true},
+		{"type_check", domain.EvidenceKindTypeCheck, true},
+		{"test", domain.EvidenceKindTest, true},
+		{"static_analysis", domain.EvidenceKindStaticAnalysis, true},
+		{"metrics", domain.EvidenceKindMetrics, true},
+		{"git_history", domain.EvidenceKindGitHistory, true},
+		{"agent_review", domain.EvidenceKindAgentReview, true},
+		{"unknown", 0, false},
+		{"", 0, false},
+	}
+	for _, tt := range tests {
+		got, err := domain.ParseEvidenceKind(tt.input)
+		if tt.ok {
+			if err != nil {
+				t.Errorf("ParseEvidenceKind(%q) unexpected error: %v", tt.input, err)
+			}
+			if got != tt.want {
+				t.Errorf("ParseEvidenceKind(%q) = %v, want %v", tt.input, got, tt.want)
+			}
+		} else {
+			if err == nil {
+				t.Errorf("ParseEvidenceKind(%q) expected error, got nil", tt.input)
+			}
+		}
+	}
+}
+
 func TestEvidence_MissingFlag(t *testing.T) {
 	e := domain.Evidence{
 		Kind:    domain.EvidenceKindTest,

@@ -25,6 +25,7 @@ type recordJSON struct {
 	Score        float64            `json:"score"`
 	Confidence   float64            `json:"confidence"`
 	Dimensions   map[string]float64 `json:"dimensions,omitempty"`
+	Evidence     []evidenceJSON     `json:"evidence,omitempty"`
 	Observations []string           `json:"observations,omitempty"`
 	Actions      []string           `json:"actions,omitempty"`
 	CertifiedAt  string             `json:"certified_at"`
@@ -32,6 +33,21 @@ type recordJSON struct {
 	Source       string             `json:"source"`
 	RunID        string             `json:"run_id,omitempty"`
 	Version      int                `json:"version"`
+}
+
+// evidenceJSON is the JSON-serializable form of a domain.Evidence.
+// Details is stored as json.RawMessage to preserve whatever concrete type
+// was serialized (LintResult, CodeMetrics, GitStats, ReviewResult) without
+// the record store needing to know about those types.
+type evidenceJSON struct {
+	Kind       string          `json:"kind"`
+	Source     string          `json:"source"`
+	Passed     bool            `json:"passed"`
+	Missing    bool            `json:"missing,omitempty"`
+	Summary    string          `json:"summary"`
+	Details    json.RawMessage `json:"details,omitempty"`
+	Timestamp  string          `json:"timestamp"`
+	Confidence float64         `json:"confidence"`
 }
 
 // Store manages certification record files.
@@ -112,6 +128,10 @@ func (s *Store) pathFor(id domain.UnitID) string {
 }
 
 func toJSON(rec domain.CertificationRecord) recordJSON {
+	var evJSON []evidenceJSON
+	for _, ev := range rec.Evidence {
+		evJSON = append(evJSON, evidenceToJSON(ev))
+	}
 	return recordJSON{
 		UnitID:       rec.UnitID.String(),
 		UnitType:     rec.UnitType.String(),
@@ -122,6 +142,7 @@ func toJSON(rec domain.CertificationRecord) recordJSON {
 		Score:        rec.Score,
 		Confidence:   rec.Confidence,
 		Dimensions:   dimensionsToMap(rec.Dimensions),
+		Evidence:     evJSON,
 		Observations: rec.Observations,
 		Actions:      rec.Actions,
 		CertifiedAt:  rec.CertifiedAt.Format(time.RFC3339),
@@ -139,6 +160,11 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 	certAt, _ := time.Parse(time.RFC3339, rj.CertifiedAt)
 	expAt, _ := time.Parse(time.RFC3339, rj.ExpiresAt)
 
+	var evidence []domain.Evidence
+	for _, ej := range rj.Evidence {
+		evidence = append(evidence, evidenceFromJSON(ej))
+	}
+
 	return domain.CertificationRecord{
 		UnitID:        id,
 		UnitType:      ut,
@@ -149,6 +175,7 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 		Score:         rj.Score,
 		Confidence:    rj.Confidence,
 		Dimensions:    mapToDimensions(rj.Dimensions),
+		Evidence:      evidence,
 		Observations:  rj.Observations,
 		Actions:       rj.Actions,
 		CertifiedAt:   certAt,
@@ -218,6 +245,47 @@ func (s *Store) historyPathFor(id domain.UnitID) string {
 	h := sha256.Sum256([]byte(id.String()))
 	name := hex.EncodeToString(h[:8]) + ".history.jsonl"
 	return filepath.Join(s.dir, name)
+}
+
+func evidenceToJSON(ev domain.Evidence) evidenceJSON {
+	var details json.RawMessage
+	if ev.Details != nil {
+		data, err := json.Marshal(ev.Details)
+		if err == nil {
+			details = data
+		}
+	}
+	return evidenceJSON{
+		Kind:       ev.Kind.String(),
+		Source:     ev.Source,
+		Passed:     ev.Passed,
+		Missing:    ev.Missing,
+		Summary:    ev.Summary,
+		Details:    details,
+		Timestamp:  ev.Timestamp.Format(time.RFC3339),
+		Confidence: ev.Confidence,
+	}
+}
+
+func evidenceFromJSON(ej evidenceJSON) domain.Evidence {
+	kind, _ := domain.ParseEvidenceKind(ej.Kind)
+	ts, _ := time.Parse(time.RFC3339, ej.Timestamp)
+
+	var details any
+	if len(ej.Details) > 0 {
+		_ = json.Unmarshal(ej.Details, &details)
+	}
+
+	return domain.Evidence{
+		Kind:       kind,
+		Source:     ej.Source,
+		Passed:     ej.Passed,
+		Missing:    ej.Missing,
+		Summary:    ej.Summary,
+		Details:    details,
+		Timestamp:  ts,
+		Confidence: ej.Confidence,
+	}
 }
 
 func dimensionsToMap(dims domain.DimensionScores) map[string]float64 {
