@@ -65,7 +65,7 @@ Computes certification expiry windows based on risk factors: churn, complexity, 
 Flat JSON file store for certification records. SHA256-hashed filenames for deterministic storage.
 
 ### `internal/report/`
-Health reports (summary + detailed). Dimension breakdowns, by-language analysis, expiring-soon detection, highest-risk identification.
+Report generation in multiple formats. Health reports (summary + detailed). Full reports with dimension breakdowns, by-language analysis, expiring-soon detection, highest-risk identification. Card reports for terminal display. Static HTML site generation with dashboard, per-package/unit pages, and client-side search. Badge generation for shields.io. Uses `LanguageDetail` as the unified language summary type across all formats.
 
 ### `internal/override/`
 Manual governance: exempt, extend/shorten windows, force review. YAML-based override definitions with required rationale.
@@ -86,13 +86,26 @@ Persistent JSON-backed work queue for incremental processing across runs. Crash-
 │   ├── global.yml
 │   └── go-standard.yml
 ├── overrides/          # Manual exemptions/adjustments
-├── records/            # Certification record JSON files
+├── records/            # Certification record JSON files (gitignored)
+├── state.json          # Full state snapshot (tracked in git)
+├── runs.jsonl          # Certification run history (tracked in git)
 ├── index.json          # Discovered unit index
-└── queue.json          # Processing queue state
+├── queue.json          # Processing queue state (gitignored)
+├── REPORT_CARD.md      # Markdown report card (tracked)
+├── badge.json          # Shields.io badge endpoint (tracked)
+├── reports/            # Per-unit markdown reports (gitignored)
+└── site/               # Interactive HTML report site (gitignored)
 ```
 
 ### Certification Record
-Each record contains: unit identity, policy version, status, grade, score, confidence, dimension scores, evidence references, observations, actions, timestamps (certified_at, expires_at), source attribution.
+Each record contains: unit identity, policy version, run ID, status, grade, score, confidence, dimension scores, evidence details (as JSON), observations, actions, timestamps (certified_at, expires_at), source attribution.
+
+### Certification State
+- `state.json` — Snapshot of all records + runs, tracked in git for post-clone completeness
+- `runs.jsonl` — Append-only JSONL log of certification runs with overall grade/score
+- `records/` — Individual JSON files per unit (gitignored, derived from state)
+- `reports/` — Per-unit markdown reports (gitignored, regenerated on demand)
+- `site/` — Interactive HTML report (gitignored, regenerated on demand)
 
 ## Design Principles
 

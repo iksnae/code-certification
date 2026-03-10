@@ -17,7 +17,7 @@ Certify continuously evaluates every code unit in your repository, scores it aga
 
 CI tells you whether code passes right now. **Certify tells you whether code should still be trusted.**
 
-[📋 View our report card →](.certification/REPORT_CARD.md) · [📖 Documentation →](https://iksnae.github.io/code-certification/) · [🧩 VSCode Extension →](https://marketplace.visualstudio.com/items?itemName=iksnae.certify-vscode)
+[📋 Report Card →](.certification/REPORT_CARD.md) · [🌐 Full Report (Site) →](.certification/site/index.html) · [📖 Documentation →](https://iksnae.github.io/code-certification/) · [🧩 VSCode Extension →](https://marketplace.visualstudio.com/items?itemName=iksnae.certify-vscode)
 
 ---
 
@@ -81,6 +81,13 @@ certify report --format full
 
 Your report card is at `.certification/REPORT_CARD.md`.
 
+For large repos, generate the interactive site:
+
+```bash
+certify report --site
+open .certification/site/index.html
+```
+
 ---
 
 ## What You Get
@@ -125,6 +132,23 @@ Outputs:
 ```
 
 Click the badge → full report card.
+
+### Interactive Site Report
+
+For repos with hundreds or thousands of units, generate a self-contained HTML site:
+
+```bash
+certify report --site
+open .certification/site/index.html
+```
+
+The site includes:
+- **Dashboard** — summary stats, grade distribution, dimension averages, top issues
+- **Package pages** — per-directory roll-ups with sortable unit tables
+- **Unit pages** — detail view with dimension scores, AI observations, actions
+- **Client-side search** — find any unit instantly across the entire codebase
+
+Works offline via `file://` — no server needed, no external dependencies. At 559 units, generates 584 pages in under 2 seconds.
 
 ### CI Integration
 
@@ -195,6 +219,7 @@ certify certify --target internal/   # scope to specific paths
 certify report --format full         # complete report card (markdown)
 certify report --format card         # terminal report card
 certify report --format json         # machine-readable
+certify report --site                # interactive HTML site (584+ pages)
 certify report --badge               # print README badge snippet
 certify report --output report.md    # write to file
 ```
@@ -297,10 +322,18 @@ Agent review supplements — it never overrides — deterministic evidence. Cert
 .certification/
 ├── config.yml          # configuration
 ├── policies/           # policy packs
-├── records/            # per-unit certification records
+├── records/            # per-unit certification records (gitignored)
 ├── overrides/          # human governance overrides
+├── state.json          # certification state snapshot (tracked)
+├── runs.jsonl          # certification run history (tracked)
 ├── REPORT_CARD.md      # ← the report card
-└── badge.json          # shields.io badge endpoint
+├── badge.json          # shields.io badge endpoint
+├── reports/            # per-unit markdown reports (gitignored)
+└── site/               # interactive HTML report (gitignored)
+    ├── index.html      # dashboard
+    ├── packages/       # per-directory roll-ups
+    ├── units/          # per-unit detail pages
+    └── search-index.js # client-side search data
 ```
 
 ---

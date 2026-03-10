@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `df55ebd`  
-**Generated:** 2026-03-10T12:34:15  
+**Commit:** `b7a7b83`  
+**Generated:** 2026-03-10T12:46:56  
 **[Browse full report →](site/index.html)**  
 
 ---
@@ -47,26 +47,26 @@
 
 ### Top Suggestions
 
-- 💡 Fix unitAnchor to handle all special characters that can break HTML IDs (e.g., '+', '#') ×19
+- 💡 Add error handling for time formatting in unitReportFrom to prevent panics on invalid timestamps ×19
 - 💡 Replace `r.GeneratedAt[:19]` in writeSummary with a proper time formatting function or use time.RFC3339 directly ×19
 - 💡 Validate and sanitize AI observation prefixes in writeAIInsights to prevent malformed markdown or injection ×19
-- 💡 Add error handling for time formatting in unitReportFrom to prevent panics on invalid timestamps ×19
-- 💡 Optimize sortedKeys to reuse or pre-sort keys rather than allocating new slices each time ×19
+- 💡 Fix unitAnchor to handle all special characters that can break HTML IDs (e.g., '+', '#') ×19
 - 💡 Initialize `bottom` in buildLanguageDetail to the first score value or use math.Inf(1) to ensure correct min calculation ×19
-- 💡 Replace isLocalURL with a proper URL parsing and validation function using net/url package to correctly identify local endpoints ×17
+- 💡 Optimize sortedKeys to reuse or pre-sort keys rather than allocating new slices each time ×19
 - 💡 Add comprehensive test cases for isLocalURL covering edge cases like encoded URLs, different protocols, and port numbers ×17
+- 💡 Replace isLocalURL with a proper URL parsing and validation function using net/url package to correctly identify local endpoints ×17
+- 💡 Add a mutex to the Queue struct and synchronize all public methods (Len, Enqueue, Next, etc.) to make it safe for concurrent use ×16
 - 💡 Consider adding a Validate() method or function to Config that checks the integrity of all nested config types, particularly ExpiryConfig ×16
 - 💡 Add validation logic to ExpiryConfig to ensure DefaultWindowDays is between MinWindowDays and MaxWindowDays, and that all three fields are positive integers ×16
-- 💡 Add unit tests for DefaultConfig() to verify that ExpiryConfig defaults are valid and consistent ×16
-- 💡 Add a mutex to the Queue struct and synchronize all public methods (Len, Enqueue, Next, etc.) to make it safe for concurrent use ×16
 - 💡 Consider adding a unit test that verifies the behavior of Len() under concurrent access to expose race conditions ×16
+- 💡 Add unit tests for DefaultConfig() to verify that ExpiryConfig defaults are valid and consistent ×16
 - 💡 Change `pathFor` to use full 32-byte hash or implement a more robust collision-resistant naming scheme ×15
 - 💡 Replace `domain.ParseUnitID(...)` with error checking and return an appropriate error instead of ignoring the error ×15
-- 💡 Add runtime validation or Zod schemas to ensure data conforms to defined interfaces before processing ×15
-- 💡 Replace `Record<string, number>` with strongly typed enums or known key-value mappings where possible (e.g., for `grade_distribution` or `dimensions`) to prevent invalid keys from being accepted ×15
-- 💡 Make file permissions configurable via environment variables or config options ×15
-- 💡 Use sync.RWMutex or similar to protect concurrent access to files in the store ×15
 - 💡 Add logging or error propagation in `ListAll` when individual file reads fail ×15
+- 💡 Replace `Record<string, number>` with strongly typed enums or known key-value mappings where possible (e.g., for `grade_distribution` or `dimensions`) to prevent invalid keys from being accepted ×15
+- 💡 Use sync.RWMutex or similar to protect concurrent access to files in the store ×15
+- 💡 Add runtime validation or Zod schemas to ensure data conforms to defined interfaces before processing ×15
+- 💡 Make file permissions configurable via environment variables or config options ×15
 
 *...and 625 more suggestions across individual units*
 

@@ -68,6 +68,8 @@ Your report card is saved to `.certification/REPORT_CARD.md`.
 | `--format card` | Visual report card box in terminal |
 | `--format full` | Complete per-unit report card (markdown) |
 | `--format json` | Full report as machine-readable JSON |
+| `--format site` | Interactive HTML site (alias: `--site`) |
+| `--site` | Shorthand for `--format site` |
 | `--badge` | Print shields.io badge markdown for your README |
 | `--output file` | Write to file instead of stdout |
 | `--detailed` | Add dimension breakdowns to text format |
@@ -85,6 +87,27 @@ The **primary output** — a complete markdown document with:
 - Expandable detail for units with observations
 
 Saved automatically to `.certification/REPORT_CARD.md`.
+
+### Interactive Site (`--site`)
+
+A self-contained static HTML site for browsing large codebases:
+
+```bash
+certify report --site
+open .certification/site/index.html
+```
+
+Generates to `.certification/site/` with:
+- **Dashboard** — summary stats, grade distribution, dimension averages, language breakdown, top issues, package listing
+- **Package pages** — per-directory roll-ups with sortable unit tables
+- **Unit pages** — full detail with dimension scores, AI observations, suggestions, actions, prev/next navigation
+- **Client-side search** — instant fuzzy search across all units via embedded JSON index
+
+Features:
+- Works offline via `file://` protocol — no server needed
+- Zero external dependencies — all CSS/JS embedded
+- Dark mode support and mobile responsive
+- At 559 units, generates 584 pages in under 2 seconds
 
 ### Badge
 
