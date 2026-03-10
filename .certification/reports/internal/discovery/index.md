@@ -21,10 +21,10 @@
 | [GenericScanner](generic.go/GenericScanner.md) | class | 🟢 B | 82.9% | certified | 2026-04-24 |
 | [LanguageInfo](detect.go/LanguageInfo.md) | class | 🟢 B | 82.9% | certified | 2026-04-24 |
 | [DetectedAdapters](detect.go/DetectedAdapters.md) | function | 🟢 B | 82.9% | certified | 2026-04-24 |
-| [parseFile](go_adapter.go/parseFile.md) | method | 🟢 B | 86.4% | certified | 2026-04-24 |
 | [Scan](go_adapter.go/Scan.md) | method | 🟢 B+ | 87.1% | certified | 2026-04-24 |
 | [scanner_test.go](scanner_test.go.md) | file | 🟢 B+ | 87.9% | certified | 2026-04-24 |
 | [Merge](scanner.go/Merge.md) | function | 🟢 B+ | 88.6% | certified | 2026-04-24 |
+| [parseFile](go_adapter.go/parseFile.md) | method | 🟢 B+ | 88.6% | certified | 2026-04-24 |
 | [Diff](index.go/Diff.md) | function | 🟢 B+ | 89.3% | certified | 2026-04-24 |
 | [index_test.go](index_test.go.md) | file | 🟢 B+ | 89.3% | certified | 2026-04-24 |
 | [ts_adapter_test.go](ts_adapter_test.go.md) | file | 🟢 B+ | 89.3% | certified | 2026-04-24 |

@@ -248,62 +248,37 @@ func walkBlock(stmts []ast.Stmt, depth int, maxDepth *int) {
 func walkStmt(stmt ast.Stmt, depth int, maxDepth *int) {
 	switch s := stmt.(type) {
 	case *ast.IfStmt:
-		d := depth + 1
-		if d > *maxDepth {
-			*maxDepth = d
-		}
-		if s.Body != nil {
-			walkBlock(s.Body.List, d, maxDepth)
-		}
+		walkNested(s.Body, depth, maxDepth)
 		if s.Else != nil {
 			walkStmt(s.Else, depth, maxDepth) // else is same level as if
 		}
 	case *ast.ForStmt:
-		d := depth + 1
-		if d > *maxDepth {
-			*maxDepth = d
-		}
-		if s.Body != nil {
-			walkBlock(s.Body.List, d, maxDepth)
-		}
+		walkNested(s.Body, depth, maxDepth)
 	case *ast.RangeStmt:
-		d := depth + 1
-		if d > *maxDepth {
-			*maxDepth = d
-		}
-		if s.Body != nil {
-			walkBlock(s.Body.List, d, maxDepth)
-		}
+		walkNested(s.Body, depth, maxDepth)
 	case *ast.SwitchStmt:
-		d := depth + 1
-		if d > *maxDepth {
-			*maxDepth = d
-		}
-		if s.Body != nil {
-			walkBlock(s.Body.List, d, maxDepth)
-		}
+		walkNested(s.Body, depth, maxDepth)
 	case *ast.TypeSwitchStmt:
-		d := depth + 1
-		if d > *maxDepth {
-			*maxDepth = d
-		}
-		if s.Body != nil {
-			walkBlock(s.Body.List, d, maxDepth)
-		}
+		walkNested(s.Body, depth, maxDepth)
 	case *ast.SelectStmt:
-		d := depth + 1
-		if d > *maxDepth {
-			*maxDepth = d
-		}
-		if s.Body != nil {
-			walkBlock(s.Body.List, d, maxDepth)
-		}
+		walkNested(s.Body, depth, maxDepth)
 	case *ast.CaseClause:
 		walkBlock(s.Body, depth, maxDepth)
 	case *ast.CommClause:
 		walkBlock(s.Body, depth, maxDepth)
 	case *ast.BlockStmt:
 		walkBlock(s.List, depth, maxDepth)
+	}
+}
+
+// walkNested increments depth for a nested block (if/for/switch/select).
+func walkNested(block *ast.BlockStmt, depth int, maxDepth *int) {
+	d := depth + 1
+	if d > *maxDepth {
+		*maxDepth = d
+	}
+	if block != nil {
+		walkBlock(block.List, d, maxDepth)
 	}
 }
 

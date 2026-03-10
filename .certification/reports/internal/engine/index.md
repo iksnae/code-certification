@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 20 · **Passing:** 20 / 20
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Score](scorer.go/Score.md) | function | 🟢 B | 82.1% | certified | 2026-04-24 |
 | [scorer_test.go](scorer_test.go.md) | file | 🟢 B | 85.7% | certified | 2026-04-24 |
 | [certifier_test.go](certifier_test.go.md) | file | 🟢 B | 85.7% | certified | 2026-04-24 |
+| [Score](scorer.go/Score.md) | function | 🟢 B | 86.4% | certified | 2026-04-24 |
 | [extractSummaryInt](scorer.go/extractSummaryInt.md) | function | 🟢 B | 86.4% | certified | 2026-04-24 |
 | [Certify](certifier.go/Certify.md) | method | 🟢 B+ | 89.3% | certified | 2026-04-24 |
 | [scoreFromMetrics](scorer.go/scoreFromMetrics.md) | function | 🟢 B+ | 89.3% | certified | 2026-04-24 |

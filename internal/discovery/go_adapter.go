@@ -89,14 +89,16 @@ func (a *GoAdapter) parseFile(path, rel string) ([]domain.Unit, error) {
 				units = append(units, domain.NewUnit(id, domain.UnitTypeFunction))
 			}
 		case *ast.GenDecl:
-			if d.Tok == token.TYPE {
-				for _, spec := range d.Specs {
-					ts, ok := spec.(*ast.TypeSpec)
-					if ok {
-						id := domain.NewUnitID("go", rel, ts.Name.Name)
-						units = append(units, domain.NewUnit(id, domain.UnitTypeClass))
-					}
+			if d.Tok != token.TYPE {
+				continue
+			}
+			for _, spec := range d.Specs {
+				ts, ok := spec.(*ast.TypeSpec)
+				if !ok {
+					continue
 				}
+				id := domain.NewUnitID("go", rel, ts.Name.Name)
+				units = append(units, domain.NewUnit(id, domain.UnitTypeClass))
 			}
 		}
 	}

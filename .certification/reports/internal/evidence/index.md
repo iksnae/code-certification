@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
+**Grade:** 🟢 B+ (89.7%)  
 **Units:** 68 · **Passing:** 68 / 68
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [walkStmt](structural.go/walkStmt.md) | function | 🟢 B | 81.4% | certified | 2026-04-24 |
 | [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 83.6% | certified | 2026-04-24 |
 | [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 B | 85.0% | certified | 2026-04-24 |
 | [structural_test.go](structural_test.go.md) | file | 🟢 B | 85.7% | certified | 2026-04-24 |
+| [walkStmt](structural.go/walkStmt.md) | function | 🟢 B+ | 87.1% | certified | 2026-04-24 |
 | [ComputeGoComplexity](complexity.go/ComputeGoComplexity.md) | function | 🟢 B+ | 87.1% | certified | 2026-04-24 |
 | [analyzeFunc](structural.go/analyzeFunc.md) | function | 🟢 B+ | 87.1% | certified | 2026-04-24 |
 | [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 B+ | 87.1% | certified | 2026-04-24 |

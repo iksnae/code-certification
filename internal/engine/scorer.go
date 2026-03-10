@@ -25,23 +25,7 @@ func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.Dime
 			}
 
 		case domain.EvidenceKindTest:
-			if e.Passed {
-				setMax(scores, domain.DimTestability, 0.90)
-				cov := metricOrSummaryFloat(e, "test_coverage", "coverage")
-				if cov > 0 {
-					covPct := cov
-					if covPct <= 1.0 {
-						covPct = cov * 100
-					}
-					if covPct >= 80 {
-						setMax(scores, domain.DimTestability, 0.95)
-					} else if covPct >= 60 {
-						setMax(scores, domain.DimTestability, 0.85)
-					}
-				}
-			} else {
-				setMin(scores, domain.DimTestability, 0.3)
-			}
+			scoreFromTest(e, scores)
 
 		case domain.EvidenceKindMetrics:
 			scoreFromMetrics(e, scores)
@@ -98,6 +82,27 @@ func setMin(scores domain.DimensionScores, dim domain.Dimension, value float64) 
 		scores[dim] = min(existing, value)
 	} else {
 		scores[dim] = value
+	}
+}
+
+func scoreFromTest(e domain.Evidence, scores domain.DimensionScores) {
+	if !e.Passed {
+		setMin(scores, domain.DimTestability, 0.3)
+		return
+	}
+	setMax(scores, domain.DimTestability, 0.90)
+	cov := metricOrSummaryFloat(e, "test_coverage", "coverage")
+	if cov <= 0 {
+		return
+	}
+	covPct := cov
+	if covPct <= 1.0 {
+		covPct = cov * 100
+	}
+	if covPct >= 80 {
+		setMax(scores, domain.DimTestability, 0.95)
+	} else if covPct >= 60 {
+		setMax(scores, domain.DimTestability, 0.85)
 	}
 }
 

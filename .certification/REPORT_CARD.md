@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `fd73199`
-**Generated:** 2026-03-10T18:41:51
+**Commit:** `50469a0`
+**Generated:** 2026-03-10T18:44:24
 
 ## 🟢 Overall: B+ (88.7%)
 
@@ -12,17 +12,17 @@
 | Passing | 748 |
 | Failing | 0 |
 | Pass Rate | 100.0% |
-| Observations | 14 |
+| Observations | 13 |
 | Expired | 0 |
 
 ### Grade Distribution
 
 | Grade | Count | % |
 |-------|-------|---|
-| A- | 394 | 52.7% |
-| B+ | 148 | 19.8% |
-| B | 192 | 25.7% |
-| C | 14 | 1.9% |
+| A- | 395 | 52.8% |
+| B+ | 150 | 20.1% |
+| B | 190 | 25.4% |
+| C | 13 | 1.7% |
 
 ### By Language
 
@@ -42,15 +42,15 @@
 | [internal/config](reports/internal/config/index.md) | 22 | 🟢 B+ | 89.8% |
 | [internal/discovery](reports/internal/discovery/index.md) | 40 | 🟢 B+ | 87.3% |
 | [internal/domain](reports/internal/domain/index.md) | 69 | 🟢 B | 86.7% |
-| [internal/engine](reports/internal/engine/index.md) | 20 | 🟢 B+ | 89.2% |
-| [internal/evidence](reports/internal/evidence/index.md) | 68 | 🟢 B+ | 89.6% |
+| [internal/engine](reports/internal/engine/index.md) | 20 | 🟢 B+ | 89.4% |
+| [internal/evidence](reports/internal/evidence/index.md) | 68 | 🟢 B+ | 89.7% |
 | [internal/expiry](reports/internal/expiry/index.md) | 2 | 🟢 B+ | 89.3% |
 | [internal/github](reports/internal/github/index.md) | 17 | 🟢 A- | 90.0% |
 | [internal/override](reports/internal/override/index.md) | 9 | 🟢 B+ | 89.9% |
 | [internal/policy](reports/internal/policy/index.md) | 15 | 🟢 B+ | 89.7% |
 | [internal/queue](reports/internal/queue/index.md) | 17 | 🟢 A- | 90.4% |
 | [internal/record](reports/internal/record/index.md) | 29 | 🟢 A- | 90.2% |
-| [internal/report](reports/internal/report/index.md) | 108 | 🟢 B+ | 89.5% |
+| [internal/report](reports/internal/report/index.md) | 108 | 🟢 B+ | 89.6% |
 | [internal/workspace](reports/internal/workspace/index.md) | 19 | 🟢 A- | 90.2% |
 | [testdata/repos/ts-simple/src](reports/testdata/repos/ts-simple/src/index.md) | 6 | 🟢 A- | 91.7% |
 | [vscode-certify/src](reports/vscode-certify/src/index.md) | 33 | 🟢 B+ | 89.8% |

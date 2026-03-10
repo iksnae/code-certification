@@ -70,41 +70,52 @@ func writeArchPartI(b *strings.Builder, result *agent.ArchitectResult, pc *agent
 		return
 	}
 
-	// Package Map (deterministic from snapshot data)
-	if len(snap.Packages) > 0 {
-		b.WriteString("### Package Map\n\n")
-		b.WriteString("| Package | Units | Avg Score | Grade | Observations | Top Issues |\n")
-		b.WriteString("|---------|------:|----------:|:-----:|-------------:|------------|\n")
-		for _, pkg := range snap.Packages {
-			issues := "-"
-			if len(pkg.TopIssues) > 0 {
-				issues = strings.Join(pkg.TopIssues, ", ")
-			}
-			fmt.Fprintf(b, "| %s | %d | %.1f%% | %s | %d | %s |\n",
-				pkg.Path, pkg.Units, pkg.AvgScore*100, pkg.Grade, pkg.Observations, issues)
-		}
-		b.WriteString("\n")
-	}
+	writeArchPackageMap(b, snap)
+	writeArchDependencyGraph(b, snap)
+	writeArchLayerStructure(b, snap, result.Phase1)
+	writeArchHotspots(b, snap)
+	writeArchCoupling(b, snap)
+}
 
-	// Dependency Graph (deterministic)
-	if len(snap.DependencyEdges) > 0 {
-		b.WriteString("### Dependency Graph\n\n```\n")
-		depMap := make(map[string][]string)
-		for _, e := range snap.DependencyEdges {
-			depMap[e.From] = append(depMap[e.From], e.To)
-		}
-		var fromPkgs []string
-		for k := range depMap {
-			fromPkgs = append(fromPkgs, k)
-		}
-		sort.Strings(fromPkgs)
-		for _, from := range fromPkgs {
-			fmt.Fprintf(b, "%s → [%s]\n", from, strings.Join(depMap[from], ", "))
-		}
-		b.WriteString("```\n\n")
+func writeArchPackageMap(b *strings.Builder, snap *agent.ArchSnapshot) {
+	if len(snap.Packages) == 0 {
+		return
 	}
+	b.WriteString("### Package Map\n\n")
+	b.WriteString("| Package | Units | Avg Score | Grade | Observations | Top Issues |\n")
+	b.WriteString("|---------|------:|----------:|:-----:|-------------:|------------|\n")
+	for _, pkg := range snap.Packages {
+		issues := "-"
+		if len(pkg.TopIssues) > 0 {
+			issues = strings.Join(pkg.TopIssues, ", ")
+		}
+		fmt.Fprintf(b, "| %s | %d | %.1f%% | %s | %d | %s |\n",
+			pkg.Path, pkg.Units, pkg.AvgScore*100, pkg.Grade, pkg.Observations, issues)
+	}
+	b.WriteString("\n")
+}
 
-	// Layer Structure (phase 1 narrative + snapshot layers)
+func writeArchDependencyGraph(b *strings.Builder, snap *agent.ArchSnapshot) {
+	if len(snap.DependencyEdges) == 0 {
+		return
+	}
+	b.WriteString("### Dependency Graph\n\n```\n")
+	depMap := make(map[string][]string)
+	for _, e := range snap.DependencyEdges {
+		depMap[e.From] = append(depMap[e.From], e.To)
+	}
+	var fromPkgs []string
+	for k := range depMap {
+		fromPkgs = append(fromPkgs, k)
+	}
+	sort.Strings(fromPkgs)
+	for _, from := range fromPkgs {
+		fmt.Fprintf(b, "%s → [%s]\n", from, strings.Join(depMap[from], ", "))
+	}
+	b.WriteString("```\n\n")
+}
+
+func writeArchLayerStructure(b *strings.Builder, snap *agent.ArchSnapshot, phase1 *agent.ArchPhase1Result) {
 	b.WriteString("### Layer Structure\n\n")
 	if len(snap.Layers) > 0 {
 		layerPkgs := make(map[string][]string)
@@ -121,46 +132,50 @@ func writeArchPartI(b *strings.Builder, result *agent.ArchitectResult, pc *agent
 		}
 		b.WriteString("\n")
 	}
-	if result.Phase1 != nil {
-		if result.Phase1.DependencyAssessment != "" {
-			b.WriteString(result.Phase1.DependencyAssessment)
+	if phase1 != nil {
+		if phase1.DependencyAssessment != "" {
+			b.WriteString(phase1.DependencyAssessment)
 			b.WriteString("\n\n")
 		}
-		for _, layer := range result.Phase1.Layers {
+		for _, layer := range phase1.Layers {
 			fmt.Fprintf(b, "**%s** (%s): %s\n\n",
 				layer.Name, strings.Join(layer.Packages, ", "), layer.Description)
 		}
-		for _, flow := range result.Phase1.DataFlows {
+		for _, flow := range phase1.DataFlows {
 			fmt.Fprintf(b, "- `%s` → `%s`: %s\n", flow.From, flow.To, flow.Description)
 		}
-		if len(result.Phase1.DataFlows) > 0 {
+		if len(phase1.DataFlows) > 0 {
 			b.WriteString("\n")
 		}
 	}
+}
 
-	// Hotspots (deterministic)
-	if len(snap.Hotspots) > 0 {
-		b.WriteString("### Hotspots\n\n")
-		b.WriteString("| Rank | Package | Units | Score | Risk Factor |\n")
-		b.WriteString("|-----:|---------|------:|------:|------------:|\n")
-		for i, h := range snap.Hotspots {
-			risk := float64(h.Units) * (1.0 - h.AvgScore)
-			fmt.Fprintf(b, "| %d | %s | %d | %.1f%% | %.2f |\n",
-				i+1, h.Path, h.Units, h.AvgScore*100, risk)
-		}
-		b.WriteString("\n")
+func writeArchHotspots(b *strings.Builder, snap *agent.ArchSnapshot) {
+	if len(snap.Hotspots) == 0 {
+		return
 	}
+	b.WriteString("### Hotspots\n\n")
+	b.WriteString("| Rank | Package | Units | Score | Risk Factor |\n")
+	b.WriteString("|-----:|---------|------:|------:|------------:|\n")
+	for i, h := range snap.Hotspots {
+		risk := float64(h.Units) * (1.0 - h.AvgScore)
+		fmt.Fprintf(b, "| %d | %s | %d | %.1f%% | %.2f |\n",
+			i+1, h.Path, h.Units, h.AvgScore*100, risk)
+	}
+	b.WriteString("\n")
+}
 
-	// Coupling Analysis (deterministic + phase 1 narrative)
-	if len(snap.CouplingPairs) > 0 {
-		b.WriteString("### Coupling Analysis\n\n")
-		b.WriteString("| Package A | Package B | Edges |\n")
-		b.WriteString("|-----------|-----------|------:|\n")
-		for _, cp := range snap.CouplingPairs {
-			fmt.Fprintf(b, "| %s | %s | %d |\n", cp.PkgA, cp.PkgB, cp.EdgeCount)
-		}
-		b.WriteString("\n")
+func writeArchCoupling(b *strings.Builder, snap *agent.ArchSnapshot) {
+	if len(snap.CouplingPairs) == 0 {
+		return
 	}
+	b.WriteString("### Coupling Analysis\n\n")
+	b.WriteString("| Package A | Package B | Edges |\n")
+	b.WriteString("|-----------|-----------|------:|\n")
+	for _, cp := range snap.CouplingPairs {
+		fmt.Fprintf(b, "| %s | %s | %d |\n", cp.PkgA, cp.PkgB, cp.EdgeCount)
+	}
+	b.WriteString("\n")
 }
 
 func writeArchPartII(b *strings.Builder, result *agent.ArchitectResult) {

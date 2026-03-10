@@ -3,7 +3,7 @@
 [← Report Card](../REPORT_CARD.md)
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `fd73199`  
+**Commit:** `50469a0`  
 **Overall:** 🟢 B+ (88.7%)  
 **Units:** 748 · **Passing:** 748 · **Failing:** 0
 
@@ -18,15 +18,15 @@
 | [internal/config](internal/config/index.md) | 22 | 🟢 B+ | 89.8% | 100% |
 | [internal/discovery](internal/discovery/index.md) | 40 | 🟢 B+ | 87.3% | 100% |
 | [internal/domain](internal/domain/index.md) | 69 | 🟢 B | 86.7% | 100% |
-| [internal/engine](internal/engine/index.md) | 20 | 🟢 B+ | 89.2% | 100% |
-| [internal/evidence](internal/evidence/index.md) | 68 | 🟢 B+ | 89.6% | 100% |
+| [internal/engine](internal/engine/index.md) | 20 | 🟢 B+ | 89.4% | 100% |
+| [internal/evidence](internal/evidence/index.md) | 68 | 🟢 B+ | 89.7% | 100% |
 | [internal/expiry](internal/expiry/index.md) | 2 | 🟢 B+ | 89.3% | 100% |
 | [internal/github](internal/github/index.md) | 17 | 🟢 A- | 90.0% | 100% |
 | [internal/override](internal/override/index.md) | 9 | 🟢 B+ | 89.9% | 100% |
 | [internal/policy](internal/policy/index.md) | 15 | 🟢 B+ | 89.7% | 100% |
 | [internal/queue](internal/queue/index.md) | 17 | 🟢 A- | 90.4% | 100% |
 | [internal/record](internal/record/index.md) | 29 | 🟢 A- | 90.2% | 100% |
-| [internal/report](internal/report/index.md) | 108 | 🟢 B+ | 89.5% | 100% |
+| [internal/report](internal/report/index.md) | 108 | 🟢 B+ | 89.6% | 100% |
 | [internal/workspace](internal/workspace/index.md) | 19 | 🟢 A- | 90.2% | 100% |
 | [testdata/repos/ts-simple/src](testdata/repos/ts-simple/src/index.md) | 6 | 🟢 A- | 91.7% | 100% |
 | [vscode-certify/src](vscode-certify/src/index.md) | 33 | 🟢 B+ | 89.8% | 100% |
