@@ -101,30 +101,39 @@ The Problems panel shows:
 
 ### ⚙️ AI Provider Configuration
 
-Open with **Certify: Configure AI Provider**.
+Configure providers two ways:
 
-The visual configurator supports **any OpenAI-compatible API**:
-
-| Provider | Type | Free Tier |
-|----------|------|-----------|
-| OpenRouter | Cloud | ✅ 200+ models |
-| Groq | Cloud | ✅ 30 req/min |
-| Together | Cloud | ✅ $1 credit |
-| Fireworks | Cloud | ✅ $1 credit |
-| OpenAI | Cloud | ❌ |
-| Google AI Studio | Cloud | ✅ |
-| Ollama | Local | ✅ Unlimited |
-| LM Studio | Local | ✅ Unlimited |
-| vLLM | Local | ✅ Unlimited |
-| Custom | Any | — |
-
-**Workflow:**
+**Visual Configurator** — Open with **Certify: Configure AI Provider**:
 1. Select a provider preset (or enter a custom URL)
 2. Enter API key (cloud providers) — saved to VSCode SecretStorage
 3. Click **Test Connection** to verify
 4. Click **Fetch Models** to browse available models
 5. Select a model and strategy
 6. **Save Configuration** writes to `.certification/config.yml`
+
+**VS Code Settings** — Open with `Ctrl+,` → search "certify":
+- `certify.provider.preset` — Quick-select from 10 presets
+- `certify.provider.baseUrl` — API endpoint (auto-filled from preset)
+- `certify.provider.apiKeyEnvVar` — Env var name for API key
+- `certify.agent.model` — Model ID (use **Browse Models** to discover)
+- `certify.agent.strategy` — conservative / standard / full
+
+Both methods sync bidirectionally with `.certification/config.yml`.
+
+Supports **any OpenAI-compatible API**:
+
+| Provider | Type | Free Tier |
+|----------|------|-----------|
+| OpenRouter | Cloud | ✅ 200+ models |
+| OpenAI | Cloud | ❌ (gpt-4o-mini, gpt-4o, o3-mini) |
+| Google AI Studio | Cloud | ✅ (Gemini 2.0 Flash) |
+| Groq | Cloud | ✅ 30 req/min |
+| Together | Cloud | ✅ $1 credit |
+| Fireworks | Cloud | ✅ $1 credit |
+| Ollama | Local | ✅ Unlimited |
+| LM Studio | Local | ✅ Unlimited |
+| vLLM | Local | ✅ Unlimited |
+| Custom | Any | — |
 
 ---
 
@@ -138,6 +147,7 @@ The visual configurator supports **any OpenAI-compatible API**:
 | **Certify: Open Dashboard** | Show interactive report card |
 | **Certify: Configure AI Provider** | Visual provider/model setup |
 | **Certify: Browse Available Models** | Fetch models from provider |
+| **Certify: Test Provider Connection** | Verify provider connectivity |
 | **Certify: Install CLI** | Install `certify` via `go install` |
 | **Certify: Go to Unit Source** | Navigate to a unit's source file |
 
@@ -145,10 +155,20 @@ The visual configurator supports **any OpenAI-compatible API**:
 
 ## Settings
 
+All settings are available in VS Code Settings (`Ctrl+,` → search "certify"):
+
 | Setting | Default | Description |
 |---------|---------|-------------|
 | `certify.codeLens.enabled` | `true` | Show grade annotations on functions |
 | `certify.binaryPath` | `""` | Path to `certify` binary (auto-detected if empty) |
+| `certify.provider.preset` | `""` | Quick-select provider preset |
+| `certify.provider.baseUrl` | `""` | API base URL (auto-filled from preset) |
+| `certify.provider.apiKeyEnvVar` | `""` | Env var name for API key |
+| `certify.agent.enabled` | `true` | Enable AI-assisted reviews |
+| `certify.agent.model` | `""` | Model ID for reviews |
+| `certify.agent.strategy` | `conservative` | Review depth (conservative/standard/full) |
+
+Settings sync bidirectionally with `.certification/config.yml`.
 
 Auto-detection checks:
 1. `certify.binaryPath` setting

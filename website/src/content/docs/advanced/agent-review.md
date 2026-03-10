@@ -25,15 +25,23 @@ When Certify detects an available provider, it automatically enables **conservat
 
 ### Supported Providers
 
+Any OpenAI-compatible endpoint works. These are auto-detected:
+
 | Provider | Detection | Cost | Setup |
 |----------|-----------|------|-------|
-| **OpenRouter** | `OPENROUTER_API_KEY` env var | Free tier + paid | [openrouter.ai](https://openrouter.ai) |
+| **OpenRouter** | `OPENROUTER_API_KEY` env var | Free tier + paid (200+ models) | [openrouter.ai](https://openrouter.ai) |
 | **OpenAI** | `OPENAI_API_KEY` env var | Paid (~$0.15/1M tokens for gpt-4o-mini) | [platform.openai.com](https://platform.openai.com) |
+| **Google AI Studio** | `GEMINI_API_KEY` env var | Free tier (Gemini 2.0 Flash) | [aistudio.google.com](https://aistudio.google.com) |
 | **Groq** | `GROQ_API_KEY` env var | Free tier (30 req/min) | [groq.com](https://groq.com) |
+| **Together** | `TOGETHER_API_KEY` env var | Free $1 credit | [together.ai](https://together.ai) |
+| **Fireworks** | `FIREWORKS_API_KEY` env var | Free $1 credit | [fireworks.ai](https://fireworks.ai) |
 | **Ollama** | `OLLAMA_HOST` env or auto-probe `localhost:11434` | Free (local) | [ollama.com](https://ollama.com) |
 | **LM Studio** | `LM_STUDIO_URL` env or auto-probe `localhost:1234` | Free (local) | [lmstudio.ai](https://lmstudio.ai) |
+| **vLLM** | Auto-probe `localhost:8000` | Free (local) | [vllm.ai](https://vllm.ai) |
 
 Certify checks in this order: `OPENROUTER_API_KEY` → `CERTIFY_API_KEY` → `OPENAI_API_KEY` → `GROQ_API_KEY` → Ollama → LM Studio. Cloud providers come first, local providers serve as fallback.
+
+You can also configure any custom OpenAI-compatible endpoint via `.certification/config.yml` or the VS Code extension settings.
 
 ### Disable Auto-Detection
 

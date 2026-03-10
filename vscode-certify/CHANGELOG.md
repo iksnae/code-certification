@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.5 — 2026-03-09
+
+### Changed
+- **Configuration in VS Code Settings**: All provider settings (`certify.provider.*`, `certify.agent.*`) now available in native VS Code Settings. Syncs bidirectionally with `.certification/config.yml`.
+- **ConfigPanel + Settings**: Both the visual configurator and VS Code Settings work together — save from either, both stay in sync.
+
+### Added
+- **Test Connection command**: `Certify: Test Provider Connection` verifies provider connectivity.
+- 6 new VS Code settings: `provider.preset`, `provider.baseUrl`, `provider.apiKeyEnvVar`, `agent.enabled`, `agent.model`, `agent.strategy`.
+
+## 0.1.4 — 2026-03-09
+
+### Fixed
+- **Unit report links**: Report card links to per-unit reports now resolve correctly on GitHub. `.certification/reports/` is tracked in git.
+- **All units have anchors**: Certified units without observations now get `<details>` blocks in the report card for consistent back-navigation.
+
 ## 0.1.3 — 2026-03-09
 
 ### Fixed

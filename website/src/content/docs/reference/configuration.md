@@ -53,22 +53,49 @@ Controls which files are included in certification.
 
 ### `agent`
 
-Optional LLM-assisted review. See [Agent-Assisted Review](/code-certification/advanced/agent-review/).
+Optional LLM-assisted review. Any OpenAI-compatible endpoint works. See [Agent-Assisted Review](/code-certification/advanced/agent-review/).
 
 ```yaml
+# OpenAI example
 agent:
   enabled: true
   provider:
-    type: openrouter
+    type: openai-compatible
+    base_url: https://api.openai.com/v1
+    api_key_env: OPENAI_API_KEY
+  models:
+    prescreen: gpt-4o-mini
+    review: gpt-4o-mini
+    scoring: gpt-4o-mini
+  rate_limit:
+    requests_per_minute: 20
+    retry_max: 3
+```
+
+```yaml
+# OpenRouter example
+agent:
+  enabled: true
+  provider:
+    type: openai-compatible
     base_url: https://openrouter.ai/api/v1
     api_key_env: OPENROUTER_API_KEY
   models:
     prescreen: qwen/qwen3-coder:free
     review: qwen/qwen3-coder:free
     fallback: mistralai/mistral-nemo
-  rate_limit:
-    requests_per_minute: 20
-    retry_max: 3
+```
+
+```yaml
+# Local Ollama example
+agent:
+  enabled: true
+  provider:
+    type: openai-compatible
+    base_url: http://localhost:11434/v1
+  models:
+    prescreen: qwen3-coder
+    review: qwen3-coder
 ```
 
 ### `expiry`

@@ -26,17 +26,20 @@ Free-tier models on OpenRouter have rate limits. Solutions:
 
 ### Agent review: 401 Unauthorized
 
-Your API key is invalid or not set:
+Your API key is invalid or not set. Set the appropriate env var for your provider:
 ```bash
-export OPENROUTER_API_KEY=sk-or-v1-your-key-here
+export OPENAI_API_KEY=sk-your-key-here           # OpenAI
+export OPENROUTER_API_KEY=sk-or-v1-your-key-here  # OpenRouter
+export GROQ_API_KEY=gsk_your-key-here             # Groq
+export GEMINI_API_KEY=your-key-here               # Google AI Studio
 certify certify
 ```
 
-For CI, add `OPENROUTER_API_KEY` as a GitHub repository secret.
+For CI, add the key as a GitHub repository secret.
 
 ### Agent review: 402 Payment Required
 
-Account budget exhausted on OpenRouter. The system will automatically:
+Account budget exhausted on your provider. The system will automatically:
 1. Abort the current model
 2. Try free-tier fallback models
 3. Skip agent review if all models fail

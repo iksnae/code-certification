@@ -55,7 +55,7 @@ See certification grades inline on every function, open an interactive dashboard
 code --install-extension iksnae.certify-vscode
 ```
 
-Features: **CodeLens** grade annotations · **Dashboard** WebView · **Tree View** sidebar · **Status Bar** badge · **Diagnostics** for failing units · **Provider configurator** with 11 presets + any custom endpoint · **Model browser** with live discovery
+Features: **CodeLens** grade annotations · **Dashboard** WebView · **Tree View** sidebar · **Status Bar** badge · **Diagnostics** for failing units · **Provider configurator** with 10 presets + custom endpoints · **Model browser** with live discovery · **VS Code Settings** integration
 
 [Extension guide →](https://iksnae.github.io/code-certification/guides/vscode-extension/)
 
@@ -250,13 +250,17 @@ Certify auto-detects available AI providers and enables conservative review — 
 
 | Provider | Detection | Cost |
 |----------|-----------|------|
-| **OpenRouter** | `OPENROUTER_API_KEY` | Free tier + paid |
+| **OpenRouter** | `OPENROUTER_API_KEY` | Free tier + paid (200+ models) |
 | **OpenAI** | `OPENAI_API_KEY` | Paid (gpt-4o-mini ~$0.15/1M tokens) |
+| **Google AI Studio** | `GEMINI_API_KEY` | Free tier (Gemini 2.0 Flash) |
 | **Groq** | `GROQ_API_KEY` | Free (30 req/min) |
+| **Together** | `TOGETHER_API_KEY` | Free $1 credit |
+| **Fireworks** | `FIREWORKS_API_KEY` | Free $1 credit |
 | **Ollama** | Auto-probe `localhost:11434` | Free (local) |
 | **LM Studio** | Auto-probe `localhost:1234` | Free (local) |
+| **vLLM** | Auto-probe `localhost:8000` | Free (local) |
 
-Just set an env var or start a local server — Certify handles the rest.
+Just set an env var or start a local server — Certify handles the rest. Any OpenAI-compatible endpoint works.
 
 For full control, explicitly configure in `.certification/config.yml`:
 
@@ -264,11 +268,16 @@ For full control, explicitly configure in `.certification/config.yml`:
 agent:
   enabled: true
   provider:
-    type: openrouter
-    api_key_env: OPENROUTER_API_KEY
+    type: openai-compatible
+    base_url: https://api.openai.com/v1    # or any provider URL
+    api_key_env: OPENAI_API_KEY
+  models:
+    prescreen: gpt-4o-mini
+    review: gpt-4o-mini
+    scoring: gpt-4o-mini
 ```
 
-Uses Apache 2.0 licensed models (Qwen, Mistral). Agent review supplements — it never overrides — deterministic evidence. Certify works fully without it.
+Agent review supplements — it never overrides — deterministic evidence. Certify works fully without it.
 
 ---
 
