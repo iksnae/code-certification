@@ -262,16 +262,24 @@ func scoreStructuralArchitecture(m map[string]float64, scores domain.DimensionSc
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {
 	authors := metricOrSummaryInt(e, "author_count", "author")
-	if authors > 1 {
+	switch {
+	case authors >= 3:
+		setMax(scores, domain.DimChangeRisk, 0.95)
+	case authors >= 2:
 		setMax(scores, domain.DimChangeRisk, 0.90)
-	} else if authors == 1 {
+	case authors == 1:
 		setMax(scores, domain.DimChangeRisk, 0.70)
 	}
 
 	commits := metricOrSummaryInt(e, "commit_count", "commit")
-	if commits > 10 {
+	switch {
+	case commits > 50:
+		setMax(scores, domain.DimOperationalQuality, 0.95)
+	case commits > 20:
+		setMax(scores, domain.DimOperationalQuality, 0.90)
+	case commits > 10:
 		setMax(scores, domain.DimOperationalQuality, 0.85)
-	} else if commits > 0 {
+	case commits > 0:
 		setMax(scores, domain.DimOperationalQuality, 0.75)
 	}
 }

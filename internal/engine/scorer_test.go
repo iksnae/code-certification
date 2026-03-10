@@ -231,6 +231,34 @@ func TestScorer_GitHistoryBoostsScores(t *testing.T) {
 	}
 }
 
+func TestScorer_GraduatedGitHistory(t *testing.T) {
+	tests := []struct {
+		name       string
+		commits    int
+		authors    int
+		wantOpQual float64
+		wantCR     float64
+	}{
+		{"high commits + many authors", 60, 3, 0.95, 0.95},
+		{"medium commits + 2 authors", 25, 2, 0.90, 0.90},
+		{"low commits + 1 author", 12, 1, 0.85, 0.70},
+		{"few commits + 1 author", 3, 1, 0.75, 0.70},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			git := evidence.GitStats{CommitCount: tt.commits, AuthorCount: tt.authors, AgeDays: 30}
+			ev := []domain.Evidence{git.ToEvidence()}
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			if scores[domain.DimOperationalQuality] < tt.wantOpQual {
+				t.Errorf("op_quality = %f, want >= %f (commits=%d)", scores[domain.DimOperationalQuality], tt.wantOpQual, tt.commits)
+			}
+			if scores[domain.DimChangeRisk] < tt.wantCR {
+				t.Errorf("change_risk = %f, want >= %f (authors=%d)", scores[domain.DimChangeRisk], tt.wantCR, tt.authors)
+			}
+		})
+	}
+}
+
 func TestScorer_MetricsBasedScoring(t *testing.T) {
 	// Evidence with only Metrics set — no Summary for parsing
 	ev := []domain.Evidence{
