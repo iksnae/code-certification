@@ -11,11 +11,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	modelsProviderURL string
-	modelsAPIKeyEnv   string
-)
-
 var modelsCmd = &cobra.Command{
 	Use:   "models",
 	Short: "List available models from an AI provider",
@@ -32,14 +27,16 @@ Examples:
 }
 
 func bindModelsFlags() {
-	modelsCmd.Flags().StringVar(&modelsProviderURL, "provider-url", "", "Provider API base URL (e.g., https://openrouter.ai/api/v1)")
-	modelsCmd.Flags().StringVar(&modelsAPIKeyEnv, "api-key-env", "", "Environment variable containing the API key")
+	modelsCmd.Flags().String("provider-url", "", "Provider API base URL (e.g., https://openrouter.ai/api/v1)")
+	modelsCmd.Flags().String("api-key-env", "", "Environment variable containing the API key")
 }
 
 func runModels(cmd *cobra.Command, args []string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
+	modelsProviderURL, _ := cmd.Flags().GetString("provider-url")
+	modelsAPIKeyEnv, _ := cmd.Flags().GetString("api-key-env")
 	if modelsProviderURL != "" {
 		return listFromProvider(ctx, modelsProviderURL, modelsAPIKeyEnv)
 	}

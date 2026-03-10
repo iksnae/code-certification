@@ -15,18 +15,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var scanPath string
-
 var scanCmd = &cobra.Command{
 	Use:   "scan",
 	Short: "Discover and index certifiable code units",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root := scanPath
+		root, _ := cmd.Flags().GetString("path")
 		if root == "" {
-			root, _ = os.Getwd()
+			var err error
+			root, err = os.Getwd()
+			if err != nil {
+				return fmt.Errorf("getting working directory: %w", err)
+			}
 		}
 
-		if workspaceMode {
+		wsMode, _ := cmd.Flags().GetBool("workspace")
+		if wsMode {
 			return runWorkspaceScan(root)
 		}
 
@@ -89,7 +92,7 @@ var scanCmd = &cobra.Command{
 }
 
 func bindScanFlags() {
-	scanCmd.Flags().StringVar(&scanPath, "path", "", "Path to repository (default: current directory)")
+	scanCmd.Flags().String("path", "", "Path to repository (default: current directory)")
 }
 
 func runWorkspaceScan(root string) error {

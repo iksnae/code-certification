@@ -15,14 +15,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	reportFormat   string
-	reportPath     string
-	reportDetailed bool
-	reportOutput   string
-	reportSite     bool
-)
-
 var reportCmd = &cobra.Command{
 	Use:   "report",
 	Short: "Generate certification reports",
@@ -46,12 +38,17 @@ Static site (for large repos):
   certify report --format site
   certify report --site`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root := reportPath
+		root, _ := cmd.Flags().GetString("path")
 		if root == "" {
-			root, _ = os.Getwd()
+			var err error
+			root, err = os.Getwd()
+			if err != nil {
+				return fmt.Errorf("getting working directory: %w", err)
+			}
 		}
 
-		if workspaceMode {
+		wsMode, _ := cmd.Flags().GetBool("workspace")
+		if wsMode {
 			return runWorkspaceReport(root)
 		}
 
@@ -82,6 +79,12 @@ Static site (for large repos):
 		now := time.Now()
 		repo := detectRepoName(root)
 		commit := detectCommit(root)
+
+		// Read format flags
+		reportFormat, _ := cmd.Flags().GetString("format")
+		reportSite, _ := cmd.Flags().GetBool("site")
+		reportDetailed, _ := cmd.Flags().GetBool("detailed")
+		reportOutput, _ := cmd.Flags().GetString("output")
 
 		// --site flag overrides format
 		if reportSite {
@@ -175,12 +178,12 @@ Static site (for large repos):
 }
 
 func bindReportFlags() {
-	reportCmd.Flags().StringVarP(&reportFormat, "format", "f", "card", "Output format (card, full, json, text)")
-	reportCmd.Flags().StringVar(&reportPath, "path", "", "Path to repository (default: current directory)")
-	reportCmd.Flags().BoolVar(&reportDetailed, "detailed", false, "Include dimension breakdowns, risk analysis, expiring units")
-	reportCmd.Flags().StringVarP(&reportOutput, "output", "o", "", "Write report to file instead of stdout")
+	reportCmd.Flags().StringP("format", "f", "card", "Output format (card, full, json, text)")
+	reportCmd.Flags().String("path", "", "Path to repository (default: current directory)")
+	reportCmd.Flags().Bool("detailed", false, "Include dimension breakdowns, risk analysis, expiring units")
+	reportCmd.Flags().StringP("output", "o", "", "Write report to file instead of stdout")
 	reportCmd.Flags().Bool("badge", false, "Print the shields.io badge markdown for your README")
-	reportCmd.Flags().BoolVar(&reportSite, "site", false, "Generate a static HTML site (shorthand for --format site)")
+	reportCmd.Flags().Bool("site", false, "Generate a static HTML site (shorthand for --format site)")
 }
 
 func runWorkspaceReport(root string) error {

@@ -12,22 +12,22 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	initPath string
-	initPR   bool
-)
-
 var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Bootstrap certification in the current repository",
 	Long:  "Creates .certification/ directory with config, policies, records, overrides, and GitHub workflows.",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root := initPath
+		root, _ := cmd.Flags().GetString("path")
 		if root == "" {
-			root, _ = os.Getwd()
+			var err error
+			root, err = os.Getwd()
+			if err != nil {
+				return fmt.Errorf("getting working directory: %w", err)
+			}
 		}
 
-		if workspaceMode {
+		wsMode, _ := cmd.Flags().GetBool("workspace")
+		if wsMode {
 			return runWorkspaceInit(root)
 		}
 
@@ -132,6 +132,7 @@ var initCmd = &cobra.Command{
 			"3. Run `certify certify` to evaluate\n" +
 			"4. Run `certify report` to see results\n"
 
+		initPR, _ := cmd.Flags().GetBool("pr")
 		if initPR {
 			// Create a branch and PR
 			branchName := "certify/bootstrap"
@@ -175,8 +176,8 @@ var initCmd = &cobra.Command{
 }
 
 func bindInitFlags() {
-	initCmd.Flags().StringVar(&initPath, "path", "", "Path to repository (default: current directory)")
-	initCmd.Flags().BoolVar(&initPR, "pr", false, "Create initialization as a pull request")
+	initCmd.Flags().String("path", "", "Path to repository (default: current directory)")
+	initCmd.Flags().Bool("pr", false, "Create initialization as a pull request")
 }
 
 func runWorkspaceInit(root string) error {

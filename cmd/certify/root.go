@@ -4,8 +4,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var workspaceMode bool
-
 var rootCmd = &cobra.Command{
 	Use:   "certify",
 	Short: "Certify — code trust, with an expiration date",
@@ -21,7 +19,7 @@ Use --workspace for multi-repo operation across git submodules.`,
 // Called from main() instead of using scattered init() functions,
 // so no file in this package has an init() function.
 func registerCommands() {
-	rootCmd.PersistentFlags().BoolVar(&workspaceMode, "workspace", false, "Workspace mode: operate across git submodules")
+	rootCmd.PersistentFlags().Bool("workspace", false, "Workspace mode: operate across git submodules")
 
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(initCmd)

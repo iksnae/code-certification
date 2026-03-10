@@ -20,15 +20,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	certifyPath       string
-	certifySkipAgent  bool
-	certifyBatch      int
-	certifyResetQueue bool
-	certifyTarget     []string
-	certifyDiffBase   string
-)
-
 var certifyCmd = &cobra.Command{
 	Use:   "certify",
 	Short: "Evaluate and certify code units",
@@ -47,12 +38,32 @@ Examples:
 }
 
 func bindCertifyFlags() {
-	certifyCmd.Flags().StringVar(&certifyPath, "path", "", "Path to repository (default: current directory)")
-	certifyCmd.Flags().BoolVar(&certifySkipAgent, "skip-agent", false, "Skip agent-assisted review")
-	certifyCmd.Flags().IntVar(&certifyBatch, "batch", 0, "Max units to process per run (0=all)")
-	certifyCmd.Flags().BoolVar(&certifyResetQueue, "reset-queue", false, "Rebuild queue from index")
-	certifyCmd.Flags().StringSliceVar(&certifyTarget, "target", nil, "Target specific paths/directories (can specify multiple)")
-	certifyCmd.Flags().StringVar(&certifyDiffBase, "diff-base", "", "Only certify files changed since this git ref")
+	certifyCmd.Flags().String("path", "", "Path to repository (default: current directory)")
+	certifyCmd.Flags().Bool("skip-agent", false, "Skip agent-assisted review")
+	certifyCmd.Flags().Int("batch", 0, "Max units to process per run (0=all)")
+	certifyCmd.Flags().Bool("reset-queue", false, "Rebuild queue from index")
+	certifyCmd.Flags().StringSlice("target", nil, "Target specific paths/directories (can specify multiple)")
+	certifyCmd.Flags().String("diff-base", "", "Only certify files changed since this git ref")
+}
+
+// certifyFlags holds flag values resolved from cobra for the certify command.
+type certifyFlags struct {
+	path       string
+	skipAgent  bool
+	batch      int
+	resetQueue bool
+	target     []string
+	diffBase   string
+}
+
+func getCertifyFlags(cmd *cobra.Command) certifyFlags {
+	path, _ := cmd.Flags().GetString("path")
+	skipAgent, _ := cmd.Flags().GetBool("skip-agent")
+	batch, _ := cmd.Flags().GetInt("batch")
+	resetQueue, _ := cmd.Flags().GetBool("reset-queue")
+	target, _ := cmd.Flags().GetStringSlice("target")
+	diffBase, _ := cmd.Flags().GetString("diff-base")
+	return certifyFlags{path: path, skipAgent: skipAgent, batch: batch, resetQueue: resetQueue, target: target, diffBase: diffBase}
 }
 
 // certifyContext holds all loaded state for a certification run.
@@ -68,11 +79,13 @@ type certifyContext struct {
 }
 
 func runCertify(cmd *cobra.Command, args []string) error {
-	if workspaceMode {
-		return runWorkspaceCertify()
+	flags := getCertifyFlags(cmd)
+	wsMode, _ := cmd.Flags().GetBool("workspace")
+	if wsMode {
+		return runWorkspaceCertify(cmd, flags)
 	}
 
-	ctx, err := loadCertifyContext()
+	ctx, err := loadCertifyContext(flags)
 	if err != nil {
 		return err
 	}
@@ -89,14 +102,14 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	ctx.certifier.RunID = runID
 	ctx.certifier.PolicyVersions = policyVersions(ctx.certifier.Matcher)
 
-	ctx.certifier.Agent = setupAgent(ctx.cfg, certifySkipAgent)
+	ctx.certifier.Agent = setupAgent(ctx.cfg, flags.skipAgent)
 
 	fmt.Println("  Collecting repo-level evidence...")
 	ctx.repoEv = ctx.certifier.CollectRepoEvidence()
 	fmt.Printf("  Collected %d repo-level evidence items\n", len(ctx.repoEv))
 	fmt.Println()
 
-	certified, observations, failed, processed := ctx.processQueue(cmd, remaining)
+	certified, observations, failed, processed := ctx.processQueue(cmd, remaining, flags.batch)
 
 	ctx.printSummary(certified, observations, failed, processed)
 
@@ -129,10 +142,14 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	return nil
 }
 
-func loadCertifyContext() (*certifyContext, error) {
-	root := certifyPath
+func loadCertifyContext(flags certifyFlags) (*certifyContext, error) {
+	root := flags.path
 	if root == "" {
-		root, _ = os.Getwd()
+		var err error
+		root, err = os.Getwd()
+		if err != nil {
+			return nil, fmt.Errorf("getting working directory: %w", err)
+		}
 	}
 	certDir := filepath.Join(root, ".certification")
 
@@ -156,8 +173,8 @@ func loadCertifyContext() (*certifyContext, error) {
 		fmt.Fprintf(os.Stderr, "warning: loading overrides: %v\n", err)
 	}
 
-	wq := loadQueue(filepath.Join(certDir, "queue.json"))
-	units := filterUnits(root, idx)
+	wq := loadQueue(filepath.Join(certDir, "queue.json"), flags.resetQueue)
+	units := filterUnits(root, idx, flags.diffBase, flags.target)
 
 	unitMap := make(map[string]domain.Unit, len(units))
 	for _, u := range units {
@@ -184,8 +201,8 @@ func loadCertifyContext() (*certifyContext, error) {
 	}, nil
 }
 
-func loadQueue(queuePath string) *queue.Queue {
-	if certifyResetQueue {
+func loadQueue(queuePath string, resetQueue bool) *queue.Queue {
+	if resetQueue {
 		return queue.New()
 	}
 	wq, err := queue.Load(queuePath)
@@ -195,20 +212,20 @@ func loadQueue(queuePath string) *queue.Queue {
 	return wq
 }
 
-func filterUnits(root string, idx *discovery.Index) []domain.Unit {
+func filterUnits(root string, idx *discovery.Index, diffBase string, target []string) []domain.Unit {
 	units := idx.Units()
-	if certifyDiffBase != "" {
-		changedFiles, err := discovery.ChangedFiles(root, certifyDiffBase, "HEAD")
+	if diffBase != "" {
+		changedFiles, err := discovery.ChangedFiles(root, diffBase, "HEAD")
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "warning: git diff failed: %v — certifying all units\n", err)
 		} else {
 			units = discovery.FilterChanged(units, changedFiles)
-			fmt.Printf("  Changed files since %s: %d → %d units\n", certifyDiffBase, len(idx.Units()), len(units))
+			fmt.Printf("  Changed files since %s: %d → %d units\n", diffBase, len(idx.Units()), len(units))
 		}
 	}
-	if len(certifyTarget) > 0 {
-		units = discovery.FilterByPaths(units, certifyTarget)
-		fmt.Printf("  Targeting %v: %d units\n", certifyTarget, len(units))
+	if len(target) > 0 {
+		units = discovery.FilterByPaths(units, target)
+		fmt.Printf("  Targeting %v: %d units\n", target, len(units))
 	}
 	return units
 }
@@ -227,11 +244,11 @@ func (c *certifyContext) printQueueStatus() int {
 	return remaining
 }
 
-func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int) (certified, observations, failed, processed int) {
+func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch int) (certified, observations, failed, processed int) {
 	now := time.Now()
 	batchSize := remaining
-	if certifyBatch > 0 && certifyBatch < batchSize {
-		batchSize = certifyBatch
+	if batch > 0 && batch < batchSize {
+		batchSize = batch
 	}
 
 	startTime := time.Now()
@@ -372,10 +389,14 @@ func (c *certifyContext) printSummary(certified, observations, failed, processed
 	fmt.Println()
 }
 
-func runWorkspaceCertify() error {
-	root := certifyPath
+func runWorkspaceCertify(cmd *cobra.Command, flags certifyFlags) error {
+	root := flags.path
 	if root == "" {
-		root, _ = os.Getwd()
+		var err error
+		root, err = os.Getwd()
+		if err != nil {
+			return fmt.Errorf("getting working directory: %w", err)
+		}
 	}
 
 	subs, err := workspace.DiscoverSubmodules(root)
@@ -395,13 +416,13 @@ func runWorkspaceCertify() error {
 		fmt.Printf("═══ %s ═══\n", s.Path)
 		subPath := filepath.Join(root, s.Path)
 		args := []string{"certify", "--path", subPath}
-		if certifySkipAgent {
+		if flags.skipAgent {
 			args = append(args, "--skip-agent")
 		}
-		if certifyBatch > 0 {
-			args = append(args, "--batch", fmt.Sprintf("%d", certifyBatch))
+		if flags.batch > 0 {
+			args = append(args, "--batch", fmt.Sprintf("%d", flags.batch))
 		}
-		if certifyResetQueue {
+		if flags.resetQueue {
 			args = append(args, "--reset-queue")
 		}
 		if err := runSubcommand(args...); err != nil {
@@ -444,7 +465,7 @@ func setupExplicitAgent(cfg domain.Config) *agent.Coordinator {
 			return nil
 		}
 	} else if !isLocal {
-		apiKey, _ = agent.DetectAPIKey()
+		apiKey, _ = agent.DetectAPIKey() //nolint: second return is env var name, not error
 		if apiKey == "" {
 			fmt.Fprintf(os.Stderr, "  Agent review configured but no API key found — skipping\n")
 			return nil

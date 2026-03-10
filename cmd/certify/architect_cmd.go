@@ -15,14 +15,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	architectPath    string
-	architectModel   string
-	architectOutput  string
-	architectPhase   int
-	architectVerbose bool
-)
-
 var architectCmd = &cobra.Command{
 	Use:   "architect",
 	Short: "AI-powered architectural review",
@@ -46,17 +38,21 @@ Examples:
 }
 
 func bindArchitectFlags() {
-	architectCmd.Flags().StringVar(&architectPath, "path", "", "Path to repository (default: current directory)")
-	architectCmd.Flags().StringVar(&architectModel, "model", "", "Override model for all phases")
-	architectCmd.Flags().StringVar(&architectOutput, "output", "", "Output file path (default: .certification/ARCHITECT_REVIEW.md)")
-	architectCmd.Flags().IntVar(&architectPhase, "phase", 0, "Run specific phase (1-6, default: all)")
-	architectCmd.Flags().BoolVar(&architectVerbose, "verbose", false, "Print full LLM responses")
+	architectCmd.Flags().String("path", "", "Path to repository (default: current directory)")
+	architectCmd.Flags().String("model", "", "Override model for all phases")
+	architectCmd.Flags().String("output", "", "Output file path (default: .certification/ARCHITECT_REVIEW.md)")
+	architectCmd.Flags().Int("phase", 0, "Run specific phase (1-6, default: all)")
+	architectCmd.Flags().Bool("verbose", false, "Print full LLM responses")
 }
 
 func runArchitect(cmd *cobra.Command, args []string) error {
-	root := architectPath
+	root, _ := cmd.Flags().GetString("path")
 	if root == "" {
-		root, _ = os.Getwd()
+		var err error
+		root, err = os.Getwd()
+		if err != nil {
+			return fmt.Errorf("getting working directory: %w", err)
+		}
 	}
 
 	certDir := filepath.Join(root, ".certification")
@@ -74,6 +70,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	}
 
 	// Override model if specified
+	architectModel, _ := cmd.Flags().GetString("model")
 	if architectModel != "" {
 		model = architectModel
 	}
@@ -109,6 +106,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	fmt.Println()
 
 	// Build reviewer
+	architectVerbose, _ := cmd.Flags().GetBool("verbose")
 	reviewer := &agent.ArchitectReviewer{
 		Provider: provider,
 		Model:    model,
@@ -122,6 +120,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	}
 
 	// Determine phases
+	architectPhase, _ := cmd.Flags().GetInt("phase")
 	var phases []int
 	if architectPhase > 0 {
 		phases = []int{architectPhase}
@@ -147,7 +146,7 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 	output := report.FormatArchitectReport(result, pc)
 
 	// Write output
-	outputPath := architectOutput
+	outputPath, _ := cmd.Flags().GetString("output")
 	if outputPath == "" {
 		outputPath = filepath.Join(certDir, "ARCHITECT_REVIEW.md")
 	}
@@ -190,7 +189,7 @@ func setupArchitectProvider(cfg domain.Config) (agent.Provider, string) {
 			apiKey = os.Getenv(cfg.Agent.Provider.APIKeyEnv)
 		}
 		if apiKey == "" && !isLocal {
-			apiKey, _ = agent.DetectAPIKey()
+			apiKey, _ = agent.DetectAPIKey() //nolint: second return is env var name, not error
 		}
 		if apiKey == "" && !isLocal {
 			return nil, ""

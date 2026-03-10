@@ -12,18 +12,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var expirePath string
-
 var expireCmd = &cobra.Command{
 	Use:   "expire",
 	Short: "Mark overdue certifications as expired",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		root := expirePath
+		root, _ := cmd.Flags().GetString("path")
 		if root == "" {
-			root, _ = os.Getwd()
+			var err error
+			root, err = os.Getwd()
+			if err != nil {
+				return fmt.Errorf("getting working directory: %w", err)
+			}
 		}
 
-		if workspaceMode {
+		wsMode, _ := cmd.Flags().GetBool("workspace")
+		if wsMode {
 			return runWorkspaceExpire(root)
 		}
 
@@ -57,7 +60,7 @@ var expireCmd = &cobra.Command{
 }
 
 func bindExpireFlags() {
-	expireCmd.Flags().StringVar(&expirePath, "path", "", "Path to repository (default: current directory)")
+	expireCmd.Flags().String("path", "", "Path to repository (default: current directory)")
 }
 
 func runWorkspaceExpire(root string) error {
