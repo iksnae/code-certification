@@ -127,7 +127,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	run := buildCertificationRun(runParams{
 		runID: runID, startedAt: startedAt, commit: commit,
 		policyVersions: ctx.certifier.PolicyVersions,
-		certified: certified + observations, failed: failed, processed: processed,
+		certified:      certified + observations, failed: failed, processed: processed,
 	}, ctx.certifier.Store)
 	if err := ctx.certifier.Store.AppendRun(run); err != nil {
 		fmt.Fprintf(os.Stderr, "warning: saving run record: %v\n", err)

@@ -27,12 +27,12 @@ var statusStrings = map[Status]string{
 }
 
 var stringToStatus = map[string]Status{
-	"certified":                  StatusCertified,
+	"certified":                   StatusCertified,
 	"certified_with_observations": StatusCertifiedWithObservations,
-	"probationary":               StatusProbationary,
-	"expired":                    StatusExpired,
-	"decertified":                StatusDecertified,
-	"exempt":                     StatusExempt,
+	"probationary":                StatusProbationary,
+	"expired":                     StatusExpired,
+	"decertified":                 StatusDecertified,
+	"exempt":                      StatusExempt,
 }
 
 // String returns the string representation of a Status.
