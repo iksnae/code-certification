@@ -55,14 +55,15 @@ func ParseEvidenceKind(s string) (EvidenceKind, error) {
 
 // Evidence represents a piece of evaluation data attached to a certification record.
 type Evidence struct {
-	Kind       EvidenceKind `json:"kind"`
-	Source     string       `json:"source"`            // Tool or provider name
-	Passed     bool         `json:"passed"`            // Whether this evidence represents a pass
-	Missing    bool         `json:"missing"`           // True if evidence was expected but not collected
-	Summary    string       `json:"summary"`           // Human-readable summary
-	Details    any          `json:"details,omitempty"` // Raw or normalized data
-	Timestamp  time.Time    `json:"timestamp"`
-	Confidence float64      `json:"confidence"` // 0.0–1.0, how reliable is this evidence
+	Kind       EvidenceKind       `json:"kind"`
+	Source     string             `json:"source"`            // Tool or provider name
+	Passed     bool               `json:"passed"`            // Whether this evidence represents a pass
+	Missing    bool               `json:"missing"`           // True if evidence was expected but not collected
+	Summary    string             `json:"summary"`           // Human-readable summary
+	Metrics    map[string]float64 `json:"metrics,omitempty"` // Typed metrics for policy evaluation
+	Details    any                `json:"details,omitempty"` // Raw or normalized data (kept for backward compat)
+	Timestamp  time.Time          `json:"timestamp"`
+	Confidence float64            `json:"confidence"` // 0.0–1.0, how reliable is this evidence
 }
 
 // Severity indicates how serious a policy violation is.

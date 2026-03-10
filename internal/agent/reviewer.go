@@ -45,11 +45,19 @@ func (r ReviewResult) ToEvidence() domain.Evidence {
 		summary += fmt.Sprintf(" [models: %s]", joinModels(r.ModelsUsed))
 	}
 
+	metrics := make(map[string]float64, len(r.Scores)+2)
+	for k, v := range r.Scores {
+		metrics[k] = v
+	}
+	metrics["confidence"] = r.Confidence
+	metrics["tokens_used"] = float64(r.TokensUsed)
+
 	return domain.Evidence{
 		Kind:       domain.EvidenceKindAgentReview,
 		Source:     source,
 		Passed:     r.Status != "decertified",
 		Summary:    summary,
+		Metrics:    metrics,
 		Details:    r,
 		Timestamp:  time.Now(),
 		Confidence: r.Confidence,
@@ -73,10 +81,13 @@ func (r ReviewResult) ToPrescreenEvidence() domain.Evidence {
 	}
 
 	return domain.Evidence{
-		Kind:       domain.EvidenceKindAgentReview,
-		Source:     source,
-		Passed:     true,
-		Summary:    summary,
+		Kind:    domain.EvidenceKindAgentReview,
+		Source:  source,
+		Passed:  true,
+		Summary: summary,
+		Metrics: map[string]float64{
+			"confidence": r.Confidence,
+		},
 		Details:    r,
 		Timestamp:  time.Now(),
 		Confidence: r.Confidence,

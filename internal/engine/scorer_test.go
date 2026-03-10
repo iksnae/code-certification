@@ -121,6 +121,52 @@ func TestScorer_GitHistoryBoostsScores(t *testing.T) {
 	}
 }
 
+func TestScorer_MetricsBasedScoring(t *testing.T) {
+	// Evidence with only Metrics set — no Summary for parsing
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindMetrics,
+			Source:  "metrics",
+			Passed:  true,
+			Metrics: map[string]float64{"complexity": 3, "code_lines": 20},
+		},
+		{
+			Kind:    domain.EvidenceKindGitHistory,
+			Source:  "git",
+			Passed:  true,
+			Metrics: map[string]float64{"author_count": 3, "commit_count": 20},
+		},
+		{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "go test",
+			Passed:  true,
+			Metrics: map[string]float64{"test_coverage": 0.90},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+
+	// Low complexity should give high maintainability
+	if scores[domain.DimMaintainability] < 0.90 {
+		t.Errorf("Metrics-based maintainability = %f, want >= 0.90", scores[domain.DimMaintainability])
+	}
+	// Small code lines should give high readability
+	if scores[domain.DimReadability] < 0.90 {
+		t.Errorf("Metrics-based readability = %f, want >= 0.90", scores[domain.DimReadability])
+	}
+	// Multi-author should boost change risk
+	if scores[domain.DimChangeRisk] < 0.85 {
+		t.Errorf("Metrics-based change_risk = %f, want >= 0.85", scores[domain.DimChangeRisk])
+	}
+	// Many commits should boost operational quality
+	if scores[domain.DimOperationalQuality] < 0.85 {
+		t.Errorf("Metrics-based op_quality = %f, want >= 0.85", scores[domain.DimOperationalQuality])
+	}
+	// High coverage should boost testability
+	if scores[domain.DimTestability] < 0.90 {
+		t.Errorf("Metrics-based testability = %f, want >= 0.90", scores[domain.DimTestability])
+	}
+}
+
 func TestScorer_RichEvidence_HighScore(t *testing.T) {
 	ev := []domain.Evidence{
 		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 0}.ToEvidence(),

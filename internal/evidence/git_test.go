@@ -53,6 +53,24 @@ func TestGitCollector_ChurnRate_ZeroAge(t *testing.T) {
 	}
 }
 
+func TestGitStats_ToEvidence_Metrics(t *testing.T) {
+	stats := evidence.GitStats{CommitCount: 10, AuthorCount: 3, AgeDays: 60}
+	ev := stats.ToEvidence()
+
+	if ev.Metrics == nil {
+		t.Fatal("Metrics should not be nil")
+	}
+	if ev.Metrics["commit_count"] != 10 {
+		t.Errorf("commit_count = %f, want 10", ev.Metrics["commit_count"])
+	}
+	if ev.Metrics["author_count"] != 3 {
+		t.Errorf("author_count = %f, want 3", ev.Metrics["author_count"])
+	}
+	if ev.Metrics["age_days"] != 60 {
+		t.Errorf("age_days = %f, want 60", ev.Metrics["age_days"])
+	}
+}
+
 func TestGitCollector_ToEvidence(t *testing.T) {
 	stats := evidence.GitStats{
 		CommitCount: 10,

@@ -32,11 +32,16 @@ func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.Dime
 			if e.Passed {
 				scores[domain.DimTestability] = max(scores[domain.DimTestability], 0.90)
 				// Boost further with coverage
-				cov := extractSummaryFloat(e.Summary, "coverage")
+				cov := metricOrSummaryFloat(e, "test_coverage", "coverage")
 				if cov > 0 {
-					if cov >= 80 {
+					// Metrics stores as 0.0-1.0, summary as percentage
+					covPct := cov
+					if covPct <= 1.0 {
+						covPct = cov * 100
+					}
+					if covPct >= 80 {
 						scores[domain.DimTestability] = max(scores[domain.DimTestability], 0.95)
-					} else if cov >= 60 {
+					} else if covPct >= 60 {
 						scores[domain.DimTestability] = max(scores[domain.DimTestability], 0.85)
 					}
 				}
@@ -70,10 +75,8 @@ func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.Dime
 }
 
 func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
-	summary := e.Summary
-
-	// Extract complexity
-	complexity := extractSummaryInt(summary, "complexity")
+	// Extract complexity — prefer Metrics, fall back to Summary
+	complexity := metricOrSummaryInt(e, "complexity", "complexity")
 	if complexity >= 0 {
 		switch {
 		case complexity <= 5:
@@ -87,8 +90,8 @@ func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
 		}
 	}
 
-	// Extract code lines for readability
-	codeLines := extractSummaryInt(summary, "code")
+	// Extract code lines for readability — prefer Metrics, fall back to Summary
+	codeLines := metricOrSummaryInt(e, "code_lines", "code")
 	if codeLines >= 0 {
 		switch {
 		case codeLines <= 50:
@@ -106,19 +109,39 @@ func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {
-	summary := e.Summary
-
 	// Multiple authors = lower change risk (bus factor)
-	authors := extractSummaryInt(summary, "author")
+	authors := metricOrSummaryInt(e, "author_count", "author")
 	if authors > 1 {
 		scores[domain.DimChangeRisk] = max(scores[domain.DimChangeRisk], 0.90)
 	}
 
 	// More commits = more stable, better operational quality
-	commits := extractSummaryInt(summary, "commit")
+	commits := metricOrSummaryInt(e, "commit_count", "commit")
 	if commits > 10 {
 		scores[domain.DimOperationalQuality] = max(scores[domain.DimOperationalQuality], 0.85)
 	}
+}
+
+// metricOrSummaryInt returns an int metric from e.Metrics[metricKey], falling back to
+// extractSummaryInt(e.Summary, summaryKeyword) for backward compatibility.
+func metricOrSummaryInt(e domain.Evidence, metricKey, summaryKeyword string) int {
+	if e.Metrics != nil {
+		if v, ok := e.Metrics[metricKey]; ok {
+			return int(v)
+		}
+	}
+	return extractSummaryInt(e.Summary, summaryKeyword)
+}
+
+// metricOrSummaryFloat returns a float metric from e.Metrics[metricKey], falling back to
+// extractSummaryFloat(e.Summary, summaryKeyword) for backward compatibility.
+func metricOrSummaryFloat(e domain.Evidence, metricKey, summaryKeyword string) float64 {
+	if e.Metrics != nil {
+		if v, ok := e.Metrics[metricKey]; ok {
+			return v
+		}
+	}
+	return extractSummaryFloat(e.Summary, summaryKeyword)
 }
 
 // extractSummaryInt pulls an integer near a keyword in a summary string.

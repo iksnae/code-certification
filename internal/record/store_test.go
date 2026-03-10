@@ -170,6 +170,12 @@ func TestStore_EvidenceRoundTrip(t *testing.T) {
 				Source:  "metrics",
 				Passed:  true,
 				Summary: "42 lines (30 code, 5 comment, 7 blank), 3 TODOs, complexity 8",
+				Metrics: map[string]float64{
+					"code_lines":  30,
+					"todo_count":  3,
+					"complexity":  8,
+					"total_lines": 42,
+				},
 				Details: map[string]any{
 					"code_lines":  float64(30),
 					"todo_count":  float64(3),
@@ -245,6 +251,20 @@ func TestStore_EvidenceRoundTrip(t *testing.T) {
 	}
 	if v, ok := details["complexity"].(float64); !ok || v != 8 {
 		t.Errorf("ev[2].Details[complexity] = %v, want 8", details["complexity"])
+	}
+
+	// Check Metrics on the metrics evidence (index 2) survived round-trip
+	if metricsEv.Metrics == nil {
+		t.Fatal("ev[2].Metrics should not be nil after round-trip")
+	}
+	if metricsEv.Metrics["code_lines"] != 30 {
+		t.Errorf("ev[2].Metrics[code_lines] = %f, want 30", metricsEv.Metrics["code_lines"])
+	}
+	if metricsEv.Metrics["todo_count"] != 3 {
+		t.Errorf("ev[2].Metrics[todo_count] = %f, want 3", metricsEv.Metrics["todo_count"])
+	}
+	if metricsEv.Metrics["complexity"] != 8 {
+		t.Errorf("ev[2].Metrics[complexity] = %f, want 8", metricsEv.Metrics["complexity"])
 	}
 
 	// Evidence with no Details (lint, index 0) should have nil Details

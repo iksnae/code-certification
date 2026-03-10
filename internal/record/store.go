@@ -40,14 +40,15 @@ type recordJSON struct {
 // was serialized (LintResult, CodeMetrics, GitStats, ReviewResult) without
 // the record store needing to know about those types.
 type evidenceJSON struct {
-	Kind       string          `json:"kind"`
-	Source     string          `json:"source"`
-	Passed     bool            `json:"passed"`
-	Missing    bool            `json:"missing,omitempty"`
-	Summary    string          `json:"summary"`
-	Details    json.RawMessage `json:"details,omitempty"`
-	Timestamp  string          `json:"timestamp"`
-	Confidence float64         `json:"confidence"`
+	Kind       string             `json:"kind"`
+	Source     string             `json:"source"`
+	Passed     bool               `json:"passed"`
+	Missing    bool               `json:"missing,omitempty"`
+	Summary    string             `json:"summary"`
+	Metrics    map[string]float64 `json:"metrics,omitempty"`
+	Details    json.RawMessage    `json:"details,omitempty"`
+	Timestamp  string             `json:"timestamp"`
+	Confidence float64            `json:"confidence"`
 }
 
 // Store manages certification record files.
@@ -261,6 +262,7 @@ func evidenceToJSON(ev domain.Evidence) evidenceJSON {
 		Passed:     ev.Passed,
 		Missing:    ev.Missing,
 		Summary:    ev.Summary,
+		Metrics:    ev.Metrics,
 		Details:    details,
 		Timestamp:  ev.Timestamp.Format(time.RFC3339),
 		Confidence: ev.Confidence,
@@ -282,6 +284,7 @@ func evidenceFromJSON(ej evidenceJSON) domain.Evidence {
 		Passed:     ej.Passed,
 		Missing:    ej.Missing,
 		Summary:    ej.Summary,
+		Metrics:    ej.Metrics,
 		Details:    details,
 		Timestamp:  ts,
 		Confidence: ej.Confidence,

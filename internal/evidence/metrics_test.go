@@ -70,6 +70,31 @@ func TestCodeMetrics_Empty(t *testing.T) {
 	}
 }
 
+func TestCodeMetrics_ToEvidence_Metrics(t *testing.T) {
+	m := evidence.CodeMetrics{
+		TotalLines: 100, CodeLines: 75, CommentLines: 15,
+		BlankLines: 10, TodoCount: 2, Complexity: 5,
+	}
+	ev := m.ToEvidence()
+
+	if ev.Metrics == nil {
+		t.Fatal("Metrics should not be nil")
+	}
+	checks := map[string]float64{
+		"total_lines":   100,
+		"code_lines":    75,
+		"comment_lines": 15,
+		"blank_lines":   10,
+		"todo_count":    2,
+		"complexity":    5,
+	}
+	for k, want := range checks {
+		if ev.Metrics[k] != want {
+			t.Errorf("Metrics[%q] = %f, want %f", k, ev.Metrics[k], want)
+		}
+	}
+}
+
 func TestCodeMetrics_ToEvidence(t *testing.T) {
 	m := evidence.CodeMetrics{
 		TotalLines:   100,

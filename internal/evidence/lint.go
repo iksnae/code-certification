@@ -27,10 +27,14 @@ type LintResult struct {
 // ToEvidence converts LintResult to a domain.Evidence.
 func (r LintResult) ToEvidence() domain.Evidence {
 	return domain.Evidence{
-		Kind:       domain.EvidenceKindLint,
-		Source:     r.Tool,
-		Passed:     r.ErrorCount == 0,
-		Summary:    fmt.Sprintf("%s: %d errors, %d warnings", r.Tool, r.ErrorCount, r.WarnCount),
+		Kind:    domain.EvidenceKindLint,
+		Source:  r.Tool,
+		Passed:  r.ErrorCount == 0,
+		Summary: fmt.Sprintf("%s: %d errors, %d warnings", r.Tool, r.ErrorCount, r.WarnCount),
+		Metrics: map[string]float64{
+			"lint_errors":   float64(r.ErrorCount),
+			"lint_warnings": float64(r.WarnCount),
+		},
 		Details:    r,
 		Timestamp:  time.Now(),
 		Confidence: 1.0,
@@ -50,10 +54,17 @@ type TestResult struct {
 // ToEvidence converts TestResult to a domain.Evidence.
 func (r TestResult) ToEvidence() domain.Evidence {
 	return domain.Evidence{
-		Kind:       domain.EvidenceKindTest,
-		Source:     r.Tool,
-		Passed:     r.FailedCount == 0,
-		Summary:    fmt.Sprintf("%s: %d/%d passed (%.0f%% coverage)", r.Tool, r.PassedCount, r.TotalCount, r.Coverage*100),
+		Kind:    domain.EvidenceKindTest,
+		Source:  r.Tool,
+		Passed:  r.FailedCount == 0,
+		Summary: fmt.Sprintf("%s: %d/%d passed (%.0f%% coverage)", r.Tool, r.PassedCount, r.TotalCount, r.Coverage*100),
+		Metrics: map[string]float64{
+			"test_total":    float64(r.TotalCount),
+			"test_passed":   float64(r.PassedCount),
+			"test_failed":   float64(r.FailedCount),
+			"test_skipped":  float64(r.SkipCount),
+			"test_coverage": r.Coverage,
+		},
 		Details:    r,
 		Timestamp:  time.Now(),
 		Confidence: 1.0,

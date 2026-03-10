@@ -68,6 +68,86 @@ func TestEvaluator_WarningDoesntBlock(t *testing.T) {
 	}
 }
 
+func TestEvaluator_MetricsBasedExtraction(t *testing.T) {
+	rules := []domain.PolicyRule{
+		{ID: "lint-clean", Dimension: domain.DimCorrectness, Severity: domain.SeverityError, Metric: "lint_errors", Threshold: 0},
+	}
+	// Evidence with Metrics only — no Details, no Summary parsing needed
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindLint,
+			Source:  "test",
+			Passed:  true,
+			Metrics: map[string]float64{"lint_errors": 0, "lint_warnings": 0},
+		},
+	}
+	result := policy.Evaluate(rules, ev)
+	if !result.Passed {
+		t.Error("should pass with lint_errors=0 from Metrics")
+	}
+	if len(result.Violations) != 0 {
+		t.Errorf("expected 0 violations, got %d", len(result.Violations))
+	}
+}
+
+func TestEvaluator_TodoCountFromMetrics(t *testing.T) {
+	rules := []domain.PolicyRule{
+		{ID: "todo-check", Dimension: domain.DimReadability, Severity: domain.SeverityWarning, Metric: "todo_count", Threshold: 0},
+	}
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindMetrics,
+			Source:  "metrics",
+			Passed:  true,
+			Metrics: map[string]float64{"todo_count": 3, "complexity": 5},
+		},
+	}
+	result := policy.Evaluate(rules, ev)
+	if len(result.Violations) != 1 {
+		t.Errorf("expected 1 violation for todo_count=3 > 0, got %d", len(result.Violations))
+	}
+}
+
+func TestEvaluator_CoverageFromMetrics(t *testing.T) {
+	rules := []domain.PolicyRule{
+		{ID: "coverage", Dimension: domain.DimTestability, Severity: domain.SeverityWarning, Metric: "test_coverage", Threshold: 0.8},
+	}
+	// 85% coverage — should pass
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "go test",
+			Passed:  true,
+			Metrics: map[string]float64{"test_coverage": 0.85},
+		},
+	}
+	result := policy.Evaluate(rules, ev)
+	if len(result.Violations) != 1 {
+		t.Errorf("expected 1 violation for coverage 0.85 > 0.8, got %d", len(result.Violations))
+	}
+}
+
+func TestEvaluator_ComplexityFromMetrics(t *testing.T) {
+	rules := []domain.PolicyRule{
+		{ID: "complexity", Dimension: domain.DimMaintainability, Severity: domain.SeverityError, Metric: "complexity", Threshold: 10},
+	}
+	ev := []domain.Evidence{
+		{
+			Kind:    domain.EvidenceKindMetrics,
+			Source:  "metrics",
+			Passed:  true,
+			Metrics: map[string]float64{"complexity": 15},
+		},
+	}
+	result := policy.Evaluate(rules, ev)
+	if len(result.Violations) != 1 {
+		t.Errorf("expected 1 violation for complexity=15 > 10, got %d", len(result.Violations))
+	}
+	if result.Passed {
+		t.Error("should fail with blocking complexity violation")
+	}
+}
+
 func TestEvaluator_MissingEvidence(t *testing.T) {
 	rules := []domain.PolicyRule{
 		{ID: "lint-clean", Dimension: domain.DimCorrectness, Severity: domain.SeverityError, Metric: "lint_errors", Threshold: 0},

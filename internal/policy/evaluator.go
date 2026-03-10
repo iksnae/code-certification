@@ -62,17 +62,25 @@ func evaluateRule(rule domain.PolicyRule, ev []domain.Evidence) *domain.Violatio
 
 // extractMetric pulls a numeric value from evidence by metric name.
 // Returns -1 if not found.
+//
+// Priority: Metrics map lookup → legacy fallback (Summary parsing, Passed flag).
 func extractMetric(metric string, ev []domain.Evidence) float64 {
+	// First pass: direct Metrics map lookup across all evidence
+	for _, e := range ev {
+		if e.Metrics != nil {
+			if v, ok := e.Metrics[metric]; ok {
+				return v
+			}
+		}
+	}
+
+	// Fallback: legacy extraction for backward compatibility with old records
 	for _, e := range ev {
 		switch metric {
 		case "lint_errors":
 			if e.Kind == domain.EvidenceKindLint {
-				if r, ok := e.Details.(interface{ ErrorCount() int }); ok {
-					return float64(r.ErrorCount())
-				}
-				// Try map access or direct struct field
 				if !e.Passed {
-					return 1 // Lint failed = at least 1 error
+					return 1
 				}
 				return 0
 			}
@@ -100,20 +108,8 @@ func extractMetric(metric string, ev []domain.Evidence) float64 {
 	return -1 // Not found
 }
 
-// extractTodoCount tries to get TodoCount from metrics evidence details.
+// extractTodoCount extracts todo count from summary string (legacy fallback).
 func extractTodoCount(e domain.Evidence) float64 {
-	// Try to extract from the Details field (CodeMetrics struct)
-	if m, ok := e.Details.(interface{ GetTodoCount() int }); ok {
-		return float64(m.GetTodoCount())
-	}
-	// Try map-based access
-	if m, ok := e.Details.(map[string]any); ok {
-		if v, ok := m["todo_count"]; ok {
-			if f, ok := v.(float64); ok {
-				return f
-			}
-		}
-	}
 	// Parse "N TODOs" from summary
 	idx := strings.Index(e.Summary, " TODO")
 	if idx > 0 {
@@ -133,15 +129,8 @@ func extractTodoCount(e domain.Evidence) float64 {
 	return 0
 }
 
-// extractComplexity pulls complexity from metrics evidence.
+// extractComplexity extracts complexity from summary string (legacy fallback).
 func extractComplexity(e domain.Evidence) float64 {
-	if m, ok := e.Details.(map[string]any); ok {
-		if v, ok := m["complexity"]; ok {
-			if f, ok := v.(float64); ok {
-				return f
-			}
-		}
-	}
 	// Parse from summary: "... complexity N"
 	var n int
 	if _, err := fmt.Sscanf(e.Summary, "%*s complexity %d", &n); err == nil {

@@ -117,3 +117,44 @@ func TestReviewResult_ToEvidence(t *testing.T) {
 		t.Errorf("Source = %q, want agent", ev.Source)
 	}
 }
+
+func TestReviewResult_ToEvidence_Metrics(t *testing.T) {
+	result := agent.ReviewResult{
+		Reviewed:   true,
+		Scores:     map[string]float64{"correctness": 0.9, "maintainability": 0.75},
+		Confidence: 0.85,
+		TokensUsed: 500,
+	}
+
+	ev := result.ToEvidence()
+	if ev.Metrics == nil {
+		t.Fatal("Metrics should not be nil")
+	}
+	if ev.Metrics["correctness"] != 0.9 {
+		t.Errorf("correctness = %f, want 0.9", ev.Metrics["correctness"])
+	}
+	if ev.Metrics["maintainability"] != 0.75 {
+		t.Errorf("maintainability = %f, want 0.75", ev.Metrics["maintainability"])
+	}
+	if ev.Metrics["confidence"] != 0.85 {
+		t.Errorf("confidence = %f, want 0.85", ev.Metrics["confidence"])
+	}
+	if ev.Metrics["tokens_used"] != 500 {
+		t.Errorf("tokens_used = %f, want 500", ev.Metrics["tokens_used"])
+	}
+}
+
+func TestReviewResult_ToPrescreenEvidence_Metrics(t *testing.T) {
+	result := agent.ReviewResult{
+		Prescreened: true,
+		Confidence:  0.95,
+	}
+
+	ev := result.ToPrescreenEvidence()
+	if ev.Metrics == nil {
+		t.Fatal("Metrics should not be nil")
+	}
+	if ev.Metrics["confidence"] != 0.95 {
+		t.Errorf("confidence = %f, want 0.95", ev.Metrics["confidence"])
+	}
+}

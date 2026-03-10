@@ -26,10 +26,15 @@ func (s GitStats) ChurnRate() float64 {
 // ToEvidence converts GitStats to a domain.Evidence.
 func (s GitStats) ToEvidence() domain.Evidence {
 	return domain.Evidence{
-		Kind:       domain.EvidenceKindGitHistory,
-		Source:     "git",
-		Passed:     true, // Git history is informational, always "passes"
-		Summary:    fmt.Sprintf("%d commits by %d authors over %d days", s.CommitCount, s.AuthorCount, s.AgeDays),
+		Kind:    domain.EvidenceKindGitHistory,
+		Source:  "git",
+		Passed:  true, // Git history is informational, always "passes"
+		Summary: fmt.Sprintf("%d commits by %d authors over %d days", s.CommitCount, s.AuthorCount, s.AgeDays),
+		Metrics: map[string]float64{
+			"commit_count": float64(s.CommitCount),
+			"author_count": float64(s.AuthorCount),
+			"age_days":     float64(s.AgeDays),
+		},
 		Details:    s,
 		Timestamp:  time.Now(),
 		Confidence: 1.0, // Git data is deterministic

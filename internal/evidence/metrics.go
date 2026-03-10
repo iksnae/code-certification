@@ -63,10 +63,18 @@ func containsTodo(line string) bool {
 // ToEvidence converts CodeMetrics to a domain.Evidence.
 func (m CodeMetrics) ToEvidence() domain.Evidence {
 	return domain.Evidence{
-		Kind:       domain.EvidenceKindMetrics,
-		Source:     "metrics",
-		Passed:     true,
-		Summary:    fmt.Sprintf("%d lines (%d code, %d comment, %d blank), %d TODOs, complexity %d", m.TotalLines, m.CodeLines, m.CommentLines, m.BlankLines, m.TodoCount, m.Complexity),
+		Kind:    domain.EvidenceKindMetrics,
+		Source:  "metrics",
+		Passed:  true,
+		Summary: fmt.Sprintf("%d lines (%d code, %d comment, %d blank), %d TODOs, complexity %d", m.TotalLines, m.CodeLines, m.CommentLines, m.BlankLines, m.TodoCount, m.Complexity),
+		Metrics: map[string]float64{
+			"total_lines":   float64(m.TotalLines),
+			"code_lines":    float64(m.CodeLines),
+			"comment_lines": float64(m.CommentLines),
+			"blank_lines":   float64(m.BlankLines),
+			"todo_count":    float64(m.TodoCount),
+			"complexity":    float64(m.Complexity),
+		},
 		Details:    m,
 		Timestamp:  time.Now(),
 		Confidence: 1.0,
