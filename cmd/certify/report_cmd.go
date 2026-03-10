@@ -82,11 +82,17 @@ Static site (for large repos):
 			reportFormat = "site"
 		}
 
+		// Generate FullReport once — used by all formats except "text"
+		needsFullReport := reportFormat != "text"
+		var fr report.FullReport
+		if needsFullReport {
+			fr = report.GenerateFullReport(records, repo, commit, now)
+		}
+
 		var output string
 
 		switch reportFormat {
 		case "site":
-			fr := report.GenerateFullReport(records, repo, commit, now)
 			siteDir := filepath.Join(certDir, "site")
 			cfg := report.SiteConfig{
 				OutputDir:     siteDir,
@@ -109,16 +115,7 @@ Static site (for large repos):
 			fmt.Printf("✓ Static site generated → %s (%d pages)\n", siteDir, pageCount)
 			fmt.Println("  Open .certification/site/index.html in a browser")
 
-			// Still save markdown report + badge via consolidated function
-			engine.SaveReportArtifacts(certDir, store, repo, commit, now)
-
-			cardPath := filepath.Join(certDir, "REPORT_CARD.md")
-			badgePath := filepath.Join(certDir, "badge.json")
-			fmt.Printf("\n✓ %s updated\n✓ %s updated\n", cardPath, badgePath)
-			return nil
-
 		case "json":
-			fr := report.GenerateFullReport(records, repo, commit, now)
 			data, err := report.FormatJSON(fr)
 			if err != nil {
 				return err
@@ -126,7 +123,6 @@ Static site (for large repos):
 			output = string(data)
 
 		case "full":
-			fr := report.GenerateFullReport(records, repo, commit, now)
 			output = report.FormatFullMarkdown(fr)
 
 		case "text":
@@ -139,25 +135,30 @@ Static site (for large repos):
 			}
 
 		default: // "card" or unrecognized
-			c := report.GenerateCard(records, repo, commit, now)
-			output = report.FormatCardText(c)
+			output = report.FormatCardText(fr.Card)
 		}
 
 		// Write to file or stdout
-		if reportOutput != "" {
-			if err := os.MkdirAll(filepath.Dir(reportOutput), 0o755); err != nil {
-				return err
+		if output != "" {
+			if reportOutput != "" {
+				if err := os.MkdirAll(filepath.Dir(reportOutput), 0o755); err != nil {
+					return err
+				}
+				if err := os.WriteFile(reportOutput, []byte(output), 0o644); err != nil {
+					return err
+				}
+				fmt.Printf("✓ Report written to %s\n", reportOutput)
+			} else {
+				fmt.Print(output)
 			}
-			if err := os.WriteFile(reportOutput, []byte(output), 0o644); err != nil {
-				return err
-			}
-			fmt.Printf("✓ Report written to %s\n", reportOutput)
-		} else {
-			fmt.Print(output)
 		}
 
-		// Always save the full report card + badge via consolidated function
-		engine.SaveReportArtifacts(certDir, store, repo, commit, now)
+		// Always save report artifacts (REPORT_CARD.md, badge.json, per-unit reports)
+		if needsFullReport {
+			engine.SaveReportArtifacts(certDir, fr)
+		} else {
+			engine.SaveReportArtifactsFromStore(certDir, store, repo, commit, now)
+		}
 
 		cardPath := filepath.Join(certDir, "REPORT_CARD.md")
 		badgePath := filepath.Join(certDir, "badge.json")

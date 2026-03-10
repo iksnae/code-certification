@@ -13,6 +13,7 @@ import (
 	"github.com/iksnae/code-certification/internal/evidence"
 	"github.com/iksnae/code-certification/internal/policy"
 	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/report"
 )
 
 func testPacks() []domain.PolicyPack {
@@ -369,15 +370,10 @@ func TestCertifier_PopulatesPolicyVersion(t *testing.T) {
 	}
 }
 
-func TestSaveReportArtifacts(t *testing.T) {
-	certDir := t.TempDir()
-	storeDir := filepath.Join(certDir, "records")
-	store := record.NewStore(storeDir)
-
-	// Save some sample records
-	now := time.Now()
+func sampleRecords(now time.Time) []domain.CertificationRecord {
+	var recs []domain.CertificationRecord
 	for _, sym := range []string{"main", "helper", "init"} {
-		rec := domain.CertificationRecord{
+		recs = append(recs, domain.CertificationRecord{
 			UnitID:      domain.NewUnitID("go", "main.go", sym),
 			UnitType:    domain.UnitTypeFunction,
 			UnitPath:    "main.go",
@@ -389,20 +385,16 @@ func TestSaveReportArtifacts(t *testing.T) {
 			ExpiresAt:   now.Add(90 * 24 * time.Hour),
 			Source:      "deterministic",
 			Version:     1,
-		}
-		if err := store.Save(rec); err != nil {
-			t.Fatalf("Save(%s) error: %v", sym, err)
-		}
+		})
 	}
+	return recs
+}
 
-	err := engine.SaveReportArtifacts(certDir, store, "test/repo", "abc123", now)
-	if err != nil {
-		t.Fatalf("SaveReportArtifacts() error: %v", err)
-	}
+func verifyArtifacts(t *testing.T, certDir string) {
+	t.Helper()
 
 	// Verify REPORT_CARD.md
-	cardPath := filepath.Join(certDir, "REPORT_CARD.md")
-	cardData, err := os.ReadFile(cardPath)
+	cardData, err := os.ReadFile(filepath.Join(certDir, "REPORT_CARD.md"))
 	if err != nil {
 		t.Fatalf("REPORT_CARD.md not found: %v", err)
 	}
@@ -411,8 +403,7 @@ func TestSaveReportArtifacts(t *testing.T) {
 	}
 
 	// Verify badge.json
-	badgePath := filepath.Join(certDir, "badge.json")
-	badgeData, err := os.ReadFile(badgePath)
+	badgeData, err := os.ReadFile(filepath.Join(certDir, "badge.json"))
 	if err != nil {
 		t.Fatalf("badge.json not found: %v", err)
 	}
@@ -421,13 +412,44 @@ func TestSaveReportArtifacts(t *testing.T) {
 		t.Fatalf("badge.json is not valid JSON: %v", err)
 	}
 
-	// Verify per-unit reports directory exists with files
-	reportsDir := filepath.Join(certDir, "reports")
-	entries, err := os.ReadDir(reportsDir)
+	// Verify per-unit reports directory
+	entries, err := os.ReadDir(filepath.Join(certDir, "reports"))
 	if err != nil {
 		t.Fatalf("reports directory not found: %v", err)
 	}
 	if len(entries) == 0 {
 		t.Error("reports directory should contain per-unit markdown files")
 	}
+}
+
+func TestSaveReportArtifacts(t *testing.T) {
+	certDir := t.TempDir()
+	now := time.Now()
+	recs := sampleRecords(now)
+
+	fr := report.GenerateFullReport(recs, "test/repo", "abc123", now)
+	if err := engine.SaveReportArtifacts(certDir, fr); err != nil {
+		t.Fatalf("SaveReportArtifacts() error: %v", err)
+	}
+
+	verifyArtifacts(t, certDir)
+}
+
+func TestSaveReportArtifactsFromStore(t *testing.T) {
+	certDir := t.TempDir()
+	storeDir := filepath.Join(certDir, "records")
+	store := record.NewStore(storeDir)
+
+	now := time.Now()
+	for _, rec := range sampleRecords(now) {
+		if err := store.Save(rec); err != nil {
+			t.Fatalf("Save() error: %v", err)
+		}
+	}
+
+	if err := engine.SaveReportArtifactsFromStore(certDir, store, "test/repo", "abc123", now); err != nil {
+		t.Fatalf("SaveReportArtifactsFromStore() error: %v", err)
+	}
+
+	verifyArtifacts(t, certDir)
 }

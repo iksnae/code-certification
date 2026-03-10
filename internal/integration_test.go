@@ -289,9 +289,9 @@ func TestE2E_Certifier(t *testing.T) {
 		}
 	}
 
-	// 7. Verify SaveReportArtifacts works from the library
-	if err := engine.SaveReportArtifacts(certDir, store, "test/repo", "abc123", now); err != nil {
-		t.Fatalf("SaveReportArtifacts() error: %v", err)
+	// 7. Verify SaveReportArtifactsFromStore works from the library
+	if err := engine.SaveReportArtifactsFromStore(certDir, store, "test/repo", "abc123", now); err != nil {
+		t.Fatalf("SaveReportArtifactsFromStore() error: %v", err)
 	}
 	if _, err := os.Stat(filepath.Join(certDir, "REPORT_CARD.md")); err != nil {
 		t.Error("REPORT_CARD.md not generated")

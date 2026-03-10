@@ -97,7 +97,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	now := time.Now()
 	repo := detectRepoName(ctx.root)
 	commit := detectCommit(ctx.root)
-	if err := engine.SaveReportArtifacts(ctx.certDir, ctx.certifier.Store, repo, commit, now); err == nil {
+	if err := engine.SaveReportArtifactsFromStore(ctx.certDir, ctx.certifier.Store, repo, commit, now); err == nil {
 		if n, _ := os.ReadDir(filepath.Join(ctx.certDir, "reports")); len(n) > 0 {
 			fmt.Printf("✓ %d unit report cards written to %s\n", len(n), filepath.Join(ctx.certDir, "reports"))
 		}

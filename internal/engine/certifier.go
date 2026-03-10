@@ -131,20 +131,11 @@ func (c *Certifier) CollectRepoEvidence() []domain.Evidence {
 	return executor.CollectAll()
 }
 
-// SaveReportArtifacts generates REPORT_CARD.md, badge.json, and per-unit reports
-// from all records in the store. This is a free function usable from both the
-// certify and report commands without constructing a full Certifier.
-func SaveReportArtifacts(certDir string, store *record.Store, repo, commit string, now time.Time) error {
-	records, err := store.ListAll()
-	if err != nil {
-		return err
-	}
-	if len(records) == 0 {
-		return nil
-	}
-
+// SaveReportArtifacts writes REPORT_CARD.md, badge.json, and per-unit reports
+// from a pre-computed FullReport. The caller is responsible for generating the
+// FullReport once; this function only writes artifacts to disk.
+func SaveReportArtifacts(certDir string, fr report.FullReport) error {
 	// Full report card (markdown)
-	fr := report.GenerateFullReport(records, repo, commit, now)
 	md := report.FormatFullMarkdown(fr)
 	if err := os.WriteFile(filepath.Join(certDir, "REPORT_CARD.md"), []byte(md), 0o644); err != nil {
 		return fmt.Errorf("writing REPORT_CARD.md: %w", err)
@@ -156,9 +147,8 @@ func SaveReportArtifacts(certDir string, store *record.Store, repo, commit strin
 		return fmt.Errorf("writing unit reports: %w", err)
 	}
 
-	// Badge
-	card := report.GenerateCard(records, repo, commit, now)
-	badge := report.GenerateBadge(card)
+	// Badge (uses the Card already embedded in FullReport)
+	badge := report.GenerateBadge(fr.Card)
 	if data, err := report.FormatBadgeJSON(badge); err == nil {
 		if writeErr := os.WriteFile(filepath.Join(certDir, "badge.json"), data, 0o644); writeErr != nil {
 			return fmt.Errorf("writing badge.json: %w", writeErr)
@@ -166,4 +156,19 @@ func SaveReportArtifacts(certDir string, store *record.Store, repo, commit strin
 	}
 
 	return nil
+}
+
+// SaveReportArtifactsFromStore is a convenience wrapper that loads records
+// from the store, generates a FullReport, and writes all artifacts.
+// Used by the certify command where no FullReport exists yet.
+func SaveReportArtifactsFromStore(certDir string, store *record.Store, repo, commit string, now time.Time) error {
+	records, err := store.ListAll()
+	if err != nil {
+		return err
+	}
+	if len(records) == 0 {
+		return nil
+	}
+	fr := report.GenerateFullReport(records, repo, commit, now)
+	return SaveReportArtifacts(certDir, fr)
 }
