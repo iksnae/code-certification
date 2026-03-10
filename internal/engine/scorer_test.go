@@ -175,8 +175,8 @@ func TestScore_StructuralDocComment(t *testing.T) {
 			Passed: true,
 			Metrics: map[string]float64{
 				"has_doc_comment": 1.0,
-				"exported_name":  1.0,
-				"param_count":    2,
+				"exported_name":   1.0,
+				"param_count":     2,
 			},
 		},
 	}
@@ -194,8 +194,8 @@ func TestScore_StructuralMissingDocExported(t *testing.T) {
 			Passed: true,
 			Metrics: map[string]float64{
 				"has_doc_comment": 0.0,
-				"exported_name":  1.0,
-				"param_count":    2,
+				"exported_name":   1.0,
+				"param_count":     2,
 			},
 		},
 	}

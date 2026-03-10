@@ -15,9 +15,9 @@ import (
 // After CollectAll(), raw lint findings and coverage profile are retained
 // for per-unit attribution by the certification pipeline.
 type ToolExecutor struct {
-	root             string
-	rawLintFindings  []LintFinding
-	rawCoverProfile  string
+	root            string
+	rawLintFindings []LintFinding
+	rawCoverProfile string
 }
 
 // NewToolExecutor creates a tool executor rooted at the given directory.

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-03-10T16:01:46Z",
-  "commit": "136f372",
-  "unit_count": 559,
+  "generated_at": "2026-03-10T18:21:10Z",
+  "commit": "e31c9a0",
+  "unit_count": 560,
   "records": [
     {
       "unit_id": "go://cmd/certify/certify_cmd.go#certifyContext",
@@ -2066,36 +2066,156 @@
       "unit_id": "go://internal/agent/models.go#ModelInfo",
       "unit_type": "class",
       "unit_path": "internal/agent/models.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B+",
-      "score": 0.8944444444444444,
+      "score": 0.8777777777777778,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 The code correctly implements fallback logic for model listing from OpenAI-compatible and Ollama APIs, but has critical security and error handling flaws.",
-        "💡 Fix the fallback logic to return Ollama models when OpenAI fails, not the original error",
-        "💡 Validate and sanitize the baseURL input before constructing API endpoints to prevent URL injection",
-        "💡 Add proper error handling for io.ReadAll and ensure all errors are logged or returned",
-        "💡 Implement retry logic with exponential backoff for HTTP requests to handle transient failures",
-        "⚠️ URL injection vulnerability due to direct string concatenation with unvalidated base URLs",
-        "⚠️ Resource leak from discarding error when reading HTTP response body",
-        "🔗 The fallback logic is fundamentally broken - it returns the first error instead of the successful fallback result",
-        "🔗 The system may silently fail to discover models from Ollama if OpenAI endpoint fails, leading to incorrect behavior in downstream components"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "6 lines (6 code, 0 comment, 0 blank), 0 TODOs, complexity 0",
+          "metrics": {
+            "blank_lines": 0,
+            "code_lines": 6,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 6
+          },
+          "details": {
+            "blank_lines": 0,
+            "code_lines": 6,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 6
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 87%",
+          "metrics": {
+            "unit_test_coverage": 0.8723404255319149
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 0,
+            "has_doc_comment": 0,
+            "is_constructor": 0,
+            "max_nesting_depth": 0,
+            "naked_returns": 0,
+            "param_count": 0,
+            "return_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -3423,36 +3543,156 @@
       "unit_id": "go://internal/agent/prompts.go#PromptTemplate",
       "unit_type": "class",
       "unit_path": "internal/agent/prompts.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B+",
-      "score": 0.8944444444444444,
+      "score": 0.8777777777777778,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 The code is functionally correct but has critical race conditions, poor error handling for file operations, and lacks proper versioning logic.",
-        "💡 Replace `strings.ReplaceAll` with a proper templating engine like `text/template` to prevent incorrect variable substitution",
-        "💡 Sort glob matches using semantic version comparison instead of lexicographical sorting to ensure correct version selection",
-        "💡 Add input validation for filename patterns and enforce consistent naming conventions",
-        "💡 Implement proper concurrency control around file loading to prevent race conditions during template initialization",
-        "⚠️ Race condition in concurrent access to the same file path during loading",
-        "⚠️ Incorrect variable substitution due to use of strings.ReplaceAll instead of proper templating engine",
-        "🔗 The registry introduces tight coupling between task types and file naming conventions",
-        "🔗 Failure propagation through the registry can cause cascading errors in downstream systems that depend on prompt templates"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "4 lines (4 code, 0 comment, 0 blank), 0 TODOs, complexity 0",
+          "metrics": {
+            "blank_lines": 0,
+            "code_lines": 4,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 4
+          },
+          "details": {
+            "blank_lines": 0,
+            "code_lines": 4,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 4
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 84%",
+          "metrics": {
+            "unit_test_coverage": 0.84375
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 0,
+            "has_doc_comment": 0,
+            "is_constructor": 0,
+            "max_nesting_depth": 0,
+            "naked_returns": 0,
+            "param_count": 0,
+            "return_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -4257,37 +4497,156 @@
       "unit_id": "go://internal/agent/reviewer.go#ToEvidence",
       "unit_type": "method",
       "unit_path": "internal/agent/reviewer.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B+",
-      "score": 0.8944444444444444,
+      "score": 0.8777777777777778,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 The code has functional correctness but suffers from poor error handling, missing input validation, and a lack of proper state management in the Review method.",
-        "💡 Change early return in Review method from returning ReviewResult{} to returning an error indicating that provider or router is nil",
-        "💡 Fix joinModels function by changing loop condition to avoid prepending comma to first element: change `if i \u003e 0` to `if i \u003e 0 { result += \",\" }`",
-        "💡 Add proper error handling to each AI call in Review so that partial failures don't silently drop data",
-        "💡 Validate r.Status and r.Confidence in ToEvidence and ToPrescreenEvidence methods before constructing domain.Evidence",
-        "💡 Log or track token usage and AI call failures for observability and debugging purposes",
-        "⚠️ Early return with empty ReviewResult when provider/router is nil leads to silent failure instead of proper error propagation",
-        "⚠️ Improper comma joining in joinModels function causes malformed model strings",
-        "🔗 The Review method can silently fail and return incomplete results, affecting downstream systems that depend on consistent review outcomes",
-        "🔗 The ToEvidence methods embed raw user-provided data into domain.Evidence without validation, creating potential injection or malformed data risks"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "31 lines (26 code, 2 comment, 3 blank), 0 TODOs, complexity 4",
+          "metrics": {
+            "blank_lines": 3,
+            "code_lines": 26,
+            "comment_lines": 2,
+            "complexity": 4,
+            "todo_count": 0,
+            "total_lines": 31
+          },
+          "details": {
+            "blank_lines": 3,
+            "code_lines": 26,
+            "comment_lines": 2,
+            "complexity": 4,
+            "todo_count": 0,
+            "total_lines": 31
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 93%",
+          "metrics": {
+            "unit_test_coverage": 0.9302325581395349
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=1 nesting=1 doc=true exported=true",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
+            "is_constructor": 0,
+            "max_nesting_depth": 1,
+            "naked_returns": 0,
+            "param_count": 0,
+            "return_count": 1
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -7627,36 +7986,156 @@
       "unit_id": "go://internal/discovery/go_adapter.go#GoAdapter",
       "unit_type": "class",
       "unit_path": "internal/discovery/go_adapter.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B+",
-      "score": 0.8944444444444444,
+      "score": 0.8777777777777778,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 The GoAdapter correctly discovers Go code units but has a critical error handling flaw where parsing errors lead to silent fallbacks instead of proper error propagation.",
-        "💡 Replace the graceful fallback in Scan() with a proper error return or logging to ensure invalid files are flagged",
-        "💡 Add support for handling ast.ValueSpec and ast.VarDecl in parseFile() to capture variable units",
-        "💡 Improve directory filtering by checking if the root path is a subdirectory of any skipped directory to prevent traversing into vendor or testdata",
-        "💡 Ensure that unit ID string comparison in sort.Slice is robust and doesn't rely on lexicographic ordering of complex IDs",
-        "⚠️ Silent error recovery in Scan() leads to incorrect reporting of malformed or unreadable Go files as valid units",
-        "⚠️ Missing support for other AST node types (e.g., var declarations) results in incomplete unit discovery",
-        "🔗 This unit introduces a weak failure mode where invalid Go files are silently treated as valid, causing downstream systems to process incorrect or incomplete data",
-        "🔗 The unit tightly couples to the internal domain.Unit structure and assumes specific ID formats, increasing system fragility"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "1 lines (1 code, 0 comment, 0 blank), 0 TODOs, complexity 0",
+          "metrics": {
+            "blank_lines": 0,
+            "code_lines": 1,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 1
+          },
+          "details": {
+            "blank_lines": 0,
+            "code_lines": 1,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 1
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 81%",
+          "metrics": {
+            "unit_test_coverage": 0.8125
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 0,
+            "has_doc_comment": 0,
+            "is_constructor": 0,
+            "max_nesting_depth": 0,
+            "naked_returns": 0,
+            "param_count": 0,
+            "return_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -9819,37 +10298,156 @@
       "unit_id": "go://internal/domain/expiry.go#Duration",
       "unit_type": "method",
       "unit_path": "internal/domain/expiry.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B+",
-      "score": 0.8944444444444444,
+      "score": 0.8777777777777778,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 The code is functionally correct but has subtle issues with time handling, missing validation, and unclear semantics around expiration logic.",
-        "💡 Simplify `IsExpired` to use only `at.After(w.ExpiresAt)` since equality is already implied by the semantics of After.",
-        "💡 Add validation logic in `ExpiryFactors` to ensure that fields like `ChurnRate`, `TestCoverage`, and `Complexity` are within expected ranges (e.g., 0.0–1.0 for coverage and churn rate).",
-        "💡 Add unit tests covering edge cases such as when `CertifiedAt` is after `ExpiresAt`, or when both times are equal.",
-        "💡 Consider adding documentation to explain how `ExpiryFactors` fields contribute to computing an actual expiry window (e.g., whether they're used in a formula or just influence policy).",
-        "💡 Standardize JSON struct tag formatting (e.g., always use `json:\"field_name\"` without spaces).",
-        "⚠️ Unvalidated input in `ExpiryFactors` fields such as `ChurnRate`, `TestCoverage`, and `Complexity` may result in incorrect or undefined behavior during calculations.",
-        "⚠️ The use of `time.Time` fields without explicit timezone handling can introduce subtle bugs in systems that rely on UTC vs local time.",
-        "🔗 The `ExpiryWindow` type tightly couples to Go's time package and assumes UTC or local timezone semantics, which can cause issues in distributed systems or multi-timezone environments.",
-        "🔗 The `ExpiryFactors` struct introduces a new API surface that is not validated or constrained, increasing the risk of misuse in downstream logic."
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1",
+          "metrics": {
+            "blank_lines": 0,
+            "code_lines": 3,
+            "comment_lines": 1,
+            "complexity": 1,
+            "todo_count": 0,
+            "total_lines": 4
+          },
+          "details": {
+            "blank_lines": 0,
+            "code_lines": 3,
+            "comment_lines": 1,
+            "complexity": 1,
+            "todo_count": 0,
+            "total_lines": 4
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 100%",
+          "metrics": {
+            "unit_test_coverage": 1
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=1 nesting=0 doc=true exported=true",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
+            "is_constructor": 0,
+            "max_nesting_depth": 0,
+            "naked_returns": 0,
+            "param_count": 0,
+            "return_count": 1
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -11822,36 +12420,156 @@
       "unit_id": "go://internal/evidence/executor.go#CollectAll",
       "unit_type": "method",
       "unit_path": "internal/evidence/executor.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B+",
-      "score": 0.8944444444444444,
+      "score": 0.8777777777777778,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 The code has functional correctness but suffers from poor error handling, resource leaks, and missing input validation.",
-        "💡 Add error checking for `coverCmd.Run()` in `runGoTest` and ensure the cover file is properly cleaned up",
-        "💡 Remove the underscore in `output, _ := cmd.CombinedOutput()` on line 105 to handle errors from golangci-lint command",
-        "💡 Improve git log parsing in `runGitStats` to reliably extract earliest commit date instead of assuming last line is earliest",
-        "💡 Add context-based timeouts to all `exec.Command` invocations to prevent hanging processes",
-        "⚠️ Resource leak due to missing error handling in `runGoTest` when removing temp cover file",
-        "⚠️ Silent failure in `runGolangciLint` due to ignored error from command execution",
-        "🔗 The tool executor tightly couples to external tools (go, golangci-lint, git) and assumes their presence and correct behavior",
-        "🔗 Lack of timeouts or concurrency control in `CollectAll` can cause performance bottlenecks and system instability under high load"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "19 lines (16 code, 1 comment, 2 blank), 0 TODOs, complexity 5",
+          "metrics": {
+            "blank_lines": 2,
+            "code_lines": 16,
+            "comment_lines": 1,
+            "complexity": 5,
+            "todo_count": 0,
+            "total_lines": 19
+          },
+          "details": {
+            "blank_lines": 2,
+            "code_lines": 16,
+            "comment_lines": 1,
+            "complexity": 5,
+            "todo_count": 0,
+            "total_lines": 19
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 4%",
+          "metrics": {
+            "unit_test_coverage": 0.0375
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=1 nesting=1 doc=true exported=true",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
+            "is_constructor": 0,
+            "max_nesting_depth": 1,
+            "naked_returns": 0,
+            "param_count": 0,
+            "return_count": 1
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -17899,36 +18617,156 @@
       "unit_id": "go://internal/report/health.go#Health",
       "unit_type": "function",
       "unit_path": "internal/report/health.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8833333333333333,
+      "grade": "B",
+      "score": 0.8666666666666667,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.85,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 The code is functionally correct but has a critical division-by-zero bug and lacks proper error handling for edge cases.",
-        "💡 Add explicit zero-check for `len(records)` before computing `PassRate` and `AverageScore` to prevent division-by-zero errors",
-        "💡 Validate that `r.Score` is non-negative and finite before including it in totalScore calculations to avoid incorrect averages",
-        "💡 Add unit tests for edge cases such as empty input, zero scores, and NaN scores",
-        "💡 Consider returning a more descriptive error or handling edge cases explicitly in the `Health` function instead of silently returning an empty struct",
-        "⚠️ Division-by-zero in `PassRate` and `AverageScore` when records is empty",
-        "⚠️ Potential invalid score handling if `r.Score` is NaN or negative",
-        "🔗 The `HealthReport` struct and its methods form a tightly coupled component in the certification reporting pipeline, affecting downstream consumers that depend on accurate metrics",
-        "🔗 If `Health` is called with an empty slice and the returned struct is used without checking for zero values, downstream logic may misinterpret results"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "39 lines (32 code, 1 comment, 6 blank), 0 TODOs, complexity 9",
+          "metrics": {
+            "blank_lines": 6,
+            "code_lines": 32,
+            "comment_lines": 1,
+            "complexity": 9,
+            "todo_count": 0,
+            "total_lines": 39
+          },
+          "details": {
+            "blank_lines": 6,
+            "code_lines": 32,
+            "comment_lines": 1,
+            "complexity": 9,
+            "todo_count": 0,
+            "total_lines": 39
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 92%",
+          "metrics": {
+            "unit_test_coverage": 0.9210526315789473
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=1 returns=1 nesting=2 doc=true exported=true",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 1,
+            "has_doc_comment": 1,
+            "is_constructor": 0,
+            "max_nesting_depth": 2,
+            "naked_returns": 0,
+            "param_count": 1,
+            "return_count": 1
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -17999,6 +18837,162 @@
       "certified_at": "2026-03-09T20:22:42-04:00",
       "expires_at": "2026-04-23T20:22:42-04:00",
       "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "version": 1
+    },
+    {
+      "unit_id": "go://internal/report/site.go#pkgRow",
+      "unit_type": "class",
+      "unit_path": "internal/report/site.go",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
+      "status": "certified",
+      "grade": "B+",
+      "score": 0.8777777777777778,
+      "confidence": 1,
+      "dimensions": {
+        "architectural_fitness": 0.8,
+        "change_risk": 0.9,
+        "correctness": 0.95,
+        "maintainability": 0.95,
+        "operational_quality": 0.85,
+        "performance_appropriateness": 0.8,
+        "readability": 0.95,
+        "security": 0.8,
+        "testability": 0.9
+      },
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "7 lines (7 code, 0 comment, 0 blank), 0 TODOs, complexity 0",
+          "metrics": {
+            "blank_lines": 0,
+            "code_lines": 7,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 7
+          },
+          "details": {
+            "blank_lines": 0,
+            "code_lines": 7,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 7
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "coverage:unit",
+          "passed": true,
+          "summary": "per-unit coverage: 87%",
+          "metrics": {
+            "unit_test_coverage": 0.8736263736263736
+          },
+          "timestamp": "0001-01-01T00:00:00Z",
+          "confidence": 1
+        },
+        {
+          "kind": "structural",
+          "source": "structural",
+          "passed": true,
+          "summary": "structural: params=0 returns=0 nesting=0 doc=false exported=false",
+          "metrics": {
+            "errors_ignored": 0,
+            "exported_name": 0,
+            "has_doc_comment": 0,
+            "is_constructor": 0,
+            "max_nesting_depth": 0,
+            "naked_returns": 0,
+            "param_count": 0,
+            "return_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
+      ],
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -18190,39 +19184,127 @@
       "unit_id": "ts://extensions/agent-chain.ts",
       "unit_type": "file",
       "unit_path": "extensions/agent-chain.ts",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8833333333333333,
+      "grade": "B",
+      "score": 0.8388888888888889,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
-        "readability": 0.85,
-        "security": 0.85,
+        "performance_appropriateness": 0.8,
+        "readability": 0.6,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 Code has functional correctness but contains critical security and resource management flaws including unsafe subprocess spawning, potential path traversal, and missing error handling in key areas.",
-        "💡 Validate and sanitize all subprocess arguments in `runAgent` using a whitelist approach or proper escaping",
-        "💡 Implement strict input validation for file paths in `scanAgentDirs` and `loadChains` to prevent directory traversal",
-        "💡 Add proper error handling in `runAgent` to capture and report stderr content for debugging",
-        "💡 Use atomic file operations or locking when managing session files to prevent race conditions",
-        "💡 Improve YAML parsing logic to handle multi-line prompts and nested structures properly",
-        "💡 Add proper type checking for all user inputs and tool parameters to prevent runtime errors",
-        "⚠️ Command injection vulnerability in subprocess execution via unvalidated prompt parameters",
-        "⚠️ Path traversal and directory traversal issues in agent file scanning and session management",
-        "🔗 The extension creates a security boundary violation by spawning subprocesses with user-controlled parameters",
-        "🔗 High coupling to the Pi agent system through direct subprocess calls and session file manipulation",
-        "🔗 Failure propagation risk in chain execution where one failed agent stops the entire pipeline without graceful handling"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "797 lines (631 code, 37 comment, 129 blank), 0 TODOs, complexity 0",
+          "metrics": {
+            "blank_lines": 129,
+            "code_lines": 631,
+            "comment_lines": 37,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 797
+          },
+          "details": {
+            "blank_lines": 129,
+            "code_lines": 631,
+            "comment_lines": 37,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 797
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -20120,34 +21202,127 @@
       "unit_id": "ts://vscode-certify/src/types.ts#CertifyCard",
       "unit_type": "class",
       "unit_path": "vscode-certify/src/types.ts",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
-      "grade": "B+",
-      "score": 0.8833333333333333,
+      "grade": "B",
+      "score": 0.8666666666666667,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.85,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 Well-structured TypeScript interfaces with clear JSON schema alignment, but lacks runtime validation and type safety for dynamic usage.",
-        "💡 Add runtime validation or Zod schemas to ensure data conforms to defined interfaces before processing",
-        "💡 Replace `Record\u003cstring, number\u003e` with strongly typed enums or known key-value mappings where possible (e.g., for `grade_distribution` or `dimensions`) to prevent invalid keys from being accepted",
-        "⚠️ Missing runtime type validation for all interfaces, leading to potential runtime errors when data doesn't match expected structure",
-        "⚠️ Use of generic Record types (e.g., `Record\u003cstring, number\u003e`) allows invalid keys to pass through without validation or constraints",
-        "🔗 These interfaces are used as type definitions for JSON parsing and API responses, so incorrect assumptions about structure can propagate throughout the system",
-        "🔗 The lack of strict type checking in consumers of these interfaces increases coupling and makes refactoring harder"
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:03-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 466/466 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6535672514619884,
+            "test_failed": 0,
+            "test_passed": 466,
+            "test_skipped": 0,
+            "test_total": 466
+          },
+          "details": {
+            "coverage": 0.6535672514619884,
+            "failed_count": 0,
+            "passed_count": 466,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 466
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "115 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 115
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "160 lines (140 code, 3 comment, 17 blank), 0 TODOs, complexity 0",
+          "metrics": {
+            "blank_lines": 17,
+            "code_lines": 140,
+            "comment_lines": 3,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 160
+          },
+          "details": {
+            "blank_lines": 17,
+            "code_lines": 140,
+            "comment_lines": 3,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 160
+          },
+          "timestamp": "2026-03-10T14:21:10-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T14:21:10-04:00",
+      "expires_at": "2026-04-24T14:21:10-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T182103Z",
       "version": 1
     },
     {
@@ -20610,6 +21785,21 @@
       "units_failed": 0,
       "overall_grade": "B+",
       "overall_score": 0.889992049294374
+    },
+    {
+      "id": "run-20260310T182103Z",
+      "started_at": "2026-03-10T14:21:03.453718-04:00",
+      "completed_at": "2026-03-10T14:21:10.653423-04:00",
+      "commit": "e31c9a0",
+      "policy_versions": [
+        "global@1.0.0",
+        "go-standard@1.0.0"
+      ],
+      "units_processed": 10,
+      "units_certified": 10,
+      "units_failed": 0,
+      "overall_grade": "B+",
+      "overall_score": 0.889652777777777
     }
   ]
 }

@@ -38,8 +38,8 @@ type Certifier struct {
 	PolicyVersions []string            // active policy pack versions ("name@version")
 
 	// Per-unit attribution data (set by CollectRepoEvidence or manually for tests)
-	RepoLintFindings  []evidence.LintFinding // raw lint findings for per-unit attribution
-	RepoCoverProfile  string                 // raw coverage profile for per-unit coverage
+	RepoLintFindings []evidence.LintFinding // raw lint findings for per-unit attribution
+	RepoCoverProfile string                 // raw coverage profile for per-unit coverage
 }
 
 // Certify runs the full certification pipeline for a single unit.
@@ -110,10 +110,13 @@ func (c *Certifier) Certify(ctx context.Context, unit domain.Unit, repoEvidence 
 
 		// 3d. Structural analysis (Go only)
 		if isGo && sym != "" {
-			structural := evidence.AnalyzeGoFunc(srcCode, sym)
+			var structural evidence.StructuralMetrics
+			if unit.Type == domain.UnitTypeClass {
+				structural = evidence.AnalyzeGoType(srcCode, sym)
+			} else {
+				structural = evidence.AnalyzeGoFunc(srcCode, sym)
+			}
 			ev = append(ev, structural.ToEvidence())
-		} else if isGo && sym == "" {
-			// File-level: no structural analysis for file units
 		}
 	}
 
@@ -191,7 +194,8 @@ func (c *Certifier) CollectRepoEvidence() []domain.Evidence {
 // language breakdown, package links, and top issues.
 //
 // The reports/ tree contains navigable markdown certificates:
-//   reports/index.md → reports/<pkg>/index.md → reports/<pkg>/<file>/<symbol>.md
+//
+//	reports/index.md → reports/<pkg>/index.md → reports/<pkg>/<file>/<symbol>.md
 //
 // For the full per-unit report, use `certify report --format full`.
 // For interactive browsing, use `certify report --site`.

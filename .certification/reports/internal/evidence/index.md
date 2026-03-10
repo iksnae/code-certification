@@ -2,52 +2,52 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
+**Grade:** 🟢 B+ (88.8%)  
 **Units:** 39 · **Passing:** 39 / 39
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [complexity_test.go](complexity_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-23 |
 | [metrics_test.go](metrics_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-23 |
 | [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-23 |
 | [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-23 |
+| [complexity_test.go](complexity_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-23 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-24 |
 | [containsTodo](metrics.go/containsTodo.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [git_test.go](git_test.go.md) | file | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [runner_test.go](runner_test.go.md) | file | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [ParseGolangciLintJSON](runner.go/ParseGolangciLintJSON.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [ParseCoverProfile](runner.go/ParseCoverProfile.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [runGoTest](executor.go/runGoTest.md) | method | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [ParseCoverProfile](runner.go/ParseCoverProfile.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [ComputeGoComplexity](complexity.go/ComputeGoComplexity.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [ToEvidence](metrics.go/ToEvidence.md) | method | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [lint_test.go](lint_test.go.md) | file | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [runGolangciLint](executor.go/runGolangciLint.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [Collector](collector.go/Collector.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [LintFinding](lint.go/LintFinding.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [LintResult](lint.go/LintResult.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [TestResult](lint.go/TestResult.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
+| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
+| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
+| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
+| [Collector](collector.go/Collector.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [ToEvidence](git.go/ToEvidence.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [runGoVet](executor.go/runGoVet.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-23 |
+| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [ToolExecutor](executor.go/ToolExecutor.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [NewToolExecutor](executor.go/NewToolExecutor.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 | [simpleAtoi](runner.go/simpleAtoi.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-23 |
-| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
+| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B+ | 89.4% | certified | 2026-04-23 |
 
 ---
 

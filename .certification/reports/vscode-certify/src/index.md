@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
+**Grade:** 🟢 B+ (88.3%)  
 **Units:** 31 · **Passing:** 31 / 31
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 B | 86.7% | certified | 2026-04-24 |
 | [deactivate](extension.ts/deactivate.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [listModels](certifyBinary.ts/listModels.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [IndexEntry](types.ts/IndexEntry.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [promptInstall](certifyBinary.ts/promptInstall.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [runCertify](certifyBinary.ts/runCertify.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [runCertifyJSON](certifyBinary.ts/runCertifyJSON.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
@@ -23,16 +23,16 @@
 | [PROVIDER_PRESETS](constants.ts/PROVIDER_PRESETS.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [CertifyDataLoader](dataLoader.ts/CertifyDataLoader.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [activate](extension.ts/activate.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [findCertifyBinary](certifyBinary.ts/findCertifyBinary.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [RunResult](certifyBinary.ts/RunResult.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [BadgeJSON](types.ts/BadgeJSON.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [listModels](certifyBinary.ts/listModels.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [UnitReport](types.ts/UnitReport.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [LanguageCard](types.ts/LanguageCard.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [findCertifyBinary](certifyBinary.ts/findCertifyBinary.md) | function | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [CertifyConfig](types.ts/CertifyConfig.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [FullReport](types.ts/FullReport.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [IndexEntry](types.ts/IndexEntry.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [IssueCard](types.ts/IssueCard.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
-| [LanguageCard](types.ts/LanguageCard.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
+| [BadgeJSON](types.ts/BadgeJSON.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [LanguageDetail](types.ts/LanguageDetail.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [ModelAssignments](types.ts/ModelAssignments.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
 | [ModelInfo](types.ts/ModelInfo.md) | class | 🟢 B+ | 88.3% | certified | 2026-04-23 |
