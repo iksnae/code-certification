@@ -1,0 +1,318 @@
+package evidence_test
+
+import (
+	"testing"
+
+	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/evidence"
+)
+
+func TestAnalyzeGoFunc_WithDocComment(t *testing.T) {
+	src := `package foo
+
+// Greet says hello to the user.
+func Greet(name string) string {
+	return "hello " + name
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Greet")
+	if !m.HasDocComment {
+		t.Error("HasDocComment should be true")
+	}
+	if !m.ExportedName {
+		t.Error("ExportedName should be true for Greet")
+	}
+}
+
+func TestAnalyzeGoFunc_WithoutDocComment(t *testing.T) {
+	src := `package foo
+
+func Greet(name string) string {
+	return "hello " + name
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Greet")
+	if m.HasDocComment {
+		t.Error("HasDocComment should be false")
+	}
+}
+
+func TestAnalyzeGoFunc_UnexportedNoDocPenalty(t *testing.T) {
+	src := `package foo
+
+func greet(name string) string {
+	return "hello " + name
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "greet")
+	if m.ExportedName {
+		t.Error("ExportedName should be false for lowercase greet")
+	}
+	if m.HasDocComment {
+		t.Error("HasDocComment should be false")
+	}
+}
+
+func TestAnalyzeGoFunc_ParamCount(t *testing.T) {
+	src := `package foo
+
+func Process(a int, b string, c bool, d float64, e []byte) error {
+	return nil
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Process")
+	if m.ParamCount != 5 {
+		t.Errorf("ParamCount = %d, want 5", m.ParamCount)
+	}
+}
+
+func TestAnalyzeGoFunc_ZeroParams(t *testing.T) {
+	src := `package foo
+
+func NoArgs() {}
+`
+	m := evidence.AnalyzeGoFunc(src, "NoArgs")
+	if m.ParamCount != 0 {
+		t.Errorf("ParamCount = %d, want 0", m.ParamCount)
+	}
+}
+
+func TestAnalyzeGoFunc_ReturnCount(t *testing.T) {
+	src := `package foo
+
+func Multi() (int, string, error) {
+	return 0, "", nil
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Multi")
+	if m.ReturnCount != 3 {
+		t.Errorf("ReturnCount = %d, want 3", m.ReturnCount)
+	}
+}
+
+func TestAnalyzeGoFunc_NestingDepth(t *testing.T) {
+	src := `package foo
+
+func Deep(x int) {
+	if x > 0 {
+		for i := 0; i < x; i++ {
+			if i%2 == 0 {
+				if i > 5 {
+					println(i)
+				}
+			}
+		}
+	}
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Deep")
+	if m.MaxNestingDepth != 4 {
+		t.Errorf("MaxNestingDepth = %d, want 4", m.MaxNestingDepth)
+	}
+}
+
+func TestAnalyzeGoFunc_FlatNesting(t *testing.T) {
+	src := `package foo
+
+func Flat() {
+	println("hello")
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Flat")
+	if m.MaxNestingDepth != 0 {
+		t.Errorf("MaxNestingDepth = %d, want 0", m.MaxNestingDepth)
+	}
+}
+
+func TestAnalyzeGoFunc_NakedReturns(t *testing.T) {
+	src := `package foo
+
+func WithNaked() (result int, err error) {
+	result = 42
+	return
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "WithNaked")
+	if m.NakedReturns != 1 {
+		t.Errorf("NakedReturns = %d, want 1", m.NakedReturns)
+	}
+}
+
+func TestAnalyzeGoFunc_NoNakedReturns(t *testing.T) {
+	src := `package foo
+
+func Explicit() (int, error) {
+	return 42, nil
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Explicit")
+	if m.NakedReturns != 0 {
+		t.Errorf("NakedReturns = %d, want 0", m.NakedReturns)
+	}
+}
+
+func TestAnalyzeGoFunc_ErrorsIgnored(t *testing.T) {
+	src := `package foo
+
+import "os"
+
+func BadError() {
+	_, _ = os.Open("file.txt")
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "BadError")
+	if m.ErrorsIgnored != 1 {
+		t.Errorf("ErrorsIgnored = %d, want 1", m.ErrorsIgnored)
+	}
+}
+
+func TestAnalyzeGoFunc_ErrorsNotIgnored(t *testing.T) {
+	src := `package foo
+
+import "os"
+
+func GoodError() error {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		return err
+	}
+	_ = f
+	return nil
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "GoodError")
+	if m.ErrorsIgnored != 0 {
+		t.Errorf("ErrorsIgnored = %d, want 0", m.ErrorsIgnored)
+	}
+}
+
+func TestAnalyzeGoFunc_Constructor(t *testing.T) {
+	src := `package foo
+
+func NewFoo() *Foo {
+	return &Foo{}
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "NewFoo")
+	if !m.IsConstructor {
+		t.Error("IsConstructor should be true for NewFoo")
+	}
+}
+
+func TestAnalyzeGoFunc_NotConstructor(t *testing.T) {
+	src := `package foo
+
+func DoStuff() {}
+`
+	m := evidence.AnalyzeGoFunc(src, "DoStuff")
+	if m.IsConstructor {
+		t.Error("IsConstructor should be false for DoStuff")
+	}
+}
+
+func TestAnalyzeGoFunc_Method(t *testing.T) {
+	src := `package foo
+
+type Server struct{}
+
+// Handle processes a request.
+func (s *Server) Handle(req string) error {
+	return nil
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Handle")
+	if m.ReceiverName != "Server" {
+		t.Errorf("ReceiverName = %q, want Server", m.ReceiverName)
+	}
+	if !m.HasDocComment {
+		t.Error("HasDocComment should be true")
+	}
+	if m.ParamCount != 1 {
+		t.Errorf("ParamCount = %d, want 1 (excluding receiver)", m.ParamCount)
+	}
+}
+
+func TestAnalyzeGoType_WithDoc(t *testing.T) {
+	src := `package foo
+
+// Config holds application configuration.
+type Config struct {
+	Host string
+	Port int
+}
+`
+	m := evidence.AnalyzeGoType(src, "Config")
+	if !m.HasDocComment {
+		t.Error("HasDocComment should be true for Config")
+	}
+	if !m.ExportedName {
+		t.Error("ExportedName should be true")
+	}
+}
+
+func TestAnalyzeGoType_WithoutDoc(t *testing.T) {
+	src := `package foo
+
+type config struct {
+	host string
+}
+`
+	m := evidence.AnalyzeGoType(src, "config")
+	if m.HasDocComment {
+		t.Error("HasDocComment should be false")
+	}
+	if m.ExportedName {
+		t.Error("ExportedName should be false")
+	}
+}
+
+func TestStructuralMetrics_ToEvidence(t *testing.T) {
+	m := evidence.StructuralMetrics{
+		HasDocComment:   true,
+		ParamCount:      3,
+		ReturnCount:     2,
+		MaxNestingDepth: 1,
+		NakedReturns:    0,
+		ErrorsIgnored:   0,
+		ExportedName:    true,
+		IsConstructor:   false,
+	}
+	ev := m.ToEvidence()
+
+	if ev.Kind != domain.EvidenceKindStructural {
+		t.Errorf("Kind = %v, want structural", ev.Kind)
+	}
+	if ev.Source != "structural" {
+		t.Errorf("Source = %q, want structural", ev.Source)
+	}
+	if ev.Metrics["has_doc_comment"] != 1.0 {
+		t.Errorf("has_doc_comment = %f, want 1.0", ev.Metrics["has_doc_comment"])
+	}
+	if ev.Metrics["param_count"] != 3 {
+		t.Errorf("param_count = %f, want 3", ev.Metrics["param_count"])
+	}
+	if ev.Metrics["return_count"] != 2 {
+		t.Errorf("return_count = %f, want 2", ev.Metrics["return_count"])
+	}
+	if ev.Metrics["exported_name"] != 1.0 {
+		t.Errorf("exported_name = %f, want 1.0", ev.Metrics["exported_name"])
+	}
+}
+
+func TestAnalyzeGoFunc_ParseError(t *testing.T) {
+	m := evidence.AnalyzeGoFunc("not valid go code {{{", "Foo")
+	if m.ParamCount != 0 && m.ReturnCount != 0 {
+		t.Error("parse error should return zero metrics")
+	}
+}
+
+func TestAnalyzeGoFunc_NotFound(t *testing.T) {
+	src := `package foo
+
+func Bar() {}
+`
+	m := evidence.AnalyzeGoFunc(src, "NonExistent")
+	if m.ParamCount != 0 {
+		t.Error("not-found symbol should return zero metrics")
+	}
+}
