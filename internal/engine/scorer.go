@@ -55,6 +55,9 @@ func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.Dime
 		case domain.EvidenceKindGitHistory:
 			scoreFromGitHistory(e, scores)
 
+		case domain.EvidenceKindStructural:
+			scoreFromStructural(e, scores)
+
 		case domain.EvidenceKindAgentReview:
 			// Agent review provides direct confidence-weighted scores
 			if e.Passed {
@@ -106,6 +109,49 @@ func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
 	}
 
 	// TODO count already handled by violation penalties
+}
+
+func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
+	if e.Metrics == nil {
+		return
+	}
+
+	// Doc comment presence
+	hasDoc := e.Metrics["has_doc_comment"]
+	exported := e.Metrics["exported_name"]
+	if hasDoc == 1.0 {
+		scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.90)
+	} else if exported == 1.0 {
+		// Exported without doc = readability penalty
+		scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.70)
+	}
+
+	// Parameter count
+	params := int(e.Metrics["param_count"])
+	if params > 5 {
+		penalty := float64(params-5) * 0.10
+		scores[domain.DimMaintainability] = max(0, scores[domain.DimMaintainability]-penalty)
+	}
+
+	// Nesting depth
+	nesting := int(e.Metrics["max_nesting_depth"])
+	if nesting > 3 {
+		penalty := float64(nesting-3) * 0.05
+		scores[domain.DimReadability] = max(0, scores[domain.DimReadability]-penalty)
+	}
+
+	// Ignored errors
+	ignored := int(e.Metrics["errors_ignored"])
+	if ignored > 0 {
+		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.60)
+	}
+
+	// Naked returns
+	naked := int(e.Metrics["naked_returns"])
+	if naked > 0 {
+		penalty := float64(naked) * 0.05
+		scores[domain.DimReadability] = max(0, scores[domain.DimReadability]-penalty)
+	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {

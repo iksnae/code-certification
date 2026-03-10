@@ -167,6 +167,142 @@ func TestScorer_MetricsBasedScoring(t *testing.T) {
 	}
 }
 
+func TestScore_StructuralDocComment(t *testing.T) {
+	ev := []domain.Evidence{
+		{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"has_doc_comment": 1.0,
+				"exported_name":  1.0,
+				"param_count":    2,
+			},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimReadability] < 0.90 {
+		t.Errorf("documented func readability = %f, want >= 0.90", scores[domain.DimReadability])
+	}
+}
+
+func TestScore_StructuralMissingDocExported(t *testing.T) {
+	ev := []domain.Evidence{
+		{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"has_doc_comment": 0.0,
+				"exported_name":  1.0,
+				"param_count":    2,
+			},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimReadability] > 0.75 {
+		t.Errorf("undocumented exported func readability = %f, want <= 0.75", scores[domain.DimReadability])
+	}
+}
+
+func TestScore_StructuralHighParamCount(t *testing.T) {
+	ev := []domain.Evidence{
+		{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"param_count": 8,
+			},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimMaintainability] > 0.60 {
+		t.Errorf("8-param func maintainability = %f, want <= 0.60", scores[domain.DimMaintainability])
+	}
+}
+
+func TestScore_StructuralDeepNesting(t *testing.T) {
+	ev := []domain.Evidence{
+		{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"max_nesting_depth": 5,
+			},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimReadability] > 0.75 {
+		t.Errorf("deep nesting readability = %f, want <= 0.75", scores[domain.DimReadability])
+	}
+}
+
+func TestScore_StructuralIgnoredErrors(t *testing.T) {
+	ev := []domain.Evidence{
+		{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"errors_ignored": 2,
+			},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimCorrectness] > 0.65 {
+		t.Errorf("ignored errors correctness = %f, want <= 0.65", scores[domain.DimCorrectness])
+	}
+}
+
+func TestScore_PerUnitLintOverride(t *testing.T) {
+	ev := []domain.Evidence{
+		// Repo-wide lint fails
+		{
+			Kind:    domain.EvidenceKindLint,
+			Source:  "golangci-lint",
+			Passed:  false,
+			Metrics: map[string]float64{"lint_errors": 5},
+		},
+		// Per-unit lint is clean
+		{
+			Kind:    domain.EvidenceKindLint,
+			Source:  "golangci-lint:unit",
+			Passed:  true,
+			Metrics: map[string]float64{"unit_lint_errors": 0, "unit_lint_warnings": 0},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	// Per-unit clean should override repo-wide failure
+	if scores[domain.DimCorrectness] < 0.85 {
+		t.Errorf("per-unit clean lint correctness = %f, want >= 0.85", scores[domain.DimCorrectness])
+	}
+}
+
+func TestScore_PerUnitCoverage(t *testing.T) {
+	ev := []domain.Evidence{
+		// Repo-wide test passes with low coverage
+		{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "go test",
+			Passed:  true,
+			Metrics: map[string]float64{"test_coverage": 0.50},
+		},
+		// Per-unit coverage is high
+		{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "coverage:unit",
+			Passed:  true,
+			Metrics: map[string]float64{"unit_test_coverage": 0.95},
+		},
+	}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	if scores[domain.DimTestability] < 0.90 {
+		t.Errorf("high per-unit coverage testability = %f, want >= 0.90", scores[domain.DimTestability])
+	}
+}
+
 func TestScorer_RichEvidence_HighScore(t *testing.T) {
 	ev := []domain.Evidence{
 		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 0}.ToEvidence(),
