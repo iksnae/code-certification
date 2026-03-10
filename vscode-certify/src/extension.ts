@@ -17,21 +17,25 @@ export function activate(context: vscode.ExtensionContext): void {
   const workspaceRoot = workspaceFolders[0].uri.fsPath;
   const dataLoader = new CertifyDataLoader(workspaceRoot);
 
-  // Set context for view visibility
-  vscode.commands.executeCommand('setContext', 'certify:hasData', dataLoader.hasCertification);
-  dataLoader.onDataChanged(() => {
-    vscode.commands.executeCommand('setContext', 'certify:hasData', dataLoader.hasCertification);
-  });
+  // Detect project state and set contexts
+  function updateContexts(): void {
+    const state = dataLoader.detectProjectState();
+    vscode.commands.executeCommand('setContext', 'certify:hasData', state === 'ready' || state === 'workspace');
+    vscode.commands.executeCommand('setContext', 'certify:isWorkspace', state === 'workspace');
+    vscode.commands.executeCommand('setContext', 'certify:hasConfig', state !== 'no-config');
+  }
+  updateContexts();
+  dataLoader.onDataChanged(() => updateContexts());
 
   // Status bar
   const statusBar = createStatusBarItem(dataLoader);
   context.subscriptions.push(statusBar);
 
-  // Tree view
+  // Tree view — always registered, shows state-appropriate content
   const treeProvider = new CertificationTreeProvider(dataLoader, workspaceRoot);
   vscode.window.registerTreeDataProvider('certifyUnits', treeProvider);
 
-  // CodeLens
+  // CodeLens — only useful when data exists
   const codeLensProvider = new CertifyCodeLensProvider(dataLoader, workspaceRoot);
   context.subscriptions.push(
     vscode.languages.registerCodeLensProvider({ language: 'go' }, codeLensProvider),
@@ -45,19 +49,29 @@ export function activate(context: vscode.ExtensionContext): void {
 
   // Commands
   context.subscriptions.push(
+    // Init
+    vscode.commands.registerCommand('certify.init', async () => {
+      if (!await ensureBinary()) return;
+      runInTerminal(['init'], workspaceRoot);
+    }),
+
+    // Dashboard
     vscode.commands.registerCommand('certify.openDashboard', () => {
       DashboardPanel.createOrShow(dataLoader);
     }),
 
+    // Configure
     vscode.commands.registerCommand('certify.configureProvider', () => {
       ConfigPanel.createOrShow(workspaceRoot, context.secrets);
     }),
 
+    // Scan
     vscode.commands.registerCommand('certify.scan', async () => {
       if (!await ensureBinary()) return;
       runInTerminal(['scan'], workspaceRoot);
     }),
 
+    // Certify
     vscode.commands.registerCommand('certify.certify', async () => {
       if (!await ensureBinary()) return;
       const choice = await vscode.window.showQuickPick([
@@ -69,12 +83,35 @@ export function activate(context: vscode.ExtensionContext): void {
       if (choice) runInTerminal(choice.args, workspaceRoot);
     }),
 
+    // Report
     vscode.commands.registerCommand('certify.report', async () => {
       if (!await ensureBinary()) return;
       runInTerminal(['report'], workspaceRoot);
       DashboardPanel.createOrShow(dataLoader);
     }),
 
+    // Workspace commands
+    vscode.commands.registerCommand('certify.workspaceScan', async () => {
+      if (!await ensureBinary()) return;
+      runInTerminal(['scan', '--workspace'], workspaceRoot);
+    }),
+
+    vscode.commands.registerCommand('certify.workspaceCertify', async () => {
+      if (!await ensureBinary()) return;
+      const choice = await vscode.window.showQuickPick([
+        { label: 'Quick (deterministic only)', args: ['certify', '--workspace', '--skip-agent', '--reset-queue'] },
+        { label: 'Conservative (free AI)', args: ['certify', '--workspace', '--reset-queue'] },
+        { label: 'Full batch (all units)', args: ['certify', '--workspace', '--reset-queue'] },
+      ], { title: 'Certify Workspace: Choose Mode' });
+      if (choice) runInTerminal(choice.args, workspaceRoot);
+    }),
+
+    vscode.commands.registerCommand('certify.workspaceReport', async () => {
+      if (!await ensureBinary()) return;
+      runInTerminal(['report', '--workspace'], workspaceRoot);
+    }),
+
+    // Existing utility commands
     vscode.commands.registerCommand('certify.listModels', () => {
       ConfigPanel.createOrShow(workspaceRoot, context.secrets);
     }),
@@ -102,8 +139,10 @@ export function activate(context: vscode.ExtensionContext): void {
   );
 
   // Settings sync: VS Code settings ↔ .certification/config.yml
-  activateSettingsSync(context, workspaceRoot);
-  bootstrapFromConfig(workspaceRoot);
+  if (dataLoader.hasCertification) {
+    activateSettingsSync(context, workspaceRoot);
+    bootstrapFromConfig(workspaceRoot);
+  }
 
   // Cleanup
   context.subscriptions.push({ dispose: () => dataLoader.dispose() });

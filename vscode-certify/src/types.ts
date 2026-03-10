@@ -145,3 +145,16 @@ export interface ProviderPreset {
   local: boolean;
   description: string;
 }
+
+// Workspace / sidebar state types
+
+export interface SubmoduleInfo {
+  name: string;
+  path: string;
+  hasConfig: boolean;
+  grade?: string;
+  score?: number;
+  units?: number;
+}
+
+export type ProjectState = 'no-config' | 'config-no-data' | 'ready' | 'workspace';

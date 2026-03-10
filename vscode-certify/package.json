@@ -2,7 +2,7 @@
   "name": "certify-vscode",
   "displayName": "Certify",
   "description": "Code trust, with an expiration date — view report cards, configure AI providers, run certification",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "publisher": "iksnae",
   "license": "MIT",
   "icon": "icon.png",
@@ -36,6 +36,9 @@
   ],
   "activationEvents": [
     "workspaceContains:.certification/config.yml",
+    "workspaceContains:.gitmodules",
+    "onView:certifyUnits",
+    "onCommand:certify.init",
     "onCommand:certify.openDashboard",
     "onCommand:certify.scan",
     "onCommand:certify.certify",
@@ -43,30 +46,43 @@
     "onCommand:certify.configureProvider",
     "onCommand:certify.listModels",
     "onCommand:certify.testConnection",
-    "onCommand:certify.installCLI"
+    "onCommand:certify.installCLI",
+    "onCommand:certify.workspaceScan",
+    "onCommand:certify.workspaceCertify",
+    "onCommand:certify.workspaceReport"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
+        "command": "certify.init",
+        "title": "Certify: Initialize Repository",
+        "icon": "$(add)"
+      },
+      {
         "command": "certify.scan",
-        "title": "Certify: Scan Repository"
+        "title": "Certify: Scan Repository",
+        "icon": "$(search)"
       },
       {
         "command": "certify.certify",
-        "title": "Certify: Run Certification"
+        "title": "Certify: Run Certification",
+        "icon": "$(shield)"
       },
       {
         "command": "certify.report",
-        "title": "Certify: Generate Report"
+        "title": "Certify: Generate Report",
+        "icon": "$(graph)"
       },
       {
         "command": "certify.openDashboard",
-        "title": "Certify: Open Dashboard"
+        "title": "Certify: Open Dashboard",
+        "icon": "$(dashboard)"
       },
       {
         "command": "certify.configureProvider",
-        "title": "Certify: Configure AI Provider"
+        "title": "Certify: Configure AI Provider",
+        "icon": "$(gear)"
       },
       {
         "command": "certify.listModels",
@@ -83,14 +99,62 @@
       {
         "command": "certify.openUnit",
         "title": "Certify: Go to Unit Source"
+      },
+      {
+        "command": "certify.workspaceScan",
+        "title": "Certify: Scan Workspace",
+        "icon": "$(search)"
+      },
+      {
+        "command": "certify.workspaceCertify",
+        "title": "Certify: Certify Workspace",
+        "icon": "$(shield)"
+      },
+      {
+        "command": "certify.workspaceReport",
+        "title": "Certify: Workspace Report",
+        "icon": "$(graph)"
       }
     ],
     "views": {
       "explorer": [
         {
           "id": "certifyUnits",
-          "name": "Certify",
-          "when": "certify:hasData"
+          "name": "Certify"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "certify.scan",
+          "when": "view == certifyUnits && !certify:isWorkspace",
+          "group": "navigation"
+        },
+        {
+          "command": "certify.certify",
+          "when": "view == certifyUnits && !certify:isWorkspace",
+          "group": "navigation"
+        },
+        {
+          "command": "certify.openDashboard",
+          "when": "view == certifyUnits && certify:hasData",
+          "group": "navigation"
+        },
+        {
+          "command": "certify.workspaceScan",
+          "when": "view == certifyUnits && certify:isWorkspace",
+          "group": "navigation"
+        },
+        {
+          "command": "certify.workspaceCertify",
+          "when": "view == certifyUnits && certify:isWorkspace",
+          "group": "navigation"
+        },
+        {
+          "command": "certify.workspaceReport",
+          "when": "view == certifyUnits && certify:isWorkspace",
+          "group": "navigation"
         }
       ]
     },

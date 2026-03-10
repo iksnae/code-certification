@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
-import type { IndexEntry, RecordJSON, BadgeJSON, FullReport, CertifyConfig, LanguageDetail } from './types.js';
+import type { IndexEntry, RecordJSON, BadgeJSON, FullReport, CertifyConfig, LanguageDetail, SubmoduleInfo, ProjectState } from './types.js';
 import { GRADE_COLORS } from './constants.js';
 import { runCertifyJSON } from './certifyBinary.js';
 
@@ -26,6 +26,93 @@ export class CertifyDataLoader {
 
   get hasCertification(): boolean {
     return fs.existsSync(path.join(this.certDir, 'config.yml'));
+  }
+
+  get hasGitSubmodules(): boolean {
+    return fs.existsSync(path.join(this.workspaceRoot, '.gitmodules'));
+  }
+
+  detectProjectState(): ProjectState {
+    // Check for workspace mode: .gitmodules with at least one configured submodule
+    if (this.hasGitSubmodules) {
+      try {
+        const subs = this.parseGitmodules();
+        const hasConfiguredSub = subs.some(s =>
+          fs.existsSync(path.join(this.workspaceRoot, s.path, '.certification', 'config.yml'))
+        );
+        if (hasConfiguredSub) return 'workspace';
+      } catch {
+        // fall through to single-repo detection
+      }
+    }
+
+    if (!this.hasCertification) return 'no-config';
+
+    // Check for records
+    const recordsDir = path.join(this.certDir, 'records');
+    try {
+      const files = fs.readdirSync(recordsDir);
+      if (files.some(f => f.endsWith('.json') && !f.endsWith('.history.jsonl'))) {
+        return 'ready';
+      }
+    } catch {
+      // no records dir
+    }
+
+    return 'config-no-data';
+  }
+
+  private parseGitmodules(): Array<{ name: string; path: string }> {
+    const content = fs.readFileSync(path.join(this.workspaceRoot, '.gitmodules'), 'utf-8');
+    const results: Array<{ name: string; path: string }> = [];
+    let current: { name: string; path: string } | null = null;
+
+    for (const line of content.split('\n')) {
+      const trimmed = line.trim();
+      const sectionMatch = trimmed.match(/^\[submodule\s+"(.+)"\]$/);
+      if (sectionMatch) {
+        if (current?.path) results.push(current);
+        current = { name: sectionMatch[1], path: '' };
+        continue;
+      }
+      if (current) {
+        const pathMatch = trimmed.match(/^path\s*=\s*(.+)$/);
+        if (pathMatch) current.path = pathMatch[1].trim();
+      }
+    }
+    if (current?.path) results.push(current);
+    return results;
+  }
+
+  discoverSubmodules(): SubmoduleInfo[] {
+    if (!this.hasGitSubmodules) return [];
+    try {
+      const subs = this.parseGitmodules();
+      return subs.map(s => {
+        const certDir = path.join(this.workspaceRoot, s.path, '.certification');
+        const hasConfig = fs.existsSync(path.join(certDir, 'config.yml'));
+        const info: SubmoduleInfo = { name: s.name, path: s.path, hasConfig };
+
+        if (hasConfig) {
+          // Try to load badge for quick grade/score
+          try {
+            const badgeData = fs.readFileSync(path.join(certDir, 'badge.json'), 'utf-8');
+            const badge = JSON.parse(badgeData);
+            const parts = badge.message?.split(' ') ?? [];
+            if (parts[0]) info.grade = parts[0];
+          } catch { /* no badge */ }
+
+          // Count records
+          try {
+            const files = fs.readdirSync(path.join(certDir, 'records'));
+            info.units = files.filter((f: string) => f.endsWith('.json') && !f.endsWith('.history.jsonl')).length;
+          } catch { /* no records */ }
+        }
+        return info;
+      }).sort((a, b) => a.name.localeCompare(b.name));
+    } catch {
+      return [];
+    }
   }
 
   async loadIndex(): Promise<IndexEntry[]> {
