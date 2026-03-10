@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-03-10T15:52:27Z",
-  "commit": "df9fb30",
+  "generated_at": "2026-03-10T16:01:46Z",
+  "commit": "136f372",
   "unit_count": 559,
   "records": [
     {
@@ -10507,37 +10507,127 @@
       "unit_id": "go://internal/domain/record.go#Status",
       "unit_type": "class",
       "unit_path": "internal/domain/record.go",
-      "policy_version": "",
+      "policy_version": "global@1.0.0,go-standard@1.0.0",
       "status": "certified",
       "grade": "B+",
-      "score": 0.8944444444444444,
+      "score": 0.8777777777777778,
       "confidence": 1,
       "dimensions": {
-        "architectural_fitness": 0.85,
+        "architectural_fitness": 0.8,
         "change_risk": 0.9,
         "correctness": 0.95,
         "maintainability": 0.95,
         "operational_quality": 0.85,
-        "performance_appropriateness": 0.85,
+        "performance_appropriateness": 0.8,
         "readability": 0.95,
-        "security": 0.85,
+        "security": 0.8,
         "testability": 0.9
       },
-      "observations": [
-        "🤖 Well-structured status enum with string conversion, but contains a critical race condition in initialization and lacks proper error handling for malformed inputs.",
-        "💡 Use atomic operations or sync.Once to ensure `stringToStatus` initialization is safe for concurrent access.",
-        "💡 Add input sanitization in `ParseStatus` to trim whitespace and normalize case before lookup.",
-        "💡 Validate `Score` and `Confidence` fields to ensure they fall within expected ranges (e.g., 0.0 to 1.0).",
-        "💡 Add validation logic in `CertificationRecord` struct methods or constructors to ensure data integrity (e.g., `ExpiresAt` after `CertifiedAt`).",
-        "💡 Consider adding unit tests for edge cases in `ParseStatus` (e.g., empty string, whitespace-only strings, case variations).",
-        "⚠️ Race condition in `init()` function where `stringToStatus` is populated non-atomically, leading to potential data races during concurrent access.",
-        "⚠️ Lack of input sanitization in `ParseStatus` — does not trim whitespace or normalize case, which can cause silent failures or misinterpretation of inputs.",
-        "🔗 The `Status` enum and its string conversion functions form part of the public API surface for certification systems, so any change here affects all consumers relying on string parsing.",
-        "🔗 The `CertificationRecord` struct tightly couples status, grade, and evidence fields without validation or consistency checks, increasing the risk of propagating invalid or inconsistent state across services."
+      "evidence": [
+        {
+          "kind": "lint",
+          "source": "go vet",
+          "passed": true,
+          "summary": "go vet: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "go vet",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T12:01:32-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "test",
+          "source": "go test",
+          "passed": true,
+          "summary": "go test: 385/385 passed (65% coverage)",
+          "metrics": {
+            "test_coverage": 0.6489633626810565,
+            "test_failed": 0,
+            "test_passed": 385,
+            "test_skipped": 0,
+            "test_total": 385
+          },
+          "details": {
+            "coverage": 0.6489633626810565,
+            "failed_count": 0,
+            "passed_count": 385,
+            "skip_count": 0,
+            "tool": "go test",
+            "total_count": 385
+          },
+          "timestamp": "2026-03-10T12:01:45-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "lint",
+          "source": "golangci-lint",
+          "passed": true,
+          "summary": "golangci-lint: 0 errors, 0 warnings",
+          "metrics": {
+            "lint_errors": 0,
+            "lint_warnings": 0
+          },
+          "details": {
+            "error_count": 0,
+            "tool": "golangci-lint",
+            "warn_count": 0
+          },
+          "timestamp": "2026-03-10T12:01:45-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "git_history",
+          "source": "git",
+          "passed": true,
+          "summary": "89 commits by 2 authors over 2 days",
+          "metrics": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 89
+          },
+          "details": {
+            "age_days": 2,
+            "author_count": 2,
+            "commit_count": 89
+          },
+          "timestamp": "2026-03-10T12:01:45-04:00",
+          "confidence": 1
+        },
+        {
+          "kind": "metrics",
+          "source": "metrics",
+          "passed": true,
+          "summary": "1 lines (1 code, 0 comment, 0 blank), 0 TODOs, complexity 0",
+          "metrics": {
+            "blank_lines": 0,
+            "code_lines": 1,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 1
+          },
+          "details": {
+            "blank_lines": 0,
+            "code_lines": 1,
+            "comment_lines": 0,
+            "complexity": 0,
+            "todo_count": 0,
+            "total_lines": 1
+          },
+          "timestamp": "2026-03-10T12:01:45-04:00",
+          "confidence": 1
+        }
       ],
-      "certified_at": "2026-03-09T20:22:42-04:00",
-      "expires_at": "2026-04-23T20:22:42-04:00",
-      "source": "deterministic+agent:qwen/qwen3-coder-30b",
+      "certified_at": "2026-03-10T12:01:45-04:00",
+      "expires_at": "2026-04-24T12:01:45-04:00",
+      "source": "deterministic",
+      "run_id": "run-20260310T160132Z",
       "version": 1
     },
     {
@@ -20503,6 +20593,23 @@
       "expires_at": "2026-04-23T20:22:42-04:00",
       "source": "deterministic+agent:qwen/qwen3-coder-30b",
       "version": 1
+    }
+  ],
+  "runs": [
+    {
+      "id": "run-20260310T160132Z",
+      "started_at": "2026-03-10T12:01:32.022343-04:00",
+      "completed_at": "2026-03-10T12:01:46.117088-04:00",
+      "commit": "136f372",
+      "policy_versions": [
+        "global@1.0.0",
+        "go-standard@1.0.0"
+      ],
+      "units_processed": 1,
+      "units_certified": 1,
+      "units_failed": 0,
+      "overall_grade": "B+",
+      "overall_score": 0.889992049294374
     }
   ]
 }

@@ -522,3 +522,87 @@ func TestStore_SnapshotSortsDeterministically(t *testing.T) {
 		t.Error("snapshot output should be byte-identical across calls")
 	}
 }
+
+func TestStore_AppendAndLoadRuns(t *testing.T) {
+	dir := t.TempDir()
+	store := record.NewStore(filepath.Join(dir, "records"))
+
+	now := time.Now().Truncate(time.Second)
+	runs := []domain.CertificationRun{
+		{ID: "run-20260310T100000Z", StartedAt: now, CompletedAt: now.Add(time.Minute), Commit: "aaa", UnitsProcessed: 10, UnitsCertified: 8, UnitsFailed: 2, OverallGrade: "B", OverallScore: 0.80},
+		{ID: "run-20260310T110000Z", StartedAt: now.Add(time.Hour), CompletedAt: now.Add(time.Hour + time.Minute), Commit: "bbb", UnitsProcessed: 15, UnitsCertified: 14, UnitsFailed: 1, OverallGrade: "B+", OverallScore: 0.85},
+		{ID: "run-20260310T120000Z", StartedAt: now.Add(2 * time.Hour), CompletedAt: now.Add(2*time.Hour + time.Minute), Commit: "ccc", PolicyVersions: []string{"global@1.0"}, UnitsProcessed: 20, UnitsCertified: 19, UnitsFailed: 1, OverallGrade: "A-", OverallScore: 0.91},
+	}
+
+	for _, r := range runs {
+		if err := store.AppendRun(r); err != nil {
+			t.Fatalf("AppendRun(%s) error: %v", r.ID, err)
+		}
+	}
+
+	loaded, err := store.LoadRuns()
+	if err != nil {
+		t.Fatalf("LoadRuns() error: %v", err)
+	}
+	if len(loaded) != 3 {
+		t.Fatalf("LoadRuns() = %d runs, want 3", len(loaded))
+	}
+
+	// Verify ordering and field values
+	if loaded[0].ID != "run-20260310T100000Z" {
+		t.Errorf("runs[0].ID = %q, want run-20260310T100000Z", loaded[0].ID)
+	}
+	if loaded[2].Commit != "ccc" {
+		t.Errorf("runs[2].Commit = %q, want ccc", loaded[2].Commit)
+	}
+	if loaded[2].UnitsCertified != 19 {
+		t.Errorf("runs[2].UnitsCertified = %d, want 19", loaded[2].UnitsCertified)
+	}
+	if len(loaded[2].PolicyVersions) != 1 || loaded[2].PolicyVersions[0] != "global@1.0" {
+		t.Errorf("runs[2].PolicyVersions = %v, want [global@1.0]", loaded[2].PolicyVersions)
+	}
+}
+
+func TestStore_LoadRuns_Empty(t *testing.T) {
+	dir := t.TempDir()
+	store := record.NewStore(filepath.Join(dir, "records"))
+
+	runs, err := store.LoadRuns()
+	if err != nil {
+		t.Fatalf("LoadRuns() on empty store should not error: %v", err)
+	}
+	if runs != nil {
+		t.Errorf("LoadRuns() on empty store = %v, want nil", runs)
+	}
+}
+
+func TestStore_SnapshotIncludesRuns(t *testing.T) {
+	dir := t.TempDir()
+	store := record.NewStore(filepath.Join(dir, "records"))
+
+	// Save a record and a run
+	_ = store.Save(sampleRecord("main.go", "main"))
+
+	now := time.Now().Truncate(time.Second)
+	_ = store.AppendRun(domain.CertificationRun{
+		ID: "run-20260310T100000Z", StartedAt: now, CompletedAt: now.Add(time.Minute),
+		Commit: "abc", UnitsProcessed: 1, UnitsCertified: 1, OverallGrade: "B", OverallScore: 0.85,
+	})
+
+	snapshotPath := filepath.Join(t.TempDir(), "state.json")
+	if err := store.SaveSnapshot(snapshotPath, "abc"); err != nil {
+		t.Fatalf("SaveSnapshot() error: %v", err)
+	}
+
+	// Read raw JSON and verify runs array
+	data, _ := os.ReadFile(snapshotPath)
+	var snap struct {
+		Runs []json.RawMessage `json:"runs"`
+	}
+	if err := json.Unmarshal(data, &snap); err != nil {
+		t.Fatalf("parsing snapshot: %v", err)
+	}
+	if len(snap.Runs) != 1 {
+		t.Errorf("snapshot runs count = %d, want 1", len(snap.Runs))
+	}
+}

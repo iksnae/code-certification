@@ -54,11 +54,12 @@ type evidenceJSON struct {
 
 // snapshotJSON is the JSON-serializable form of a state snapshot.
 type snapshotJSON struct {
-	Version     int          `json:"version"`
-	GeneratedAt string       `json:"generated_at"`
-	Commit      string       `json:"commit"`
-	UnitCount   int          `json:"unit_count"`
-	Records     []recordJSON `json:"records"`
+	Version     int                       `json:"version"`
+	GeneratedAt string                    `json:"generated_at"`
+	Commit      string                    `json:"commit"`
+	UnitCount   int                       `json:"unit_count"`
+	Records     []recordJSON              `json:"records"`
+	Runs        []domain.CertificationRun `json:"runs,omitempty"`
 }
 
 // Store manages certification record files.
@@ -96,12 +97,16 @@ func (s *Store) SaveSnapshot(path string, commit string) error {
 		recs = append(recs, toJSON(r))
 	}
 
+	// Include run history if available
+	runs, _ := s.LoadRuns()
+
 	snap := snapshotJSON{
 		Version:     1,
 		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
 		Commit:      commit,
 		UnitCount:   len(recs),
 		Records:     recs,
+		Runs:        runs,
 	}
 
 	data, err := json.MarshalIndent(snap, "", "  ")
@@ -138,6 +143,58 @@ func (s *Store) LoadSnapshot(path string) error {
 		}
 	}
 	return nil
+}
+
+// runsPath returns the path to the runs.jsonl file.
+// It lives in the parent directory of the records dir (i.e., .certification/).
+func (s *Store) runsPath() string {
+	return filepath.Join(filepath.Dir(s.dir), "runs.jsonl")
+}
+
+// AppendRun appends a certification run record to the runs.jsonl file.
+func (s *Store) AppendRun(run domain.CertificationRun) error {
+	p := s.runsPath()
+	if dir := filepath.Dir(p); dir != "" {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return fmt.Errorf("creating runs directory: %w", err)
+		}
+	}
+	f, err := os.OpenFile(p, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o644)
+	if err != nil {
+		return fmt.Errorf("opening runs file: %w", err)
+	}
+	defer f.Close()
+
+	data, err := json.Marshal(run)
+	if err != nil {
+		return fmt.Errorf("marshaling run: %w", err)
+	}
+	data = append(data, '\n')
+	_, err = f.Write(data)
+	return err
+}
+
+// LoadRuns reads all certification runs from the runs.jsonl file.
+func (s *Store) LoadRuns() ([]domain.CertificationRun, error) {
+	data, err := os.ReadFile(s.runsPath())
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("reading runs file: %w", err)
+	}
+
+	var runs []domain.CertificationRun
+	for _, line := range strings.Split(strings.TrimSpace(string(data)), "\n") {
+		if line == "" {
+			continue
+		}
+		var r domain.CertificationRun
+		if err := json.Unmarshal([]byte(line), &r); err == nil {
+			runs = append(runs, r)
+		}
+	}
+	return runs, nil
 }
 
 // Save writes a certification record to the store.

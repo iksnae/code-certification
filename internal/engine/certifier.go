@@ -27,13 +27,15 @@ type CertifyResult struct {
 // It handles policy matching, evidence collection, agent review,
 // record building, override application, and persistence.
 type Certifier struct {
-	Root         string              // repo root (for reading source files)
-	Store        *record.Store       // record persistence (nil = don't save)
-	Matcher      *policy.Matcher     // policy matcher (nil = no policy rules)
-	Overrides    []domain.Override   // governance overrides
-	ExpiryCfg    domain.ExpiryConfig // expiry window config
-	Agent        *agent.Coordinator  // optional AI reviewer (nil = skip)
-	AgentTimeout time.Duration       // per-unit timeout for agent calls
+	Root           string              // repo root (for reading source files)
+	Store          *record.Store       // record persistence (nil = don't save)
+	Matcher        *policy.Matcher     // policy matcher (nil = no policy rules)
+	Overrides      []domain.Override   // governance overrides
+	ExpiryCfg      domain.ExpiryConfig // expiry window config
+	Agent          *agent.Coordinator  // optional AI reviewer (nil = skip)
+	AgentTimeout   time.Duration       // per-unit timeout for agent calls
+	RunID          string              // current run ID (set once per invocation)
+	PolicyVersions []string            // active policy pack versions ("name@version")
 }
 
 // Certify runs the full certification pipeline for a single unit.
@@ -92,6 +94,12 @@ func (c *Certifier) Certify(ctx context.Context, unit domain.Unit, repoEvidence 
 
 	// 5. Build record via existing CertifyUnit
 	rec := CertifyUnit(unit, rules, ev, c.ExpiryCfg, now)
+
+	// 5b. Populate run metadata
+	rec.RunID = c.RunID
+	if len(c.PolicyVersions) > 0 {
+		rec.PolicyVersion = strings.Join(c.PolicyVersions, ",")
+	}
 
 	// 6. Merge AI observations
 	if len(aiObs) > 0 {

@@ -33,8 +33,9 @@ Thumbs.db
 # Certification records (regenerated per-run)
 .certification/records/
 .certification/site/
-# State snapshot IS tracked — survives git clone
+# State snapshot and run history ARE tracked — survive git clone
 !.certification/state.json
+!.certification/runs.jsonl
 # .certification/reports/ — tracked: unit reports are a critical deliverable
 .certification/queue.json
 

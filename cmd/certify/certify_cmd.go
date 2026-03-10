@@ -13,6 +13,7 @@ import (
 	"github.com/iksnae/code-certification/internal/domain"
 	"github.com/iksnae/code-certification/internal/engine"
 	"github.com/iksnae/code-certification/internal/override"
+	"github.com/iksnae/code-certification/internal/policy"
 	"github.com/iksnae/code-certification/internal/queue"
 	"github.com/iksnae/code-certification/internal/record"
 	"github.com/spf13/cobra"
@@ -77,6 +78,12 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		return nil
 	}
 
+	// Generate run ID and set policy versions
+	startedAt := time.Now()
+	runID := domain.GenerateRunID(startedAt)
+	ctx.certifier.RunID = runID
+	ctx.certifier.PolicyVersions = policyVersions(ctx.certifier.Matcher)
+
 	ctx.certifier.Agent = setupAgent(ctx.cfg, certifySkipAgent)
 
 	fmt.Println("  Collecting repo-level evidence...")
@@ -94,6 +101,12 @@ func runCertify(cmd *cobra.Command, args []string) error {
 		if n, _ := os.ReadDir(filepath.Join(ctx.certDir, "reports")); len(n) > 0 {
 			fmt.Printf("✓ %d unit report cards written to %s\n", len(n), filepath.Join(ctx.certDir, "reports"))
 		}
+	}
+
+	// Persist run record
+	run := buildCertificationRun(runID, startedAt, commit, ctx.certifier.PolicyVersions, certified+observations, failed, processed, ctx.certifier.Store)
+	if err := ctx.certifier.Store.AppendRun(run); err != nil {
+		fmt.Fprintf(os.Stderr, "warning: saving run record: %v\n", err)
 	}
 
 	// Save state snapshot for git tracking
@@ -382,4 +395,45 @@ func setupConservativeAgent() *agent.Coordinator {
 	summary := agent.FormatProviderSummary(providers)
 	fmt.Printf("  Agent review: auto-detected [%s] (conservative mode)\n", summary)
 	return agent.NewConservativeCoordinator(providers)
+}
+
+// policyVersions extracts "name@version" strings from a policy matcher.
+func policyVersions(matcher *policy.Matcher) []string {
+	if matcher == nil {
+		return nil
+	}
+	var vers []string
+	for _, p := range matcher.Packs() {
+		vers = append(vers, p.Name+"@"+p.Version)
+	}
+	return vers
+}
+
+// buildCertificationRun creates a CertificationRun from run results.
+// It computes overall grade/score from all records currently in the store.
+func buildCertificationRun(runID string, startedAt time.Time, commit string, policyVers []string, certified, failed, processed int, store *record.Store) domain.CertificationRun {
+	run := domain.CertificationRun{
+		ID:             runID,
+		StartedAt:      startedAt,
+		CompletedAt:    time.Now(),
+		Commit:         commit,
+		PolicyVersions: policyVers,
+		UnitsProcessed: processed,
+		UnitsCertified: certified,
+		UnitsFailed:    failed,
+	}
+
+	// Compute overall grade/score from all records in store
+	if store != nil {
+		if records, err := store.ListAll(); err == nil && len(records) > 0 {
+			var totalScore float64
+			for _, r := range records {
+				totalScore += r.Score
+			}
+			run.OverallScore = totalScore / float64(len(records))
+			run.OverallGrade = domain.GradeFromScore(run.OverallScore).String()
+		}
+	}
+
+	return run
 }

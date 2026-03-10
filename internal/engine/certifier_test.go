@@ -315,6 +315,60 @@ export function add(a: number, b: number): number {
 	}
 }
 
+func TestCertifier_PopulatesRunID(t *testing.T) {
+	root := filepath.Join("..", "..", "testdata", "repos", "go-simple")
+
+	certifier := &engine.Certifier{
+		Root:      root,
+		Matcher:   policy.NewMatcher(testPacks()),
+		ExpiryCfg: testExpiryCfg(),
+		RunID:     "run-20260310T155227Z",
+	}
+
+	unit := domain.NewUnit(
+		domain.NewUnitID("go", "main.go", "main"),
+		domain.UnitTypeFunction,
+	)
+
+	repoEv := []domain.Evidence{
+		evidence.LintResult{Tool: "go vet", ErrorCount: 0}.ToEvidence(),
+	}
+
+	result, err := certifier.Certify(context.Background(), unit, repoEv, time.Now())
+	if err != nil {
+		t.Fatalf("Certify() error: %v", err)
+	}
+	if result.Record.RunID != "run-20260310T155227Z" {
+		t.Errorf("RunID = %q, want run-20260310T155227Z", result.Record.RunID)
+	}
+}
+
+func TestCertifier_PopulatesPolicyVersion(t *testing.T) {
+	root := filepath.Join("..", "..", "testdata", "repos", "go-simple")
+
+	certifier := &engine.Certifier{
+		Root:           root,
+		Matcher:        policy.NewMatcher(testPacks()),
+		ExpiryCfg:      testExpiryCfg(),
+		RunID:          "run-test",
+		PolicyVersions: []string{"test-global@1.0", "go-strict@2.1"},
+	}
+
+	unit := domain.NewUnit(
+		domain.NewUnitID("go", "main.go", "main"),
+		domain.UnitTypeFunction,
+	)
+
+	result, err := certifier.Certify(context.Background(), unit, nil, time.Now())
+	if err != nil {
+		t.Fatalf("Certify() error: %v", err)
+	}
+	want := "test-global@1.0,go-strict@2.1"
+	if result.Record.PolicyVersion != want {
+		t.Errorf("PolicyVersion = %q, want %q", result.Record.PolicyVersion, want)
+	}
+}
+
 func TestSaveReportArtifacts(t *testing.T) {
 	certDir := t.TempDir()
 	storeDir := filepath.Join(certDir, "records")

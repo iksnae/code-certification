@@ -18,6 +18,11 @@ func NewMatcher(packs []domain.PolicyPack) *Matcher {
 	return &Matcher{packs: packs}
 }
 
+// Packs returns all loaded policy packs.
+func (m *Matcher) Packs() []domain.PolicyPack {
+	return m.packs
+}
+
 // Match returns the policy packs that apply to the given unit.
 func (m *Matcher) Match(unit domain.Unit) []domain.PolicyPack {
 	var matched []domain.PolicyPack

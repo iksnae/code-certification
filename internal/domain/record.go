@@ -92,3 +92,22 @@ type CertificationRecord struct {
 	RunID   string `json:"run_id,omitempty"`
 	Version int    `json:"version"` // record schema version
 }
+
+// CertificationRun captures metadata about a single certification invocation.
+type CertificationRun struct {
+	ID             string    `json:"id"`
+	StartedAt      time.Time `json:"started_at"`
+	CompletedAt    time.Time `json:"completed_at"`
+	Commit         string    `json:"commit"`
+	PolicyVersions []string  `json:"policy_versions,omitempty"`
+	UnitsProcessed int       `json:"units_processed"`
+	UnitsCertified int       `json:"units_certified"`
+	UnitsFailed    int       `json:"units_failed"`
+	OverallGrade   string    `json:"overall_grade"`
+	OverallScore   float64   `json:"overall_score"`
+}
+
+// GenerateRunID creates a timestamp-based run identifier.
+func GenerateRunID(t time.Time) string {
+	return "run-" + t.UTC().Format("20060102T150405Z")
+}
