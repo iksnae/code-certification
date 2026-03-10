@@ -23,6 +23,22 @@ type StructuralMetrics struct {
 	ExportedName    bool   // Symbol starts with uppercase
 	ReceiverName    string // Receiver type name (empty for standalone functions)
 	IsConstructor   bool   // Function name matches New* pattern
+
+	// Tier 1: new metrics
+	FuncLines        int  // Number of lines in function body
+	PanicCalls       int  // Count of panic() calls
+	OsExitCalls      int  // Count of os.Exit() calls
+	DeferInLoop      int  // Count of defer statements inside for/range loops
+	ContextNotFirst  bool // context.Context param exists but is not the first param
+	MethodCount      int  // Number of methods on a type (type-level only)
+	HasInitFunc      bool // File contains an init() function (file-level only)
+	GlobalMutableCount int // Number of package-level var declarations (file-level only)
+}
+
+// FileMetrics holds file-level structural analysis results.
+type FileMetrics struct {
+	HasInitFunc        bool
+	GlobalMutableCount int
 }
 
 // ToEvidence converts StructuralMetrics to a domain.Evidence.
@@ -40,6 +56,15 @@ func (m StructuralMetrics) ToEvidence() domain.Evidence {
 		constructorVal = 1.0
 	}
 
+	contextVal := 0.0
+	if m.ContextNotFirst {
+		contextVal = 1.0
+	}
+	initVal := 0.0
+	if m.HasInitFunc {
+		initVal = 1.0
+	}
+
 	return domain.Evidence{
 		Kind:   domain.EvidenceKindStructural,
 		Source: "structural",
@@ -47,14 +72,22 @@ func (m StructuralMetrics) ToEvidence() domain.Evidence {
 		Summary: fmt.Sprintf("structural: params=%d returns=%d nesting=%d doc=%v exported=%v",
 			m.ParamCount, m.ReturnCount, m.MaxNestingDepth, m.HasDocComment, m.ExportedName),
 		Metrics: map[string]float64{
-			"has_doc_comment":   docVal,
-			"param_count":       float64(m.ParamCount),
-			"return_count":      float64(m.ReturnCount),
-			"max_nesting_depth": float64(m.MaxNestingDepth),
-			"naked_returns":     float64(m.NakedReturns),
-			"errors_ignored":    float64(m.ErrorsIgnored),
-			"exported_name":     exportedVal,
-			"is_constructor":    constructorVal,
+			"has_doc_comment":      docVal,
+			"param_count":          float64(m.ParamCount),
+			"return_count":         float64(m.ReturnCount),
+			"max_nesting_depth":    float64(m.MaxNestingDepth),
+			"naked_returns":        float64(m.NakedReturns),
+			"errors_ignored":       float64(m.ErrorsIgnored),
+			"exported_name":        exportedVal,
+			"is_constructor":       constructorVal,
+			"func_lines":           float64(m.FuncLines),
+			"panic_calls":          float64(m.PanicCalls),
+			"os_exit_calls":        float64(m.OsExitCalls),
+			"defer_in_loop":        float64(m.DeferInLoop),
+			"context_not_first":    contextVal,
+			"method_count":         float64(m.MethodCount),
+			"has_init_func":        initVal,
+			"global_mutable_count": float64(m.GlobalMutableCount),
 		},
 		Timestamp:  time.Now(),
 		Confidence: 1.0,
@@ -83,7 +116,7 @@ func AnalyzeGoFunc(src string, funcName string) StructuralMetrics {
 			continue
 		}
 
-		return analyzeFunc(fn)
+		return analyzeFunc(fset, fn)
 	}
 
 	return StructuralMetrics{} // not found
@@ -101,6 +134,9 @@ func AnalyzeGoType(src string, typeName string) StructuralMetrics {
 		return StructuralMetrics{}
 	}
 
+	found := false
+	var result StructuralMetrics
+
 	for _, decl := range f.Decls {
 		gd, ok := decl.(*ast.GenDecl)
 		if !ok || gd.Tok != token.TYPE {
@@ -111,17 +147,34 @@ func AnalyzeGoType(src string, typeName string) StructuralMetrics {
 			if !ok || ts.Name.Name != typeName {
 				continue
 			}
-			return StructuralMetrics{
+			result = StructuralMetrics{
 				HasDocComment: gd.Doc != nil && len(gd.Doc.List) > 0,
 				ExportedName:  isExported(typeName),
 			}
+			found = true
 		}
 	}
 
-	return StructuralMetrics{}
+	if !found {
+		return StructuralMetrics{}
+	}
+
+	// Count methods on this type
+	for _, decl := range f.Decls {
+		fn, ok := decl.(*ast.FuncDecl)
+		if !ok || fn.Recv == nil || len(fn.Recv.List) == 0 {
+			continue
+		}
+		recvType := exprTypeName(fn.Recv.List[0].Type)
+		if recvType == typeName {
+			result.MethodCount++
+		}
+	}
+
+	return result
 }
 
-func analyzeFunc(fn *ast.FuncDecl) StructuralMetrics {
+func analyzeFunc(fset *token.FileSet, fn *ast.FuncDecl) StructuralMetrics {
 	m := StructuralMetrics{
 		HasDocComment: fn.Doc != nil && len(fn.Doc.List) > 0,
 		ExportedName:  isExported(fn.Name.Name),
@@ -161,11 +214,18 @@ func analyzeFunc(fn *ast.FuncDecl) StructuralMetrics {
 		}
 	}
 
+	// Check context.Context position
+	m.ContextNotFirst = checkContextNotFirst(fn)
+
 	// Body analysis
 	if fn.Body != nil {
 		m.MaxNestingDepth = computeNestingDepth(fn.Body)
 		m.NakedReturns = countNakedReturns(fn)
 		m.ErrorsIgnored = countIgnoredErrors(fn.Body)
+		m.FuncLines = countFuncLines(fset, fn)
+		m.PanicCalls = countCallExpr(fn.Body, "", "panic")
+		m.OsExitCalls = countCallExpr(fn.Body, "os", "Exit")
+		m.DeferInLoop = countDeferInLoop(fn.Body)
 	}
 
 	return m
@@ -303,6 +363,149 @@ func countIgnoredErrors(body *ast.BlockStmt) int {
 		return true
 	})
 	return count
+}
+
+// countFuncLines returns the number of lines in a function body.
+func countFuncLines(fset *token.FileSet, fn *ast.FuncDecl) int {
+	if fn.Body == nil {
+		return 0
+	}
+	start := fset.Position(fn.Body.Lbrace)
+	end := fset.Position(fn.Body.Rbrace)
+	lines := end.Line - start.Line - 1 // exclude braces
+	if lines < 0 {
+		return 0
+	}
+	return lines
+}
+
+// countCallExpr counts calls to pkg.funcName (or just funcName if pkg is "").
+func countCallExpr(body *ast.BlockStmt, pkg, funcName string) int {
+	count := 0
+	ast.Inspect(body, func(n ast.Node) bool {
+		call, ok := n.(*ast.CallExpr)
+		if !ok {
+			return true
+		}
+		if pkg == "" {
+			// Bare function call: panic(), etc.
+			ident, ok := call.Fun.(*ast.Ident)
+			if ok && ident.Name == funcName {
+				count++
+			}
+		} else {
+			// Package-qualified: os.Exit(), etc.
+			sel, ok := call.Fun.(*ast.SelectorExpr)
+			if !ok {
+				return true
+			}
+			x, ok := sel.X.(*ast.Ident)
+			if ok && x.Name == pkg && sel.Sel.Name == funcName {
+				count++
+			}
+		}
+		return true
+	})
+	return count
+}
+
+// countDeferInLoop counts defer statements inside for/range loops.
+func countDeferInLoop(body *ast.BlockStmt) int {
+	count := 0
+	var walk func(node ast.Node, inLoop bool)
+	walk = func(node ast.Node, inLoop bool) {
+		if node == nil {
+			return
+		}
+		ast.Inspect(node, func(n ast.Node) bool {
+			switch s := n.(type) {
+			case *ast.ForStmt:
+				walk(s.Body, true)
+				return false
+			case *ast.RangeStmt:
+				walk(s.Body, true)
+				return false
+			case *ast.DeferStmt:
+				if inLoop {
+					count++
+				}
+				return false
+			}
+			return true
+		})
+	}
+	walk(body, false)
+	return count
+}
+
+// checkContextNotFirst returns true if context.Context appears as a parameter
+// but is not the first parameter.
+func checkContextNotFirst(fn *ast.FuncDecl) bool {
+	if fn.Type.Params == nil {
+		return false
+	}
+	params := fn.Type.Params.List
+	hasContext := false
+	contextIsFirst := false
+
+	for i, field := range params {
+		typeName := exprTypeName(field.Type)
+		if typeName == "context.Context" || typeName == "Context" {
+			hasContext = true
+			if i == 0 {
+				contextIsFirst = true
+			}
+		}
+	}
+	return hasContext && !contextIsFirst
+}
+
+// exprTypeName extracts a readable type name from an AST expression.
+func exprTypeName(expr ast.Expr) string {
+	switch t := expr.(type) {
+	case *ast.Ident:
+		return t.Name
+	case *ast.SelectorExpr:
+		if x, ok := t.X.(*ast.Ident); ok {
+			return x.Name + "." + t.Sel.Name
+		}
+	case *ast.StarExpr:
+		return exprTypeName(t.X)
+	}
+	return ""
+}
+
+// AnalyzeGoFile performs file-level structural analysis.
+// Detects init() functions and package-level mutable vars.
+func AnalyzeGoFile(src string) FileMetrics {
+	if strings.TrimSpace(src) == "" {
+		return FileMetrics{}
+	}
+
+	fset := token.NewFileSet()
+	f, err := parser.ParseFile(fset, "src.go", src, 0)
+	if err != nil {
+		return FileMetrics{}
+	}
+
+	var fm FileMetrics
+
+	for _, decl := range f.Decls {
+		switch d := decl.(type) {
+		case *ast.FuncDecl:
+			if d.Name.Name == "init" && d.Recv == nil {
+				fm.HasInitFunc = true
+			}
+		case *ast.GenDecl:
+			if d.Tok == token.VAR {
+				for range d.Specs {
+					fm.GlobalMutableCount++
+				}
+			}
+		}
+	}
+
+	return fm
 }
 
 func isExported(name string) bool {

@@ -299,6 +299,243 @@ func TestStructuralMetrics_ToEvidence(t *testing.T) {
 	}
 }
 
+func TestAnalyzeGoFunc_FuncLines(t *testing.T) {
+	src := `package foo
+
+func Big() {
+	a := 1
+	b := 2
+	c := 3
+	d := 4
+	e := 5
+	_ = a + b + c + d + e
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Big")
+	if m.FuncLines != 6 {
+		t.Errorf("FuncLines = %d, want 6", m.FuncLines)
+	}
+}
+
+func TestAnalyzeGoFunc_PanicCalls(t *testing.T) {
+	src := `package lib
+
+func Bad() {
+	panic("boom")
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Bad")
+	if m.PanicCalls != 1 {
+		t.Errorf("PanicCalls = %d, want 1", m.PanicCalls)
+	}
+}
+
+func TestAnalyzeGoFunc_PanicCalls_Multiple(t *testing.T) {
+	src := `package lib
+
+func Worse() {
+	if true {
+		panic("one")
+	}
+	panic("two")
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Worse")
+	if m.PanicCalls != 2 {
+		t.Errorf("PanicCalls = %d, want 2", m.PanicCalls)
+	}
+}
+
+func TestAnalyzeGoFunc_OsExitCalls(t *testing.T) {
+	src := `package lib
+
+import "os"
+
+func Bail() {
+	os.Exit(1)
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Bail")
+	if m.OsExitCalls != 1 {
+		t.Errorf("OsExitCalls = %d, want 1", m.OsExitCalls)
+	}
+}
+
+func TestAnalyzeGoFunc_DeferInLoop(t *testing.T) {
+	src := `package lib
+
+import "os"
+
+func Leaky() {
+	for i := 0; i < 10; i++ {
+		f, _ := os.Open("file")
+		defer f.Close()
+	}
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Leaky")
+	if m.DeferInLoop != 1 {
+		t.Errorf("DeferInLoop = %d, want 1", m.DeferInLoop)
+	}
+}
+
+func TestAnalyzeGoFunc_DeferInRange(t *testing.T) {
+	src := `package lib
+
+import "os"
+
+func LeakyRange() {
+	files := []string{"a", "b"}
+	for _, name := range files {
+		f, _ := os.Open(name)
+		defer f.Close()
+	}
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "LeakyRange")
+	if m.DeferInLoop != 1 {
+		t.Errorf("DeferInLoop = %d, want 1", m.DeferInLoop)
+	}
+}
+
+func TestAnalyzeGoFunc_NoDeferInLoop(t *testing.T) {
+	src := `package lib
+
+import "os"
+
+func Clean() {
+	f, _ := os.Open("file")
+	defer f.Close()
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Clean")
+	if m.DeferInLoop != 0 {
+		t.Errorf("DeferInLoop = %d, want 0", m.DeferInLoop)
+	}
+}
+
+func TestAnalyzeGoFunc_ContextNotFirst(t *testing.T) {
+	src := `package lib
+
+import "context"
+
+func Bad(name string, ctx context.Context) {}
+`
+	m := evidence.AnalyzeGoFunc(src, "Bad")
+	if !m.ContextNotFirst {
+		t.Error("ContextNotFirst should be true")
+	}
+}
+
+func TestAnalyzeGoFunc_ContextFirst(t *testing.T) {
+	src := `package lib
+
+import "context"
+
+func Good(ctx context.Context, name string) {}
+`
+	m := evidence.AnalyzeGoFunc(src, "Good")
+	if m.ContextNotFirst {
+		t.Error("ContextNotFirst should be false when ctx is first")
+	}
+}
+
+func TestAnalyzeGoFunc_NoContext(t *testing.T) {
+	src := `package lib
+
+func Simple(name string) {}
+`
+	m := evidence.AnalyzeGoFunc(src, "Simple")
+	if m.ContextNotFirst {
+		t.Error("ContextNotFirst should be false when no context param")
+	}
+}
+
+func TestAnalyzeGoFile_InitFunc(t *testing.T) {
+	src := `package lib
+
+func init() {
+	setupGlobals()
+}
+
+func Public() {}
+`
+	m := evidence.AnalyzeGoFile(src)
+	if !m.HasInitFunc {
+		t.Error("HasInitFunc should be true")
+	}
+}
+
+func TestAnalyzeGoFile_NoInitFunc(t *testing.T) {
+	src := `package lib
+
+func Public() {}
+`
+	m := evidence.AnalyzeGoFile(src)
+	if m.HasInitFunc {
+		t.Error("HasInitFunc should be false")
+	}
+}
+
+func TestAnalyzeGoFile_GlobalMutable(t *testing.T) {
+	src := `package lib
+
+var globalCounter int
+var anotherGlobal = make(map[string]int)
+
+const maxSize = 100
+
+func Foo() {}
+`
+	m := evidence.AnalyzeGoFile(src)
+	if m.GlobalMutableCount != 2 {
+		t.Errorf("GlobalMutableCount = %d, want 2", m.GlobalMutableCount)
+	}
+}
+
+func TestAnalyzeGoFile_NoGlobalMutable(t *testing.T) {
+	src := `package lib
+
+const maxSize = 100
+
+func Foo() {}
+`
+	m := evidence.AnalyzeGoFile(src)
+	if m.GlobalMutableCount != 0 {
+		t.Errorf("GlobalMutableCount = %d, want 0", m.GlobalMutableCount)
+	}
+}
+
+func TestAnalyzeGoType_MethodCount(t *testing.T) {
+	src := `package lib
+
+type Server struct{}
+
+func NewServer() *Server { return &Server{} }
+func (s *Server) Start() error { return nil }
+func (s *Server) Stop() error { return nil }
+func (s *Server) Handle(path string) {}
+func (s Server) Name() string { return "" }
+`
+	m := evidence.AnalyzeGoType(src, "Server")
+	if m.MethodCount != 4 {
+		t.Errorf("MethodCount = %d, want 4 (excluding NewServer constructor)", m.MethodCount)
+	}
+}
+
+func TestAnalyzeGoType_NoMethods(t *testing.T) {
+	src := `package lib
+
+type Config struct {
+	Name string
+}
+`
+	m := evidence.AnalyzeGoType(src, "Config")
+	if m.MethodCount != 0 {
+		t.Errorf("MethodCount = %d, want 0", m.MethodCount)
+	}
+}
+
 func TestAnalyzeGoFunc_ParseError(t *testing.T) {
 	m := evidence.AnalyzeGoFunc("not valid go code {{{", "Foo")
 	if m.ParamCount != 0 && m.ReturnCount != 0 {
