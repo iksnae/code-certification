@@ -116,6 +116,20 @@ func (c *Certifier) Certify(ctx context.Context, unit domain.Unit, repoEvidence 
 			} else {
 				structural = evidence.AnalyzeGoFunc(srcCode, sym)
 			}
+
+			// Merge file-level metrics into the structural evidence
+			fileMeta := evidence.AnalyzeGoFile(srcCode)
+			structural.HasInitFunc = fileMeta.HasInitFunc
+			structural.GlobalMutableCount = fileMeta.GlobalMutableCount
+
+			ev = append(ev, structural.ToEvidence())
+		} else if isGo && sym == "" {
+			// File-level Go unit: only file metrics
+			fileMeta := evidence.AnalyzeGoFile(srcCode)
+			structural := evidence.StructuralMetrics{
+				HasInitFunc:        fileMeta.HasInitFunc,
+				GlobalMutableCount: fileMeta.GlobalMutableCount,
+			}
 			ev = append(ev, structural.ToEvidence())
 		}
 	}

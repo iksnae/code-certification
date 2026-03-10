@@ -152,6 +152,71 @@ func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
 		penalty := float64(naked) * 0.05
 		scores[domain.DimReadability] = max(0, scores[domain.DimReadability]-penalty)
 	}
+
+	// Function length
+	funcLines := int(e.Metrics["func_lines"])
+	if funcLines > 0 {
+		switch {
+		case funcLines <= 30:
+			scores[domain.DimReadability] = max(scores[domain.DimReadability], 0.90)
+		case funcLines <= 60:
+			// neutral
+		case funcLines <= 100:
+			scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.70)
+		default:
+			scores[domain.DimReadability] = min(scores[domain.DimReadability], 0.50)
+			scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.60)
+		}
+	}
+
+	// Panic in library code
+	panicCalls := int(e.Metrics["panic_calls"])
+	if panicCalls > 0 {
+		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.50)
+	}
+
+	// os.Exit in library code
+	osExitCalls := int(e.Metrics["os_exit_calls"])
+	if osExitCalls > 0 {
+		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.55)
+		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.50)
+	}
+
+	// Defer in loop
+	deferInLoop := int(e.Metrics["defer_in_loop"])
+	if deferInLoop > 0 {
+		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.55)
+		scores[domain.DimPerformanceAppropriateness] = min(scores[domain.DimPerformanceAppropriateness], 0.50)
+	}
+
+	// context.Context not first parameter
+	if e.Metrics["context_not_first"] == 1.0 {
+		scores[domain.DimCorrectness] = min(scores[domain.DimCorrectness], 0.70)
+		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.65)
+	}
+
+	// init() function present
+	if e.Metrics["has_init_func"] == 1.0 {
+		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.65)
+		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.70)
+	}
+
+	// Global mutable state
+	globalMut := int(e.Metrics["global_mutable_count"])
+	if globalMut > 0 {
+		penalty := float64(globalMut) * 0.05
+		scores[domain.DimSecurity] = max(0, scores[domain.DimSecurity]-penalty)
+		scores[domain.DimTestability] = min(scores[domain.DimTestability], 0.65)
+	}
+
+	// God object: too many methods
+	methodCount := int(e.Metrics["method_count"])
+	if methodCount > 15 {
+		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.50)
+		scores[domain.DimArchitecturalFitness] = min(scores[domain.DimArchitecturalFitness], 0.55)
+	} else if methodCount > 10 {
+		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.65)
+	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {
