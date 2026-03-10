@@ -98,7 +98,10 @@ func (s *Store) SaveSnapshot(path string, commit string) error {
 	}
 
 	// Include run history if available
-	runs, _ := s.LoadRuns()
+	runs, err := s.LoadRuns()
+	if err != nil {
+		runs = nil // non-fatal: snapshot can exist without run history
+	}
 
 	snap := snapshotJSON{
 		Version:     1,
@@ -333,11 +336,11 @@ func toJSON(rec domain.CertificationRecord) recordJSON {
 }
 
 func fromJSON(rj recordJSON) domain.CertificationRecord {
-	id, _ := domain.ParseUnitID(rj.UnitID)
-	ut, _ := domain.ParseUnitType(rj.UnitType)
-	st, _ := domain.ParseStatus(rj.Status)
-	certAt, _ := time.Parse(time.RFC3339, rj.CertifiedAt)
-	expAt, _ := time.Parse(time.RFC3339, rj.ExpiresAt)
+	id := parseUnitIDOrEmpty(rj.UnitID)
+	ut := parseUnitTypeOrDefault(rj.UnitType)
+	st := parseStatusOrDefault(rj.Status)
+	certAt := parseTimeOrZero(rj.CertifiedAt)
+	expAt := parseTimeOrZero(rj.ExpiresAt)
 
 	var evidence []domain.Evidence
 	for _, ej := range rj.Evidence {
@@ -382,7 +385,10 @@ func (s *Store) AppendHistory(rec domain.CertificationRecord) error {
 		CertifiedAt: rec.CertifiedAt.Format(time.RFC3339),
 		Source:      rec.Source,
 	}
-	data, _ := json.Marshal(entry)
+	data, err := json.Marshal(entry)
+	if err != nil {
+		return fmt.Errorf("marshaling history entry: %w", err)
+	}
 	data = append(data, '\n')
 	_, err = f.Write(data)
 	return err
@@ -515,4 +521,40 @@ func parseGrade(s string) domain.Grade {
 		return g
 	}
 	return domain.GradeF
+}
+
+// parseUnitIDOrEmpty parses a unit ID, returning a zero value on error.
+func parseUnitIDOrEmpty(s string) domain.UnitID {
+	id, err := domain.ParseUnitID(s)
+	if err != nil {
+		return domain.UnitID{}
+	}
+	return id
+}
+
+// parseUnitTypeOrDefault parses a unit type, returning file on error.
+func parseUnitTypeOrDefault(s string) domain.UnitType {
+	ut, err := domain.ParseUnitType(s)
+	if err != nil {
+		return domain.UnitTypeFile
+	}
+	return ut
+}
+
+// parseStatusOrDefault parses a status, returning decertified on error.
+func parseStatusOrDefault(s string) domain.Status {
+	st, err := domain.ParseStatus(s)
+	if err != nil {
+		return domain.StatusDecertified
+	}
+	return st
+}
+
+// parseTimeOrZero parses an RFC3339 timestamp, returning zero time on error.
+func parseTimeOrZero(s string) time.Time {
+	t, err := time.Parse(time.RFC3339, s)
+	if err != nil {
+		return time.Time{}
+	}
+	return t
 }

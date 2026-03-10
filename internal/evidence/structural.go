@@ -349,16 +349,13 @@ func countIgnoredErrors(body *ast.BlockStmt) int {
 		if len(assign.Lhs) < 2 {
 			return true
 		}
-		// Check if last LHS is blank identifier (common Go pattern: val, _ = ...)
-		// or any blank identifier in the list
-		for _, lhs := range assign.Lhs {
-			ident, ok := lhs.(*ast.Ident)
-			if ok && ident.Name == "_" {
-				// This is a heuristic — count blank identifiers in multi-assign
-				// that look like error-ignoring patterns
-				count++
-				return true // count once per statement
-			}
+		// Go convention: error is the last return value.
+		// Only count as "ignored error" when the last LHS is blank identifier.
+		// _, err := foo() is fine — the non-error value is discarded, not the error.
+		// _, _ = foo() is bad — the error IS discarded.
+		last := assign.Lhs[len(assign.Lhs)-1]
+		if ident, ok := last.(*ast.Ident); ok && ident.Name == "_" {
+			count++
 		}
 		return true
 	})

@@ -186,6 +186,63 @@ func GoodError() error {
 	}
 }
 
+func TestAnalyzeGoFunc_ErrorsIgnored_DiscardedValueNotError(t *testing.T) {
+	// _, err := fmt.Sscanf(...) discards the item count, NOT the error.
+	// The error IS checked. This should NOT count as an ignored error.
+	src := `package foo
+
+import "fmt"
+
+func ParseCount(s string) (int, error) {
+	var n int
+	_, err := fmt.Sscanf(s, "%d", &n)
+	if err != nil {
+		return 0, err
+	}
+	return n, nil
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "ParseCount")
+	if m.ErrorsIgnored != 0 {
+		t.Errorf("ErrorsIgnored = %d, want 0 (error is checked, only value discarded)", m.ErrorsIgnored)
+	}
+}
+
+func TestAnalyzeGoFunc_ErrorsIgnored_StatCheck(t *testing.T) {
+	// _, err := os.Stat(...) discards the FileInfo, checks the error.
+	// Should NOT count as ignored error.
+	src := `package foo
+
+import "os"
+
+func Exists(path string) bool {
+	_, err := os.Stat(path)
+	return err == nil
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Exists")
+	if m.ErrorsIgnored != 0 {
+		t.Errorf("ErrorsIgnored = %d, want 0 (error is checked)", m.ErrorsIgnored)
+	}
+}
+
+func TestAnalyzeGoFunc_ErrorsIgnored_BothDiscarded(t *testing.T) {
+	// _, _ = os.Open(...) discards BOTH value and error.
+	// This IS an ignored error.
+	src := `package foo
+
+import "os"
+
+func Bad() {
+	_, _ = os.Open("file.txt")
+}
+`
+	m := evidence.AnalyzeGoFunc(src, "Bad")
+	if m.ErrorsIgnored != 1 {
+		t.Errorf("ErrorsIgnored = %d, want 1 (both returns discarded)", m.ErrorsIgnored)
+	}
+}
+
 func TestAnalyzeGoFunc_Constructor(t *testing.T) {
 	src := `package foo
 

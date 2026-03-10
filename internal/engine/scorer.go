@@ -218,30 +218,7 @@ func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
 		scores[domain.DimMaintainability] = min(scores[domain.DimMaintainability], 0.65)
 	}
 
-	// --- Positive boosts for clean structural practices ---
-	// These reward units that demonstrate quality in dimensions
-	// that are otherwise stuck at the 0.80 base.
 
-	// Security: reward units with no ignored errors, no global state, no panics
-	if ignored == 0 && globalMut == 0 && panicCalls == 0 {
-		scores[domain.DimSecurity] = max(scores[domain.DimSecurity], 0.90)
-	}
-
-	// Architectural fitness: reward clean API design
-	if params <= 3 && hasDoc == 1.0 && e.Metrics["context_not_first"] != 1.0 && methodCount <= 10 {
-		scores[domain.DimArchitecturalFitness] = max(scores[domain.DimArchitecturalFitness], 0.90)
-	}
-
-	// Performance appropriateness: reward lean, efficient functions
-	// func_lines == 0 means file-level unit (type, var) — treat as clean
-	if (funcLines == 0 || funcLines <= 30) && deferInLoop == 0 && nesting <= 3 {
-		scores[domain.DimPerformanceAppropriateness] = max(scores[domain.DimPerformanceAppropriateness], 0.90)
-	}
-
-	// Operational quality: reward production-ready code
-	if ignored == 0 && osExitCalls == 0 && panicCalls == 0 {
-		scores[domain.DimOperationalQuality] = max(scores[domain.DimOperationalQuality], 0.90)
-	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {
