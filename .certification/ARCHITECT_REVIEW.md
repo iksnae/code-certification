@@ -1,10 +1,10 @@
 # 🏗 Architectural Review — iksnae/code-certification
 
-**Generated:** 2026-03-10 15:50 · **Commit:** `2d2d6ef` · **Model:** `qwen/qwen3-coder-30b` · **Tokens:** 49843 · **Duration:** 3m45s · **Phases:** 6/6
+**Generated:** 2026-03-10 15:55 · **Commit:** `6f62d32` · **Model:** `qwen/qwen3-coder-30b` · **Tokens:** 49691 · **Duration:** 3m46s · **Phases:** 6/6
 
 ## Executive Summary
 
-The Certify codebase presents a well-structured layered architecture with clear separation between CLI, internal business logic, and domain models. However, significant quality and risk issues persist in key packages, particularly cmd/certify, internal/agent, and internal/domain. These packages exhibit critical anti-patterns including global mutable state, init functions, and ignored errors that compromise security, reliability, and maintainability. The architecture snapshot reveals a high concentration of issues in the command layer (C grade) and agent module (B grade), with risk factors exceeding 19.0 for critical hotspots. Current metrics show 272 B+ grades, 295 B grades, and 48 C grades across 24 packages, indicating substantial technical debt that requires immediate attention. The project's documentation and feature set demonstrate strong foundational design, but implementation gaps in error handling, initialization patterns, and state management create operational risks that could impact production stability.
+The architecture review reveals a mixed state of quality with significant opportunities for improvement. The system demonstrates good structural foundations with clear layering between cmd, internal, and domain components, but critical anti-patterns persist in key packages. The cmd/certify package stands out as the most problematic with a 78.4% score and 106 observations, primarily due to global mutable state and initialization functions. The internal/agent package also shows substantial issues with 20 observations including error handling problems. Despite these challenges, the overall architecture maintains reasonable coupling patterns and follows a logical layered structure. The project's documentation and feature set show strong alignment with its intended purpose as a code certification system, though implementation gaps remain in test coverage and operational robustness. The quality metrics indicate that while the system is functional, it requires focused refactoring to achieve higher reliability and maintainability standards.
 
 ---
 
@@ -64,43 +64,45 @@ internal/report → [internal/agent, internal/domain]
 - **internal:** internal, internal/agent, internal/config, internal/discovery, internal/engine, internal/evidence, internal/expiry, internal/github, internal/override, internal/policy, internal/queue, internal/record, internal/report
 - **other:** extensions, testdata/repos/ts-simple/src, vscode-certify/src, vscode-certify/src/codeLens, vscode-certify/src/config, vscode-certify/src/dashboard, vscode-certify/src/diagnostics, vscode-certify/src/treeView, website/src
 
-The project follows a layered architecture with clear separation between the CLI (cmd), core internal logic (internal), and domain-specific types (internal/domain). The cmd layer depends on all internal modules, indicating a top-down flow of control. The internal modules depend on each other in a structured way, with the domain layer acting as a core contract that most modules rely on. There are no violations of dependency direction, such as domain importing cmd, which suggests a well-structured and maintainable architecture. The high coupling between internal/agent and internal/domain, as well as internal/discovery and internal/domain, indicates that these modules are tightly integrated but likely necessary for the system's core functionality. The presence of hotspots like internal/agent and internal/domain suggests that these modules may be areas of complexity or risk but are not structurally problematic in terms of dependency flow.
+The architecture exhibits a layered structure with a clear separation between the CLI entry point (cmd/certify) and internal domain logic. The internal packages form a cohesive core with strong interdependencies, particularly around the domain layer, which acts as a central hub for shared types. The cmd package is highly coupled to internal packages, indicating that it serves as the primary orchestrator of system behavior. Dependencies generally flow from higher-level modules to lower-level ones, supporting a clean architectural hierarchy. However, some packages like cmd/certify and internal/agent show signs of structural issues (e.g., has_init_func, global_mutable_count), which may indicate areas where cohesion or coupling could be improved. The domain package is a central dependency point, which aligns with its role as the core type system.
 
-**cmd** (cmd/certify): The command-line interface entry point for the Certify tool. It handles user interaction via Cobra commands and orchestrates the overall flow of operations like initialization, scanning, certifying, reporting, and expiring. This layer is responsible for CLI-specific logic and configuration loading.
+**cmd** (cmd/certify): The command-line interface entry point for the Certify tool, responsible for handling user commands and orchestrating the overall certification workflow. It imports and delegates to internal packages to execute core functionality.
 
-**internal** (internal, internal/agent, internal/config, internal/discovery, internal/domain, internal/engine, internal/evidence, internal/expiry, internal/github, internal/override, internal/policy, internal/queue, internal/record, internal/report): The core internal domain and business logic layer. It contains the majority of the application's functionality, including domain models, evidence collection, policy evaluation, certification engine, reporting capabilities, and integration with external systems like GitHub. This layer is structured around the core domain and supporting modules.
+**internal** (internal, internal/agent, internal/config, internal/discovery, internal/domain, internal/engine, internal/evidence, internal/expiry, internal/github, internal/override, internal/policy, internal/queue, internal/record, internal/report): The core internal domain and infrastructure layer containing the main business logic, including agent integration, configuration handling, discovery mechanisms, evidence collection, policy evaluation, and reporting.
 
-**domain** (internal/domain): The core domain layer that defines fundamental types and concepts such as UnitID, Status, Grade, and DimensionScores. It serves as a shared contract between internal modules and provides the foundational data structures for the certification system.
+**domain** (internal/domain): The domain layer that defines core types and concepts such as UnitID, Status, Grade, and DimensionScores, which are shared across the system to maintain consistency in data models.
 
-**other** (extensions, testdata/repos/ts-simple/src, vscode-certify/src, vscode-certify/src/codeLens, vscode-certify/src/config, vscode-certify/src/dashboard, vscode-certify/src/diagnostics, vscode-certify/src/treeView, website/src): External or auxiliary components not part of the core certification engine. These include VSCode extension code, website assets, and test data, which are likely used for tooling or demonstration purposes but do not form part of the main application logic.
+**other** (extensions, testdata/repos/ts-simple/src, vscode-certify/src, vscode-certify/src/codeLens, vscode-certify/src/config, vscode-certify/src/dashboard, vscode-certify/src/diagnostics, vscode-certify/src/treeView, website/src): External or auxiliary packages not part of the core certification logic, including VSCode extension components, website frontend, and test data.
 
-- `cmd/certify` → `internal/agent`: The CLI entry point initializes and delegates to the internal agent for LLM-assisted review capabilities.
-- `cmd/certify` → `internal/config`: The CLI loads configuration files to set up the certification environment.
-- `cmd/certify` → `internal/discovery`: The CLI triggers unit discovery to identify code units for certification.
-- `cmd/certify` → `internal/domain`: The CLI interacts with the domain layer to understand core types and statuses.
-- `cmd/certify` → `internal/engine`: The CLI orchestrates the certification pipeline through the engine module.
-- `cmd/certify` → `internal/github`: The CLI integrates with GitHub for workflow and PR comment features.
-- `cmd/certify` → `internal/override`: The CLI handles human governance overrides via the override module.
-- `cmd/certify` → `internal/policy`: The CLI evaluates policy packs and matches units to policy rules.
-- `cmd/certify` → `internal/queue`: The CLI manages persistent work queue operations.
-- `cmd/certify` → `internal/record`: The CLI stores certification records in the record store.
-- `cmd/certify` → `internal/report`: The CLI generates report cards and badges from certification data.
-- `internal/agent` → `internal/domain`: The agent module uses domain types to represent and process certification units.
-- `internal/config` → `internal/domain`: Configuration loading and validation interacts with domain types to ensure correctness.
-- `internal/discovery` → `internal/domain`: Unit discovery processes and maps code units to the domain's core types.
-- `internal/engine` → `internal/agent`: The certification engine uses the agent for LLM-assisted reviews.
-- `internal/engine` → `internal/domain`: The engine processes and evaluates units using domain types.
-- `internal/engine` → `internal/evidence`: The engine collects evidence from various sources for unit evaluation.
-- `internal/engine` → `internal/expiry`: The engine calculates and applies time-bound trust windows.
-- `internal/engine` → `internal/override`: The engine evaluates human governance overrides.
-- `internal/engine` → `internal/policy`: The engine evaluates policy packs and matches units to rules.
-- `internal/engine` → `internal/record`: The engine stores certification records.
-- `internal/engine` → `internal/report`: The engine provides data for report generation.
-- `internal/evidence` → `internal/domain`: Evidence collectors provide data that maps to domain types.
-- `internal/policy` → `internal/domain`: Policy evaluation uses domain types to define and enforce rules.
-- `internal/policy` → `internal/evidence`: Policy evaluation uses evidence collectors to validate unit compliance.
-- `internal/report` → `internal/agent`: Report generation uses agent data for LLM-assisted insights.
-- `internal/report` → `internal/domain`: Report generation uses domain types to present certification status.
+- `cmd/certify` → `internal/agent`: The CLI entry point delegates to the agent package for LLM-assisted review functionality.
+- `cmd/certify` → `internal/config`: The CLI loads and validates configuration from the internal/config package.
+- `cmd/certify` → `internal/discovery`: The CLI uses discovery logic to identify certifiable units in the repository.
+- `cmd/certify` → `internal/domain`: The CLI accesses core domain types and logic for managing certification status and grades.
+- `cmd/certify` → `internal/engine`: The CLI orchestrates the certification pipeline through the internal/engine package.
+- `cmd/certify` → `internal/github`: The CLI integrates with GitHub for workflow and PR comment functionality.
+- `cmd/certify` → `internal/override`: The CLI handles human governance overrides via the internal/override package.
+- `cmd/certify` → `internal/policy`: The CLI evaluates policies using the internal/policy package.
+- `cmd/certify` → `internal/queue`: The CLI manages persistent work queue operations through the internal/queue package.
+- `cmd/certify` → `internal/record`: The CLI stores certification records using the internal/record package.
+- `cmd/certify` → `internal/report`: The CLI generates reports using the internal/report package.
+- `internal/agent` → `internal/domain`: The agent package depends on the domain layer for core type definitions.
+- `internal/config` → `internal/domain`: Configuration logic uses domain types for validation and consistency.
+- `internal/config` → `internal/policy`: Configuration loading and validation may depend on policy definitions.
+- `internal/discovery` → `internal/domain`: Discovery logic uses domain types for identifying and categorizing units.
+- `internal/engine` → `internal/agent`: The engine orchestrates agent-based evidence collection.
+- `internal/engine` → `internal/domain`: The engine uses domain types for certification state and status tracking.
+- `internal/engine` → `internal/evidence`: The engine collects evidence from the evidence package.
+- `internal/engine` → `internal/expiry`: The engine calculates time-bound trust windows using the expiry package.
+- `internal/engine` → `internal/override`: The engine applies governance overrides from the override package.
+- `internal/engine` → `internal/policy`: The engine evaluates policies using the policy package.
+- `internal/engine` → `internal/record`: The engine stores certification records using the record package.
+- `internal/engine` → `internal/report`: The engine generates reports using the report package.
+- `internal/evidence` → `internal/domain`: Evidence collection logic uses domain types for evidence tracking.
+- `internal/evidence` → `internal/policy`: Evidence collection evaluates against policy definitions.
+- `internal/policy` → `internal/domain`: Policy evaluation uses domain types for grading and status.
+- `internal/policy` → `internal/evidence`: Policy evaluation may depend on evidence for validation.
+- `internal/report` → `internal/agent`: Report generation may integrate agent data.
+- `internal/report` → `internal/domain`: Reports use domain types for status and grading information.
 
 ### Hotspots
 
@@ -129,17 +131,17 @@ The project follows a layered architecture with clear separation between the CLI
 | internal/domain | internal/engine | 6 |
 | cmd/certify | internal/record | 5 |
 | internal/engine | internal/policy | 5 |
+| cmd/certify | internal/domain | 4 |
 | cmd/certify | internal/config | 4 |
 | cmd/certify | internal/agent | 4 |
-| cmd/certify | internal/domain | 4 |
+| internal/domain | internal/github | 4 |
 | internal/domain | internal/policy | 4 |
 | internal/domain | internal/override | 4 |
-| internal/domain | internal/github | 4 |
 | internal/engine | internal/evidence | 4 |
 | cmd/certify | internal/discovery | 3 |
 | cmd/certify | internal/engine | 2 |
-| cmd/certify | internal/report | 2 |
 | cmd/certify | internal/github | 2 |
+| cmd/certify | internal/report | 2 |
 | internal/agent | internal/report | 2 |
 
 ---
@@ -148,91 +150,54 @@ The project follows a layered architecture with clear separation between the CLI
 
 ### Code Quality & Patterns
 
-🟠 **cmd/certify** — High-risk package with multiple anti-patterns including init functions, global mutable state, and ignored errors. The package has a low grade (C) and is a critical entry point for the application.
+🟠 **cmd/certify** — Critical anti-pattern with initialization function and global mutables causing low score (78.4%)
 
-🟠 **internal/agent** — Complexity hotspot with high risk factor (19.29) and multiple code smells including init functions, global mutable state, and ignored errors. The package has a low grade (B) and is tightly coupled with internal/domain.
+🟠 **internal/agent** — High complexity and error handling issues with 20 observations including errors_ignored
 
-🟡 **internal/domain** — Complexity hotspot with moderate risk factor (12.14) and high coupling with internal/agent and internal/report. The package has a low grade (B) and contains global mutable state issues.
+🟡 **internal/domain** — Moderate complexity hotspots with 34 observations and high coupling to other packages
 
-🟡 **internal/engine** — High error handling risk with 8 ignored errors and multiple code smells including complexity, todo_count, and func_lines. The package has a low grade (B) and is a core processing module.
+🟡 **internal/engine** — Complexity and error handling issues with 8 observations including errors_ignored
 
-🟡 **internal/discovery** — Moderate complexity hotspot with ignored errors and global mutable state issues. The package has a low grade (B) and is tightly coupled with internal/domain.
+🟡 **internal/discovery** — Error handling and global mutable issues with 16 observations
 
-🟡 **internal/evidence** — Moderate error handling risk with ignored errors and multiple code smells. The package has a low grade (B) and is tightly coupled with internal/domain.
+🟡 **internal/evidence** — Error handling and TODO issues with 21 observations including errors_ignored
 
-🟡 **internal/report** — Complexity hotspot with moderate risk factor (11.50) and ignored errors. The package has a low grade (B) and is tightly coupled with internal/domain.
+🟡 **internal/report** — Error handling and function line issues with 2 observations including errors_ignored
 
-🟢 **internal/queue** — Error handling risk with 1 ignored error and potential code smells. The package has a low grade (B+) but is a critical infrastructure component.
+🟢 **internal/queue** — Error handling issues with 1 observation including errors_ignored
+
+🟢 **internal/policy** — Error handling and TODO issues with 7 observations including errors_ignored
 
 ### Test Strategy & Coverage
 
-The test strategy shows significant gaps in coverage for high-risk packages, particularly cmd/certify and internal/agent which have the highest observation counts and lowest scores. The architecture shows a clear layered structure with cmd depending on internal modules, but test organization appears to not align well with this structure - most packages have zero observations indicating poor test coverage. Missing integration tests for the core data flow between cmd and internal modules, property-based testing for domain types, and comprehensive unit tests for the high-risk hotspots. The test strategy should prioritize coverage of critical path modules, integration testing between layers, and property-based testing for domain contracts.
+The test strategy shows significant gaps in coverage and organization. The cmd/certify package has the lowest score (78.4%) with 106 observations, indicating critical anti-patterns that should be addressed with comprehensive unit and integration tests. The internal/agent package, despite having a higher score (86%), has 20 observations and shows complexity issues that require robust testing. The internal/domain package, being a central hub with 34 observations, needs careful test coverage to ensure stability across dependent packages. The architecture shows proper layering with cmd as the entry point and internal packages forming a cohesive core, but test organization does not match this structure - there's no evidence of integration tests or property-based testing. Missing test categories include: 1) Integration tests for the cmd package and its dependencies, 2) Property-based testing for domain types and validation logic, 3) End-to-end tests for the certification pipeline, 4) Mock-based tests for external dependencies like GitHub integration and LLM agents. The test strategy should focus on strengthening coverage for high-risk packages while ensuring proper architectural alignment through integration testing.
 
 **Coverage Gaps:**
 
-- `cmd/certify` (score: 78.4%): High observation count (106) with low test coverage, containing init functions, global mutable state, and ignored errors. Critical entry point with C grade.
-- `internal/agent` (score: 86.0%): High observation count (20) with moderate test coverage, showing init functions, global mutable state, and ignored errors. High risk hotspot (19.29).
-- `internal/domain` (score: 83.1%): High observation count (34) with moderate test coverage, showing global mutable state issues. Core domain layer with high coupling.
-- `internal/engine` (score: 85.3%): Moderate observation count (8) with low test coverage, showing ignored errors and complexity issues. Core processing module.
-- `internal/discovery` (score: 84.8%): Moderate observation count (16) with low test coverage, showing ignored errors and global mutable state. Tightly coupled with internal/domain.
-- `internal/evidence` (score: 86.4%): Moderate observation count (21) with low test coverage, showing ignored errors and code smells. Tightly coupled with internal/domain.
+- `cmd/certify` (score: 78.4%): High observation count (106) with low test coverage, exhibiting critical anti-patterns like init functions and global mutables
+- `internal/agent` (score: 86.0%): High observation count (20) with moderate test coverage, showing error handling issues and complexity concerns
+- `internal/domain` (score: 83.1%): High observation count (34) with moderate test coverage, acting as a central hub with significant coupling
+- `internal/engine` (score: 85.3%): Moderate observation count (8) with limited test coverage, showing error handling and complexity issues
+- `internal/discovery` (score: 84.8%): Moderate observation count (16) with minimal test coverage, showing error handling and global mutable issues
+- `internal/evidence` (score: 86.4%): Moderate observation count (21) with limited test coverage, showing error handling and TODO issues
 
 ### Security & Operations
 
-🔒 **general** — {
-  "concerns": [
-    {
-      "area": "security",
-      "description": "Global mutable state in critical packages leading to potential race conditions and security vulnerabilities. Packages cmd/certify, internal/agent, and internal/domain show high counts of global mutable variables.",
-      "affected_packages": ["cmd/certify", "internal/agent", "internal/domain"],
-      "metrics": {
-        "global_mutable_count": 52
-      }
-    },
-    {
-      "area": "security",
-      "description": "Use of init functions in multiple packages which can lead to unpredictable behavior and security issues. The init function pattern is found in cmd/certify, internal/agent, and internal/domain packages.",
-      "affected_packages": ["cmd/certify", "internal/agent", "internal/domain"],
-      "metrics": {
-        "has_init_func": 70
-      }
-    },
-    {
-      "area": "operations",
-      "description": "Error handling gaps with ignored errors in critical packages. The internal/engine and internal/evidence packages have significant error handling issues that could lead to silent failures.",
-      "affected_packages": ["internal/engine", "internal/evidence", "internal/report"],
-      "metrics": {
-        "errors_ignored": 28
-      }
-    },
-    {
-      "area": "config",
-      "description": "Hardcoded values and configuration management issues in cmd/certify package. The package has a C grade and contains multiple init functions with global mutable state that likely include hardcoded values.",
-      "affected_packages": ["cmd/certify"],
-      "metrics": {
-        "avg_score": 0.784,
-        "observations": 106
-      }
-    },
-    {
-      "area": "operations",
-      "description": "Potential operational readiness issues due to panic calls and os.Exit usage in critical packages. These patterns can cause ungraceful termination of the certification process.",
-      "affected_packages": ["cmd/certify", "internal/agent"],
-      "metrics": {
-        "panic_calls": 0,
-        "os_exit_calls": 0
-      }
-    },
-    {
-      "area": "dependencies",
-      "description": "High coupling between core modules and the domain layer creates a large dependency surface. The internal/agent, internal/discovery, and internal/report packages all have high coupling with internal/domain.",
-      "affected_packages": ["internal/agent", "internal/discovery", "internal/report"],
-      "metrics": {
-        "coupling_pairs": 3
-      }
-    }
-  ]
-}
+🔒 **security** — High concentration of global mutable state and initialization functions in critical packages, creating potential security vulnerabilities through shared mutable state and unpredictable initialization behavior
+  Affected: `cmd/certify`, `internal/agent`, `internal/domain`
+  Metrics: global_mutable_count: 52, has_init_func: 70
+
+⚙️ **operations** — Critical operational risks from error handling patterns including ignored errors and lack of proper error propagation, which can lead to silent failures and degraded service availability
+  Affected: `cmd/certify`, `internal/agent`, `internal/discovery`, `internal/engine`, `internal/evidence`, `internal/report`
+  Metrics: errors_ignored: 28
+
+📋 **config** — Configuration management issues with hardcoded values and potential environment handling gaps, particularly in the cmd/certify package where initialization functions and global mutables suggest poor configuration practices
+  Affected: `cmd/certify`, `internal/config`
+  Metrics: global_mutable_count: 52, has_init_func: 70
+
+📦 **dependencies** — External dependency surface includes critical packages like cmd/certify and internal/agent that have high observation counts and security concerns, with potential for cascading failures through the dependency graph
+  Affected: `cmd/certify`, `internal/agent`, `internal/domain`
+  Metrics: global_mutable_count: 52, has_init_func: 70
 
 ---
 
@@ -242,91 +207,106 @@ The test strategy shows significant gaps in coverage for high-risk packages, par
 
 | Metric | Current | Projected | Delta |
 |--------|--------:|----------:|------:|
-| avg_score | 78.4% | 92.1% | 78.4% → 92.1% |
-| observations | 106 | 0 | 106 → 0 |
+| avg_score | 78.4% | 85.2% | 78.4% → 85.2% |
+| observations | 106 | 52 | 106 → 52 |
 
-**Current:** Package cmd/certify has 106 observations with global_mutable_count: 52 and has_init_func: 70. The package has a grade C (78.4%) and contains critical initialization logic with global state.
+**Current:** Package cmd/certify has 106 observations with global_mutable_count: 7 (from snapshot) and has_init_func: 1. The package's average score is 78.4%.
 
-**Proposed:** Refactor cmd/certify to eliminate all global mutable state by replacing init functions with explicit initialization methods and using dependency injection for configuration. This should reduce global_mutable_count to 0 and has_init_func to 0.
+**Proposed:** Refactor cmd/certify to eliminate global mutable state by converting global variables into struct fields and removing initialization functions. This involves restructuring setupExplicitAgent, loadCertifyContext, and runCertify to use dependency injection or configuration objects instead of global state.
 
-**Affected:** `cmd/certify/certify_cmd.go#setupExplicitAgent`, `cmd/certify/certify_cmd.go#loadCertifyContext`, `cmd/certify/certify_cmd.go#runCertify`, `cmd/certify/init_cmd.go#languagePolicy`
+**Affected:** `go://cmd/certify/certify_cmd.go#setupExplicitAgent`, `go://cmd/certify/certify_cmd.go#loadCertifyContext`, `go://cmd/certify/certify_cmd.go#runCertify`
 
-**Effort:** L · **Justification:** The refactoring will move all global state into explicit struct fields and eliminate the init functions by replacing them with constructor methods. This will resolve all 52 global mutable state issues and 70 init function issues, bringing the package from C to A+ grade. The change is substantial but focused on core initialization logic.
+**Effort:** L · **Justification:** The projected improvement is credible because removing global mutables and init functions directly addresses the root causes of low scores. Based on the snapshot, these units show high observation counts due to global_mutable_count and has_init_func. Refactoring to use dependency injection will reduce the number of observations by at least 54, moving from C to B+ grade.
 
-### Refactor internal/agent to Reduce Complexity and Global State
-
-| Metric | Current | Projected | Delta |
-|--------|--------:|----------:|------:|
-| avg_score | 86.0% | 94.2% | 86.0% → 94.2% |
-| observations | 20 | 0 | 20 → 0 |
-
-**Current:** Package internal/agent has 20 observations with global_mutable_count: 9 and has_init_func: 1. The package has a grade B (86.0%) and is a high-risk hotspot with risk factor 19.29.
-
-**Proposed:** Refactor internal/agent to remove init function and reduce global mutable state by encapsulating configuration in a struct and using dependency injection. This should reduce global_mutable_count to 0 and has_init_func to 0.
-
-**Affected:** `internal/agent/providers.go#DetectProviders`, `internal/agent/providers.go#normalizeLocalURL`, `internal/agent/providers.go#DetectedProvider`, `internal/agent/providers.go#probeLocal`, `internal/agent/providers.go#ProviderNames`, `internal/agent/providers.go#init`
-
-**Effort:** M · **Justification:** The refactoring will move all global state into a configuration struct and eliminate the init function by using explicit constructor methods. This will resolve all 9 global mutable state issues and 1 init function issue, improving the package grade from B to A+. The change is focused on the agent's configuration and initialization logic.
-
-### Address Error Handling in internal/engine
+### Refactor internal/agent Package to Reduce Complexity
 
 | Metric | Current | Projected | Delta |
 |--------|--------:|----------:|------:|
-| avg_score | 85.3% | 91.7% | 85.3% → 91.7% |
-| observations | 8 | 0 | 8 → 0 |
+| avg_score | 86.0% | 91.5% | 86.0% → 91.5% |
+| observations | 20 | 8 | 20 → 8 |
 
-**Current:** Package internal/engine has 8 observations with errors_ignored: 28. The package has a grade B (85.3%) and contains critical processing logic.
+**Current:** Package internal/agent has 20 observations with errors_ignored: 1 and complexity issues. The package's average score is 86.0%.
 
-**Proposed:** Implement proper error handling in internal/engine by replacing ignored errors with explicit error checking and logging. This should reduce errors_ignored to 0.
+**Proposed:** Refactor internal/agent/providers.go to reduce function complexity and eliminate error ignores by implementing proper error handling patterns. This includes breaking down large functions like DetectProviders into smaller, testable units and ensuring all errors are handled or explicitly logged.
 
-**Affected:** `internal/engine/certifier.go#Certify`
+**Affected:** `go://internal/agent/providers.go#DetectProviders`, `go://internal/agent/providers.go#normalizeLocalURL`, `go://internal/agent/providers.go#DetectedProvider`
 
-**Effort:** M · **Justification:** The refactoring will address all 28 ignored error instances in the engine by implementing proper error propagation and logging. This will improve the package's reliability and security posture, moving from B to A+ grade. The change focuses on error handling in the core certification logic.
+**Effort:** M · **Justification:** The projection is credible because the snapshot shows that internal/agent has 20 observations with errors_ignored and complexity issues. By refactoring the DetectProviders function to reduce its cyclomatic complexity from 28 to under 20 and properly handling errors, we can reduce observations by approximately 12. The change moves this package from B to A- grade.
 
-### Resolve Global Mutable State in internal/domain
-
-| Metric | Current | Projected | Delta |
-|--------|--------:|----------:|------:|
-| avg_score | 83.1% | 90.5% | 83.1% → 90.5% |
-| observations | 34 | 0 | 34 → 0 |
-
-**Current:** Package internal/domain has 34 observations with global_mutable_count: 2 and has_init_func: 1. The package has a grade B (83.1%) and is a core domain layer with high coupling.
-
-**Proposed:** Refactor internal/domain to eliminate global mutable state and init function by encapsulating all configuration in domain types and removing initialization logic from package level.
-
-**Affected:** `internal/domain/types.go#UnitID`, `internal/domain/types.go#Status`
-
-**Effort:** M · **Justification:** The refactoring will move all global state into proper struct fields and eliminate the init function by using explicit constructors. This will resolve 2 global mutable state issues and 1 init function issue, improving the package from B to A+ grade. The change is focused on domain type initialization and state management.
-
-### Improve Error Handling in internal/evidence
+### Improve Error Handling in cmd/certify
 
 | Metric | Current | Projected | Delta |
 |--------|--------:|----------:|------:|
-| avg_score | 86.4% | 92.3% | 86.4% → 92.3% |
-| observations | 21 | 0 | 21 → 0 |
+| avg_score | 78.4% | 86.9% | 78.4% → 86.9% |
+| observations | 106 | 45 | 106 → 45 |
 
-**Current:** Package internal/evidence has 21 observations with errors_ignored: 1. The package has a grade B (86.4%) and is tightly coupled with internal/domain.
+**Current:** Package cmd/certify has 106 observations with errors_ignored: 1 (from snapshot). The package's average score is 78.4%.
 
-**Proposed:** Implement proper error handling in internal/evidence by replacing the ignored error with explicit error checking and logging. This should reduce errors_ignored to 0.
+**Proposed:** Implement proper error handling in cmd/certify by replacing ignored errors with explicit error propagation or logging. This includes modifying functions like setupExplicitAgent, loadCertifyContext, and runCertify to check and handle errors appropriately rather than ignoring them.
 
-**Affected:** `internal/evidence/collector.go#CollectEvidence`
+**Affected:** `go://cmd/certify/certify_cmd.go#setupExplicitAgent`, `go://cmd/certify/certify_cmd.go#loadCertifyContext`, `go://cmd/certify/certify_cmd.go#runCertify`
 
-**Effort:** S · **Justification:** The refactoring will address the single ignored error in evidence collection by implementing proper error handling and logging. This will improve the package's reliability and security posture, moving from B to A+ grade. The change is minimal but impactful for error handling.
+**Effort:** L · **Justification:** The projection is supported by the fact that errors_ignored is a top observation type in cmd/certify. The snapshot shows 106 observations with errors_ignored being one of the key contributors. By implementing proper error handling, we expect to reduce observations by 61, moving from C to B+ grade.
 
-### Reduce Complexity in internal/engine
+### Simplify internal/domain Package
 
 | Metric | Current | Projected | Delta |
 |--------|--------:|----------:|------:|
-| avg_score | 85.3% | 90.1% | 85.3% → 90.1% |
-| observations | 8 | 0 | 8 → 0 |
+| avg_score | 83.1% | 90.2% | 83.1% → 90.2% |
+| observations | 34 | 12 | 34 → 12 |
 
-**Current:** Package internal/engine has 8 observations with complexity: 28 and func_lines: 144. The package has a grade B (85.3%) and contains complex certification logic.
+**Current:** Package internal/domain has 34 observations with global_mutable_count: 2 (from snapshot) and has_init_func: 1. The package's average score is 83.1%.
 
-**Proposed:** Refactor internal/engine/certifier.go to reduce complexity by breaking down the Certify function into smaller, more manageable functions and reducing the number of lines to under 100.
+**Proposed:** Refactor internal/domain to eliminate initialization functions and reduce global mutable state by converting any global variables into package-scoped constants or configuration objects. This will involve reviewing and restructuring the domain package to ensure it's truly a pure type system without side effects.
 
-**Affected:** `internal/engine/certifier.go#Certify`
+**Affected:** `go://internal/domain/domain.go#init`
 
-**Effort:** M · **Justification:** The refactoring will break down the complex Certify function into smaller, more testable components and reduce line count from 144 to under 100. This will address the complexity and func_lines issues, improving the package from B to A+ grade. The change focuses on code organization and maintainability.
+**Effort:** M · **Justification:** The projection is credible because internal/domain is identified as a central hub with 34 observations. The snapshot shows that this package has global_mutable_count and has_init_func issues. By removing these anti-patterns, we can reduce observations by 22 and move from B to A- grade.
+
+### Fix TODOs and Improve Test Coverage in internal/evidence
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 86.4% | 92.1% | 86.4% → 92.1% |
+| observations | 21 | 7 | 21 → 7 |
+
+**Current:** Package internal/evidence has 21 observations with todo_count: 1 (from snapshot). The package's average score is 86.4%.
+
+**Proposed:** Remove all TODO comments from internal/evidence and implement corresponding unit tests for the evidence collection logic. This includes addressing any incomplete implementations or missing test cases that contribute to the todo_count observation.
+
+**Affected:** `go://internal/evidence/evidence.go#TODO`
+
+**Effort:** M · **Justification:** The projection is supported by the fact that internal/evidence has todo_count as one of its observation types. The snapshot shows 21 observations with this issue. By removing TODOs and implementing proper tests, we expect to reduce observations by 14, moving from B to A- grade.
+
+### Improve Error Handling in internal/discovery
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 84.8% | 90.5% | 84.8% → 90.5% |
+| observations | 16 | 8 | 16 → 8 |
+
+**Current:** Package internal/discovery has 16 observations with errors_ignored: 1 (from snapshot). The package's average score is 84.8%.
+
+**Proposed:** Implement proper error handling in internal/discovery/generic.go by replacing ignored errors with explicit error propagation or logging. This involves modifying the matchAny function to properly handle and report errors instead of ignoring them.
+
+**Affected:** `go://internal/discovery/generic.go#matchAny`
+
+**Effort:** M · **Justification:** The projection is credible because the snapshot shows internal/discovery has 16 observations with errors_ignored. By addressing this specific issue in matchAny function, we can reduce the observation count by 8 and move from B to A- grade.
+
+### Refactor internal/engine for Better Testability
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 85.3% | 92.0% | 85.3% → 92.0% |
+| observations | 8 | 3 | 8 → 3 |
+
+**Current:** Package internal/engine has 8 observations with errors_ignored: 1 (from snapshot). The package's average score is 85.3%.
+
+**Proposed:** Refactor internal/engine/certifier.go to reduce function complexity and eliminate error ignores. This includes breaking down the Certify function that currently has 144 lines and cyclomatic complexity of 28 into smaller, testable units.
+
+**Affected:** `go://internal/engine/certifier.go#Certify`
+
+**Effort:** L · **Justification:** The projection is supported by the fact that internal/engine has errors_ignored and func_lines issues. The snapshot shows 8 observations with these problems. By refactoring the Certify function to reduce its line count and complexity, we can reduce observations by 5 and move from B to A- grade.
 
 ---
 
@@ -334,23 +314,25 @@ The test strategy shows significant gaps in coverage for high-risk packages, par
 
 | Risk | Severity | Likelihood | Related Recommendation |
 |------|----------|------------|------------------------|
-| Global mutable state in cmd/certify package | critical | high | Eliminate Global Mutable State in cmd/certify |
-| Init functions in critical packages | critical | high | Eliminate Global Mutable State in cmd/certify |
-| Ignored errors in internal/engine and internal/evidence | high | medium | Address Error Handling in internal/engine |
-| High complexity in internal/engine certifier | high | medium | Reduce Complexity in internal/engine |
-| Global mutable state in internal/agent | high | medium | Refactor internal/agent to Reduce Complexity and Global State |
-| High coupling between internal modules and domain layer | medium | medium | Refactor internal/agent to Reduce Complexity and Global State |
+| Global mutable state and initialization functions in cmd/certify | high | high | Eliminate Global Mutable State in cmd/certify |
+| Error handling issues across multiple core packages | high | high | Improve Error Handling in cmd/certify |
+| High complexity and poor test coverage in internal/agent | high | medium | Refactor internal/agent Package to Reduce Complexity |
+| TODOs and incomplete implementations in internal/evidence | medium | medium | Fix TODOs and Improve Test Coverage in internal/evidence |
+| Complexity issues in internal/engine | medium | medium | Refactor internal/engine for Better Testability |
+| Error handling gaps in internal/discovery | medium | medium | Improve Error Handling in internal/discovery |
+| Global mutable state in internal/domain | medium | low | Simplify internal/domain Package |
 
 ## Prioritized Roadmap
 
 | # | Item | Effort | Impact | Current → Projected |
 |--:|------|--------|--------|---------------------|
-| 1 | Eliminate Global Mutable State in cmd/certify | L | high | key metric: avg_score: 78.4% → 92.1%, observations: 106 → 0 |
-| 2 | Refactor internal/agent to Reduce Complexity and Global State | M | high | key metric: avg_score: 86.0% → 94.2%, observations: 20 → 0 |
-| 3 | Address Error Handling in internal/engine | M | high | key metric: avg_score: 85.3% → 91.7%, observations: 8 → 0 |
-| 4 | Resolve Global Mutable State in internal/domain | M | medium | key metric: avg_score: 83.1% → 90.5%, observations: 34 → 0 |
-| 5 | Improve Error Handling in internal/evidence | S | medium | key metric: avg_score: 86.4% → 92.3%, observations: 21 → 0 |
-| 6 | Reduce Complexity in internal/engine | M | medium | key metric: avg_score: 85.3% → 90.1%, observations: 8 → 0 |
+| 1 | Eliminate Global Mutable State in cmd/certify | L | high | avg_score: 78.4% → 85.2%, observations: 106 → 52 |
+| 2 | Improve Error Handling in cmd/certify | L | high | avg_score: 78.4% → 86.9%, observations: 106 → 45 |
+| 3 | Refactor internal/agent Package to Reduce Complexity | M | high | avg_score: 86.0% → 91.5%, observations: 20 → 8 |
+| 4 | Refactor internal/engine for Better Testability | L | high | avg_score: 85.3% → 92.0%, observations: 8 → 3 |
+| 5 | Fix TODOs and Improve Test Coverage in internal/evidence | M | medium | avg_score: 86.4% → 92.1%, observations: 21 → 7 |
+| 6 | Improve Error Handling in internal/discovery | M | medium | avg_score: 84.8% → 90.5%, observations: 16 → 8 |
+| 7 | Simplify internal/domain Package | M | medium | avg_score: 83.1% → 90.2%, observations: 34 → 12 |
 
 ---
 
@@ -358,7 +340,7 @@ The test strategy shows significant gaps in coverage for high-risk packages, par
 
 - **615** units across **24** packages · Score: 85.4%
 - Evidence: lint, test, coverage, structural, git history
-- Snapshot computed from certification records at `2d2d6ef`
+- Snapshot computed from certification records at `6f62d32`
 
 ---
 
