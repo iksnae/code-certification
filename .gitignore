@@ -36,7 +36,7 @@ Thumbs.db
 # State snapshot and run history ARE tracked — survive git clone
 !.certification/state.json
 !.certification/runs.jsonl
-.certification/reports/
+
 .certification/queue.json
 
 # Personal workspace tooling (not part of the project)

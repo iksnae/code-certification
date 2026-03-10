@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `1b1192a`
-**Generated:** 2026-03-10T13:12:16
+**Commit:** `f2b94d0`
+**Generated:** 2026-03-10T13:33:15
 
 ## 🟢 Overall: B+ (89.0%)
 
@@ -28,6 +28,35 @@
 |----------|-------|-------|-------|
 | go | 492 | 🟢 B+ | 89.1% |
 | ts | 67 | 🟢 B+ | 88.5% |
+
+### Packages
+
+| Package | Units | Grade | Score |
+|---------|------:|:-----:|------:|
+| [cmd/certify](reports/cmd/certify/index.md) | 36 | 🟢 B+ | 89.2% |
+| [extensions](reports/extensions/index.md) | 18 | 🟢 B+ | 88.5% |
+| [internal](reports/internal/index.md) | 1 | 🟢 B+ | 88.3% |
+| [internal/agent](reports/internal/agent/index.md) | 138 | 🟢 B+ | 89.2% |
+| [internal/config](reports/internal/config/index.md) | 22 | 🟢 B+ | 88.9% |
+| [internal/discovery](reports/internal/discovery/index.md) | 39 | 🟢 B+ | 89.0% |
+| [internal/domain](reports/internal/domain/index.md) | 69 | 🟢 B+ | 89.2% |
+| [internal/engine](reports/internal/engine/index.md) | 10 | 🟢 B+ | 88.2% |
+| [internal/evidence](reports/internal/evidence/index.md) | 39 | 🟢 B+ | 88.9% |
+| [internal/expiry](reports/internal/expiry/index.md) | 2 | 🟢 B+ | 88.3% |
+| [internal/github](reports/internal/github/index.md) | 17 | 🟢 B+ | 89.1% |
+| [internal/override](reports/internal/override/index.md) | 9 | 🟢 B+ | 88.8% |
+| [internal/policy](reports/internal/policy/index.md) | 14 | 🟢 B+ | 88.7% |
+| [internal/queue](reports/internal/queue/index.md) | 17 | 🟢 B+ | 89.2% |
+| [internal/record](reports/internal/record/index.md) | 17 | 🟢 B+ | 89.2% |
+| [internal/report](reports/internal/report/index.md) | 62 | 🟢 B+ | 89.0% |
+| [testdata/repos/ts-simple/src](reports/testdata/repos/ts-simple/src/index.md) | 6 | 🟢 B+ | 89.4% |
+| [vscode-certify/src](reports/vscode-certify/src/index.md) | 31 | 🟢 B+ | 88.4% |
+| [vscode-certify/src/codeLens](reports/vscode-certify/src/codeLens/index.md) | 2 | 🟢 B+ | 88.3% |
+| [vscode-certify/src/config](reports/vscode-certify/src/config/index.md) | 5 | 🟢 B+ | 88.3% |
+| [vscode-certify/src/dashboard](reports/vscode-certify/src/dashboard/index.md) | 1 | 🟢 B+ | 88.3% |
+| [vscode-certify/src/diagnostics](reports/vscode-certify/src/diagnostics/index.md) | 1 | 🟢 B+ | 88.3% |
+| [vscode-certify/src/treeView](reports/vscode-certify/src/treeView/index.md) | 2 | 🟢 B+ | 88.3% |
+| [website/src](reports/website/src/index.md) | 1 | 🟢 B+ | 89.4% |
 
 ---
 

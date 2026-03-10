@@ -132,25 +132,30 @@ func (c *Certifier) CollectRepoEvidence() []domain.Evidence {
 }
 
 // SaveReportArtifacts writes REPORT_CARD.md (compact summary), badge.json,
-// and per-unit markdown reports from a pre-computed FullReport.
+// and the unit certificate tree from a pre-computed FullReport.
 //
 // REPORT_CARD.md is the Card format — a compact summary with overall grade,
-// language breakdown, and top issues. It stays under 5KB regardless of repo
-// size, so it renders on GitHub even for repos with thousands of units.
+// language breakdown, package links, and top issues.
+//
+// The reports/ tree contains navigable markdown certificates:
+//   reports/index.md → reports/<pkg>/index.md → reports/<pkg>/<file>/<symbol>.md
 //
 // For the full per-unit report, use `certify report --format full`.
 // For interactive browsing, use `certify report --site`.
 func SaveReportArtifacts(certDir string, fr report.FullReport) error {
-	// Compact report card (summary only — scales to any repo size)
+	// Populate package summaries for card navigation links
+	fr.Card.Packages = report.BuildPackageSummaries(fr)
+
+	// Compact report card with package links
 	md := report.FormatCardMarkdown(fr.Card)
 	if err := os.WriteFile(filepath.Join(certDir, "REPORT_CARD.md"), []byte(md), 0o644); err != nil {
 		return fmt.Errorf("writing REPORT_CARD.md: %w", err)
 	}
 
-	// Per-unit reports (gitignored, regenerated on demand)
+	// Unit certificate tree (committed to repo)
 	reportsDir := filepath.Join(certDir, "reports")
-	if _, err := report.GenerateUnitReports(fr, reportsDir); err != nil {
-		return fmt.Errorf("writing unit reports: %w", err)
+	if _, err := report.GenerateReportTree(fr, reportsDir); err != nil {
+		return fmt.Errorf("writing unit certificates: %w", err)
 	}
 
 	// Badge (uses the Card already embedded in FullReport)

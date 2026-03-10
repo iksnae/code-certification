@@ -37,6 +37,9 @@ type Card struct {
 
 	// Top issues (up to 10)
 	TopIssues []IssueCard `json:"top_issues,omitempty"`
+
+	// Package summaries (populated for report tree navigation)
+	Packages []PackageSummary `json:"packages,omitempty"`
 }
 
 // IssueCard describes a single unit needing attention.
@@ -253,6 +256,18 @@ func FormatCardMarkdown(c Card) string {
 		for _, l := range c.Languages {
 			fmt.Fprintf(&b, "| %s | %d | %s %s | %.1f%% |\n",
 				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade, l.AverageScore*100)
+		}
+		b.WriteString("\n")
+	}
+
+	// Packages (with links into the report tree)
+	if len(c.Packages) > 0 {
+		b.WriteString("### Packages\n\n")
+		b.WriteString("| Package | Units | Grade | Score |\n")
+		b.WriteString("|---------|------:|:-----:|------:|\n")
+		for _, p := range c.Packages {
+			fmt.Fprintf(&b, "| [%s](reports/%s/index.md) | %d | %s %s | %.1f%% |\n",
+				p.Path, p.Path, p.Units, gradeEmoji(p.Grade), p.Grade, p.AvgScore*100)
 		}
 		b.WriteString("\n")
 	}
