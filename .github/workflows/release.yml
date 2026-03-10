@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+          cache: true
+
+      - name: Test
+        run: go test ./... -count=1
+
+      - name: Build binaries
+        run: |
+          VERSION=${GITHUB_REF_NAME}
+          COMMIT=$(git rev-parse --short HEAD)
+          DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          LDFLAGS="-X main.Version=${VERSION} -X main.Commit=${COMMIT} -X main.Date=${DATE}"
+
+          GOOS=linux   GOARCH=amd64 go build -ldflags "${LDFLAGS}" -o dist/certify-linux-amd64   ./cmd/certify/
+          GOOS=linux   GOARCH=arm64 go build -ldflags "${LDFLAGS}" -o dist/certify-linux-arm64   ./cmd/certify/
+          GOOS=darwin  GOARCH=amd64 go build -ldflags "${LDFLAGS}" -o dist/certify-darwin-amd64  ./cmd/certify/
+          GOOS=darwin  GOARCH=arm64 go build -ldflags "${LDFLAGS}" -o dist/certify-darwin-arm64  ./cmd/certify/
+          GOOS=windows GOARCH=amd64 go build -ldflags "${LDFLAGS}" -o dist/certify-windows-amd64.exe ./cmd/certify/
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${GITHUB_REF_NAME}
+
+          # Extract release notes from RELEASE_NOTES.md
+          NOTES=$(cat RELEASE_NOTES.md)
+
+          gh release create "${VERSION}" \
+            --title "Certify ${VERSION}" \
+            --notes "${NOTES}" \
+            dist/*

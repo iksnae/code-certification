@@ -9,6 +9,7 @@ on:
       - 'go.mod'
       - 'go.sum'
       - '.github/workflows/ci.yml'
+      - '.github/workflows/release.yml'
       - '.certification/config.yml'
       - '.certification/policies/**'
   pull_request:

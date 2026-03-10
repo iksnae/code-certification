@@ -5,6 +5,9 @@ on:
     tags:
       - 'vscode-v*'
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -50,3 +53,18 @@ jobs:
         with:
           name: certify-vscode
           path: vscode-certify/*.vsix
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${GITHUB_REF_NAME}
+          VSIX=$(ls *.vsix | head -1)
+          NOTES=$(cat CHANGELOG.md | awk '/^## '"${VERSION#vscode-v}"'/{found=1; next} /^## [0-9]/{if(found) exit} found{print}')
+          if [ -z "$NOTES" ]; then
+            NOTES="VS Code Extension ${VERSION}"
+          fi
+          gh release create "${VERSION}" \
+            --title "Certify VS Code Extension ${VERSION#vscode-v}" \
+            --notes "${NOTES}" \
+            "${VSIX}" || echo "::notice::Release already exists"
