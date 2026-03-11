@@ -129,6 +129,46 @@ func TestFormatForLLM_SnapshotTables(t *testing.T) {
 	}
 }
 
+func TestFormatForLLM_StructuralMetrics(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"panic_calls":          0,
+				"os_exit_calls":        1,
+				"global_mutable_count": 5,
+				"defer_in_loop":        3,
+			},
+		}),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	output := pc.FormatForLLM(4000)
+
+	if !strings.Contains(output, "Structural Metrics") {
+		t.Error("output should contain Structural Metrics section")
+	}
+	if !strings.Contains(output, "| panic_calls | 0 |") {
+		t.Error("output should show panic_calls with exact count 0")
+	}
+	if !strings.Contains(output, "| os_exit_calls | 1 |") {
+		t.Error("output should show os_exit_calls with exact count 1")
+	}
+	if !strings.Contains(output, "| global_mutable_count | 5 |") {
+		t.Error("output should show global_mutable_count with exact count 5")
+	}
+	if !strings.Contains(output, "| defer_in_loop | 3 |") {
+		t.Error("output should show defer_in_loop with exact count 3")
+	}
+}
+
 func TestFormatForLLM_Empty(t *testing.T) {
 	pc := &agent.ProjectContext{
 		Snapshot: agent.BuildSnapshot(nil, ""),
