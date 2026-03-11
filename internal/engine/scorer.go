@@ -383,6 +383,35 @@ func scoreDeepAnalysis(m map[string]float64, scores domain.DimensionScores) {
 	if deadCode, ok := m["is_dead_code"]; ok && deadCode > 0 {
 		setMin(scores, domain.DimMaintainability, 0.60)
 	}
+
+	// Dep depth → architectural_fitness
+	if depth, ok := m["dep_depth"]; ok {
+		switch {
+		case depth <= 3:
+			setMax(scores, domain.DimArchitecturalFitness, 0.95)
+		case depth <= 5:
+			setMax(scores, domain.DimArchitecturalFitness, 0.85)
+		case depth <= 8:
+			setMax(scores, domain.DimArchitecturalFitness, 0.70)
+		default:
+			setMin(scores, domain.DimArchitecturalFitness, 0.55)
+		}
+	}
+
+	// Instability for concrete packages → architectural_fitness
+	if instability, ok := m["instability"]; ok && instability > 0.8 {
+		// High instability is only bad for concrete implementations
+		// (main packages naturally have instability = 1.0, that's fine)
+		if m["is_dead_code"] == 0 && m["fan_in"] > 0 {
+			setMin(scores, domain.DimArchitecturalFitness, 0.65)
+		}
+	}
+
+	// Concrete deps → testability + arch_fitness
+	if concreteDeps, ok := m["concrete_deps"]; ok && concreteDeps > 0 {
+		setMin(scores, domain.DimTestability, 0.65)
+		setMin(scores, domain.DimArchitecturalFitness, 0.65)
+	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {

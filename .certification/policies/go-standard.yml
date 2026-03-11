@@ -158,4 +158,11 @@ rules:
     metric: is_dead_code
     threshold: 0
 
+  - id: max-dep-depth
+    dimension: architectural_fitness
+    description: "Package import depth should not exceed 8 levels"
+    severity: warning
+    metric: dep_depth
+    threshold: 8
+
   # min-coverage requires "less than" comparison — tracked for future operator support

@@ -766,6 +766,46 @@ func TestScorer_DeadCode(t *testing.T) {
 	}
 }
 
+func TestScorer_DepDepth_ShallowIsGood(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"dep_depth": 2},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	af := scores[domain.DimArchitecturalFitness]
+	if af < 0.90 {
+		t.Errorf("arch_fitness = %f, want >= 0.90 for dep_depth=2", af)
+	}
+}
+
+func TestScorer_DepDepth_DeepIsBad(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"dep_depth": 10},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	af := scores[domain.DimArchitecturalFitness]
+	if af > 0.60 {
+		t.Errorf("arch_fitness = %f, want <= 0.60 for dep_depth=10", af)
+	}
+}
+
+func TestScorer_ConcreteDeps(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"concrete_deps": 2},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	test := scores[domain.DimTestability]
+	if test > 0.70 {
+		t.Errorf("testability = %f, want <= 0.70 for concrete_deps=2", test)
+	}
+	af := scores[domain.DimArchitecturalFitness]
+	if af > 0.70 {
+		t.Errorf("arch_fitness = %f, want <= 0.70 for concrete_deps=2", af)
+	}
+}
+
 func TestScorer_DeepAnalysis_AllClean(t *testing.T) {
 	// A function with all deep analysis metrics clean should score well
 	ev := []domain.Evidence{{

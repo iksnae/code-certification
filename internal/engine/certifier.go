@@ -281,11 +281,24 @@ func (c *Certifier) collectDeepEvidence(unit domain.Unit, ev *[]domain.Evidence)
 		metrics["is_dead_code"] = 1
 	}
 
+	// Package-level metrics
+	depDepth := c.DeepAnalyzer.DepDepth(pkgPath)
+	instability := c.DeepAnalyzer.Instability(pkgPath)
+	metrics["dep_depth"] = float64(depDepth)
+	metrics["instability"] = instability
+
+	// Param abstraction
+	abstraction := c.DeepAnalyzer.ParamAbstraction(pkgPath, sym)
+	metrics["concrete_deps"] = float64(abstraction.ConcreteDeps)
+
+	// Coupling score
+	metrics["coupling_score"] = c.DeepAnalyzer.CouplingScore(pkgPath, sym)
+
 	*ev = append(*ev, domain.Evidence{
 		Kind:       domain.EvidenceKindStructural,
 		Source:     "deep-analysis",
 		Passed:     true,
-		Summary:    fmt.Sprintf("deep: fan_in=%d fan_out=%d dead=%v", result.FanIn, result.FanOut, result.IsDeadCode),
+		Summary:    fmt.Sprintf("deep: fan_in=%d fan_out=%d dead=%v depth=%d instab=%.2f", result.FanIn, result.FanOut, result.IsDeadCode, depDepth, instability),
 		Metrics:    metrics,
 		Confidence: 1.0,
 	})
