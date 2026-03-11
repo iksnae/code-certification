@@ -1,15 +1,15 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `54309c67`
-**Generated:** 2026-03-10T22:19:22
+**Commit:** `66cf6228`
+**Generated:** 2026-03-11T02:55:19
 
-## 🟢 Overall: A- (91.8%)
+## 🟢 Overall: A- (91.7%)
 
 | Metric | Value |
 |--------|-------|
-| Total Units | 748 |
-| Passing | 748 |
+| Total Units | 50 |
+| Passing | 50 |
 | Failing | 0 |
 | Pass Rate | 100.0% |
 | Observations | 0 |
@@ -19,47 +19,35 @@
 
 | Grade | Count | % |
 |-------|-------|---|
-| A | 22 | 2.9% |
-| A- | 677 | 90.5% |
-| B+ | 25 | 3.3% |
-| B | 24 | 3.2% |
+| A- | 45 | 90.0% |
+| B+ | 3 | 6.0% |
+| B | 2 | 4.0% |
 
 ### By Language
 
 | Language | Units | Grade | Score |
 |----------|-------|-------|-------|
-| go | 677 | 🟢 A- | 91.7% |
-| ts | 71 | 🟢 A- | 92.6% |
+| go | 48 | 🟢 A- | 91.7% |
+| ts | 2 | 🟢 A- | 92.5% |
 
 ### Packages
 
 | Package | Units | Grade | Score |
 |---------|------:|:-----:|------:|
-| [cmd/certify](reports/cmd/certify/index.md) | 54 | 🟢 A- | 91.6% |
-| [extensions](reports/extensions/index.md) | 18 | 🟢 A- | 92.1% |
-| [internal](reports/internal/index.md) | 1 | 🟢 A- | 91.3% |
-| [internal/agent](reports/internal/agent/index.md) | 187 | 🟢 A- | 92.0% |
-| [internal/config](reports/internal/config/index.md) | 22 | 🟢 A- | 91.7% |
-| [internal/discovery](reports/internal/discovery/index.md) | 40 | 🟢 A- | 91.1% |
-| [internal/domain](reports/internal/domain/index.md) | 69 | 🟢 A- | 92.4% |
-| [internal/engine](reports/internal/engine/index.md) | 20 | 🟢 A- | 91.5% |
-| [internal/evidence](reports/internal/evidence/index.md) | 68 | 🟢 A- | 91.4% |
-| [internal/expiry](reports/internal/expiry/index.md) | 2 | 🟢 A- | 91.9% |
-| [internal/github](reports/internal/github/index.md) | 17 | 🟢 A- | 92.1% |
-| [internal/override](reports/internal/override/index.md) | 9 | 🟢 A- | 91.8% |
-| [internal/policy](reports/internal/policy/index.md) | 15 | 🟢 A- | 91.5% |
-| [internal/queue](reports/internal/queue/index.md) | 17 | 🟢 A- | 92.2% |
-| [internal/record](reports/internal/record/index.md) | 29 | 🟢 A- | 91.9% |
-| [internal/report](reports/internal/report/index.md) | 108 | 🟢 A- | 91.3% |
-| [internal/workspace](reports/internal/workspace/index.md) | 19 | 🟢 A- | 92.0% |
-| [testdata/repos/ts-simple/src](reports/testdata/repos/ts-simple/src/index.md) | 6 | 🟢 A | 93.3% |
-| [vscode-certify/src](reports/vscode-certify/src/index.md) | 33 | 🟢 A- | 92.5% |
-| [vscode-certify/src/codeLens](reports/vscode-certify/src/codeLens/index.md) | 2 | 🟢 A | 93.3% |
-| [vscode-certify/src/config](reports/vscode-certify/src/config/index.md) | 7 | 🟢 A | 93.2% |
-| [vscode-certify/src/dashboard](reports/vscode-certify/src/dashboard/index.md) | 1 | 🟢 A- | 92.5% |
-| [vscode-certify/src/diagnostics](reports/vscode-certify/src/diagnostics/index.md) | 1 | 🟢 A | 93.3% |
-| [vscode-certify/src/treeView](reports/vscode-certify/src/treeView/index.md) | 2 | 🟢 A- | 92.5% |
-| [website/src](reports/website/src/index.md) | 1 | 🟢 A | 93.3% |
+| [cmd/certify](reports/cmd/certify/index.md) | 3 | 🟢 A- | 91.9% |
+| [internal/agent](reports/internal/agent/index.md) | 14 | 🟢 A- | 92.0% |
+| [internal/config](reports/internal/config/index.md) | 2 | 🟢 B+ | 89.4% |
+| [internal/domain](reports/internal/domain/index.md) | 8 | 🟢 A- | 92.5% |
+| [internal/engine](reports/internal/engine/index.md) | 4 | 🟢 A- | 91.7% |
+| [internal/evidence](reports/internal/evidence/index.md) | 5 | 🟢 A- | 92.2% |
+| [internal/github](reports/internal/github/index.md) | 1 | 🟢 A- | 92.5% |
+| [internal/override](reports/internal/override/index.md) | 1 | 🟢 A- | 90.6% |
+| [internal/policy](reports/internal/policy/index.md) | 1 | 🟢 A- | 90.6% |
+| [internal/queue](reports/internal/queue/index.md) | 1 | 🟢 A- | 91.9% |
+| [internal/record](reports/internal/record/index.md) | 1 | 🟢 A- | 92.5% |
+| [internal/report](reports/internal/report/index.md) | 7 | 🟢 A- | 90.3% |
+| [vscode-certify/src](reports/vscode-certify/src/index.md) | 1 | 🟢 A- | 92.5% |
+| [vscode-certify/src/treeView](reports/vscode-certify/src/treeView/index.md) | 1 | 🟢 A- | 92.5% |
 
 ---
 

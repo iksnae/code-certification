@@ -1,6 +1,6 @@
-# 🟢 `scoreFromGitHistory`
+# 🟢 `buildUnitNavMaps`
 
-[← internal/engine](../index.md)
+[← internal/report](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/engine/scorer.go#scoreFromGitHistory` |
+| **Unit ID** | `go://internal/report/site.go#buildUnitNavMaps` |
 | **Type** | function |
-| **Path** | `internal/engine/scorer.go` |
+| **Path** | `internal/report/site.go` |
 | **Language** | go |
-| **Symbol** | `scoreFromGitHistory` |
+| **Symbol** | `buildUnitNavMaps` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **A-** |
-| **Score** | 91.3% |
+| **Grade** | 🟢 **B+** |
+| **Score** | 87.5% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-03-11 |
@@ -34,8 +34,8 @@
 | correctness | 95.0% | ███████████████████░ |
 | maintainability | 85.0% | █████████████████░░░ |
 | operational_quality | 95.0% | ███████████████████░ |
-| performance_appropriateness | 95.0% | ███████████████████░ |
-| readability | 95.0% | ███████████████████░ |
+| performance_appropriateness | 70.0% | ██████████████░░░░░░ |
+| readability | 90.0% | ██████████████████░░ |
 | security | 85.0% | █████████████████░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
@@ -74,28 +74,28 @@ go test: 575/575 passed (68% coverage)
 
 ### ✅ metrics (`metrics`)
 
-23 lines (22 code, 0 comment, 1 blank), 0 TODOs, complexity 8
+31 lines (30 code, 0 comment, 1 blank), 0 TODOs, complexity 8
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 1 |
-| `code_lines` | 22 |
+| `code_lines` | 30 |
 | `comment_lines` | 0 |
 | `complexity` | 8 |
 | `todo_count` | 0 |
-| `total_lines` | 23 |
+| `total_lines` | 31 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 74%
+per-unit coverage: 87%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.74 |
+| `unit_test_coverage` | 0.87 |
 
 ### ✅ structural (`structural`)
 
-structural: params=2 returns=0 nesting=1 doc=false exported=false
+structural: params=1 returns=2 nesting=4 doc=false exported=false
 
 | Metric | Value |
 |--------|------:|
@@ -103,22 +103,22 @@ structural: params=2 returns=0 nesting=1 doc=false exported=false
 | `defer_in_loop` | 0 |
 | `errors_ignored` | 0 |
 | `exported_name` | 0 |
-| `func_lines` | 21 |
+| `func_lines` | 29 |
 | `global_mutable_count` | 0 |
 | `has_doc_comment` | 0 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 1 |
+| `loop_nesting_depth` | 2 |
+| `max_nesting_depth` | 4 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
-| `nested_loop_pairs` | 0 |
+| `nested_loop_pairs` | 1 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 2 |
+| `param_count` | 1 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 0 |
+| `return_count` | 2 |
 
 ---
 

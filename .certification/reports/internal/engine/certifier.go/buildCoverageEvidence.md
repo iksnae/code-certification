@@ -1,4 +1,4 @@
-# 🟢 `scoreFromGitHistory`
+# 🟢 `buildCoverageEvidence`
 
 [← internal/engine](../index.md)
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/engine/scorer.go#scoreFromGitHistory` |
-| **Type** | function |
-| **Path** | `internal/engine/scorer.go` |
+| **Unit ID** | `go://internal/engine/certifier.go#buildCoverageEvidence` |
+| **Type** | method |
+| **Path** | `internal/engine/certifier.go` |
 | **Language** | go |
-| **Symbol** | `scoreFromGitHistory` |
+| **Symbol** | `buildCoverageEvidence` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **A-** |
-| **Score** | 91.3% |
+| **Score** | 91.9% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-03-11 |
@@ -32,9 +32,9 @@
 |-----------|------:|-----|
 | change_risk | 90.0% | ██████████████████░░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 85.0% | █████████████████░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
-| performance_appropriateness | 95.0% | ███████████████████░ |
+| performance_appropriateness | 90.0% | ██████████████████░░ |
 | readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
 | testability | 90.0% | ██████████████████░░ |
@@ -74,28 +74,28 @@ go test: 575/575 passed (68% coverage)
 
 ### ✅ metrics (`metrics`)
 
-23 lines (22 code, 0 comment, 1 blank), 0 TODOs, complexity 8
+24 lines (23 code, 1 comment, 0 blank), 0 TODOs, complexity 5
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 1 |
-| `code_lines` | 22 |
-| `comment_lines` | 0 |
-| `complexity` | 8 |
+| `blank_lines` | 0 |
+| `code_lines` | 23 |
+| `comment_lines` | 1 |
+| `complexity` | 5 |
 | `todo_count` | 0 |
-| `total_lines` | 23 |
+| `total_lines` | 24 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 74%
+per-unit coverage: 62%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.74 |
+| `unit_test_coverage` | 0.62 |
 
 ### ✅ structural (`structural`)
 
-structural: params=2 returns=0 nesting=1 doc=false exported=false
+structural: params=1 returns=2 nesting=2 doc=true exported=false
 
 | Metric | Value |
 |--------|------:|
@@ -105,20 +105,20 @@ structural: params=2 returns=0 nesting=1 doc=false exported=false
 | `exported_name` | 0 |
 | `func_lines` | 21 |
 | `global_mutable_count` | 0 |
-| `has_doc_comment` | 0 |
+| `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 1 |
+| `loop_nesting_depth` | 1 |
+| `max_nesting_depth` | 2 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 2 |
+| `param_count` | 1 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 0 |
+| `return_count` | 2 |
 
 ---
 

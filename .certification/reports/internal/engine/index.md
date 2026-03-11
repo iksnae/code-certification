@@ -2,33 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
-**Units:** 20 · **Passing:** 20 / 20
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Score](scorer.go/Score.md) | function | 🟢 B | 86.9% | certified | 2026-04-24 |
-| [extractSummaryInt](scorer.go/extractSummaryInt.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-24 |
-| [scoreFromMetrics](scorer.go/scoreFromMetrics.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
-| [CertifyUnit](pipeline.go/CertifyUnit.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
-| [extractSummaryFloat](scorer.go/extractSummaryFloat.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
-| [Certify](certifier.go/Certify.md) | method | 🟢 A- | 91.3% | certified | 2026-04-24 |
-| [scorer_test.go](scorer_test.go.md) | file | 🟢 A- | 91.3% | certified | 2026-04-24 |
-| [scoreFromGitHistory](scorer.go/scoreFromGitHistory.md) | function | 🟢 A- | 91.3% | certified | 2026-04-24 |
-| [certifier_test.go](certifier_test.go.md) | file | 🟢 A- | 91.3% | certified | 2026-04-24 |
-| [SaveReportArtifactsFromStore](certifier.go/SaveReportArtifactsFromStore.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [StatusFromScore](scorer.go/StatusFromScore.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [pipeline_test.go](pipeline_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [Certifier](certifier.go/Certifier.md) | class | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [metricOrSummaryFloat](scorer.go/metricOrSummaryFloat.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [metricOrSummaryInt](scorer.go/metricOrSummaryInt.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [SaveReportArtifacts](certifier.go/SaveReportArtifacts.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [CollectRepoEvidence](certifier.go/CollectRepoEvidence.md) | method | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [scoreFromStructural](scorer.go/scoreFromStructural.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [severityPenalty](scorer.go/severityPenalty.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
-| [CertifyResult](certifier.go/CertifyResult.md) | class | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [scoreFromGitHistory](scorer.go/scoreFromGitHistory.md) | function | 🟢 A- | 91.3% | certified | 2026-04-25 |
+| [scorer_test.go](scorer_test.go.md) | file | 🟢 A- | 91.3% | certified | 2026-04-25 |
+| [buildCoverageEvidence](certifier.go/buildCoverageEvidence.md) | method | 🟢 A- | 91.9% | certified | 2026-04-25 |
+| [StatusFromScore](scorer.go/StatusFromScore.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
 
 ---
 
