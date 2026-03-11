@@ -174,6 +174,198 @@ func TestBuildSnapshot_StructuralMetrics_PartialMetricsMap(t *testing.T) {
 	}
 }
 
+func TestBuildSnapshot_StructuralMetrics_Extended(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"naked_returns":      2,
+				"recursive_calls":    1,
+				"loop_nesting_depth": 3,
+				"nested_loop_pairs":  1,
+				"quadratic_patterns": 0,
+				"func_lines":         45,
+				"param_count":        3,
+				"return_count":       2,
+				"method_count":       0,
+			},
+		}),
+		makeRecordWithEvidence("go://pkg/b.go#Bar", 0.80, domain.Evidence{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"naked_returns":      0,
+				"recursive_calls":    2,
+				"loop_nesting_depth": 4,
+				"nested_loop_pairs":  0,
+				"quadratic_patterns": 1,
+				"func_lines":         120,
+				"param_count":        5,
+				"return_count":       1,
+				"method_count":       8,
+			},
+		}),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	s := snap.Metrics.Structural
+
+	if s.NakedReturns != 2 {
+		t.Errorf("expected 2 naked_returns, got %d", s.NakedReturns)
+	}
+	if s.RecursiveCalls != 3 {
+		t.Errorf("expected 3 recursive_calls, got %d", s.RecursiveCalls)
+	}
+	if s.NestedLoopPairs != 1 {
+		t.Errorf("expected 1 nested_loop_pairs, got %d", s.NestedLoopPairs)
+	}
+	if s.QuadraticPatterns != 1 {
+		t.Errorf("expected 1 quadratic_patterns, got %d", s.QuadraticPatterns)
+	}
+	if s.TotalFuncLines != 165 {
+		t.Errorf("expected 165 total_func_lines, got %d", s.TotalFuncLines)
+	}
+	if s.TotalParams != 8 {
+		t.Errorf("expected 8 total_params, got %d", s.TotalParams)
+	}
+	if s.TotalReturns != 3 {
+		t.Errorf("expected 3 total_returns, got %d", s.TotalReturns)
+	}
+	if s.TotalMethods != 8 {
+		t.Errorf("expected 8 total_methods, got %d", s.TotalMethods)
+	}
+	if s.MaxNestingDepth != 4 {
+		t.Errorf("expected 4 max_nesting_depth, got %d", s.MaxNestingDepth)
+	}
+}
+
+func TestBuildSnapshot_ContextNotFirst_SumsNotBool(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{"context_not_first": 1},
+		}),
+		makeRecordWithEvidence("go://pkg/b.go#Bar", 0.80, domain.Evidence{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{"context_not_first": 1},
+		}),
+	}
+	snap := agent.BuildSnapshot(records, "")
+	if snap.Metrics.Structural.ContextNotFirst != 2 {
+		t.Errorf("expected 2 context_not_first, got %d", snap.Metrics.Structural.ContextNotFirst)
+	}
+}
+
+func TestBuildSnapshot_CoverageAggregates(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "coverage:unit",
+			Passed:  true,
+			Metrics: map[string]float64{"unit_test_coverage": 0.85},
+		}),
+		makeRecordWithEvidence("go://pkg/b.go#Bar", 0.80, domain.Evidence{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "coverage:unit",
+			Passed:  true,
+			Metrics: map[string]float64{"unit_test_coverage": 0.60},
+		}),
+		// Unit with no coverage evidence
+		makeRecord("go://pkg/c.go#Baz", 0.90, nil),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	c := snap.Metrics.Coverage
+
+	if c.UnitsWithCoverage != 2 {
+		t.Errorf("expected 2 units with coverage, got %d", c.UnitsWithCoverage)
+	}
+	if c.UnitsWithoutCoverage != 1 {
+		t.Errorf("expected 1 unit without coverage, got %d", c.UnitsWithoutCoverage)
+	}
+	if diff := c.AvgCoverage - 0.725; diff > 0.001 || diff < -0.001 {
+		t.Errorf("expected avg coverage ~0.725, got %.3f", c.AvgCoverage)
+	}
+	if c.MinCoverage != 0.60 {
+		t.Errorf("expected min coverage 0.60, got %.2f", c.MinCoverage)
+	}
+	if c.MaxCoverage != 0.85 {
+		t.Errorf("expected max coverage 0.85, got %.2f", c.MaxCoverage)
+	}
+}
+
+func TestBuildSnapshot_CodeMetricsAggregates(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:    domain.EvidenceKindMetrics,
+			Source:  "metrics",
+			Passed:  true,
+			Metrics: map[string]float64{
+				"code_lines":     80,
+				"comment_lines":  10,
+				"complexity":     5,
+				"todo_count":     1,
+			},
+		}),
+		makeRecordWithEvidence("go://pkg/b.go#Bar", 0.80, domain.Evidence{
+			Kind:    domain.EvidenceKindMetrics,
+			Source:  "metrics",
+			Passed:  true,
+			Metrics: map[string]float64{
+				"code_lines":     200,
+				"comment_lines":  30,
+				"complexity":     12,
+				"todo_count":     0,
+			},
+		}),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	cm := snap.Metrics.CodeMetrics
+
+	if cm.TotalCodeLines != 280 {
+		t.Errorf("expected 280 total_code_lines, got %d", cm.TotalCodeLines)
+	}
+	if cm.TotalCommentLines != 40 {
+		t.Errorf("expected 40 total_comment_lines, got %d", cm.TotalCommentLines)
+	}
+	if cm.TotalComplexity != 17 {
+		t.Errorf("expected 17 total_complexity, got %d", cm.TotalComplexity)
+	}
+	if cm.MaxComplexity != 12 {
+		t.Errorf("expected 12 max_complexity, got %d", cm.MaxComplexity)
+	}
+	if cm.TotalTodos != 1 {
+		t.Errorf("expected 1 total_todos, got %d", cm.TotalTodos)
+	}
+	// avg complexity = 17/2 = 8.5
+	if diff := cm.AvgComplexity - 8.5; diff > 0.001 || diff < -0.001 {
+		t.Errorf("expected avg complexity 8.5, got %.1f", cm.AvgComplexity)
+	}
+}
+
+func TestBuildSnapshot_SchemaVersion(t *testing.T) {
+	snap := agent.BuildSnapshot(nil, "")
+	if snap.SchemaVersion != agent.SnapshotSchemaVersion {
+		t.Errorf("expected schema version %d, got %d", agent.SnapshotSchemaVersion, snap.SchemaVersion)
+	}
+
+	records := []domain.CertificationRecord{
+		makeRecord("go://pkg/a.go#Foo", 0.85, nil),
+	}
+	snap2 := agent.BuildSnapshot(records, "")
+	if snap2.SchemaVersion != agent.SnapshotSchemaVersion {
+		t.Errorf("expected schema version %d, got %d", agent.SnapshotSchemaVersion, snap2.SchemaVersion)
+	}
+}
+
 func TestBuildSnapshot(t *testing.T) {
 	records := []domain.CertificationRecord{
 		makeRecord("go://internal/engine/scorer.go#Score", 0.85, []string{"errors_ignored: 2"}),

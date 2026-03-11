@@ -1,69 +1,64 @@
-# Release v0.8.0
+# Release v0.9.0
 
-**Date:** 2026-03-10
+**Date:** 2026-03-11
 
 ## Highlights
 
-**Rule-level policy scoping** and **code quality remediation** eliminate all observations. The project now self-certifies at **A- (91.8%) with 0 observations** across 748 units.
+**Complete snapshot↔prompt data alignment** eliminates all known LLM hallucination vectors in the architect review pipeline. Every metric cited by any phase prompt is now present — with exact AST-computed values — in the snapshot sent to the model. The project self-certifies at **A- (91.8%) with 4 observations** across 816 units.
 
 ## What's Changed
 
-### New Features
-
-- **feat: rule-level path scoping for policy rules** — `PolicyRule` now supports `path_patterns` (include) and `exclude_patterns` (exclude) fields. Rules can be scoped to specific paths or excluded from test files. `Evaluate()` filters rules by unit path before evaluation.
-
-- **feat: split policy packs** — `go-standard.yml` split into two packs:
-  - `go-standard.yml` (v1.1.0): 13 universal rules. `no-todos` excludes `*_test.go`.
-  - `go-library.yml` (v1.0.0): `no-panic` and `no-os-exit` scoped to `internal/**` only.
-  
-  This means `os.Exit` in CLI entry points and TODO strings in test fixtures no longer generate false observations.
-
 ### Bug Fixes
 
-- **fix: TODO false positives** — `containsTodo` now enforces word boundaries (non-letter before/after) and skips TODO/FIXME inside quoted strings in comments. Eliminates false positives from identifiers like `extractTodoCount` and comments like `// Parse "N TODOs"`.
+- **fix(architect): complete snapshot↔prompt data alignment** — Extends PR #20's structural metrics fix to close all remaining gaps where architect prompts referenced data absent from the snapshot.
 
-- **fix: convert mutable global vars to functions** — 8 `var` declarations in `providers.go` and `autodetect.go` converted to functions returning fresh slices/maps. Eliminates `global_mutable_count` for the agent package entirely.
+  **Structural metrics expanded (7 → 16):** Added `naked_returns`, `recursive_calls`, `max_nesting_depth`, `nested_loop_pairs`, `quadratic_patterns`, `total_func_lines`, `total_params`, `total_returns`, `total_methods` to `StructuralAggregates`.
 
-- **fix: BasicLit const-like detection** — `var Version = "dev"` (ldflags pattern) now recognized as const-like. Added `*ast.BasicLit` case to `isConstLikeExpr`.
+  **Coverage aggregates added:** New `CoverageAggregates` struct provides `units_with_coverage`, `units_without_coverage`, `avg_coverage`, `min_coverage`, `max_coverage` — computed from `EvidenceKindTest` evidence. Phase 3 previously fabricated coverage percentages; now references exact data.
 
-- **fix: extract countGlobalMutables helper** — Reduces `AnalyzeGoFile` nesting depth from 5 to 3.
+  **Code metrics aggregates added:** New `CodeMetricsAggregates` struct provides `total_code_lines`, `total_comment_lines`, `total_complexity`, `max_complexity`, `avg_complexity`, `total_todos` — computed from `EvidenceKindMetrics` evidence. Phase 2 previously invented complexity numbers.
 
-- **fix: wire PathPatterns/ExcludePatterns through config loader** — `rawPolicyRule` was missing the new fields, causing YAML values to be silently dropped during parsing.
+  **`context_not_first` counting fixed:** Changed from boolean per-file counting (`> 0 → count++`) to per-unit summing (`+= int(...)`) to match the prompt's "functions with context.Context not as first param" language.
 
-## Results
+  **Anti-hallucination grounding in all 6 phases:** Previously only Phases 4–5 had grounding language. Now all phases include explicit instructions to cite only data present in the snapshot and never fabricate values.
 
-| Metric | v0.7.0 | v0.8.0 | Change |
-|--------|--------|--------|--------|
-| Score | 91.7% | **91.8%** | +0.1% |
-| Observations | 12 | **0** | -12 |
-| A- units | 669 | **676** | +7 |
-| Policy packs | 2 | **3** | +1 |
-| go-standard rules | 15 | **13** | -2 (moved to go-library) |
+  **Pipeline version tagging:** `ArchSnapshot.SchemaVersion` field (v2) is set by `BuildSnapshot()`, rendered in `FormatForLLM()` header, and included in the architect report appendix. Consumers can distinguish pre- and post-fix reports.
 
-## Tests Added
+### Evidence of Fix
 
-- `TestEvaluate_RuleExcludePatterns` — rule with exclude_patterns skips test files
-- `TestEvaluate_RulePathPatterns` — rule with path_patterns only fires for matching paths
-- `TestEvaluate_NoPatterns_AppliesToAll` — existing behavior unchanged
-- `TestLoadPolicyPack_GoLibrary` — validates go-library.yml structure
-- `TestLoadPolicyPack_GoStandard_ExcludePatterns` — validates YAML exclude_patterns loading
-- `TestCodeMetrics_TodoCount_QuotedNotFlagged` — TODO inside quoted strings
-- `TestCodeMetrics_TodoCount_IdentifierNotFlagged` — TODO inside identifiers
-- 2 new const-like var tests (string literal, int literal)
-- All 16 packages pass with zero regressions
+Tested with Qwen3-Coder-30b against 816 units:
+- Phase 3 correctly reports "128 units lack coverage data" and uses exact 74.4% average (previously fabricated)
+- Phase 4 reports `panic_calls: 0`, `os_exit_calls: 1`, `errors_ignored: 5` — all exact (previously Qwen claimed 23 panic calls)
+- Phase 5 recommendations cite exact snapshot values in all deltas
+- Phase 6 synthesis traces claims to specific phases
 
-## Full Changelog
+### Tests Added
 
-```
-f0dca8b6 docs: mark policy scoping plan complete
-c3c6411d chore: re-certify — 0 observations with scoped policy rules
-fb391766 fix: wire PathPatterns/ExcludePatterns through config loader
-016e0e01 feat: split policy packs — go-library.yml for internal-only rules
-1da4e293 feat: rule-level path scoping for policy rules
-efb88d27 chore: re-certify after architect remediation — 3 observations, 91.8%
-a75f0acb fix: TODO detection with word boundary + quoted string checks
-6d22c97f fix: extract countGlobalMutables to reduce AnalyzeGoFile nesting depth
-cc9b4fe1 fix: detect BasicLit vars as const-like (ldflags pattern)
-01cac4b7 fix: convert mutable global vars to functions in agent package
-30a6235a fix: TODO false positives — skip TODO/FIXME inside quoted strings in comments
-```
+9 new tests covering all changes:
+- `TestBuildSnapshot_StructuralMetrics_Extended` — 9 new metric aggregations
+- `TestBuildSnapshot_ContextNotFirst_SumsNotBool` — per-unit summing
+- `TestBuildSnapshot_CoverageAggregates` — coverage min/max/avg
+- `TestBuildSnapshot_CodeMetricsAggregates` — complexity/lines/todos
+- `TestBuildSnapshot_SchemaVersion` — version field
+- `TestFormatForLLM_CoverageMetrics` — rendered coverage section
+- `TestFormatForLLM_CodeMetrics` — rendered code metrics section
+- `TestFormatForLLM_SchemaVersion` — schema version in header
+- `TestArchitectPrompts_AllContainGrounding` — all 6 phases grounded
+
+## Files Changed
+
+| File | Change |
+|------|--------|
+| `internal/agent/architect_snapshot.go` | Expanded types, aggregation logic, schema version |
+| `internal/agent/architect.go` | New format functions, schema version in header |
+| `internal/agent/architect_prompts.go` | Grounding language in all 6 phases |
+| `internal/agent/architect_snapshot_test.go` | 5 new aggregation tests |
+| `internal/agent/architect_test.go` | 4 new format/prompt tests |
+| `internal/report/architect_report.go` | Schema version in appendix |
+| `specs/snapshot-data-alignment.md` | Full implementation plan |
+
+## Upgrade Notes
+
+- **Backward compatible:** All changes are additive. Old snapshot JSON with `schema_version: 0` (Go zero value) correctly indicates pre-alignment data.
+- **VS Code extension:** No changes needed — extension reads `ARCHITECT_REVIEW.md` as text, not snapshot types.
+- **Re-run recommended:** Run `certify architect` after upgrading to generate reports with complete data grounding.

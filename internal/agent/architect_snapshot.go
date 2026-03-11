@@ -9,9 +9,14 @@ import (
 	"github.com/iksnae/code-certification/internal/domain"
 )
 
+// SnapshotSchemaVersion tracks the data contract between BuildSnapshot and FormatForLLM.
+// Increment when adding/removing/renaming fields in SnapshotMetrics or its sub-structs.
+const SnapshotSchemaVersion = 2 // v1: PR #20 (structural only), v2: full alignment
+
 // ArchSnapshot captures the current architecture as deterministic data.
 // Computed from certification records — no LLM involved.
 type ArchSnapshot struct {
+	SchemaVersion   int               `json:"schema_version"`
 	Packages        []PackageNode     // every package with metrics, sorted by path
 	DependencyEdges []DepEdge         // package → package imports
 	Layers          map[string]string // package → layer (cmd, internal, domain, external)
@@ -49,13 +54,15 @@ type CouplingPair struct {
 
 // SnapshotMetrics holds aggregate metrics across all packages.
 type SnapshotMetrics struct {
-	TotalUnits        int                  `json:"total_units"`
-	TotalPackages     int                  `json:"total_packages"`
-	AvgScore          float64              `json:"avg_score"`
-	GradeDistribution map[string]int       `json:"grade_distribution"`
-	TopObservations   map[string]int       `json:"top_observations"`
-	PolicyViolations  map[string]int       `json:"policy_violations"`
-	Structural        StructuralAggregates `json:"structural"`
+	TotalUnits        int                   `json:"total_units"`
+	TotalPackages     int                   `json:"total_packages"`
+	AvgScore          float64               `json:"avg_score"`
+	GradeDistribution map[string]int        `json:"grade_distribution"`
+	TopObservations   map[string]int        `json:"top_observations"`
+	PolicyViolations  map[string]int        `json:"policy_violations"`
+	Structural        StructuralAggregates  `json:"structural"`
+	Coverage          CoverageAggregates    `json:"coverage"`
+	CodeMetrics       CodeMetricsAggregates `json:"code_metrics"`
 }
 
 // StructuralAggregates holds summed structural metrics across all units.
@@ -69,13 +76,42 @@ type StructuralAggregates struct {
 	InitFuncCount      int `json:"init_func_count"`
 	ContextNotFirst    int `json:"context_not_first"`
 	ErrorsIgnored      int `json:"errors_ignored"`
+	NakedReturns       int `json:"naked_returns"`
+	RecursiveCalls     int `json:"recursive_calls"`
+	MaxNestingDepth    int `json:"max_nesting_depth"`
+	NestedLoopPairs    int `json:"nested_loop_pairs"`
+	QuadraticPatterns  int `json:"quadratic_patterns"`
+	TotalFuncLines     int `json:"total_func_lines"`
+	TotalParams        int `json:"total_params"`
+	TotalReturns       int `json:"total_returns"`
+	TotalMethods       int `json:"total_methods"`
+}
+
+// CoverageAggregates holds aggregated test coverage data across all units.
+type CoverageAggregates struct {
+	UnitsWithCoverage    int     `json:"units_with_coverage"`
+	UnitsWithoutCoverage int     `json:"units_without_coverage"`
+	AvgCoverage          float64 `json:"avg_coverage"`
+	MinCoverage          float64 `json:"min_coverage"`
+	MaxCoverage          float64 `json:"max_coverage"`
+}
+
+// CodeMetricsAggregates holds aggregated code metrics across all units.
+type CodeMetricsAggregates struct {
+	TotalCodeLines    int     `json:"total_code_lines"`
+	TotalCommentLines int     `json:"total_comment_lines"`
+	TotalComplexity   int     `json:"total_complexity"`
+	MaxComplexity     int     `json:"max_complexity"`
+	AvgComplexity     float64 `json:"avg_complexity"`
+	TotalTodos        int     `json:"total_todos"`
 }
 
 // BuildSnapshot computes a deterministic architecture snapshot from certification records.
 // The root parameter is used for Go import analysis (can be empty to skip).
 func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnapshot {
 	snap := &ArchSnapshot{
-		Layers: make(map[string]string),
+		SchemaVersion: SnapshotSchemaVersion,
+		Layers:        make(map[string]string),
 		Metrics: SnapshotMetrics{
 			GradeDistribution: make(map[string]int),
 			TopObservations:   make(map[string]int),
@@ -97,6 +133,8 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 	var pkgPaths []string
 
 	var totalScore float64
+	var coverageValues []float64
+	var metricsUnitCount int
 
 	for _, r := range records {
 		pkgPath := packagePath(r.UnitPath)
@@ -119,27 +157,75 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 		snap.Metrics.GradeDistribution[r.Grade.String()]++
 		totalScore += r.Score
 
-		// Aggregate structural metrics from evidence
+		// Aggregate evidence metrics by kind
 		for _, ev := range r.Evidence {
-			if ev.Kind != domain.EvidenceKindStructural {
-				continue
+			switch ev.Kind {
+			case domain.EvidenceKindStructural:
+				snap.Metrics.Structural.PanicCalls += int(ev.Metrics["panic_calls"])
+				snap.Metrics.Structural.OsExitCalls += int(ev.Metrics["os_exit_calls"])
+				snap.Metrics.Structural.GlobalMutableCount += int(ev.Metrics["global_mutable_count"])
+				snap.Metrics.Structural.DeferInLoop += int(ev.Metrics["defer_in_loop"])
+				snap.Metrics.Structural.ErrorsIgnored += int(ev.Metrics["errors_ignored"])
+				snap.Metrics.Structural.NakedReturns += int(ev.Metrics["naked_returns"])
+				snap.Metrics.Structural.RecursiveCalls += int(ev.Metrics["recursive_calls"])
+				snap.Metrics.Structural.NestedLoopPairs += int(ev.Metrics["nested_loop_pairs"])
+				snap.Metrics.Structural.QuadraticPatterns += int(ev.Metrics["quadratic_patterns"])
+				snap.Metrics.Structural.TotalFuncLines += int(ev.Metrics["func_lines"])
+				snap.Metrics.Structural.TotalParams += int(ev.Metrics["param_count"])
+				snap.Metrics.Structural.TotalReturns += int(ev.Metrics["return_count"])
+				snap.Metrics.Structural.TotalMethods += int(ev.Metrics["method_count"])
+				if ev.Metrics["has_init_func"] > 0 {
+					snap.Metrics.Structural.InitFuncCount++
+				}
+				snap.Metrics.Structural.ContextNotFirst += int(ev.Metrics["context_not_first"])
+				if nd := int(ev.Metrics["loop_nesting_depth"]); nd > snap.Metrics.Structural.MaxNestingDepth {
+					snap.Metrics.Structural.MaxNestingDepth = nd
+				}
+			case domain.EvidenceKindMetrics:
+				snap.Metrics.CodeMetrics.TotalCodeLines += int(ev.Metrics["code_lines"])
+				snap.Metrics.CodeMetrics.TotalCommentLines += int(ev.Metrics["comment_lines"])
+				c := int(ev.Metrics["complexity"])
+				snap.Metrics.CodeMetrics.TotalComplexity += c
+				if c > snap.Metrics.CodeMetrics.MaxComplexity {
+					snap.Metrics.CodeMetrics.MaxComplexity = c
+				}
+				snap.Metrics.CodeMetrics.TotalTodos += int(ev.Metrics["todo_count"])
+				metricsUnitCount++
 			}
-			snap.Metrics.Structural.PanicCalls += int(ev.Metrics["panic_calls"])
-			snap.Metrics.Structural.OsExitCalls += int(ev.Metrics["os_exit_calls"])
-			snap.Metrics.Structural.GlobalMutableCount += int(ev.Metrics["global_mutable_count"])
-			snap.Metrics.Structural.DeferInLoop += int(ev.Metrics["defer_in_loop"])
-			snap.Metrics.Structural.ErrorsIgnored += int(ev.Metrics["errors_ignored"])
-			if ev.Metrics["has_init_func"] > 0 {
-				snap.Metrics.Structural.InitFuncCount++
-			}
-			if ev.Metrics["context_not_first"] > 0 {
-				snap.Metrics.Structural.ContextNotFirst++
+			if ev.Source == "coverage:unit" {
+				if cov, ok := ev.Metrics["unit_test_coverage"]; ok {
+					coverageValues = append(coverageValues, cov)
+				}
 			}
 		}
 	}
 
 	snap.Metrics.TotalUnits = len(records)
 	snap.Metrics.AvgScore = totalScore / float64(len(records))
+
+	// Finalize coverage aggregates
+	snap.Metrics.Coverage.UnitsWithCoverage = len(coverageValues)
+	snap.Metrics.Coverage.UnitsWithoutCoverage = len(records) - len(coverageValues)
+	if len(coverageValues) > 0 {
+		min, max, sum := coverageValues[0], coverageValues[0], 0.0
+		for _, v := range coverageValues {
+			sum += v
+			if v < min {
+				min = v
+			}
+			if v > max {
+				max = v
+			}
+		}
+		snap.Metrics.Coverage.AvgCoverage = sum / float64(len(coverageValues))
+		snap.Metrics.Coverage.MinCoverage = min
+		snap.Metrics.Coverage.MaxCoverage = max
+	}
+
+	// Finalize code metrics aggregates
+	if metricsUnitCount > 0 {
+		snap.Metrics.CodeMetrics.AvgComplexity = float64(snap.Metrics.CodeMetrics.TotalComplexity) / float64(metricsUnitCount)
+	}
 
 	// Sort package paths for deterministic output
 	sort.Strings(pkgPaths)

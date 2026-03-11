@@ -135,6 +135,8 @@ func (pc *ProjectContext) FormatForLLM(maxTokensHint int) string {
 	formatCouplingPairs(&b, snap)
 	formatTopObservations(&b, snap)
 	formatStructuralMetrics(&b, snap)
+	formatCoverageMetrics(&b, snap)
+	formatCodeMetrics(&b, snap)
 	formatQualitativeContext(&b, pc, maxChars)
 
 	return b.String()
@@ -149,6 +151,9 @@ func formatHeader(b *strings.Builder, pc *ProjectContext) {
 	}
 	if len(pc.Languages) > 0 {
 		fmt.Fprintf(b, "**Languages:** %s\n", strings.Join(pc.Languages, ", "))
+	}
+	if pc.Snapshot != nil && pc.Snapshot.SchemaVersion > 0 {
+		fmt.Fprintf(b, "**Snapshot Schema:** v%d\n", pc.Snapshot.SchemaVersion)
 	}
 	b.WriteString("\n")
 }
@@ -296,6 +301,48 @@ func formatStructuralMetrics(b *strings.Builder, snap *ArchSnapshot) {
 	fmt.Fprintf(b, "| init_func_count | %d | Files containing init() functions |\n", s.InitFuncCount)
 	fmt.Fprintf(b, "| context_not_first | %d | Functions with context.Context not as first param |\n", s.ContextNotFirst)
 	fmt.Fprintf(b, "| errors_ignored | %d | Error returns assigned to blank identifier |\n", s.ErrorsIgnored)
+	fmt.Fprintf(b, "| naked_returns | %d | Bare return statements in named-return functions |\n", s.NakedReturns)
+	fmt.Fprintf(b, "| recursive_calls | %d | Direct recursive function calls |\n", s.RecursiveCalls)
+	fmt.Fprintf(b, "| max_nesting_depth | %d | Deepest loop nesting across all units |\n", s.MaxNestingDepth)
+	fmt.Fprintf(b, "| nested_loop_pairs | %d | Nested loop pairs (O(n²) risk) |\n", s.NestedLoopPairs)
+	fmt.Fprintf(b, "| quadratic_patterns | %d | Detected quadratic algorithm patterns |\n", s.QuadraticPatterns)
+	fmt.Fprintf(b, "| total_func_lines | %d | Sum of function body lines |\n", s.TotalFuncLines)
+	fmt.Fprintf(b, "| total_params | %d | Sum of function parameter counts |\n", s.TotalParams)
+	fmt.Fprintf(b, "| total_returns | %d | Sum of function return value counts |\n", s.TotalReturns)
+	fmt.Fprintf(b, "| total_methods | %d | Sum of type method counts |\n", s.TotalMethods)
+	b.WriteString("\n")
+}
+
+func formatCoverageMetrics(b *strings.Builder, snap *ArchSnapshot) {
+	c := snap.Metrics.Coverage
+	if c.UnitsWithCoverage == 0 && c.UnitsWithoutCoverage == 0 {
+		return
+	}
+	b.WriteString("## Coverage Metrics (aggregated from all units)\n")
+	fmt.Fprintf(b, "- Units with coverage data: %d\n", c.UnitsWithCoverage)
+	fmt.Fprintf(b, "- Units without coverage data: %d\n", c.UnitsWithoutCoverage)
+	if c.UnitsWithCoverage > 0 {
+		fmt.Fprintf(b, "- Average coverage: %.1f%%\n", c.AvgCoverage*100)
+		fmt.Fprintf(b, "- Min coverage: %.1f%%\n", c.MinCoverage*100)
+		fmt.Fprintf(b, "- Max coverage: %.1f%%\n", c.MaxCoverage*100)
+	}
+	b.WriteString("\n")
+}
+
+func formatCodeMetrics(b *strings.Builder, snap *ArchSnapshot) {
+	cm := snap.Metrics.CodeMetrics
+	if cm.TotalCodeLines == 0 {
+		return
+	}
+	b.WriteString("## Code Metrics (aggregated from all units)\n")
+	b.WriteString("| Metric | Value | Description |\n")
+	b.WriteString("|--------|------:|-------------|\n")
+	fmt.Fprintf(b, "| total_code_lines | %d | Lines of code (excluding blanks/comments) |\n", cm.TotalCodeLines)
+	fmt.Fprintf(b, "| total_comment_lines | %d | Lines of comments |\n", cm.TotalCommentLines)
+	fmt.Fprintf(b, "| total_complexity | %d | Sum of cyclomatic complexity |\n", cm.TotalComplexity)
+	fmt.Fprintf(b, "| max_complexity | %d | Highest single-unit complexity |\n", cm.MaxComplexity)
+	fmt.Fprintf(b, "| avg_complexity | %.1f | Average complexity per unit |\n", cm.AvgComplexity)
+	fmt.Fprintf(b, "| total_todos | %d | TODO/FIXME markers in code |\n", cm.TotalTodos)
 	b.WriteString("\n")
 }
 

@@ -2,15 +2,35 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 22 · **Passing:** 22 / 22
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
 | [Load](loader.go/Load.md) | function | 🟢 B | 86.2% | certified | 2026-04-25 |
+| [LoadPolicyPacks](policy.go/LoadPolicyPacks.md) | function | 🟢 A- | 90.6% | certified | 2026-04-25 |
+| [ValidatePolicyPack](validator.go/ValidatePolicyPack.md) | function | 🟢 A- | 90.6% | certified | 2026-04-25 |
+| [FilterPolicyPacks](matcher.go/FilterPolicyPacks.md) | function | 🟢 A- | 90.6% | certified | 2026-04-25 |
+| [parsePolicyPack](policy.go/parsePolicyPack.md) | function | 🟢 A- | 90.6% | certified | 2026-04-25 |
+| [ValidateConfig](validator.go/ValidateConfig.md) | function | 🟢 A- | 91.3% | certified | 2026-04-25 |
+| [Error](validator.go/Error.md) | method | 🟢 A- | 91.9% | certified | 2026-04-25 |
+| [policy_test.go](policy_test.go.md) | file | 🟢 A- | 91.9% | certified | 2026-04-25 |
+| [loader_test.go](loader_test.go.md) | file | 🟢 A- | 91.9% | certified | 2026-04-25 |
+| [validate](loader.go/validate.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [LoadPolicyPack](policy.go/LoadPolicyPack.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [parseDimension](policy.go/parseDimension.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [NewPolicyMatcher](matcher.go/NewPolicyMatcher.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
 | [parseSeverity](policy.go/parseSeverity.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [rawPolicyPack](policy.go/rawPolicyPack.md) | class | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [rawPolicyRule](policy.go/rawPolicyRule.md) | class | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [rawConfig](loader.go/rawConfig.md) | class | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [rawAgent](loader.go/rawAgent.md) | class | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [LoadFromDir](loader.go/LoadFromDir.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [LoadFile](loader.go/LoadFile.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [ValidationError](validator.go/ValidationError.md) | class | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [validator_test.go](validator_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-25 |
 
 ---
 

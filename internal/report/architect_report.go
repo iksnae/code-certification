@@ -379,6 +379,9 @@ func writeArchAppendix(b *strings.Builder, result *agent.ArchitectResult, pc *ag
 		if snap.Metrics.AvgScore > 0 {
 			fmt.Fprintf(b, " · Score: %.1f%%", snap.Metrics.AvgScore*100)
 		}
+		if snap.SchemaVersion > 0 {
+			fmt.Fprintf(b, " · Schema: v%d", snap.SchemaVersion)
+		}
 		b.WriteString("\n")
 	}
 	b.WriteString("- Evidence: lint, test, coverage, structural, git history\n")

@@ -169,6 +169,102 @@ func TestFormatForLLM_StructuralMetrics(t *testing.T) {
 	}
 }
 
+func TestFormatForLLM_CoverageMetrics(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "coverage:unit",
+			Passed:  true,
+			Metrics: map[string]float64{"unit_test_coverage": 0.85},
+		}),
+		makeRecordWithEvidence("go://pkg/b.go#Bar", 0.80, domain.Evidence{
+			Kind:    domain.EvidenceKindTest,
+			Source:  "coverage:unit",
+			Passed:  true,
+			Metrics: map[string]float64{"unit_test_coverage": 0.60},
+		}),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	output := pc.FormatForLLM(4000)
+
+	if !strings.Contains(output, "Coverage Metrics") {
+		t.Error("output should contain Coverage Metrics section")
+	}
+	if !strings.Contains(output, "Units with coverage data: 2") {
+		t.Error("output should show units with coverage")
+	}
+	if !strings.Contains(output, "Average coverage: 72.5%") {
+		t.Error("output should show average coverage")
+	}
+}
+
+func TestFormatForLLM_CodeMetrics(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:    domain.EvidenceKindMetrics,
+			Source:  "metrics",
+			Passed:  true,
+			Metrics: map[string]float64{
+				"code_lines":  200,
+				"complexity":  12,
+				"todo_count":  3,
+			},
+		}),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	output := pc.FormatForLLM(4000)
+
+	if !strings.Contains(output, "Code Metrics") {
+		t.Error("output should contain Code Metrics section")
+	}
+	if !strings.Contains(output, "| total_code_lines | 200 |") {
+		t.Error("output should show total_code_lines")
+	}
+	if !strings.Contains(output, "| total_complexity | 12 |") {
+		t.Error("output should show total_complexity")
+	}
+	if !strings.Contains(output, "| total_todos | 3 |") {
+		t.Error("output should show total_todos")
+	}
+}
+
+func TestFormatForLLM_SchemaVersion(t *testing.T) {
+	snap := agent.BuildSnapshot(nil, "")
+	pc := &agent.ProjectContext{
+		RepoName: "test-repo",
+		Snapshot: snap,
+	}
+
+	output := pc.FormatForLLM(4000)
+	if !strings.Contains(output, "Snapshot Schema:") {
+		t.Error("output should contain schema version")
+	}
+}
+
+func TestArchitectPrompts_AllContainGrounding(t *testing.T) {
+	prompts := agent.ArchitectPhasePrompts()
+	for i, p := range prompts {
+		hasGrounding := strings.Contains(p, "do not") || strings.Contains(p, "Do not") ||
+			strings.Contains(p, "DO NOT") || strings.Contains(p, "Never") ||
+			strings.Contains(p, "never")
+		if !hasGrounding {
+			t.Errorf("Phase %d prompt missing anti-hallucination grounding", i+1)
+		}
+	}
+}
+
 func TestFormatForLLM_Empty(t *testing.T) {
 	pc := &agent.ProjectContext{
 		Snapshot: agent.BuildSnapshot(nil, ""),
