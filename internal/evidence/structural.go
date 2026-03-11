@@ -485,22 +485,32 @@ func AnalyzeGoFile(src string) FileMetrics {
 				fm.HasInitFunc = true
 			}
 		case *ast.GenDecl:
-			if d.Tok == token.VAR {
-				for _, spec := range d.Specs {
-					vs, ok := spec.(*ast.ValueSpec)
-					if !ok {
-						fm.GlobalMutableCount++
-						continue
-					}
-					if isMutableVar(vs) {
-						fm.GlobalMutableCount++
-					}
-				}
-			}
+			fm.GlobalMutableCount += countGlobalMutables(d)
 		}
 	}
 
 	return fm
+}
+
+// countGlobalMutables counts mutable var declarations in a GenDecl.
+// Only counts vars that are truly mutable — excludes const-like expressions
+// (composite literals, basic literals, error sentinels, compiled regexes, etc.).
+func countGlobalMutables(d *ast.GenDecl) int {
+	if d.Tok != token.VAR {
+		return 0
+	}
+	count := 0
+	for _, spec := range d.Specs {
+		vs, ok := spec.(*ast.ValueSpec)
+		if !ok {
+			count++
+			continue
+		}
+		if isMutableVar(vs) {
+			count++
+		}
+	}
+	return count
 }
 
 // analyzeAlgoComplexity computes algorithmic complexity metrics for a function.
