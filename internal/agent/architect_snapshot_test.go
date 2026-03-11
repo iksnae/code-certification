@@ -304,25 +304,25 @@ func TestBuildSnapshot_CoverageAggregates(t *testing.T) {
 func TestBuildSnapshot_CodeMetricsAggregates(t *testing.T) {
 	records := []domain.CertificationRecord{
 		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
-			Kind:    domain.EvidenceKindMetrics,
-			Source:  "metrics",
-			Passed:  true,
+			Kind:   domain.EvidenceKindMetrics,
+			Source: "metrics",
+			Passed: true,
 			Metrics: map[string]float64{
-				"code_lines":     80,
-				"comment_lines":  10,
-				"complexity":     5,
-				"todo_count":     1,
+				"code_lines":    80,
+				"comment_lines": 10,
+				"complexity":    5,
+				"todo_count":    1,
 			},
 		}),
 		makeRecordWithEvidence("go://pkg/b.go#Bar", 0.80, domain.Evidence{
-			Kind:    domain.EvidenceKindMetrics,
-			Source:  "metrics",
-			Passed:  true,
+			Kind:   domain.EvidenceKindMetrics,
+			Source: "metrics",
+			Passed: true,
 			Metrics: map[string]float64{
-				"code_lines":     200,
-				"comment_lines":  30,
-				"complexity":     12,
-				"todo_count":     0,
+				"code_lines":    200,
+				"comment_lines": 30,
+				"complexity":    12,
+				"todo_count":    0,
 			},
 		}),
 	}

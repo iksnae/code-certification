@@ -207,13 +207,13 @@ func TestFormatForLLM_CoverageMetrics(t *testing.T) {
 func TestFormatForLLM_CodeMetrics(t *testing.T) {
 	records := []domain.CertificationRecord{
 		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
-			Kind:    domain.EvidenceKindMetrics,
-			Source:  "metrics",
-			Passed:  true,
+			Kind:   domain.EvidenceKindMetrics,
+			Source: "metrics",
+			Passed: true,
 			Metrics: map[string]float64{
-				"code_lines":  200,
-				"complexity":  12,
-				"todo_count":  3,
+				"code_lines": 200,
+				"complexity": 12,
+				"todo_count": 3,
 			},
 		}),
 	}

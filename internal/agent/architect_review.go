@@ -181,6 +181,103 @@ func (ar *ArchitectReviewer) Review(ctx context.Context, pc *ProjectContext, pha
 	return result, nil
 }
 
+// ReviewWorkspace runs the 6-phase review with workspace-specific prompts and context.
+func (ar *ArchitectReviewer) ReviewWorkspace(ctx context.Context, wpc *WorkspaceProjectContext, phases []int) (*ArchitectResult, error) {
+	if ar.Provider == nil {
+		return nil, fmt.Errorf("no AI provider available")
+	}
+
+	start := time.Now()
+	result := &ArchitectResult{
+		Snapshot:   nil, // workspace mode doesn't use single-repo snapshot
+		Model:      ar.Model,
+		RawOutputs: make([]string, 6),
+		Thinking:   make([]string, 6),
+	}
+
+	contextBlock := FormatWorkspaceForLLM(wpc.Snapshot, 8000)
+	prompts := WorkspacePhasePrompts()
+	phaseNames := WorkspacePhaseNames()
+	runPhase := buildPhaseSet(phases)
+
+	var priorOutputs []string
+	for i := 0; i < 6; i++ {
+		phaseNum := i + 1
+		if !runPhase[phaseNum] {
+			priorOutputs = append(priorOutputs, "")
+			continue
+		}
+		output := ar.runWorkspacePhase(ctx, result, phaseNum, contextBlock, prompts[i], phaseNames[i], priorOutputs)
+		priorOutputs = append(priorOutputs, output)
+	}
+
+	result.Duration = time.Since(start)
+	validatePhase5(result)
+	return result, nil
+}
+
+func (ar *ArchitectReviewer) runWorkspacePhase(ctx context.Context, result *ArchitectResult, phaseNum int, contextBlock, systemPrompt, phaseName string, priorOutputs []string) string {
+	if ar.OnPhaseStart != nil {
+		ar.OnPhaseStart(phaseNum, phaseName)
+	}
+
+	maxTokens := 8192
+	if phaseNum == 5 {
+		maxTokens = 12288
+	}
+
+	// Build user prompt with workspace phase names
+	var b strings.Builder
+	b.WriteString("## Project Data\n\n")
+	b.WriteString(contextBlock)
+	b.WriteString("\n\n")
+
+	wsPhaseNames := WorkspacePhaseNames()
+	if len(priorOutputs) > 0 {
+		hasPrior := false
+		for i, output := range priorOutputs {
+			if output == "" {
+				continue
+			}
+			if !hasPrior {
+				b.WriteString("## Prior Phase Results\n\n")
+				hasPrior = true
+			}
+			fmt.Fprintf(&b, "### Phase %d: %s\n%s\n\n", i+1, wsPhaseNames[i], output)
+		}
+	}
+	fmt.Fprintf(&b, "## Your Task\nPerform Phase %d: %s\n", phaseNum, phaseName)
+
+	resp, err := ar.Provider.Chat(ctx, ChatRequest{
+		Model: ar.Model,
+		Messages: []Message{
+			{Role: "system", Content: systemPrompt},
+			{Role: "user", Content: b.String()},
+		},
+		Temperature: 0.3,
+		MaxTokens:   maxTokens,
+	})
+	if err != nil {
+		result.Errors = append(result.Errors, fmt.Sprintf("Phase %d (%s): %v", phaseNum, phaseName, err))
+		return ""
+	}
+
+	content := resp.Content()
+	result.RawOutputs[phaseNum-1] = content
+	result.TotalTokens += resp.Usage.TotalTokens
+	result.PhasesComplete++
+	result.Thinking[phaseNum-1] = extractThinking(content)
+
+	cleaned := stripThinkTags(content)
+	jsonStr := extractJSON(cleaned)
+	ar.parsePhaseResult(result, phaseNum, jsonStr, content)
+
+	if ar.OnPhaseDone != nil {
+		ar.OnPhaseDone(phaseNum, phaseName, resp.Usage.TotalTokens)
+	}
+	return content
+}
+
 func buildPhaseSet(phases []int) map[int]bool {
 	runPhase := make(map[int]bool)
 	if len(phases) == 0 {

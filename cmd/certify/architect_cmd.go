@@ -12,6 +12,7 @@ import (
 	"github.com/iksnae/code-certification/internal/domain"
 	"github.com/iksnae/code-certification/internal/record"
 	"github.com/iksnae/code-certification/internal/report"
+	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
 
@@ -54,6 +55,12 @@ func runArchitect(cmd *cobra.Command, args []string) error {
 			return fmt.Errorf("getting working directory: %w", err)
 		}
 	}
+
+	wsMode := flagBool(cmd, "workspace")
+	if wsMode {
+		return runWorkspaceArchitect(cmd, root)
+	}
+
 	certDir := filepath.Join(root, ".certification")
 
 	provider, model, err := resolveArchitectProvider(cmd, certDir)
@@ -174,6 +181,147 @@ func writeArchitectOutput(cmd *cobra.Command, result *agent.ArchitectResult, pc 
 
 	fmt.Println()
 	fmt.Printf("🏗  Architectural Review Complete\n")
+	fmt.Printf("  Phases: %d/6 completed\n", result.PhasesComplete)
+	fmt.Printf("  Tokens: %d\n", result.TotalTokens)
+	fmt.Printf("  Duration: %s\n", duration.Round(time.Second))
+	if result.Phase5 != nil {
+		fmt.Printf("  Recommendations: %d\n", len(result.Phase5.Recommendations))
+	}
+	if len(result.Errors) > 0 {
+		fmt.Printf("  ⚠️  %d phase(s) failed\n", len(result.Errors))
+	}
+	fmt.Printf("  Output: %s\n", outputPath)
+	return nil
+}
+
+func runWorkspaceArchitect(cmd *cobra.Command, root string) error {
+	certDir := filepath.Join(root, ".certification")
+
+	provider, model, err := resolveArchitectProvider(cmd, certDir)
+	if err != nil {
+		return err
+	}
+
+	fmt.Println("🏗  Workspace Architectural Review")
+	fmt.Println("  Discovering submodules...")
+
+	subs, err := workspace.DiscoverSubmodules(root)
+	if err != nil {
+		return fmt.Errorf("discovering submodules: %w", err)
+	}
+
+	configured := workspace.ConfiguredSubmodules(subs)
+	if len(configured) == 0 {
+		return fmt.Errorf("no configured submodules found — run 'certify init --workspace' first")
+	}
+
+	fmt.Printf("  Found %d configured submodule(s)\n", len(configured))
+
+	// Load records for each submodule
+	var subInfos []agent.SubmoduleInfo
+	for _, s := range configured {
+		subCertDir := filepath.Join(root, s.Path, ".certification")
+		store := record.NewStore(filepath.Join(subCertDir, "records"))
+		records, err := store.ListAll()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "  warning: loading records for %s: %v\n", s.Path, err)
+			records = nil
+		}
+		subInfos = append(subInfos, agent.SubmoduleInfo{
+			Name:    s.Name,
+			Path:    s.Path,
+			Commit:  s.Commit,
+			Records: records,
+		})
+		if len(records) > 0 {
+			fmt.Printf("    %s: %d units\n", s.Name, len(records))
+		} else {
+			fmt.Printf("    %s: no certification data\n", s.Name)
+		}
+	}
+
+	fmt.Println("  Building workspace snapshot...")
+	wpc := agent.GatherWorkspaceContext(root, subInfos)
+	wpc.RepoName = detectRepoName(root)
+	wpc.CommitSHA = detectCommit(root)
+
+	snap := wpc.Snapshot
+	fmt.Printf("  Repository: %s\n", wpc.RepoName)
+	fmt.Printf("  Submodules: %d (%d units total)\n",
+		snap.AggregateMetrics.TotalSubmodules, snap.AggregateMetrics.TotalUnitsAcrossAll)
+	if snap.AggregateMetrics.WeightedAvgScore > 0 {
+		fmt.Printf("  Weighted Score: %.1f%%\n", snap.AggregateMetrics.WeightedAvgScore*100)
+	}
+	fmt.Printf("  Model: %s\n", model)
+	fmt.Println()
+
+	// Run 6-phase review with workspace prompts
+	verbose := flagBool(cmd, "verbose")
+	reviewer := &agent.ArchitectReviewer{
+		Provider: provider,
+		Model:    model,
+		Verbose:  verbose,
+		OnPhaseStart: func(phase int, name string) {
+			fmt.Printf("  [%d/6] 🔄 %s...\n", phase, name)
+		},
+		OnPhaseDone: func(phase int, name string, tokens int) {
+			fmt.Printf("  [%d/6] ✅ %s (%d tokens)\n", phase, name, tokens)
+		},
+	}
+
+	var phases []int
+	if p := flagInt(cmd, "phase"); p > 0 {
+		phases = []int{p}
+	}
+
+	start := time.Now()
+	result, err := reviewer.ReviewWorkspace(cmd.Context(), wpc, phases)
+	if err != nil {
+		return fmt.Errorf("workspace architect review: %w", err)
+	}
+	duration := time.Since(start)
+
+	if verbose {
+		for i, raw := range result.RawOutputs {
+			if raw != "" {
+				fmt.Printf("\n--- Phase %d Raw Output ---\n%s\n", i+1, raw)
+			}
+		}
+	}
+
+	// Build a synthetic ProjectContext for report formatting
+	synthPC := &agent.ProjectContext{
+		RepoName:  wpc.RepoName,
+		CommitSHA: wpc.CommitSHA,
+	}
+	if snap != nil {
+		// Use the first submodule's snapshot as a basis for the report header
+		// The workspace snapshot aggregates are in snap.AggregateMetrics
+		synthPC.Snapshot = &agent.ArchSnapshot{
+			SchemaVersion: agent.SnapshotSchemaVersion,
+			Metrics: agent.SnapshotMetrics{
+				TotalUnits:    snap.AggregateMetrics.TotalUnitsAcrossAll,
+				TotalPackages: snap.AggregateMetrics.TotalSubmodules,
+				AvgScore:      snap.AggregateMetrics.WeightedAvgScore,
+			},
+		}
+	}
+
+	// Write output
+	output := report.FormatArchitectReport(result, synthPC)
+	outputPath := flagString(cmd, "output")
+	if outputPath == "" {
+		outputPath = filepath.Join(certDir, "ARCHITECT_REVIEW.md")
+	}
+	if err := os.MkdirAll(filepath.Dir(outputPath), 0755); err != nil {
+		return fmt.Errorf("creating output directory: %w", err)
+	}
+	if err := os.WriteFile(outputPath, []byte(output), 0644); err != nil {
+		return fmt.Errorf("writing report: %w", err)
+	}
+
+	fmt.Println()
+	fmt.Printf("🏗  Workspace Architectural Review Complete\n")
 	fmt.Printf("  Phases: %d/6 completed\n", result.PhasesComplete)
 	fmt.Printf("  Tokens: %d\n", result.TotalTokens)
 	fmt.Printf("  Duration: %s\n", duration.Round(time.Second))
