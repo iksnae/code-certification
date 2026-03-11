@@ -132,3 +132,8 @@ When agent review is disabled or unavailable, Certify uses deterministic evidenc
 - Code metrics (line count, documentation presence)
 
 This produces reliable, reproducible certification results.
+
+## Related
+
+- [Architect Review](/code-certification/advanced/architect-review/) — 6-phase AI architectural analysis (separate from per-unit agent review)
+- [Workspace Mode](/code-certification/advanced/workspace/) — multi-repo certification across git submodules

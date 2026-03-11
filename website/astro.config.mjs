@@ -74,6 +74,8 @@ export default defineConfig({
 					label: 'Advanced',
 					items: [
 						{ label: 'Agent-Assisted Review', slug: 'advanced/agent-review' },
+						{ label: 'Architect Review', slug: 'advanced/architect-review' },
+						{ label: 'Workspace Mode', slug: 'advanced/workspace' },
 						{ label: 'Troubleshooting', slug: 'advanced/troubleshooting' },
 					],
 				},

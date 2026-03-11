@@ -18,8 +18,8 @@ This creates:
 .certification/
 ├── config.yml          # configuration
 ├── policies/
-│   ├── global.yml      # universal policy pack
-│   └── go.yml          # language-specific (auto-detected)
+│   ├── go-standard.yml # universal Go rules
+│   └── go-library.yml  # library-specific (auto-detected)
 ```
 
 It also generates GitHub Actions workflows in `.github/workflows/`.
@@ -51,7 +51,7 @@ Evaluate every unit against your policies:
 certify certify
 ```
 
-This collects evidence (lint results, test status, git history, complexity metrics), evaluates against policy packs, scores across 9 quality dimensions, and assigns certification status.
+This collects evidence (lint results, test status, git history, AST structural analysis, complexity metrics), evaluates against policy packs, scores across 9 quality dimensions, and assigns certification status.
 
 ```
   Collected 4 repo-level evidence items
@@ -68,15 +68,7 @@ If `OPENROUTER_API_KEY` is set in your environment or as a GitHub secret, Certif
 Generate your report card:
 
 ```bash
-certify report --format full
-```
-
-Your complete report card is saved to `.certification/REPORT_CARD.md`.
-
-For a quick terminal summary:
-
-```bash
-certify report --format card
+certify report
 ```
 
 ```
@@ -88,9 +80,33 @@ certify report --format card
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
+For the complete markdown report card:
+
+```bash
+certify report --format full
+```
+
+For a browsable static HTML site:
+
+```bash
+certify report --site
+```
+
+## Step 5 — Architect Review (Optional)
+
+If you have an AI provider configured, run a 6-phase architectural analysis:
+
+```bash
+certify architect
+```
+
+This analyzes your package structure, dependencies, quality patterns, test strategy, and security posture — producing a comprehensive `ARCHITECT_REVIEW.md` with prioritized recommendations and projected metric improvements.
+
 ## What's Next?
 
 - [Add a badge to your README →](/code-certification/reference/badge/)
 - [Customize policies →](/code-certification/reference/policies/)
 - [Set up CI integration →](/code-certification/reference/ci/)
 - [Read your first full report card →](/code-certification/guides/first-report/)
+- [Run an architect review →](/code-certification/advanced/architect-review/)
+- [Configure workspace mode →](/code-certification/advanced/workspace/)

@@ -59,10 +59,35 @@ Units with observations or non-passing status get expandable detail sections sho
 
 | Format | Command | Use case |
 |--------|---------|----------|
+| **Card** | `--format card` (default) | Quick terminal summary |
 | **Full** | `--format full` | Complete markdown report card |
-| **Card** | `--format card` | Quick terminal summary |
+| **Site** | `--format site` or `--site` | Browsable static HTML site |
 | **JSON** | `--format json` | Machine-readable for tooling |
-| **Text** | (default) | Brief health summary |
+| **Text** | `--format text` | Brief health summary |
+
+## Report Tree
+
+Every `certify report` run also generates a **report tree** — individual markdown files for every unit in `reports/`:
+
+```
+.certification/reports/
+├── index.md
+├── internal/engine/scorer.go/
+│   ├── Score.md
+│   └── CertifyUnit.md
+```
+
+Each file contains the full certification record with dimension scores, evidence, and observations. GitHub renders these as navigable documentation.
+
+## Static Site
+
+For large repos, generate a browsable HTML site:
+
+```bash
+certify report --site
+```
+
+The site includes per-package pages, per-unit detail, dimension charts, and client-side search — all static files that work offline.
 
 ## Where Reports Are Saved
 
@@ -70,5 +95,13 @@ Every `certify report` run saves:
 
 - `.certification/REPORT_CARD.md` — full per-unit report card
 - `.certification/badge.json` — shields.io badge endpoint
+- `.certification/reports/` — per-unit markdown report tree
 
 These are committed to your repository so they're always visible on GitHub.
+
+## What's Next
+
+- [Add a badge to your README →](/code-certification/reference/badge/)
+- [Run an architectural review →](/code-certification/advanced/architect-review/)
+- [Customize policies →](/code-certification/reference/policies/)
+- [Set up CI integration →](/code-certification/reference/ci/)

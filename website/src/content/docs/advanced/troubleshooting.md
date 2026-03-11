@@ -19,6 +19,30 @@ Run certification before generating reports:
 certify certify --skip-agent
 ```
 
+## "no configured submodules found"
+
+In workspace mode, each submodule needs `certify init`:
+
+```bash
+certify init --workspace
+```
+
+## Architect review: LLM timeout
+
+Large models on local hardware can take several minutes per phase. The architect command uses a 10-minute timeout per phase. If your model is slower:
+
+- Use a smaller model: `certify architect --model qwen3:8b`
+- Run single phases: `certify architect --phase 1`
+- Use a cloud provider with faster inference
+
+## Architect review: fabricated metrics
+
+If the LLM invents numbers not present in the snapshot, this usually means you're using a model that doesn't follow grounding instructions well. Try:
+
+- A larger model (30B+ parameters follow instructions better)
+- A code-specialized model (e.g., `qwen/qwen3-coder-30b`)
+- Run `certify certify` first to ensure the snapshot has real data
+
 ## Agent review: 429 Too Many Requests
 
 Free-tier models on OpenRouter have rate limits.
@@ -81,6 +105,13 @@ Each unit gets a small JSON file (~500 bytes). For very large repos (10k+ units)
 1. Add `.certification/records/` to `.gitignore`
 2. Use CI artifacts instead of committed records
 3. Scope certification to critical paths via `scope.include`
+
+## Workspace: 0 units discovered in a submodule
+
+Check that the submodule has:
+1. `certify init` run (`.certification/config.yml` exists)
+2. Source files not excluded by `scope.exclude`
+3. An empty `scope.include: []` means "include nothing" — remove it to include everything
 
 ## Getting Help
 

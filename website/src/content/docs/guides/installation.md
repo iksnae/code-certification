@@ -21,6 +21,27 @@ go install github.com/iksnae/code-certification/cmd/certify@latest
 
 This installs the `certify` binary to your `$GOPATH/bin`.
 
+## Install from GitHub Release
+
+Download pre-built binaries from [GitHub Releases](https://github.com/iksnae/code-certification/releases):
+
+```bash
+# macOS (Apple Silicon)
+curl -L https://github.com/iksnae/code-certification/releases/latest/download/certify-darwin-arm64 -o certify
+
+# macOS (Intel)
+curl -L https://github.com/iksnae/code-certification/releases/latest/download/certify-darwin-amd64 -o certify
+
+# Linux (x86_64)
+curl -L https://github.com/iksnae/code-certification/releases/latest/download/certify-linux-amd64 -o certify
+
+# Linux (ARM64)
+curl -L https://github.com/iksnae/code-certification/releases/latest/download/certify-linux-arm64 -o certify
+
+chmod +x certify
+sudo mv certify /usr/local/bin/
+```
+
 ## Build from Source
 
 ```bash
@@ -35,6 +56,12 @@ Move the binary somewhere in your `$PATH`:
 sudo mv certify /usr/local/bin/
 ```
 
+Or use the project's `Justfile`:
+
+```bash
+just build    # builds to build/bin/certify
+```
+
 ## Verify Installation
 
 ```bash
@@ -44,7 +71,7 @@ certify version
 You should see:
 
 ```
-certify v0.1.0 (abc1234) built 2026-03-09T12:00:00Z
+certify v0.9.0 (commit: a04d3f3, built: 2026-03-11T16:45:00Z)
 ```
 
 ## VSCode Extension
