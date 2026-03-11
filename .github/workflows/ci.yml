@@ -30,16 +30,20 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version: '1.25'
           cache: true
 
       - name: Test
+        env:
+          CGO_ENABLED: 1
         run: go test ./... -count=1
 
       - name: Vet
         run: go vet ./...
 
       - name: Build
+        env:
+          CGO_ENABLED: 1
         run: go build -o build/bin/certify ./cmd/certify/
 
   certify:
@@ -53,10 +57,12 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version: '1.25'
           cache: true
 
       - name: Build
+        env:
+          CGO_ENABLED: 1
         run: |
           go build -ldflags "\
             -X main.Version=$(git describe --tags --always) \
