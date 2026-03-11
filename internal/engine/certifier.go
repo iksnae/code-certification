@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/iksnae/code-certification/internal/agent"
+	"github.com/iksnae/code-certification/internal/analysis"
 	"github.com/iksnae/code-certification/internal/domain"
 	"github.com/iksnae/code-certification/internal/evidence"
 	"github.com/iksnae/code-certification/internal/override"
@@ -168,14 +169,59 @@ func (c *Certifier) buildCoverageEvidence(unit domain.Unit) (domain.Evidence, bo
 	}, true
 }
 
-// collectStructuralEvidence runs Go AST analysis and appends structural evidence.
+// collectStructuralEvidence runs structural analysis and appends evidence.
+// Uses the analysis.Analyzer interface for all languages with a registered analyzer,
+// falling back to legacy Go-only analysis for backward compatibility.
 func (c *Certifier) collectStructuralEvidence(unit domain.Unit, srcCode string, isGo bool, sym string, ev *[]domain.Evidence) {
+	lang := unit.ID.Language()
+	analyzer := analysis.ForLanguage(lang)
+
+	if analyzer != nil {
+		c.collectStructuralViaAnalyzer(analyzer, unit, srcCode, sym, ev)
+		return
+	}
+
+	// Legacy fallback for Go (should not be reached since Go analyzer is registered)
 	if !isGo {
 		return
 	}
+	c.collectStructuralLegacyGo(srcCode, sym, unit.Type, ev)
+}
+
+// collectStructuralViaAnalyzer uses the unified Analyzer interface.
+func (c *Certifier) collectStructuralViaAnalyzer(a analysis.Analyzer, unit domain.Unit, srcCode string, sym string, ev *[]domain.Evidence) {
+	srcBytes := []byte(srcCode)
+	path := unit.ID.Path()
+
+	if sym != "" {
+		metrics, err := a.Analyze(path, srcBytes, sym)
+		if err != nil {
+			return
+		}
+		// Merge file-level metrics
+		fileMeta, _ := a.AnalyzeFile(path, srcBytes)
+		metrics.HasInitFunc = fileMeta.HasInitFunc
+		metrics.GlobalMutableCount = fileMeta.GlobalMutableCount
+		*ev = append(*ev, metrics.ToEvidence())
+	} else {
+		fileMeta, err := a.AnalyzeFile(path, srcBytes)
+		if err != nil {
+			return
+		}
+		metrics := analysis.Metrics{
+			HasInitFunc:        fileMeta.HasInitFunc,
+			GlobalMutableCount: fileMeta.GlobalMutableCount,
+		}
+		*ev = append(*ev, metrics.ToEvidence())
+	}
+}
+
+// collectStructuralLegacyGo is the original Go-only analysis path.
+// Retained for backward compatibility; should not normally be reached.
+func (c *Certifier) collectStructuralLegacyGo(srcCode string, sym string, unitType domain.UnitType, ev *[]domain.Evidence) {
 	if sym != "" {
 		var structural evidence.StructuralMetrics
-		if unit.Type == domain.UnitTypeClass {
+		if unitType == domain.UnitTypeClass {
 			structural = evidence.AnalyzeGoType(srcCode, sym)
 		} else {
 			structural = evidence.AnalyzeGoFunc(srcCode, sym)

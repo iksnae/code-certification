@@ -150,6 +150,7 @@ func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
 	scoreAlgoComplexity(e.Metrics, scores)
 	scoreStructuralCorrectness(e.Metrics, scores)
 	scoreStructuralArchitecture(e.Metrics, scores)
+	scoreDeepAnalysis(e.Metrics, scores)
 }
 
 // scoreStructuralReadability adjusts readability and maintainability
@@ -289,6 +290,50 @@ func scoreAlgoComplexity(m map[string]float64, scores domain.DimensionScores) {
 		setMax(scores, domain.DimPerformanceAppropriateness, 0.90)
 	default:
 		setMax(scores, domain.DimPerformanceAppropriateness, 0.95)
+	}
+}
+
+// scoreDeepAnalysis handles new metrics from the analysis package:
+// cognitive complexity, error wrapping, unsafe imports, hardcoded secrets.
+func scoreDeepAnalysis(m map[string]float64, scores domain.DimensionScores) {
+	// Cognitive complexity → readability (stronger signal than cyclomatic)
+	if cogCplx, ok := m["cognitive_complexity"]; ok && cogCplx > 0 {
+		switch {
+		case cogCplx <= 8:
+			setMax(scores, domain.DimReadability, 0.95)
+		case cogCplx <= 15:
+			setMax(scores, domain.DimReadability, 0.85)
+		case cogCplx <= 25:
+			// neutral — don't override if already set
+		default:
+			setMin(scores, domain.DimReadability, 0.50)
+		}
+	}
+
+	// Error wrapping → operational_quality
+	if unwrapped, ok := m["errors_not_wrapped"]; ok {
+		if unwrapped == 0 {
+			setMax(scores, domain.DimOperationalQuality, 0.90)
+		} else if unwrapped <= 2 {
+			setMax(scores, domain.DimOperationalQuality, 0.75)
+		} else {
+			setMin(scores, domain.DimOperationalQuality, 0.55)
+		}
+	}
+
+	// Unsafe imports → security
+	if unsafeCount, ok := m["unsafe_import_count"]; ok && unsafeCount > 0 {
+		setMin(scores, domain.DimSecurity, 0.60)
+	}
+
+	// Hardcoded secrets → security (critical)
+	if secrets, ok := m["hardcoded_secrets"]; ok && secrets > 0 {
+		setMin(scores, domain.DimSecurity, 0.30)
+	}
+
+	// Empty catch blocks → correctness
+	if empty, ok := m["empty_catch_blocks"]; ok && empty > 0 {
+		setMin(scores, domain.DimCorrectness, 0.55)
 	}
 }
 

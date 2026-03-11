@@ -1,5 +1,5 @@
 name: go-standard
-version: "1.1.0"
+version: "1.2.0"
 language: go
 
 rules:
@@ -94,5 +94,33 @@ rules:
     severity: warning
     metric: method_count
     threshold: 15
+
+  - id: max-cognitive-complexity
+    dimension: readability
+    description: "Cognitive complexity should not exceed 25"
+    severity: warning
+    metric: cognitive_complexity
+    threshold: 25
+
+  - id: no-unsafe-imports
+    dimension: security
+    description: "Avoid unsafe, os/exec, and similar dangerous imports"
+    severity: warning
+    metric: unsafe_import_count
+    threshold: 0
+
+  - id: no-hardcoded-secrets
+    dimension: security
+    description: "No hardcoded passwords, API keys, or secrets in source"
+    severity: critical
+    metric: hardcoded_secrets
+    threshold: 0
+
+  - id: wrap-errors
+    dimension: operational_quality
+    description: "Errors should be wrapped with context using fmt.Errorf(%%w)"
+    severity: warning
+    metric: errors_not_wrapped
+    threshold: 0
 
   # min-coverage requires "less than" comparison — tracked for future operator support
