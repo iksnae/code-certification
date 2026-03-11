@@ -839,7 +839,7 @@ All grounded — every number in the prompt has an exact source in the snapshot.
 | **5** | 1E-1F | Wire into pipeline, replace TS regex discovery, add Py/Rs detection | ✅ Done | 152 actual |
 | **—** | (bug fix) | Nested Go module support (`DiscoverModuleRoots`) | ✅ Done | 457 actual |
 | **6** | 1G-1H | Lint/test tool integration (ESLint, ruff, pytest, cargo clippy/test) | ✅ Done | 1,040 actual |
-| **7** | 2A-2C | `go/packages` loader + call graph + dead code | 🔲 Planned | ~800 est |
+| **7** | 2A-2C | `go/packages` loader + call graph + dead code | ✅ Done | 540 actual |
 | **8** | 2D-2E | Interface compliance + package dep graph | 🔲 Planned | ~600 est |
 | **9** | 2F-2G | Error wrapping + cognitive complexity (type-aware refinement) | 🔲 Planned | ~400 est |
 | **10** | 3A | LSP client infrastructure | 🔲 Planned | ~400 est |

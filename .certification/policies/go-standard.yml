@@ -1,5 +1,5 @@
 name: go-standard
-version: "1.3.0"
+version: "1.4.0"
 language: go
 
 rules:
@@ -135,6 +135,27 @@ rules:
     description: "Avoid os.Exit() — makes code untestable"
     severity: warning
     metric: os_exit_calls
+    threshold: 0
+
+  - id: max-fan-out
+    dimension: maintainability
+    description: "Functions should not call more than 15 distinct functions"
+    severity: warning
+    metric: fan_out
+    threshold: 15
+
+  - id: max-fan-in
+    dimension: change_risk
+    description: "Functions called by more than 20 callers are high-risk change points"
+    severity: warning
+    metric: fan_in
+    threshold: 20
+
+  - id: no-dead-exports
+    dimension: maintainability
+    description: "Exported symbols should have at least one external reference"
+    severity: info
+    metric: is_dead_code
     threshold: 0
 
   # min-coverage requires "less than" comparison — tracked for future operator support

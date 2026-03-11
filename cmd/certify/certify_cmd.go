@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/iksnae/code-certification/internal/agent"
+	"github.com/iksnae/code-certification/internal/analysis"
 	"github.com/iksnae/code-certification/internal/config"
 	"github.com/iksnae/code-certification/internal/discovery"
 	"github.com/iksnae/code-certification/internal/domain"
@@ -108,6 +109,20 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	fmt.Println("  Collecting repo-level evidence...")
 	ctx.repoEv = ctx.certifier.CollectRepoEvidence()
 	fmt.Printf("  Collected %d repo-level evidence items\n", len(ctx.repoEv))
+
+	// Deep Go analysis (type-aware: fan-in, fan-out, dead code)
+	if hasGoUnits(ctx.unitMap) {
+		fmt.Print("  Building Go call graph...")
+		deepAnalyzer, err := analysis.LoadGoProject(ctx.root, "./...")
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "\n  ⚠️  Deep analysis unavailable: %v\n", err)
+		} else {
+			ctx.certifier.DeepAnalyzer = deepAnalyzer
+			results := deepAnalyzer.AllResults()
+			unused := deepAnalyzer.UnusedExports()
+			fmt.Printf(" %d functions analyzed, %d unused exports\n", len(results), len(unused))
+		}
+	}
 	fmt.Println()
 
 	certified, observations, failed, processed := ctx.processQueue(cmd, remaining, flags.batch)
@@ -530,6 +545,16 @@ func setupConservativeAgent() *agent.Coordinator {
 }
 
 // policyVersions extracts "name@version" strings from a policy matcher.
+// hasGoUnits returns true if any unit in the map is a Go file.
+func hasGoUnits(units map[string]domain.Unit) bool {
+	for _, u := range units {
+		if strings.HasSuffix(u.ID.Path(), ".go") {
+			return true
+		}
+	}
+	return false
+}
+
 func policyVersions(matcher *policy.Matcher) []string {
 	if matcher == nil {
 		return nil

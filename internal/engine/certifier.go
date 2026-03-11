@@ -41,6 +41,9 @@ type Certifier struct {
 	// Per-unit attribution data (set by CollectRepoEvidence or manually for tests)
 	RepoLintFindings []evidence.LintFinding // raw lint findings for per-unit attribution
 	RepoCoverProfile string                 // raw coverage profile for per-unit coverage
+
+	// Deep analysis (type-aware cross-file analysis for Go)
+	DeepAnalyzer *analysis.DeepGoAnalyzer // nil = skip deep analysis
 }
 
 // Certify runs the full certification pipeline for a single unit.
@@ -138,8 +141,11 @@ func (c *Certifier) collectUnitEvidence(unit domain.Unit, ev *[]domain.Evidence)
 		}
 	}
 
-	// Structural analysis (Go only)
+	// Structural analysis (all languages with registered analyzer)
 	c.collectStructuralEvidence(unit, srcCode, isGo, sym, ev)
+
+	// Deep analysis (type-aware, Go only for now)
+	c.collectDeepEvidence(unit, ev)
 
 	return srcCode
 }
@@ -238,6 +244,98 @@ func (c *Certifier) collectStructuralLegacyGo(srcCode string, sym string, unitTy
 		}
 		*ev = append(*ev, structural.ToEvidence())
 	}
+}
+
+// collectDeepEvidence appends type-aware metrics (fan-in, fan-out, dead code)
+// from the DeepGoAnalyzer if available.
+func (c *Certifier) collectDeepEvidence(unit domain.Unit, ev *[]domain.Evidence) {
+	if c.DeepAnalyzer == nil {
+		return
+	}
+	if unit.ID.Language() != "go" {
+		return
+	}
+
+	sym := unit.ID.Symbol()
+	if sym == "" {
+		return
+	}
+
+	// Determine package path from the unit's file path
+	pkgPath := c.resolveGoPackagePath(unit)
+	if pkgPath == "" {
+		return
+	}
+
+	result, ok := c.DeepAnalyzer.Lookup(pkgPath, sym)
+	if !ok {
+		return
+	}
+
+	metrics := map[string]float64{
+		"fan_in":       float64(result.FanIn),
+		"fan_out":      float64(result.FanOut),
+		"is_dead_code": 0,
+	}
+	if result.IsDeadCode {
+		metrics["is_dead_code"] = 1
+	}
+
+	*ev = append(*ev, domain.Evidence{
+		Kind:       domain.EvidenceKindStructural,
+		Source:     "deep-analysis",
+		Passed:     true,
+		Summary:    fmt.Sprintf("deep: fan_in=%d fan_out=%d dead=%v", result.FanIn, result.FanOut, result.IsDeadCode),
+		Metrics:    metrics,
+		Confidence: 1.0,
+	})
+}
+
+// resolveGoPackagePath attempts to determine the Go package path for a unit.
+// It looks at the unit's file path relative to the module root.
+func (c *Certifier) resolveGoPackagePath(unit domain.Unit) string {
+	filePath := unit.ID.Path()
+	dir := filepath.Dir(filePath)
+
+	// Try to find the module path from go.mod
+	modPath := c.Root
+	modName := ""
+
+	// Walk up from the file's directory to find go.mod
+	checkDir := filepath.Join(c.Root, dir)
+	for {
+		gomod := filepath.Join(checkDir, "go.mod")
+		if data, err := os.ReadFile(gomod); err == nil {
+			// Extract module name from go.mod
+			for _, line := range strings.Split(string(data), "\n") {
+				line = strings.TrimSpace(line)
+				if strings.HasPrefix(line, "module ") {
+					modName = strings.TrimSpace(strings.TrimPrefix(line, "module"))
+					modPath = checkDir
+					break
+				}
+			}
+			break
+		}
+		parent := filepath.Dir(checkDir)
+		if parent == checkDir {
+			break
+		}
+		checkDir = parent
+	}
+
+	if modName == "" {
+		return ""
+	}
+
+	// Compute relative path from module root to the file's directory
+	absDir := filepath.Join(c.Root, dir)
+	rel, err := filepath.Rel(modPath, absDir)
+	if err != nil || rel == "." {
+		return modName
+	}
+
+	return modName + "/" + filepath.ToSlash(rel)
 }
 
 // runAgentReview optionally runs agent-assisted review for the unit.

@@ -350,6 +350,39 @@ func scoreDeepAnalysis(m map[string]float64, scores domain.DimensionScores) {
 	if returns, ok := m["return_count"]; ok && returns > 5 {
 		setMin(scores, domain.DimMaintainability, 0.65)
 	}
+
+	// Fan-in → change_risk (high fan-in = many callers, risky to change)
+	if fanIn, ok := m["fan_in"]; ok {
+		switch {
+		case fanIn <= 5:
+			setMax(scores, domain.DimChangeRisk, 0.95)
+		case fanIn <= 10:
+			setMax(scores, domain.DimChangeRisk, 0.85)
+		case fanIn <= 20:
+			setMax(scores, domain.DimChangeRisk, 0.70)
+		default:
+			setMin(scores, domain.DimChangeRisk, 0.50)
+		}
+	}
+
+	// Fan-out → maintainability (high fan-out = too many dependencies)
+	if fanOut, ok := m["fan_out"]; ok {
+		switch {
+		case fanOut <= 5:
+			setMax(scores, domain.DimMaintainability, 0.95)
+		case fanOut <= 10:
+			setMax(scores, domain.DimMaintainability, 0.85)
+		case fanOut <= 15:
+			setMax(scores, domain.DimMaintainability, 0.70)
+		default:
+			setMin(scores, domain.DimMaintainability, 0.55)
+		}
+	}
+
+	// Dead code → maintainability (unused exports are maintenance burden)
+	if deadCode, ok := m["is_dead_code"]; ok && deadCode > 0 {
+		setMin(scores, domain.DimMaintainability, 0.60)
+	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {

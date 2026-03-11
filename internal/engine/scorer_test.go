@@ -706,6 +706,66 @@ func TestScorer_NestedLoopPairs(t *testing.T) {
 	}
 }
 
+func TestScorer_FanIn_LowIsGood(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"fan_in": 3},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	cr := scores[domain.DimChangeRisk]
+	if cr < 0.90 {
+		t.Errorf("change_risk = %f, want >= 0.90 for fan_in=3", cr)
+	}
+}
+
+func TestScorer_FanIn_HighIsBad(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"fan_in": 25},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	cr := scores[domain.DimChangeRisk]
+	if cr > 0.55 {
+		t.Errorf("change_risk = %f, want <= 0.55 for fan_in=25", cr)
+	}
+}
+
+func TestScorer_FanOut_LowIsGood(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"fan_out": 3},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	maint := scores[domain.DimMaintainability]
+	if maint < 0.90 {
+		t.Errorf("maintainability = %f, want >= 0.90 for fan_out=3", maint)
+	}
+}
+
+func TestScorer_FanOut_HighIsBad(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"fan_out": 20},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	maint := scores[domain.DimMaintainability]
+	if maint > 0.60 {
+		t.Errorf("maintainability = %f, want <= 0.60 for fan_out=20", maint)
+	}
+}
+
+func TestScorer_DeadCode(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{"is_dead_code": 1},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	maint := scores[domain.DimMaintainability]
+	if maint > 0.65 {
+		t.Errorf("maintainability = %f, want <= 0.65 for dead code", maint)
+	}
+}
+
 func TestScorer_DeepAnalysis_AllClean(t *testing.T) {
 	// A function with all deep analysis metrics clean should score well
 	ev := []domain.Evidence{{
