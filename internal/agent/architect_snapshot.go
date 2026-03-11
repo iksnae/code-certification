@@ -54,16 +54,16 @@ type CouplingPair struct {
 
 // SnapshotMetrics holds aggregate metrics across all packages.
 type SnapshotMetrics struct {
-	TotalUnits        int                   `json:"total_units"`
-	TotalPackages     int                   `json:"total_packages"`
-	AvgScore          float64               `json:"avg_score"`
-	GradeDistribution map[string]int        `json:"grade_distribution"`
-	TopObservations   map[string]int        `json:"top_observations"`
-	PolicyViolations  map[string]int        `json:"policy_violations"`
-	Structural        StructuralAggregates      `json:"structural"`
-	DeepAnalysis      DeepAnalysisAggregates    `json:"deep_analysis"`
-	Coverage          CoverageAggregates        `json:"coverage"`
-	CodeMetrics       CodeMetricsAggregates     `json:"code_metrics"`
+	TotalUnits        int                    `json:"total_units"`
+	TotalPackages     int                    `json:"total_packages"`
+	AvgScore          float64                `json:"avg_score"`
+	GradeDistribution map[string]int         `json:"grade_distribution"`
+	TopObservations   map[string]int         `json:"top_observations"`
+	PolicyViolations  map[string]int         `json:"policy_violations"`
+	Structural        StructuralAggregates   `json:"structural"`
+	DeepAnalysis      DeepAnalysisAggregates `json:"deep_analysis"`
+	Coverage          CoverageAggregates     `json:"coverage"`
+	CodeMetrics       CodeMetricsAggregates  `json:"code_metrics"`
 }
 
 // DeepAnalysisAggregates holds aggregated type-aware metrics from deep analysis.

@@ -4,9 +4,9 @@ import "fmt"
 
 // LSPAvailability describes what LSP servers are available per language.
 type LSPAvailability struct {
-	Language  string
-	Available bool
-	Command   string
+	Language    string
+	Available   bool
+	Command     string
 	InstallHint string
 }
 
@@ -42,17 +42,17 @@ func FormatLSPStatus(avail []LSPAvailability) []string {
 	var lines []string
 	for _, a := range avail {
 		if a.Available {
-			lines = append(lines, fmt.Sprintf("  ✅ %s: %s found", langDisplayName(a.Language), a.Command))
+			lines = append(lines, fmt.Sprintf("  ✅ %s: %s found", LangDisplayName(a.Language), a.Command))
 		} else {
-			lines = append(lines, fmt.Sprintf("  ⚠️  %s: %s not found", langDisplayName(a.Language), a.Command))
+			lines = append(lines, fmt.Sprintf("  ⚠️  %s: %s not found", LangDisplayName(a.Language), a.Command))
 			lines = append(lines, fmt.Sprintf("     → Install: %s", a.InstallHint))
 		}
 	}
 	return lines
 }
 
-// langDisplayName returns a display name for a language code.
-func langDisplayName(lang string) string {
+// LangDisplayName returns a display name for a language code.
+func LangDisplayName(lang string) string {
 	switch lang {
 	case "ts":
 		return "TypeScript"

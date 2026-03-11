@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/iksnae/code-certification/internal/agent"
+	"github.com/iksnae/code-certification/internal/analysis"
 	"github.com/iksnae/code-certification/internal/config"
 	"github.com/iksnae/code-certification/internal/domain"
 	"github.com/iksnae/code-certification/internal/evidence"
@@ -104,6 +105,7 @@ func RunAll(root string) *Report {
 	r.checkProjectSetup(root)
 	r.checkConfiguration(root)
 	r.checkTools()
+	r.checkAnalysisTiers()
 	r.checkProviders()
 
 	return r
@@ -636,6 +638,39 @@ func (r *Report) checkProviders() {
 	}
 }
 
+// checkAnalysisTiers reports the analysis tier available per language.
+func (r *Report) checkAnalysisTiers() {
+	// Go: always Tier 2 (go/types, go/packages built-in)
+	r.Checks = append(r.Checks, Check{
+		Name:    "Go analysis",
+		Group:   "analysis",
+		Status:  StatusPass,
+		Message: "Tier 2 (go/types — call graph, dead code, interface compliance, 62 metrics)",
+	})
+
+	// Check LSP servers for other languages
+	servers := analysis.DetectLSPServers()
+	for _, srv := range servers {
+		name := analysis.LangDisplayName(srv.Language)
+		if srv.Available {
+			r.Checks = append(r.Checks, Check{
+				Name:    fmt.Sprintf("%s analysis", name),
+				Group:   "analysis",
+				Status:  StatusPass,
+				Message: fmt.Sprintf("Tier 2 (%s found — fan-in/fan-out, dead code, diagnostics)", srv.Command),
+			})
+		} else {
+			r.Checks = append(r.Checks, Check{
+				Name:    fmt.Sprintf("%s analysis", name),
+				Group:   "analysis",
+				Status:  StatusWarn,
+				Message: fmt.Sprintf("Tier 1 (tree-sitter syntax only, 35 metrics). Install %s for Tier 2.", srv.Command),
+				Fix:     srv.InstallHint,
+			})
+		}
+	}
+}
+
 // FormatReport renders the report as a human-readable string.
 func FormatReport(r *Report) string {
 	var b strings.Builder
@@ -682,6 +717,8 @@ func groupTitle(group string) string {
 		return "── Optional Tools ──"
 	case "agent":
 		return "── Agent Configuration ──"
+	case "analysis":
+		return "── Analysis Tiers ──"
 	case "providers":
 		return "── AI Providers ──"
 	default:

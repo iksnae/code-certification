@@ -285,6 +285,46 @@ func TestCheckStatus_String(t *testing.T) {
 	}
 }
 
+func TestCheckAnalysisTiers(t *testing.T) {
+	r := &Report{Root: "/tmp/test"}
+	r.checkAnalysisTiers()
+
+	// Should have at least 4 checks (Go + TS + Py + Rs)
+	if len(r.Checks) < 4 {
+		t.Errorf("expected >= 4 analysis tier checks, got %d", len(r.Checks))
+	}
+
+	// Go should always be Tier 2
+	goCheck := r.Checks[0]
+	if goCheck.Status != StatusPass {
+		t.Errorf("Go analysis should be pass, got %s", goCheck.Status)
+	}
+	if !strings.Contains(goCheck.Message, "Tier 2") {
+		t.Errorf("Go analysis message should mention Tier 2, got %q", goCheck.Message)
+	}
+
+	// All checks should be in the "analysis" group
+	for _, c := range r.Checks {
+		if c.Group != "analysis" {
+			t.Errorf("check %q has group %q, want analysis", c.Name, c.Group)
+		}
+	}
+}
+
+func TestFormatReport_AnalysisTierSection(t *testing.T) {
+	r := &Report{
+		Root: "/tmp/test",
+		Checks: []Check{
+			{Name: "Go analysis", Group: "analysis", Status: StatusPass, Message: "Tier 2 (go/types)"},
+			{Name: "TypeScript analysis", Group: "analysis", Status: StatusWarn, Message: "Tier 1", Fix: "npm i -g typescript-language-server"},
+		},
+	}
+	output := FormatReport(r)
+	if !strings.Contains(output, "Analysis Tiers") {
+		t.Errorf("output missing Analysis Tiers section")
+	}
+}
+
 func TestCheckStatus_Emoji(t *testing.T) {
 	if StatusPass.Emoji() != "✅" {
 		t.Errorf("pass emoji = %q, want ✅", StatusPass.Emoji())

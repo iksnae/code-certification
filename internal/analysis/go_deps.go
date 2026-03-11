@@ -9,8 +9,8 @@ import (
 
 // AbstractionResult holds the param abstraction analysis for a function.
 type AbstractionResult struct {
-	TotalParams  int // total number of params
-	ConcreteDeps int // params accepting concrete struct types from other packages
+	TotalParams     int // total number of params
+	ConcreteDeps    int // params accepting concrete struct types from other packages
 	InterfaceParams int // params accepting interface types
 }
 

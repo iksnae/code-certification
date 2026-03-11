@@ -16,12 +16,12 @@ import (
 
 // jsonRPCMessage represents a JSON-RPC 2.0 message.
 type jsonRPCMessage struct {
-	JSONRPC string           `json:"jsonrpc"`
-	ID      *int64           `json:"id,omitempty"`
-	Method  string           `json:"method,omitempty"`
-	Params  json.RawMessage  `json:"params,omitempty"`
-	Result  json.RawMessage  `json:"result,omitempty"`
-	Error   *jsonRPCError    `json:"error,omitempty"`
+	JSONRPC string          `json:"jsonrpc"`
+	ID      *int64          `json:"id,omitempty"`
+	Method  string          `json:"method,omitempty"`
+	Params  json.RawMessage `json:"params,omitempty"`
+	Result  json.RawMessage `json:"result,omitempty"`
+	Error   *jsonRPCError   `json:"error,omitempty"`
 }
 
 // jsonRPCError is a JSON-RPC error object.
