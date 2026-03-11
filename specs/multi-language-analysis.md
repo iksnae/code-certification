@@ -4,44 +4,46 @@
 
 Bring every supported language to parity with Go's current AST analysis, then surpass it with type-aware cross-file analysis. Fill all 9 quality dimensions with deterministic, evidence-based signals — no LLM required for scoring.
 
-## Current State
+## Current State (after Sprints 1–6)
 
 ### Evidence coverage by language
 
-| Evidence | Go | TypeScript | Python/Rust/Java/... |
-|----------|:---:|:----------:|:--------------------:|
-| Symbol-level discovery | ✅ go/ast | ⚠️ regex (exports only) | ❌ file-level only |
-| Cyclomatic complexity | ✅ per-function | ❌ always 0 | ❌ always 0 |
-| Structural metrics (22) | ✅ full AST | ❌ none | ❌ none |
-| Algo complexity | ✅ loop analysis | ❌ | ❌ |
-| Lint | ✅ go vet + golangci-lint | ❌ no ESLint integration | ❌ no tool integration |
-| Tests | ✅ go test | ❌ | ❌ |
-| Coverage | ✅ per-unit | ❌ | ❌ |
-| Git history | ✅ | ✅ | ✅ |
-| Code metrics (lines) | ✅ | ✅ | ✅ |
-| **Fan-in / fan-out** | ❌ | ❌ | ❌ |
-| **Dead code** | ❌ | ❌ | ❌ |
-| **Interface compliance** | ❌ | ❌ | ❌ |
-| **Package dep graph** | ❌ | ❌ | ❌ |
-| **Import risk analysis** | ❌ | ❌ | ❌ |
-| **Cognitive complexity** | ❌ | ❌ | ❌ |
-| **Error handling patterns** | partial | ❌ | ❌ |
+| Evidence | Go | TypeScript | Python | Rust |
+|----------|:---:|:----------:|:------:|:----:|
+| Symbol-level discovery | ✅ go/ast | ✅ tree-sitter (108 symbols) | ✅ tree-sitter | ✅ tree-sitter |
+| Cyclomatic complexity | ✅ per-function | ✅ tree-sitter | ✅ tree-sitter | ✅ tree-sitter |
+| Cognitive complexity | ✅ Sonar-style | ✅ tree-sitter | ✅ tree-sitter | ✅ tree-sitter |
+| Structural metrics (27) | ✅ full go/ast | ✅ 22 metrics | ✅ 22 metrics | ✅ 22 metrics |
+| Algo complexity | ✅ loop analysis | ✅ loop/recursion | ✅ loop/recursion | ✅ loop/recursion |
+| Unsafe import detection | ✅ 8 packages | ✅ child_process/eval/vm | ✅ subprocess/pickle/ctypes | ✅ std::process/libc |
+| Hardcoded secrets | ✅ pattern match | ✅ pattern match | ✅ pattern match | ✅ pattern match |
+| Error handling patterns | ✅ ignored/unwrapped | ✅ empty catch | ✅ empty except:pass | ✅ panic!/unwrap() |
+| Lint | ✅ go vet + golangci-lint | ✅ ESLint | ✅ ruff | ✅ cargo clippy |
+| Tests | ✅ go test | ✅ Jest/Vitest | ✅ pytest | ✅ cargo test |
+| Coverage | ✅ per-unit go cover | ⚠️ LCOV (if present) | ⚠️ Cobertura (if present) | ❌ (tarpaulin planned) |
+| Git history | ✅ | ✅ | ✅ | ✅ |
+| Code metrics (lines) | ✅ | ✅ | ✅ | ✅ |
+| Nested module support | ✅ go.mod in subdirs | ✅ package.json in subdirs | ✅ pyproject.toml in subdirs | ✅ Cargo.toml in subdirs |
+| **Fan-in / fan-out** | ❌ (Sprint 7) | ❌ (Sprint 11) | ❌ (Sprint 11) | ❌ |
+| **Dead code** | ❌ (Sprint 7) | ❌ (Sprint 11) | ❌ (Sprint 11) | ❌ |
+| **Interface compliance** | ❌ (Sprint 8) | ❌ | ❌ | ❌ |
+| **Package dep graph** | ❌ (Sprint 8) | ❌ | ❌ | ❌ |
 
-### Dimension signal strength
+### Dimension signal strength (current)
 
-| Dimension | Go | TS | Others |
-|-----------|:---:|:---:|:------:|
-| correctness | ██████░░ 6 signals | ██░░░░░░ 1 | ██░░░░░░ 1 |
-| maintainability | █████░░░ 5 signals | ██░░░░░░ 1 | █░░░░░░░ 1 |
-| readability | ██████░░ 6 signals | ██░░░░░░ 1 | █░░░░░░░ 1 |
-| testability | ████░░░░ 4 signals | █░░░░░░░ 0 | █░░░░░░░ 0 |
-| security | ██░░░░░░ 1 signal | ░░░░░░░░ 0 | ░░░░░░░░ 0 |
-| architectural_fitness | ██░░░░░░ 2 signals | ░░░░░░░░ 0 | ░░░░░░░░ 0 |
-| operational_quality | ██░░░░░░ 1 signal | ██░░░░░░ 1 | ██░░░░░░ 1 |
-| performance | ███░░░░░ 3 signals | ░░░░░░░░ 0 | ░░░░░░░░ 0 |
-| change_risk | ██░░░░░░ 2 signals | ██░░░░░░ 1 | ██░░░░░░ 1 |
+| Dimension | Go | TS | Python | Rust |
+|-----------|:---:|:---:|:------:|:----:|
+| correctness | █████████░ 9 | ███████░░░ 7 | ███████░░░ 7 | ███████░░░ 7 |
+| maintainability | ████████░░ 8 | ██████░░░░ 6 | ██████░░░░ 6 | ██████░░░░ 6 |
+| readability | █████████░ 9 | ███████░░░ 7 | ███████░░░ 7 | ███████░░░ 7 |
+| testability | ██████░░░░ 6 | ████░░░░░░ 4 | ████░░░░░░ 4 | ████░░░░░░ 4 |
+| security | ████░░░░░░ 4 | ███░░░░░░░ 3 | ███░░░░░░░ 3 | ███░░░░░░░ 3 |
+| arch_fitness | ██░░░░░░░░ 2 | █░░░░░░░░░ 1 | █░░░░░░░░░ 1 | █░░░░░░░░░ 1 |
+| operational_quality | ███░░░░░░░ 3 | ██░░░░░░░░ 2 | ██░░░░░░░░ 2 | ██░░░░░░░░ 2 |
+| performance | ████░░░░░░ 4 | ███░░░░░░░ 3 | ███░░░░░░░ 3 | ███░░░░░░░ 3 |
+| change_risk | ███░░░░░░░ 3 | ██░░░░░░░░ 2 | ██░░░░░░░░ 2 | ██░░░░░░░░ 2 |
 
-The gap is stark. Non-Go languages get meaningful scores on 2-3 dimensions at most.
+Remaining gaps: arch_fitness (needs dep graph/call graph), change_risk (needs fan-in), testability (needs interface compliance/dead code).
 
 ---
 
@@ -828,45 +830,63 @@ All grounded — every number in the prompt has an exact source in the snapshot.
 
 ## Execution Sequence
 
-| Sprint | Phase | Deliverable | New Metrics | Lines (est) |
-|--------|-------|-------------|-------------|-------------|
-| **1** | 1A-1B | Analyzer interface + Go adapter refactor | 0 (parity) | ~400 |
-| **2** | 1C | Tree-sitter TS analyzer | +22 for TS | ~600 |
-| **3** | 1C | Tree-sitter Python + Rust analyzers | +22 for Py/Rs | ~800 |
-| **4** | 1D | Cognitive complexity + security imports + secrets + error wrapping | +6 for Go | ~500 |
-| **5** | 1E-1F | Wire into pipeline, replace TS regex discovery | 0 (integration) | ~300 |
-| **6** | 1G-1H | Lint tool + test runner integration (TS, Py, Rs) | +lint +test per lang | ~600 |
-| **7** | 2A-2C | go/packages loader + call graph + dead code | +3 for Go | ~800 |
-| **8** | 2D-2E | Interface compliance + package dep graph | +4 for Go | ~600 |
-| **9** | 2F-2G | Error wrapping + cognitive complexity (type-aware) | refined accuracy | ~400 |
-| **10** | 3A | LSP client infrastructure | 0 (plumbing) | ~400 |
-| **11** | 3B-3C | LSP-powered TS/Py analysis | +5 for TS/Py | ~500 |
-| **12** | 4A-4C | Scorer enhancements + new policy rules | 0 (scoring) | ~400 |
-| **13** | 5A-5B | Architect snapshot + prompt updates | 0 (LLM) | ~300 |
-| **14** | 6A-6B | Doctor updates + website docs | 0 (docs) | ~500 |
+| Sprint | Phase | Deliverable | Status | Lines (actual/est) |
+|--------|-------|-------------|--------|-------------------|
+| **1** | 1A-1B+1D+4A | Analyzer interface + Go adapter + new metrics + scorer + policy v1.2 | ✅ Done | 1,130 actual |
+| **2** | 1C | Tree-sitter TypeScript analyzer | ✅ Done | 963 actual |
+| **3** | 1C | Tree-sitter Python + Rust analyzers | ✅ Done | 1,437 actual |
+| **4** | 1D+4A-C | Scorer enhancements + all language policy packs v1.2-1.3 | ✅ Done | 592 actual |
+| **5** | 1E-1F | Wire into pipeline, replace TS regex discovery, add Py/Rs detection | ✅ Done | 152 actual |
+| **—** | (bug fix) | Nested Go module support (`DiscoverModuleRoots`) | ✅ Done | 457 actual |
+| **6** | 1G-1H | Lint/test tool integration (ESLint, ruff, pytest, cargo clippy/test) | ✅ Done | 1,040 actual |
+| **7** | 2A-2C | `go/packages` loader + call graph + dead code | 🔲 Planned | ~800 est |
+| **8** | 2D-2E | Interface compliance + package dep graph | 🔲 Planned | ~600 est |
+| **9** | 2F-2G | Error wrapping + cognitive complexity (type-aware refinement) | 🔲 Planned | ~400 est |
+| **10** | 3A | LSP client infrastructure | 🔲 Planned | ~400 est |
+| **11** | 3B-3C | LSP-powered TS/Py/Rs analysis | 🔲 Planned | ~500 est |
+| **12** | 5A-5B | Architect snapshot + prompt updates for new metrics | 🔲 Planned | ~300 est |
+| **13** | 6A-6B | Doctor analysis tier reporting + website docs | 🔲 Planned | ~500 est |
 
-**Total estimate:** ~6,600 lines of production code + tests
+**Done:** ~5,771 lines (Sprints 1–6 + nested module fix)
+**Remaining:** ~3,500 lines (Sprints 7–13)
+**Total:** ~9,271 lines of production code + tests
+
+### Notes on execution vs plan
+- Sprint 4 absorbed the spec's Sprint 12 (scorer + policy rules) — they were natural to do together
+- Sprint numbering shifted: original Sprint 12 is eliminated, Sprints 13/14 became 12/13
+- Nested module fix was unplanned but critical — it was the #1 user-reported issue
+- Sprint 1 was larger than estimated: included scorer integration + new metrics (not just parity)
+- Tree-sitter LOC ran ~50% higher than estimated due to comprehensive test coverage
 
 ---
 
-## Dimension Coverage After Plan
+## Dimension Coverage Progression
 
-| Dimension | Go (current → after) | TS (current → after) | Others (current → after) |
-|-----------|---------------------|---------------------|-------------------------|
-| correctness | 6 → 9 signals | 1 → 6 signals | 1 → 5 signals |
-| maintainability | 5 → 9 signals | 1 → 7 signals | 1 → 5 signals |
-| readability | 6 → 9 signals | 1 → 7 signals | 1 → 5 signals |
-| testability | 4 → 7 signals | 0 → 5 signals | 0 → 3 signals |
-| security | 1 → 4 signals | 0 → 4 signals | 0 → 3 signals |
-| arch_fitness | 2 → 7 signals | 0 → 5 signals | 0 → 3 signals |
-| operational_quality | 1 → 3 signals | 1 → 3 signals | 1 → 2 signals |
-| performance | 3 → 4 signals | 0 → 3 signals | 0 → 3 signals |
-| change_risk | 2 → 4 signals | 1 → 3 signals | 1 → 2 signals |
+### Before (v0.9.0) → After Sprints 1-6 → After Sprints 7-13 (projected)
 
-### Key transitions
-- **Go:** 25 → 49 signals across 9 dimensions (world-class, rivals SonarQube)
-- **TypeScript:** 4 → 43 signals (from barely scored to comprehensive)
-- **Python/Rust:** 3 → 31 signals (from file-level to symbol-level with structural analysis)
+| Dimension | Go: before → now → final | TS: before → now → final | Py/Rs: before → now → final |
+|-----------|--------------------------|--------------------------|---------------------------|
+| correctness | 6 → 9 → 11 | 1 → 7 → 9 | 1 → 7 → 8 |
+| maintainability | 5 → 8 → 11 | 1 → 6 → 9 | 1 → 6 → 7 |
+| readability | 6 → 9 → 9 | 1 → 7 → 7 | 1 → 7 → 7 |
+| testability | 4 → 6 → 8 | 0 → 4 → 6 | 0 → 4 → 5 |
+| security | 1 → 4 → 4 | 0 → 3 → 3 | 0 → 3 → 3 |
+| arch_fitness | 2 → 2 → 7 | 0 → 1 → 5 | 0 → 1 → 3 |
+| operational_quality | 1 → 3 → 3 | 1 → 2 → 3 | 1 → 2 → 2 |
+| performance | 3 → 4 → 4 | 0 → 3 → 3 | 0 → 3 → 3 |
+| change_risk | 2 → 3 → 5 | 1 → 2 → 4 | 1 → 2 → 3 |
+| **Total signals** | **30 → 48 → 62** | **4 → 35 → 49** | **4 → 35 → 41** |
+
+### Key transitions achieved (Sprints 1-6)
+- **Go:** 30 → 48 signals (+5 new metrics, +lint/test nesting, +cognitive complexity)
+- **TypeScript:** 4 → 35 signals (from regex exports-only to full tree-sitter AST + ESLint + Jest)
+- **Python:** 4 → 35 signals (from file-level to symbol-level + ruff + pytest)
+- **Rust:** 4 → 35 signals (from file-level to symbol-level + cargo clippy + cargo test)
+
+### Key transitions remaining (Sprints 7-13)
+- **Go:** 48 → 62 signals (fan-in/fan-out, dead code, dep graph, interface compliance)
+- **TypeScript:** 35 → 49 signals (LSP-powered call hierarchy, dead code, diagnostics)
+- **Python/Rust:** 35 → 41 signals (LSP-powered analysis where servers available)
 
 ---
 
@@ -903,10 +923,469 @@ Phase 3 LSP requires no new Go deps — just `os/exec` + `encoding/json`.
 
 ## Success Criteria
 
-1. `go test ./...` passes at every phase boundary
-2. Go analysis produces identical scores to current implementation (Phase 1B regression test)
-3. TypeScript units receive scores on ≥7 dimensions (up from ≤3)
-4. `certify doctor` reports analysis tier for each detected language
-5. Architect review prompts cite only metrics present in the snapshot (zero hallucination vectors)
-6. No CGo required for core functionality — tree-sitter is opt-in via build tag
-7. New grades may differ from old grades (deeper analysis is more accurate) — documented in changelog
+### Achieved ✅
+1. ✅ `go test ./...` passes at every phase boundary (18 packages, 0 failures throughout)
+2. ✅ Go analysis produces identical scores to pre-Sprint 1 (regression_test.go verified)
+3. ✅ TypeScript units receive scores on ≥7 dimensions (was ≤3, now 7-8)
+4. ✅ Python/Rust units receive symbol-level analysis (was file-level only)
+5. ✅ No CGo required for core functionality — tree-sitter is opt-in
+6. ✅ Nested module support — go.mod/package.json/Cargo.toml in subdirectories
+7. ✅ `certify doctor` reports lint/test tool availability for all languages
+8. ✅ Policy packs for all 4 languages with 11-19 rules each
+
+### Remaining (Sprints 7-13)
+9. `certify doctor` reports analysis tier per language (T0/T1/T2)
+10. Go call graph provides fan-in/fan-out for every function
+11. Dead export detection flags unused public API
+12. LSP client provides type-aware analysis for non-Go languages
+13. Architect review prompts cite all new metrics from snapshot (zero hallucination)
+14. Website documents analysis tier system and dimension-to-metric mapping
+
+---
+
+## Remaining Sprint Plans (Detailed)
+
+### Sprint 7 — Deep Go: Call Graph + Dead Code
+
+**Goal:** Type-aware, cross-file Go analysis using `go/types` + `go/packages`. Fan-in, fan-out, and dead export detection.
+
+**Dependency:** `golang.org/x/tools/go/packages`, `golang.org/x/tools/go/callgraph/vta`, `golang.org/x/tools/go/ssa`
+
+**New file:** `internal/analysis/go_deep.go` (~500 lines)
+
+**Implementation:**
+
+```go
+// DeepGoAnalyzer provides type-aware cross-file analysis for Go.
+type DeepGoAnalyzer struct {
+    pkgs  []*packages.Package
+    fset  *token.FileSet
+    graph *callgraph.Graph
+}
+
+// LoadGoProject initializes the analyzer by loading all packages.
+func LoadGoProject(root string, patterns ...string) (*DeepGoAnalyzer, error)
+
+// FanIn returns the number of call sites that invoke this function.
+func (a *DeepGoAnalyzer) FanIn(pkg, funcName string) int
+
+// FanOut returns the number of distinct functions called by this function.
+func (a *DeepGoAnalyzer) FanOut(pkg, funcName string) int
+
+// UnusedExports returns exported symbols with zero external references.
+func (a *DeepGoAnalyzer) UnusedExports() []UnusedSymbol
+```
+
+**Integration point:** Called once per `certify certify` run (project-wide). Results cached in a map keyed by `UnitID`. The certifier looks up fan-in/fan-out per unit during `collectStructuralEvidence()` and appends metrics to the evidence.
+
+**New metrics:**
+
+| Metric | Key | Dimension | Scoring |
+|--------|-----|-----------|---------|
+| Fan-in | `fan_in` | change_risk | ≤5 → 0.95, ≤10 → 0.85, ≤20 → 0.70, >20 → 0.50 |
+| Fan-out | `fan_out` | maintainability | ≤5 → 0.95, ≤10 → 0.85, ≤15 → 0.70, >15 → 0.55 |
+| Dead code | `is_dead_code` | maintainability | 0 → neutral, 1 → cap at 0.60 |
+
+**New policy rules (go-standard v1.4.0):**
+```yaml
+  - id: max-fan-out
+    dimension: maintainability
+    metric: fan_out
+    threshold: 15
+    severity: warning
+
+  - id: max-fan-in
+    dimension: change_risk
+    metric: fan_in
+    threshold: 20
+    severity: warning
+
+  - id: no-dead-exports
+    dimension: maintainability
+    metric: is_dead_code
+    threshold: 0
+    severity: info
+```
+
+**Tests (~300 lines):** `internal/analysis/go_deep_test.go`
+- Test with multi-file Go project in testdata/
+- Verify fan-in/fan-out counts against known call graph
+- Verify dead export detection
+- Verify graceful handling of build errors
+- Verify caching (second call returns same results)
+
+**Acceptance criteria:**
+1. `go test ./internal/analysis/` passes with call graph tests
+2. Running `certify certify` on this repo produces `fan_in`/`fan_out` metrics for Go units
+3. Dead exports detected and flagged in evidence
+4. Full test suite passes (18 packages)
+5. Performance: project load + call graph < 30s for this repo (~900 units)
+
+---
+
+### Sprint 8 — Deep Go: Interface Compliance + Package Dep Graph
+
+**Goal:** Dependency inversion detection and package coupling metrics.
+
+**New file:** `internal/analysis/go_deps.go` (~400 lines)
+
+**Implementation:**
+
+```go
+// ParamAbstraction checks whether function params use interfaces or concrete types.
+func (a *DeepGoAnalyzer) ParamAbstraction(pkg, funcName string) AbstractionResult
+
+// DepDepth returns the maximum transitive import depth for a package.
+func (a *DeepGoAnalyzer) DepDepth(pkgPath string) int
+
+// Instability computes Robert C. Martin's instability: Ce / (Ca + Ce)
+func (a *DeepGoAnalyzer) Instability(pkgPath string) float64
+
+// DetectCycles checks for import cycles (should be impossible in Go).
+func (a *DeepGoAnalyzer) DetectCycles() [][]string
+```
+
+**New metrics:**
+
+| Metric | Key | Dimension | Scoring |
+|--------|-----|-----------|---------|
+| Concrete deps | `concrete_deps` | testability, arch_fitness | >0 → cap at 0.65 |
+| Dep depth | `dep_depth` | arch_fitness | ≤3 → 0.95, ≤5 → 0.85, ≤8 → 0.70, >8 → 0.55 |
+| Instability | `instability` | arch_fitness | >0.8 for concrete → cap at 0.65 |
+| Coupling score | `coupling_score` | arch_fitness | fan_in × fan_out normalized |
+
+**Tests (~200 lines):** `internal/analysis/go_deps_test.go`
+- Verify dep depth calculation with known import chains
+- Verify instability formula against hand-calculated values
+- Verify concrete dep detection for function params
+
+**Acceptance criteria:**
+1. Package dep graph built from `go/packages` import data
+2. `dep_depth` and `instability` computed per package, attributed to units
+3. Interface compliance check identifies concrete struct params
+4. New policy rules added for `max-dep-depth`, `no-dead-exports`
+5. Full test suite passes
+
+---
+
+### Sprint 9 — Type-Aware Refinement
+
+**Goal:** Improve accuracy of existing metrics using type information.
+
+**Changes to:** `internal/analysis/go_deep.go` (~200 lines additions)
+
+**Improvements:**
+1. **Error wrapping (type-aware):** Currently AST-only (checks for `fmt.Errorf` without `%w`). With `go/types`, can verify the value is actually of type `error` — reduces false positives when functions have non-error string formatting.
+2. **Cognitive complexity (type-aware):** Type switches on `interface{}` are more complex than on concrete types. Add nesting increment for type assertion cascades.
+3. **Method set analysis:** For types implementing large interfaces (>10 methods), flag potential ISP violations.
+4. **Unused parameter detection:** With type info, can detect params that are never used in the function body (beyond `_` convention).
+
+**New metrics:**
+
+| Metric | Key | Dimension | Notes |
+|--------|-----|-----------|-------|
+| Unused params | `unused_params` | maintainability | Params received but never referenced |
+| Interface size | `interface_size` | arch_fitness | Methods in interfaces this type implements |
+
+**Tests (~100 lines):**
+- Error wrapping: verify only actual `error` values are flagged
+- Unused params: verify detection in multi-file context
+- Interface size: verify against known interface implementations
+
+**Acceptance criteria:**
+1. Error wrapping false positive rate reduced (test with known edge cases)
+2. Unused param detection works across files
+3. Existing test suite still passes (no regressions)
+4. Scoring changes documented as accuracy improvements
+
+---
+
+### Sprint 10 — LSP Client Infrastructure
+
+**Goal:** Generic JSON-RPC 2.0 client for communicating with language servers via stdin/stdout.
+
+**New package:** `internal/analysis/lsp/` (~400 lines)
+
+**Implementation:**
+
+```go
+// internal/analysis/lsp/client.go
+
+// Client manages a language server subprocess lifecycle.
+type Client struct {
+    cmd     *exec.Cmd
+    stdin   io.WriteCloser
+    stdout  *bufio.Reader
+    nextID  atomic.Int64
+    pending map[int64]chan json.RawMessage
+    mu      sync.Mutex
+}
+
+// Start spawns a language server subprocess.
+func Start(command string, args []string, rootDir string) (*Client, error)
+
+// Initialize sends the LSP initialize request with capabilities.
+func (c *Client) Initialize(rootURI string, capabilities ClientCapabilities) (*InitializeResult, error)
+
+// Request sends a JSON-RPC request and waits for the response.
+func (c *Client) Request(method string, params interface{}) (json.RawMessage, error)
+
+// Notify sends a JSON-RPC notification (no response expected).
+func (c *Client) Notify(method string, params interface{}) error
+
+// Shutdown gracefully stops the server.
+func (c *Client) Shutdown() error
+
+// --- High-level LSP methods ---
+
+// DocumentSymbols returns all symbols in a file.
+func (c *Client) DocumentSymbols(uri string) ([]DocumentSymbol, error)
+
+// References finds all references to a symbol at position.
+func (c *Client) References(uri string, line, col int) ([]Location, error)
+
+// CallHierarchyIncoming returns incoming calls to symbol at position.
+func (c *Client) CallHierarchyIncoming(uri string, line, col int) ([]CallHierarchyIncomingCall, error)
+
+// CallHierarchyOutgoing returns outgoing calls from symbol at position.
+func (c *Client) CallHierarchyOutgoing(uri string, line, col int) ([]CallHierarchyOutgoingCall, error)
+
+// Diagnostics returns all diagnostics for a file.
+func (c *Client) Diagnostics(uri string) ([]Diagnostic, error)
+```
+
+**Files:**
+- `internal/analysis/lsp/client.go` — JSON-RPC transport + lifecycle
+- `internal/analysis/lsp/types.go` — LSP type definitions (subset: what we need)
+- `internal/analysis/lsp/client_test.go` — unit tests with mock server
+
+**Key design decisions:**
+- One client per language per `certify certify` run (start once, query many)
+- Content-Length framing per LSP spec (`Content-Length: N\r\n\r\n{...}`)
+- Async read loop dispatches responses to pending requests by ID
+- 30-second timeout per request (configurable)
+- Server detection: `certify doctor` checks for `typescript-language-server`, `pyright`, `rust-analyzer`
+
+**Tests (~150 lines):**
+- JSON-RPC message framing (encode/decode)
+- Request/response matching by ID
+- Timeout handling
+- Graceful shutdown sequence (shutdown → exit)
+- Mock server for integration test (Go subprocess that speaks LSP)
+
+**Acceptance criteria:**
+1. Client can start/initialize/shutdown a language server
+2. Request/response cycle works with proper content-length framing
+3. Concurrent requests are correctly dispatched
+4. Timeout fires for unresponsive servers
+5. No goroutine leaks on shutdown
+
+---
+
+### Sprint 11 — LSP-Powered Analysis for TS/Py/Rs
+
+**Goal:** Use language servers to get fan-in/fan-out and dead code for TypeScript, Python, and Rust.
+
+**New files:**
+- `internal/analysis/lsp_analyzer.go` (~300 lines) — generic LSP-backed analyzer
+- `internal/analysis/lsp_config.go` (~100 lines) — server detection + config
+
+**Implementation:**
+
+```go
+// LSPAnalyzer wraps an LSP client to provide Tier 2 analysis.
+type LSPAnalyzer struct {
+    client   *lsp.Client
+    language string
+    rootURI  string
+}
+
+// NewLSPAnalyzer starts the appropriate language server and returns an analyzer.
+func NewLSPAnalyzer(lang, rootDir string) (*LSPAnalyzer, error)
+
+// FanIn returns incoming call count for a symbol.
+func (a *LSPAnalyzer) FanIn(file string, line, col int) (int, error)
+
+// FanOut returns outgoing call count from a symbol.
+func (a *LSPAnalyzer) FanOut(file string, line, col int) (int, error)
+
+// IsDeadCode returns true if symbol has zero references outside its file.
+func (a *LSPAnalyzer) IsDeadCode(file string, line, col int) (bool, error)
+
+// Diagnostics returns type-checker diagnostics for a file.
+func (a *LSPAnalyzer) Diagnostics(file string) ([]lsp.Diagnostic, error)
+```
+
+**Language server detection:**
+
+| Language | Server | Detection | Install hint |
+|----------|--------|-----------|-------------|
+| TypeScript | `typescript-language-server` | `which typescript-language-server` or `npx` | `npm i -g typescript-language-server` |
+| Python | `pyright` or `pylsp` | `which pyright-langserver` or `which pylsp` | `pip install pyright` |
+| Rust | `rust-analyzer` | `which rust-analyzer` | `rustup component add rust-analyzer` |
+
+**Configuration (optional in .certification/config.yml):**
+```yaml
+analysis:
+  lsp:
+    typescript:
+      command: "npx"
+      args: ["typescript-language-server", "--stdio"]
+    python:
+      command: "pyright-langserver"
+      args: ["--stdio"]
+    rust:
+      command: "rust-analyzer"
+```
+
+**Integration point:** During `certify certify`, if an LSP server is available:
+1. Start server once (first unit of that language)
+2. For each unit: query callHierarchy + references
+3. Append `fan_in`, `fan_out`, `is_dead_code` to evidence
+4. Shutdown server after all units processed
+
+**Graceful degradation:** If no LSP server found, Tier 2 metrics are absent. Scoring adapts — dimensions without evidence don't dilute the average (existing behavior).
+
+**New metrics (for TS/Py/Rs):**
+
+| Metric | Key | Dimension | Same thresholds as Go Sprint 7 |
+|--------|-----|-----------|-------------------------------|
+| Fan-in | `fan_in` | change_risk | ≤5/≤10/≤20/>20 |
+| Fan-out | `fan_out` | maintainability | ≤5/≤10/≤15/>15 |
+| Dead code | `is_dead_code` | maintainability | cap at 0.60 |
+| Type diagnostics | `type_errors` | correctness | >0 → cap at 0.50 |
+
+**Tests (~150 lines):**
+- LSPAnalyzer with mock server returning canned callHierarchy responses
+- FanIn/FanOut counting from callHierarchy items
+- Dead code from empty references response
+- Graceful handling when server unavailable
+
+**Acceptance criteria:**
+1. TypeScript fan-in/fan-out works with `typescript-language-server`
+2. Python analysis works with `pyright`
+3. Graceful degradation when server not installed
+4. `certify doctor` reports LSP availability per language
+5. Performance: < 60s for a 100-file TypeScript project
+
+---
+
+### Sprint 12 — Architect Snapshot + Prompt Updates
+
+**Goal:** Feed all new Tier 2 metrics into the architect snapshot so LLM analysis is fully grounded.
+
+**Changes to:** `internal/agent/architect_snapshot.go` (~200 lines additions)
+
+**New aggregates:**
+
+```go
+type DeepAnalysisAggregates struct {
+    AvgFanIn            float64
+    MaxFanIn            int
+    AvgFanOut           float64
+    MaxFanOut           int
+    DeadExportCount     int
+    ConcreteDepsCount   int
+    AvgCogComplexity    float64
+    MaxCogComplexity    int
+    ErrorsNotWrapped    int
+    UnsafeImportCount   int
+    HardcodedSecrets    int
+    MaxDepDepth         int
+    AvgInstability      float64
+}
+```
+
+**Prompt updates:**
+
+Phase 2 (package analysis):
+```
+Package Coupling:
+| Package | Fan-In | Fan-Out | Instability | Dep Depth | Dead Exports |
+...
+```
+
+Phase 4 (structural hotspots):
+```
+Complexity Hotspots:
+| Function | Cyclomatic | Cognitive | Fan-In | Fan-Out |
+...
+Top units with fan-in > 10 are high-risk change points.
+```
+
+Phase 5 (security):
+```
+Security Findings:
+| Unit | Finding | Severity |
+| pkg/exec.go#Run | unsafe import: os/exec | warning |
+| config/load.go#Parse | hardcoded secret pattern | critical |
+...
+```
+
+**Schema version:** Bump to v3 (v2 was snapshot alignment, v3 adds deep analysis).
+
+**Tests (~100 lines):**
+- Verify DeepAnalysisAggregates populated from mock records
+- Verify prompt formatting includes new tables
+- Verify schema version in header and appendix
+
+**Acceptance criteria:**
+1. `DeepAnalysisAggregates` computed during `BuildArchSnapshot()`
+2. All 6 phase prompts reference deep analysis metrics where relevant
+3. Schema version bumped and documented
+4. All prompt data has exact source in snapshot (zero hallucination)
+
+---
+
+### Sprint 13 — Doctor Analysis Tiers + Website Documentation
+
+**Goal:** Users understand what analysis is available, how to unlock more, and all features are documented.
+
+**Changes to:** `internal/doctor/doctor.go` (~150 lines additions)
+
+**Doctor output — analysis tier reporting:**
+```
+── Analysis Tiers ──
+  ✅ Go: Tier 2 (go/types — call graph, dead code, interface compliance)
+     → 62 metrics per unit across 9 dimensions
+  ✅ TypeScript: Tier 2 (typescript-language-server found)
+     → 49 metrics per unit across 9 dimensions
+  ⚠️ Python: Tier 1 (tree-sitter syntax analysis only)
+     → 35 metrics per unit. Install pyright for Tier 2:
+     → pip install pyright
+  ⚠️ Rust: Tier 1 (tree-sitter syntax analysis only)
+     → 35 metrics per unit. Install rust-analyzer for Tier 2:
+     → rustup component add rust-analyzer
+```
+
+**Website pages (~350 lines total):**
+
+1. **`advanced/analysis-tiers.md`** (new, ~200 lines)
+   - Explains Tier 0/1/2/3 system
+   - What each tier provides per language
+   - How to unlock higher tiers (install tools/servers)
+   - Metric-to-dimension mapping table
+   - Performance expectations per tier
+
+2. **Update `concepts/dimensions.md`** (~50 lines)
+   - Add "Metrics" column showing all signals feeding each dimension
+   - Note which metrics require which tier
+
+3. **Update `reference/cli.md`** (~50 lines)
+   - Document any new flags (e.g., `--tier`, `--deep`)
+   - Update `certify doctor` output examples
+
+4. **Update `guides/quickstart.md`** (~50 lines)
+   - Note that `certify doctor` shows analysis capabilities
+   - Recommend installing lint/test tools for best results
+
+**Tests:**
+- Doctor tier detection test (mock with/without LSP servers)
+- Website build verification (`npm run build` succeeds)
+
+**Acceptance criteria:**
+1. `certify doctor` shows analysis tier per detected language
+2. Doctor suggests install commands for missing Tier 2 servers
+3. Website builds with new/updated pages
+4. All metric-to-dimension mappings documented
+5. Release notes drafted for v0.12.0
