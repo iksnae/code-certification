@@ -3,7 +3,7 @@
 [← Report Card](../REPORT_CARD.md)
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `6d22c97f`  
+**Commit:** `a75f0acb`  
 **Overall:** 🟢 A- (91.8%)  
 **Units:** 748 · **Passing:** 748 · **Failing:** 0
 
@@ -23,7 +23,7 @@
 | [internal/expiry](internal/expiry/index.md) | 2 | 🟢 A- | 91.9% | 100% |
 | [internal/github](internal/github/index.md) | 17 | 🟢 A- | 92.1% | 100% |
 | [internal/override](internal/override/index.md) | 9 | 🟢 A- | 91.8% | 100% |
-| [internal/policy](internal/policy/index.md) | 15 | 🟢 A- | 91.5% | 100% |
+| [internal/policy](internal/policy/index.md) | 15 | 🟢 A- | 91.6% | 100% |
 | [internal/queue](internal/queue/index.md) | 17 | 🟢 A- | 92.2% | 100% |
 | [internal/record](internal/record/index.md) | 29 | 🟢 A- | 91.9% | 100% |
 | [internal/report](internal/report/index.md) | 108 | 🟢 A- | 91.3% | 100% |

@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `6d22c97f`
-**Generated:** 2026-03-10T21:17:38
+**Commit:** `a75f0acb`
+**Generated:** 2026-03-10T21:19:58
 
 ## 🟢 Overall: A- (91.8%)
 
@@ -20,8 +20,8 @@
 | Grade | Count | % |
 |-------|-------|---|
 | A | 22 | 2.9% |
-| A- | 675 | 90.2% |
-| B+ | 27 | 3.6% |
+| A- | 676 | 90.4% |
+| B+ | 26 | 3.5% |
 | B | 24 | 3.2% |
 
 ### By Language
@@ -47,7 +47,7 @@
 | [internal/expiry](reports/internal/expiry/index.md) | 2 | 🟢 A- | 91.9% |
 | [internal/github](reports/internal/github/index.md) | 17 | 🟢 A- | 92.1% |
 | [internal/override](reports/internal/override/index.md) | 9 | 🟢 A- | 91.8% |
-| [internal/policy](reports/internal/policy/index.md) | 15 | 🟢 A- | 91.5% |
+| [internal/policy](reports/internal/policy/index.md) | 15 | 🟢 A- | 91.6% |
 | [internal/queue](reports/internal/queue/index.md) | 17 | 🟢 A- | 92.2% |
 | [internal/record](reports/internal/record/index.md) | 29 | 🟢 A- | 91.9% |
 | [internal/report](reports/internal/report/index.md) | 108 | 🟢 A- | 91.3% |

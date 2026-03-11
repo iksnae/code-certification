@@ -2,7 +2,7 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
+**Grade:** 🟢 A- (91.6%)  
 **Units:** 15 · **Passing:** 15 / 15
 
 ## Units
@@ -10,8 +10,8 @@
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
 | [extractMetric](evaluator.go/extractMetric.md) | function | 🟢 B+ | 88.1% | certified | 2026-04-24 |
-| [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 B+ | 88.8% | certified | 2026-04-24 |
 | [matchPath](matcher.go/matchPath.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
+| [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [matchesPack](matcher.go/matchesPack.md) | method | 🟢 A- | 90.6% | certified | 2026-04-24 |
 | [evaluator_test.go](evaluator_test.go.md) | file | 🟢 A- | 91.9% | certified | 2026-04-24 |
 | [Evaluate](evaluator.go/Evaluate.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |
