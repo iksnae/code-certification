@@ -35,22 +35,50 @@ func NewToolExecutor(root string) *ToolExecutor {
 }
 
 // CollectAll runs all available tool runners and returns collected evidence.
-// For Go, it runs tools from each discovered Go module root.
+// Discovers module roots and runs language-appropriate tools from each.
 func (te *ToolExecutor) CollectAll() []domain.Evidence {
 	var ev []domain.Evidence
 
-	goRoots := GoModuleRoots(te.moduleRoots)
-	if len(goRoots) > 0 {
-		for _, mod := range goRoots {
-			if e := te.runGoVetAt(mod.Path); e != nil {
-				ev = append(ev, *e)
-			}
-			if e := te.runGoTestAt(mod.Path); e != nil {
-				ev = append(ev, *e)
-			}
-			if e := te.runGolangciLintAt(mod.Path); e != nil {
-				ev = append(ev, *e)
-			}
+	// Go modules
+	for _, mod := range filterModulesByLang(te.moduleRoots, "go") {
+		if e := te.runGoVetAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+		if e := te.runGoTestAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+		if e := te.runGolangciLintAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+	}
+
+	// TypeScript/JavaScript modules
+	for _, mod := range filterModulesByLang(te.moduleRoots, "ts") {
+		if e := te.runESLintAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+		if e := te.runJSTestAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+	}
+
+	// Python modules
+	for _, mod := range filterModulesByLang(te.moduleRoots, "py") {
+		if e := te.runRuffAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+		if e := te.runPytestAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+	}
+
+	// Rust modules
+	for _, mod := range filterModulesByLang(te.moduleRoots, "rs") {
+		if e := te.runCargoClippyAt(mod.Path); e != nil {
+			ev = append(ev, *e)
+		}
+		if e := te.runCargoTestAt(mod.Path); e != nil {
+			ev = append(ev, *e)
 		}
 	}
 
@@ -59,6 +87,17 @@ func (te *ToolExecutor) CollectAll() []domain.Evidence {
 	}
 
 	return ev
+}
+
+// filterModulesByLang returns module roots matching the given language.
+func filterModulesByLang(roots []ModuleRoot, lang string) []ModuleRoot {
+	var filtered []ModuleRoot
+	for _, r := range roots {
+		if r.Language == lang {
+			filtered = append(filtered, r)
+		}
+	}
+	return filtered
 }
 
 // HasGoMod returns true if any discovered module root is a Go module.

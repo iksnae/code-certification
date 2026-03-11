@@ -541,6 +541,40 @@ func (r *Report) checkTools() {
 		})
 	}
 
+	// ESLint (TypeScript/JavaScript)
+	if _, err := exec.LookPath("eslint"); err == nil {
+		r.Checks = append(r.Checks, Check{Name: "eslint", Group: "tools", Status: StatusPass, Message: "eslint found"})
+	} else if _, err := exec.LookPath("npx"); err == nil {
+		r.Checks = append(r.Checks, Check{Name: "eslint", Group: "tools", Status: StatusPass, Message: "available via npx"})
+	} else {
+		r.addToolWarn("eslint", "TS/JS lint evidence will be unavailable", "npm install -D eslint")
+	}
+
+	// Ruff (Python linter)
+	if version, err := commandOutput("ruff", "--version"); err == nil {
+		r.Checks = append(r.Checks, Check{Name: "ruff", Group: "tools", Status: StatusPass, Message: strings.TrimSpace(version)})
+	} else {
+		r.addToolWarn("ruff", "Python lint evidence will be unavailable", "pip install ruff")
+	}
+
+	// pytest (Python test runner)
+	if version, err := commandOutput("pytest", "--version"); err == nil {
+		short := strings.TrimSpace(version)
+		if idx := strings.Index(short, "\n"); idx > 0 {
+			short = short[:idx]
+		}
+		r.Checks = append(r.Checks, Check{Name: "pytest", Group: "tools", Status: StatusPass, Message: short})
+	} else {
+		r.addToolWarn("pytest", "Python test evidence will be unavailable", "pip install pytest")
+	}
+
+	// Cargo (Rust — clippy + test)
+	if _, err := exec.LookPath("cargo"); err == nil {
+		r.Checks = append(r.Checks, Check{Name: "cargo", Group: "tools", Status: StatusPass, Message: "cargo found (clippy + test)"})
+	} else {
+		r.addToolWarn("cargo", "Rust lint/test evidence will be unavailable", "Install: https://rustup.rs")
+	}
+
 	// gh CLI
 	if version, err := commandOutput("gh", "--version"); err == nil {
 		short := strings.TrimSpace(version)
@@ -660,6 +694,17 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+
+// addToolWarn appends a warning check for a missing optional tool.
+func (r *Report) addToolWarn(name, msg, fix string) {
+	r.Checks = append(r.Checks, Check{
+		Name:    name,
+		Group:   "tools",
+		Status:  StatusWarn,
+		Message: msg,
+		Fix:     fix,
+	})
 }
 
 // commandOutput runs a command and returns its stdout.
