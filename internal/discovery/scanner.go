@@ -17,10 +17,15 @@ type Scanner interface {
 // Scanners returns a registry mapping adapter names to Scanner implementations.
 // Use this for polymorphic dispatch instead of switch statements on adapter names.
 // GenericScanner is excluded because it requires config params and always runs unconditionally.
+//
+// Languages with a registered analysis.Analyzer get tree-sitter-backed discovery
+// (full AST, symbol-level units). Languages without fall back to regex or file-level.
 func Scanners() map[string]Scanner {
 	return map[string]Scanner{
 		"go": NewGoAdapter(),
-		"ts": NewTSAdapter(),
+		"ts": NewAnalysisAdapter("ts", []string{".ts", ".tsx"}),
+		"py": NewAnalysisAdapter("py", []string{".py"}),
+		"rs": NewAnalysisAdapter("rs", []string{".rs"}),
 	}
 }
 

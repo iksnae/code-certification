@@ -50,6 +50,8 @@ var languageToAdapter = map[string]string{
 	"go":         "go",
 	"typescript": "ts",
 	"javascript": "ts",
+	"python":     "py",
+	"rust":       "rs",
 }
 
 // skipDirs are directories to skip during language detection.
