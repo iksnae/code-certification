@@ -88,3 +88,18 @@ func TestDetectRepoName(t *testing.T) {
 		t.Errorf("SSH remote: got %q, want %q", got, "someuser/their-repo")
 	}
 }
+
+func TestLanguagePolicy_AllSupported(t *testing.T) {
+	for _, lang := range []string{"go", "typescript", "javascript", "python", "rust", "swift"} {
+		p := languagePolicy(lang)
+		if p == "" {
+			t.Errorf("languagePolicy(%q) returned empty", lang)
+		}
+	}
+}
+
+func TestLanguagePolicy_Unsupported(t *testing.T) {
+	if p := languagePolicy("cobol"); p != "" {
+		t.Errorf("languagePolicy(cobol) should return empty, got %d bytes", len(p))
+	}
+}

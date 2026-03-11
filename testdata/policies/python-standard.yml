@@ -1,0 +1,37 @@
+name: python-standard
+version: "1.0.0"
+language: py
+
+# Note: func_lines, param_count, max_nesting_depth require language-specific
+# structural analysis (not yet implemented for Python). Add those rules when
+# Python structural analysis lands.
+
+rules:
+  - id: lint-clean
+    dimension: correctness
+    description: "Linter must report zero errors"
+    severity: error
+    metric: lint_errors
+    threshold: 0
+
+  - id: test-pass
+    dimension: testability
+    description: "All tests must pass"
+    severity: error
+    metric: test_failures
+    threshold: 0
+
+  - id: no-todos
+    dimension: readability
+    description: "No TODO/FIXME comments in certified code"
+    severity: warning
+    metric: todo_count
+    threshold: 0
+    exclude_patterns: ["test_*.py", "*_test.py"]
+
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity should be manageable"
+    severity: warning
+    metric: complexity
+    threshold: 20

@@ -2,7 +2,7 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
+**Grade:** 🟢 A- (91.6%)  
 **Units:** 54 · **Passing:** 54 / 54
 
 ## Units
@@ -12,15 +12,15 @@
 | [main](main.go/main.md) | function | 🟢 B | 82.5% | certified | 2026-04-24 |
 | [runWorkspaceReport](report_cmd.go/runWorkspaceReport.md) | function | 🟢 B | 85.6% | certified | 2026-04-24 |
 | [processQueue](certify_cmd.go/processQueue.md) | method | 🟢 B | 85.6% | certified | 2026-04-24 |
-| [setupArchitectProvider](architect_cmd.go/setupArchitectProvider.md) | function | 🟢 B+ | 87.5% | certified | 2026-04-24 |
 | [runCertify](certify_cmd.go/runCertify.md) | function | 🟢 B+ | 87.5% | certified | 2026-04-24 |
-| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-24 |
+| [setupArchitectProvider](architect_cmd.go/setupArchitectProvider.md) | function | 🟢 B+ | 87.5% | certified | 2026-04-24 |
 | [bindVersionInfo](version.go/bindVersionInfo.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [runWorkspaceCertify](certify_cmd.go/runWorkspaceCertify.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
-| [setupExplicitAgent](certify_cmd.go/setupExplicitAgent.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
 | [loadCertifyContext](certify_cmd.go/loadCertifyContext.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
+| [setupExplicitAgent](certify_cmd.go/setupExplicitAgent.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
 | [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
 | [runArchitect](architect_cmd.go/runArchitect.md) | function | 🟢 A- | 91.3% | certified | 2026-04-24 |
+| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 A- | 91.3% | certified | 2026-04-24 |
 | [gradeEmoji](certify_cmd.go/gradeEmoji.md) | function | 🟢 A- | 91.3% | certified | 2026-04-24 |
 | [buildCertificationRun](certify_cmd.go/buildCertificationRun.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |
 | [runWorkspaceExpire](expire.go/runWorkspaceExpire.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |

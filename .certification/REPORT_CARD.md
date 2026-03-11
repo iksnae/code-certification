@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `fb391766`
-**Generated:** 2026-03-10T21:54:56
+**Commit:** `54309c67`
+**Generated:** 2026-03-10T22:19:22
 
 ## 🟢 Overall: A- (91.8%)
 
@@ -20,8 +20,8 @@
 | Grade | Count | % |
 |-------|-------|---|
 | A | 22 | 2.9% |
-| A- | 676 | 90.4% |
-| B+ | 26 | 3.5% |
+| A- | 677 | 90.5% |
+| B+ | 25 | 3.3% |
 | B | 24 | 3.2% |
 
 ### By Language
@@ -35,7 +35,7 @@
 
 | Package | Units | Grade | Score |
 |---------|------:|:-----:|------:|
-| [cmd/certify](reports/cmd/certify/index.md) | 54 | 🟢 A- | 91.5% |
+| [cmd/certify](reports/cmd/certify/index.md) | 54 | 🟢 A- | 91.6% |
 | [extensions](reports/extensions/index.md) | 18 | 🟢 A- | 92.1% |
 | [internal](reports/internal/index.md) | 1 | 🟢 A- | 91.3% |
 | [internal/agent](reports/internal/agent/index.md) | 187 | 🟢 A- | 92.0% |

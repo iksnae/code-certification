@@ -87,8 +87,8 @@ func TestLoadPolicyPacks_Dir(t *testing.T) {
 		t.Fatalf("LoadPolicyPacks() error: %v", err)
 	}
 
-	if len(packs) != 3 {
-		t.Fatalf("len(packs) = %d, want 3", len(packs))
+	if len(packs) != 7 {
+		t.Fatalf("len(packs) = %d, want 7", len(packs))
 	}
 
 	// Should find all packs
@@ -96,14 +96,10 @@ func TestLoadPolicyPacks_Dir(t *testing.T) {
 	for _, p := range packs {
 		names[p.Name] = true
 	}
-	if !names["go-standard"] {
-		t.Error("missing go-standard pack")
-	}
-	if !names["go-library"] {
-		t.Error("missing go-library pack")
-	}
-	if !names["security"] {
-		t.Error("missing security pack")
+	for _, expected := range []string{"go-standard", "go-library", "python-standard", "rust-standard", "security", "swift-standard", "ts-standard"} {
+		if !names[expected] {
+			t.Errorf("missing %s pack", expected)
+		}
 	}
 }
 

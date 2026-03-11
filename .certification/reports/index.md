@@ -3,7 +3,7 @@
 [← Report Card](../REPORT_CARD.md)
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `fb391766`  
+**Commit:** `54309c67`  
 **Overall:** 🟢 A- (91.8%)  
 **Units:** 748 · **Passing:** 748 · **Failing:** 0
 
@@ -11,7 +11,7 @@
 
 | Package | Units | Grade | Score | Pass Rate |
 |---------|------:|:-----:|------:|----------:|
-| [cmd/certify](cmd/certify/index.md) | 54 | 🟢 A- | 91.5% | 100% |
+| [cmd/certify](cmd/certify/index.md) | 54 | 🟢 A- | 91.6% | 100% |
 | [extensions](extensions/index.md) | 18 | 🟢 A- | 92.1% | 100% |
 | [internal](internal/index.md) | 1 | 🟢 A- | 91.3% | 100% |
 | [internal/agent](internal/agent/index.md) | 187 | 🟢 A- | 92.0% | 100% |

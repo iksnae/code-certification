@@ -296,21 +296,35 @@ rules:
 func languagePolicy(lang string) string {
 	switch lang {
 	case "go":
-		return `name: go-standard
-version: "1.0.0"
+		return goStandardPolicy
+	case "typescript", "javascript":
+		return tsStandardPolicy
+	case "python":
+		return pythonStandardPolicy
+	case "rust":
+		return rustStandardPolicy
+	case "swift":
+		return swiftStandardPolicy
+	default:
+		return ""
+	}
+}
+
+const goStandardPolicy = `name: go-standard
+version: "1.1.0"
 language: go
 
 rules:
-  - id: go-vet-clean
+  - id: lint-clean
     dimension: correctness
-    description: "go vet must report zero issues"
+    description: "Code must pass linter with zero errors"
     severity: error
     metric: lint_errors
     threshold: 0
 
-  - id: go-test-pass
+  - id: test-pass
     dimension: testability
-    description: "All Go tests must pass"
+    description: "All tests must pass"
     severity: error
     metric: test_failures
     threshold: 0
@@ -321,18 +335,96 @@ rules:
     severity: warning
     metric: todo_count
     threshold: 0
+    exclude_patterns: ["*_test.go"]
+
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity should be manageable"
+    severity: warning
+    metric: complexity
+    threshold: 20
+
+  - id: max-params
+    dimension: maintainability
+    description: "Functions should have at most 5 parameters"
+    severity: warning
+    metric: param_count
+    threshold: 5
+
+  - id: max-nesting
+    dimension: readability
+    description: "Function body nesting should not exceed 4 levels"
+    severity: warning
+    metric: max_nesting_depth
+    threshold: 4
+
+  - id: no-ignored-errors
+    dimension: correctness
+    description: "Error returns should not be silently discarded"
+    severity: warning
+    metric: errors_ignored
+    threshold: 0
+
+  - id: max-func-lines
+    dimension: readability
+    description: "Functions should be concise (under 100 lines)"
+    severity: warning
+    metric: func_lines
+    threshold: 100
+
+  - id: no-defer-in-loop
+    dimension: correctness
+    description: "defer inside loops causes resource leaks"
+    severity: error
+    metric: defer_in_loop
+    threshold: 0
+
+  - id: context-first-param
+    dimension: correctness
+    description: "context.Context should be the first parameter"
+    severity: warning
+    metric: context_not_first
+    threshold: 0
+
+  - id: no-init-func
+    dimension: maintainability
+    description: "Avoid init() functions — prefer explicit initialization"
+    severity: warning
+    metric: has_init_func
+    threshold: 0
+
+  - id: limit-global-mutable
+    dimension: security
+    description: "Minimize package-level mutable variables"
+    severity: warning
+    metric: global_mutable_count
+    threshold: 2
+
+  - id: max-methods
+    dimension: maintainability
+    description: "Types should not have more than 15 methods (god object)"
+    severity: warning
+    metric: method_count
+    threshold: 15
 `
-	case "typescript", "javascript":
-		return `name: ts-standard
+
+const tsStandardPolicy = `name: ts-standard
 version: "1.0.0"
 language: ts
 
 rules:
-  - id: eslint-clean
+  - id: lint-clean
     dimension: correctness
-    description: "ESLint must report zero errors"
+    description: "Linter must report zero errors"
     severity: error
     metric: lint_errors
+    threshold: 0
+
+  - id: test-pass
+    dimension: testability
+    description: "All tests must pass"
+    severity: error
+    metric: test_failures
     threshold: 0
 
   - id: no-todos
@@ -341,9 +433,17 @@ rules:
     severity: warning
     metric: todo_count
     threshold: 0
+    exclude_patterns: ["*.test.ts", "*.spec.ts", "*.test.tsx", "*.spec.tsx"]
+
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity should be manageable"
+    severity: warning
+    metric: complexity
+    threshold: 20
 `
-	case "python":
-		return `name: python-standard
+
+const pythonStandardPolicy = `name: python-standard
 version: "1.0.0"
 language: py
 
@@ -355,14 +455,95 @@ rules:
     metric: lint_errors
     threshold: 0
 
+  - id: test-pass
+    dimension: testability
+    description: "All tests must pass"
+    severity: error
+    metric: test_failures
+    threshold: 0
+
   - id: no-todos
     dimension: readability
     description: "No TODO/FIXME comments in certified code"
     severity: warning
     metric: todo_count
     threshold: 0
+    exclude_patterns: ["test_*.py", "*_test.py"]
+
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity should be manageable"
+    severity: warning
+    metric: complexity
+    threshold: 20
 `
-	default:
-		return ""
-	}
-}
+
+const rustStandardPolicy = `name: rust-standard
+version: "1.0.0"
+language: rs
+
+rules:
+  - id: lint-clean
+    dimension: correctness
+    description: "Clippy must report zero errors"
+    severity: error
+    metric: lint_errors
+    threshold: 0
+
+  - id: test-pass
+    dimension: testability
+    description: "All tests must pass"
+    severity: error
+    metric: test_failures
+    threshold: 0
+
+  - id: no-todos
+    dimension: readability
+    description: "No TODO/FIXME comments in certified code"
+    severity: warning
+    metric: todo_count
+    threshold: 0
+    exclude_patterns: ["*_test.rs"]
+
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity should be manageable"
+    severity: warning
+    metric: complexity
+    threshold: 20
+`
+
+const swiftStandardPolicy = `name: swift-standard
+version: "1.0.0"
+language: swift
+
+rules:
+  - id: lint-clean
+    dimension: correctness
+    description: "SwiftLint must report zero errors"
+    severity: error
+    metric: lint_errors
+    threshold: 0
+
+  - id: test-pass
+    dimension: testability
+    description: "All tests must pass"
+    severity: error
+    metric: test_failures
+    threshold: 0
+
+  - id: no-todos
+    dimension: readability
+    description: "No TODO/FIXME comments in certified code"
+    severity: warning
+    metric: todo_count
+    threshold: 0
+    exclude_patterns: ["*Tests.swift", "*Test.swift"]
+
+  - id: max-complexity
+    dimension: maintainability
+    description: "Cyclomatic complexity should be manageable"
+    severity: warning
+    metric: complexity
+    threshold: 20
+`
