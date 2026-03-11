@@ -136,14 +136,53 @@ Key tests:
 
 ## Acceptance Criteria
 
-- [ ] `providers.go` has 0 mutable global vars (all converted to functions)
-- [ ] `containsTodo` does not flag "TODO" inside quoted strings in comments
-- [ ] `AnalyzeGoFile` nesting depth ≤ 4
-- [ ] `version.go` string-literal vars detected as const-like (0 mutable globals)
-- [ ] Total observations ≤ 4 (down from 12)
-- [ ] All 748 units pass certification
-- [ ] `go test ./... -count=1` — all 16 packages pass
-- [ ] Overall score ≥ 92%
+- [x] `providers.go` has 0 mutable global vars (all converted to functions)
+- [x] `containsTodo` does not flag "TODO" inside quoted strings in comments
+- [x] `AnalyzeGoFile` nesting depth ≤ 4
+- [x] `version.go` string-literal vars detected as const-like (0 mutable globals)
+- [x] Total observations ≤ 4 (down from 12) — **achieved 3**
+- [x] All 748 units pass certification
+- [x] `go test ./... -count=1` — all 16 packages pass
+- [ ] Overall score ≥ 92% — **achieved 91.8%** (marginal miss, within rounding)
+
+## Completion Report
+
+**Date:** March 10, 2026
+
+### What was implemented
+
+5 changes across 4 TDD cycles to address the architect review's recommendations:
+
+1. **TODO false positive fix** (`internal/evidence/metrics.go`): `containsTodo` now enforces word boundaries (non-letter before/after) and skips TODO/FIXME inside quoted strings in comments. Eliminated false positives from identifiers like `extractTodoCount` and comments like `// Parse "N TODOs"`. Added `isLetter` helper. 3 new test cases.
+
+2. **Mutable globals → functions** (`internal/agent/providers.go`, `autodetect.go`): Converted 8 `var` declarations (4 model slices + 1 map + 1 env var list + 2 aliases + ConservativeModels) to functions returning fresh slices/maps. Updated all call sites in production code and tests. Eliminated `global_mutable_count` for providers.go entirely (was 4→0).
+
+3. **BasicLit const-like detection** (`internal/evidence/structural.go`): Added `*ast.BasicLit` case to `isConstLikeExpr` so `var Version = "dev"` (ldflags pattern) is recognized as const-like. 2 new test cases.
+
+4. **AnalyzeGoFile nesting reduction** (`internal/evidence/structural.go`): Extracted `countGlobalMutables(d *ast.GenDecl) int` helper from AnalyzeGoFile, reducing max nesting depth from 5 to 3.
+
+5. **main.go os.Exit**: Accepted as unavoidable — Go CLI pattern requires explicit `os.Exit(1)` for non-zero exit codes. 1 observation remains.
+
+### Results
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| Observations | 12 | 3 | -75% |
+| Score | 91.7% | 91.8% | +0.1% |
+| A- grade units | 675 | 676 | +1 |
+| providers.go global_mutable_count | 4 | 0 | -100% |
+| evaluator.go todo_count | 1 | 0 | -100% |
+| metrics.go todo_count | 1 | 0 | -100% |
+
+### Remaining 3 observations
+1. `main.go#main`: os_exit_calls=1 — unavoidable Go CLI pattern
+2. `metrics_test.go`: todo_count=5 — test fixture `// TODO:` strings in backtick raw strings
+3. `complexity_test.go`: todo_count=1 — test fixture `// TODO:` string
+
+### Issues encountered
+- `containsTodo` initially only checked for quoted strings, but missed identifiers containing "TODO" as a substring (e.g., `extractTodoCount`). Added word boundary check requiring non-letter chars on both sides of the keyword.
+- Converting vars to functions in `providers.go` required updating 20+ call sites across 4 test files. Go 1.22 doesn't allow `range` over function calls, so needed `()` at all call sites.
+- Score improvement was modest (0.1%) because the observation reduction only affected ~10 units. The remaining 50 B/B+ units are constrained by structural metrics (nested loops, complexity, long functions) not observations.
 
 ## Validation Commands
 
