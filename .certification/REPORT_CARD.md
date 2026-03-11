@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `0c1729d`
-**Generated:** 2026-03-10T20:50:21
+**Commit:** `9d89d9a`
+**Generated:** 2026-03-10T20:52:48
 
 ## 🟢 Overall: A- (91.7%)
 
@@ -20,15 +20,15 @@
 | Grade | Count | % |
 |-------|-------|---|
 | A | 22 | 2.9% |
-| A- | 655 | 87.6% |
-| B+ | 40 | 5.3% |
+| A- | 669 | 89.4% |
+| B+ | 26 | 3.5% |
 | B | 31 | 4.1% |
 
 ### By Language
 
 | Language | Units | Grade | Score |
 |----------|-------|-------|-------|
-| go | 677 | 🟢 A- | 91.6% |
+| go | 677 | 🟢 A- | 91.7% |
 | ts | 71 | 🟢 A- | 92.6% |
 
 ### Packages
@@ -38,7 +38,7 @@
 | [cmd/certify](reports/cmd/certify/index.md) | 54 | 🟢 A- | 91.4% |
 | [extensions](reports/extensions/index.md) | 18 | 🟢 A- | 92.1% |
 | [internal](reports/internal/index.md) | 1 | 🟢 A- | 91.3% |
-| [internal/agent](reports/internal/agent/index.md) | 187 | 🟢 A- | 91.6% |
+| [internal/agent](reports/internal/agent/index.md) | 187 | 🟢 A- | 91.8% |
 | [internal/config](reports/internal/config/index.md) | 22 | 🟢 A- | 91.7% |
 | [internal/discovery](reports/internal/discovery/index.md) | 40 | 🟢 A- | 91.1% |
 | [internal/domain](reports/internal/domain/index.md) | 69 | 🟢 A- | 92.4% |
