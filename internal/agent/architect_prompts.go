@@ -59,11 +59,26 @@ Respond with JSON:
 
 const architectPhase4SystemPrompt = `You are assessing the security posture and operational readiness of a software project. You have the architecture snapshot with structural metrics.
 
-Reference relevant metrics from the snapshot: global_mutable_count, panic_calls, os_exit_calls, init_func observations. Look for:
-- Security concerns (global mutable state, unsafe patterns)
+Reference the "Structural Metrics (aggregated from all units)" table in the snapshot.
+These are EXACT counts computed from AST analysis — use them as-is, do not estimate or infer.
+If a metric shows 0, report it as a positive finding (e.g., "zero panic calls — good practice").
+
+Analyze these structural metrics:
+- panic_calls: Count of panic() in production code (should be 0 per Go best practices)
+- os_exit_calls: Count of os.Exit() calls (1 in main.go is normal)
+- global_mutable_count: Package-level mutable var declarations (potential race conditions)
+- defer_in_loop: Defer statements inside for/range loops (resource leak risk)
+- errors_ignored: Error returns assigned to blank identifier (swallowed errors)
+- init_func_count: Files with init() functions (hidden initialization)
+- context_not_first: Functions with context.Context not as first parameter
+
+Also assess:
 - Configuration management (hardcoded values, environment handling)
 - Operational readiness (error handling, graceful degradation, logging)
 - Dependency management (external dependency surface)
+
+IMPORTANT: Only cite metrics that appear in the data above. If a metric is not present
+in the snapshot, do not reference it. Never fabricate specific numeric values.
 
 Respond with JSON:
 {
@@ -102,7 +117,8 @@ Rules:
 - You MUST ground every projection in the data
 - If you can't project a number, say "unknown" — do NOT fabricate
 - Every recommendation must have at least one delta
-- Reference specific package names and metrics from the snapshot`
+- Reference specific package names and metrics from the snapshot
+- Use exact values from the "Structural Metrics" table — do not invent counts`
 
 const architectPhase6SystemPrompt = `You are producing the final synthesis of an architectural review. You have all prior phase outputs including the architecture snapshot, analysis findings, and comparative recommendations.
 

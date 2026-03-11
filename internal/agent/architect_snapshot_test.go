@@ -25,6 +25,155 @@ func makeRecord(unitID string, score float64, observations []string) domain.Cert
 	}
 }
 
+func makeRecordWithEvidence(unitID string, score float64, evidence ...domain.Evidence) domain.CertificationRecord {
+	r := makeRecord(unitID, score, nil)
+	r.Evidence = evidence
+	return r
+}
+
+func TestBuildSnapshot_StructuralMetrics(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"panic_calls":          0,
+				"os_exit_calls":        1,
+				"global_mutable_count": 3,
+				"defer_in_loop":        2,
+				"has_init_func":        1,
+				"context_not_first":    0,
+				"errors_ignored":       1,
+			},
+		}),
+		makeRecordWithEvidence("go://pkg/b.go#Bar", 0.80, domain.Evidence{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"panic_calls":          2,
+				"os_exit_calls":        0,
+				"global_mutable_count": 1,
+				"defer_in_loop":        0,
+				"has_init_func":        0,
+				"context_not_first":    1,
+				"errors_ignored":       3,
+			},
+		}),
+		// Record with no structural evidence — should not affect aggregates
+		makeRecord("go://pkg/c.go#Baz", 0.90, nil),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+
+	s := snap.Metrics.Structural
+	if s.PanicCalls != 2 {
+		t.Errorf("expected 2 panic_calls, got %d", s.PanicCalls)
+	}
+	if s.OsExitCalls != 1 {
+		t.Errorf("expected 1 os_exit_calls, got %d", s.OsExitCalls)
+	}
+	if s.GlobalMutableCount != 4 {
+		t.Errorf("expected 4 global_mutable_count, got %d", s.GlobalMutableCount)
+	}
+	if s.DeferInLoop != 2 {
+		t.Errorf("expected 2 defer_in_loop, got %d", s.DeferInLoop)
+	}
+	if s.InitFuncCount != 1 {
+		t.Errorf("expected 1 init_func_count, got %d", s.InitFuncCount)
+	}
+	if s.ContextNotFirst != 1 {
+		t.Errorf("expected 1 context_not_first, got %d", s.ContextNotFirst)
+	}
+	if s.ErrorsIgnored != 4 {
+		t.Errorf("expected 4 errors_ignored, got %d", s.ErrorsIgnored)
+	}
+}
+
+func TestBuildSnapshot_StructuralMetrics_AllZero(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.90, domain.Evidence{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "structural",
+			Passed: true,
+			Metrics: map[string]float64{
+				"panic_calls":          0,
+				"os_exit_calls":        0,
+				"global_mutable_count": 0,
+			},
+		}),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	s := snap.Metrics.Structural
+
+	if s.PanicCalls != 0 {
+		t.Errorf("expected 0 panic_calls, got %d", s.PanicCalls)
+	}
+	if s.OsExitCalls != 0 {
+		t.Errorf("expected 0 os_exit_calls, got %d", s.OsExitCalls)
+	}
+}
+
+func TestBuildSnapshot_StructuralMetrics_IgnoresNonStructuralEvidence(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85,
+			// Lint evidence — should be ignored by structural aggregation
+			domain.Evidence{
+				Kind:    domain.EvidenceKindLint,
+				Source:  "golangci-lint",
+				Passed:  true,
+				Metrics: map[string]float64{"lint_errors": 3},
+			},
+			// Structural evidence — should be aggregated
+			domain.Evidence{
+				Kind:   domain.EvidenceKindStructural,
+				Source: "structural",
+				Passed: true,
+				Metrics: map[string]float64{
+					"panic_calls":   1,
+					"os_exit_calls": 0,
+				},
+			},
+		),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	s := snap.Metrics.Structural
+	if s.PanicCalls != 1 {
+		t.Errorf("expected 1 panic_calls, got %d", s.PanicCalls)
+	}
+	if s.OsExitCalls != 0 {
+		t.Errorf("expected 0 os_exit_calls, got %d", s.OsExitCalls)
+	}
+}
+
+func TestBuildSnapshot_StructuralMetrics_PartialMetricsMap(t *testing.T) {
+	// Evidence with only some metrics keys present — missing keys should default to 0
+	records := []domain.CertificationRecord{
+		makeRecordWithEvidence("go://pkg/a.go#Foo", 0.85, domain.Evidence{
+			Kind:    domain.EvidenceKindStructural,
+			Source:  "structural",
+			Passed:  true,
+			Metrics: map[string]float64{"panic_calls": 5},
+		}),
+	}
+
+	snap := agent.BuildSnapshot(records, "")
+	s := snap.Metrics.Structural
+	if s.PanicCalls != 5 {
+		t.Errorf("expected 5 panic_calls, got %d", s.PanicCalls)
+	}
+	// Keys not present in evidence should remain 0
+	if s.OsExitCalls != 0 {
+		t.Errorf("expected 0 os_exit_calls for missing key, got %d", s.OsExitCalls)
+	}
+	if s.GlobalMutableCount != 0 {
+		t.Errorf("expected 0 global_mutable_count for missing key, got %d", s.GlobalMutableCount)
+	}
+}
+
 func TestBuildSnapshot(t *testing.T) {
 	records := []domain.CertificationRecord{
 		makeRecord("go://internal/engine/scorer.go#Score", 0.85, []string{"errors_ignored: 2"}),

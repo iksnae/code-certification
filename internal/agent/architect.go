@@ -134,6 +134,7 @@ func (pc *ProjectContext) FormatForLLM(maxTokensHint int) string {
 	formatHotspots(&b, snap)
 	formatCouplingPairs(&b, snap)
 	formatTopObservations(&b, snap)
+	formatStructuralMetrics(&b, snap)
 	formatQualitativeContext(&b, pc, maxChars)
 
 	return b.String()
@@ -280,6 +281,21 @@ func formatTopObservations(b *strings.Builder, snap *ArchSnapshot) {
 	for _, o := range obs[:limit] {
 		fmt.Fprintf(b, "- %s: %d\n", o.name, o.count)
 	}
+	b.WriteString("\n")
+}
+
+func formatStructuralMetrics(b *strings.Builder, snap *ArchSnapshot) {
+	s := snap.Metrics.Structural
+	b.WriteString("## Structural Metrics (aggregated from all units)\n")
+	b.WriteString("| Metric | Total | Description |\n")
+	b.WriteString("|--------|------:|-------------|\n")
+	fmt.Fprintf(b, "| panic_calls | %d | panic() calls in production code |\n", s.PanicCalls)
+	fmt.Fprintf(b, "| os_exit_calls | %d | os.Exit() calls (1 in main is normal) |\n", s.OsExitCalls)
+	fmt.Fprintf(b, "| global_mutable_count | %d | Package-level mutable var declarations |\n", s.GlobalMutableCount)
+	fmt.Fprintf(b, "| defer_in_loop | %d | defer statements inside for/range loops |\n", s.DeferInLoop)
+	fmt.Fprintf(b, "| init_func_count | %d | Files containing init() functions |\n", s.InitFuncCount)
+	fmt.Fprintf(b, "| context_not_first | %d | Functions with context.Context not as first param |\n", s.ContextNotFirst)
+	fmt.Fprintf(b, "| errors_ignored | %d | Error returns assigned to blank identifier |\n", s.ErrorsIgnored)
 	b.WriteString("\n")
 }
 

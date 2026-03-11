@@ -49,12 +49,26 @@ type CouplingPair struct {
 
 // SnapshotMetrics holds aggregate metrics across all packages.
 type SnapshotMetrics struct {
-	TotalUnits        int            `json:"total_units"`
-	TotalPackages     int            `json:"total_packages"`
-	AvgScore          float64        `json:"avg_score"`
-	GradeDistribution map[string]int `json:"grade_distribution"`
-	TopObservations   map[string]int `json:"top_observations"`
-	PolicyViolations  map[string]int `json:"policy_violations"`
+	TotalUnits        int                  `json:"total_units"`
+	TotalPackages     int                  `json:"total_packages"`
+	AvgScore          float64              `json:"avg_score"`
+	GradeDistribution map[string]int       `json:"grade_distribution"`
+	TopObservations   map[string]int       `json:"top_observations"`
+	PolicyViolations  map[string]int       `json:"policy_violations"`
+	Structural        StructuralAggregates `json:"structural"`
+}
+
+// StructuralAggregates holds summed structural metrics across all units.
+// These are computed from Evidence.Metrics in certification records, providing
+// the LLM with real data instead of requiring it to guess.
+type StructuralAggregates struct {
+	PanicCalls         int `json:"panic_calls"`
+	OsExitCalls        int `json:"os_exit_calls"`
+	GlobalMutableCount int `json:"global_mutable_count"`
+	DeferInLoop        int `json:"defer_in_loop"`
+	InitFuncCount      int `json:"init_func_count"`
+	ContextNotFirst    int `json:"context_not_first"`
+	ErrorsIgnored      int `json:"errors_ignored"`
 }
 
 // BuildSnapshot computes a deterministic architecture snapshot from certification records.
@@ -104,6 +118,24 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 
 		snap.Metrics.GradeDistribution[r.Grade.String()]++
 		totalScore += r.Score
+
+		// Aggregate structural metrics from evidence
+		for _, ev := range r.Evidence {
+			if ev.Kind != domain.EvidenceKindStructural {
+				continue
+			}
+			snap.Metrics.Structural.PanicCalls += int(ev.Metrics["panic_calls"])
+			snap.Metrics.Structural.OsExitCalls += int(ev.Metrics["os_exit_calls"])
+			snap.Metrics.Structural.GlobalMutableCount += int(ev.Metrics["global_mutable_count"])
+			snap.Metrics.Structural.DeferInLoop += int(ev.Metrics["defer_in_loop"])
+			snap.Metrics.Structural.ErrorsIgnored += int(ev.Metrics["errors_ignored"])
+			if ev.Metrics["has_init_func"] > 0 {
+				snap.Metrics.Structural.InitFuncCount++
+			}
+			if ev.Metrics["context_not_first"] > 0 {
+				snap.Metrics.Structural.ContextNotFirst++
+			}
+		}
 	}
 
 	snap.Metrics.TotalUnits = len(records)
