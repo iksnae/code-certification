@@ -1,64 +1,95 @@
-# Release v0.9.0
+# Release v0.12.0
 
 **Date:** 2026-03-11
 
 ## Highlights
 
-**Complete snapshot↔prompt data alignment** eliminates all known LLM hallucination vectors in the architect review pipeline. Every metric cited by any phase prompt is now present — with exact AST-computed values — in the snapshot sent to the model. The project self-certifies at **A- (91.8%) with 4 observations** across 816 units.
+**Deep analysis for Go and multi-language LSP support.** Certify now performs type-aware cross-file analysis — call graphs, fan-in/fan-out, dead code detection, dependency graphs, interface compliance, and coupling metrics. Go gets built-in deep analysis via `go/packages` + SSA + VTA; TypeScript, Python, and Rust gain Tier 2 analysis via optional LSP servers. The new `certify doctor` output shows analysis tiers per language.
 
-## What's Changed
+## What's New
 
-### Bug Fixes
+### Deep Go Analysis (Sprint 7)
+- **Call graph via SSA/VTA** — fan-in (callers) and fan-out (callees) per function
+- **Dead export detection** — exported symbols with zero external references
+- New metrics: `fan_in`, `fan_out`, `is_dead_code`
+- Built on `golang.org/x/tools` (go/packages, SSA, VTA) — no CGo required
 
-- **fix(architect): complete snapshot↔prompt data alignment** — Extends PR #20's structural metrics fix to close all remaining gaps where architect prompts referenced data absent from the snapshot.
+### Interface Compliance & Dependency Graph (Sprint 8)
+- **Dependency depth** — transitive local import chain depth
+- **Instability metric** — Robert C. Martin's Ce/(Ca+Ce)
+- **Parameter abstraction** — detect concrete external struct params (hard to mock)
+- **Coupling score** — fan_in × fan_out normalized
+- New metrics: `dep_depth`, `instability`, `concrete_deps`, `coupling_score`
 
-  **Structural metrics expanded (7 → 16):** Added `naked_returns`, `recursive_calls`, `max_nesting_depth`, `nested_loop_pairs`, `quadratic_patterns`, `total_func_lines`, `total_params`, `total_returns`, `total_methods` to `StructuralAggregates`.
+### Type-Aware Refinement (Sprint 9)
+- **Unused parameters** — function params never referenced in body
+- **Interface size** — ISP violation detection (large interfaces)
+- **Type-aware error wrapping** — verify errors returned without `fmt.Errorf("%w")`
+- New metrics: `unused_params`, `interface_size`, `type_aware_unwrapped`
 
-  **Coverage aggregates added:** New `CoverageAggregates` struct provides `units_with_coverage`, `units_without_coverage`, `avg_coverage`, `min_coverage`, `max_coverage` — computed from `EvidenceKindTest` evidence. Phase 3 previously fabricated coverage percentages; now references exact data.
+### LSP Client Infrastructure (Sprint 10)
+- JSON-RPC 2.0 client with Content-Length framing
+- LSP types: initialize, textDocument/documentSymbol, textDocument/references, callHierarchy, textDocument/publishDiagnostics
 
-  **Code metrics aggregates added:** New `CodeMetricsAggregates` struct provides `total_code_lines`, `total_comment_lines`, `total_complexity`, `max_complexity`, `avg_complexity`, `total_todos` — computed from `EvidenceKindMetrics` evidence. Phase 2 previously invented complexity numbers.
+### Multi-Language LSP Analysis (Sprint 11)
+- **LSP Analyzer** — fan-in/fan-out/dead-code via callHierarchy for any language
+- Auto-detect: `typescript-language-server`, `pyright`, `rust-analyzer`
+- Graceful degradation: returns `nil, nil` when server not installed
 
-  **`context_not_first` counting fixed:** Changed from boolean per-file counting (`> 0 → count++`) to per-unit summing (`+= int(...)`) to match the prompt's "functions with context.Context not as first param" language.
+### Architect Snapshot v3 (Sprint 12)
+- **14 deep analysis aggregates** in architect snapshot: avg/max fan-in, avg/max fan-out, dead export count, concrete deps, cognitive complexity, error wrapping, unsafe imports, secrets, dep depth, instability
+- Schema bumped to v3 — LLM prompts now reference deep analysis data
 
-  **Anti-hallucination grounding in all 6 phases:** Previously only Phases 4–5 had grounding language. Now all phases include explicit instructions to cite only data present in the snapshot and never fabricate values.
+### Doctor Analysis Tiers (Sprint 13)
+- `certify doctor` reports per-language analysis tier (0/1/2)
+- Tier upgrade hints with install commands for LSP servers
+- New "Analysis Tiers" section in doctor output
 
-  **Pipeline version tagging:** `ArchSnapshot.SchemaVersion` field (v2) is set by `BuildSnapshot()`, rendered in `FormatForLLM()` header, and included in the architect report appendix. Consumers can distinguish pre- and post-fix reports.
+### Documentation Alignment
+- All website pages updated with new metrics, analysis tiers, deep analysis
+- Available Metrics table expanded from 12 to 35+ entries
+- Architecture docs include `internal/analysis/` and `internal/analysis/lsp/`
+- VSCode extension guide updated for v0.5.0 features
 
-### Evidence of Fix
+### VSCode Extension v0.5.0
+- CodeLens for Python, Rust, JavaScript (in addition to Go, TypeScript)
+- Deep analysis dashboard section with fan-in hotspots table
+- Dead code + high fan-in diagnostics in Problems panel
+- `Certify: Run Doctor` command
+- 12+ language detection patterns
 
-Tested with Qwen3-Coder-30b against 816 units:
-- Phase 3 correctly reports "128 units lack coverage data" and uses exact 74.4% average (previously fabricated)
-- Phase 4 reports `panic_calls: 0`, `os_exit_calls: 1`, `errors_ignored: 5` — all exact (previously Qwen claimed 23 panic calls)
-- Phase 5 recommendations cite exact snapshot values in all deltas
-- Phase 6 synthesis traces claims to specific phases
+### Scoring & Policy Updates
+- `go-standard` policy bumped to v1.4.0 with 4 new rules: `max-fan-out` (15), `max-fan-in` (20), `no-dead-exports`, `max-dep-depth` (8)
+- Deep analysis metrics scored into: maintainability (fan-out, dead code), testability (concrete deps), arch fitness (dep depth, instability), change risk (fan-in), operational quality (error wrapping)
+- Multi-language policy packs: `ts-standard`, `python-standard`, `rust-standard`
+- Lint/test tool integration for ESLint, ruff, pytest, cargo clippy/test
 
-### Tests Added
+## New Dependencies
 
-9 new tests covering all changes:
-- `TestBuildSnapshot_StructuralMetrics_Extended` — 9 new metric aggregations
-- `TestBuildSnapshot_ContextNotFirst_SumsNotBool` — per-unit summing
-- `TestBuildSnapshot_CoverageAggregates` — coverage min/max/avg
-- `TestBuildSnapshot_CodeMetricsAggregates` — complexity/lines/todos
-- `TestBuildSnapshot_SchemaVersion` — version field
-- `TestFormatForLLM_CoverageMetrics` — rendered coverage section
-- `TestFormatForLLM_CodeMetrics` — rendered code metrics section
-- `TestFormatForLLM_SchemaVersion` — schema version in header
-- `TestArchitectPrompts_AllContainGrounding` — all 6 phases grounded
-
-## Files Changed
-
-| File | Change |
-|------|--------|
-| `internal/agent/architect_snapshot.go` | Expanded types, aggregation logic, schema version |
-| `internal/agent/architect.go` | New format functions, schema version in header |
-| `internal/agent/architect_prompts.go` | Grounding language in all 6 phases |
-| `internal/agent/architect_snapshot_test.go` | 5 new aggregation tests |
-| `internal/agent/architect_test.go` | 4 new format/prompt tests |
-| `internal/report/architect_report.go` | Schema version in appendix |
-| `specs/snapshot-data-alignment.md` | Full implementation plan |
+- `golang.org/x/tools v0.42.0` (go/packages, SSA, VTA)
+- `golang.org/x/mod v0.33.0`, `golang.org/x/sync v0.19.0` (transitive)
 
 ## Upgrade Notes
 
-- **Backward compatible:** All changes are additive. Old snapshot JSON with `schema_version: 0` (Go zero value) correctly indicates pre-alignment data.
-- **VS Code extension:** No changes needed — extension reads `ARCHITECT_REVIEW.md` as text, not snapshot types.
-- **Re-run recommended:** Run `certify architect` after upgrading to generate reports with complete data grounding.
+- **Backward compatible** — all changes are additive. Existing records, policies, and configs continue to work.
+- **Re-run recommended** — run `certify certify` after upgrading to collect deep analysis evidence.
+- **LSP servers optional** — TS/Py/Rs Tier 2 analysis only activates when the language server is installed. Run `certify doctor` to check.
+- **VSCode extension** — update to v0.5.0 for deep analysis dashboard. New features only appear when data is present.
+
+## Files Changed
+
+| Area | Key Files |
+|------|-----------|
+| Deep Go analysis | `internal/analysis/go_deep.go`, `go_deps.go`, `go_refine.go` + tests |
+| LSP infrastructure | `internal/analysis/lsp/client.go`, `types.go` + tests |
+| LSP analyzer | `internal/analysis/lsp_analyzer.go`, `lsp_config.go` + tests |
+| Architect snapshot | `internal/agent/architect_snapshot.go` + tests |
+| Doctor tiers | `internal/doctor/doctor.go` + tests |
+| Scoring | `internal/engine/scorer.go`, `certifier.go` + tests |
+| Policy | `.certification/policies/go-standard.yml` (v1.4.0) |
+| VSCode extension | `vscode-certify/src/` (8 files) |
+| Documentation | 11 doc files across repo root, `docs/`, `website/` |
+
+## Test Results
+
+All 19 Go packages pass. 0 vet/fmt issues. Website builds clean (21 pages).
