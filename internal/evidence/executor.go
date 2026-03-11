@@ -14,30 +14,46 @@ import (
 // ToolExecutor runs external tools and collects evidence.
 // After CollectAll(), raw lint findings and coverage profile are retained
 // for per-unit attribution by the certification pipeline.
+//
+// ToolExecutor discovers nested module roots (go.mod in subdirectories)
+// and runs tools from each module root. This supports monorepos and repos
+// where the Go module is not at the repository root.
 type ToolExecutor struct {
 	root            string
+	moduleRoots     []ModuleRoot // discovered module roots
 	rawLintFindings []LintFinding
 	rawCoverProfile string
 }
 
 // NewToolExecutor creates a tool executor rooted at the given directory.
+// It discovers all module roots (go.mod, package.json, etc.) in the tree.
 func NewToolExecutor(root string) *ToolExecutor {
-	return &ToolExecutor{root: root}
+	return &ToolExecutor{
+		root:        root,
+		moduleRoots: DiscoverModuleRoots(root),
+	}
 }
 
 // CollectAll runs all available tool runners and returns collected evidence.
+// For Go, it runs tools from each discovered Go module root.
 func (te *ToolExecutor) CollectAll() []domain.Evidence {
 	var ev []domain.Evidence
 
-	if e := te.runGoVet(); e != nil {
-		ev = append(ev, *e)
+	goRoots := GoModuleRoots(te.moduleRoots)
+	if len(goRoots) > 0 {
+		for _, mod := range goRoots {
+			if e := te.runGoVetAt(mod.Path); e != nil {
+				ev = append(ev, *e)
+			}
+			if e := te.runGoTestAt(mod.Path); e != nil {
+				ev = append(ev, *e)
+			}
+			if e := te.runGolangciLintAt(mod.Path); e != nil {
+				ev = append(ev, *e)
+			}
+		}
 	}
-	if e := te.runGoTest(); e != nil {
-		ev = append(ev, *e)
-	}
-	if e := te.runGolangciLint(); e != nil {
-		ev = append(ev, *e)
-	}
+
 	if e := te.runGitStats(); e != nil {
 		ev = append(ev, *e)
 	}
@@ -45,10 +61,14 @@ func (te *ToolExecutor) CollectAll() []domain.Evidence {
 	return ev
 }
 
-// HasGoMod returns true if the root directory contains a go.mod file.
+// HasGoMod returns true if any discovered module root is a Go module.
 func (te *ToolExecutor) HasGoMod() bool {
-	_, err := os.Stat(filepath.Join(te.root, "go.mod"))
-	return err == nil
+	return len(GoModuleRoots(te.moduleRoots)) > 0
+}
+
+// ModuleRoots returns the discovered module roots.
+func (te *ToolExecutor) ModuleRoots() []ModuleRoot {
+	return te.moduleRoots
 }
 
 // HasPackageJSON returns true if the root has a package.json.
@@ -57,16 +77,13 @@ func (te *ToolExecutor) HasPackageJSON() bool {
 	return err == nil
 }
 
-func (te *ToolExecutor) runGoVet() *domain.Evidence {
-	if !te.HasGoMod() {
-		return nil
-	}
+func (te *ToolExecutor) runGoVetAt(dir string) *domain.Evidence {
 	if _, err := exec.LookPath("go"); err != nil {
 		return nil
 	}
 
 	cmd := exec.Command("go", "vet", "./...")
-	cmd.Dir = te.root
+	cmd.Dir = dir
 	output, err := cmd.CombinedOutput()
 	exitCode := 0
 	if err != nil {
@@ -76,22 +93,21 @@ func (te *ToolExecutor) runGoVet() *domain.Evidence {
 	}
 
 	result := ParseGoVet(string(output), exitCode)
+	// Adjust finding paths to be relative to repo root, not module root
+	te.adjustFindingPaths(result.Findings, dir)
 	te.rawLintFindings = append(te.rawLintFindings, result.Findings...)
 	ev := result.ToEvidence()
 	return &ev
 }
 
-func (te *ToolExecutor) runGoTest() *domain.Evidence {
-	if !te.HasGoMod() {
-		return nil
-	}
+func (te *ToolExecutor) runGoTestAt(dir string) *domain.Evidence {
 	if _, err := exec.LookPath("go"); err != nil {
 		return nil
 	}
 
 	// Run go test with JSON output and coverage
 	cmd := exec.Command("go", "test", "-json", "-count=1", "./...")
-	cmd.Dir = te.root
+	cmd.Dir = dir
 	output, err := cmd.CombinedOutput()
 
 	result := ParseGoTestJSON(string(output))
@@ -106,28 +122,30 @@ func (te *ToolExecutor) runGoTest() *domain.Evidence {
 	defer os.Remove(coverFile)
 
 	coverCmd := exec.Command("go", "test", "-coverprofile", coverFile, "-count=1", "./...")
-	coverCmd.Dir = te.root
+	coverCmd.Dir = dir
 	coverCmd.Run() // Best effort
 
 	if data, err := os.ReadFile(coverFile); err == nil {
-		te.rawCoverProfile = string(data)
-		result.Coverage = ParseCoverProfile(te.rawCoverProfile)
+		// Append to existing cover profile (multi-module)
+		if te.rawCoverProfile != "" {
+			te.rawCoverProfile += "\n" + string(data)
+		} else {
+			te.rawCoverProfile = string(data)
+		}
+		result.Coverage = ParseCoverProfile(string(data))
 	}
 
 	ev := result.ToEvidence()
 	return &ev
 }
 
-func (te *ToolExecutor) runGolangciLint() *domain.Evidence {
-	if !te.HasGoMod() {
-		return nil
-	}
+func (te *ToolExecutor) runGolangciLintAt(dir string) *domain.Evidence {
 	if _, err := exec.LookPath("golangci-lint"); err != nil {
 		return nil // Not installed, skip
 	}
 
 	cmd := exec.Command("golangci-lint", "run", "--out-format", "json", "./...")
-	cmd.Dir = te.root
+	cmd.Dir = dir
 	// golangci-lint returns non-zero when findings exist, but output is still valid JSON
 	output, err := cmd.CombinedOutput()
 	if err != nil && len(output) == 0 {
@@ -135,9 +153,30 @@ func (te *ToolExecutor) runGolangciLint() *domain.Evidence {
 	}
 
 	result := ParseGolangciLintJSON(string(output))
+	// Adjust finding paths to be relative to repo root
+	te.adjustFindingPaths(result.Findings, dir)
 	te.rawLintFindings = append(te.rawLintFindings, result.Findings...)
 	ev := result.ToEvidence()
 	return &ev
+}
+
+// adjustFindingPaths converts lint finding paths from module-relative to repo-relative.
+// When running go vet from code/, a finding at "main.go" should become "code/main.go"
+// for per-unit attribution to work.
+func (te *ToolExecutor) adjustFindingPaths(findings []LintFinding, moduleDir string) {
+	if moduleDir == te.root {
+		return // No adjustment needed for root module
+	}
+	prefix, err := filepath.Rel(te.root, moduleDir)
+	if err != nil || prefix == "." {
+		return
+	}
+	prefix = filepath.ToSlash(prefix)
+	for i := range findings {
+		if findings[i].File != "" && !strings.HasPrefix(findings[i].File, prefix) {
+			findings[i].File = prefix + "/" + findings[i].File
+		}
+	}
 }
 
 func (te *ToolExecutor) runGitStats() *domain.Evidence {

@@ -11,6 +11,7 @@ import (
 	"github.com/iksnae/code-certification/internal/agent"
 	"github.com/iksnae/code-certification/internal/config"
 	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/evidence"
 )
 
 // CheckStatus represents the result of a single health check.
@@ -99,12 +100,68 @@ func RunAll(root string) *Report {
 	r := &Report{Root: root}
 
 	r.checkEnvironment()
+	r.checkModuleRoots(root)
 	r.checkProjectSetup(root)
 	r.checkConfiguration(root)
 	r.checkTools()
 	r.checkProviders()
 
 	return r
+}
+
+// checkModuleRoots discovers language module roots (go.mod, package.json, etc.).
+func (r *Report) checkModuleRoots(root string) {
+	roots := evidence.DiscoverModuleRoots(root)
+	if len(roots) == 0 {
+		r.Checks = append(r.Checks, Check{
+			Name:    "Module roots",
+			Group:   "modules",
+			Status:  StatusWarn,
+			Message: "No language module markers found (go.mod, package.json, Cargo.toml, etc.)",
+			Fix:     "Ensure your project has a module/package manifest",
+		})
+		return
+	}
+
+	// Group by language
+	byLang := map[string][]evidence.ModuleRoot{}
+	for _, m := range roots {
+		byLang[m.Language] = append(byLang[m.Language], m)
+	}
+
+	for lang, mods := range byLang {
+		var locations []string
+		for _, m := range mods {
+			loc := m.RelPath
+			if loc == "" {
+				loc = "."
+			}
+			locations = append(locations, fmt.Sprintf("%s (%s)", loc, m.Marker))
+		}
+		msg := fmt.Sprintf("%d module root(s): %s", len(mods), strings.Join(locations, ", "))
+
+		status := StatusPass
+		// Warn if module is not at repo root (common source of missing evidence)
+		hasRoot := false
+		for _, m := range mods {
+			if m.RelPath == "" {
+				hasRoot = true
+			}
+		}
+		fix := ""
+		if !hasRoot && lang == "go" {
+			status = StatusPass // Not a problem anymore — we handle nested modules
+			msg += " (nested module — tools will run from module directory)"
+		}
+
+		r.Checks = append(r.Checks, Check{
+			Name:    fmt.Sprintf("Module roots (%s)", lang),
+			Group:   "modules",
+			Status:  status,
+			Message: msg,
+			Fix:     fix,
+		})
+	}
 }
 
 // checkEnvironment checks Go and Git availability.

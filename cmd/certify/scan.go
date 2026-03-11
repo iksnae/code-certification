@@ -11,6 +11,7 @@ import (
 	"github.com/iksnae/code-certification/internal/agent"
 	"github.com/iksnae/code-certification/internal/config"
 	"github.com/iksnae/code-certification/internal/discovery"
+	"github.com/iksnae/code-certification/internal/evidence"
 	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
@@ -39,6 +40,19 @@ var scanCmd = &cobra.Command{
 		cfg, err := config.LoadFromDir(certDir)
 		if err != nil {
 			cfg = defaultConfigObj()
+		}
+
+		// Discover module roots (go.mod, package.json, etc.)
+		modRoots := evidence.DiscoverModuleRoots(root)
+		if len(modRoots) > 0 {
+			fmt.Println("  Detected module roots:")
+			for _, m := range modRoots {
+				loc := m.RelPath
+				if loc == "" {
+					loc = "."
+				}
+				fmt.Printf("    • %s (%s) at %s\n", m.Language, m.Marker, loc)
+			}
 		}
 
 		// Detect languages to choose adapters
