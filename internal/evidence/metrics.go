@@ -59,7 +59,21 @@ func ComputeMetrics(src string) CodeMetrics {
 
 func containsTodo(line string) bool {
 	upper := strings.ToUpper(line)
-	return strings.Contains(upper, "TODO") || strings.Contains(upper, "FIXME")
+	for _, keyword := range []string{"TODO", "FIXME"} {
+		idx := strings.Index(upper, keyword)
+		if idx < 0 {
+			continue
+		}
+		// Check if the keyword is inside a quoted string in the comment.
+		// If there's a quote before and after the keyword position, skip it.
+		before := line[:idx]
+		if strings.Count(before, "\"")%2 == 1 {
+			// Odd number of quotes before → inside a string literal
+			continue
+		}
+		return true
+	}
+	return false
 }
 
 // ToEvidence converts CodeMetrics to a domain.Evidence.

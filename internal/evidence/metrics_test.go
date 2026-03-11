@@ -93,6 +93,18 @@ func TestCodeMetrics_TodoCount_InlineComment(t *testing.T) {
 	}
 }
 
+func TestCodeMetrics_TodoCount_QuotedNotFlagged(t *testing.T) {
+	src := `func extract() {
+	// Parse "N TODOs" from summary
+	idx := strings.Index(e.Summary, " TODO")
+}
+`
+	m := evidence.ComputeMetrics(src)
+	if m.TodoCount != 0 {
+		t.Errorf("TodoCount = %d, want 0 (TODO inside quoted string in comment should not count)", m.TodoCount)
+	}
+}
+
 func TestCodeMetrics_Empty(t *testing.T) {
 	m := evidence.ComputeMetrics("")
 	if m.TotalLines != 0 {
