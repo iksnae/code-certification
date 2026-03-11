@@ -16,12 +16,14 @@ func (p PolicyPack) IsGlobal() bool {
 
 // PolicyRule defines a single certification requirement.
 type PolicyRule struct {
-	ID          string    `json:"id" yaml:"id"`
-	Dimension   Dimension `json:"dimension" yaml:"dimension"`
-	Description string    `json:"description" yaml:"description"`
-	Severity    Severity  `json:"severity" yaml:"severity"`
-	Threshold   float64   `json:"threshold,omitempty" yaml:"threshold,omitempty"` // Metric must be below this
-	Metric      string    `json:"metric,omitempty" yaml:"metric,omitempty"`       // Which metric to evaluate
+	ID              string    `json:"id" yaml:"id"`
+	Dimension       Dimension `json:"dimension" yaml:"dimension"`
+	Description     string    `json:"description" yaml:"description"`
+	Severity        Severity  `json:"severity" yaml:"severity"`
+	Threshold       float64   `json:"threshold,omitempty" yaml:"threshold,omitempty"`               // Metric must be below this
+	Metric          string    `json:"metric,omitempty" yaml:"metric,omitempty"`                     // Which metric to evaluate
+	PathPatterns    []string  `json:"path_patterns,omitempty" yaml:"path_patterns,omitempty"`       // If set, rule only applies to matching paths
+	ExcludePatterns []string  `json:"exclude_patterns,omitempty" yaml:"exclude_patterns,omitempty"` // If set, rule skips matching paths
 }
 
 // Violation records a specific policy rule failure for a unit.

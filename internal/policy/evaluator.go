@@ -2,6 +2,7 @@ package policy
 
 import (
 	"fmt"
+	"path/filepath"
 	"strings"
 
 	"github.com/iksnae/code-certification/internal/domain"
@@ -14,11 +15,16 @@ type EvaluationResult struct {
 }
 
 // Evaluate checks policy rules against collected evidence.
-func Evaluate(rules []domain.PolicyRule, ev []domain.Evidence) EvaluationResult {
+// unitPath is the file path of the unit being evaluated, used for
+// rule-level path filtering (PathPatterns/ExcludePatterns).
+func Evaluate(rules []domain.PolicyRule, ev []domain.Evidence, unitPath string) EvaluationResult {
 	var violations []domain.Violation
 	hasBlockingViolation := false
 
 	for _, rule := range rules {
+		if !ruleAppliesToPath(rule, unitPath) {
+			continue
+		}
 		v := evaluateRule(rule, ev)
 		if v != nil {
 			violations = append(violations, *v)
@@ -32,6 +38,46 @@ func Evaluate(rules []domain.PolicyRule, ev []domain.Evidence) EvaluationResult 
 		Violations: violations,
 		Passed:     !hasBlockingViolation,
 	}
+}
+
+// ruleAppliesToPath checks whether a rule should apply to the given unit path.
+// If PathPatterns is set, at least one pattern must match.
+// If ExcludePatterns is set, none of the patterns may match.
+func ruleAppliesToPath(rule domain.PolicyRule, unitPath string) bool {
+	if unitPath == "" {
+		return true
+	}
+	// Check exclude patterns first
+	base := filepath.Base(unitPath)
+	for _, pattern := range rule.ExcludePatterns {
+		if matched, _ := filepath.Match(pattern, base); matched {
+			return false
+		}
+		if matched, _ := filepath.Match(pattern, unitPath); matched {
+			return false
+		}
+	}
+	// Check include patterns
+	if len(rule.PathPatterns) > 0 {
+		for _, pattern := range rule.PathPatterns {
+			if matched, _ := filepath.Match(pattern, base); matched {
+				return true
+			}
+			if matched, _ := filepath.Match(pattern, unitPath); matched {
+				return true
+			}
+			// Support "dir/*" matching against path components
+			parts := strings.Split(unitPath, "/")
+			if len(parts) > 0 {
+				dir := parts[0]
+				if matched, _ := filepath.Match(pattern, dir+"/"+base); matched {
+					return true
+				}
+			}
+		}
+		return false
+	}
+	return true
 }
 
 func evaluateRule(rule domain.PolicyRule, ev []domain.Evidence) *domain.Violation {

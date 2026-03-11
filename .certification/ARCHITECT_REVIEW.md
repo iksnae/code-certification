@@ -1,10 +1,10 @@
 # 🏗 Architectural Review — iksnae/code-certification
 
-**Generated:** 2026-03-10 21:02 · **Commit:** `68eb2b49` · **Model:** `qwen/qwen3-coder-30b` · **Tokens:** 48912 · **Duration:** 1m57s · **Phases:** 6/6
+**Generated:** 2026-03-10 21:25 · **Commit:** `fc01a99f` · **Model:** `qwen/qwen3-coder-30b` · **Tokens:** 50019 · **Duration:** 1m55s · **Phases:** 6/6
 
 ## Executive Summary
 
-The Certify code certification system demonstrates a well-structured layered architecture with clear separation of concerns, yet faces significant challenges in code quality and maintainability. The system's architecture follows a logical command-internal-domain structure with cmd/certify as the primary entry point, internally managing core certification logic through packages like internal/agent, internal/engine, and internal/domain. However, analysis reveals critical issues including high global mutable state in the agent package (4 observations exceeding threshold of 2), os.Exit calls in CLI commands that interfere with graceful error handling, and incomplete implementation markers (TODOs) in evidence and policy packages. These issues collectively impact the system's reliability, testability, and maintainability, with the agent package being the highest risk area. The architecture snapshot shows 22 A-grade packages and 669 A--grade packages, indicating generally strong code quality, but the presence of hotspots like internal/agent (risk factor 15.35) and internal/report (risk factor 9.43) requires immediate attention to prevent cascading failures in the certification pipeline.
+The code-certification architecture demonstrates a well-structured layered system with clear separation of concerns, yet faces critical reliability and test coverage challenges that require immediate attention. The system's core strength lies in its modular design where the command layer orchestrates functionality through internal packages, with domain types serving as a central hub for consistent data structures. However, the analysis reveals significant gaps in operational robustness and test coverage that threaten system reliability. The highest-risk areas include the CLI entry point (cmd/certify) with unsafe exit handling, and high-complexity modules like internal/agent and internal/report that lack comprehensive test coverage despite their critical risk factors. These issues create a substantial operational risk, particularly in production environments where graceful shutdowns and proper error handling are essential. The architecture's strength in modularity and layered design provides a solid foundation for improvement, but the identified gaps in reliability and test coverage must be addressed to ensure production readiness.
 
 ---
 
@@ -14,19 +14,19 @@ The Certify code certification system demonstrates a well-structured layered arc
 
 | Package | Units | Avg Score | Grade | Observations | Top Issues |
 |---------|------:|----------:|:-----:|-------------:|------------|
-| cmd/certify | 54 | 91.4% | A- | 2 | global_mutable_count, os_exit_calls |
+| cmd/certify | 54 | 91.5% | A- | 1 | os_exit_calls |
 | extensions | 18 | 92.1% | A- | 0 | - |
 | internal | 1 | 91.3% | A- | 0 | - |
-| internal/agent | 187 | 91.8% | A- | 5 | global_mutable_count |
+| internal/agent | 187 | 92.0% | A- | 0 | - |
 | internal/config | 22 | 91.7% | A- | 0 | - |
 | internal/discovery | 40 | 91.1% | A- | 0 | - |
 | internal/domain | 69 | 92.4% | A- | 0 | - |
 | internal/engine | 20 | 91.5% | A- | 0 | - |
-| internal/evidence | 68 | 91.3% | A- | 4 | todo_count, max_nesting_depth |
+| internal/evidence | 68 | 91.3% | A- | 2 | todo_count |
 | internal/expiry | 2 | 91.9% | A- | 0 | - |
 | internal/github | 17 | 92.1% | A- | 0 | - |
 | internal/override | 9 | 91.8% | A- | 0 | - |
-| internal/policy | 15 | 91.5% | A- | 1 | todo_count |
+| internal/policy | 15 | 91.6% | A- | 0 | - |
 | internal/queue | 17 | 92.2% | A- | 0 | - |
 | internal/record | 29 | 91.9% | A- | 0 | - |
 | internal/report | 108 | 91.3% | A- | 0 | - |
@@ -66,72 +66,72 @@ internal/workspace → [internal/domain, internal/record, internal/report]
 - **internal:** internal, internal/agent, internal/config, internal/discovery, internal/engine, internal/evidence, internal/expiry, internal/github, internal/override, internal/policy, internal/queue, internal/record, internal/report, internal/workspace
 - **other:** extensions, testdata/repos/ts-simple/src, vscode-certify/src, vscode-certify/src/codeLens, vscode-certify/src/config, vscode-certify/src/dashboard, vscode-certify/src/diagnostics, vscode-certify/src/treeView, website/src
 
-The architecture follows a layered structure with clear separation between command, internal core, and domain layers. The dependency graph shows that the cmd layer is the entry point and imports most internal packages, while internal packages depend on each other in a structured way with the domain layer at the center. The domain layer is the most central and widely used, indicating good cohesion in the core concepts. There are no apparent violations of dependency direction (e.g., domain importing cmd), which suggests a well-structured architecture with minimal cross-layer coupling. The internal packages show moderate coupling, particularly between agent, report, and domain modules, which aligns with their functional interdependencies. The overall architecture supports a clean separation of concerns and promotes maintainability through well-defined layers.
+The project exhibits a well-structured layered architecture with clear separation of concerns. The dependency graph shows that the command layer (cmd/certify) is the primary orchestrator, delegating to internal packages for specific functionalities. The internal layer demonstrates strong cohesion, with each package having a focused responsibility and minimal cross-package coupling. The domain layer acts as a central hub for core types, ensuring consistency across the system. Dependencies flow predominantly from higher-level command packages to lower-level internal packages, indicating a clean architectural hierarchy with minimal circular dependencies. The project's design supports maintainability and scalability through its modular structure and clear data flow patterns.
 
-**Command Layer** (cmd/certify): The command layer serves as the CLI entry point for the Certify tool, handling user interactions and orchestrating the execution of certification workflows. It imports and delegates to internal packages to perform core functionality like configuration, discovery, domain logic, and reporting.
+**Command Layer** (cmd/certify): The command layer serves as the CLI entry point for the application, handling user interactions and orchestrating the execution of certification workflows. It imports and delegates to internal packages to perform core functionality like agent interaction, configuration management, discovery, domain logic, engine operations, GitHub integration, policy evaluation, queue handling, record storage, report generation, and workspace management.
 
-**Internal Core Layer** (internal, internal/agent, internal/config, internal/discovery, internal/engine, internal/evidence, internal/expiry, internal/github, internal/override, internal/policy, internal/queue, internal/record, internal/report, internal/workspace): The internal core layer encapsulates the main business logic and domain-specific functionality of the Certify system. It includes modules for agent integration, configuration management, unit discovery, policy evaluation, evidence collection, report generation, and more. This layer is the heart of the certification engine.
+**Internal Layer** (internal, internal/agent, internal/config, internal/discovery, internal/domain, internal/engine, internal/evidence, internal/expiry, internal/github, internal/override, internal/policy, internal/queue, internal/record, internal/report, internal/workspace): The internal layer encapsulates the core business logic and domain-specific functionality of the certification system. It includes modules for agent-based analysis, configuration handling, unit discovery, domain model definitions, engine operations, evidence collection, expiry logic, GitHub integration, override mechanisms, policy evaluation, queue management, record keeping, report generation, and workspace handling. This layer is highly cohesive and follows a layered architecture pattern.
 
-**Domain Layer** (internal/domain): The domain layer defines the core types and abstractions that are shared across the system, such as UnitID, Status, Grade, and DimensionScores. It represents the fundamental concepts of the certification domain and is imported by most internal packages.
+**Domain Layer** (internal/domain): The domain layer defines the core types and abstractions that represent the business concepts of the certification system, such as UnitID, Status, Grade, and DimensionScores. It acts as a central hub for domain-level data structures and is imported by most other internal packages to maintain consistency in type definitions.
 
-**Other Layers** (extensions, testdata/repos/ts-simple/src, vscode-certify/src, vscode-certify/src/codeLens, vscode-certify/src/config, vscode-certify/src/dashboard, vscode-certify/src/diagnostics, vscode-certify/src/treeView, website/src): The other layers represent supporting components such as VSCode extension modules, website content, and test data. These are not part of the core certification engine but support related tools or documentation.
+**Other Layer** (extensions, testdata/repos/ts-simple/src, vscode-certify/src, vscode-certify/src/codeLens, vscode-certify/src/config, vscode-certify/src/dashboard, vscode-certify/src/diagnostics, vscode-certify/src/treeView, website/src): The other layer contains supporting components such as VSCode extension code, website source, and test data. These packages are not part of the core certification logic but support external integrations or testing environments.
 
-- `cmd/certify` → `internal/agent`: The CLI command layer delegates to the agent module for LLM-assisted review via OpenRouter.
-- `cmd/certify` → `internal/config`: The CLI command layer imports configuration handling to load and validate settings.
-- `cmd/certify` → `internal/discovery`: The CLI command layer uses discovery logic to identify certifiable code units.
-- `cmd/certify` → `internal/domain`: The CLI command layer accesses domain types for core certification concepts like UnitID and Status.
-- `cmd/certify` → `internal/engine`: The CLI command layer orchestrates the certification pipeline through the engine module.
-- `cmd/certify` → `internal/github`: The CLI command layer integrates with GitHub for workflow and PR comment features.
-- `cmd/certify` → `internal/override`: The CLI command layer supports human governance overrides.
-- `cmd/certify` → `internal/policy`: The CLI command layer evaluates policies as part of certification.
-- `cmd/certify` → `internal/queue`: The CLI command layer manages persistent work queues for certification tasks.
-- `cmd/certify` → `internal/record`: The CLI command layer stores certification records in JSON format with history.
-- `cmd/certify` → `internal/report`: The CLI command layer generates report cards and badges.
-- `cmd/certify` → `internal/workspace`: The CLI command layer manages workspace-specific configurations and record storage.
-- `internal` → `internal/config`: Internal modules access configuration handling for loading and validation.
-- `internal` → `internal/discovery`: Internal modules use discovery logic to identify certifiable units.
-- `internal` → `internal/domain`: Internal modules rely on domain types for core certification concepts.
-- `internal` → `internal/engine`: Internal modules integrate with the engine for certification pipeline execution.
-- `internal` → `internal/evidence`: Internal modules collect evidence for certification evaluation.
-- `internal` → `internal/override`: Internal modules support human governance overrides.
-- `internal` → `internal/policy`: Internal modules evaluate policies for certification.
-- `internal` → `internal/record`: Internal modules store certification records.
-- `internal` → `internal/report`: Internal modules generate reports for certification.
-- `internal/agent` → `internal/domain`: The agent module uses domain types for core certification concepts.
-- `internal/config` → `internal/domain`: Configuration handling accesses domain types for core certification concepts.
-- `internal/config` → `internal/policy`: Configuration handling evaluates policies for certification.
-- `internal/discovery` → `internal/domain`: Discovery logic uses domain types for core certification concepts.
-- `internal/engine` → `internal/agent`: The engine module delegates to the agent for LLM-assisted review.
-- `internal/engine` → `internal/domain`: The engine module uses domain types for core certification concepts.
-- `internal/engine` → `internal/evidence`: The engine module collects evidence for certification evaluation.
-- `internal/engine` → `internal/expiry`: The engine module calculates time-bound trust windows.
-- `internal/engine` → `internal/override`: The engine module supports human governance overrides.
-- `internal/engine` → `internal/policy`: The engine module evaluates policies for certification.
-- `internal/engine` → `internal/record`: The engine module stores certification records.
-- `internal/engine` → `internal/report`: The engine module generates reports for certification.
-- `internal/evidence` → `internal/domain`: Evidence collectors use domain types for core certification concepts.
-- `internal/evidence` → `internal/policy`: Evidence collectors evaluate policies for certification.
-- `internal/expiry` → `internal/domain`: Expiry logic uses domain types for core certification concepts.
-- `internal/github` → `internal/domain`: GitHub integration uses domain types for core certification concepts.
-- `internal/override` → `internal/domain`: Override handling uses domain types for core certification concepts.
-- `internal/policy` → `internal/domain`: Policy evaluation uses domain types for core certification concepts.
-- `internal/policy` → `internal/evidence`: Policy evaluation collects evidence for certification.
-- `internal/record` → `internal/domain`: Record storage uses domain types for core certification concepts.
-- `internal/report` → `internal/agent`: Report generation uses agent data for LLM-assisted review.
-- `internal/report` → `internal/domain`: Report generation uses domain types for core certification concepts.
-- `internal/workspace` → `internal/domain`: Workspace management uses domain types for core certification concepts.
-- `internal/workspace` → `internal/record`: Workspace management stores certification records.
-- `internal/workspace` → `internal/report`: Workspace management generates reports for certification.
+- `cmd/certify` → `internal/agent`: The CLI entry point delegates to the agent module for LLM-assisted review operations.
+- `cmd/certify` → `internal/config`: The CLI entry point accesses configuration handling for loading and validating settings.
+- `cmd/certify` → `internal/discovery`: The CLI entry point triggers unit discovery to identify certifiable code units.
+- `cmd/certify` → `internal/domain`: The CLI entry point interacts with domain types for core data structures and status definitions.
+- `cmd/certify` → `internal/engine`: The CLI entry point orchestrates engine operations for certification pipeline execution.
+- `cmd/certify` → `internal/github`: The CLI entry point integrates with GitHub for workflow and PR comment functionalities.
+- `cmd/certify` → `internal/override`: The CLI entry point manages human governance overrides for certification decisions.
+- `cmd/certify` → `internal/policy`: The CLI entry point evaluates policies for code unit compliance.
+- `cmd/certify` → `internal/queue`: The CLI entry point uses queue management for persistent work handling.
+- `cmd/certify` → `internal/record`: The CLI entry point stores certification records in JSON format with history.
+- `cmd/certify` → `internal/report`: The CLI entry point generates reports for certification cards and badges.
+- `cmd/certify` → `internal/workspace`: The CLI entry point manages workspace-specific configurations and record storage.
+- `internal` → `internal/config`: Internal modules access configuration handling for loading and validating settings.
+- `internal` → `internal/discovery`: Internal modules trigger unit discovery to identify certifiable code units.
+- `internal` → `internal/domain`: Internal modules interact with domain types for core data structures and status definitions.
+- `internal` → `internal/engine`: Internal modules orchestrate engine operations for certification pipeline execution.
+- `internal` → `internal/evidence`: Internal modules collect evidence for code unit evaluation.
+- `internal` → `internal/override`: Internal modules manage human governance overrides for certification decisions.
+- `internal` → `internal/policy`: Internal modules evaluate policies for code unit compliance.
+- `internal` → `internal/record`: Internal modules store certification records in JSON format with history.
+- `internal` → `internal/report`: Internal modules generate reports for certification cards and badges.
+- `internal/agent` → `internal/domain`: The agent module uses domain types for core data structures and status definitions.
+- `internal/config` → `internal/domain`: Configuration handling accesses domain types for core data structures and status definitions.
+- `internal/config` → `internal/policy`: Configuration handling evaluates policies for code unit compliance.
+- `internal/discovery` → `internal/domain`: Unit discovery accesses domain types for core data structures and status definitions.
+- `internal/engine` → `internal/agent`: Engine operations delegate to the agent module for LLM-assisted review.
+- `internal/engine` → `internal/domain`: Engine operations interact with domain types for core data structures and status definitions.
+- `internal/engine` → `internal/evidence`: Engine operations collect evidence for code unit evaluation.
+- `internal/engine` → `internal/expiry`: Engine operations calculate time-bound trust window for certification.
+- `internal/engine` → `internal/override`: Engine operations manage human governance overrides for certification decisions.
+- `internal/engine` → `internal/policy`: Engine operations evaluate policies for code unit compliance.
+- `internal/engine` → `internal/record`: Engine operations store certification records in JSON format with history.
+- `internal/engine` → `internal/report`: Engine operations generate reports for certification cards and badges.
+- `internal/evidence` → `internal/domain`: Evidence collectors access domain types for core data structures and status definitions.
+- `internal/evidence` → `internal/policy`: Evidence collectors evaluate policies for code unit compliance.
+- `internal/expiry` → `internal/domain`: Expiry logic interacts with domain types for core data structures and status definitions.
+- `internal/github` → `internal/domain`: GitHub integration accesses domain types for core data structures and status definitions.
+- `internal/override` → `internal/domain`: Override mechanisms interact with domain types for core data structures and status definitions.
+- `internal/policy` → `internal/domain`: Policy evaluation accesses domain types for core data structures and status definitions.
+- `internal/policy` → `internal/evidence`: Policy evaluation collects evidence for code unit compliance.
+- `internal/record` → `internal/domain`: Record storage interacts with domain types for core data structures and status definitions.
+- `internal/report` → `internal/agent`: Report generation delegates to the agent module for LLM-assisted review.
+- `internal/report` → `internal/domain`: Report generation interacts with domain types for core data structures and status definitions.
+- `internal/workspace` → `internal/domain`: Workspace management accesses domain types for core data structures and status definitions.
+- `internal/workspace` → `internal/record`: Workspace management stores certification records in JSON format with history.
+- `internal/workspace` → `internal/report`: Workspace management generates reports for certification cards and badges.
 
 ### Hotspots
 
 | Rank | Package | Units | Score | Risk Factor |
 |-----:|---------|------:|------:|------------:|
-| 1 | internal/agent | 187 | 91.8% | 15.35 |
+| 1 | internal/agent | 187 | 92.0% | 15.01 |
 | 2 | internal/report | 108 | 91.3% | 9.43 |
-| 3 | internal/evidence | 68 | 91.3% | 5.94 |
+| 3 | internal/evidence | 68 | 91.3% | 5.89 |
 | 4 | internal/domain | 69 | 92.4% | 5.23 |
-| 5 | cmd/certify | 54 | 91.4% | 4.66 |
+| 5 | cmd/certify | 54 | 91.5% | 4.59 |
 | 6 | internal/discovery | 40 | 91.1% | 3.55 |
 | 7 | vscode-certify/src | 33 | 92.5% | 2.48 |
 | 8 | internal/record | 29 | 91.9% | 2.35 |
@@ -152,15 +152,15 @@ The architecture follows a layered structure with clear separation between comma
 | cmd/certify | internal/workspace | 5 |
 | internal/engine | internal/policy | 5 |
 | cmd/certify | internal/domain | 4 |
-| cmd/certify | internal/config | 4 |
 | cmd/certify | internal/agent | 4 |
+| cmd/certify | internal/config | 4 |
+| internal/domain | internal/override | 4 |
 | internal/domain | internal/github | 4 |
 | internal/domain | internal/policy | 4 |
-| internal/domain | internal/override | 4 |
 | internal/engine | internal/evidence | 4 |
 | cmd/certify | internal/discovery | 3 |
-| cmd/certify | internal/report | 2 |
 | cmd/certify | internal/engine | 2 |
+| cmd/certify | internal/report | 2 |
 | cmd/certify | internal/github | 2 |
 
 ---
@@ -169,55 +169,127 @@ The architecture follows a layered structure with clear separation between comma
 
 ### Code Quality & Patterns
 
-🟠 **internal/agent** — High global mutable state usage with 4 observations exceeding threshold of 2, indicating potential concurrency issues and code maintainability risks
+🟠 **cmd/certify** — Single point of failure and exit handling risk
 
-🟡 **cmd/certify** — Contains os.Exit calls which can interfere with graceful shutdown and error handling in CLI applications
+🟠 **internal/agent** — High complexity hotspot with 187 units and 15.01 risk factor
 
-🟡 **internal/evidence** — Contains TODO markers and excessive nesting depth, suggesting incomplete implementation or code smells in structural analysis
+🟠 **internal/report** — High complexity hotspot with 108 units and 9.43 risk factor
 
-🟢 **internal/policy** — Contains TODO markers indicating incomplete policy evaluation or documentation in the policy module
+🟡 **internal/evidence** — High complexity hotspot with 68 units and 5.89 risk factor
 
-🟡 **internal/engine** — High coupling with internal/agent and internal/domain packages, representing a potential complexity hotspot
+🟡 **internal/domain** — High coupling with internal/report (14 edges) and internal/evidence (9 edges)
+
+🟡 **internal/discovery** — High coupling with internal/domain (11 edges) and moderate complexity risk
+
+🟡 **internal/engine** — High coupling with internal/agent (14 edges) and internal/report (14 edges)
 
 ### Test Strategy & Coverage
 
-The test strategy shows signs of incomplete coverage, particularly for high-risk packages with moderate to high coupling. The architecture follows layered structure but lacks comprehensive integration testing for critical data flows between cmd layer and internal packages. Missing test categories include: 1) Integration tests for CLI command flows (cmd/certify), 2) Property-based testing for state-dependent scenarios in internal/agent, 3) End-to-end integration tests for the certification pipeline (engine -> report -> record), and 4) Mock-based testing for external dependencies like GitHub integration. The current approach focuses on unit-level coverage but misses critical cross-layer interactions that could lead to runtime failures. Test organization appears to follow the package structure but lacks proper categorization for different test types, with most tests likely being unit-focused rather than integration or property-based testing.
+The test strategy shows significant gaps in coverage for high-risk packages. The architecture is well-structured with clear layers and dependencies, but test organization does not align with the architectural boundaries. Critical packages like cmd/certify, internal/agent, and internal/report lack comprehensive test coverage despite being high-risk. The strategy is missing integration tests for the command layer's orchestration and end-to-end testing of the certification pipeline. Property-based testing and mock-based integration tests are not evident in the coverage patterns, particularly for packages with high coupling relationships. The test strategy should prioritize strengthening coverage for the command layer (which has one critical observation), the agent module (high risk), and report generation (high risk) while ensuring proper integration testing across the layered architecture.
 
 **Coverage Gaps:**
 
-- `internal/agent` (score: 91.8%): High global mutable state usage (4 observations) and moderate coupling with internal/domain (14 edges) suggest weak test coverage for concurrent and state-dependent scenarios
-- `cmd/certify` (score: 91.4%): Contains os.Exit calls (1 observation) and global mutable state (2 observations) indicating potential missing integration tests for CLI behavior and graceful error handling
-- `internal/evidence` (score: 91.3%): Contains TODO markers (4 observations) and max nesting depth (1 observation) suggesting incomplete test coverage for structural analysis and edge cases
-- `internal/report` (score: 91.3%): Low observation count (0) but high risk factor (9.43) and dependency on internal/agent suggests missing integration tests for report generation with agent data
-- `internal/engine` (score: 91.5%): High coupling with internal/agent (14 edges) and internal/domain (14 edges) with no observations indicates potential missing integration tests for complex workflow scenarios
+- `cmd/certify` (score: 91.5%): Single observation of os_exit_calls indicates potential test coverage gap in CLI exit handling and error scenarios
+- `internal/evidence` (score: 91.3%): 2 observations of todo_count suggest incomplete test coverage for evidence collection functionality
+- `internal/agent` (score: 92.0%): High risk factor (15.01) and zero observations suggest critical test coverage gaps in LLM-assisted review functionality
+- `internal/report` (score: 91.3%): High risk factor (9.43) and zero observations indicate potential gaps in report generation and formatting tests
 
 ### Security & Operations
 
-🔒 **security** — High global mutable state usage in internal/agent package with 4 observations exceeding threshold of 2, indicating potential concurrency issues and code maintainability risks
-  Affected: `internal/agent`
-  Metrics: global_mutable_count: 4
-
-🔒 **security** — Global mutable state in cmd/certify package with 2 observations exceeding threshold of 0, indicating potential concurrency issues and code maintainability risks
-  Affected: `cmd/certify`
-  Metrics: global_mutable_count: 2
-
-⚙️ **operations** — os.Exit calls in cmd/certify package which can interfere with graceful shutdown and error handling in CLI applications
+🔒 **security** — Single point of failure in CLI entry point with os_exit_calls observation indicating unsafe exit handling patterns that could lead to unclean shutdowns or resource leaks
   Affected: `cmd/certify`
   Metrics: os_exit_calls: 1
 
-📋 **config** — Hardcoded values and environment handling issues in cmd/certify package with global mutable state and os.Exit calls
-  Affected: `cmd/certify`
-  Metrics: global_mutable_count: 2, os_exit_calls: 1
+⚙️ **operations** — High-risk packages with no test coverage or documentation gaps that could impact operational readiness and error handling
+  Affected: `internal/agent`, `internal/report`, `internal/evidence`
+  Metrics: todo_count: 2
 
-📦 **dependencies** — External dependency surface includes GitHub integration and LLM agent modules that may introduce security risks through external API calls
-  Affected: `internal/github`, `internal/agent`
-  Metrics: dependency_count: 2
+📋 **config** — Configuration management appears to lack comprehensive testing for environment variable handling and configuration validation patterns
+  Affected: `internal/config`
+  Metrics: avg_score: 0.917
+
+📦 **dependencies** — External dependency surface is not explicitly measured but command layer's direct dependencies suggest potential exposure through agent integration and GitHub workflows
+  Affected: `cmd/certify`
+  Metrics: dependency_count: 12
 
 ---
 
 ## Part III: Recommendations (Current → Proposed)
 
-*No recommendations generated (phase did not complete).*
+### Refactor CLI Exit Handling to Improve Reliability
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 91.5% | 93.2% | 91.5% → 93.2% |
+| observations | 1 | 0 | 1 → 0 |
+
+**Current:** cmd/certify package has an average score of 91.5% with 1 observation of os_exit_calls exceeding threshold 0, indicating potential unsafe exit handling patterns
+
+**Proposed:** Implement proper defer cleanup and graceful shutdown mechanisms in CLI entry point, reducing os_exit_calls to zero and improving overall reliability
+
+**Affected:** `cmd/certify/main.go#main`
+
+**Effort:** M · **Justification:** The single os_exit_calls observation in cmd/certify/main.go#main can be resolved by implementing proper defer statements and graceful shutdown patterns. This change would address the reliability concern while improving the package's score from 91.5% to projected 93.2%, eliminating the single observation and aligning with best practices for CLI applications that handle resources properly.
+
+### Reduce Complexity in Evidence Collection Module
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 91.3% | 92.8% | 91.3% → 92.8% |
+| observations | 2 | 0 | 2 → 0 |
+
+**Current:** internal/evidence package has an average score of 91.3% with 2 observations of todo_count, indicating incomplete implementation and testing for evidence collection functionality
+
+**Proposed:** Complete pending TODO items in evidence collectors and implement comprehensive unit tests for all evidence collection functions, reducing todo_count to zero
+
+**Affected:** `internal/evidence/complexity.go#ComputeSymbolMetrics`, `internal/evidence/structural.go#walkStmt`
+
+**Effort:** L · **Justification:** The 2 todo_count observations in internal/evidence can be resolved by completing the pending implementation tasks. This would improve code quality and testability, projecting the package score from 91.3% to 92.8% while eliminating all observations. The changes would address the incomplete test coverage gaps identified in the test strategy assessment.
+
+### Improve Agent Module Test Coverage and Documentation
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 92.0% | 93.5% | 92.0% → 93.5% |
+| observations | 0 | 0 | 0 → 0 |
+
+**Current:** internal/agent package has an average score of 92.0% with risk factor of 15.01 and no observations, indicating high-risk functionality lacks comprehensive testing
+
+**Proposed:** Implement integration tests for LLM-assisted review functionality and add documentation for agent configuration patterns, reducing risk factor through improved test coverage
+
+**Affected:** `internal/agent/architect_snapshot.go#analyzeDependencies`, `internal/agent/architect.go#buildTreeRecursive`
+
+**Effort:** L · **Justification:** While internal/agent currently has no observations, the high risk factor (15.01) indicates critical functionality requires attention. Implementing integration tests for the agent module would improve reliability and reduce risk factor, projecting the score from 92.0% to 93.5%. This addresses the security and operations concerns identified in the previous phase while ensuring proper test coverage for high-risk functionality.
+
+### Enhance Report Generation Test Coverage
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 91.3% | 92.7% | 91.3% → 92.7% |
+| observations | 0 | 0 | 0 → 0 |
+
+**Current:** internal/report package has an average score of 91.3% with risk factor of 9.43 and no observations, indicating report generation lacks comprehensive testing
+
+**Proposed:** Add unit tests for all report generation functions and implement property-based testing for formatting logic, reducing risk factor through improved test coverage
+
+**Affected:** `internal/report/architect_report.go#writeArchPartII`, `internal/report/full.go#writeAIInsights`
+
+**Effort:** L · **Justification:** The internal/report package's risk factor of 9.43 indicates high-risk report generation functionality needs better testing. Adding comprehensive unit tests and property-based testing would improve code quality from 91.3% to projected 92.7%, addressing the operational readiness gaps identified in the security assessment while ensuring proper end-to-end testing of report generation.
+
+### Refactor High-Coupling Dependencies to Reduce Risk
+
+| Metric | Current | Projected | Delta |
+|--------|--------:|----------:|------:|
+| avg_score | 92.4% | 93.1% | 92.4% → 93.1% |
+| observations | 0 | 0 | 0 → 0 |
+
+**Current:** internal/domain package has 14 edges to internal/report and 9 edges to internal/evidence, with average score of 92.4% and 0 observations
+
+**Proposed:** Introduce dedicated interfaces or service layers to reduce direct coupling between domain and report/evidence packages, improving architectural separation
+
+**Affected:** `internal/domain`
+
+**Effort:** L · **Justification:** The high coupling between internal/domain and other packages (14 edges to report, 9 edges to evidence) creates architectural risk. Introducing service layers or interfaces would improve modularity and reduce coupling, projecting the domain package score from 92.4% to 93.1%. This change addresses the medium severity coupling issues identified in code quality assessment while improving maintainability.
 
 ---
 
@@ -225,27 +297,29 @@ The test strategy shows signs of incomplete coverage, particularly for high-risk
 
 | Risk | Severity | Likelihood | Related Recommendation |
 |------|----------|------------|------------------------|
-| High global mutable state in internal/agent package causing concurrency issues and maintainability risks | high | medium | Reduce Global Mutable State in Agent Package |
-| os.Exit calls in cmd/certify package interfering with graceful shutdown and error handling | high | medium | Eliminate os.Exit Calls from CLI Commands |
-| Incomplete TODO markers and excessive nesting in internal/evidence package affecting code quality | medium | high | Address TODO Markers and Nesting Depth in Evidence Package |
-| Incomplete policy evaluation documentation in internal/policy package | medium | low | Complete Policy Evaluation Documentation |
+| Unsafe CLI exit handling in cmd/certify | high | high | Refactor CLI Exit Handling to Improve Reliability |
+| High-risk agent module lacks comprehensive test coverage | high | medium | Improve Agent Module Test Coverage and Documentation |
+| Report generation module has insufficient test coverage | high | medium | Enhance Report Generation Test Coverage |
+| Evidence collection module incomplete with TODO items | medium | medium | Reduce Complexity in Evidence Collection Module |
+| High coupling between domain and report/evidence modules | medium | low | Refactor High-Coupling Dependencies to Reduce Risk |
 
 ## Prioritized Roadmap
 
 | # | Item | Effort | Impact | Current → Projected |
 |--:|------|--------|--------|---------------------|
-| 1 | Reduce Global Mutable State in Agent Package | M | high | key metric: observations 5 → 1, avg_score 91.8% → 92.3% |
-| 2 | Eliminate os.Exit Calls from CLI Commands | M | high | key metric: observations 2 → 0, avg_score 91.4% → 92.1% |
-| 3 | Address TODO Markers and Nesting Depth in Evidence Package | M | medium | key metric: observations 4 → 1, avg_score 91.3% → 92.0% |
-| 4 | Complete Policy Evaluation Documentation | S | medium | key metric: observations 1 → 0, avg_score 91.5% → 92.2% |
+| 1 | Refactor CLI Exit Handling to Improve Reliability | M | high | key metric: avg_score: 91.5% → 93.2%, observations: 1 → 0 |
+| 2 | Improve Agent Module Test Coverage and Documentation | L | high | key metric: avg_score: 92.0% → 93.5% |
+| 3 | Enhance Report Generation Test Coverage | L | high | key metric: avg_score: 91.3% → 92.7% |
+| 4 | Reduce Complexity in Evidence Collection Module | L | medium | key metric: avg_score: 91.3% → 92.8%, observations: 2 → 0 |
+| 5 | Refactor High-Coupling Dependencies to Reduce Risk | L | medium | key metric: avg_score: 92.4% → 93.1% |
 
 ---
 
 ## Appendix: Data Sources
 
-- **748** units across **25** packages · Score: 91.7%
+- **748** units across **25** packages · Score: 91.8%
 - Evidence: lint, test, coverage, structural, git history
-- Snapshot computed from certification records at `68eb2b49`
+- Snapshot computed from certification records at `fc01a99f`
 
 ---
 

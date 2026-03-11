@@ -18,7 +18,7 @@ func CertifyUnit(
 	now time.Time,
 ) domain.CertificationRecord {
 	// 1. Evaluate policy rules against evidence
-	evalResult := policy.Evaluate(rules, ev)
+	evalResult := policy.Evaluate(rules, ev, unit.ID.Path())
 
 	// 2. Score across dimensions
 	scores := Score(ev, evalResult)
