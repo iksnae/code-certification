@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 — 2026-03-10
+
+### Added
+- **Algorithmic complexity display**: Unit reports now show `algo_complexity` (O(1), O(n), O(n²), etc.), `loop_nesting_depth`, `recursive_calls`, and `quadratic_patterns` when present in structural evidence.
+- **performance_appropriateness in dashboard**: The dashboard dimension bars now include `performance_appropriateness` for projects using CLI v0.7.0+ (previously penalty-only, now always measured).
+
+### Changed
+- **Compatible with CLI v0.7.0**: Supports graduated git scoring, const-like var detection, and algorithmic complexity metrics. All new fields are optional — backward compatible with older CLI versions.
+
 ## 0.3.1 — 2026-03-10
 
 ### Fixed
