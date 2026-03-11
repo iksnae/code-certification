@@ -1,56 +1,69 @@
-# Release v0.7.0
+# Release v0.8.0
 
 **Date:** 2026-03-10
 
 ## Highlights
 
-**Algorithmic complexity detection** and **measurement accuracy fixes** push the self-certification score from B+ (88.7%) to **A- (91.7%)** with 92.4% of units at A- or above.
+**Rule-level policy scoping** and **code quality remediation** eliminate all observations. The project now self-certifies at **A- (91.8%) with 0 observations** across 748 units.
 
 ## What's Changed
 
 ### New Features
 
-- **feat: algorithmic complexity detection via go/ast** — New structural analysis that estimates Big-O complexity class for every function: O(1), O(n), O(n²), O(n³), O(2^n). Detects nested loop depth, recursive calls, and quadratic anti-patterns (string concat in loops). 5 new metrics: `algo_complexity`, `loop_nesting_depth`, `recursive_calls`, `nested_loop_pairs`, `quadratic_patterns`.
+- **feat: rule-level path scoping for policy rules** — `PolicyRule` now supports `path_patterns` (include) and `exclude_patterns` (exclude) fields. Rules can be scoped to specific paths or excluded from test files. `Evaluate()` filters rules by unit path before evaluation.
 
-- **feat: performance_appropriateness scoring** — The `performance_appropriateness` dimension is now always measured for function-level units (was penalty-only for `defer_in_loop`). O(1)→0.95, O(n)→0.90, O(n²)→0.70, O(n³)→0.50, O(2^n)→0.40.
-
-- **feat: graduated git history scoring** — `operational_quality` now scales with commit count: >50→0.95, >20→0.90, >10→0.85, >0→0.75. `change_risk` scales with author count: ≥3→0.95, ≥2→0.90, 1→0.70. Previously all units were capped at 0.85/0.90.
-
-- **feat: const-like var detection** — Structural analyzer now distinguishes truly mutable `var` declarations from const-like ones. Composite literals (`map[K]V{...}`, `[]T{...}`), error sentinels (`errors.New`), compiled regexes (`regexp.MustCompile`), and pointer-to-literals (`&T{}`) are excluded from `global_mutable_count`. Only `make()`/`new()`/uninitialized vars count as mutable. Fixes 168 units falsely penalized for lookup tables.
-
-- **feat: graduated file-level readability** — File-level `code_lines` thresholds raised to match file reality: ≤100→0.95, ≤300→0.90, ≤500→0.85, ≤800→0.75, >800→0.60 (was ≤50/≤150/≤300/>300).
-
-- **feat: graduated complexity scoring** — Added 0.80 tier for cyclomatic complexity 11-15 (was jump from 0.85 at ≤10 to 0.70 at ≤20).
+- **feat: split policy packs** — `go-standard.yml` split into two packs:
+  - `go-standard.yml` (v1.1.0): 13 universal rules. `no-todos` excludes `*_test.go`.
+  - `go-library.yml` (v1.0.0): `no-panic` and `no-os-exit` scoped to `internal/**` only.
+  
+  This means `os.Exit` in CLI entry points and TODO strings in test fixtures no longer generate false observations.
 
 ### Bug Fixes
 
-- **fix: 14 exported symbols documented** — Added doc comments to architect review types and interface method implementations to fix readability penalties.
+- **fix: TODO false positives** — `containsTodo` now enforces word boundaries (non-letter before/after) and skips TODO/FIXME inside quoted strings in comments. Eliminates false positives from identifiers like `extractTodoCount` and comments like `// Parse "N TODOs"`.
+
+- **fix: convert mutable global vars to functions** — 8 `var` declarations in `providers.go` and `autodetect.go` converted to functions returning fresh slices/maps. Eliminates `global_mutable_count` for the agent package entirely.
+
+- **fix: BasicLit const-like detection** — `var Version = "dev"` (ldflags pattern) now recognized as const-like. Added `*ast.BasicLit` case to `isConstLikeExpr`.
+
+- **fix: extract countGlobalMutables helper** — Reduces `AnalyzeGoFile` nesting depth from 5 to 3.
+
+- **fix: wire PathPatterns/ExcludePatterns through config loader** — `rawPolicyRule` was missing the new fields, causing YAML values to be silently dropped during parsing.
 
 ## Results
 
-| Metric | v0.6.2 | v0.7.0 | Change |
+| Metric | v0.7.0 | v0.8.0 | Change |
 |--------|--------|--------|--------|
-| Overall Grade | B+ | **A-** | ↑ |
-| Score | 88.7% | **91.7%** | +3.0% |
-| A/A- units | 395 (52.8%) | **691 (92.4%)** | +296 |
-| B+ units | 148 | 26 | -122 |
-| B units | 192 | 31 | -161 |
-| C units | 13 | **0** | -13 |
-| Observations | 13 | **0** | -13 |
-| Dimensions measured | 7 | **8** | +performance_appropriateness |
+| Score | 91.7% | **91.8%** | +0.1% |
+| Observations | 12 | **0** | -12 |
+| A- units | 669 | **676** | +7 |
+| Policy packs | 2 | **3** | +1 |
+| go-standard rules | 15 | **13** | -2 (moved to go-library) |
 
 ## Tests Added
 
-- 26 new tests: algorithmic complexity (12), const-like var detection (12), graduated scoring (9), algo scoring (5)
+- `TestEvaluate_RuleExcludePatterns` — rule with exclude_patterns skips test files
+- `TestEvaluate_RulePathPatterns` — rule with path_patterns only fires for matching paths
+- `TestEvaluate_NoPatterns_AppliesToAll` — existing behavior unchanged
+- `TestLoadPolicyPack_GoLibrary` — validates go-library.yml structure
+- `TestLoadPolicyPack_GoStandard_ExcludePatterns` — validates YAML exclude_patterns loading
+- `TestCodeMetrics_TodoCount_QuotedNotFlagged` — TODO inside quoted strings
+- `TestCodeMetrics_TodoCount_IdentifierNotFlagged` — TODO inside identifiers
+- 2 new const-like var tests (string literal, int literal)
 - All 16 packages pass with zero regressions
 
 ## Full Changelog
 
 ```
-9d89d9a fix: add doc comments to 14 exported symbols
-0c1729d feat: score performance_appropriateness from algorithmic complexity
-64ac068 feat: algorithmic complexity detection via go/ast
-ac78ce0 feat: graduated file-level readability + complexity scoring
-d33e933 feat: const-like var detection — exclude lookup tables
-1908dd9 feat: graduated git history scoring for operational_quality and change_risk
+f0dca8b6 docs: mark policy scoping plan complete
+c3c6411d chore: re-certify — 0 observations with scoped policy rules
+fb391766 fix: wire PathPatterns/ExcludePatterns through config loader
+016e0e01 feat: split policy packs — go-library.yml for internal-only rules
+1da4e293 feat: rule-level path scoping for policy rules
+efb88d27 chore: re-certify after architect remediation — 3 observations, 91.8%
+a75f0acb fix: TODO detection with word boundary + quoted string checks
+6d22c97f fix: extract countGlobalMutables to reduce AnalyzeGoFile nesting depth
+cc9b4fe1 fix: detect BasicLit vars as const-like (ldflags pattern)
+01cac4b7 fix: convert mutable global vars to functions in agent package
+30a6235a fix: TODO false positives — skip TODO/FIXME inside quoted strings in comments
 ```
