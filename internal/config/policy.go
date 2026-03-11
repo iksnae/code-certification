@@ -12,12 +12,14 @@ import (
 
 // rawPolicyRule is the YAML representation of a policy rule.
 type rawPolicyRule struct {
-	ID          string  `yaml:"id"`
-	Dimension   string  `yaml:"dimension"`
-	Description string  `yaml:"description"`
-	Severity    string  `yaml:"severity"`
-	Threshold   float64 `yaml:"threshold"`
-	Metric      string  `yaml:"metric"`
+	ID              string   `yaml:"id"`
+	Dimension       string   `yaml:"dimension"`
+	Description     string   `yaml:"description"`
+	Severity        string   `yaml:"severity"`
+	Threshold       float64  `yaml:"threshold"`
+	Metric          string   `yaml:"metric"`
+	PathPatterns    []string `yaml:"path_patterns"`
+	ExcludePatterns []string `yaml:"exclude_patterns"`
 }
 
 // rawPolicyPack is the YAML representation of a policy pack.
@@ -90,12 +92,14 @@ func parsePolicyPack(data []byte) (domain.PolicyPack, error) {
 			return domain.PolicyPack{}, fmt.Errorf("rule %q: %w", rr.ID, err)
 		}
 		pack.Rules = append(pack.Rules, domain.PolicyRule{
-			ID:          rr.ID,
-			Dimension:   dim,
-			Description: rr.Description,
-			Severity:    sev,
-			Threshold:   rr.Threshold,
-			Metric:      rr.Metric,
+			ID:              rr.ID,
+			Dimension:       dim,
+			Description:     rr.Description,
+			Severity:        sev,
+			Threshold:       rr.Threshold,
+			Metric:          rr.Metric,
+			PathPatterns:    rr.PathPatterns,
+			ExcludePatterns: rr.ExcludePatterns,
 		})
 	}
 

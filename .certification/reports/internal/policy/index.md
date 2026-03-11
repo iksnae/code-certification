@@ -2,7 +2,7 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.6%)  
+**Grade:** 🟢 A- (91.5%)  
 **Units:** 15 · **Passing:** 15 / 15
 
 ## Units
@@ -13,8 +13,8 @@
 | [matchPath](matcher.go/matchPath.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [matchesPack](matcher.go/matchesPack.md) | method | 🟢 A- | 90.6% | certified | 2026-04-24 |
+| [Evaluate](evaluator.go/Evaluate.md) | function | 🟢 A- | 90.6% | certified | 2026-04-24 |
 | [evaluator_test.go](evaluator_test.go.md) | file | 🟢 A- | 91.9% | certified | 2026-04-24 |
-| [Evaluate](evaluator.go/Evaluate.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |
 | [Match](matcher.go/Match.md) | method | 🟢 A- | 91.9% | certified | 2026-04-24 |
 | [extractComplexity](evaluator.go/extractComplexity.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
 | [extractCoverage](evaluator.go/extractCoverage.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |

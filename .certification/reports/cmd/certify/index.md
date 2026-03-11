@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [main](main.go/main.md) | function | 🟢 B | 81.2% | certified | 2026-04-24 |
+| [main](main.go/main.md) | function | 🟢 B | 82.5% | certified | 2026-04-24 |
 | [runWorkspaceReport](report_cmd.go/runWorkspaceReport.md) | function | 🟢 B | 85.6% | certified | 2026-04-24 |
 | [processQueue](certify_cmd.go/processQueue.md) | method | 🟢 B | 85.6% | certified | 2026-04-24 |
 | [setupArchitectProvider](architect_cmd.go/setupArchitectProvider.md) | function | 🟢 B+ | 87.5% | certified | 2026-04-24 |

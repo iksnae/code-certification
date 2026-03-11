@@ -139,6 +139,23 @@ func TestLoadPolicyPack_GoLibrary(t *testing.T) {
 	}
 }
 
+func TestLoadPolicyPack_GoStandard_ExcludePatterns(t *testing.T) {
+	pack, err := config.LoadPolicyPack(policiesPath("go-standard.yml"))
+	if err != nil {
+		t.Fatalf("LoadPolicyPack error: %v", err)
+	}
+
+	for _, r := range pack.Rules {
+		if r.ID == "no-todo-fixme" {
+			if len(r.ExcludePatterns) != 1 || r.ExcludePatterns[0] != "*_test.go" {
+				t.Errorf("no-todo-fixme ExcludePatterns = %v, want [*_test.go]", r.ExcludePatterns)
+			}
+			return
+		}
+	}
+	t.Error("no-todo-fixme rule not found")
+}
+
 func TestLoadPolicyPack_NotFound(t *testing.T) {
 	_, err := config.LoadPolicyPack("/nonexistent/policy.yml")
 	if err == nil {

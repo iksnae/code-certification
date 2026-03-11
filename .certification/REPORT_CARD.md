@@ -1,8 +1,8 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `a75f0acb`
-**Generated:** 2026-03-10T21:19:58
+**Commit:** `016e0e01`
+**Generated:** 2026-03-10T21:52:52
 
 ## 🟢 Overall: A- (91.8%)
 
@@ -47,7 +47,7 @@
 | [internal/expiry](reports/internal/expiry/index.md) | 2 | 🟢 A- | 91.9% |
 | [internal/github](reports/internal/github/index.md) | 17 | 🟢 A- | 92.1% |
 | [internal/override](reports/internal/override/index.md) | 9 | 🟢 A- | 91.8% |
-| [internal/policy](reports/internal/policy/index.md) | 15 | 🟢 A- | 91.6% |
+| [internal/policy](reports/internal/policy/index.md) | 15 | 🟢 A- | 91.5% |
 | [internal/queue](reports/internal/queue/index.md) | 17 | 🟢 A- | 92.2% |
 | [internal/record](reports/internal/record/index.md) | 29 | 🟢 A- | 91.9% |
 | [internal/report](reports/internal/report/index.md) | 108 | 🟢 A- | 91.3% |
