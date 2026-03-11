@@ -1,10 +1,6 @@
 name: rust-standard
-version: "1.0.0"
+version: "1.2.0"
 language: rs
-
-# Note: func_lines, param_count, max_nesting_depth, unsafe_blocks require
-# language-specific structural analysis (not yet implemented for Rust).
-# Add those rules when Rust structural analysis lands.
 
 rules:
   - id: lint-clean
@@ -27,7 +23,6 @@ rules:
     severity: warning
     metric: todo_count
     threshold: 0
-    exclude_patterns: ["*_test.rs"]
 
   - id: max-complexity
     dimension: maintainability
@@ -35,3 +30,70 @@ rules:
     severity: warning
     metric: complexity
     threshold: 20
+
+  # Structural rules (tree-sitter powered)
+
+  - id: max-params
+    dimension: maintainability
+    description: "Functions should have at most 5 parameters (excluding self)"
+    severity: warning
+    metric: param_count
+    threshold: 5
+
+  - id: max-nesting
+    dimension: readability
+    description: "Function body nesting should not exceed 4 levels"
+    severity: warning
+    metric: max_nesting_depth
+    threshold: 4
+
+  - id: max-func-lines
+    dimension: readability
+    description: "Functions should be concise (under 100 lines)"
+    severity: warning
+    metric: func_lines
+    threshold: 100
+
+  - id: max-methods
+    dimension: maintainability
+    description: "Impl blocks should not have more than 15 methods"
+    severity: warning
+    metric: method_count
+    threshold: 15
+
+  # Deep analysis rules
+
+  - id: max-cognitive-complexity
+    dimension: readability
+    description: "Cognitive complexity should not exceed 25"
+    severity: warning
+    metric: cognitive_complexity
+    threshold: 25
+
+  - id: no-unsafe-imports
+    dimension: security
+    description: "Avoid std::process, libc, and similar dangerous imports"
+    severity: warning
+    metric: unsafe_import_count
+    threshold: 0
+
+  - id: no-hardcoded-secrets
+    dimension: security
+    description: "No hardcoded passwords, API keys, or secrets in source"
+    severity: critical
+    metric: hardcoded_secrets
+    threshold: 0
+
+  - id: no-panic-unwrap
+    dimension: correctness
+    description: "Avoid panic!() and .unwrap() — use Result/Option properly"
+    severity: warning
+    metric: panic_calls
+    threshold: 0
+
+  - id: require-doc-comments
+    dimension: readability
+    description: "Public items should have /// doc comments"
+    severity: info
+    metric: has_doc_comment
+    threshold: 1

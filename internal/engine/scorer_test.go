@@ -562,3 +562,175 @@ func TestScorer_RichEvidence_HighScore(t *testing.T) {
 		t.Errorf("rich clean evidence avg = %f, want >= 0.85", avg)
 	}
 }
+
+func TestScorer_CognitiveComplexity(t *testing.T) {
+	tests := []struct {
+		name          string
+		cogComplexity float64
+		wantMinRead   float64
+		wantMaxRead   float64
+	}{
+		{"low complexity", 5, 0.90, 1.0},
+		{"moderate complexity", 12, 0.80, 0.90},
+		{"very high complexity", 30, 0.0, 0.55},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ev := []domain.Evidence{{
+				Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+				Metrics: map[string]float64{
+					"cognitive_complexity": tt.cogComplexity,
+				},
+			}}
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			read := scores[domain.DimReadability]
+			if read < tt.wantMinRead || read > tt.wantMaxRead {
+				t.Errorf("readability = %f, want [%f, %f]", read, tt.wantMinRead, tt.wantMaxRead)
+			}
+		})
+	}
+}
+
+func TestScorer_ErrorsNotWrapped(t *testing.T) {
+	tests := []struct {
+		name    string
+		count   float64
+		wantMin float64
+		wantMax float64
+	}{
+		{"all wrapped", 0, 0.85, 1.0},
+		{"few unwrapped", 2, 0.70, 0.80},
+		{"many unwrapped", 5, 0.0, 0.60},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ev := []domain.Evidence{{
+				Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+				Metrics: map[string]float64{
+					"errors_not_wrapped": tt.count,
+				},
+			}}
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			opQ := scores[domain.DimOperationalQuality]
+			if opQ < tt.wantMin || opQ > tt.wantMax {
+				t.Errorf("operational_quality = %f, want [%f, %f]", opQ, tt.wantMin, tt.wantMax)
+			}
+		})
+	}
+}
+
+func TestScorer_UnsafeImports(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{
+			"unsafe_import_count": 2,
+		},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	sec := scores[domain.DimSecurity]
+	if sec > 0.65 {
+		t.Errorf("security = %f, want <= 0.65 for unsafe imports", sec)
+	}
+}
+
+func TestScorer_HardcodedSecrets(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{
+			"hardcoded_secrets": 1,
+		},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	sec := scores[domain.DimSecurity]
+	if sec > 0.35 {
+		t.Errorf("security = %f, want <= 0.35 for hardcoded secrets", sec)
+	}
+}
+
+func TestScorer_EmptyCatchBlocks(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{
+			"empty_catch_blocks": 2,
+		},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	corr := scores[domain.DimCorrectness]
+	if corr > 0.60 {
+		t.Errorf("correctness = %f, want <= 0.60 for empty catch blocks", corr)
+	}
+}
+
+func TestScorer_QuadraticPatterns(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{
+			"quadratic_patterns": 1,
+			"loop_nesting_depth": 0,
+		},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	perf := scores[domain.DimPerformanceAppropriateness]
+	if perf > 0.50 {
+		t.Errorf("perf = %f, want <= 0.50 for quadratic patterns", perf)
+	}
+}
+
+func TestScorer_HighReturnCount(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{
+			"return_count": 8,
+		},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	maint := scores[domain.DimMaintainability]
+	if maint > 0.70 {
+		t.Errorf("maintainability = %f, want <= 0.70 for high return count", maint)
+	}
+}
+
+func TestScorer_NestedLoopPairs(t *testing.T) {
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{
+			"nested_loop_pairs":  2,
+			"quadratic_patterns": 0,
+			"loop_nesting_depth": 0,
+		},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	perf := scores[domain.DimPerformanceAppropriateness]
+	if perf > 0.65 {
+		t.Errorf("perf = %f, want <= 0.65 for nested loop pairs", perf)
+	}
+}
+
+func TestScorer_DeepAnalysis_AllClean(t *testing.T) {
+	// A function with all deep analysis metrics clean should score well
+	ev := []domain.Evidence{{
+		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
+		Metrics: map[string]float64{
+			"has_doc_comment":      1,
+			"param_count":          2,
+			"max_nesting_depth":    1,
+			"func_lines":           20,
+			"cognitive_complexity": 3,
+			"errors_not_wrapped":   0,
+			"unsafe_import_count":  0,
+			"hardcoded_secrets":    0,
+			"empty_catch_blocks":   0,
+			"loop_nesting_depth":   0,
+			"quadratic_patterns":   0,
+			"return_count":         1,
+			"exported_name":        1,
+		},
+	}}
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+
+	for dim, score := range scores {
+		if score < 0.80 {
+			t.Errorf("dim %s = %f, want >= 0.80 for clean code", dim, score)
+		}
+	}
+}

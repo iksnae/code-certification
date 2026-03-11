@@ -335,6 +335,21 @@ func scoreDeepAnalysis(m map[string]float64, scores domain.DimensionScores) {
 	if empty, ok := m["empty_catch_blocks"]; ok && empty > 0 {
 		setMin(scores, domain.DimCorrectness, 0.55)
 	}
+
+	// Quadratic patterns → performance_appropriateness
+	if quads, ok := m["quadratic_patterns"]; ok && quads > 0 {
+		setMin(scores, domain.DimPerformanceAppropriateness, 0.45)
+	}
+
+	// Nested loop pairs → performance_appropriateness (milder than quadratic)
+	if nested, ok := m["nested_loop_pairs"]; ok && nested > 0 && m["quadratic_patterns"] == 0 {
+		setMin(scores, domain.DimPerformanceAppropriateness, 0.60)
+	}
+
+	// High return count → maintainability (many exit points)
+	if returns, ok := m["return_count"]; ok && returns > 5 {
+		setMin(scores, domain.DimMaintainability, 0.65)
+	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {

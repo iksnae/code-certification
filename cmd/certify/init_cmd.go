@@ -311,7 +311,7 @@ func languagePolicy(lang string) string {
 }
 
 const goStandardPolicy = `name: go-standard
-version: "1.1.0"
+version: "1.3.0"
 language: go
 
 rules:
@@ -406,10 +406,52 @@ rules:
     severity: warning
     metric: method_count
     threshold: 15
+
+  - id: max-cognitive-complexity
+    dimension: readability
+    description: "Cognitive complexity should not exceed 25"
+    severity: warning
+    metric: cognitive_complexity
+    threshold: 25
+
+  - id: no-unsafe-imports
+    dimension: security
+    description: "Avoid unsafe, os/exec, and similar dangerous imports"
+    severity: warning
+    metric: unsafe_import_count
+    threshold: 0
+
+  - id: no-hardcoded-secrets
+    dimension: security
+    description: "No hardcoded passwords, API keys, or secrets in source"
+    severity: critical
+    metric: hardcoded_secrets
+    threshold: 0
+
+  - id: wrap-errors
+    dimension: operational_quality
+    description: "Errors should be wrapped with context using fmt.Errorf(%%w)"
+    severity: warning
+    metric: errors_not_wrapped
+    threshold: 0
+
+  - id: no-panic-in-library
+    dimension: correctness
+    description: "Library code should return errors, not panic"
+    severity: warning
+    metric: panic_calls
+    threshold: 0
+
+  - id: no-os-exit
+    dimension: testability
+    description: "Avoid os.Exit() — makes code untestable"
+    severity: warning
+    metric: os_exit_calls
+    threshold: 0
 `
 
 const tsStandardPolicy = `name: ts-standard
-version: "1.0.0"
+version: "1.2.0"
 language: ts
 
 rules:
@@ -441,10 +483,59 @@ rules:
     severity: warning
     metric: complexity
     threshold: 20
+
+  - id: max-params
+    dimension: maintainability
+    description: "Functions should have at most 5 parameters"
+    severity: warning
+    metric: param_count
+    threshold: 5
+
+  - id: max-nesting
+    dimension: readability
+    description: "Function body nesting should not exceed 4 levels"
+    severity: warning
+    metric: max_nesting_depth
+    threshold: 4
+
+  - id: max-func-lines
+    dimension: readability
+    description: "Functions should be concise (under 100 lines)"
+    severity: warning
+    metric: func_lines
+    threshold: 100
+
+  - id: max-cognitive-complexity
+    dimension: readability
+    description: "Cognitive complexity should not exceed 25"
+    severity: warning
+    metric: cognitive_complexity
+    threshold: 25
+
+  - id: no-unsafe-imports
+    dimension: security
+    description: "Avoid child_process, eval, vm, and similar dangerous imports"
+    severity: warning
+    metric: unsafe_import_count
+    threshold: 0
+
+  - id: no-hardcoded-secrets
+    dimension: security
+    description: "No hardcoded passwords, API keys, or secrets in source"
+    severity: critical
+    metric: hardcoded_secrets
+    threshold: 0
+
+  - id: no-empty-catch
+    dimension: correctness
+    description: "Catch blocks should not be empty"
+    severity: warning
+    metric: empty_catch_blocks
+    threshold: 0
 `
 
 const pythonStandardPolicy = `name: python-standard
-version: "1.0.0"
+version: "1.2.0"
 language: py
 
 rules:
@@ -476,10 +567,59 @@ rules:
     severity: warning
     metric: complexity
     threshold: 20
+
+  - id: max-params
+    dimension: maintainability
+    description: "Functions should have at most 5 parameters (excluding self/cls)"
+    severity: warning
+    metric: param_count
+    threshold: 5
+
+  - id: max-nesting
+    dimension: readability
+    description: "Function body nesting should not exceed 4 levels"
+    severity: warning
+    metric: max_nesting_depth
+    threshold: 4
+
+  - id: max-func-lines
+    dimension: readability
+    description: "Functions should be concise (under 100 lines)"
+    severity: warning
+    metric: func_lines
+    threshold: 100
+
+  - id: max-cognitive-complexity
+    dimension: readability
+    description: "Cognitive complexity should not exceed 25"
+    severity: warning
+    metric: cognitive_complexity
+    threshold: 25
+
+  - id: no-unsafe-imports
+    dimension: security
+    description: "Avoid subprocess, pickle, ctypes, and similar dangerous imports"
+    severity: warning
+    metric: unsafe_import_count
+    threshold: 0
+
+  - id: no-hardcoded-secrets
+    dimension: security
+    description: "No hardcoded passwords, API keys, or secrets in source"
+    severity: critical
+    metric: hardcoded_secrets
+    threshold: 0
+
+  - id: no-empty-except
+    dimension: correctness
+    description: "Bare except:pass blocks silently swallow errors"
+    severity: warning
+    metric: empty_catch_blocks
+    threshold: 0
 `
 
 const rustStandardPolicy = `name: rust-standard
-version: "1.0.0"
+version: "1.2.0"
 language: rs
 
 rules:
@@ -503,7 +643,6 @@ rules:
     severity: warning
     metric: todo_count
     threshold: 0
-    exclude_patterns: ["*_test.rs"]
 
   - id: max-complexity
     dimension: maintainability
@@ -511,6 +650,55 @@ rules:
     severity: warning
     metric: complexity
     threshold: 20
+
+  - id: max-params
+    dimension: maintainability
+    description: "Functions should have at most 5 parameters (excluding self)"
+    severity: warning
+    metric: param_count
+    threshold: 5
+
+  - id: max-nesting
+    dimension: readability
+    description: "Function body nesting should not exceed 4 levels"
+    severity: warning
+    metric: max_nesting_depth
+    threshold: 4
+
+  - id: max-func-lines
+    dimension: readability
+    description: "Functions should be concise (under 100 lines)"
+    severity: warning
+    metric: func_lines
+    threshold: 100
+
+  - id: max-cognitive-complexity
+    dimension: readability
+    description: "Cognitive complexity should not exceed 25"
+    severity: warning
+    metric: cognitive_complexity
+    threshold: 25
+
+  - id: no-unsafe-imports
+    dimension: security
+    description: "Avoid std::process, libc, and similar dangerous imports"
+    severity: warning
+    metric: unsafe_import_count
+    threshold: 0
+
+  - id: no-hardcoded-secrets
+    dimension: security
+    description: "No hardcoded passwords, API keys, or secrets in source"
+    severity: critical
+    metric: hardcoded_secrets
+    threshold: 0
+
+  - id: no-panic-unwrap
+    dimension: correctness
+    description: "Avoid panic!() and .unwrap() — use Result/Option properly"
+    severity: warning
+    metric: panic_calls
+    threshold: 0
 `
 
 const swiftStandardPolicy = `name: swift-standard

@@ -1,5 +1,5 @@
 name: go-standard
-version: "1.2.0"
+version: "1.3.0"
 language: go
 
 rules:
@@ -121,6 +121,20 @@ rules:
     description: "Errors should be wrapped with context using fmt.Errorf(%%w)"
     severity: warning
     metric: errors_not_wrapped
+    threshold: 0
+
+  - id: no-panic-in-library
+    dimension: correctness
+    description: "Library code should return errors, not panic"
+    severity: warning
+    metric: panic_calls
+    threshold: 0
+
+  - id: no-os-exit
+    dimension: testability
+    description: "Avoid os.Exit() — makes code untestable"
+    severity: warning
+    metric: os_exit_calls
     threshold: 0
 
   # min-coverage requires "less than" comparison — tracked for future operator support
