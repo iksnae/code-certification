@@ -22,7 +22,7 @@ jobs:
             goos: linux
             goarch: arm64
             artifact: certify-linux-arm64
-          - os: macos-13
+          - os: macos-latest
             goos: darwin
             goarch: amd64
             artifact: certify-darwin-amd64
