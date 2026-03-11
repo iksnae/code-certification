@@ -664,6 +664,22 @@ var rootCmd = &cobra.Command{Use: "certify"}
 `,
 			wantGMC: 0,
 		},
+		{
+			name: "string literal var is const-like (ldflags)",
+			src: `package lib
+var Version = "dev"
+var Commit = "unknown"
+var Date = "unknown"
+`,
+			wantGMC: 0,
+		},
+		{
+			name: "int literal var is const-like",
+			src: `package lib
+var maxRetries = 3
+`,
+			wantGMC: 0,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -696,6 +696,11 @@ func isMutableVar(vs *ast.ValueSpec) bool {
 // immutable value when used as a package-level var initializer.
 func isConstLikeExpr(expr ast.Expr) bool {
 	switch e := expr.(type) {
+	case *ast.BasicLit:
+		// Basic literals: var x = "dev", var x = 42
+		// These are effectively const — Go just requires var for ldflags.
+		_ = e
+		return true
 	case *ast.CompositeLit:
 		// map/slice/struct literals: var x = map[K]V{...}, var x = []T{...}
 		return true
