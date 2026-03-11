@@ -8,13 +8,13 @@ description: How Certify is built — packages, data flow, and design decisions.
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                          CLI (cmd/certify/)                            │
-│  init │ scan │ certify │ report │ expire │ architect │ models │ review │
+│  init │ scan │ certify │ report │ expire │ architect │ doctor │ onboard │
 └────┬──────┬──────┬────────┬────────┬────────┬────────┬─────────┬──────┘
      │      │      │        │        │        │        │         │
 ┌────▼──────▼──────▼────────▼────────▼────────▼────────▼─────────▼──────┐
 │                         Internal Packages                             │
-│  discovery │ evidence  │ engine │ agent  │ report │ record │ workspace │
-│  config    │ policy    │ expiry │ queue  │ github │ override │ domain  │
+│  discovery │ evidence │ engine │ agent  │ report │ record │ workspace │
+│  config   │ policy   │ expiry │ queue  │ github │ override │ doctor  │
 └───────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -36,6 +36,7 @@ description: How Certify is built — packages, data flow, and design decisions.
 | `internal/github/` | GitHub integration — PR comments, issue creation, workflow generation |
 | `internal/override/` | Human governance overrides (exempt, force-certify) |
 | `internal/workspace/` | Multi-repo workspace support — submodule discovery, aggregation, reporting |
+| `internal/doctor/` | Health checks (doctor) and onboarding plan |
 | `internal/domain/` | Core types — UnitID, Status, Grade, Dimension, Evidence, Policy, Config |
 
 ## Data Flow

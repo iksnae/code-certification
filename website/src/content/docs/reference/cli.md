@@ -135,6 +135,43 @@ certify review [--path <dir>]
 
 Formats certification results as a PR comment. Used in CI workflows to post certification summaries on pull requests.
 
+### `certify doctor`
+
+Check setup and diagnose issues.
+
+```bash
+certify doctor [--path <dir>]
+```
+
+Runs health checks on:
+- **Environment** — Go compiler, Git
+- **Project setup** — `.certification/` directory, config, policies, index, records, report card, badge
+- **Configuration** — validates `config.yml`, checks agent provider settings, scope patterns
+- **Policy packs** — validates all policy YAML files
+- **Optional tools** — `golangci-lint`, `gh` CLI
+- **AI providers** — auto-detects cloud and local providers
+
+Exits with code 1 if any check fails.
+
+### `certify onboard`
+
+Interactive onboarding guide.
+
+```bash
+certify onboard [--path <dir>]
+```
+
+Shows a step-by-step checklist for setting up Certify in your project. Checks which steps are already complete and tells you what to do next:
+
+1. Initialize (certify init)
+2. Discover code units (certify scan)
+3. Run certification (certify certify)
+4. Generate report card (certify report)
+5. Architect review — optional (certify architect)
+6. Add badge to README (certify report --badge)
+
+Re-run at any time to see your progress.
+
 ### `certify version`
 
 Print version information.

@@ -33,8 +33,8 @@ func TestValidateConfig_AgentMissingProvider(t *testing.T) {
 	// No provider settings
 
 	errs := config.ValidateConfig(cfg)
-	if len(errs) != 2 {
-		t.Errorf("expected 2 errors for missing provider, got %d: %v", len(errs), errs)
+	if len(errs) != 1 {
+		t.Errorf("expected 1 error for missing provider base_url, got %d: %v", len(errs), errs)
 	}
 }
 

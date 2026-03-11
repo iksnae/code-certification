@@ -66,6 +66,8 @@ func registerCommands() {
 	rootCmd.AddCommand(architectCmd)
 	rootCmd.AddCommand(expireCmd)
 	rootCmd.AddCommand(reviewCmd)
+	rootCmd.AddCommand(doctorCmd)
+	rootCmd.AddCommand(onboardCmd)
 
 	// Bind per-command flags
 	bindVersionInfo()
@@ -77,4 +79,6 @@ func registerCommands() {
 	bindExpireFlags()
 	bindModelsFlags()
 	bindReviewFlags()
+	bindDoctorFlags()
+	bindOnboardFlags()
 }

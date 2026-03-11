@@ -7,6 +7,11 @@ import (
 	"github.com/iksnae/code-certification/internal/domain"
 )
 
+// isLocalURL checks if a URL points to a local provider.
+func isLocalURL(url string) bool {
+	return strings.Contains(url, "localhost") || strings.Contains(url, "127.0.0.1") || strings.Contains(url, "0.0.0.0")
+}
+
 // ValidationError describes a single validation issue.
 type ValidationError struct {
 	Field   string
@@ -32,11 +37,10 @@ func ValidateConfig(cfg domain.Config) []ValidationError {
 	}
 
 	if cfg.Agent.Enabled {
-		if cfg.Agent.Provider.APIKeyEnv == "" {
-			errs = append(errs, ValidationError{"agent.provider.api_key_env", "required when agent is enabled"})
-		}
 		if cfg.Agent.Provider.BaseURL == "" {
 			errs = append(errs, ValidationError{"agent.provider.base_url", "required when agent is enabled"})
+		} else if cfg.Agent.Provider.APIKeyEnv == "" && !isLocalURL(cfg.Agent.Provider.BaseURL) {
+			errs = append(errs, ValidationError{"agent.provider.api_key_env", "required for cloud providers when agent is enabled"})
 		}
 	}
 

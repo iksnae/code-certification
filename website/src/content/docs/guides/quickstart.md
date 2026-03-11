@@ -3,6 +3,10 @@ title: Quick Start
 description: Certify your first repository in 4 commands.
 ---
 
+:::tip[Track your progress]
+Run `certify onboard` at any time to see which steps you've completed and what to do next.
+:::
+
 ## Step 1 — Bootstrap
 
 Navigate to your repository and initialize Certify:

@@ -113,8 +113,20 @@ Check that the submodule has:
 2. Source files not excluded by `scope.exclude`
 3. An empty `scope.include: []` means "include nothing" — remove it to include everything
 
+## Diagnose with Doctor
+
+Before filing an issue, run the built-in diagnostics:
+
+```bash
+certify doctor
+```
+
+This checks your environment, project setup, configuration, policies, tools, and AI providers — showing exactly what's working and what needs attention.
+
 ## Getting Help
 
+- Run `certify doctor` to diagnose setup issues
+- Run `certify onboard` to see what steps remain
 - [GitHub Issues](https://github.com/iksnae/code-certification/issues)
 - `certify --help` for command reference
 - `certify <command> --help` for flag details
