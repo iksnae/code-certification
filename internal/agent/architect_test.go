@@ -265,6 +265,52 @@ func TestArchitectPrompts_AllContainGrounding(t *testing.T) {
 	}
 }
 
+func TestFormatForLLM_DeepAnalysis(t *testing.T) {
+	uid, _ := domain.ParseUnitID("go://internal/engine/scorer.go#Score")
+	records := []domain.CertificationRecord{{
+		UnitID:   uid,
+		UnitType: domain.UnitTypeFunction,
+		UnitPath: uid.Path(),
+		Score:    0.85,
+		Grade:    domain.GradeA,
+		Status:   domain.StatusCertified,
+		Evidence: []domain.Evidence{{
+			Kind:   domain.EvidenceKindStructural,
+			Source: "deep-analysis",
+			Passed: true,
+			Metrics: map[string]float64{
+				"fan_in":                5,
+				"fan_out":               3,
+				"is_dead_code":          0,
+				"concrete_deps":         1,
+				"dep_depth":             2,
+				"instability":           0.4,
+				"cognitive_complexity":  12,
+				"type_aware_unwrapped":  0,
+				"unsafe_import_count":   0,
+				"hardcoded_secrets":     0,
+			},
+		}},
+	}}
+
+	snap := agent.BuildSnapshot(records, "")
+	pc := &agent.ProjectContext{RepoName: "test", Snapshot: snap}
+	output := pc.FormatForLLM(4000)
+
+	if !strings.Contains(output, "Deep Analysis") {
+		t.Error("output should contain Deep Analysis section")
+	}
+	if !strings.Contains(output, "avg_fan_in") {
+		t.Error("output should contain avg_fan_in")
+	}
+	if !strings.Contains(output, "dead_exports") {
+		t.Error("output should contain dead_exports")
+	}
+	if !strings.Contains(output, "v3") {
+		t.Error("output should reference schema v3")
+	}
+}
+
 func TestFormatForLLM_Empty(t *testing.T) {
 	pc := &agent.ProjectContext{
 		Snapshot: agent.BuildSnapshot(nil, ""),

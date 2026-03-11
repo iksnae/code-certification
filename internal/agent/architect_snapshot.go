@@ -11,7 +11,7 @@ import (
 
 // SnapshotSchemaVersion tracks the data contract between BuildSnapshot and FormatForLLM.
 // Increment when adding/removing/renaming fields in SnapshotMetrics or its sub-structs.
-const SnapshotSchemaVersion = 2 // v1: PR #20 (structural only), v2: full alignment
+const SnapshotSchemaVersion = 3 // v1: PR #20 (structural only), v2: full alignment, v3: deep analysis
 
 // ArchSnapshot captures the current architecture as deterministic data.
 // Computed from certification records — no LLM involved.
@@ -60,9 +60,28 @@ type SnapshotMetrics struct {
 	GradeDistribution map[string]int        `json:"grade_distribution"`
 	TopObservations   map[string]int        `json:"top_observations"`
 	PolicyViolations  map[string]int        `json:"policy_violations"`
-	Structural        StructuralAggregates  `json:"structural"`
-	Coverage          CoverageAggregates    `json:"coverage"`
-	CodeMetrics       CodeMetricsAggregates `json:"code_metrics"`
+	Structural        StructuralAggregates      `json:"structural"`
+	DeepAnalysis      DeepAnalysisAggregates    `json:"deep_analysis"`
+	Coverage          CoverageAggregates        `json:"coverage"`
+	CodeMetrics       CodeMetricsAggregates     `json:"code_metrics"`
+}
+
+// DeepAnalysisAggregates holds aggregated type-aware metrics from deep analysis.
+type DeepAnalysisAggregates struct {
+	AvgFanIn          float64 `json:"avg_fan_in"`
+	MaxFanIn          int     `json:"max_fan_in"`
+	AvgFanOut         float64 `json:"avg_fan_out"`
+	MaxFanOut         int     `json:"max_fan_out"`
+	DeadExportCount   int     `json:"dead_export_count"`
+	ConcreteDepsCount int     `json:"concrete_deps_count"`
+	AvgCogComplexity  float64 `json:"avg_cognitive_complexity"`
+	MaxCogComplexity  int     `json:"max_cognitive_complexity"`
+	ErrorsNotWrapped  int     `json:"errors_not_wrapped"`
+	UnsafeImportCount int     `json:"unsafe_import_count"`
+	HardcodedSecrets  int     `json:"hardcoded_secrets"`
+	MaxDepDepth       int     `json:"max_dep_depth"`
+	AvgInstability    float64 `json:"avg_instability"`
+	UnitsWithDeepData int     `json:"units_with_deep_data"`
 }
 
 // StructuralAggregates holds summed structural metrics across all units.
@@ -135,6 +154,8 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 	var totalScore float64
 	var coverageValues []float64
 	var metricsUnitCount int
+	var deepFanInSum, deepFanOutSum, deepCogSum, deepInstSum float64
+	var deepCount int
 
 	for _, r := range records {
 		pkgPath := packagePath(r.UnitPath)
@@ -197,6 +218,36 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 					coverageValues = append(coverageValues, cov)
 				}
 			}
+			// Deep analysis metrics (from Source: "deep-analysis")
+			if ev.Source == "deep-analysis" && ev.Kind == domain.EvidenceKindStructural {
+				deepCount++
+				fanIn := ev.Metrics["fan_in"]
+				fanOut := ev.Metrics["fan_out"]
+				deepFanInSum += fanIn
+				deepFanOutSum += fanOut
+				if int(fanIn) > snap.Metrics.DeepAnalysis.MaxFanIn {
+					snap.Metrics.DeepAnalysis.MaxFanIn = int(fanIn)
+				}
+				if int(fanOut) > snap.Metrics.DeepAnalysis.MaxFanOut {
+					snap.Metrics.DeepAnalysis.MaxFanOut = int(fanOut)
+				}
+				if ev.Metrics["is_dead_code"] > 0 {
+					snap.Metrics.DeepAnalysis.DeadExportCount++
+				}
+				snap.Metrics.DeepAnalysis.ConcreteDepsCount += int(ev.Metrics["concrete_deps"])
+				if dd := int(ev.Metrics["dep_depth"]); dd > snap.Metrics.DeepAnalysis.MaxDepDepth {
+					snap.Metrics.DeepAnalysis.MaxDepDepth = dd
+				}
+				deepInstSum += ev.Metrics["instability"]
+				cog := int(ev.Metrics["cognitive_complexity"])
+				deepCogSum += float64(cog)
+				if cog > snap.Metrics.DeepAnalysis.MaxCogComplexity {
+					snap.Metrics.DeepAnalysis.MaxCogComplexity = cog
+				}
+				snap.Metrics.DeepAnalysis.ErrorsNotWrapped += int(ev.Metrics["type_aware_unwrapped"])
+				snap.Metrics.DeepAnalysis.UnsafeImportCount += int(ev.Metrics["unsafe_import_count"])
+				snap.Metrics.DeepAnalysis.HardcodedSecrets += int(ev.Metrics["hardcoded_secrets"])
+			}
 		}
 	}
 
@@ -225,6 +276,15 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 	// Finalize code metrics aggregates
 	if metricsUnitCount > 0 {
 		snap.Metrics.CodeMetrics.AvgComplexity = float64(snap.Metrics.CodeMetrics.TotalComplexity) / float64(metricsUnitCount)
+	}
+
+	// Finalize deep analysis aggregates
+	if deepCount > 0 {
+		snap.Metrics.DeepAnalysis.AvgFanIn = deepFanInSum / float64(deepCount)
+		snap.Metrics.DeepAnalysis.AvgFanOut = deepFanOutSum / float64(deepCount)
+		snap.Metrics.DeepAnalysis.AvgCogComplexity = deepCogSum / float64(deepCount)
+		snap.Metrics.DeepAnalysis.AvgInstability = deepInstSum / float64(deepCount)
+		snap.Metrics.DeepAnalysis.UnitsWithDeepData = deepCount
 	}
 
 	// Sort package paths for deterministic output

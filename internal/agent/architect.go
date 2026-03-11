@@ -135,6 +135,7 @@ func (pc *ProjectContext) FormatForLLM(maxTokensHint int) string {
 	formatCouplingPairs(&b, snap)
 	formatTopObservations(&b, snap)
 	formatStructuralMetrics(&b, snap)
+	formatDeepAnalysisMetrics(&b, snap)
 	formatCoverageMetrics(&b, snap)
 	formatCodeMetrics(&b, snap)
 	formatQualitativeContext(&b, pc, maxChars)
@@ -310,6 +311,31 @@ func formatStructuralMetrics(b *strings.Builder, snap *ArchSnapshot) {
 	fmt.Fprintf(b, "| total_params | %d | Sum of function parameter counts |\n", s.TotalParams)
 	fmt.Fprintf(b, "| total_returns | %d | Sum of function return value counts |\n", s.TotalReturns)
 	fmt.Fprintf(b, "| total_methods | %d | Sum of type method counts |\n", s.TotalMethods)
+	b.WriteString("\n")
+}
+
+func formatDeepAnalysisMetrics(b *strings.Builder, snap *ArchSnapshot) {
+	d := snap.Metrics.DeepAnalysis
+	if d.UnitsWithDeepData == 0 {
+		return
+	}
+	b.WriteString("## Deep Analysis (type-aware cross-file metrics)\n")
+	b.WriteString("| Metric | Value | Description |\n")
+	b.WriteString("|--------|------:|-------------|\n")
+	fmt.Fprintf(b, "| units_analyzed | %d | Units with type-aware analysis |\n", d.UnitsWithDeepData)
+	fmt.Fprintf(b, "| avg_fan_in | %.1f | Average incoming call count per function |\n", d.AvgFanIn)
+	fmt.Fprintf(b, "| max_fan_in | %d | Highest fan-in (most-called function) |\n", d.MaxFanIn)
+	fmt.Fprintf(b, "| avg_fan_out | %.1f | Average outgoing call count per function |\n", d.AvgFanOut)
+	fmt.Fprintf(b, "| max_fan_out | %d | Highest fan-out (most-dependent function) |\n", d.MaxFanOut)
+	fmt.Fprintf(b, "| dead_exports | %d | Exported symbols with zero external references |\n", d.DeadExportCount)
+	fmt.Fprintf(b, "| concrete_deps | %d | Function params accepting concrete types |\n", d.ConcreteDepsCount)
+	fmt.Fprintf(b, "| avg_cognitive_complexity | %.1f | Sonar-style cognitive complexity average |\n", d.AvgCogComplexity)
+	fmt.Fprintf(b, "| max_cognitive_complexity | %d | Highest cognitive complexity |\n", d.MaxCogComplexity)
+	fmt.Fprintf(b, "| errors_not_wrapped | %d | Error returns without wrapping context |\n", d.ErrorsNotWrapped)
+	fmt.Fprintf(b, "| unsafe_imports | %d | Dangerous import usages |\n", d.UnsafeImportCount)
+	fmt.Fprintf(b, "| hardcoded_secrets | %d | Potential hardcoded secrets found |\n", d.HardcodedSecrets)
+	fmt.Fprintf(b, "| max_dep_depth | %d | Deepest transitive import chain |\n", d.MaxDepDepth)
+	fmt.Fprintf(b, "| avg_instability | %.2f | Average package instability (0=stable, 1=unstable) |\n", d.AvgInstability)
 	b.WriteString("\n")
 }
 

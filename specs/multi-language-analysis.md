@@ -844,7 +844,7 @@ All grounded — every number in the prompt has an exact source in the snapshot.
 | **9** | 2F-2G | Error wrapping + cognitive complexity (type-aware refinement) | ✅ Done | 340 actual |
 | **10** | 3A | LSP client infrastructure | ✅ Done | 420 actual |
 | **11** | 3B-3C | LSP-powered TS/Py/Rs analysis | ✅ Done | 390 actual |
-| **12** | 5A-5B | Architect snapshot + prompt updates for new metrics | 🔲 Planned | ~300 est |
+| **12** | 5A-5B | Architect snapshot + prompt updates for new metrics | ✅ Done | 280 actual |
 | **13** | 6A-6B | Doctor analysis tier reporting + website docs | 🔲 Planned | ~500 est |
 
 **Done:** ~5,771 lines (Sprints 1–6 + nested module fix)
