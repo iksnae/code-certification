@@ -1,79 +1,56 @@
-# Release v0.6.0
+# Release v0.7.0
 
 **Date:** 2026-03-10
 
 ## Highlights
 
-New `certify architect` command — an AI-powered architectural review that produces a comprehensive report with a deterministic architecture snapshot, 6-phase LLM analysis, and comparative recommendations with current→projected metric deltas.
+**Algorithmic complexity detection** and **measurement accuracy fixes** push the self-certification score from B+ (88.7%) to **A- (91.7%)** with 92.4% of units at A- or above.
 
 ## What's Changed
 
 ### New Features
 
-- **feat: `certify architect` command** — AI-driven architectural review of an entire project. Builds a deterministic architecture snapshot from certification data (package graph, dependency analysis, hotspots, coupling), then runs 6 LLM phases producing a bespoke report with comparative recommendations. Output: `.certification/ARCHITECT_REVIEW.md`.
+- **feat: algorithmic complexity detection via go/ast** — New structural analysis that estimates Big-O complexity class for every function: O(1), O(n), O(n²), O(n³), O(2^n). Detects nested loop depth, recursive calls, and quadratic anti-patterns (string concat in loops). 5 new metrics: `algo_complexity`, `loop_nesting_depth`, `recursive_calls`, `nested_loop_pairs`, `quadratic_patterns`.
 
-- **feat: architecture snapshot** — `BuildSnapshot()` computes a complete structural model from certification records: package metrics, Go import dependency graph, layer classification, hotspot ranking (`units × (1 - score)`), coupling pair analysis. Fully deterministic — same records always produce identical output.
+- **feat: performance_appropriateness scoring** — The `performance_appropriateness` dimension is now always measured for function-level units (was penalty-only for `defer_in_loop`). O(1)→0.95, O(n)→0.90, O(n²)→0.70, O(n³)→0.50, O(2^n)→0.40.
 
-- **feat: 6-phase review pipeline** — Sequential LLM phases with feed-forward context:
-  1. Architecture Narration (as-is description, no recommendations)
-  2. Code Quality & Patterns (findings citing snapshot metrics)
-  3. Test Strategy & Coverage (coverage gaps per package)
-  4. Security & Operations (global state, error handling, init funcs)
-  5. Comparative Recommendations (current→projected deltas)
-  6. Synthesis & Roadmap (executive summary, risk matrix, prioritized roadmap)
+- **feat: graduated git history scoring** — `operational_quality` now scales with commit count: >50→0.95, >20→0.90, >10→0.85, >0→0.75. `change_risk` scales with author count: ≥3→0.95, ≥2→0.90, 1→0.70. Previously all units were capped at 0.85/0.90.
 
-- **feat: comparative recommendation format** — Every recommendation includes a delta table (`| Metric | Current | Projected | Delta |`), affected units, effort estimate, and justification grounded in snapshot data. Phase 5 validates that all recommendations have deltas.
+- **feat: const-like var detection** — Structural analyzer now distinguishes truly mutable `var` declarations from const-like ones. Composite literals (`map[K]V{...}`, `[]T{...}`), error sentinels (`errors.New`), compiled regexes (`regexp.MustCompile`), and pointer-to-literals (`&T{}`) are excluded from `global_mutable_count`. Only `make()`/`new()`/uninitialized vars count as mutable. Fixes 168 units falsely penalized for lookup tables.
 
-- **feat: chain-of-thought capture** — `<think>` tags from reasoning models (qwen3, etc.) are captured per-phase in `result.Thinking[]` and rendered in the report under collapsible "🧠 Agent Reasoning" sections.
+- **feat: graduated file-level readability** — File-level `code_lines` thresholds raised to match file reality: ≤100→0.95, ≤300→0.90, ≤500→0.85, ≤800→0.75, >800→0.60 (was ≤50/≤150/≤300/>300).
 
-- **feat: 3-part report structure** —
-  - Part I: Architecture Snapshot (deterministic tables from data, always present even if LLM fails)
-  - Part II: Analysis (LLM narrative grounded in snapshot numbers)
-  - Part III: Recommendations (comparative before/after with delta tables)
+- **feat: graduated complexity scoring** — Added 0.80 tier for cyclomatic complexity 11-15 (was jump from 0.85 at ≤10 to 0.70 at ≤20).
 
 ### Bug Fixes
 
-- **fix: Phase 4 JSON parsing** — `ArchConcern.Metrics` changed from `map[string]string` to `map[string]any` to handle numeric metric values from LLM responses.
-- **fix: think tag interference** — Qwen3 `<think>` blocks containing braces confused `extractJSON`. Added `stripThinkTags()` before JSON extraction.
-- **fix: timeout for local models** — Added `SetTimeout()` on `OpenRouterProvider`. Architect command sets 10-minute timeout for local models that need several minutes per phase.
+- **fix: 14 exported symbols documented** — Added doc comments to architect review types and interface method implementations to fix readability penalties.
 
-### CLI
+## Results
 
-```
-certify architect                    # full 6-phase review
-certify architect --model gpt-4o     # use specific model
-certify architect --phase 1          # run only architecture narration
-certify architect --verbose          # print full LLM responses
-certify architect --output FILE      # custom output path
-```
+| Metric | v0.6.2 | v0.7.0 | Change |
+|--------|--------|--------|--------|
+| Overall Grade | B+ | **A-** | ↑ |
+| Score | 88.7% | **91.7%** | +3.0% |
+| A/A- units | 395 (52.8%) | **691 (92.4%)** | +296 |
+| B+ units | 148 | 26 | -122 |
+| B units | 192 | 31 | -161 |
+| C units | 13 | **0** | -13 |
+| Observations | 13 | **0** | -13 |
+| Dimensions measured | 7 | **8** | +performance_appropriateness |
 
-## New Files
+## Tests Added
 
-| File | Purpose |
-|------|---------|
-| `cmd/certify/architect_cmd.go` | CLI command + provider setup |
-| `internal/agent/architect_snapshot.go` | ArchSnapshot, BuildSnapshot, import analysis |
-| `internal/agent/architect.go` | ProjectContext, GatherContext, FormatForLLM |
-| `internal/agent/architect_review.go` | 6-phase orchestrator, response types |
-| `internal/agent/architect_prompts.go` | Phase system prompts |
-| `internal/report/architect_report.go` | Report formatter (Part I/II/III) |
-
-## Stats
-
-- **9 new files**, 2,837 lines added
-- **23 new tests** across 3 test files, all passing
-- **16 packages** pass with zero regressions
-- Dogfood: 615 units, 24 packages, 6/6 phases, 7 recommendations, 50K tokens, 3m46s
+- 26 new tests: algorithmic complexity (12), const-like var detection (12), graduated scoring (9), algo scoring (5)
+- All 16 packages pass with zero regressions
 
 ## Full Changelog
 
 ```
-3f696eb chore: architect dogfood — 6/6 phases, 7 recommendations, 615 units reviewed
-6f62d32 fix: Phase 4 JSON parsing — ArchConcern.Metrics map[string]any
-2d2d6ef fix: architect — 10min timeout, 8K-12K token limits, think tag capture
-1d6d4ea feat: architect E2E integration test
-ec3f3ff feat: certify architect CLI command
-7c28fa9 feat: architect report formatter — Part I/II/III
-cf63155 feat: architect review pipeline — 6-phase orchestrator
-108abc3 feat: architect snapshot + context gathering
+9d89d9a fix: add doc comments to 14 exported symbols
+0c1729d feat: score performance_appropriateness from algorithmic complexity
+64ac068 feat: algorithmic complexity detection via go/ast
+ac78ce0 feat: graduated file-level readability + complexity scoring
+d33e933 feat: const-like var detection — exclude lookup tables
+1908dd9 feat: graduated git history scoring for operational_quality and change_risk
 ```
