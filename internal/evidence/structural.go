@@ -33,6 +33,13 @@ type StructuralMetrics struct {
 	MethodCount        int  // Number of methods on a type (type-level only)
 	HasInitFunc        bool // File contains an init() function (file-level only)
 	GlobalMutableCount int  // Number of package-level var declarations (file-level only)
+
+	// Algorithmic complexity metrics
+	AlgoComplexity    string // Estimated complexity class: O(1), O(n), O(n²), O(n³), O(2^n)
+	LoopNestingDepth  int    // Maximum depth of nested loops (for/range only)
+	RecursiveCalls    int    // Count of direct recursive calls (func calls own name)
+	NestedLoopPairs   int    // Count of inner loops nested inside outer loops
+	QuadraticPatterns int    // Count of known O(n²) anti-patterns
 }
 
 // FileMetrics holds file-level structural analysis results.
@@ -88,6 +95,10 @@ func (m StructuralMetrics) ToEvidence() domain.Evidence {
 			"method_count":         float64(m.MethodCount),
 			"has_init_func":        initVal,
 			"global_mutable_count": float64(m.GlobalMutableCount),
+			"loop_nesting_depth":   float64(m.LoopNestingDepth),
+			"recursive_calls":      float64(m.RecursiveCalls),
+			"nested_loop_pairs":    float64(m.NestedLoopPairs),
+			"quadratic_patterns":   float64(m.QuadraticPatterns),
 		},
 		Timestamp:  time.Now(),
 		Confidence: 1.0,
@@ -226,6 +237,11 @@ func analyzeFunc(fset *token.FileSet, fn *ast.FuncDecl) StructuralMetrics {
 		m.PanicCalls = countCallExpr(fn.Body, "", "panic")
 		m.OsExitCalls = countCallExpr(fn.Body, "os", "Exit")
 		m.DeferInLoop = countDeferInLoop(fn.Body)
+		analyzeAlgoComplexity(fn, &m)
+	}
+
+	if m.AlgoComplexity == "" {
+		m.AlgoComplexity = "O(1)"
 	}
 
 	return m
@@ -485,6 +501,178 @@ func AnalyzeGoFile(src string) FileMetrics {
 	}
 
 	return fm
+}
+
+// analyzeAlgoComplexity computes algorithmic complexity metrics for a function.
+// It measures loop nesting depth, recursive calls, nested loop pairs,
+// and quadratic anti-patterns to estimate Big-O complexity class.
+func analyzeAlgoComplexity(fn *ast.FuncDecl, m *StructuralMetrics) {
+	funcName := fn.Name.Name
+
+	// Count recursive calls
+	m.RecursiveCalls = countRecursiveCalls(fn.Body, funcName)
+
+	// Compute loop nesting depth and nested loop pairs
+	m.LoopNestingDepth, m.NestedLoopPairs = computeLoopNesting(fn.Body)
+
+	// Detect quadratic anti-patterns
+	m.QuadraticPatterns = countQuadraticPatterns(fn.Body)
+
+	// Classify
+	m.AlgoComplexity = classifyAlgoComplexity(m.LoopNestingDepth, m.RecursiveCalls)
+}
+
+// classifyAlgoComplexity returns the estimated Big-O class based on
+// loop nesting depth and recursive call count.
+func classifyAlgoComplexity(loopDepth, recursiveCalls int) string {
+	if recursiveCalls > 0 {
+		return "O(2^n)"
+	}
+	switch {
+	case loopDepth >= 3:
+		return "O(n³)"
+	case loopDepth == 2:
+		return "O(n²)"
+	case loopDepth == 1:
+		return "O(n)"
+	default:
+		return "O(1)"
+	}
+}
+
+// countRecursiveCalls counts direct calls to funcName within the body.
+func countRecursiveCalls(body *ast.BlockStmt, funcName string) int {
+	count := 0
+	ast.Inspect(body, func(n ast.Node) bool {
+		call, ok := n.(*ast.CallExpr)
+		if !ok {
+			return true
+		}
+		if ident, ok := call.Fun.(*ast.Ident); ok && ident.Name == funcName {
+			count++
+		}
+		return true
+	})
+	return count
+}
+
+// computeLoopNesting returns (maxLoopDepth, nestedPairCount) by walking
+// the AST and tracking only for/range loop nesting — not if/switch/select.
+func computeLoopNesting(body *ast.BlockStmt) (int, int) {
+	maxDepth := 0
+	pairs := 0
+	walkLoops(body, 0, &maxDepth, &pairs)
+	return maxDepth, pairs
+}
+
+// walkLoops recursively walks statements, incrementing depth only for loops.
+func walkLoops(node ast.Node, depth int, maxDepth, pairs *int) {
+	if node == nil {
+		return
+	}
+	ast.Inspect(node, func(n ast.Node) bool {
+		switch s := n.(type) {
+		case *ast.ForStmt:
+			d := depth + 1
+			if d > *maxDepth {
+				*maxDepth = d
+			}
+			if d >= 2 {
+				*pairs++
+			}
+			walkLoops(s.Body, d, maxDepth, pairs)
+			return false // don't recurse into body again
+		case *ast.RangeStmt:
+			d := depth + 1
+			if d > *maxDepth {
+				*maxDepth = d
+			}
+			if d >= 2 {
+				*pairs++
+			}
+			walkLoops(s.Body, d, maxDepth, pairs)
+			return false
+		}
+		return true
+	})
+}
+
+// countQuadraticPatterns detects known O(n²) anti-patterns inside loops:
+// - String concatenation with += inside a loop
+func countQuadraticPatterns(body *ast.BlockStmt) int {
+	count := 0
+	// Walk looking for loops, then inspect their bodies for patterns
+	ast.Inspect(body, func(n ast.Node) bool {
+		var loopBody *ast.BlockStmt
+		switch s := n.(type) {
+		case *ast.ForStmt:
+			loopBody = s.Body
+		case *ast.RangeStmt:
+			loopBody = s.Body
+		}
+		if loopBody == nil {
+			return true
+		}
+		// Check for string += inside this loop body.
+		// Heuristic: flag += only when the RHS contains a string literal or
+		// a binary + expression (likely string concatenation). Pure variable
+		// += (like total += n) is numeric and fine.
+		ast.Inspect(loopBody, func(inner ast.Node) bool {
+			assign, ok := inner.(*ast.AssignStmt)
+			if !ok || assign.Tok != token.ADD_ASSIGN {
+				return true
+			}
+			for _, rhs := range assign.Rhs {
+				if containsStringConcat(rhs) {
+					count++
+				}
+			}
+			return true
+		})
+		return false // don't double-count nested loops
+	})
+	return count
+}
+
+// containsStringConcat returns true if the expression likely involves string
+// concatenation — contains a string literal or a binary + expression
+// (which in Go is either numeric add or string concat; string literals confirm it).
+func containsStringConcat(expr ast.Expr) bool {
+	found := false
+	ast.Inspect(expr, func(n ast.Node) bool {
+		switch n.(type) {
+		case *ast.BasicLit:
+			lit := n.(*ast.BasicLit)
+			if lit.Kind == token.STRING {
+				found = true
+				return false
+			}
+		case *ast.BinaryExpr:
+			bin := n.(*ast.BinaryExpr)
+			if bin.Op == token.ADD {
+				// binary + with any string literal descendant → string concat
+				if hasStringLit(bin) {
+					found = true
+					return false
+				}
+			}
+		}
+		return true
+	})
+	return found
+}
+
+// hasStringLit returns true if any descendant of n is a string literal.
+func hasStringLit(n ast.Node) bool {
+	found := false
+	ast.Inspect(n, func(node ast.Node) bool {
+		if lit, ok := node.(*ast.BasicLit); ok && lit.Kind == token.STRING {
+			found = true
+			return false
+		}
+		return !found
+	})
+	return found
 }
 
 // isMutableVar returns true if a package-level var declaration represents

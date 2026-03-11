@@ -2,7 +2,7 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
+**Grade:** 🟢 A- (91.4%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
@@ -10,7 +10,7 @@
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
 | [Calculate](calculator.go/Calculate.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [calculator_test.go](calculator_test.go.md) | file | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [calculator_test.go](calculator_test.go.md) | file | 🟢 A- | 92.1% | certified | 2026-04-24 |
 
 ---
 

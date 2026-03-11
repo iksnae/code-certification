@@ -722,3 +722,238 @@ func Bar() {}
 		t.Error("not-found symbol should return zero metrics")
 	}
 }
+
+// --- Algorithmic Complexity Tests ---
+
+func TestAnalyzeGoFunc_AlgoComplexity(t *testing.T) {
+	tests := []struct {
+		name            string
+		src             string
+		funcName        string
+		wantAlgo        string
+		wantLoopNesting int
+		wantRecursive   int
+		wantNestedPairs int
+	}{
+		{
+			name: "O(1) no loops",
+			src: `package lib
+func Add(a, b int) int { return a + b }
+`,
+			funcName:        "Add",
+			wantAlgo:        "O(1)",
+			wantLoopNesting: 0,
+		},
+		{
+			name: "O(n) single for loop",
+			src: `package lib
+func Sum(nums []int) int {
+	total := 0
+	for _, n := range nums {
+		total += n
+	}
+	return total
+}
+`,
+			funcName:        "Sum",
+			wantAlgo:        "O(n)",
+			wantLoopNesting: 1,
+		},
+		{
+			name: "O(n²) nested for loops",
+			src: `package lib
+func BubbleSort(arr []int) {
+	for i := 0; i < len(arr); i++ {
+		for j := i + 1; j < len(arr); j++ {
+			if arr[i] > arr[j] {
+				arr[i], arr[j] = arr[j], arr[i]
+			}
+		}
+	}
+}
+`,
+			funcName:        "BubbleSort",
+			wantAlgo:        "O(n²)",
+			wantLoopNesting: 2,
+			wantNestedPairs: 1,
+		},
+		{
+			name: "O(n²) nested range loops",
+			src: `package lib
+func CrossProduct(a, b []string) []string {
+	var result []string
+	for _, x := range a {
+		for _, y := range b {
+			result = append(result, x+y)
+		}
+	}
+	return result
+}
+`,
+			funcName:        "CrossProduct",
+			wantAlgo:        "O(n²)",
+			wantLoopNesting: 2,
+			wantNestedPairs: 1,
+		},
+		{
+			name: "O(n³) triple nested loops",
+			src: `package lib
+func MatMul(a, b [][]int, n int) [][]int {
+	c := make([][]int, n)
+	for i := 0; i < n; i++ {
+		c[i] = make([]int, n)
+		for j := 0; j < n; j++ {
+			for k := 0; k < n; k++ {
+				c[i][j] += a[i][k] * b[k][j]
+			}
+		}
+	}
+	return c
+}
+`,
+			funcName:        "MatMul",
+			wantAlgo:        "O(n³)",
+			wantLoopNesting: 3,
+			wantNestedPairs: 2,
+		},
+		{
+			name: "O(2^n) recursive call",
+			src: `package lib
+func Fib(n int) int {
+	if n <= 1 { return n }
+	return Fib(n-1) + Fib(n-2)
+}
+`,
+			funcName:      "Fib",
+			wantAlgo:      "O(2^n)",
+			wantRecursive: 2,
+		},
+		{
+			name: "O(2^n) recursive with loop",
+			src: `package lib
+func Permute(arr []int, start int) {
+	if start == len(arr) { return }
+	for i := start; i < len(arr); i++ {
+		arr[start], arr[i] = arr[i], arr[start]
+		Permute(arr, start+1)
+		arr[start], arr[i] = arr[i], arr[start]
+	}
+}
+`,
+			funcName:        "Permute",
+			wantAlgo:        "O(2^n)",
+			wantRecursive:   1,
+			wantLoopNesting: 1,
+		},
+		{
+			name: "O(n) loop with if (not nested loop)",
+			src: `package lib
+func Find(items []string, target string) int {
+	for i, item := range items {
+		if item == target {
+			return i
+		}
+	}
+	return -1
+}
+`,
+			funcName:        "Find",
+			wantAlgo:        "O(n)",
+			wantLoopNesting: 1,
+		},
+		{
+			name: "O(n) sequential loops (not nested)",
+			src: `package lib
+func SumAndMax(nums []int) (int, int) {
+	sum := 0
+	for _, n := range nums {
+		sum += n
+	}
+	max := nums[0]
+	for _, n := range nums {
+		if n > max {
+			max = n
+		}
+	}
+	return sum, max
+}
+`,
+			funcName:        "SumAndMax",
+			wantAlgo:        "O(n)",
+			wantLoopNesting: 1,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			m := evidence.AnalyzeGoFunc(tt.src, tt.funcName)
+			if m.AlgoComplexity != tt.wantAlgo {
+				t.Errorf("AlgoComplexity = %q, want %q", m.AlgoComplexity, tt.wantAlgo)
+			}
+			if m.LoopNestingDepth != tt.wantLoopNesting {
+				t.Errorf("LoopNestingDepth = %d, want %d", m.LoopNestingDepth, tt.wantLoopNesting)
+			}
+			if m.RecursiveCalls != tt.wantRecursive {
+				t.Errorf("RecursiveCalls = %d, want %d", m.RecursiveCalls, tt.wantRecursive)
+			}
+			if m.NestedLoopPairs != tt.wantNestedPairs {
+				t.Errorf("NestedLoopPairs = %d, want %d", m.NestedLoopPairs, tt.wantNestedPairs)
+			}
+		})
+	}
+}
+
+func TestAnalyzeGoFunc_QuadraticPatterns(t *testing.T) {
+	tests := []struct {
+		name          string
+		src           string
+		funcName      string
+		wantQuadratic int
+	}{
+		{
+			name: "string concat in loop",
+			src: `package lib
+func Join(words []string) string {
+	result := ""
+	for _, w := range words {
+		result += w + " "
+	}
+	return result
+}
+`,
+			funcName:      "Join",
+			wantQuadratic: 1,
+		},
+		{
+			name: "no quadratic pattern",
+			src: `package lib
+func Sum(nums []int) int {
+	total := 0
+	for _, n := range nums {
+		total += n
+	}
+	return total
+}
+`,
+			funcName:      "Sum",
+			wantQuadratic: 0,
+		},
+		{
+			name: "string concat outside loop is fine",
+			src: `package lib
+func Greet(first, last string) string {
+	return first + " " + last
+}
+`,
+			funcName:      "Greet",
+			wantQuadratic: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			m := evidence.AnalyzeGoFunc(tt.src, tt.funcName)
+			if m.QuadraticPatterns != tt.wantQuadratic {
+				t.Errorf("QuadraticPatterns = %d, want %d", m.QuadraticPatterns, tt.wantQuadratic)
+			}
+		})
+	}
+}

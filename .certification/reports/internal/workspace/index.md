@@ -2,26 +2,26 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.6%)  
+**Grade:** 🟢 A- (91.8%)  
 **Units:** 19 · **Passing:** 19 / 19
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [workspace_test.go](workspace_test.go.md) | file | 🟢 B+ | 89.3% | certified | 2026-04-24 |
-| [AggregateCards](aggregate.go/AggregateCards.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [ParseSubmoduleStatus](workspace.go/ParseSubmoduleStatus.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [aggregate_test.go](aggregate_test.go.md) | file | 🟢 A- | 90.7% | certified | 2026-04-24 |
-| [report_test.go](report_test.go.md) | file | 🟢 A- | 90.7% | certified | 2026-04-24 |
 | [GenerateWorkspaceReportTree](report.go/GenerateWorkspaceReportTree.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [ParseSubmoduleStatus](workspace.go/ParseSubmoduleStatus.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [AggregateCards](aggregate.go/AggregateCards.md) | function | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [workspace_test.go](workspace_test.go.md) | file | 🟢 A- | 91.4% | certified | 2026-04-24 |
+| [report_test.go](report_test.go.md) | file | 🟢 A- | 91.4% | certified | 2026-04-24 |
 | [gradeEmoji](report.go/gradeEmoji.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [CheckHasConfig](workspace.go/CheckHasConfig.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
 | [formatWorkspaceIndex](report.go/formatWorkspaceIndex.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [formatSubmoduleSummary](report.go/formatSubmoduleSummary.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [FormatWorkspaceCardMarkdown](report.go/FormatWorkspaceCardMarkdown.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
 | [shortCommit](report.go/shortCommit.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
 | [submoduleFilename](report.go/submoduleFilename.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [FormatWorkspaceCardMarkdown](report.go/FormatWorkspaceCardMarkdown.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [CheckHasConfig](workspace.go/CheckHasConfig.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [aggregate_test.go](aggregate_test.go.md) | file | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [formatSubmoduleSummary](report.go/formatSubmoduleSummary.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
 | [ConfiguredSubmodules](workspace.go/ConfiguredSubmodules.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
 | [DiscoverSubmodules](workspace.go/DiscoverSubmodules.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
 | [LoadSubmoduleCard](workspace.go/LoadSubmoduleCard.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
