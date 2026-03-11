@@ -86,4 +86,11 @@ code --install-extension iksnae.certify-vscode
 
 ## Next Steps
 
-[Quick Start — certify your first repository →](/code-certification/guides/quickstart/)
+Start the guided onboarding:
+
+```bash
+cd your-repo
+certify onboard
+```
+
+Or jump straight into the [Quick Start →](/code-certification/guides/quickstart/)

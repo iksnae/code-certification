@@ -120,3 +120,15 @@ issues:
 ```
 
 When enabled, failing certifications create GitHub issues via the `gh` CLI.
+
+## Validating Your Config
+
+Run the built-in diagnostics to check your configuration:
+
+```bash
+certify doctor
+```
+
+This validates your `config.yml` syntax, checks expiry settings, verifies agent provider configuration (API keys, base URL, model), validates all policy packs, and confirms tools and providers are available.
+
+See [Doctor & Onboard →](/code-certification/guides/doctor-onboard/) for details.

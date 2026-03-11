@@ -106,6 +106,16 @@ certify architect
 
 This analyzes your package structure, dependencies, quality patterns, test strategy, and security posture — producing a comprehensive `ARCHITECT_REVIEW.md` with prioritized recommendations and projected metric improvements.
 
+## Troubleshooting
+
+If anything went wrong, run the built-in diagnostics:
+
+```bash
+certify doctor
+```
+
+This checks your environment, configuration, policies, tools, and AI providers — showing exactly what's working and what needs attention. See [Doctor & Onboard →](/code-certification/guides/doctor-onboard/)
+
 ## What's Next?
 
 - [Add a badge to your README →](/code-certification/reference/badge/)

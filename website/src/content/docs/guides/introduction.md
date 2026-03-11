@@ -37,6 +37,7 @@ Discover → Evaluate → Certify → Report
 - **CI Integration** — GitHub Actions for PR review, nightly sweeps, weekly reports
 - **Policy-as-Code** — Versioned YAML policies with path scoping
 - **Workspace Mode** — Multi-repo certification across git submodules
+- **Doctor & Onboard** — Built-in diagnostics and guided setup
 - **VSCode Extension** — Inline grades, interactive dashboard, AI provider configuration
 
 ## Language Support
@@ -49,4 +50,7 @@ Discover → Evaluate → Certify → Report
 
 ## Next Steps
 
-Ready to try it? [Install Certify →](/code-certification/guides/installation/)
+## Next Steps
+
+- New to Certify? [Install →](/code-certification/guides/installation/) then run `certify onboard` for guided setup
+- Already installed? Run `certify doctor` to check your environment
