@@ -15,7 +15,19 @@ sudo mv certify /usr/local/bin/    # optional: install globally
 
 **Requirements:** Go 1.22+, Git
 
-**Optional:** [golangci-lint](https://golangci-lint.run/) (enhanced lint evidence), [gh CLI](https://cli.github.com/) (PR/issue integration)
+**Optional tools (enhanced evidence):**
+- [golangci-lint](https://golangci-lint.run/) — Go lint evidence
+- [ESLint](https://eslint.org/) — TypeScript/JavaScript lint
+- [ruff](https://docs.astral.sh/ruff/) — Python lint
+- [cargo clippy](https://doc.rust-lang.org/clippy/) — Rust lint
+- [gh CLI](https://cli.github.com/) — PR/issue integration
+
+**Optional LSP servers (Tier 2 deep analysis for non-Go languages):**
+- `typescript-language-server` — fan-in/fan-out, dead code for TS
+- `pyright` — fan-in/fan-out, dead code for Python
+- `rust-analyzer` — fan-in/fan-out, dead code for Rust
+
+Run `certify doctor` to see what's available and what's missing.
 
 ## Quick Start
 
@@ -46,6 +58,11 @@ Your report card is saved to `.certification/REPORT_CARD.md`.
 | `certify certify` | Evaluate units against policies, collect evidence, assign status |
 | `certify report` | Generate certification reports |
 | `certify expire` | Mark overdue certifications as expired |
+| `certify review` | Generate PR review annotation |
+| `certify architect` | AI-powered 6-phase architectural review |
+| `certify doctor` | Check environment, tools, analysis tiers, AI providers |
+| `certify onboard` | Interactive step-by-step onboarding guide |
+| `certify models` | List available models from AI provider |
 | `certify review` | Generate PR review annotation |
 | `certify version` | Show version information |
 

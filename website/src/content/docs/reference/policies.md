@@ -123,20 +123,58 @@ path_patterns:
 
 ## Available Metrics
 
+### Universal (all languages)
+
 | Metric | Source | Description |
 |--------|--------|-------------|
 | `lint_errors` | Linter output | Number of lint errors |
 | `test_failures` | Test runner | Number of failing tests |
 | `todo_count` | Code scan | TODO/FIXME comment count |
-| `cyclomatic_complexity` | AST analysis | Cyclomatic complexity score |
-| `line_count` | Code metrics | Total lines in unit |
-| `function_count` | Code metrics | Number of functions |
-| `panic_calls` | AST analysis | Number of panic() calls |
-| `os_exit_calls` | AST analysis | Number of os.Exit() calls |
-| `errors_ignored` | AST analysis | Error returns assigned to `_` |
-| `global_mutable_count` | AST analysis | Package-level mutable variables |
-| `defer_in_loop` | AST analysis | Defer statements inside loops |
-| `naked_returns` | AST analysis | Bare return in named-return functions |
+| `code_lines` | Code metrics | Lines of code |
+| `complexity` | Code metrics | Cyclomatic complexity |
+
+### Structural (AST analysis — all languages with analyzer)
+
+| Metric | Source | Description |
+|--------|--------|-------------|
+| `param_count` | AST | Number of function parameters |
+| `return_count` | AST | Number of return values |
+| `func_lines` | AST | Lines in function body |
+| `max_nesting_depth` | AST | Deepest nesting level |
+| `has_doc_comment` | AST | Has documentation comment |
+| `cognitive_complexity` | AST | Sonar-style cognitive complexity |
+| `errors_ignored` | AST | Error returns assigned to `_` |
+| `errors_not_wrapped` | AST | Errors returned without wrapping |
+| `naked_returns` | AST | Bare return in named-return functions |
+| `panic_calls` | AST | panic(), throw, unwrap() calls |
+| `empty_catch_blocks` | AST | catch/except/recover with empty body |
+| `os_exit_calls` | AST | os.Exit() / sys.exit() calls |
+| `defer_in_loop` | AST | Defer/finally inside loops |
+| `method_count` | AST | Methods on a type (type-level) |
+| `context_not_first` | AST | context.Context not first param (Go) |
+| `has_init_func` | AST | File contains init() |
+| `global_mutable_count` | AST | Package-level mutable variables |
+| `unsafe_import_count` | AST | Dangerous imports (os/exec, eval, subprocess) |
+| `hardcoded_secrets` | AST | String literals matching secret patterns |
+| `loop_nesting_depth` | AST | Max nested loop depth |
+| `recursive_calls` | AST | Direct recursive calls |
+| `nested_loop_pairs` | AST | Inner loops nested in outer loops |
+| `quadratic_patterns` | AST | Known O(n²) anti-patterns |
+
+### Deep Analysis (type-aware — Go built-in, TS/Py/Rs via LSP)
+
+| Metric | Source | Description |
+|--------|--------|-------------|
+| `fan_in` | Call graph | Number of call sites invoking this function |
+| `fan_out` | Call graph | Number of distinct functions called |
+| `is_dead_code` | References | Exported symbol with zero external references |
+| `dep_depth` | Import graph | Transitive local import depth |
+| `instability` | Import graph | Ce/(Ca+Ce) — 0=stable, 1=unstable |
+| `concrete_deps` | Type analysis | Params accepting concrete external struct types |
+| `coupling_score` | Call graph | fan_in × fan_out normalized |
+| `unused_params` | Type analysis | Parameters never referenced in function body |
+| `interface_size` | Type analysis | Methods in interfaces this type implements |
+| `type_aware_unwrapped` | Type analysis | Error returns without wrapping (type-verified) |
 
 ## Dimensions
 
@@ -165,8 +203,11 @@ Policies without a `language` field apply to all units.
 
 `certify init` generates auto-detected policy packs:
 
-- **`go-standard.yml`** — Universal Go rules (vet clean, low complexity, no TODOs)
+- **`go-standard.yml`** (v1.4.0) — 22 rules: lint clean, complexity, fan-in/fan-out limits, dead code, dep depth, cognitive complexity, unsafe imports, hardcoded secrets, error wrapping
 - **`go-library.yml`** — Library-specific rules scoped to `internal/**` (no panic, no os.Exit)
+- **`ts-standard.yml`** — TypeScript rules: complexity, nesting, empty catch, unsafe imports
+- **`python-standard.yml`** — Python rules: complexity, bare except, subprocess usage
+- **`rust-standard.yml`** — Rust rules: complexity, unwrap() usage, unsafe blocks
 
 The split ensures `os.Exit` in CLI entry points and TODO strings in test fixtures don't generate false observations.
 

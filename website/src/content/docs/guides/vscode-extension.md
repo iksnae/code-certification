@@ -18,10 +18,10 @@ The Certify VSCode extension brings your certification data directly into the ed
     ```
   </TabItem>
   <TabItem label="From VSIX">
-    Download `certify-vscode-0.1.0.vsix` from [GitHub Releases](https://github.com/iksnae/code-certification/releases), then:
+    Download the latest `.vsix` from [GitHub Releases](https://github.com/iksnae/code-certification/releases), then:
 
     ```bash
-    code --install-extension certify-vscode-0.1.0.vsix
+    code --install-extension certify-vscode-*.vsix
     ```
   </TabItem>
   <TabItem label="From Source">
@@ -74,14 +74,20 @@ Click any unit to open its source file.
 
 ### 🔍 CodeLens
 
-Inline annotations appear above Go and TypeScript functions:
+Inline annotations appear above Go, TypeScript, Python, and Rust functions:
 
 ```
 🟢 B+ (87%)
 func ProcessOrder(ctx context.Context, order *Order) error {
 ```
 
-Click the annotation to see dimension scores (correctness, maintainability, readability, etc.) in a quick pick.
+Click the annotation to see dimension scores **and** deep analysis metrics (fan-in, fan-out, dep depth, coupling, etc.) in a quick pick.
+
+Supported symbol patterns:
+- **Go**: `func`, methods, `type`
+- **TypeScript/JavaScript**: `function`, `class`, `const`/`let`/`var`, methods
+- **Python**: `def`, `async def`, `class`
+- **Rust**: `fn`, `struct`, `enum`, `trait`
 
 Disable with `certify.codeLens.enabled: false` in settings.
 
@@ -93,11 +99,21 @@ A persistent badge in the bottom status bar shows the overall grade:
 
 Click to open the dashboard.
 
+### 🔬 Deep Analysis
+
+When using CLI v0.12.0+, the dashboard includes a **Deep Analysis** section showing:
+- Units with type-aware analysis
+- Max fan-in / fan-out across the codebase
+- Dead export count (unused public API)
+- **Fan-in hotspots table** — the riskiest functions to change, sorted by caller count
+
 ### ⚠️ Diagnostics
 
 The Problems panel shows:
 - **⚠️ Warnings** for Grade D and F units
 - **ℹ️ Information** for certifications expiring within 14 days
+- **ℹ️ Information** for high fan-in functions (>20 callers — change risk)
+- **💡 Hints** for dead exports (exported symbols with no external references)
 
 ### ⚙️ AI Provider Configuration
 
@@ -148,6 +164,7 @@ Supports **any OpenAI-compatible API**:
 | **Certify: Configure AI Provider** | Visual provider/model setup |
 | **Certify: Browse Available Models** | Fetch models from provider |
 | **Certify: Test Provider Connection** | Verify provider connectivity |
+| **Certify: Run Doctor** | Check environment, analysis tiers, tools, AI providers |
 | **Certify: Install CLI** | Install `certify` via `go install` |
 | **Certify: Go to Unit Source** | Navigate to a unit's source file |
 

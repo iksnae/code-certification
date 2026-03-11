@@ -98,7 +98,13 @@ certify doctor
     ✅ Policy: go-library@1.0.0: 2 rule(s)
   ── Optional Tools ──
     ✅ golangci-lint: golangci-lint has version 2.7.2
+    ✅ eslint: eslint found
+    ✅ ruff: ruff 0.8.0
     ✅ GitHub CLI (gh): gh version 2.86.0
+  ── Analysis Tiers ──
+    ✅ Go analysis: Tier 2 (go/types — call graph, dead code, interface compliance, 62 metrics)
+    ⚠️  TypeScript analysis: Tier 1 (tree-sitter syntax only, 35 metrics). Install typescript-language-server for Tier 2.
+    ⚠️  Python analysis: Tier 1 (tree-sitter syntax only, 35 metrics). Install pyright-langserver for Tier 2.
   ── AI Providers ──
     ✅ Provider: openrouter: https://openrouter.ai/api/v1 (key: 73 chars)
     ✅ Provider: ollama: http://localhost:11434/v1 (local)
@@ -116,9 +122,30 @@ certify doctor
 | **Project Setup** | config.yml, policies dir, index.json, records, report card, badge |
 | **Configuration** | YAML valid, expiry settings correct, scope patterns, agent config |
 | **Policy Packs** | Each policy YAML validated (name, version, rules, dimensions) |
-| **Agent Config** | Base URL set, API key env var available, model configured |
-| **Optional Tools** | `golangci-lint` installed, `gh` CLI installed |
+| **Optional Tools** | `golangci-lint`, ESLint, ruff, cargo, pytest, `gh` CLI |
+| **Analysis Tiers** | Per-language analysis capability: Tier 0/1/2 with upgrade hints |
 | **AI Providers** | Auto-detects OpenRouter, OpenAI, Groq, Ollama, LM Studio |
+
+### Analysis Tiers
+
+Doctor reports the analysis tier available for each detected language:
+
+```
+── Analysis Tiers ──
+  ✅ Go analysis: Tier 2 (go/types — call graph, dead code, interface compliance, 62 metrics)
+  ⚠️  TypeScript analysis: Tier 1 (tree-sitter syntax only, 35 metrics). Install typescript-language-server for Tier 2.
+     → npm i -g typescript-language-server typescript
+  ⚠️  Python analysis: Tier 1 (tree-sitter syntax only, 35 metrics). Install pyright-langserver for Tier 2.
+     → pip install pyright
+  ⚠️  Rust analysis: Tier 1 (tree-sitter syntax only, 35 metrics). Install rust-analyzer for Tier 2.
+     → rustup component add rust-analyzer
+```
+
+| Tier | What it provides | Go | TS/Py/Rs |
+|------|-----------------|-----|----------|
+| **Tier 0** | Git history, line counts, TODOs | Always | Always |
+| **Tier 1** | 22+ structural metrics, complexity, security patterns | `go/ast` (built-in) | tree-sitter (built-in) |
+| **Tier 2** | Call graph, fan-in/fan-out, dead code, dep graph, interface compliance | `go/types` + `go/packages` (built-in) | LSP server (optional install) |
 
 ### Check Statuses
 

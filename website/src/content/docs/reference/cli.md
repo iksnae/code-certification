@@ -148,7 +148,8 @@ Runs health checks on:
 - **Project setup** — `.certification/` directory, config, policies, index, records, report card, badge
 - **Configuration** — validates `config.yml`, checks agent provider settings, scope patterns
 - **Policy packs** — validates all policy YAML files
-- **Optional tools** — `golangci-lint`, `gh` CLI
+- **Optional tools** — `golangci-lint`, ESLint, ruff, cargo/clippy, pytest, `gh` CLI
+- **Analysis tiers** — per-language Tier 0/1/2 availability (Go always Tier 2; TS/Py/Rs Tier 2 if LSP server installed)
 - **AI providers** — auto-detects cloud and local providers
 
 Exits with code 1 if any check fails.

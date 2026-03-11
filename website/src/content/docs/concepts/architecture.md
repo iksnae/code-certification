@@ -23,7 +23,9 @@ description: How Certify is built — packages, data flow, and design decisions.
 | Package | Responsibility |
 |---------|---------------|
 | `cmd/certify/` | CLI entry point — Cobra commands, workspace dispatch |
-| `internal/discovery/` | Language-aware unit discovery (Go AST, TS regex, generic) |
+| `internal/analysis/` | Unified analyzer interface — Go (`go/ast`), TS/Py/Rs (tree-sitter), deep Go analysis (`go/packages` + SSA + VTA call graph) |
+| `internal/analysis/lsp/` | LSP JSON-RPC 2.0 client — fan-in/fan-out/dead code for TS/Py/Rs via language servers |
+| `internal/discovery/` | Language-aware unit discovery (Go AST, TS/Py/Rs tree-sitter, generic) |
 | `internal/evidence/` | Evidence collection — lint, test, git, complexity, structural AST analysis |
 | `internal/engine/` | Certification pipeline — scoring across 9 dimensions, status assignment |
 | `internal/agent/` | LLM-assisted review, architect review pipeline, workspace snapshots |
@@ -46,7 +48,7 @@ description: How Certify is built — packages, data flow, and design decisions.
 Repository → Scanner → Language Adapters → index.json
 ```
 
-The scanner walks the filesystem, detects languages, and dispatches to adapters. Go adapter uses `go/ast` for precise symbol extraction. TypeScript uses regex patterns. Everything else gets file-level units.
+The scanner walks the filesystem, detects languages, and dispatches to adapters. Go adapter uses `go/ast` for precise symbol extraction. TypeScript, Python, and Rust use tree-sitter for symbol-level discovery. Everything else gets file-level units. Nested module roots (`go.mod`, `package.json`, `Cargo.toml`, `pyproject.toml` in subdirectories) are automatically detected.
 
 ### Evidence Collection
 ```
@@ -54,10 +56,11 @@ Unit → Tool Executor → Evidence Items
 ```
 
 For each unit, multiple evidence collectors run:
-- **Lint** — `go vet`, `golangci-lint` findings attributed to specific units
-- **Test** — `go test` results with per-unit coverage
+- **Lint** — `go vet`, `golangci-lint`, ESLint, ruff, cargo clippy findings attributed to specific units
+- **Test** — `go test`, Jest/Vitest, pytest, cargo test results with per-unit coverage
 - **Git** — Change frequency, author count, file age from `git log`
-- **Structural** — AST-based analysis: panic calls, error handling, nesting depth, complexity patterns
+- **Structural** — 27+ AST metrics: complexity, error handling, nesting, security patterns, documentation
+- **Deep Analysis** — Type-aware cross-file: fan-in/fan-out (call graph), dead code, dep depth, instability, interface compliance, coupling (Go built-in; TS/Py/Rs via optional LSP)
 - **Metrics** — Code lines, comment lines, cyclomatic complexity, TODO count
 
 ### Certification

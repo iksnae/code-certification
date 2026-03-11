@@ -58,6 +58,18 @@ Every metric the LLM sees is **computed from real AST analysis and certification
 - `recursive_calls`, `max_nesting_depth`, `nested_loop_pairs`, `quadratic_patterns`
 - `total_func_lines`, `total_params`, `total_returns`, `total_methods`
 
+### Deep Analysis Metrics (schema v3)
+14 type-aware metrics from call graph and dependency analysis:
+- `avg_fan_in`, `max_fan_in` — call site counts (change risk hotspots)
+- `avg_fan_out`, `max_fan_out` — outgoing call counts (dependency coupling)
+- `dead_export_count` — exported symbols with zero external references
+- `concrete_deps_count` — function params accepting concrete external types
+- `avg_cognitive_complexity`, `max_cognitive_complexity` — Sonar-style readability
+- `errors_not_wrapped` — error returns without wrapping context
+- `unsafe_import_count`, `hardcoded_secrets` — security signals
+- `max_dep_depth` — deepest transitive import chain
+- `avg_instability` — average package instability (0=stable, 1=unstable)
+
 ### Coverage Metrics
 - Units with/without coverage data
 - Average, min, max coverage percentages

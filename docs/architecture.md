@@ -6,8 +6,8 @@ Certify is a Go CLI that continuously evaluates code units against versioned pol
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     CLI (cmd/certify/)                       │
-│  init │ scan │ certify │ report │ expire │ review │ version │
+│                          CLI (cmd/certify/)                          │
+│  init │ scan │ certify │ report │ expire │ architect │ doctor │ …    │
 └────┬──────┬──────┬────────┬────────┬────────┬──────────────┘
      │      │      │        │        │        │
 ┌────▼──────▼──────▼────────▼────────▼────────▼──────────────┐
@@ -40,11 +40,17 @@ Certify is a Go CLI that continuously evaluates code units against versioned pol
 ### `internal/domain/`
 Core types with zero external dependencies. Defines: Unit, UnitID, Evidence, PolicyPack, CertificationRecord, Status, Grade, Dimension, Override, Config.
 
+### `internal/analysis/`
+Unified code analysis interface. Go analyzer wraps `go/ast` for 27 structural metrics. TypeScript, Python, and Rust analyzers use tree-sitter for 22+ metrics. `DeepGoAnalyzer` uses `go/packages` + SSA + VTA for type-aware call graph analysis: fan-in/fan-out, dead code detection, dependency depth, instability, interface compliance, unused params.
+
+### `internal/analysis/lsp/`
+Generic JSON-RPC 2.0 LSP client for type-aware analysis of non-Go languages. Communicates with `typescript-language-server`, `pyright`, `rust-analyzer` via stdin/stdout. Provides call hierarchy (fan-in/fan-out), references (dead code), and diagnostics.
+
 ### `internal/discovery/`
-Code unit discovery. Language adapters (Go via `go/ast`, TypeScript via regex, generic file-level). Index management with JSON persistence. Diff computation for added/removed/changed units.
+Code unit discovery. Language adapters (Go via `go/ast`, TS/Py/Rs via tree-sitter, generic file-level). Nested module root detection. Index management with JSON persistence. Diff computation for added/removed/changed units.
 
 ### `internal/evidence/`
-Evidence collection from external tools. Runs `go vet`, `go test`, `golangci-lint`, `git log`. Parses results into normalized `Evidence` structs. AST-based cyclomatic complexity measurement.
+Evidence collection from external tools. Runs `go vet`/`golangci-lint`, `go test`, ESLint, ruff, pytest, cargo clippy/test, `git log`. Parses results into normalized `Evidence` structs. Module root discovery for multi-language repos.
 
 ### `internal/config/`
 Loads YAML config and policy packs. Policy matching (language, path targeting). Config validation.

@@ -114,7 +114,7 @@ If anything went wrong, run the built-in diagnostics:
 certify doctor
 ```
 
-This checks your environment, configuration, policies, tools, and AI providers — showing exactly what's working and what needs attention. See [Doctor & Onboard →](/code-certification/guides/doctor-onboard/)
+This checks your environment, configuration, policies, tools, AI providers, and **analysis tiers per language** — showing exactly what's available and what to install for deeper analysis. See [Doctor & Onboard →](/code-certification/guides/doctor-onboard/)
 
 ## What's Next?
 

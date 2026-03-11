@@ -10,67 +10,85 @@ Certify evaluates every code unit across 9 quality dimensions. Each dimension is
 ### Correctness
 **Does the code do what it claims?**
 
-Evidence: lint errors (`go vet`, `golangci-lint`), test failures, type errors.
+Evidence: lint errors (`go vet`, `golangci-lint`, ESLint, ruff, cargo clippy), test failures, `errors_ignored`, `panic_calls`, `os_exit_calls`, `defer_in_loop`, `empty_catch_blocks`.
 
 ### Maintainability
 **How easy is it to modify safely?**
 
-Evidence: cyclomatic complexity, function length, nesting depth, parameter count.
+Evidence: cyclomatic complexity, function length, nesting depth, parameter count, `fan_out` (too many dependencies), `is_dead_code` (unused exports), `unused_params`, method count.
 
 ### Readability
 **How clear and understandable is the code?**
 
-Evidence: line length, documentation presence, TODO/FIXME count, comment-to-code ratio, naming conventions.
+Evidence: `cognitive_complexity` (Sonar-style), documentation presence, `max_nesting_depth`, `naked_returns`, `func_lines`, TODO/FIXME count.
 
 ### Testability
 **How well is the code tested?**
 
-Evidence: test coverage percentage, test file existence, test-to-code ratio.
+Evidence: test coverage percentage, test file existence, `concrete_deps` (params using concrete types instead of interfaces — hard to mock), `os_exit_calls` (untestable), `init_func_count`.
 
 ### Security
 **Are there security concerns?**
 
-Evidence from AST analysis:
-- `panic_calls` — panic() in production code
-- `os_exit_calls` — os.Exit() calls
-- `errors_ignored` — error returns assigned to `_`
+Evidence:
+- `unsafe_import_count` — dangerous imports (os/exec, eval, subprocess, libc)
+- `hardcoded_secrets` — string literals matching secret patterns (API keys, passwords)
 - `global_mutable_count` — package-level mutable variables (race condition risk)
-- `defer_in_loop` — defer inside for/range loops (resource leak risk)
 
 ### Architectural Fitness
 **Does the code fit the system's architecture?**
 
-Evidence: package structure, dependency direction, import patterns, `context_not_first` (functions with context.Context not as first parameter), `init_func_count` (hidden initialization).
+Evidence:
+- `dep_depth` — transitive import chain depth
+- `instability` — Robert C. Martin's instability metric (Ce / (Ca + Ce))
+- `coupling_score` — fan-in × fan-out normalized
+- `concrete_deps` — function params accepting concrete external types
+- `interface_size` — methods in implemented interfaces (ISP violations)
+- `context_not_first` — Go context.Context not as first parameter
+- `method_count` — god object detection (>15 methods)
 
 ### Operational Quality
-**How stable is the code in practice?**
+**How stable and observable is the code?**
 
-Evidence: git churn (change frequency), contributor count, file age from `git log`.
+Evidence: `errors_not_wrapped` / `type_aware_unwrapped` (errors returned without context), git churn (change frequency), contributor count, file age from `git log`.
 
 ### Performance Appropriateness
 **Are there performance concerns?**
 
 Evidence from AST analysis:
-- `max_nesting_depth` — deepest loop nesting
+- `loop_nesting_depth` — deepest loop nesting
 - `nested_loop_pairs` — nested loop pairs (O(n²) risk)
 - `quadratic_patterns` — detected quadratic algorithm patterns
 - `recursive_calls` — direct recursive function calls
-- `naked_returns` — bare returns in named-return functions
+- `defer_in_loop` — defer inside loops (resource leak + performance)
 
 ### Change Risk
 **How risky is this code to modify?**
 
-Evidence: recent change frequency, author concentration, coupling metrics, number of dependents.
+Evidence:
+- `fan_in` — number of call sites invoking this function (high fan-in = many dependents affected by changes)
+- Recent change frequency, author concentration from git history
 
 ## Evidence Sources
 
 | Source | What it provides |
 |--------|-----------------|
-| **Lint** | `go vet`, `golangci-lint` errors and warnings |
-| **Test** | Pass/fail status, per-unit coverage percentage |
+| **Lint** | `go vet`, `golangci-lint`, ESLint, ruff, cargo clippy — errors and warnings per unit |
+| **Test** | `go test`, Jest/Vitest, pytest, cargo test — pass/fail status, per-unit coverage |
 | **Git** | Churn rate, author count, last change date, file age |
-| **Structural (AST)** | 16 metrics from Go AST analysis — panic calls, error handling, nesting depth, complexity patterns, function signatures |
+| **Structural (AST)** | 27+ metrics from language-specific analysis — Go via `go/ast`, TS/Py/Rs via tree-sitter. Includes complexity, error handling, security patterns, documentation, nesting |
+| **Deep Analysis** | Go: call graph via `go/packages` + SSA/VTA — `fan_in`, `fan_out`, `is_dead_code`, `dep_depth`, `instability`, `concrete_deps`, `unused_params`, `interface_size`, `type_aware_unwrapped`. TS/Py/Rs: via LSP servers (optional) |
 | **Metrics** | Code lines, comment lines, cyclomatic complexity, TODO count |
+
+### Analysis Tiers
+
+| Tier | What | Go | TS/Py/Rs |
+|------|------|-----|----------|
+| **Tier 0** | Universal (git, line counts, TODOs) | ✅ Built-in | ✅ Built-in |
+| **Tier 1** | Syntax AST (structural metrics, complexity, security) | ✅ `go/ast` | ✅ tree-sitter |
+| **Tier 2** | Type-aware (call graph, dead code, dep graph) | ✅ `go/types` + `go/packages` | Optional LSP server |
+
+Run `certify doctor` to see which tiers are available per language.
 
 ## Scoring
 

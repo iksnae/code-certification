@@ -55,7 +55,7 @@ See certification grades inline on every function, open an interactive dashboard
 code --install-extension iksnae.certify-vscode
 ```
 
-Features: **CodeLens** grade annotations · **Dashboard** WebView · **Tree View** sidebar · **Status Bar** badge · **Diagnostics** for failing units · **Provider configurator** with 10 presets + custom endpoints · **Model browser** with live discovery · **VS Code Settings** integration
+Features: **CodeLens** grade annotations (Go, TypeScript, Python, Rust) · **Dashboard** with deep analysis metrics · **Tree View** sidebar · **Status Bar** badge · **Diagnostics** for failing units + dead code + high fan-in · **Provider configurator** with 10 presets + custom endpoints · **Model browser** with live discovery · **VS Code Settings** integration
 
 [Extension guide →](https://iksnae.github.io/code-certification/guides/vscode-extension/)
 
@@ -166,15 +166,15 @@ Every code unit is scored across 9 quality dimensions:
 
 | Dimension | What it measures |
 |-----------|-----------------|
-| **Correctness** | Lint errors, vet issues, test failures |
-| **Maintainability** | Cyclomatic complexity, function length |
-| **Readability** | Line length, documentation, TODO count |
-| **Testability** | Test coverage, test existence |
-| **Security** | Security-sensitive patterns |
-| **Architectural Fitness** | Package structure, dependency patterns |
-| **Operational Quality** | Git churn, contributor count |
-| **Performance** | Algorithmic complexity indicators |
-| **Change Risk** | Recent changes, author concentration |
+| **Correctness** | Lint errors, vet issues, test failures, empty catch blocks |
+| **Maintainability** | Cyclomatic complexity, function length, fan-out, dead code, unused params |
+| **Readability** | Documentation, cognitive complexity, nesting depth, TODO count |
+| **Testability** | Test coverage, test existence, concrete deps, interface compliance |
+| **Security** | Unsafe imports, hardcoded secrets, global mutable state |
+| **Architectural Fitness** | Dep depth, instability, coupling, interface size, context position |
+| **Operational Quality** | Error wrapping, git churn, contributor count |
+| **Performance** | Algorithmic complexity, loop nesting, quadratic patterns |
+| **Change Risk** | Fan-in (caller count), recent changes, author concentration |
 
 Dimensions are weighted and combined into a single score → grade (A through F).
 
@@ -308,11 +308,15 @@ Agent review supplements — it never overrides — deterministic evidence. Cert
 
 ## Language Support
 
-| Language | Adapter | Discovery |
-|----------|---------|-----------|
-| **Go** | Full | Functions, methods, types via `go/ast` |
-| **TypeScript** | Basic | Classes, functions, exports via regex |
-| **Everything else** | File-level | One code unit per file |
+| Language | Discovery | Structural Analysis | Deep Analysis |
+|----------|-----------|-------------------|---------------|
+| **Go** | Functions, methods, types via `go/ast` | 27 AST metrics + cognitive complexity | ✅ Call graph (fan-in/fan-out), dead code, dep graph, interface compliance |
+| **TypeScript** | Classes, functions, exports via tree-sitter | 22 structural metrics + ESLint + Jest/Vitest | LSP (if `typescript-language-server` installed) |
+| **Python** | Functions, classes via tree-sitter | 22 structural metrics + ruff + pytest | LSP (if `pyright` installed) |
+| **Rust** | Functions, structs, enums, traits via tree-sitter | 22 structural metrics + cargo clippy + cargo test | LSP (if `rust-analyzer` installed) |
+| **Everything else** | File-level | Line counts, complexity, git history | — |
+
+Run `certify doctor` to see which analysis tiers are available for each language in your environment.
 
 ---
 
