@@ -305,6 +305,69 @@ func TestScorer_MetricsBasedScoring(t *testing.T) {
 	}
 }
 
+func TestScorer_FileCodeLinesThresholds(t *testing.T) {
+	// code_lines from metrics evidence represents file-level line count.
+	// File-level thresholds should be more generous than function-level:
+	// a 400-line file is normal; a 400-line function is not.
+	tests := []struct {
+		name        string
+		codeLines   int
+		wantMinRead float64
+	}{
+		{"small file (50 lines)", 50, 0.95},
+		{"medium file (200 lines)", 200, 0.90},
+		{"large file (400 lines)", 400, 0.85},
+		{"very large file (700 lines)", 700, 0.75},
+		{"huge file (1200 lines)", 1200, 0.60},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ev := []domain.Evidence{
+				{
+					Kind:    domain.EvidenceKindMetrics,
+					Source:  "metrics",
+					Passed:  true,
+					Metrics: map[string]float64{"code_lines": float64(tt.codeLines)},
+				},
+			}
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			if scores[domain.DimReadability] < tt.wantMinRead {
+				t.Errorf("code_lines=%d → readability=%f, want >= %f", tt.codeLines, scores[domain.DimReadability], tt.wantMinRead)
+			}
+		})
+	}
+}
+
+func TestScorer_ComplexityGraduated(t *testing.T) {
+	// Complexity 11-15 is moderate, not as bad as 16-20.
+	tests := []struct {
+		name       string
+		complexity int
+		wantMin    float64
+	}{
+		{"low complexity (5)", 5, 0.95},
+		{"moderate complexity (12)", 12, 0.80},
+		{"high complexity (18)", 18, 0.70},
+		{"very high complexity (25)", 25, 0.0}, // setMin caps it
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ev := []domain.Evidence{
+				{
+					Kind:    domain.EvidenceKindMetrics,
+					Source:  "metrics",
+					Passed:  true,
+					Metrics: map[string]float64{"complexity": float64(tt.complexity)},
+				},
+			}
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			if scores[domain.DimMaintainability] < tt.wantMin {
+				t.Errorf("complexity=%d → maintainability=%f, want >= %f", tt.complexity, scores[domain.DimMaintainability], tt.wantMin)
+			}
+		})
+	}
+}
+
 func TestScore_StructuralDocComment(t *testing.T) {
 	ev := []domain.Evidence{
 		{

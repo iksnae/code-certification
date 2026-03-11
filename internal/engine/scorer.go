@@ -114,6 +114,8 @@ func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
 			setMax(scores, domain.DimMaintainability, 0.95)
 		case complexity <= 10:
 			setMax(scores, domain.DimMaintainability, 0.85)
+		case complexity <= 15:
+			setMax(scores, domain.DimMaintainability, 0.80)
 		case complexity <= 20:
 			setMax(scores, domain.DimMaintainability, 0.70)
 		default:
@@ -121,14 +123,18 @@ func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
 		}
 	}
 
+	// code_lines from metrics evidence is a file-level metric.
+	// Thresholds are generous because files naturally grow larger than functions.
 	codeLines := metricOrSummaryInt(e, "code_lines", "code")
 	if codeLines >= 0 {
 		switch {
-		case codeLines <= 50:
+		case codeLines <= 100:
 			setMax(scores, domain.DimReadability, 0.95)
-		case codeLines <= 150:
-			setMax(scores, domain.DimReadability, 0.85)
 		case codeLines <= 300:
+			setMax(scores, domain.DimReadability, 0.90)
+		case codeLines <= 500:
+			setMax(scores, domain.DimReadability, 0.85)
+		case codeLines <= 800:
 			setMax(scores, domain.DimReadability, 0.75)
 		default:
 			setMin(scores, domain.DimReadability, 0.60)
