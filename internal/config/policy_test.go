@@ -31,8 +31,8 @@ func TestLoadPolicyPack_GoStandard(t *testing.T) {
 	if pack.IsGlobal() {
 		t.Error("go-standard should not be global")
 	}
-	if len(pack.Rules) != 15 {
-		t.Fatalf("len(Rules) = %d, want 15", len(pack.Rules))
+	if len(pack.Rules) != 13 {
+		t.Fatalf("len(Rules) = %d, want 13", len(pack.Rules))
 	}
 
 	// Check first rule
@@ -87,11 +87,11 @@ func TestLoadPolicyPacks_Dir(t *testing.T) {
 		t.Fatalf("LoadPolicyPacks() error: %v", err)
 	}
 
-	if len(packs) != 2 {
-		t.Fatalf("len(packs) = %d, want 2", len(packs))
+	if len(packs) != 3 {
+		t.Fatalf("len(packs) = %d, want 3", len(packs))
 	}
 
-	// Should find both packs
+	// Should find all packs
 	names := make(map[string]bool)
 	for _, p := range packs {
 		names[p.Name] = true
@@ -99,8 +99,43 @@ func TestLoadPolicyPacks_Dir(t *testing.T) {
 	if !names["go-standard"] {
 		t.Error("missing go-standard pack")
 	}
+	if !names["go-library"] {
+		t.Error("missing go-library pack")
+	}
 	if !names["security"] {
 		t.Error("missing security pack")
+	}
+}
+
+func TestLoadPolicyPack_GoLibrary(t *testing.T) {
+	pack, err := config.LoadPolicyPack(policiesPath("go-library.yml"))
+	if err != nil {
+		t.Fatalf("LoadPolicyPack(go-library.yml) error: %v", err)
+	}
+
+	if pack.Name != "go-library" {
+		t.Errorf("Name = %q, want go-library", pack.Name)
+	}
+	if pack.Language != "go" {
+		t.Errorf("Language = %q, want go", pack.Language)
+	}
+	if len(pack.PathPatterns) != 1 || pack.PathPatterns[0] != "internal/**" {
+		t.Errorf("PathPatterns = %v, want [internal/**]", pack.PathPatterns)
+	}
+	if len(pack.Rules) != 2 {
+		t.Fatalf("len(Rules) = %d, want 2", len(pack.Rules))
+	}
+
+	// Verify rules are no-panic and no-os-exit
+	ids := map[string]bool{}
+	for _, r := range pack.Rules {
+		ids[r.ID] = true
+	}
+	if !ids["no-panic"] {
+		t.Error("missing no-panic rule")
+	}
+	if !ids["no-os-exit"] {
+		t.Error("missing no-os-exit rule")
 	}
 }
 

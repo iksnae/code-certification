@@ -1,0 +1,19 @@
+name: go-library
+version: "1.0.0"
+language: go
+path_patterns: ["internal/**"]
+
+rules:
+  - id: no-panic
+    dimension: correctness
+    description: "Library code should not call panic()"
+    severity: error
+    metric: panic_calls
+    threshold: 0
+
+  - id: no-os-exit
+    dimension: correctness
+    description: "Library code should not call os.Exit()"
+    severity: warning
+    metric: os_exit_calls
+    threshold: 0

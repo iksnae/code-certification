@@ -23,6 +23,7 @@ rules:
     severity: warning
     metric: todo_count
     threshold: 0
+    exclude_patterns: ["*_test.go"]
 
   - id: lint-clean
     dimension: correctness
@@ -58,20 +59,6 @@ rules:
     severity: warning
     metric: func_lines
     threshold: 100
-
-  - id: no-panic
-    dimension: correctness
-    description: "Library code should not call panic()"
-    severity: error
-    metric: panic_calls
-    threshold: 0
-
-  - id: no-os-exit
-    dimension: correctness
-    description: "Library code should not call os.Exit()"
-    severity: warning
-    metric: os_exit_calls
-    threshold: 0
 
   - id: no-defer-in-loop
     dimension: correctness
