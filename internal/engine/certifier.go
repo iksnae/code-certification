@@ -294,6 +294,11 @@ func (c *Certifier) collectDeepEvidence(unit domain.Unit, ev *[]domain.Evidence)
 	// Coupling score
 	metrics["coupling_score"] = c.DeepAnalyzer.CouplingScore(pkgPath, sym)
 
+	// Type-aware refinements
+	metrics["unused_params"] = float64(c.DeepAnalyzer.UnusedParams(pkgPath, sym))
+	metrics["interface_size"] = float64(c.DeepAnalyzer.InterfaceSize(pkgPath, sym))
+	metrics["type_aware_unwrapped"] = float64(c.DeepAnalyzer.TypeAwareErrorWrapping(pkgPath, sym))
+
 	*ev = append(*ev, domain.Evidence{
 		Kind:       domain.EvidenceKindStructural,
 		Source:     "deep-analysis",

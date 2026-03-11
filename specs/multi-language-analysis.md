@@ -841,7 +841,7 @@ All grounded — every number in the prompt has an exact source in the snapshot.
 | **6** | 1G-1H | Lint/test tool integration (ESLint, ruff, pytest, cargo clippy/test) | ✅ Done | 1,040 actual |
 | **7** | 2A-2C | `go/packages` loader + call graph + dead code | ✅ Done | 540 actual |
 | **8** | 2D-2E | Interface compliance + package dep graph | ✅ Done | 360 actual |
-| **9** | 2F-2G | Error wrapping + cognitive complexity (type-aware refinement) | 🔲 Planned | ~400 est |
+| **9** | 2F-2G | Error wrapping + cognitive complexity (type-aware refinement) | ✅ Done | 340 actual |
 | **10** | 3A | LSP client infrastructure | 🔲 Planned | ~400 est |
 | **11** | 3B-3C | LSP-powered TS/Py/Rs analysis | 🔲 Planned | ~500 est |
 | **12** | 5A-5B | Architect snapshot + prompt updates for new metrics | 🔲 Planned | ~300 est |

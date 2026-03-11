@@ -412,6 +412,21 @@ func scoreDeepAnalysis(m map[string]float64, scores domain.DimensionScores) {
 		setMin(scores, domain.DimTestability, 0.65)
 		setMin(scores, domain.DimArchitecturalFitness, 0.65)
 	}
+
+	// Unused params → maintainability
+	if unusedParams, ok := m["unused_params"]; ok && unusedParams > 0 {
+		setMin(scores, domain.DimMaintainability, 0.70)
+	}
+
+	// Interface size → arch_fitness (Interface Segregation Principle)
+	if ifaceSize, ok := m["interface_size"]; ok && ifaceSize > 10 {
+		setMin(scores, domain.DimArchitecturalFitness, 0.60)
+	}
+
+	// Type-aware error wrapping (more precise than AST-only)
+	if unwrapped, ok := m["type_aware_unwrapped"]; ok && unwrapped > 0 {
+		setMin(scores, domain.DimOperationalQuality, 0.60)
+	}
 }
 
 func scoreFromGitHistory(e domain.Evidence, scores domain.DimensionScores) {
