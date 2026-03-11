@@ -52,8 +52,10 @@ func NewPrescreenStage(provider Provider, model string) Stage {
 	return &prescreenStage{provider: provider, model: model}
 }
 
+// Name returns the stage identifier for the prescreen stage.
 func (s *prescreenStage) Name() string { return "prescreen" }
 
+// Execute runs the prescreen filter to determine if full review is needed.
 func (s *prescreenStage) Execute(ctx context.Context, input StageInput) (StageResult, bool, error) {
 	resp, err := s.provider.Chat(ctx, ChatRequest{
 		Model: s.model,

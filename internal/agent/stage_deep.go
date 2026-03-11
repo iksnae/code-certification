@@ -25,8 +25,10 @@ func NewDeepReviewStage(provider Provider, model string) Stage {
 	return &deepReviewStage{provider: provider, model: model}
 }
 
+// Name returns the stage identifier for the deep review stage.
 func (s *deepReviewStage) Name() string { return "deep-review" }
 
+// Execute performs a detailed code review using the AI provider.
 func (s *deepReviewStage) Execute(ctx context.Context, input StageInput) (StageResult, bool, error) {
 	codeSnippet := input.SourceCode
 	// Local models: allow much larger snippets (no token cost)

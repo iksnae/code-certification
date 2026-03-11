@@ -2,7 +2,7 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.9%)  
+**Grade:** 🟢 A- (92.1%)  
 **Units:** 17 · **Passing:** 17 / 17
 
 ## Units
@@ -11,21 +11,21 @@
 |------|------|:-----:|------:|--------|--------:|
 | [ComputeTrustDelta](pr.go/ComputeTrustDelta.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
 | [FormatPRComment](pr.go/FormatPRComment.md) | function | 🟢 A- | 90.0% | certified | 2026-04-24 |
-| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [FormatIssueBody](issues.go/FormatIssueBody.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [issues_test.go](issues_test.go.md) | file | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [BuildIssueCreateCommand](issues.go/BuildIssueCreateCommand.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [GenerateNightlyWorkflow](workflows.go/GenerateNightlyWorkflow.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [GeneratePRWorkflow](workflows.go/GeneratePRWorkflow.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [GenerateWeeklyWorkflow](workflows.go/GenerateWeeklyWorkflow.md) | function | 🟢 A- | 92.1% | certified | 2026-04-24 |
-| [workflows_test.go](workflows_test.go.md) | file | 🟢 A- | 92.1% | certified | 2026-04-24 |
+| [BuildIssueCreateCommand](issues.go/BuildIssueCreateCommand.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |
+| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |
+| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |
+| [FormatIssueBody](issues.go/FormatIssueBody.md) | function | 🟢 A- | 91.9% | certified | 2026-04-24 |
+| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [issues_test.go](issues_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [GenerateNightlyWorkflow](workflows.go/GenerateNightlyWorkflow.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [GeneratePRWorkflow](workflows.go/GeneratePRWorkflow.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [GenerateWeeklyWorkflow](workflows.go/GenerateWeeklyWorkflow.md) | function | 🟢 A- | 92.5% | certified | 2026-04-24 |
+| [workflows_test.go](workflows_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-24 |
 
 ---
 

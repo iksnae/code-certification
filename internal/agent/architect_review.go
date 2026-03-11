@@ -45,12 +45,14 @@ type ArchPhase1Result struct {
 	DependencyAssessment string         `json:"dependency_assessment"`
 }
 
+// ArchLayer describes a logical architecture layer and its constituent packages.
 type ArchLayer struct {
 	Name        string   `json:"name"`
 	Packages    []string `json:"packages"`
 	Description string   `json:"description"`
 }
 
+// ArchDataFlow describes a data flow between two architectural components.
 type ArchDataFlow struct {
 	From        string `json:"from"`
 	To          string `json:"to"`
@@ -62,6 +64,7 @@ type ArchPhase2Result struct {
 	Findings []ArchFinding `json:"findings"`
 }
 
+// ArchFinding describes a code quality finding in a specific package.
 type ArchFinding struct {
 	Package        string             `json:"package"`
 	Issue          string             `json:"issue"`
@@ -75,6 +78,7 @@ type ArchPhase3Result struct {
 	StrategyAssessment string            `json:"strategy_assessment"`
 }
 
+// ArchCoverageGap identifies a package with insufficient test coverage.
 type ArchCoverageGap struct {
 	Package      string  `json:"package"`
 	CurrentScore float64 `json:"current_score"`
@@ -86,6 +90,7 @@ type ArchPhase4Result struct {
 	Concerns []ArchConcern `json:"concerns"`
 }
 
+// ArchConcern describes a security or operational concern in the architecture.
 type ArchConcern struct {
 	Area             string         `json:"area"`
 	Description      string         `json:"description"`
@@ -98,6 +103,7 @@ type ArchPhase5Result struct {
 	Recommendations []ArchRecommendation `json:"recommendations"`
 }
 
+// ArchRecommendation describes a specific improvement with projected impact.
 type ArchRecommendation struct {
 	Title         string      `json:"title"`
 	CurrentState  string      `json:"current_state"`
@@ -108,6 +114,7 @@ type ArchRecommendation struct {
 	Justification string      `json:"justification"`
 }
 
+// ArchDelta captures a before/after comparison for a specific metric.
 type ArchDelta struct {
 	Metric    string `json:"metric"`
 	Current   string `json:"current"`
@@ -121,6 +128,7 @@ type ArchPhase6Result struct {
 	Roadmap          []ArchRoadItem `json:"roadmap"`
 }
 
+// ArchRisk describes an architectural risk with severity and likelihood.
 type ArchRisk struct {
 	Risk              string `json:"risk"`
 	Severity          string `json:"severity"`
@@ -128,6 +136,7 @@ type ArchRisk struct {
 	RecommendationRef string `json:"recommendation_ref"`
 }
 
+// ArchRoadItem represents a prioritized improvement item in the roadmap.
 type ArchRoadItem struct {
 	Priority          int    `json:"priority"`
 	Title             string `json:"title"`

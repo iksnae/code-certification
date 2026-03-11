@@ -40,6 +40,7 @@ func (f *FallbackProvider) Chat(ctx context.Context, req ChatRequest) (ChatRespo
 	return ChatResponse{}, fmt.Errorf("all providers failed: %w", lastErr)
 }
 
+// Name returns the provider identifier for the fallback provider.
 func (f *FallbackProvider) Name() string { return "fallback" }
 
 // ModelChain creates a FallbackProvider with one OpenRouterProvider per model.
@@ -69,6 +70,7 @@ func (mc *ModelChain) Chat(ctx context.Context, req ChatRequest) (ChatResponse, 
 	return mc.inner.Chat(ctx, req)
 }
 
+// Name returns the provider identifier for the model chain.
 func (mc *ModelChain) Name() string { return "model-chain" }
 
 // modelPinnedProvider overrides the model in every request.

@@ -3,31 +3,31 @@
 [← Report Card](../REPORT_CARD.md)
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `ac78ce0`  
-**Overall:** 🟢 A- (91.5%)  
+**Commit:** `0c1729d`  
+**Overall:** 🟢 A- (91.7%)  
 **Units:** 748 · **Passing:** 748 · **Failing:** 0
 
 ## Packages
 
 | Package | Units | Grade | Score | Pass Rate |
 |---------|------:|:-----:|------:|----------:|
-| [cmd/certify](cmd/certify/index.md) | 54 | 🟢 A- | 91.0% | 100% |
+| [cmd/certify](cmd/certify/index.md) | 54 | 🟢 A- | 91.4% | 100% |
 | [extensions](extensions/index.md) | 18 | 🟢 A- | 92.1% | 100% |
-| [internal](internal/index.md) | 1 | 🟢 A- | 90.7% | 100% |
-| [internal/agent](internal/agent/index.md) | 187 | 🟢 A- | 91.3% | 100% |
-| [internal/config](internal/config/index.md) | 22 | 🟢 A- | 91.4% | 100% |
+| [internal](internal/index.md) | 1 | 🟢 A- | 91.3% | 100% |
+| [internal/agent](internal/agent/index.md) | 187 | 🟢 A- | 91.6% | 100% |
+| [internal/config](internal/config/index.md) | 22 | 🟢 A- | 91.7% | 100% |
 | [internal/discovery](internal/discovery/index.md) | 40 | 🟢 A- | 91.1% | 100% |
-| [internal/domain](internal/domain/index.md) | 69 | 🟢 A- | 92.1% | 100% |
-| [internal/engine](internal/engine/index.md) | 20 | 🟢 A- | 91.3% | 100% |
+| [internal/domain](internal/domain/index.md) | 69 | 🟢 A- | 92.4% | 100% |
+| [internal/engine](internal/engine/index.md) | 20 | 🟢 A- | 91.5% | 100% |
 | [internal/evidence](internal/evidence/index.md) | 68 | 🟢 A- | 91.3% | 100% |
-| [internal/expiry](internal/expiry/index.md) | 2 | 🟢 A- | 91.4% | 100% |
-| [internal/github](internal/github/index.md) | 17 | 🟢 A- | 91.9% | 100% |
-| [internal/override](internal/override/index.md) | 9 | 🟢 A- | 91.6% | 100% |
-| [internal/policy](internal/policy/index.md) | 15 | 🟢 A- | 91.3% | 100% |
-| [internal/queue](internal/queue/index.md) | 17 | 🟢 A- | 91.9% | 100% |
-| [internal/record](internal/record/index.md) | 29 | 🟢 A- | 91.7% | 100% |
-| [internal/report](internal/report/index.md) | 108 | 🟢 A- | 91.4% | 100% |
-| [internal/workspace](internal/workspace/index.md) | 19 | 🟢 A- | 91.8% | 100% |
+| [internal/expiry](internal/expiry/index.md) | 2 | 🟢 A- | 91.9% | 100% |
+| [internal/github](internal/github/index.md) | 17 | 🟢 A- | 92.1% | 100% |
+| [internal/override](internal/override/index.md) | 9 | 🟢 A- | 91.8% | 100% |
+| [internal/policy](internal/policy/index.md) | 15 | 🟢 A- | 91.5% | 100% |
+| [internal/queue](internal/queue/index.md) | 17 | 🟢 A- | 92.2% | 100% |
+| [internal/record](internal/record/index.md) | 29 | 🟢 A- | 91.9% | 100% |
+| [internal/report](internal/report/index.md) | 108 | 🟢 A- | 91.3% | 100% |
+| [internal/workspace](internal/workspace/index.md) | 19 | 🟢 A- | 92.0% | 100% |
 | [testdata/repos/ts-simple/src](testdata/repos/ts-simple/src/index.md) | 6 | 🟢 A | 93.3% | 100% |
 | [vscode-certify/src](vscode-certify/src/index.md) | 33 | 🟢 A- | 92.5% | 100% |
 | [vscode-certify/src/codeLens](vscode-certify/src/codeLens/index.md) | 2 | 🟢 A | 93.3% | 100% |

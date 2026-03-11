@@ -2,14 +2,14 @@
 
 [← All Packages](../index.md) · [← Report Card](../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
+**Grade:** 🟢 A- (91.3%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [integration_test.go](integration_test.go.md) | file | 🟢 A- | 90.7% | certified | 2026-04-24 |
+| [integration_test.go](integration_test.go.md) | file | 🟢 A- | 91.3% | certified | 2026-04-24 |
 
 ---
 
