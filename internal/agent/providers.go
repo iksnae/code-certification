@@ -18,55 +18,62 @@ type DetectedProvider struct {
 
 // Default model lists are suggestions used when model discovery is unavailable.
 // Users can specify any model their provider supports via config or the extension.
+// Functions return fresh slices to avoid mutable global state.
 
-// DefaultGroqModels lists suggested models for Groq.
-var DefaultGroqModels = []string{
-	"llama-3.3-70b-versatile",
-	"llama-3.1-8b-instant",
-	"gemma2-9b-it",
+// DefaultGroqModels returns suggested models for Groq.
+func DefaultGroqModels() []string {
+	return []string{
+		"llama-3.3-70b-versatile",
+		"llama-3.1-8b-instant",
+		"gemma2-9b-it",
+	}
 }
 
-// DefaultOllamaModels lists common Ollama models.
-var DefaultOllamaModels = []string{
-	"qwen2.5-coder:7b",
-	"qwen2.5-coder:3b",
-	"llama3.2:3b",
-	"phi4",
-	"gemma2:9b",
+// DefaultOllamaModels returns common Ollama models.
+func DefaultOllamaModels() []string {
+	return []string{
+		"qwen2.5-coder:7b",
+		"qwen2.5-coder:3b",
+		"llama3.2:3b",
+		"phi4",
+		"gemma2:9b",
+	}
 }
 
-// DefaultOpenAIModels lists suggested models for OpenAI.
-var DefaultOpenAIModels = []string{
-	"gpt-4o-mini",
-	"gpt-4o",
-	"gpt-4.1-mini",
-	"gpt-4.1-nano",
-	"o3-mini",
+// DefaultOpenAIModels returns suggested models for OpenAI.
+func DefaultOpenAIModels() []string {
+	return []string{
+		"gpt-4o-mini",
+		"gpt-4o",
+		"gpt-4.1-mini",
+		"gpt-4.1-nano",
+		"o3-mini",
+	}
 }
 
-// DefaultLMStudioModels lists models for LM Studio.
-var DefaultLMStudioModels = []string{
-	"loaded-model",
+// DefaultLMStudioModels returns models for LM Studio.
+func DefaultLMStudioModels() []string {
+	return []string{
+		"loaded-model",
+	}
 }
 
-// DefaultModels maps provider name to default model suggestions.
-// ConservativeModels (declared in autodetect.go) is resolved at package init time
-// since Go initializes all package-level vars before any code runs.
-var DefaultModels = map[string][]string{
-	"openrouter": ConservativeModels,
-	"openai":     DefaultOpenAIModels,
-	"groq":       DefaultGroqModels,
-	"ollama":     DefaultOllamaModels,
-	"lmstudio":   DefaultLMStudioModels,
+// DefaultModels returns the provider-to-models mapping.
+func DefaultModels() map[string][]string {
+	return map[string][]string{
+		"openrouter": ConservativeModels(),
+		"openai":     DefaultOpenAIModels(),
+		"groq":       DefaultGroqModels(),
+		"ollama":     DefaultOllamaModels(),
+		"lmstudio":   DefaultLMStudioModels(),
+	}
 }
 
-// Backward-compatible aliases
-var (
-	OpenAIModels   = DefaultOpenAIModels
-	GroqModels     = DefaultGroqModels
-	OllamaModels   = DefaultOllamaModels
-	LMStudioModels = DefaultLMStudioModels
-)
+// Backward-compatible aliases (functions returning fresh slices).
+func GroqModels() []string     { return DefaultGroqModels() }
+func OllamaModels() []string   { return DefaultOllamaModels() }
+func OpenAIModels() []string   { return DefaultOpenAIModels() }
+func LMStudioModels() []string { return DefaultLMStudioModels() }
 
 // DetectProviders checks for available LLM providers in priority order.
 // Cloud providers (requiring API keys) come first, local providers last.
@@ -79,14 +86,14 @@ func DetectProviders() []DetectedProvider {
 			Name:    "openrouter",
 			BaseURL: "https://openrouter.ai/api/v1",
 			APIKey:  key,
-			Models:  ConservativeModels,
+			Models:  ConservativeModels(),
 		})
 	} else if key := os.Getenv("CERTIFY_API_KEY"); key != "" {
 		cloud = append(cloud, DetectedProvider{
 			Name:    "openrouter",
 			BaseURL: "https://openrouter.ai/api/v1",
 			APIKey:  key,
-			Models:  ConservativeModels,
+			Models:  ConservativeModels(),
 		})
 	}
 
@@ -95,7 +102,7 @@ func DetectProviders() []DetectedProvider {
 			Name:    "openai",
 			BaseURL: "https://api.openai.com/v1",
 			APIKey:  key,
-			Models:  OpenAIModels,
+			Models:  OpenAIModels(),
 		})
 	}
 
@@ -104,7 +111,7 @@ func DetectProviders() []DetectedProvider {
 			Name:    "groq",
 			BaseURL: "https://api.groq.com/openai/v1",
 			APIKey:  key,
-			Models:  GroqModels,
+			Models:  GroqModels(),
 		})
 	}
 
@@ -114,14 +121,14 @@ func DetectProviders() []DetectedProvider {
 		local = append(local, DetectedProvider{
 			Name:    "ollama",
 			BaseURL: baseURL,
-			Models:  OllamaModels,
+			Models:  OllamaModels(),
 			Local:   true,
 		})
 	} else if probeLocal("http://localhost:11434") {
 		local = append(local, DetectedProvider{
 			Name:    "ollama",
 			BaseURL: "http://localhost:11434/v1",
-			Models:  OllamaModels,
+			Models:  OllamaModels(),
 			Local:   true,
 		})
 	}
@@ -131,14 +138,14 @@ func DetectProviders() []DetectedProvider {
 		local = append(local, DetectedProvider{
 			Name:    "lmstudio",
 			BaseURL: baseURL,
-			Models:  LMStudioModels,
+			Models:  LMStudioModels(),
 			Local:   true,
 		})
 	} else if probeLocal("http://localhost:1234") {
 		local = append(local, DetectedProvider{
 			Name:    "lmstudio",
 			BaseURL: "http://localhost:1234/v1",
-			Models:  LMStudioModels,
+			Models:  LMStudioModels(),
 			Local:   true,
 		})
 	}

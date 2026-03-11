@@ -16,24 +16,28 @@ const (
 	ConservativeCircuitThreshold = 3
 )
 
-// AutoDetectEnvVars lists environment variables checked for cloud API keys, in priority order.
-var AutoDetectEnvVars = []string{"OPENROUTER_API_KEY", "CERTIFY_API_KEY", "OPENAI_API_KEY", "GROQ_API_KEY"}
+// AutoDetectEnvVars returns environment variables checked for cloud API keys, in priority order.
+func AutoDetectEnvVars() []string {
+	return []string{"OPENROUTER_API_KEY", "CERTIFY_API_KEY", "OPENAI_API_KEY", "GROQ_API_KEY"}
+}
 
-// ConservativeModels lists free-tier OpenRouter models in fallback order.
+// ConservativeModels returns free-tier OpenRouter models in fallback order.
 // These are default suggestions — users can choose any model via config or the extension.
-var ConservativeModels = []string{
-	"qwen/qwen3-coder:free",
-	"qwen/qwen-2.5-coder-32b-instruct:free",
-	"mistralai/mistral-small-3.1-24b-instruct:free",
-	"meta-llama/llama-3.3-70b-instruct:free",
-	"microsoft/phi-4:free",
+func ConservativeModels() []string {
+	return []string{
+		"qwen/qwen3-coder:free",
+		"qwen/qwen-2.5-coder-32b-instruct:free",
+		"mistralai/mistral-small-3.1-24b-instruct:free",
+		"meta-llama/llama-3.3-70b-instruct:free",
+		"microsoft/phi-4:free",
+	}
 }
 
 // DetectAPIKey checks environment variables for an API key (cloud providers).
 // Returns the key and the env var name it was found in.
 // Returns empty strings if no key is found.
 func DetectAPIKey() (key string, envVar string) {
-	for _, v := range AutoDetectEnvVars {
+	for _, v := range AutoDetectEnvVars() {
 		if k := os.Getenv(v); k != "" {
 			return k, v
 		}

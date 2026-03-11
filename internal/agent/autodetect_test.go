@@ -7,7 +7,7 @@ import (
 
 func TestDetectAPIKey_NoVars(t *testing.T) {
 	// Clear all relevant env vars
-	for _, v := range AutoDetectEnvVars {
+	for _, v := range AutoDetectEnvVars() {
 		os.Unsetenv(v)
 	}
 	key, envVar := DetectAPIKey()
@@ -20,7 +20,7 @@ func TestDetectAPIKey_NoVars(t *testing.T) {
 }
 
 func TestDetectAPIKey_OpenRouter(t *testing.T) {
-	for _, v := range AutoDetectEnvVars {
+	for _, v := range AutoDetectEnvVars() {
 		os.Unsetenv(v)
 	}
 	os.Setenv("OPENROUTER_API_KEY", "sk-or-test-key")
@@ -36,7 +36,7 @@ func TestDetectAPIKey_OpenRouter(t *testing.T) {
 }
 
 func TestDetectAPIKey_CertifyKey(t *testing.T) {
-	for _, v := range AutoDetectEnvVars {
+	for _, v := range AutoDetectEnvVars() {
 		os.Unsetenv(v)
 	}
 	os.Setenv("CERTIFY_API_KEY", "sk-certify-key")
@@ -52,7 +52,7 @@ func TestDetectAPIKey_CertifyKey(t *testing.T) {
 }
 
 func TestDetectAPIKey_Priority(t *testing.T) {
-	for _, v := range AutoDetectEnvVars {
+	for _, v := range AutoDetectEnvVars() {
 		os.Unsetenv(v)
 	}
 	os.Setenv("OPENROUTER_API_KEY", "sk-or-primary")
@@ -71,7 +71,7 @@ func TestDetectAPIKey_Priority(t *testing.T) {
 
 func TestNewConservativeCoordinator(t *testing.T) {
 	providers := []DetectedProvider{
-		{Name: "openrouter", BaseURL: "https://openrouter.ai/api/v1", APIKey: "sk-or-test", Models: ConservativeModels},
+		{Name: "openrouter", BaseURL: "https://openrouter.ai/api/v1", APIKey: "sk-or-test", Models: ConservativeModels()},
 	}
 	coord := NewConservativeCoordinator(providers)
 	if coord == nil {
@@ -96,8 +96,8 @@ func TestNewConservativeCoordinator_Empty(t *testing.T) {
 
 func TestNewConservativeCoordinator_MultiProvider(t *testing.T) {
 	providers := []DetectedProvider{
-		{Name: "groq", BaseURL: "https://api.groq.com/openai/v1", APIKey: "gsk-test", Models: GroqModels},
-		{Name: "ollama", BaseURL: "http://localhost:11434/v1", Models: OllamaModels, Local: true},
+		{Name: "groq", BaseURL: "https://api.groq.com/openai/v1", APIKey: "gsk-test", Models: GroqModels()},
+		{Name: "ollama", BaseURL: "http://localhost:11434/v1", Models: OllamaModels(), Local: true},
 	}
 	coord := NewConservativeCoordinator(providers)
 	if coord == nil {
@@ -110,7 +110,7 @@ func TestNewConservativeCoordinator_MultiProvider(t *testing.T) {
 
 func TestNewConservativeCoordinator_LocalOnly(t *testing.T) {
 	providers := []DetectedProvider{
-		{Name: "ollama", BaseURL: "http://localhost:11434/v1", Models: OllamaModels, Local: true},
+		{Name: "ollama", BaseURL: "http://localhost:11434/v1", Models: OllamaModels(), Local: true},
 	}
 	coord := NewConservativeCoordinator(providers)
 	if coord == nil {
@@ -144,28 +144,28 @@ func TestDefaultModels_AllProvidersPopulated(t *testing.T) {
 	// contain all provider entries with non-nil model slices.
 	expected := []string{"openrouter", "openai", "groq", "ollama", "lmstudio"}
 	for _, name := range expected {
-		models, ok := DefaultModels[name]
+		models, ok := DefaultModels()[name]
 		if !ok {
 			t.Errorf("DefaultModels missing provider %q", name)
 			continue
 		}
 		if models == nil || len(models) == 0 {
-			t.Errorf("DefaultModels[%q] is nil or empty", name)
+			t.Errorf("DefaultModels()[%q] is nil or empty", name)
 		}
 	}
 	// openrouter should use ConservativeModels
-	if DefaultModels["openrouter"][0] != ConservativeModels[0] {
-		t.Errorf("DefaultModels[openrouter][0] = %q, want %q", DefaultModels["openrouter"][0], ConservativeModels[0])
+	if DefaultModels()["openrouter"][0] != ConservativeModels()[0] {
+		t.Errorf("DefaultModels()[openrouter][0] = %q, want %q", DefaultModels()["openrouter"][0], ConservativeModels()[0])
 	}
 }
 
 func TestConservativeModels(t *testing.T) {
-	if len(ConservativeModels) == 0 {
+	if len(ConservativeModels()) == 0 {
 		t.Fatal("ConservativeModels should not be empty")
 	}
 	// First model should be free-tier
-	first := ConservativeModels[0]
+	first := ConservativeModels()[0]
 	if first != "qwen/qwen3-coder:free" {
-		t.Errorf("ConservativeModels[0] = %q, want qwen/qwen3-coder:free", first)
+		t.Errorf("ConservativeModels()[0] = %q, want qwen/qwen3-coder:free", first)
 	}
 }

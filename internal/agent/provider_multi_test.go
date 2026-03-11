@@ -291,12 +291,12 @@ func TestDetectProviders_OpenAIPriority(t *testing.T) {
 }
 
 func TestOpenAIModels(t *testing.T) {
-	if len(DefaultOpenAIModels) == 0 {
+	if len(DefaultOpenAIModels()) == 0 {
 		t.Fatal("DefaultOpenAIModels should not be empty")
 	}
 	// Should contain gpt-4o-mini (cheapest, best for code review)
 	found := false
-	for _, m := range DefaultOpenAIModels {
+	for _, m := range DefaultOpenAIModels() {
 		if m == "gpt-4o-mini" {
 			found = true
 		}
@@ -309,19 +309,19 @@ func TestOpenAIModels(t *testing.T) {
 // --- Groq models ---
 
 func TestGroqModels(t *testing.T) {
-	if len(GroqModels) == 0 {
+	if len(GroqModels()) == 0 {
 		t.Fatal("GroqModels should not be empty")
 	}
 }
 
 func TestOllamaModels(t *testing.T) {
-	if len(OllamaModels) == 0 {
+	if len(OllamaModels()) == 0 {
 		t.Fatal("OllamaModels should not be empty")
 	}
 }
 
 func TestLMStudioModels(t *testing.T) {
-	if len(LMStudioModels) == 0 {
+	if len(LMStudioModels()) == 0 {
 		t.Fatal("LMStudioModels should not be empty")
 	}
 }
@@ -339,7 +339,7 @@ func (m *mockProvider) Chat(_ context.Context, _ ChatRequest) (ChatResponse, err
 func (m *mockProvider) Name() string { return "mock" }
 
 func clearProviderEnvVars() {
-	for _, v := range AutoDetectEnvVars {
+	for _, v := range AutoDetectEnvVars() {
 		os.Unsetenv(v)
 	}
 	os.Unsetenv("GROQ_API_KEY")
