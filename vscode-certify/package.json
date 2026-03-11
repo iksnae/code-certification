@@ -2,7 +2,7 @@
   "name": "certify-vscode",
   "displayName": "Certify",
   "description": "Code trust, with an expiration date \u2014 view report cards, configure AI providers, run certification",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "publisher": "iksnae",
   "license": "MIT",
   "icon": "icon.png",
@@ -28,7 +28,12 @@
     "linting",
     "AI review",
     "code governance",
-    "continuous certification"
+    "continuous certification",
+    "call graph",
+    "dead code",
+    "fan-in",
+    "fan-out",
+    "multi-language"
   ],
   "categories": [
     "Linters",
@@ -51,7 +56,8 @@
     "onCommand:certify.workspaceCertify",
     "onCommand:certify.workspaceReport",
     "onCommand:certify.architect",
-    "onCommand:certify.openArchitectReview"
+    "onCommand:certify.openArchitectReview",
+    "onCommand:certify.doctor"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -93,6 +99,11 @@
       {
         "command": "certify.testConnection",
         "title": "Certify: Test Provider Connection"
+      },
+      {
+        "command": "certify.doctor",
+        "title": "Certify: Run Doctor (Environment Check)",
+        "icon": "$(pulse)"
       },
       {
         "command": "certify.installCLI",

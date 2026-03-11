@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.5.0 — 2026-03-11
+
+### Added
+- **Deep analysis dashboard section**: New "Deep Analysis (Type-Aware)" card showing units analyzed, max fan-in/fan-out, dead export count, and top fan-in hotspots table. Requires CLI v0.12.0+ with Sprint 7-13 features.
+- **CodeLens for Python & Rust**: Inline grade annotations now appear on `def`, `async def`, `class` (Python) and `fn`, `struct`, `enum`, `trait` (Rust) symbols.
+- **Deep metric details in CodeLens**: Clicking a grade annotation now shows deep analysis metrics (fan-in, fan-out, dep depth, instability, coupling, etc.) below the dimension scores.
+- **Dead code diagnostics**: Hint markers on files containing exported symbols with zero external references.
+- **High fan-in diagnostics**: Info markers on files with functions called by >20 callers (high change risk).
+- **`Certify: Run Doctor` command**: Run `certify doctor` from the command palette to check analysis tier availability, LSP servers, lint/test tools.
+- **JavaScript/JSX CodeLens**: CodeLens provider now registered for `javascript` and `javascriptreact` in addition to TypeScript.
+
+### Changed
+- **Language detection expanded**: Dashboard language breakdown now correctly identifies Python (`.py`), Rust (`.rs`), JavaScript (`.js`/`.jsx`), Java, Swift, Kotlin, Ruby, C#, C++, and C files. Previously only handled Go and TypeScript.
+- **Compatible with CLI v0.12.0**: Supports schema v3 architect snapshots, deep analysis evidence (`fan_in`, `fan_out`, `is_dead_code`, `dep_depth`, `instability`, `concrete_deps`, `coupling_score`, `unused_params`, `interface_size`, `type_aware_unwrapped`). All new fields are optional — fully backward compatible with older CLI versions.
+
 ## 0.4.0 — 2026-03-10
 
 ### Added

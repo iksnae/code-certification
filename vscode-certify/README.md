@@ -13,13 +13,16 @@ Interactive report card showing overall grade, grade distribution, quality dimen
 Explorer sidebar showing all certified units organized by directory. Click any unit to navigate to its source.
 
 ### 🔍 CodeLens
-Inline grade annotations on Go and TypeScript functions — see `🟢 B+ (87%)` directly above each function. Click for dimension score breakdown.
+Inline grade annotations on Go, TypeScript, Python, and Rust functions — see `🟢 B+ (87%)` directly above each function. Click for dimension score breakdown including deep analysis metrics (fan-in, fan-out, dep depth, etc.).
 
 ### 📊 Status Bar
 Persistent grade badge showing overall grade, unit count, and pass rate. Click to open the dashboard.
 
 ### ⚠️ Diagnostics
-Warning markers on files with Grade D or F units. Information markers on soon-to-expire certifications.
+Warning markers on files with Grade D or F units. Information markers on soon-to-expire certifications. Hint markers on dead exports (unused public API). Info markers on high fan-in functions (change risk hotspots).
+
+### 🔬 Deep Analysis
+When using CLI v0.12.0+, the dashboard shows type-aware cross-file analysis: fan-in/fan-out call graph metrics, dead export detection, dependency depth, package instability, and coupling scores. The fan-in hotspots table highlights the riskiest functions to change.
 
 ### ⚙️ Provider Configuration
 Configure **any** OpenAI-compatible AI provider — via the visual configurator or VS Code Settings (`Ctrl+,` → search "certify"):
@@ -76,6 +79,7 @@ npm run build
 | `Certify: Configure AI Provider` | Visual provider/model setup |
 | `Certify: Browse Available Models` | Fetch and browse models from provider |
 | `Certify: Test Provider Connection` | Verify provider connectivity |
+| `Certify: Run Doctor` | Check environment, analysis tiers, LSP servers |
 | `Certify: Install CLI` | Install the certify binary via Go |
 
 ## Settings

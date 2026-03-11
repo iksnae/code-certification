@@ -56,6 +56,29 @@ export class CertifyDiagnostics {
         diagnostics.push(diag);
       }
 
+      // Dead code hint (from deep analysis)
+      if (record.dimensions?.['is_dead_code'] && record.dimensions['is_dead_code'] > 0) {
+        const diag = new vscode.Diagnostic(
+          new vscode.Range(0, 0, 0, 0),
+          `Certify: Exported symbol has no external references (dead export)`,
+          vscode.DiagnosticSeverity.Hint,
+        );
+        diag.source = 'Certify';
+        diagnostics.push(diag);
+      }
+
+      // High fan-in warning (change risk)
+      if (record.dimensions?.['fan_in'] && record.dimensions['fan_in'] > 20) {
+        const fanIn = Math.round(record.dimensions['fan_in']);
+        const diag = new vscode.Diagnostic(
+          new vscode.Range(0, 0, 0, 0),
+          `Certify: High fan-in (${fanIn} callers) — changes here affect many dependents`,
+          vscode.DiagnosticSeverity.Information,
+        );
+        diag.source = 'Certify';
+        diagnostics.push(diag);
+      }
+
       // Expiring soon
       if (record.expires_at) {
         const expires = new Date(record.expires_at).getTime();

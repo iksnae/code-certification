@@ -241,7 +241,7 @@ export class CertifyDataLoader {
     // Language breakdown
     const langMap = new Map<string, { scores: number[]; grades: string[]; passing: number }>();
     for (const r of records) {
-      const lang = r.unit_path.endsWith('.go') ? 'Go' : r.unit_path.endsWith('.ts') ? 'TypeScript' : 'Other';
+      const lang = detectLanguageName(r.unit_path);
       if (!langMap.has(lang)) langMap.set(lang, { scores: [], grades: [], passing: 0 });
       const entry = langMap.get(lang)!;
       entry.scores.push(r.score);
@@ -273,7 +273,7 @@ export class CertifyDataLoader {
       unit_id: r.unit_id,
       unit_type: r.unit_type,
       path: r.unit_path,
-      language: r.unit_path.endsWith('.go') ? 'Go' : r.unit_path.endsWith('.ts') ? 'TypeScript' : 'Other',
+      language: detectLanguageName(r.unit_path),
       symbol: r.unit_id.includes('#') ? r.unit_id.split('#').pop() : undefined,
       status: r.status,
       grade: r.grade,
@@ -364,6 +364,22 @@ function parseArchitectMeta(content: string): ArchitectMeta {
   meta.hasThinking = content.includes('Agent Reasoning');
 
   return meta;
+}
+
+function detectLanguageName(filePath: string): string {
+  if (filePath.endsWith('.go')) return 'Go';
+  if (filePath.endsWith('.ts') || filePath.endsWith('.tsx')) return 'TypeScript';
+  if (filePath.endsWith('.js') || filePath.endsWith('.jsx')) return 'JavaScript';
+  if (filePath.endsWith('.py')) return 'Python';
+  if (filePath.endsWith('.rs')) return 'Rust';
+  if (filePath.endsWith('.java')) return 'Java';
+  if (filePath.endsWith('.swift')) return 'Swift';
+  if (filePath.endsWith('.kt') || filePath.endsWith('.kts')) return 'Kotlin';
+  if (filePath.endsWith('.rb')) return 'Ruby';
+  if (filePath.endsWith('.cs')) return 'C#';
+  if (filePath.endsWith('.cpp') || filePath.endsWith('.cc') || filePath.endsWith('.cxx')) return 'C++';
+  if (filePath.endsWith('.c') || filePath.endsWith('.h')) return 'C';
+  return 'Other';
 }
 
 function computeGrade(score: number): string {

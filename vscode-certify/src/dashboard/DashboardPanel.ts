@@ -52,6 +52,56 @@ export class DashboardPanel {
       : this.renderEmpty();
   }
 
+  private computeDeepMetrics(report: FullReport): {
+    unitsAnalyzed: number;
+    maxFanIn: number;
+    maxFanOut: number;
+    deadExports: number;
+    hotspots: Array<{ symbol: string; fanIn: number; fanOut: number; depDepth: number }>;
+  } | null {
+    let unitsAnalyzed = 0;
+    let maxFanIn = 0;
+    let maxFanOut = 0;
+    let deadExports = 0;
+    const hotspots: Array<{ symbol: string; fanIn: number; fanOut: number; depDepth: number }> = [];
+
+    for (const u of report.units) {
+      const dims = u.dimensions;
+      if (!dims || !('fan_in' in dims || 'fan_out' in dims)) continue;
+
+      // Deep metrics may be in dimensions (from scoring) or directly
+      const fanIn = dims['fan_in'] ?? 0;
+      const fanOut = dims['fan_out'] ?? 0;
+      const depDepth = dims['dep_depth'] ?? 0;
+
+      unitsAnalyzed++;
+      if (fanIn > maxFanIn) maxFanIn = Math.round(fanIn);
+      if (fanOut > maxFanOut) maxFanOut = Math.round(fanOut);
+      if (dims['is_dead_code'] && dims['is_dead_code'] > 0) deadExports++;
+
+      if (fanIn > 5) {
+        hotspots.push({
+          symbol: u.symbol ?? u.path,
+          fanIn: Math.round(fanIn),
+          fanOut: Math.round(fanOut),
+          depDepth: Math.round(depDepth),
+        });
+      }
+    }
+
+    if (unitsAnalyzed === 0) return null;
+
+    // Sort by fan-in descending, top 10
+    hotspots.sort((a, b) => b.fanIn - a.fanIn);
+    return {
+      unitsAnalyzed,
+      maxFanIn,
+      maxFanOut,
+      deadExports,
+      hotspots: hotspots.slice(0, 10),
+    };
+  }
+
   private renderEmpty(): string {
     return `<!DOCTYPE html>
 <html><body style="font-family: var(--vscode-font-family); padding: 2rem; text-align: center;">
@@ -85,6 +135,25 @@ export class DashboardPanel {
         <span class="dim-val">${val.toFixed(0)}%</span>
       </div>`;
     }).join('');
+
+    // Deep analysis metrics (from units with fan_in/fan_out/dep_depth evidence)
+    const deepMetrics = this.computeDeepMetrics(report);
+    const deepSection = deepMetrics ? `
+    <div class="section">
+      <h2>Deep Analysis (Type-Aware)</h2>
+      <div class="summary">
+        <div class="card"><div class="card-val">${deepMetrics.unitsAnalyzed}</div><div class="card-label">Units Analyzed</div></div>
+        <div class="card"><div class="card-val">${deepMetrics.maxFanIn}</div><div class="card-label">Max Fan-In</div></div>
+        <div class="card"><div class="card-val">${deepMetrics.maxFanOut}</div><div class="card-label">Max Fan-Out</div></div>
+        <div class="card"><div class="card-val">${deepMetrics.deadExports}</div><div class="card-label">Dead Exports</div></div>
+      </div>
+      ${deepMetrics.hotspots.length > 0 ? `
+      <h3 style="font-size:0.9rem;margin-top:0.5rem">Fan-In Hotspots (high change risk)</h3>
+      <table>
+        <tr><th>Unit</th><th>Fan-In</th><th>Fan-Out</th><th>Dep Depth</th></tr>
+        ${deepMetrics.hotspots.map(h => `<tr><td class="unit-id">${h.symbol}</td><td>${h.fanIn}</td><td>${h.fanOut}</td><td>${h.depDepth}</td></tr>`).join('')}
+      </table>` : ''}
+    </div>` : '';
 
     const langs = c.languages.map(l =>
       `<tr><td>${l.name}</td><td>${l.units}</td><td>${l.passing}/${l.units}</td><td>${l.grade}</td><td>${(l.average_score * 100).toFixed(1)}%</td></tr>`
@@ -152,6 +221,8 @@ export class DashboardPanel {
     <h2>Quality Dimensions</h2>
     ${dimensions}
   </div>
+
+  ${deepSection}
 
   <div class="section">
     <h2>Languages</h2>

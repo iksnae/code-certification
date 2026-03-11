@@ -37,11 +37,15 @@ export function activate(context: vscode.ExtensionContext): void {
 
   // CodeLens — only useful when data exists
   const codeLensProvider = new CertifyCodeLensProvider(dataLoader, workspaceRoot);
-  context.subscriptions.push(
-    vscode.languages.registerCodeLensProvider({ language: 'go' }, codeLensProvider),
-    vscode.languages.registerCodeLensProvider({ language: 'typescript' }, codeLensProvider),
-    vscode.languages.registerCodeLensProvider({ language: 'typescriptreact' }, codeLensProvider),
-  );
+  const codeLensLanguages = [
+    'go', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact',
+    'python', 'rust',
+  ];
+  for (const lang of codeLensLanguages) {
+    context.subscriptions.push(
+      vscode.languages.registerCodeLensProvider({ language: lang }, codeLensProvider),
+    );
+  }
 
   // Diagnostics
   const diagnostics = new CertifyDiagnostics(dataLoader, workspaceRoot);
@@ -132,6 +136,12 @@ export function activate(context: vscode.ExtensionContext): void {
 
     vscode.commands.registerCommand('certify.testConnection', () => {
       ConfigPanel.createOrShow(workspaceRoot, context.secrets);
+    }),
+
+    // Doctor
+    vscode.commands.registerCommand('certify.doctor', async () => {
+      if (!await ensureBinary()) return;
+      runInTerminal(['doctor'], workspaceRoot);
     }),
 
     vscode.commands.registerCommand('certify.installCLI', () => {

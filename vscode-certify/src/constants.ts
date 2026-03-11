@@ -48,6 +48,24 @@ export const DIMENSION_NAMES = [
   'change_risk',
 ] as const;
 
+// Deep analysis metric labels (Sprint 7-13: type-aware cross-file analysis)
+export const DEEP_METRIC_LABELS: Record<string, string> = {
+  fan_in: 'Fan-In (callers)',
+  fan_out: 'Fan-Out (callees)',
+  is_dead_code: 'Dead Export',
+  dep_depth: 'Dep Depth',
+  instability: 'Instability',
+  concrete_deps: 'Concrete Deps',
+  coupling_score: 'Coupling',
+  unused_params: 'Unused Params',
+  interface_size: 'Interface Size',
+  type_aware_unwrapped: 'Unwrapped Errors',
+  cognitive_complexity: 'Cognitive Complexity',
+  errors_not_wrapped: 'Errors Not Wrapped',
+  unsafe_import_count: 'Unsafe Imports',
+  hardcoded_secrets: 'Hardcoded Secrets',
+} as const;
+
 // Provider presets — convenience shortcuts, not limitations.
 // Any OpenAI-compatible endpoint works via "Custom".
 export const PROVIDER_PRESETS: ProviderPreset[] = [
