@@ -371,7 +371,7 @@ func Add(a, b int) int {
 	}
 }
 
-func TestCertifier_Certify_NoStructuralForNonGo(t *testing.T) {
+func TestCertifier_Certify_StructuralForTS(t *testing.T) {
 	tmpDir := t.TempDir()
 	src := `export function greet() { return "hi"; }`
 	if err := os.WriteFile(filepath.Join(tmpDir, "greet.ts"), []byte(src), 0o644); err != nil {
@@ -393,10 +393,14 @@ func TestCertifier_Certify_NoStructuralForNonGo(t *testing.T) {
 		t.Fatalf("Certify() error: %v", err)
 	}
 
+	hasStructural := false
 	for _, e := range result.Record.Evidence {
 		if e.Kind == domain.EvidenceKindStructural {
-			t.Error("non-Go unit should not have structural evidence")
+			hasStructural = true
 		}
+	}
+	if !hasStructural {
+		t.Error("TS unit should now have structural evidence via tree-sitter analyzer")
 	}
 }
 
