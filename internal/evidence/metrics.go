@@ -64,16 +64,29 @@ func containsTodo(line string) bool {
 		if idx < 0 {
 			continue
 		}
+		// Word boundary check: the character before the keyword must not be
+		// a letter (to exclude identifiers like "extractTodoCount").
+		if idx > 0 && isLetter(upper[idx-1]) {
+			continue
+		}
+		// Also check after: "TODOCOUNT" is an identifier, not a marker.
+		end := idx + len(keyword)
+		if end < len(upper) && isLetter(upper[end]) {
+			continue
+		}
 		// Check if the keyword is inside a quoted string in the comment.
-		// If there's a quote before and after the keyword position, skip it.
 		before := line[:idx]
 		if strings.Count(before, "\"")%2 == 1 {
-			// Odd number of quotes before → inside a string literal
 			continue
 		}
 		return true
 	}
 	return false
+}
+
+// isLetter returns true if b is an ASCII letter.
+func isLetter(b byte) bool {
+	return (b >= 'A' && b <= 'Z') || (b >= 'a' && b <= 'z')
 }
 
 // ToEvidence converts CodeMetrics to a domain.Evidence.

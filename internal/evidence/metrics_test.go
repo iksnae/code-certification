@@ -105,6 +105,20 @@ func TestCodeMetrics_TodoCount_QuotedNotFlagged(t *testing.T) {
 	}
 }
 
+func TestCodeMetrics_TodoCount_IdentifierNotFlagged(t *testing.T) {
+	// "TodoCount" and "extractTodoCount" contain "todo" but are identifiers, not TODO markers
+	src := `// extractTodoCount extracts todo count from summary string.
+func extractTodoCount() {
+	// Walk backwards to find the number
+	m.TodoCount = 0
+}
+`
+	m := evidence.ComputeMetrics(src)
+	if m.TodoCount != 0 {
+		t.Errorf("TodoCount = %d, want 0 (TODO inside identifiers should not count)", m.TodoCount)
+	}
+}
+
 func TestCodeMetrics_Empty(t *testing.T) {
 	m := evidence.ComputeMetrics("")
 	if m.TotalLines != 0 {
