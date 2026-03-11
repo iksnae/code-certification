@@ -65,11 +65,13 @@ func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
 	if _, ok := cleanScores[domain.DimArchitecturalFitness]; ok {
 		t.Error("architectural_fitness should not be set when no violations found")
 	}
-	if _, ok := cleanScores[domain.DimPerformanceAppropriateness]; ok {
-		t.Error("performance_appropriateness should not be set when no violations found")
+	// performance_appropriateness IS set for clean code (algo complexity = O(1) → 0.95)
+	// because algo complexity is always measured, unlike arch fitness which is penalty-only
+	if v, ok := cleanScores[domain.DimPerformanceAppropriateness]; !ok || v < 0.90 {
+		t.Errorf("performance_appropriateness for clean code = %v (present=%v), want present and >= 0.90", v, ok)
 	}
 
-	// But when violations exist, the penalty dims should appear
+	// When violations exist, penalty dims should appear with low scores
 	badEv := []domain.Evidence{
 		{
 			Kind:   domain.EvidenceKindStructural,
@@ -86,6 +88,7 @@ func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
 	if v, ok := badScores[domain.DimArchitecturalFitness]; !ok || v >= 0.80 {
 		t.Errorf("architectural_fitness with god object = %v (present=%v), want present and < 0.80", v, ok)
 	}
+	// defer_in_loop should cap performance_appropriateness
 	if v, ok := badScores[domain.DimPerformanceAppropriateness]; !ok || v >= 0.80 {
 		t.Errorf("performance_appropriateness with defer_in_loop = %v (present=%v), want present and < 0.80", v, ok)
 	}
@@ -363,6 +366,48 @@ func TestScorer_ComplexityGraduated(t *testing.T) {
 			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
 			if scores[domain.DimMaintainability] < tt.wantMin {
 				t.Errorf("complexity=%d → maintainability=%f, want >= %f", tt.complexity, scores[domain.DimMaintainability], tt.wantMin)
+			}
+		})
+	}
+}
+
+func TestScorer_AlgoComplexityScoring(t *testing.T) {
+	tests := []struct {
+		name        string
+		loopDepth   int
+		recursive   int
+		wantMinPerf float64
+		wantMaxPerf float64
+	}{
+		{"O(1) no loops", 0, 0, 0.95, 1.0},
+		{"O(n) single loop", 1, 0, 0.90, 0.95},
+		{"O(n²) nested loops", 2, 0, 0.60, 0.75},
+		{"O(n³) triple nested", 3, 0, 0.0, 0.55},
+		{"O(2^n) recursive", 0, 1, 0.0, 0.45},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ev := []domain.Evidence{
+				{
+					Kind:   domain.EvidenceKindStructural,
+					Source: "structural",
+					Passed: true,
+					Metrics: map[string]float64{
+						"loop_nesting_depth": float64(tt.loopDepth),
+						"recursive_calls":    float64(tt.recursive),
+					},
+				},
+			}
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			perf, ok := scores[domain.DimPerformanceAppropriateness]
+			if !ok {
+				t.Fatal("performance_appropriateness should be set when algo complexity is measured")
+			}
+			if perf < tt.wantMinPerf {
+				t.Errorf("perf = %f, want >= %f", perf, tt.wantMinPerf)
+			}
+			if perf > tt.wantMaxPerf {
+				t.Errorf("perf = %f, want <= %f", perf, tt.wantMaxPerf)
 			}
 		})
 	}

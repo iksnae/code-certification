@@ -147,6 +147,7 @@ func scoreFromStructural(e domain.Evidence, scores domain.DimensionScores) {
 		return
 	}
 	scoreStructuralReadability(e.Metrics, scores)
+	scoreAlgoComplexity(e.Metrics, scores)
 	scoreStructuralCorrectness(e.Metrics, scores)
 	scoreStructuralArchitecture(e.Metrics, scores)
 }
@@ -263,6 +264,31 @@ func scoreStructuralArchitecture(m map[string]float64, scores domain.DimensionSc
 
 	if methodCount := int(m["method_count"]); methodCount > 15 {
 		setMin(scores, domain.DimArchitecturalFitness, 0.55)
+	}
+}
+
+// scoreAlgoComplexity sets performance_appropriateness based on algorithmic
+// complexity metrics: loop nesting depth and recursive calls.
+// Unlike architectural_fitness, this is always measured when structural
+// evidence exists — O(1) code earns a high score, O(n²) earns a penalty.
+func scoreAlgoComplexity(m map[string]float64, scores domain.DimensionScores) {
+	loopDepth := int(m["loop_nesting_depth"])
+	recursive := int(m["recursive_calls"])
+
+	// Classify and score
+	if recursive > 0 {
+		setMin(scores, domain.DimPerformanceAppropriateness, 0.40)
+		return
+	}
+	switch {
+	case loopDepth >= 3:
+		setMin(scores, domain.DimPerformanceAppropriateness, 0.50)
+	case loopDepth == 2:
+		setMax(scores, domain.DimPerformanceAppropriateness, 0.70)
+	case loopDepth == 1:
+		setMax(scores, domain.DimPerformanceAppropriateness, 0.90)
+	default:
+		setMax(scores, domain.DimPerformanceAppropriateness, 0.95)
 	}
 }
 
