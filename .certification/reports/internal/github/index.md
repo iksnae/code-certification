@@ -2,30 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.1%)  
-**Units:** 17 · **Passing:** 17 / 17
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ComputeTrustDelta](pr.go/ComputeTrustDelta.md) | function | 🟢 A- | 90.0% | certified | 2026-04-25 |
-| [FormatPRComment](pr.go/FormatPRComment.md) | function | 🟢 A- | 90.0% | certified | 2026-04-25 |
-| [BuildIssueCreateCommand](issues.go/BuildIssueCreateCommand.md) | function | 🟢 A- | 91.9% | certified | 2026-04-25 |
-| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 A- | 91.9% | certified | 2026-04-25 |
-| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 A- | 91.9% | certified | 2026-04-25 |
-| [FormatIssueBody](issues.go/FormatIssueBody.md) | function | 🟢 A- | 91.9% | certified | 2026-04-25 |
-| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [issues_test.go](issues_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [GenerateNightlyWorkflow](workflows.go/GenerateNightlyWorkflow.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [GeneratePRWorkflow](workflows.go/GeneratePRWorkflow.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [GenerateWeeklyWorkflow](workflows.go/GenerateWeeklyWorkflow.md) | function | 🟢 A- | 92.5% | certified | 2026-04-25 |
-| [workflows_test.go](workflows_test.go.md) | file | 🟢 A- | 92.5% | certified | 2026-04-25 |
+| [workflows_test.go](workflows_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-26 |
 
 ---
 
