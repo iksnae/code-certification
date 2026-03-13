@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IndexEntry](types.ts/IndexEntry.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-26 |
-| [buildReportFromRecords](dataLoader.ts/buildReportFromRecords.md) | method | 🟢 A- | 91.3% | certified | 2026-04-26 |
-| [discoverSubmodules](dataLoader.ts/discoverSubmodules.md) | method | 🟢 A- | 91.3% | certified | 2026-04-26 |
+| [ProjectState](types.ts/ProjectState.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-27 |
+| [SubmoduleInfo](types.ts/SubmoduleInfo.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-27 |
+| [detectProjectState](dataLoader.ts/detectProjectState.md) | method | 🟢 A- | 91.3% | certified | 2026-04-27 |
+| [hasArchitectReview](dataLoader.ts/hasArchitectReview.md) | method | 🟢 A- | 91.3% | certified | 2026-04-27 |
 
 ---
 

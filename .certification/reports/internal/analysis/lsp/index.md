@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Position](types.go/Position.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-26 |
+| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
 
 ---
 

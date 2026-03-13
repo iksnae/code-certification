@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-04-26 |
-| [writeArchAppendix](architect_report.go/writeArchAppendix.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-26 |
-| [Badge](badge.go/Badge.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-26 |
-| [issueRow](site.go/issueRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-26 |
-| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A- | 92.8% | certified | 2026-04-26 |
+| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
+| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-27 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A- | 92.2% | certified | 2026-04-27 |
+| [FormatBadgeJSON](badge.go/FormatBadgeJSON.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
+| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
+| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
 
 ---
 

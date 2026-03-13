@@ -2,16 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pytestJUnitSuite](tools.go/pytestJUnitSuite.md) | class | 🟢 B | 83.3% | certified | 2026-04-26 |
-| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-26 |
-| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-04-26 |
+| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 83.3% | certified | 2026-04-27 |
+| [jestJSONOutput](tools.go/jestJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-04-27 |
+| [metrics_test.go](metrics_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-27 |
+| [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-27 |
+| [AttributeLintToFile](attribution.go/AttributeLintToFile.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
 
 ---
 
