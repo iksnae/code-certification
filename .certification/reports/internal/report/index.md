@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
-| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-27 |
-| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A- | 92.2% | certified | 2026-04-27 |
-| [FormatBadgeJSON](badge.go/FormatBadgeJSON.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
-| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
-| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
+| [AreaSummary](detailed.go/AreaSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [dirOf](full.go/dirOf.md) | function | 🟢 A- | 92.8% | certified | 2026-04-28 |
+| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-04-28 |
+| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-04-28 |
 
 ---
 

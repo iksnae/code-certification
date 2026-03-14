@@ -2,23 +2,28 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (87.5%)  
+**Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-27 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
-| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
-| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
-| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-27 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-04-27 |
-| [IsDeepReview](stage_deep.go/IsDeepReview.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-27 |
-| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-04-27 |
-| [toResult](pipeline.go/toResult.md) | method | 🟢 A | 93.3% | certified | 2026-04-27 |
+| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-04-28 |
+| [Chat](openrouter.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-04-28 |
+| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-04-28 |
+| [analyzeDependencies](architect_snapshot.go/analyzeDependencies.md) | method | 🟢 B | 86.1% | certified | 2026-04-28 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-28 |
+| [StageInput](stage.go/StageInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-28 |
+| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-28 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-28 |
+| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-04-28 |
+| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-04-28 |
 
 ---
 
