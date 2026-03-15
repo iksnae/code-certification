@@ -2,28 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 B (86.9%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-04-28 |
-| [Chat](openrouter.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-04-28 |
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-04-28 |
-| [analyzeDependencies](architect_snapshot.go/analyzeDependencies.md) | method | 🟢 B | 86.1% | certified | 2026-04-28 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-28 |
-| [StageInput](stage.go/StageInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-28 |
-| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-28 |
-| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-04-28 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-04-28 |
+| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-04-29 |
+| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-29 |
 
 ---
 

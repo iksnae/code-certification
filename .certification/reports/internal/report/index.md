@@ -2,18 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [AreaSummary](detailed.go/AreaSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-28 |
-| [dirOf](full.go/dirOf.md) | function | 🟢 A- | 92.8% | certified | 2026-04-28 |
-| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-04-28 |
-| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-04-28 |
+| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 81.1% | certified | 2026-04-29 |
+| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-04-29 |
+| [detailed_test.go](detailed_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-29 |
+| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [navLink](site.go/navLink.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A- | 92.8% | certified | 2026-04-29 |
+| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A- | 92.8% | certified | 2026-04-29 |
+| [unitTreePath](report_tree.go/unitTreePath.md) | function | 🟢 A | 93.3% | certified | 2026-04-29 |
 
 ---
 

@@ -2,21 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-04-28 |
-| [TSAnalyzer](ts_analyzer.go/TSAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-04-28 |
-| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-04-28 |
-| [rsCountRecursive](rust_analyzer.go/rsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-04-28 |
-| [tsHasReturnWithValue](ts_analyzer.go/tsHasReturnWithValue.md) | function | 🟢 B | 86.1% | certified | 2026-04-28 |
-| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-04-28 |
-| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-28 |
-| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-04-28 |
+| [Shutdown](lsp_analyzer.go/Shutdown.md) | method | 🟢 B | 82.2% | certified | 2026-04-29 |
+| [NewPythonAnalyzer](python_analyzer.go/NewPythonAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-04-29 |
+| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-04-29 |
+| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-04-29 |
+| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-04-29 |
+| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-29 |
+| [findPkg](go_refine.go/findPkg.md) | method | 🟢 A | 93.3% | certified | 2026-04-29 |
 
 ---
 

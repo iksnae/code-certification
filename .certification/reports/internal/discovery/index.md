@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Diff](index.go/Diff.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-28 |
+| [diff_test.go](diff_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [Scanner](scanner.go/Scanner.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
 
 ---
 
