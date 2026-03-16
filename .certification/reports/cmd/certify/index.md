@@ -2,17 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.1%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertify](certify_cmd.go/runCertify.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-04-29 |
-| [setupArchitectProvider](architect_cmd.go/setupArchitectProvider.md) | function | 🟢 B | 83.3% | certified | 2026-04-29 |
-| [listFromProvider](models_cmd.go/listFromProvider.md) | function | 🟢 B | 86.1% | certified | 2026-04-29 |
-| [flagInt](root.go/flagInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [defaultConfigObj](certify_cmd.go/defaultConfigObj.md) | function | 🟢 B+ | 90.0% | certified | 2026-04-30 |
 
 ---
 

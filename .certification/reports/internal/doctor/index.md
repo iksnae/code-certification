@@ -2,17 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.1%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Check](doctor.go/Check.md) | class | 🟢 B | 83.3% | certified | 2026-04-29 |
-| [checkAgentConfig](doctor.go/checkAgentConfig.md) | method | 🟢 B | 85.0% | certified | 2026-04-29 |
-| [checkModuleRoots](doctor.go/checkModuleRoots.md) | method | 🟢 B | 86.1% | certified | 2026-04-29 |
-| [doctor_test.go](doctor_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-04-29 |
+| [HasFailures](doctor.go/HasFailures.md) | method | 🟢 B | 86.1% | certified | 2026-04-30 |
 
 ---
 

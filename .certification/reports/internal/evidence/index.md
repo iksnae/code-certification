@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
+**Grade:** 🟢 B+ (87.4%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [jestJSONOutput](tools.go/jestJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-04-29 |
-| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-04-29 |
-| [TestResult](lint.go/TestResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-04-30 |
+| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-30 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-04-30 |
 
 ---
 

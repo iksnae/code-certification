@@ -1,16 +1,16 @@
-# 🟢 `internal/analysis/lsp`
+# 🟡 `internal/analysis/lsp`
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
+**Grade:** 🟡 C (79.7%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CallHierarchyIncoming](client.go/CallHierarchyIncoming.md) | method | 🟢 B | 85.6% | certified | 2026-04-29 |
-| [Shutdown](client.go/Shutdown.md) | method | 🟢 B | 85.6% | certified | 2026-04-29 |
+| [readMessage](client.go/readMessage.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-04-30 |
+| [Notify](client.go/Notify.md) | method | 🟢 B | 81.1% | certified | 2026-04-30 |
 
 ---
 

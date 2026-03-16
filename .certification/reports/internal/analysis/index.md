@@ -2,20 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
+**Grade:** 🟢 B (85.1%)  
 **Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Shutdown](lsp_analyzer.go/Shutdown.md) | method | 🟢 B | 82.2% | certified | 2026-04-29 |
-| [NewPythonAnalyzer](python_analyzer.go/NewPythonAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-04-29 |
-| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-04-29 |
-| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-04-29 |
-| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-04-29 |
-| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-29 |
-| [findPkg](go_refine.go/findPkg.md) | method | 🟢 A | 93.3% | certified | 2026-04-29 |
+| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-04-30 |
+| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-04-30 |
+| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-04-30 |
+| [NewTSAnalyzer](ts_analyzer.go/NewTSAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-04-30 |
+| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-04-30 |
+| [SymbolKind](analyzer.go/SymbolKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-30 |
+| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-04-30 |
 
 ---
 

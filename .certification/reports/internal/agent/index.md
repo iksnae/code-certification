@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-04-29 |
-| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
-| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
-| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-29 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-04-29 |
+| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-04-30 |
+| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-04-30 |
+| [parseGoModReplaces](workspace_snapshot.go/parseGoModReplaces.md) | function | 🟢 B+ | 89.4% | certified | 2026-04-30 |
+| [NewCoordinator](pipeline.go/NewCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-04-30 |
 
 ---
 
