@@ -2,20 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.1%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (92.5%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertifyDiagnostics](CertifyDiagnostics.ts/CertifyDiagnostics.md) | class | 🟢 B+ | 89.4% | certified | 2026-04-30 |
-| [EXPIRY_WARNING_DAYS](CertifyDiagnostics.ts/EXPIRY_WARNING_DAYS.md) | function | 🟢 A- | 92.5% | certified | 2026-04-30 |
-| [LOW_GRADES](CertifyDiagnostics.ts/LOW_GRADES.md) | function | 🟢 A- | 92.5% | certified | 2026-04-30 |
-| [constructor](CertifyDiagnostics.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-04-30 |
-| [dispose](CertifyDiagnostics.ts/dispose.md) | method | 🟢 A- | 92.5% | certified | 2026-04-30 |
-| [refresh](CertifyDiagnostics.ts/refresh.md) | method | 🟢 A- | 92.5% | certified | 2026-04-30 |
-| [updateDocument](CertifyDiagnostics.ts/updateDocument.md) | method | 🟢 A- | 92.5% | certified | 2026-04-30 |
+| [constructor](CertifyDiagnostics.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-05-01 |
 
 ---
 
