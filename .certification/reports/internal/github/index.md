@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-01 |
+| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-02 |
 
 ---
 

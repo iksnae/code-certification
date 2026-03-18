@@ -2,15 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [analyzeAlgoComplexity](structural.go/analyzeAlgoComplexity.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-01 |
-| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-05-01 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-02 |
+| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-02 |
+| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-02 |
+| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-02 |
+| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-02 |
+| [AttributeLintToFile](attribution.go/AttributeLintToFile.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
+| [walkBlock](structural.go/walkBlock.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
 
 ---
 

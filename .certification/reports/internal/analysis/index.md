@@ -2,23 +2,26 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.9%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (85.6%)  
+**Units:** 13 · **Passing:** 13 / 13
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-01 |
-| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-05-01 |
-| [goCountErrorsNotWrapped](go_analyzer.go/goCountErrorsNotWrapped.md) | function | 🟢 B | 86.1% | certified | 2026-05-01 |
-| [rsComputeCyclomatic](rust_analyzer.go/rsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-05-01 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-05-01 |
-| [rsCountRecursive](rust_analyzer.go/rsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-05-01 |
-| [tsComputeLoopNesting](ts_analyzer.go/tsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-05-01 |
-| [tsComputeNesting](ts_analyzer.go/tsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-05-01 |
-| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-01 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-01 |
+| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 80.6% | certified | 2026-05-02 |
+| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-05-02 |
+| [Language](go_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-05-02 |
+| [goAnalyzeFileDecls](go_analyzer.go/goAnalyzeFileDecls.md) | function | 🟢 B | 84.4% | certified | 2026-05-02 |
+| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-05-02 |
+| [tsNodeName](ts_analyzer.go/tsNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-05-02 |
+| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2026-05-02 |
+| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-05-02 |
+| [tsComputeLoopNesting](ts_analyzer.go/tsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-05-02 |
+| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2026-05-02 |
+| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-02 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-02 |
+| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-05-02 |
 
 ---
 

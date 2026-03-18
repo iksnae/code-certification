@@ -2,25 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 A- (91.2%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-01 |
-| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-01 |
-| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-01 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-01 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-01 |
-| [prompts_test.go](prompts_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-01 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-01 |
-| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-01 |
-| [detectRepoNameFromDir](workspace_snapshot.go/detectRepoNameFromDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-01 |
-| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-05-01 |
-| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-05-01 |
-| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-05-01 |
+| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-05-02 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
+| [topNIssues](architect_snapshot.go/topNIssues.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
 
 ---
 
