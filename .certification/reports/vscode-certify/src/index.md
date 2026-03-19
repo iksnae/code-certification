@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
+**Grade:** 🟢 A- (90.3%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [findCertifyBinary](certifyBinary.ts/findCertifyBinary.md) | function | 🟢 B | 86.3% | certified | 2026-05-02 |
-| [startWatching](dataLoader.ts/startWatching.md) | method | 🟢 A- | 91.3% | certified | 2026-05-02 |
+| [LanguageDetail](types.ts/LanguageDetail.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-03 |
+| [getUnitsForFile](dataLoader.ts/getUnitsForFile.md) | method | 🟢 A- | 91.3% | certified | 2026-05-03 |
 
 ---
 

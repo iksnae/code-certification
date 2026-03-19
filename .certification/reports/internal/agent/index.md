@@ -2,17 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.9%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-05-02 |
-| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
-| [topNIssues](architect_snapshot.go/topNIssues.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
-| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-05-02 |
+| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-05-03 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-05-03 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-03 |
+| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [schemas_test.go](schemas_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-03 |
+| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-03 |
+| [isRetryable](openrouter.go/isRetryable.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
 
 ---
 

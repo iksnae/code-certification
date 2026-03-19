@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [AnalyzerConfig](config.go/AnalyzerConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-02 |
-| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-02 |
-| [UnitType](unit.go/UnitType.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-02 |
-| [RemainingAt](expiry.go/RemainingAt.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-02 |
-| [Symbol](unit.go/Symbol.md) | method | 🟢 A- | 92.8% | certified | 2026-05-02 |
+| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [IssueConfig](config.go/IssueConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [OverrideAction](override.go/OverrideAction.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
+| [ParseSeverity](evidence.go/ParseSeverity.md) | function | 🟢 A- | 92.2% | certified | 2026-05-03 |
 
 ---
 
