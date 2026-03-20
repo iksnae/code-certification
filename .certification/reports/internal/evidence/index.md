@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (87.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoClippyJSON](tools.go/ParseCargoClippyJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-03 |
-| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-05-03 |
-| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-05-03 |
-| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
-| [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
-| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
+| [analyzeFunc](structural.go/analyzeFunc.md) | function | 🟢 B | 86.1% | certified | 2026-05-04 |
+| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [computeLoopNesting](structural.go/computeLoopNesting.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-04 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-04 |
 
 ---
 

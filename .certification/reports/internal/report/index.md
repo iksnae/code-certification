@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [full_test.go](full_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-03 |
-| [writeArchPackageMap](architect_report.go/writeArchPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
-| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
-| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
+| [site_templates.go](site_templates.go.md) | file | 🟢 B | 86.1% | certified | 2026-05-04 |
+| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [FullReport](full.go/FullReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [dimRow](site.go/dimRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-04 |
 
 ---
 

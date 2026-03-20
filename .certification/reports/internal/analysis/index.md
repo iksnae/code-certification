@@ -2,27 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.9%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-03 |
-| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-05-03 |
-| [NewRustAnalyzer](rust_analyzer.go/NewRustAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-05-03 |
-| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-05-03 |
-| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-05-03 |
-| [goCallFuncName](go_analyzer.go/goCallFuncName.md) | function | 🟢 B | 86.1% | certified | 2026-05-03 |
-| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-05-03 |
-| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-05-03 |
-| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-05-03 |
-| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-05-03 |
-| [go_refine_test.go](go_refine_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-03 |
-| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-03 |
-| [Register](analyzer.go/Register.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-03 |
+| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-04 |
+| [Language](python_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-05-04 |
+| [goCallFuncName](go_analyzer.go/goCallFuncName.md) | function | 🟢 B | 86.1% | certified | 2026-05-04 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-05-04 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-04 |
+| [CouplingScore](go_deps.go/CouplingScore.md) | method | 🟢 A | 93.3% | certified | 2026-05-04 |
+| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-05-04 |
 
 ---
 

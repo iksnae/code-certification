@@ -2,24 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-05-03 |
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-05-03 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-03 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [schemas_test.go](schemas_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-03 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-03 |
-| [isRetryable](openrouter.go/isRetryable.md) | function | 🟢 A | 93.3% | certified | 2026-05-03 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-05-04 |
+| [OllamaModels](providers.go/OllamaModels.md) | function | 🟢 B | 86.1% | certified | 2026-05-04 |
+| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-04 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [formatCodeMetrics](architect.go/formatCodeMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [scoringStage](stage.go/scoringStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [Content](types.go/Content.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-04 |
+| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-04 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-04 |
+| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-05-04 |
+| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-05-04 |
+| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-05-04 |
 
 ---
 

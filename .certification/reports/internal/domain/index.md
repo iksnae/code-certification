@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [IssueConfig](config.go/IssueConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [OverrideAction](override.go/OverrideAction.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-03 |
-| [ParseSeverity](evidence.go/ParseSeverity.md) | function | 🟢 A- | 92.2% | certified | 2026-05-03 |
+| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [Dimension](dimension.go/Dimension.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [OverrideAction](override.go/OverrideAction.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-04 |
+| [ParseStatus](record.go/ParseStatus.md) | function | 🟢 A- | 92.2% | certified | 2026-05-04 |
 
 ---
 
