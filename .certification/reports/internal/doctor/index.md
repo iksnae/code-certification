@@ -1,15 +1,16 @@
-# 🟡 `internal/doctor`
+# 🟢 `internal/doctor`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟡 C (78.9%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (85.8%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [checkProjectSetup](doctor.go/checkProjectSetup.md) | method | 🟡 C | 78.9% | certified_with_observations | 2026-05-04 |
+| [Summary](doctor.go/Summary.md) | method | 🟢 B | 85.0% | certified | 2026-05-05 |
+| [onboard_test.go](onboard_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-05 |
 
 ---
 

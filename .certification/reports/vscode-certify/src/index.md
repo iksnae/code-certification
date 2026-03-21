@@ -2,16 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DIMENSION_NAMES](constants.ts/DIMENSION_NAMES.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-04 |
-| [FullReport](types.ts/FullReport.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-04 |
-| [SubmoduleInfo](types.ts/SubmoduleInfo.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-04 |
+| [runInTerminal](certifyBinary.ts/runInTerminal.md) | function | 🟢 B+ | 87.5% | certified | 2026-05-05 |
+| [GRADE_COLORS](constants.ts/GRADE_COLORS.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-05 |
+| [constructor](dataLoader.ts/constructor.md) | method | 🟢 A- | 91.3% | certified | 2026-05-05 |
+| [loadIndex](dataLoader.ts/loadIndex.md) | method | 🟢 A- | 91.3% | certified | 2026-05-05 |
+| [parseGitmodules](dataLoader.ts/parseGitmodules.md) | method | 🟢 A- | 91.3% | certified | 2026-05-05 |
+| [parseArchitectMeta](dataLoader.ts/parseArchitectMeta.md) | function | 🟢 A- | 92.5% | certified | 2026-05-05 |
 
 ---
 
