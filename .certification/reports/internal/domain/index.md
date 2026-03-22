@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.8%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewUnit](unit.go/NewUnit.md) | function | 🟢 A- | 92.8% | certified | 2026-05-05 |
-| [Symbol](unit.go/Symbol.md) | method | 🟢 A- | 92.8% | certified | 2026-05-05 |
+| [ModelAssignments](config.go/ModelAssignments.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-06 |
 
 ---
 
