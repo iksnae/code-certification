@@ -2,15 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SiteConfig](site.go/SiteConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-05-08 |
+| [card_test.go](card_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-09 |
+| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-05-09 |
+| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-05-09 |
 
 ---
 

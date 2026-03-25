@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-08 |
-| [findESLint](tools.go/findESLint.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-08 |
+| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [countDeferInLoop](structural.go/countDeferInLoop.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-09 |
+| [runGolangciLintAt](executor.go/runGolangciLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-09 |
 
 ---
 

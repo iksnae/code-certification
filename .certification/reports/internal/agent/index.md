@@ -2,27 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
+**Grade:** 🟢 B+ (89.3%)  
 **Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-05-08 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-08 |
-| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-08 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-08 |
-| [NewCoordinator](pipeline.go/NewCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-05-08 |
-| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-05-08 |
-| [isRetryable](openrouter.go/isRetryable.md) | function | 🟢 A | 93.3% | certified | 2026-05-08 |
-| [NewOpenRouterProvider](openrouter.go/NewOpenRouterProvider.md) | function | 🟢 A | 93.3% | certified | 2026-05-08 |
+| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-05-09 |
+| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [FallbackProvider](fallback.go/FallbackProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-09 |
+| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-05-09 |
+| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-09 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-09 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-09 |
+| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-09 |
+| [toResult](pipeline.go/toResult.md) | method | 🟢 A | 93.3% | certified | 2026-05-09 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-05-09 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-05-09 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-05-09 |
 
 ---
 

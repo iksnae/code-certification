@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (87.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-05-08 |
-| [goComputeNestingDepth](go_analyzer.go/goComputeNestingDepth.md) | function | 🟢 B | 86.1% | certified | 2026-05-08 |
-| [goIsMutableVar](go_analyzer.go/goIsMutableVar.md) | function | 🟢 B | 86.1% | certified | 2026-05-08 |
-| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-05-08 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-08 |
-| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-08 |
-| [CouplingScore](go_deps.go/CouplingScore.md) | method | 🟢 A | 93.3% | certified | 2026-05-08 |
+| [tsAnalyzeFunction](ts_analyzer.go/tsAnalyzeFunction.md) | function | 🟢 B | 80.6% | certified | 2026-05-09 |
+| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-05-09 |
+| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-05-09 |
+| [compute](go_deep.go/compute.md) | method | 🟢 A- | 92.8% | certified | 2026-05-09 |
+| [DepDepth](go_deps.go/DepDepth.md) | method | 🟢 A | 93.3% | certified | 2026-05-09 |
 
 ---
 

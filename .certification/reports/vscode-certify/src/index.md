@@ -2,14 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ModelInfo](types.ts/ModelInfo.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-08 |
+| [listModels](certifyBinary.ts/listModels.md) | function | 🟢 B+ | 88.1% | certified | 2026-05-09 |
+| [RecordJSON](types.ts/RecordJSON.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-09 |
+| [getUnitsForFile](dataLoader.ts/getUnitsForFile.md) | method | 🟢 A- | 91.3% | certified | 2026-05-09 |
+| [hasCertification](dataLoader.ts/hasCertification.md) | method | 🟢 A- | 91.3% | certified | 2026-05-09 |
 
 ---
 

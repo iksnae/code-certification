@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [submoduleFilename](report.go/submoduleFilename.md) | function | 🟢 A | 93.3% | certified | 2026-05-08 |
+| [formatSubmoduleSummary](report.go/formatSubmoduleSummary.md) | function | 🟢 A | 93.3% | certified | 2026-05-09 |
 
 ---
 

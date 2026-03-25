@@ -2,21 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [DimensionScores](dimension.go/DimensionScores.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [ExpiryFactors](expiry.go/ExpiryFactors.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [Violation](policy.go/Violation.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [UnitType](unit.go/UnitType.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-08 |
-| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-08 |
-| [GradeFromScore](dimension.go/GradeFromScore.md) | function | 🟢 A- | 92.8% | certified | 2026-05-08 |
-| [IsPassing](record.go/IsPassing.md) | method | 🟢 A- | 92.8% | certified | 2026-05-08 |
+| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-09 |
 
 ---
 
