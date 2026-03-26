@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
+**Grade:** 🟢 B+ (87.2%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-09 |
+| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
 
 ---
 
