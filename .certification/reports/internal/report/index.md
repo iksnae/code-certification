@@ -2,18 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.0%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-05-10 |
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-05-10 |
-| [IssueCard](card.go/IssueCard.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [indexData](site.go/indexData.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [unitTreePath](report_tree.go/unitTreePath.md) | function | 🟢 A | 93.3% | certified | 2026-05-10 |
+| [full_test.go](full_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-11 |
+| [FormatArchitectReport](architect_report.go/FormatArchitectReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [indexData](site.go/indexData.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A- | 92.8% | certified | 2026-05-11 |
+| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-05-11 |
+| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-05-11 |
 
 ---
 

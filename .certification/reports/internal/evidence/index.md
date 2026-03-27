@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (86.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ruffJSONFinding](tools.go/ruffJSONFinding.md) | class | 🟢 B | 83.3% | certified | 2026-05-10 |
-| [ParseESLintJSON](tools.go/ParseESLintJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-10 |
-| [ParseRuffJSON](tools.go/ParseRuffJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-10 |
-| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-10 |
-| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-05-10 |
+| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 83.3% | certified | 2026-05-11 |
+| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-05-11 |
+| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-05-11 |
+| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-05-11 |
 
 ---
 

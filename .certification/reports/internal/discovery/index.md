@@ -2,16 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A (93.3%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DetectMoves](diff.go/DetectMoves.md) | function | 🟢 B | 81.1% | certified | 2026-05-10 |
-| [ts_adapter_test.go](ts_adapter_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [Save](index.go/Save.md) | method | 🟢 A | 93.3% | certified | 2026-05-10 |
+| [Units](index.go/Units.md) | method | 🟢 A | 93.3% | certified | 2026-05-11 |
 
 ---
 

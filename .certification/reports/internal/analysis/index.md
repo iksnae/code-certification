@@ -2,18 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (84.2%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-05-10 |
-| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-05-10 |
-| [pyChildByType](python_analyzer.go/pyChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-05-10 |
-| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [CouplingScore](go_deps.go/CouplingScore.md) | method | 🟢 A | 93.3% | certified | 2026-05-10 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-05-11 |
+| [NewLSPAnalyzer](lsp_analyzer.go/NewLSPAnalyzer.md) | function | 🟡 C | 78.3% | certified_with_observations | 2026-05-11 |
+| [rsFindSymbol](rust_analyzer.go/rsFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-05-11 |
+| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-11 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-05-11 |
+| [rsCountRecursive](rust_analyzer.go/rsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-05-11 |
+| [regression_test.go](regression_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-11 |
+| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-11 |
+| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-11 |
+| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-11 |
+| [AnalyzeFile](ts_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-11 |
 
 ---
 

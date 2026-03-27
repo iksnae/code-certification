@@ -2,17 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (92.8%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DimensionScores](dimension.go/DimensionScores.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [OverrideAction](override.go/OverrideAction.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-10 |
-| [GradeFromScore](dimension.go/GradeFromScore.md) | function | 🟢 A- | 92.8% | certified | 2026-05-10 |
+| [ParseUnitType](unit.go/ParseUnitType.md) | function | 🟢 A- | 92.2% | certified | 2026-05-11 |
+| [ParseUnitTypeOrDefault](unit.go/ParseUnitTypeOrDefault.md) | function | 🟢 A | 93.3% | certified | 2026-05-11 |
 
 ---
 

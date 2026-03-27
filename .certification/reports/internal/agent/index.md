@@ -2,23 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (87.7%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [FallbackProvider](fallback.go/FallbackProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [Provider](provider.go/Provider.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-10 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-10 |
-| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-10 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-05-10 |
-| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-05-10 |
-| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2026-05-10 |
+| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-05-11 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-05-11 |
+| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [formatCodeMetrics](architect.go/formatCodeMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-11 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-11 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-05-11 |
+| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2026-05-11 |
 
 ---
 
