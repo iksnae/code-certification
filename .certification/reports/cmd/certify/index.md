@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.7%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceReport](report_cmd.go/runWorkspaceReport.md) | function | 🟡 C | 79.4% | certified_with_observations | 2026-05-13 |
-| [runArchitect](architect_cmd.go/runArchitect.md) | function | 🟢 B | 80.6% | certified | 2026-05-13 |
-| [setupExplicitAgent](certify_cmd.go/setupExplicitAgent.md) | function | 🟢 B | 86.1% | certified | 2026-05-13 |
-| [tryScanSuggestions](scan.go/tryScanSuggestions.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-13 |
+| [runArchitect](architect_cmd.go/runArchitect.md) | function | 🟢 B | 80.6% | certified | 2026-05-14 |
+| [runModels](models_cmd.go/runModels.md) | function | 🟢 B | 83.3% | certified | 2026-05-14 |
+| [resolveArchitectProvider](architect_cmd.go/resolveArchitectProvider.md) | function | 🟢 B | 86.1% | certified | 2026-05-14 |
+| [loadQueue](certify_cmd.go/loadQueue.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-14 |
+| [printQueueStatus](certify_cmd.go/printQueueStatus.md) | method | 🟢 B+ | 90.0% | certified | 2026-05-14 |
+| [bindExpireFlags](expire.go/bindExpireFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-14 |
 
 ---
 

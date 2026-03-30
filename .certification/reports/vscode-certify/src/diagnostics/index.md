@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [refresh](CertifyDiagnostics.ts/refresh.md) | method | 🟢 A- | 92.5% | certified | 2026-05-13 |
+| [EXPIRY_WARNING_DAYS](CertifyDiagnostics.ts/EXPIRY_WARNING_DAYS.md) | function | 🟢 A- | 92.5% | certified | 2026-05-14 |
 
 ---
 
