@@ -1,6 +1,6 @@
-# 🟢 `goComputeCognitiveComplexity`
+# 🟢 `EvidenceSummary`
 
-[← internal/analysis](../index.md)
+[← internal/report](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/analysis/go_analyzer.go#goComputeCognitiveComplexity` |
-| **Type** | function |
-| **Path** | `internal/analysis/go_analyzer.go` |
+| **Unit ID** | `go://internal/report/full.go#EvidenceSummary` |
+| **Type** | class |
+| **Path** | `internal/report/full.go` |
 | **Language** | go |
-| **Symbol** | `goComputeCognitiveComplexity` |
+| **Symbol** | `EvidenceSummary` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **B** |
-| **Score** | 86.1% |
+| **Grade** | 🟢 **B+** |
+| **Score** | 87.2% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-01 |
@@ -30,15 +30,15 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 65.0% | █████████████░░░░░░░ |
-| change_risk | 95.0% | ███████████████████░ |
+| architectural_fitness | 70.0% | ██████████████░░░░░░ |
+| change_risk | 80.0% | ████████████████░░░░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 85.0% | █████████████████░░░ |
+| maintainability | 80.0% | ███████████████░░░░░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
-| testability | 65.0% | █████████████░░░░░░░ |
+| testability | 90.0% | ██████████████████░░ |
 
 ## Evidence
 
@@ -96,77 +96,63 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-8 lines (8 code, 0 comment, 0 blank), 0 TODOs, complexity 2
+7 lines (7 code, 0 comment, 0 blank), 0 TODOs, complexity 0
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 8 |
+| `code_lines` | 7 |
 | `comment_lines` | 0 |
-| `complexity` | 2 |
+| `complexity` | 0 |
 | `todo_count` | 0 |
-| `total_lines` | 8 |
+| `total_lines` | 7 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 74%
+per-unit coverage: 83%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.74 |
+| `unit_test_coverage` | 0.83 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=1 doc=false exported=false cognitive=1
+structural: params=0 returns=0 nesting=0 doc=true exported=true cognitive=0
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 1 |
+| `cognitive_complexity` | 0 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 0 |
-| `func_lines` | 6 |
+| `exported_name` | 1 |
+| `func_lines` | 0 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 0 |
-| `has_init_func` | 1 |
+| `has_doc_comment` | 1 |
+| `has_init_func` | 0 |
 | `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 1 |
+| `max_nesting_depth` | 0 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 1 |
+| `param_count` | 0 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 1 |
+| `return_count` | 0 |
 | `unsafe_import_count` | 0 |
-
-### ✅ structural (`deep-analysis`)
-
-deep: fan_in=1 fan_out=1 dead=false depth=1 instab=0.33
-
-| Metric | Value |
-|--------|------:|
-| `concrete_deps` | 1 |
-| `coupling_score` | 0.01 |
-| `dep_depth` | 1 |
-| `fan_in` | 1 |
-| `fan_out` | 1 |
-| `instability` | 0.33 |
-| `interface_size` | 0 |
-| `is_dead_code` | 0 |
-| `type_aware_unwrapped` | 0 |
-| `unused_params` | 0 |
 
 ## Observations
 
-- has_init_func: 1 exceeds threshold 0
+- missing evidence for metric "fan_out"
+- missing evidence for metric "fan_in"
+- missing evidence for metric "is_dead_code"
+- missing evidence for metric "dep_depth"
 
 ---
 

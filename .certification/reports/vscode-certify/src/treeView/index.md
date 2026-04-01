@@ -1,16 +1,16 @@
-# 🟢 `internal/analysis/lsp`
+# 🟢 `vscode-certify/src/treeView`
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
+**Grade:** 🟢 A- (91.9%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [TextDocumentIdentifier](types.go/TextDocumentIdentifier.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-16 |
-| [readLoop](client.go/readLoop.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-16 |
+| [buildNoConfigItems](CertificationTreeProvider.ts/buildNoConfigItems.md) | method | 🟢 A- | 91.9% | certified | 2026-05-16 |
+| [worstGrade](CertificationTreeProvider.ts/worstGrade.md) | function | 🟢 A- | 91.9% | certified | 2026-05-16 |
 
 ---
 

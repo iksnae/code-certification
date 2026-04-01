@@ -1,4 +1,4 @@
-# 🟢 `internal/record`
+# 🟢 `internal/config`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [historyPathFor](store.go/historyPathFor.md) | method | 🟢 A | 93.3% | certified | 2026-05-16 |
+| [LoadPolicyPacks](policy.go/LoadPolicyPacks.md) | function | 🟢 A | 93.3% | certified | 2026-05-16 |
 
 ---
 

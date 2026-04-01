@@ -1,6 +1,6 @@
-# 🟢 `goComputeCognitiveComplexity`
+# 🟢 `packagePath`
 
-[← internal/analysis](../index.md)
+[← internal/agent](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/analysis/go_analyzer.go#goComputeCognitiveComplexity` |
+| **Unit ID** | `go://internal/agent/architect_snapshot.go#packagePath` |
 | **Type** | function |
-| **Path** | `internal/analysis/go_analyzer.go` |
+| **Path** | `internal/agent/architect_snapshot.go` |
 | **Language** | go |
-| **Symbol** | `goComputeCognitiveComplexity` |
+| **Symbol** | `packagePath` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **B** |
-| **Score** | 86.1% |
+| **Grade** | 🟢 **A** |
+| **Score** | 93.3% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-01 |
@@ -30,15 +30,15 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 65.0% | █████████████░░░░░░░ |
+| architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 85.0% | █████████████████░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
-| testability | 65.0% | █████████████░░░░░░░ |
+| testability | 90.0% | ██████████████████░░ |
 
 ## Evidence
 
@@ -96,28 +96,28 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-8 lines (8 code, 0 comment, 0 blank), 0 TODOs, complexity 2
+8 lines (7 code, 1 comment, 0 blank), 0 TODOs, complexity 2
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 8 |
-| `comment_lines` | 0 |
+| `code_lines` | 7 |
+| `comment_lines` | 1 |
 | `complexity` | 2 |
 | `todo_count` | 0 |
 | `total_lines` | 8 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 74%
+per-unit coverage: 93%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.74 |
+| `unit_test_coverage` | 0.93 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=1 doc=false exported=false cognitive=1
+structural: params=1 returns=1 nesting=1 doc=true exported=false cognitive=1
 
 | Metric | Value |
 |--------|------:|
@@ -128,11 +128,11 @@ structural: params=1 returns=1 nesting=1 doc=false exported=false cognitive=1
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 0 |
-| `func_lines` | 6 |
+| `func_lines` | 5 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 0 |
-| `has_init_func` | 1 |
+| `has_doc_comment` | 1 |
+| `has_init_func` | 0 |
 | `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
 | `max_nesting_depth` | 1 |
@@ -149,24 +149,20 @@ structural: params=1 returns=1 nesting=1 doc=false exported=false cognitive=1
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=1 dead=false depth=1 instab=0.33
+deep: fan_in=1 fan_out=2 dead=false depth=1 instab=0.20
 
 | Metric | Value |
 |--------|------:|
-| `concrete_deps` | 1 |
-| `coupling_score` | 0.01 |
+| `concrete_deps` | 0 |
+| `coupling_score` | 0.02 |
 | `dep_depth` | 1 |
 | `fan_in` | 1 |
-| `fan_out` | 1 |
-| `instability` | 0.33 |
+| `fan_out` | 2 |
+| `instability` | 0.20 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
-
-## Observations
-
-- has_init_func: 1 exceeds threshold 0
 
 ---
 

@@ -1,4 +1,4 @@
-# 🟢 `goComputeCognitiveComplexity`
+# 🟢 `rsComputeNesting`
 
 [← internal/analysis](../index.md)
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/analysis/go_analyzer.go#goComputeCognitiveComplexity` |
+| **Unit ID** | `go://internal/analysis/rust_analyzer.go#rsComputeNesting` |
 | **Type** | function |
-| **Path** | `internal/analysis/go_analyzer.go` |
+| **Path** | `internal/analysis/rust_analyzer.go` |
 | **Language** | go |
-| **Symbol** | `goComputeCognitiveComplexity` |
+| **Symbol** | `rsComputeNesting` |
 
 ## Certification
 
@@ -96,68 +96,68 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-8 lines (8 code, 0 comment, 0 blank), 0 TODOs, complexity 2
+24 lines (24 code, 0 comment, 0 blank), 0 TODOs, complexity 6
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 8 |
+| `code_lines` | 24 |
 | `comment_lines` | 0 |
-| `complexity` | 2 |
+| `complexity` | 6 |
 | `todo_count` | 0 |
-| `total_lines` | 8 |
+| `total_lines` | 24 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 74%
+per-unit coverage: 83%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.74 |
+| `unit_test_coverage` | 0.83 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=1 doc=false exported=false cognitive=1
+structural: params=2 returns=1 nesting=3 doc=false exported=false cognitive=12
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 1 |
+| `cognitive_complexity` | 12 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 0 |
-| `func_lines` | 6 |
+| `func_lines` | 22 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 0 |
 | `has_init_func` | 1 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 1 |
+| `loop_nesting_depth` | 1 |
+| `max_nesting_depth` | 3 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 1 |
+| `param_count` | 2 |
 | `quadratic_patterns` | 0 |
-| `recursive_calls` | 0 |
+| `recursive_calls` | 2 |
 | `return_count` | 1 |
 | `unsafe_import_count` | 0 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=1 dead=false depth=1 instab=0.33
+deep: fan_in=3 fan_out=4 dead=false depth=1 instab=0.33
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 1 |
-| `coupling_score` | 0.01 |
+| `coupling_score` | 0.12 |
 | `dep_depth` | 1 |
-| `fan_in` | 1 |
-| `fan_out` | 1 |
+| `fan_in` | 3 |
+| `fan_out` | 4 |
 | `instability` | 0.33 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |
