@@ -1,6 +1,6 @@
-# 🟢 `AutoDetectEnvVars`
+# 🟢 `checkEnvironment`
 
-[← internal/agent](../index.md)
+[← internal/doctor](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/autodetect.go#AutoDetectEnvVars` |
-| **Type** | function |
-| **Path** | `internal/agent/autodetect.go` |
+| **Unit ID** | `go://internal/doctor/doctor.go#checkEnvironment` |
+| **Type** | method |
+| **Path** | `internal/doctor/doctor.go` |
 | **Language** | go |
-| **Symbol** | `AutoDetectEnvVars` |
+| **Symbol** | `checkEnvironment` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **B+** |
-| **Score** | 88.9% |
+| **Grade** | 🟢 **B** |
+| **Score** | 86.1% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-02 |
@@ -30,14 +30,14 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 95.0% | ███████████████████░ |
+| architectural_fitness | 65.0% | █████████████░░░░░░░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 55.0% | ██████████░░░░░░░░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
-| security | 85.0% | █████████████████░░░ |
+| security | 50.0% | ██████████░░░░░░░░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
 ## Evidence
@@ -96,46 +96,46 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+38 lines (34 code, 3 comment, 1 blank), 0 TODOs, complexity 3
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `blank_lines` | 1 |
+| `code_lines` | 34 |
+| `comment_lines` | 3 |
+| `complexity` | 3 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 38 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 100%
+per-unit coverage: 65%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 1 |
+| `unit_test_coverage` | 0.65 |
 
 ### ✅ structural (`structural`)
 
-structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=0 returns=0 nesting=1 doc=true exported=false cognitive=4
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 4 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 1 |
-| `func_lines` | 1 |
+| `exported_name` | 0 |
+| `func_lines` | 35 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `max_nesting_depth` | 1 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
@@ -144,29 +144,29 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `param_count` | 0 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 1 |
-| `unsafe_import_count` | 0 |
+| `return_count` | 0 |
+| `unsafe_import_count` | 1 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=1 fan_out=2 dead=false depth=3 instab=0.83
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
-| `coupling_score` | 0 |
-| `dep_depth` | 1 |
+| `coupling_score` | 0.02 |
+| `dep_depth` | 3 |
 | `fan_in` | 1 |
-| `fan_out` | 0 |
-| `instability` | 0.20 |
+| `fan_out` | 2 |
+| `instability` | 0.83 |
 | `interface_size` | 0 |
-| `is_dead_code` | 1 |
+| `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
 
 ## Observations
 
-- is_dead_code: 1 exceeds threshold 0
+- unsafe_import_count: 1 exceeds threshold 0
 
 ---
 

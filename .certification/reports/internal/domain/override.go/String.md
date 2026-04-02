@@ -1,6 +1,6 @@
-# 🟢 `AutoDetectEnvVars`
+# 🟢 `String`
 
-[← internal/agent](../index.md)
+[← internal/domain](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/autodetect.go#AutoDetectEnvVars` |
-| **Type** | function |
-| **Path** | `internal/agent/autodetect.go` |
+| **Unit ID** | `go://internal/domain/override.go#String` |
+| **Type** | method |
+| **Path** | `internal/domain/override.go` |
 | **Language** | go |
-| **Symbol** | `AutoDetectEnvVars` |
+| **Symbol** | `String` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **B+** |
-| **Score** | 88.9% |
+| **Score** | 88.3% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-02 |
@@ -31,7 +31,7 @@
 | Dimension | Score | Bar |
 |-----------|------:|-----|
 | architectural_fitness | 95.0% | ███████████████████░ |
-| change_risk | 95.0% | ███████████████████░ |
+| change_risk | 90.0% | ██████████████████░░ |
 | correctness | 95.0% | ███████████████████░ |
 | maintainability | 55.0% | ██████████░░░░░░░░░░ |
 | operational_quality | 95.0% | ███████████████████░ |
@@ -96,46 +96,46 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+7 lines (6 code, 1 comment, 0 blank), 0 TODOs, complexity 2
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 3 |
+| `code_lines` | 6 |
 | `comment_lines` | 1 |
-| `complexity` | 1 |
+| `complexity` | 2 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 7 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 100%
+per-unit coverage: 88%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 1 |
+| `unit_test_coverage` | 0.88 |
 
 ### ✅ structural (`structural`)
 
-structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=0 returns=1 nesting=1 doc=true exported=true cognitive=1
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 1 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 1 |
-| `func_lines` | 1 |
+| `func_lines` | 4 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `max_nesting_depth` | 1 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
@@ -149,16 +149,16 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=7 fan_out=0 dead=true depth=0 instab=0.00
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
-| `dep_depth` | 1 |
-| `fan_in` | 1 |
+| `dep_depth` | 0 |
+| `fan_in` | 7 |
 | `fan_out` | 0 |
-| `instability` | 0.20 |
+| `instability` | 0 |
 | `interface_size` | 0 |
 | `is_dead_code` | 1 |
 | `type_aware_unwrapped` | 0 |

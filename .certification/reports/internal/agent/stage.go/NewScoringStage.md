@@ -1,4 +1,4 @@
-# 🟢 `AutoDetectEnvVars`
+# 🟢 `NewScoringStage`
 
 [← internal/agent](../index.md)
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/autodetect.go#AutoDetectEnvVars` |
+| **Unit ID** | `go://internal/agent/stage.go#NewScoringStage` |
 | **Type** | function |
-| **Path** | `internal/agent/autodetect.go` |
+| **Path** | `internal/agent/stage.go` |
 | **Language** | go |
-| **Symbol** | `AutoDetectEnvVars` |
+| **Symbol** | `NewScoringStage` |
 
 ## Certification
 
@@ -109,15 +109,15 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 100%
+per-unit coverage: 89%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 1 |
+| `unit_test_coverage` | 0.89 |
 
 ### ✅ structural (`structural`)
 
-structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=2 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 | Metric | Value |
 |--------|------:|
@@ -133,7 +133,7 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
-| `is_constructor` | 0 |
+| `is_constructor` | 1 |
 | `loop_nesting_depth` | 0 |
 | `max_nesting_depth` | 0 |
 | `method_count` | 0 |
@@ -141,7 +141,7 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 0 |
+| `param_count` | 2 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
 | `return_count` | 1 |
@@ -149,14 +149,14 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=2 fan_out=0 dead=true depth=1 instab=0.20
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
 | `dep_depth` | 1 |
-| `fan_in` | 1 |
+| `fan_in` | 2 |
 | `fan_out` | 0 |
 | `instability` | 0.20 |
 | `interface_size` | 0 |

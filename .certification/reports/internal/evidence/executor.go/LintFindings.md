@@ -1,6 +1,6 @@
-# 🟢 `AutoDetectEnvVars`
+# 🟢 `LintFindings`
 
-[← internal/agent](../index.md)
+[← internal/evidence](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/autodetect.go#AutoDetectEnvVars` |
-| **Type** | function |
-| **Path** | `internal/agent/autodetect.go` |
+| **Unit ID** | `go://internal/evidence/executor.go#LintFindings` |
+| **Type** | method |
+| **Path** | `internal/evidence/executor.go` |
 | **Language** | go |
-| **Symbol** | `AutoDetectEnvVars` |
+| **Symbol** | `LintFindings` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **B+** |
-| **Score** | 88.9% |
+| **Score** | 89.4% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-02 |
@@ -33,11 +33,11 @@
 | architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 55.0% | ██████████░░░░░░░░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
-| security | 85.0% | █████████████████░░░ |
+| security | 50.0% | ██████████░░░░░░░░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
 ## Evidence
@@ -96,24 +96,24 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+5 lines (3 code, 2 comment, 0 blank), 0 TODOs, complexity 1
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
 | `code_lines` | 3 |
-| `comment_lines` | 1 |
+| `comment_lines` | 2 |
 | `complexity` | 1 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 5 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 100%
+per-unit coverage: 3%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 1 |
+| `unit_test_coverage` | 0.03 |
 
 ### ✅ structural (`structural`)
 
@@ -145,11 +145,11 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
 | `return_count` | 1 |
-| `unsafe_import_count` | 0 |
+| `unsafe_import_count` | 1 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=1 fan_out=0 dead=false depth=1 instab=0.25
 
 | Metric | Value |
 |--------|------:|
@@ -158,15 +158,15 @@ deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
 | `dep_depth` | 1 |
 | `fan_in` | 1 |
 | `fan_out` | 0 |
-| `instability` | 0.20 |
+| `instability` | 0.25 |
 | `interface_size` | 0 |
-| `is_dead_code` | 1 |
+| `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
 
 ## Observations
 
-- is_dead_code: 1 exceeds threshold 0
+- unsafe_import_count: 1 exceeds threshold 0
 
 ---
 

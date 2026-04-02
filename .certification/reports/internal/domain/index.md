@@ -1,16 +1,16 @@
-# 🟢 `vscode-certify/src`
+# 🟢 `internal/domain`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
+**Grade:** 🟢 B+ (87.8%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [detectProjectState](dataLoader.ts/detectProjectState.md) | method | 🟢 A- | 91.3% | certified | 2026-05-17 |
-| [getUnitsForFile](dataLoader.ts/getUnitsForFile.md) | method | 🟢 A- | 91.3% | certified | 2026-05-17 |
+| [ProviderConfig](config.go/ProviderConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
+| [String](override.go/String.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-17 |
 
 ---
 

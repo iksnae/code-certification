@@ -1,6 +1,6 @@
-# 🟢 `AutoDetectEnvVars`
+# 🟢 `buildWorkspaceItems`
 
-[← internal/agent](../index.md)
+[← vscode-certify/src/treeView](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/autodetect.go#AutoDetectEnvVars` |
-| **Type** | function |
-| **Path** | `internal/agent/autodetect.go` |
-| **Language** | go |
-| **Symbol** | `AutoDetectEnvVars` |
+| **Unit ID** | `ts://vscode-certify/src/treeView/CertificationTreeProvider.ts#buildWorkspaceItems` |
+| **Type** | method |
+| **Path** | `vscode-certify/src/treeView/CertificationTreeProvider.ts` |
+| **Language** | ts |
+| **Symbol** | `buildWorkspaceItems` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **B+** |
-| **Score** | 88.9% |
+| **Grade** | 🟢 **A-** |
+| **Score** | 91.9% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-02 |
@@ -30,13 +30,12 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 95.0% | ███████████████████░ |
-| change_risk | 95.0% | ███████████████████░ |
+| change_risk | 90.0% | ██████████████████░░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 55.0% | ██████████░░░░░░░░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
-| readability | 95.0% | ███████████████████░ |
+| readability | 90.0% | ██████████████████░░ |
 | security | 85.0% | █████████████████░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
@@ -96,28 +95,20 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+311 lines (260 code, 14 comment, 37 blank), 0 TODOs, complexity 0
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `blank_lines` | 37 |
+| `code_lines` | 260 |
+| `comment_lines` | 14 |
+| `complexity` | 0 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
-
-### ✅ test (`coverage:unit`)
-
-per-unit coverage: 100%
-
-| Metric | Value |
-|--------|------:|
-| `unit_test_coverage` | 1 |
+| `total_lines` | 311 |
 
 ### ✅ structural (`structural`)
 
-structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=0 returns=0 nesting=0 doc=false exported=false cognitive=0
 
 | Metric | Value |
 |--------|------:|
@@ -127,11 +118,11 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 1 |
-| `func_lines` | 1 |
+| `exported_name` | 0 |
+| `func_lines` | 0 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 1 |
+| `has_doc_comment` | 0 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
@@ -144,29 +135,8 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `param_count` | 0 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 1 |
+| `return_count` | 0 |
 | `unsafe_import_count` | 0 |
-
-### ✅ structural (`deep-analysis`)
-
-deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
-
-| Metric | Value |
-|--------|------:|
-| `concrete_deps` | 0 |
-| `coupling_score` | 0 |
-| `dep_depth` | 1 |
-| `fan_in` | 1 |
-| `fan_out` | 0 |
-| `instability` | 0.20 |
-| `interface_size` | 0 |
-| `is_dead_code` | 1 |
-| `type_aware_unwrapped` | 0 |
-| `unused_params` | 0 |
-
-## Observations
-
-- is_dead_code: 1 exceeds threshold 0
 
 ---
 
