@@ -2,20 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.7%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-05-17 |
-| [pyAnalyzeFunction](python_analyzer.go/pyAnalyzeFunction.md) | function | 🟢 B | 80.0% | certified | 2026-05-17 |
-| [NewTSAnalyzer](ts_analyzer.go/NewTSAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-05-17 |
-| [goCallFuncName](go_analyzer.go/goCallFuncName.md) | function | 🟢 B | 86.1% | certified | 2026-05-17 |
-| [UnusedSymbol](go_deep.go/UnusedSymbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-17 |
+| [goAnalyzeFileDecls](go_analyzer.go/goAnalyzeFileDecls.md) | function | 🟢 B | 84.4% | certified | 2026-05-18 |
+| [rsChildByType](rust_analyzer.go/rsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-05-18 |
+| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-05-18 |
+| [CouplingScore](go_deps.go/CouplingScore.md) | method | 🟢 A | 93.3% | certified | 2026-05-18 |
 
 ---
 

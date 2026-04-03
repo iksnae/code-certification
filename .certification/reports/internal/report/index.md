@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.0%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-05-17 |
-| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-05-17 |
-| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-05-17 |
-| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-05-17 |
-| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-05-17 |
+| [IssueCard](card.go/IssueCard.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-18 |
+| [unitReportFrom](full.go/unitReportFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-18 |
+| [gradeRow](site.go/gradeRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-18 |
 
 ---
 

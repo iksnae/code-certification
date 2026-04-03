@@ -2,25 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [scoringStage](stage.go/scoringStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [suggest_test.go](suggest_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-17 |
-| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-17 |
-| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-17 |
-| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-17 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 91.7% | certified | 2026-05-17 |
-| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-05-17 |
-| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2026-05-17 |
+| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-05-18 |
+| [CoordinatorConfig](pipeline.go/CoordinatorConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-18 |
+| [DefaultModels](providers.go/DefaultModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-18 |
+| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-05-18 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-05-18 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-05-18 |
 
 ---
 

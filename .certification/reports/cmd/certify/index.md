@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-05-17 |
-| [gradeEmojiShort](report_cmd.go/gradeEmojiShort.md) | function | 🟢 B | 86.1% | certified | 2026-05-17 |
-| [certifyFlags](certify_cmd.go/certifyFlags.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [setupConservativeAgent](certify_cmd.go/setupConservativeAgent.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-17 |
-| [bindExpireFlags](expire.go/bindExpireFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-17 |
+| [writeArchitectOutput](architect_cmd.go/writeArchitectOutput.md) | function | 🟢 B | 86.1% | certified | 2026-05-18 |
+| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-05-18 |
+| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 B | 86.1% | certified | 2026-05-18 |
+| [flagInt](root.go/flagInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-18 |
+| [printSummary](certify_cmd.go/printSummary.md) | method | 🟢 B+ | 90.0% | certified | 2026-05-18 |
+| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-18 |
 
 ---
 

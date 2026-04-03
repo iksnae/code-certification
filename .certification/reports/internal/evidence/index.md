@@ -2,21 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
+**Grade:** 🟢 B+ (89.5%)  
 **Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pytestJUnitSuite](tools.go/pytestJUnitSuite.md) | class | 🟢 B | 83.3% | certified | 2026-05-17 |
-| [ParseRuffJSON](tools.go/ParseRuffJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-17 |
-| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-17 |
-| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-05-17 |
-| [ParseGolangciLintJSON](runner.go/ParseGolangciLintJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-17 |
-| [LintFindings](executor.go/LintFindings.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-17 |
-| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-05-17 |
-| [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 A | 93.3% | certified | 2026-05-17 |
+| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 83.3% | certified | 2026-05-18 |
+| [executor_test.go](executor_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-18 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-18 |
+| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-18 |
+| [LintFindings](executor.go/LintFindings.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-18 |
+| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2026-05-18 |
+| [DiscoverModuleRoots](modules.go/DiscoverModuleRoots.md) | function | 🟢 A | 93.3% | certified | 2026-05-18 |
+| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-05-18 |
 
 ---
 
