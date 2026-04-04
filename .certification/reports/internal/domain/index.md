@@ -2,16 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-18 |
-| [GenerateRunID](record.go/GenerateRunID.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-18 |
-| [ParseSeverity](evidence.go/ParseSeverity.md) | function | 🟢 A- | 92.2% | certified | 2026-05-18 |
+| [String](record.go/String.md) | method | 🟢 B | 82.8% | certified | 2026-05-19 |
+| [dimension_test.go](dimension_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-19 |
+| [CertificationMode](config.go/CertificationMode.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
+| [config_test.go](config_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-19 |
+| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
+| [Validate](override.go/Validate.md) | method | 🟢 A- | 92.2% | certified | 2026-05-19 |
 
 ---
 
