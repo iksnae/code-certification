@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (86.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [printQueueStatus](certify_cmd.go/printQueueStatus.md) | method | 🟢 B+ | 90.0% | certified | 2026-05-19 |
+| [executeArchitectReview](architect_cmd.go/executeArchitectReview.md) | function | 🟢 B | 86.1% | certified | 2026-05-20 |
+| [printArchitectHeader](architect_cmd.go/printArchitectHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-20 |
 
 ---
 

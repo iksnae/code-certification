@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-05-19 |
-| [computeDimensionAverages](detailed.go/computeDimensionAverages.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
-| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
-| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
+| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [health_test.go](health_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [issueRow](site.go/issueRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
 
 ---
 

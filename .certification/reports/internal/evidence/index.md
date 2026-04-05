@@ -2,21 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoClippyJSON](tools.go/ParseCargoClippyJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-19 |
-| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [countFuncLines](structural.go/countFuncLines.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [CoverageProfile](executor.go/CoverageProfile.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-19 |
-| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-19 |
-| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-05-19 |
-| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
-| [hasStringLit](structural.go/hasStringLit.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
+| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2026-05-20 |
+| [ModuleRoots](executor.go/ModuleRoots.md) | method | 🟢 B | 85.0% | certified | 2026-05-20 |
+| [lint_test.go](lint_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-20 |
+| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2026-05-20 |
 
 ---
 

@@ -2,27 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-05-19 |
-| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-05-19 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-19 |
-| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-19 |
-| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-19 |
-| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
-| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
-| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
-| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
-| [stripThinkTags](architect_review.go/stripThinkTags.md) | function | 🟢 A | 93.3% | certified | 2026-05-19 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-05-20 |
+| [Chat](openrouter.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-05-20 |
+| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [Name](fallback.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-20 |
+| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-20 |
+| [ModelFor](router.go/ModelFor.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-20 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-05-20 |
+| [packagePath](architect_snapshot.go/packagePath.md) | function | 🟢 A | 93.3% | certified | 2026-05-20 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-05-20 |
 
 ---
 

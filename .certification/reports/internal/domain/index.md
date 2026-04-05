@@ -2,19 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](record.go/String.md) | method | 🟢 B | 82.8% | certified | 2026-05-19 |
-| [dimension_test.go](dimension_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-19 |
-| [CertificationMode](config.go/CertificationMode.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [config_test.go](config_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-19 |
-| [Validate](override.go/Validate.md) | method | 🟢 A- | 92.2% | certified | 2026-05-19 |
+| [IssueConfig](config.go/IssueConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [DimensionWeights](dimension.go/DimensionWeights.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [Grade](dimension.go/Grade.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [OverrideAction](override.go/OverrideAction.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [policy_test.go](policy_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-20 |
+| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-20 |
+| [NewUnit](unit.go/NewUnit.md) | function | 🟢 A- | 92.8% | certified | 2026-05-20 |
 
 ---
 
