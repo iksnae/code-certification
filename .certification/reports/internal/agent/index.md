@@ -2,21 +2,26 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 13 · **Passing:** 13 / 13
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-22 |
-| [ArchPhase1Result](architect_review.go/ArchPhase1Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-22 |
-| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-22 |
-| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-22 |
-| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-22 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-05-22 |
-| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-05-22 |
-| [NewCoordinator](pipeline.go/NewCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-05-22 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-05-23 |
+| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 83.3% | certified | 2026-05-23 |
+| [OllamaModels](providers.go/OllamaModels.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
+| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [Usage](types.go/Usage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [NewReviewStage](stage.go/NewReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-23 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-23 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-05-23 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-05-23 |
+| [ReviewUnit](pipeline.go/ReviewUnit.md) | method | 🟢 A | 93.3% | certified | 2026-05-23 |
 
 ---
 

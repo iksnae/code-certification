@@ -2,23 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (85.6%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PythonAnalyzer](python_analyzer.go/PythonAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-22 |
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-05-22 |
-| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-05-22 |
-| [goAnalyzeFileDecls](go_analyzer.go/goAnalyzeFileDecls.md) | function | 🟢 B | 84.4% | certified | 2026-05-22 |
-| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-05-22 |
-| [rsUsePath](rust_analyzer.go/rsUsePath.md) | function | 🟢 B | 86.1% | certified | 2026-05-22 |
-| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-05-22 |
-| [FanIn](go_deep.go/FanIn.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-22 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-22 |
-| [compute](go_deep.go/compute.md) | method | 🟢 A- | 92.8% | certified | 2026-05-22 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-05-23 |
+| [goCountErrorsNotWrapped](go_analyzer.go/goCountErrorsNotWrapped.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
+| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
+| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
+| [rsCountRecursive](rust_analyzer.go/rsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
+| [go_refine_test.go](go_refine_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-23 |
 
 ---
 

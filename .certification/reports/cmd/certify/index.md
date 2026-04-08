@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [filterUnits](certify_cmd.go/filterUnits.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-22 |
-| [policyVersions](certify_cmd.go/policyVersions.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-22 |
+| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
+| [loadQueue](certify_cmd.go/loadQueue.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-23 |
+| [bindReviewFlags](review.go/bindReviewFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-23 |
 
 ---
 

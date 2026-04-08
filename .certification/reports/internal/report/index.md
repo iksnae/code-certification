@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchHeader](architect_report.go/writeArchHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-22 |
-| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-22 |
-| [generateUnitPages](site.go/generateUnitPages.md) | function | 🟢 A | 93.3% | certified | 2026-05-22 |
-| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-05-22 |
-| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-05-22 |
+| [GenerateCard](card.go/GenerateCard.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
+| [AreaSummary](detailed.go/AreaSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
 
 ---
 

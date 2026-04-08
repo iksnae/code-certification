@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 83.3% | certified | 2026-05-22 |
-| [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-22 |
-| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-22 |
-| [runGoTestAt](executor.go/runGoTestAt.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-22 |
-| [ToEvidence](structural.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-22 |
-| [findESLint](tools.go/findESLint.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-22 |
+| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-05-23 |
+| [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-23 |
+| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-05-23 |
+| [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 A- | 92.8% | certified | 2026-05-23 |
+| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-05-23 |
 
 ---
 
