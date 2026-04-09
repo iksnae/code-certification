@@ -9,9 +9,9 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GenerateCard](card.go/GenerateCard.md) | function | 🟢 B | 86.1% | certified | 2026-05-23 |
-| [AreaSummary](detailed.go/AreaSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
-| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-24 |
+| [detailed_test.go](detailed_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-24 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-24 |
 
 ---
 

@@ -2,15 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.4%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
-| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-23 |
+| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
+| [Config](config.go/Config.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
+| [IssueConfig](config.go/IssueConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
+| [Status](record.go/Status.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
+| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-24 |
+| [IsPassing](record.go/IsPassing.md) | method | 🟢 A- | 92.8% | certified | 2026-05-24 |
 
 ---
 
