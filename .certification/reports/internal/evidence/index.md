@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (84.9%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-05-24 |
-| [runGoTestAt](executor.go/runGoTestAt.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-24 |
+| [ParseLCOV](tools.go/ParseLCOV.md) | function | 🟢 B | 80.0% | certified | 2026-05-25 |
+| [ParseCargoClippyJSON](tools.go/ParseCargoClippyJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-25 |
+| [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-25 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-25 |
 
 ---
 

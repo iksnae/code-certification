@@ -2,21 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.6%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.8%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-05-24 |
-| [pyFindSymbol](python_analyzer.go/pyFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-05-24 |
-| [pyDetectUnsafeImports](python_analyzer.go/pyDetectUnsafeImports.md) | function | 🟢 B | 84.4% | certified | 2026-05-24 |
-| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-05-24 |
-| [tsNodeName](ts_analyzer.go/tsNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-05-24 |
-| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-05-24 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-24 |
-| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-24 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-05-25 |
+| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-05-25 |
+| [goCallFuncName](go_analyzer.go/goCallFuncName.md) | function | 🟢 B | 86.1% | certified | 2026-05-25 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-25 |
+| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-25 |
+| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-25 |
+| [FanOut](go_deep.go/FanOut.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-25 |
+| [DepDepth](go_deps.go/DepDepth.md) | method | 🟢 A | 93.3% | certified | 2026-05-25 |
+| [depDepthRec](go_deps.go/depDepthRec.md) | method | 🟢 A | 93.3% | certified | 2026-05-25 |
+| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-05-25 |
+| [findPkg](go_refine.go/findPkg.md) | method | 🟢 A | 93.3% | certified | 2026-05-25 |
 
 ---
 

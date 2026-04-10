@@ -2,26 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-24 |
-| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
-| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-24 |
-| [classifySubmoduleRole](workspace_snapshot.go/classifySubmoduleRole.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-24 |
-| [NewPipeline](pipeline.go/NewPipeline.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-24 |
-| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-24 |
-| [NewReviewStage](stage.go/NewReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-24 |
-| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-24 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-24 |
-| [Stats](pipeline.go/Stats.md) | method | 🟢 A | 93.3% | certified | 2026-05-24 |
-| [toResult](pipeline.go/toResult.md) | method | 🟢 A | 93.3% | certified | 2026-05-24 |
+| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-25 |
+| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-25 |
+| [scoringStage](stage.go/scoringStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-25 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-25 |
+| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-25 |
+| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-25 |
+| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-25 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-25 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-05-25 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-05-25 |
+| [NewModelChain](fallback.go/NewModelChain.md) | function | 🟢 A | 93.3% | certified | 2026-05-25 |
 
 ---
 
