@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [constructor](CertificationTreeProvider.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-05-26 |
+| [getRootChildren](CertificationTreeProvider.ts/getRootChildren.md) | method | 🟢 A- | 91.9% | certified | 2026-05-27 |
 
 ---
 

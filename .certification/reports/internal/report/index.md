@@ -2,21 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [site_templates.go](site_templates.go.md) | file | 🟢 B | 86.1% | certified | 2026-05-26 |
-| [report_tree_test.go](report_tree_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-26 |
-| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-26 |
-| [badge_test.go](badge_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-26 |
-| [IssueCard](card.go/IssueCard.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-26 |
-| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-26 |
-| [gradeRow](site.go/gradeRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-26 |
-| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-05-26 |
+| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-05-27 |
+| [pkgRow](site.go/pkgRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-27 |
+| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-27 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A- | 92.2% | certified | 2026-05-27 |
+| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-05-27 |
 
 ---
 

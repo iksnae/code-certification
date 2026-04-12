@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
+**Grade:** 🟢 A- (91.1%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BRAND_COLORS](constants.ts/BRAND_COLORS.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-26 |
-| [FullReport](types.ts/FullReport.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-26 |
-| [ProjectState](types.ts/ProjectState.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-26 |
-| [architectReviewPath](dataLoader.ts/architectReviewPath.md) | method | 🟢 A- | 91.3% | certified | 2026-05-26 |
+| [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-27 |
+| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-05-27 |
+| [detectLanguageName](dataLoader.ts/detectLanguageName.md) | function | 🟢 A- | 91.9% | certified | 2026-05-27 |
+| [deactivate](extension.ts/deactivate.md) | function | 🟢 A- | 91.9% | certified | 2026-05-27 |
 
 ---
 

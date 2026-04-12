@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (84.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LSPAnalyzer](lsp_analyzer.go/LSPAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-26 |
-| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-05-26 |
-| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-05-26 |
-| [goCountErrorsNotWrapped](go_analyzer.go/goCountErrorsNotWrapped.md) | function | 🟢 B | 86.1% | certified | 2026-05-26 |
-| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-05-26 |
-| [findPkg](go_refine.go/findPkg.md) | method | 🟢 A | 93.3% | certified | 2026-05-26 |
+| [pyFindSymbol](python_analyzer.go/pyFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-05-27 |
+| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-05-27 |
+| [pyDiscoverNode](python_analyzer.go/pyDiscoverNode.md) | function | 🟢 B | 84.4% | certified | 2026-05-27 |
+| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-27 |
 
 ---
 
