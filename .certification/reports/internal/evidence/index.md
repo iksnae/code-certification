@@ -2,18 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.9%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParsePytestShort](tools.go/ParsePytestShort.md) | function | 🟢 B | 80.0% | certified | 2026-05-27 |
-| [structural_test.go](structural_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-05-27 |
-| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-05-27 |
-| [walkNested](structural.go/walkNested.md) | function | 🟢 B | 86.7% | certified | 2026-05-27 |
-| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2026-05-27 |
+| [metrics_test.go](metrics_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-28 |
+| [countCallExpr](structural.go/countCallExpr.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-28 |
 
 ---
 

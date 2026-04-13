@@ -2,17 +2,18 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Error](client.go/Error.md) | method | 🟢 B | 84.4% | certified | 2026-05-27 |
-| [CallHierarchyPrepare](client.go/CallHierarchyPrepare.md) | method | 🟢 B | 85.6% | certified | 2026-05-27 |
-| [client_test.go](client_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-27 |
-| [Start](client.go/Start.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-27 |
+| [Error](client.go/Error.md) | method | 🟢 B | 84.4% | certified | 2026-05-28 |
+| [CallHierarchyCapability](types.go/CallHierarchyCapability.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-28 |
+| [ClientCapabilities](types.go/ClientCapabilities.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-28 |
+| [Position](types.go/Position.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-28 |
+| [TextDocumentClientCapabilities](types.go/TextDocumentClientCapabilities.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-28 |
 
 ---
 
