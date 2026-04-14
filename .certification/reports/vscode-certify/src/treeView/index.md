@@ -2,30 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.4%)  
-**Units:** 17 · **Passing:** 17 / 17
+**Grade:** 🟢 A- (91.9%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertificationTreeProvider](CertificationTreeProvider.ts/CertificationTreeProvider.md) | class | 🟢 B | 85.6% | certified | 2026-05-28 |
-| [CertifyTreeItem](CertificationTreeProvider.ts/CertifyTreeItem.md) | class | 🟢 B+ | 89.4% | certified | 2026-05-28 |
-| [GRADE_ORDER](CertificationTreeProvider.ts/GRADE_ORDER.md) | function | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [buildArchitectItems](CertificationTreeProvider.ts/buildArchitectItems.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [buildConfigNoDataItems](CertificationTreeProvider.ts/buildConfigNoDataItems.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [buildNoConfigItems](CertificationTreeProvider.ts/buildNoConfigItems.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [buildReadyItems](CertificationTreeProvider.ts/buildReadyItems.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [buildWorkspaceItems](CertificationTreeProvider.ts/buildWorkspaceItems.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [constructor](CertificationTreeProvider.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [getChildren](CertificationTreeProvider.ts/getChildren.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [getDirectoryChildren](CertificationTreeProvider.ts/getDirectoryChildren.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [getParent](CertificationTreeProvider.ts/getParent.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [getRootChildren](CertificationTreeProvider.ts/getRootChildren.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [getTreeItem](CertificationTreeProvider.ts/getTreeItem.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [projectState](CertificationTreeProvider.ts/projectState.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [refresh](CertificationTreeProvider.ts/refresh.md) | method | 🟢 A- | 91.9% | certified | 2026-05-28 |
-| [worstGrade](CertificationTreeProvider.ts/worstGrade.md) | function | 🟢 A- | 91.9% | certified | 2026-05-28 |
+| [worstGrade](CertificationTreeProvider.ts/worstGrade.md) | function | 🟢 A- | 91.9% | certified | 2026-05-29 |
 
 ---
 
