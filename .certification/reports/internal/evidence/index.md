@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (86.6%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 83.3% | certified | 2026-05-29 |
-| [CoverageMap](coverage.go/CoverageMap.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-29 |
-| [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-29 |
-| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-29 |
-| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-05-29 |
-| [CoverageForFile](coverage.go/CoverageForFile.md) | function | 🟢 A | 93.3% | certified | 2026-05-29 |
-| [classifyAlgoComplexity](structural.go/classifyAlgoComplexity.md) | function | 🟢 A | 93.3% | certified | 2026-05-29 |
+| [cargoSpan](tools.go/cargoSpan.md) | class | 🟢 B | 83.3% | certified | 2026-05-30 |
+| [ParseJestJSON](tools.go/ParseJestJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-30 |
+| [lint_test.go](lint_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-30 |
+| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-30 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-30 |
 
 ---
 

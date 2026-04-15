@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [issues_test.go](issues_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-29 |
+| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-30 |
 
 ---
 

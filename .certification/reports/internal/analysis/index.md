@@ -2,23 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.9%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (85.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-29 |
-| [TSAnalyzer](ts_analyzer.go/TSAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-05-29 |
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-05-29 |
-| [Shutdown](lsp_analyzer.go/Shutdown.md) | method | 🟢 B | 82.2% | certified | 2026-05-29 |
-| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-05-29 |
-| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-05-29 |
-| [regression_test.go](regression_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-29 |
-| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-29 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-29 |
-| [buildCallGraph](go_deep.go/buildCallGraph.md) | method | 🟢 B+ | 90.0% | certified | 2026-05-29 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-05-30 |
+| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-05-30 |
+| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-05-30 |
+| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-30 |
+| [lsp_analyzer_test.go](lsp_analyzer_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-30 |
+| [goWalkBlock](go_analyzer.go/goWalkBlock.md) | function | 🟢 B+ | 89.4% | certified | 2026-05-30 |
 
 ---
 

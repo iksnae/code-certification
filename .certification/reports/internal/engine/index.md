@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [scoreFromGitHistory](scorer.go/scoreFromGitHistory.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-29 |
-| [scoreStructuralCorrectness](scorer.go/scoreStructuralCorrectness.md) | function | 🟢 B+ | 90.0% | certified | 2026-05-29 |
+| [collectStructuralLegacyGo](certifier.go/collectStructuralLegacyGo.md) | method | 🟢 B+ | 90.0% | certified | 2026-05-30 |
 
 ---
 

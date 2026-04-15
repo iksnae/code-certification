@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [globMatch](matcher.go/globMatch.md) | function | 🟢 A | 93.3% | certified | 2026-05-29 |
+| [globMatch](matcher.go/globMatch.md) | function | 🟢 A | 93.3% | certified | 2026-05-30 |
 
 ---
 

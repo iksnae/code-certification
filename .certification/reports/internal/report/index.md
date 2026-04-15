@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (85.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-05-29 |
-| [writeArchCoupling](architect_report.go/writeArchCoupling.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-29 |
-| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-29 |
-| [packageUnitRow](site.go/packageUnitRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-29 |
-| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-05-29 |
-| [buildUnitNavMaps](site.go/buildUnitNavMaps.md) | function | 🟢 A- | 92.8% | certified | 2026-05-29 |
+| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 81.1% | certified | 2026-05-30 |
+| [writeArchPartI](architect_report.go/writeArchPartI.md) | function | 🟢 B | 84.4% | certified | 2026-05-30 |
+| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-30 |
+| [FullReport](full.go/FullReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-30 |
 
 ---
 

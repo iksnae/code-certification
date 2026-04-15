@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (80.0%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Report](doctor.go/Report.md) | class | 🟢 B | 80.0% | certified | 2026-05-29 |
+| [NextStep](onboard.go/NextStep.md) | method | 🟢 B+ | 88.9% | certified | 2026-05-30 |
 
 ---
 
