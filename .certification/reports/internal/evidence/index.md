@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoSpan](tools.go/cargoSpan.md) | class | 🟢 B | 83.3% | certified | 2026-05-30 |
-| [ParseJestJSON](tools.go/ParseJestJSON.md) | function | 🟢 B | 85.0% | certified | 2026-05-30 |
-| [lint_test.go](lint_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-30 |
-| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-30 |
-| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-30 |
+| [ToolExecutor](executor.go/ToolExecutor.md) | class | 🟢 B | 80.0% | certified | 2026-05-31 |
+| [complexity_test.go](complexity_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-05-31 |
+| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-31 |
+| [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-31 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-31 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-05-31 |
 
 ---
 

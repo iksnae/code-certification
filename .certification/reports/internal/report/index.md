@@ -2,17 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 81.1% | certified | 2026-05-30 |
-| [writeArchPartI](architect_report.go/writeArchPartI.md) | function | 🟢 B | 84.4% | certified | 2026-05-30 |
-| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-05-30 |
-| [FullReport](full.go/FullReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-30 |
+| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 81.1% | certified | 2026-05-31 |
+| [FormatCardMarkdown](card.go/FormatCardMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-05-31 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-05-31 |
+| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-05-31 |
+| [computeLanguageBreakdowns](detailed.go/computeLanguageBreakdowns.md) | function | 🟢 A | 93.3% | certified | 2026-05-31 |
 
 ---
 

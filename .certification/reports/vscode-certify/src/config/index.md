@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [createOrShow](ConfigPanel.ts/createOrShow.md) | method | 🟢 A- | 91.9% | certified | 2026-05-30 |
+| [handleMessage](ConfigPanel.ts/handleMessage.md) | method | 🟢 A- | 91.9% | certified | 2026-05-31 |
 
 ---
 
