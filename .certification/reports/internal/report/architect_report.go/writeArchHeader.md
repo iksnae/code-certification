@@ -1,6 +1,6 @@
-# 🟢 `NewFallbackProvider`
+# 🟢 `writeArchHeader`
 
-[← internal/agent](../index.md)
+[← internal/report](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/fallback.go#NewFallbackProvider` |
+| **Unit ID** | `go://internal/report/architect_report.go#writeArchHeader` |
 | **Type** | function |
-| **Path** | `internal/agent/fallback.go` |
+| **Path** | `internal/report/architect_report.go` |
 | **Language** | go |
-| **Symbol** | `NewFallbackProvider` |
+| **Symbol** | `writeArchHeader` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **B+** |
-| **Score** | 88.9% |
+| **Score** | 87.2% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-17 |
@@ -30,15 +30,15 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 95.0% | ███████████████████░ |
+| architectural_fitness | 65.0% | █████████████░░░░░░░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 55.0% | ██████████░░░░░░░░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
-| testability | 90.0% | ██████████████████░░ |
+| testability | 65.0% | █████████████░░░░░░░ |
 
 ## Evidence
 
@@ -96,77 +96,73 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+21 lines (21 code, 0 comment, 0 blank), 0 TODOs, complexity 6
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `code_lines` | 21 |
+| `comment_lines` | 0 |
+| `complexity` | 6 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 21 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 79%
+per-unit coverage: 89%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.79 |
+| `unit_test_coverage` | 0.89 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=3 returns=0 nesting=1 doc=false exported=false cognitive=5
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 5 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 1 |
-| `func_lines` | 1 |
+| `exported_name` | 0 |
+| `func_lines` | 19 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 1 |
+| `has_doc_comment` | 0 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
+| `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `max_nesting_depth` | 1 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 1 |
+| `param_count` | 3 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 1 |
+| `return_count` | 0 |
 | `unsafe_import_count` | 0 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=2 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=1 fan_out=4 dead=false depth=2 instab=0.40
 
 | Metric | Value |
 |--------|------:|
-| `concrete_deps` | 0 |
-| `coupling_score` | 0 |
-| `dep_depth` | 1 |
-| `fan_in` | 2 |
-| `fan_out` | 0 |
-| `instability` | 0.20 |
+| `concrete_deps` | 3 |
+| `coupling_score` | 0.04 |
+| `dep_depth` | 2 |
+| `fan_in` | 1 |
+| `fan_out` | 4 |
+| `instability` | 0.40 |
 | `interface_size` | 0 |
-| `is_dead_code` | 1 |
+| `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
-
-## Observations
-
-- is_dead_code: 1 exceeds threshold 0
 
 ---
 

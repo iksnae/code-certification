@@ -1,4 +1,4 @@
-# 🟢 `NewFallbackProvider`
+# 🟢 `IsLocal`
 
 [← internal/agent](../index.md)
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/fallback.go#NewFallbackProvider` |
-| **Type** | function |
-| **Path** | `internal/agent/fallback.go` |
+| **Unit ID** | `go://internal/agent/pipeline.go#IsLocal` |
+| **Type** | method |
+| **Path** | `internal/agent/pipeline.go` |
 | **Language** | go |
-| **Symbol** | `NewFallbackProvider` |
+| **Symbol** | `IsLocal` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **B+** |
-| **Score** | 88.9% |
+| **Grade** | 🟢 **A** |
+| **Score** | 93.3% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-17 |
@@ -33,7 +33,7 @@
 | architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 55.0% | ██████████░░░░░░░░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
@@ -109,15 +109,15 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 79%
+per-unit coverage: 76%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.79 |
+| `unit_test_coverage` | 0.76 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 | Metric | Value |
 |--------|------:|
@@ -133,7 +133,7 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
+| `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
 | `max_nesting_depth` | 0 |
 | `method_count` | 0 |
@@ -141,7 +141,7 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 1 |
+| `param_count` | 0 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
 | `return_count` | 1 |
@@ -149,24 +149,20 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=2 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=1 fan_out=0 dead=false depth=1 instab=0.20
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
 | `dep_depth` | 1 |
-| `fan_in` | 2 |
+| `fan_in` | 1 |
 | `fan_out` | 0 |
 | `instability` | 0.20 |
 | `interface_size` | 0 |
-| `is_dead_code` | 1 |
+| `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
-
-## Observations
-
-- is_dead_code: 1 exceeds threshold 0
 
 ---
 

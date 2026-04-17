@@ -1,6 +1,6 @@
-# 🟢 `NewFallbackProvider`
+# 🟢 `countQuadraticPatterns`
 
-[← internal/agent](../index.md)
+[← internal/evidence](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/fallback.go#NewFallbackProvider` |
+| **Unit ID** | `go://internal/evidence/structural.go#countQuadraticPatterns` |
 | **Type** | function |
-| **Path** | `internal/agent/fallback.go` |
+| **Path** | `internal/evidence/structural.go` |
 | **Language** | go |
-| **Symbol** | `NewFallbackProvider` |
+| **Symbol** | `countQuadraticPatterns` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **B+** |
-| **Score** | 88.9% |
+| **Score** | 87.2% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-04-17 |
@@ -30,15 +30,15 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 95.0% | ███████████████████░ |
+| architectural_fitness | 65.0% | █████████████░░░░░░░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 55.0% | ██████████░░░░░░░░░░ |
+| maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
-| testability | 90.0% | ██████████████████░░ |
+| testability | 65.0% | █████████████░░░░░░░ |
 
 ## Evidence
 
@@ -96,45 +96,45 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+36 lines (29 code, 7 comment, 0 blank), 0 TODOs, complexity 8
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `code_lines` | 29 |
+| `comment_lines` | 7 |
+| `complexity` | 8 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 36 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 79%
+per-unit coverage: 90%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.79 |
+| `unit_test_coverage` | 0.90 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=1 returns=1 nesting=0 doc=true exported=false cognitive=1
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 1 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 1 |
-| `func_lines` | 1 |
+| `exported_name` | 0 |
+| `func_lines` | 32 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
-| `loop_nesting_depth` | 0 |
+| `is_constructor` | 0 |
+| `loop_nesting_depth` | 1 |
 | `max_nesting_depth` | 0 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
@@ -149,24 +149,20 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=2 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=1 fan_out=1 dead=false depth=1 instab=0.25
 
 | Metric | Value |
 |--------|------:|
-| `concrete_deps` | 0 |
-| `coupling_score` | 0 |
+| `concrete_deps` | 1 |
+| `coupling_score` | 0.01 |
 | `dep_depth` | 1 |
-| `fan_in` | 2 |
-| `fan_out` | 0 |
-| `instability` | 0.20 |
+| `fan_in` | 1 |
+| `fan_out` | 1 |
+| `instability` | 0.25 |
 | `interface_size` | 0 |
-| `is_dead_code` | 1 |
+| `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
-
-## Observations
-
-- is_dead_code: 1 exceeds threshold 0
 
 ---
 

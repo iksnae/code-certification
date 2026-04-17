@@ -1,4 +1,4 @@
-# 🟢 `NewFallbackProvider`
+# 🟢 `ConservativeModels`
 
 [← internal/agent](../index.md)
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/fallback.go#NewFallbackProvider` |
+| **Unit ID** | `go://internal/agent/autodetect.go#ConservativeModels` |
 | **Type** | function |
-| **Path** | `internal/agent/fallback.go` |
+| **Path** | `internal/agent/autodetect.go` |
 | **Language** | go |
-| **Symbol** | `NewFallbackProvider` |
+| **Symbol** | `ConservativeModels` |
 
 ## Certification
 
@@ -96,28 +96,28 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+11 lines (9 code, 2 comment, 0 blank), 0 TODOs, complexity 1
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
+| `code_lines` | 9 |
+| `comment_lines` | 2 |
 | `complexity` | 1 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 11 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 79%
+per-unit coverage: 100%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.79 |
+| `unit_test_coverage` | 1 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 | Metric | Value |
 |--------|------:|
@@ -128,12 +128,12 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 1 |
-| `func_lines` | 1 |
+| `func_lines` | 7 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
+| `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
 | `max_nesting_depth` | 0 |
 | `method_count` | 0 |
@@ -141,7 +141,7 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 1 |
+| `param_count` | 0 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
 | `return_count` | 1 |
@@ -149,14 +149,14 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=2 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=3 fan_out=0 dead=true depth=1 instab=0.20
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
 | `dep_depth` | 1 |
-| `fan_in` | 2 |
+| `fan_in` | 3 |
 | `fan_out` | 0 |
 | `instability` | 0.20 |
 | `interface_size` | 0 |

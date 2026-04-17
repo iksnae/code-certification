@@ -1,16 +1,16 @@
-# 🟢 `internal/engine`
+# 🟢 `internal/doctor`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
+**Grade:** 🟢 B (85.0%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Certifier](certifier.go/Certifier.md) | class | 🟢 B | 83.9% | certified | 2026-06-01 |
-| [metricOrSummaryFloat](scorer.go/metricOrSummaryFloat.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-01 |
+| [CheckStatus](doctor.go/CheckStatus.md) | class | 🟢 B | 83.3% | certified | 2026-06-01 |
+| [doctor_test.go](doctor_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-01 |
 
 ---
 

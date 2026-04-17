@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 81.1% | certified | 2026-05-31 |
-| [FormatCardMarkdown](card.go/FormatCardMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-05-31 |
-| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-05-31 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-05-31 |
-| [computeLanguageBreakdowns](detailed.go/computeLanguageBreakdowns.md) | function | 🟢 A | 93.3% | certified | 2026-05-31 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-01 |
+| [card_test.go](card_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-01 |
+| [writeArchHeader](architect_report.go/writeArchHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-01 |
+| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
+| [gradeRow](site.go/gradeRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
+| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-01 |
 
 ---
 

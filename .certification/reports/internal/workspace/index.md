@@ -1,16 +1,15 @@
-# 🟢 `internal/record`
+# 🟢 `internal/workspace`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A (93.3%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LoadHistory](store.go/LoadHistory.md) | method | 🟢 B | 85.0% | certified | 2026-06-01 |
-| [pathFor](store.go/pathFor.md) | method | 🟢 A | 93.3% | certified | 2026-06-01 |
+| [FormatWorkspaceCardMarkdown](report.go/FormatWorkspaceCardMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-06-01 |
 
 ---
 

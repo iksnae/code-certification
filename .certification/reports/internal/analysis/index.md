@@ -2,22 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.1%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (86.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsFindSymbol](rust_analyzer.go/rsFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-05-31 |
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-05-31 |
-| [tsAnalyzeClass](ts_analyzer.go/tsAnalyzeClass.md) | function | 🟢 B | 85.0% | certified | 2026-05-31 |
-| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-05-31 |
-| [goIsMutableVar](go_analyzer.go/goIsMutableVar.md) | function | 🟢 B | 86.1% | certified | 2026-05-31 |
-| [tsHasReturnWithValue](ts_analyzer.go/tsHasReturnWithValue.md) | function | 🟢 B | 86.1% | certified | 2026-05-31 |
-| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-05-31 |
-| [go_refine_test.go](go_refine_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-05-31 |
-| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-05-31 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-06-01 |
+| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-06-01 |
+| [go_deep_test.go](go_deep_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-01 |
+| [Register](analyzer.go/Register.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-01 |
+| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-06-01 |
 
 ---
 

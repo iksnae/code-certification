@@ -1,6 +1,6 @@
-# 🟢 `NewFallbackProvider`
+# 🟢 `Register`
 
-[← internal/agent](../index.md)
+[← internal/analysis](../index.md)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/fallback.go#NewFallbackProvider` |
+| **Unit ID** | `go://internal/analysis/analyzer.go#Register` |
 | **Type** | function |
-| **Path** | `internal/agent/fallback.go` |
+| **Path** | `internal/analysis/analyzer.go` |
 | **Language** | go |
-| **Symbol** | `NewFallbackProvider` |
+| **Symbol** | `Register` |
 
 ## Certification
 
@@ -109,15 +109,15 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 79%
+per-unit coverage: 58%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.79 |
+| `unit_test_coverage` | 0.58 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=2 returns=0 nesting=0 doc=true exported=true cognitive=0
 
 | Metric | Value |
 |--------|------:|
@@ -133,7 +133,7 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
+| `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
 | `max_nesting_depth` | 0 |
 | `method_count` | 0 |
@@ -141,24 +141,24 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 1 |
+| `param_count` | 2 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 1 |
+| `return_count` | 0 |
 | `unsafe_import_count` | 0 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=2 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=5 fan_out=0 dead=true depth=1 instab=0.33
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
 | `dep_depth` | 1 |
-| `fan_in` | 2 |
+| `fan_in` | 5 |
 | `fan_out` | 0 |
-| `instability` | 0.20 |
+| `instability` | 0.33 |
 | `interface_size` | 0 |
 | `is_dead_code` | 1 |
 | `type_aware_unwrapped` | 0 |

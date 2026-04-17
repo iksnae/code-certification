@@ -1,6 +1,6 @@
-# 🟢 `NewFallbackProvider`
+# 🟢 `ParseCoverProfile`
 
-[← internal/agent](../index.md)
+[← internal/evidence](../index.md)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/fallback.go#NewFallbackProvider` |
+| **Unit ID** | `go://internal/evidence/runner.go#ParseCoverProfile` |
 | **Type** | function |
-| **Path** | `internal/agent/fallback.go` |
+| **Path** | `internal/evidence/runner.go` |
 | **Language** | go |
-| **Symbol** | `NewFallbackProvider` |
+| **Symbol** | `ParseCoverProfile` |
 
 ## Certification
 
@@ -96,46 +96,46 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+31 lines (26 code, 2 comment, 3 blank), 0 TODOs, complexity 7
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `blank_lines` | 3 |
+| `code_lines` | 26 |
+| `comment_lines` | 2 |
+| `complexity` | 7 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 31 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 79%
+per-unit coverage: 88%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.79 |
+| `unit_test_coverage` | 0.88 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=1 returns=1 nesting=2 doc=true exported=true cognitive=9
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 9 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 1 |
-| `func_lines` | 1 |
+| `func_lines` | 28 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `is_constructor` | 0 |
+| `loop_nesting_depth` | 1 |
+| `max_nesting_depth` | 2 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
@@ -149,16 +149,16 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=2 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=1 fan_out=5 dead=true depth=1 instab=0.25
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
-| `coupling_score` | 0 |
+| `coupling_score` | 0.05 |
 | `dep_depth` | 1 |
-| `fan_in` | 2 |
-| `fan_out` | 0 |
-| `instability` | 0.20 |
+| `fan_in` | 1 |
+| `fan_out` | 5 |
+| `instability` | 0.25 |
 | `interface_size` | 0 |
 | `is_dead_code` | 1 |
 | `type_aware_unwrapped` | 0 |
