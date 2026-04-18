@@ -2,17 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.6%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [analyzeFunc](structural.go/analyzeFunc.md) | function | 🟢 B | 86.1% | certified | 2026-06-01 |
-| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [ParseCoverProfile](runner.go/ParseCoverProfile.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-01 |
-| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-06-01 |
+| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-06-02 |
+| [runner_test.go](runner_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-02 |
+| [FileCoverage](coverage.go/FileCoverage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [ToEvidence](structural.go/ToEvidence.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-02 |
 
 ---
 

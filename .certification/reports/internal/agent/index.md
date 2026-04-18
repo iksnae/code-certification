@@ -2,26 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-06-01 |
-| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [scoringStage](stage.go/scoringStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [Content](types.go/Content.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-01 |
-| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-01 |
-| [NewFallbackProvider](fallback.go/NewFallbackProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-01 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-01 |
-| [detectRepoNameFromDir](workspace_snapshot.go/detectRepoNameFromDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-01 |
-| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-06-01 |
-| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-06-01 |
+| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-06-02 |
+| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-06-02 |
+| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-02 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-02 |
+| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-06-02 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-06-02 |
+| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2026-06-02 |
 
 ---
 

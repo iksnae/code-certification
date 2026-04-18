@@ -2,19 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.3%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-01 |
-| [card_test.go](card_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-01 |
-| [writeArchHeader](architect_report.go/writeArchHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [gradeRow](site.go/gradeRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-01 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-06-02 |
 
 ---
 

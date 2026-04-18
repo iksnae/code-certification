@@ -2,20 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (85.4%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [MovedFile](diff.go/MovedFile.md) | class | 🟢 B | 83.3% | certified | 2026-06-01 |
-| [index_test.go](index_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-01 |
-| [detect_test.go](detect_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [UnitList](scanner.go/UnitList.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [Merge](scanner.go/Merge.md) | function | 🟢 A- | 92.8% | certified | 2026-06-01 |
-| [matchesExt](analysis_adapter.go/matchesExt.md) | method | 🟢 A | 93.3% | certified | 2026-06-01 |
-| [Units](index.go/Units.md) | method | 🟢 A | 93.3% | certified | 2026-06-01 |
+| [Scan](generic.go/Scan.md) | method | 🟢 B | 81.7% | certified | 2026-06-02 |
+| [diff_test.go](diff_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [GoAdapter](go_adapter.go/GoAdapter.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
 
 ---
 

@@ -2,16 +2,17 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (86.8%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CallHierarchyOutgoingCall](types.go/CallHierarchyOutgoingCall.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [ClientCapabilities](types.go/ClientCapabilities.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
-| [TextDocumentPositionParams](types.go/TextDocumentPositionParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-01 |
+| [CallHierarchyIncoming](client.go/CallHierarchyIncoming.md) | method | 🟢 B | 85.6% | certified | 2026-06-02 |
+| [CallHierarchyIncomingCall](types.go/CallHierarchyIncomingCall.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [CallHierarchyOutgoingCallsParams](types.go/CallHierarchyOutgoingCallsParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
+| [ReferencesCapability](types.go/ReferencesCapability.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-02 |
 
 ---
 
