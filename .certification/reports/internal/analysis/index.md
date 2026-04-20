@@ -2,19 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (86.2%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-06-03 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-03 |
-| [rsUsePath](rust_analyzer.go/rsUsePath.md) | function | 🟢 B | 86.1% | certified | 2026-06-03 |
-| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-06-03 |
+| [NewLSPAnalyzer](lsp_analyzer.go/NewLSPAnalyzer.md) | function | 🟡 C | 78.3% | certified_with_observations | 2026-06-04 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-06-04 |
+| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-06-04 |
+| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-06-04 |
+| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-06-04 |
+| [tsComputeNesting](ts_analyzer.go/tsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-04 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-06-04 |
+| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [UnusedSymbol](go_deep.go/UnusedSymbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [goWalkBlock](go_analyzer.go/goWalkBlock.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-04 |
+| [AnalyzeFile](python_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-04 |
+| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-06-04 |
 
 ---
 

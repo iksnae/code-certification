@@ -2,14 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [fromJSON](store.go/fromJSON.md) | function | 🟢 A | 93.3% | certified | 2026-06-03 |
+| [ListAll](store.go/ListAll.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-04 |
+| [Load](store.go/Load.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-04 |
+| [NewStoreWithSnapshot](store.go/NewStoreWithSnapshot.md) | function | 🟢 A | 93.3% | certified | 2026-06-04 |
 
 ---
 

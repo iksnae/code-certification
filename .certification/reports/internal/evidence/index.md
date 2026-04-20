@@ -2,15 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [CoverageProfile](executor.go/CoverageProfile.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-03 |
+| [structural_test.go](structural_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-06-04 |
+| [coverage_test.go](coverage_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [computeNestingDepth](structural.go/computeNestingDepth.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [isMutableVar](structural.go/isMutableVar.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-04 |
+| [AttributeLintToUnit](attribution.go/AttributeLintToUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-04 |
+| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-04 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-04 |
+| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2026-06-04 |
 
 ---
 

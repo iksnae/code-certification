@@ -2,18 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-06-03 |
-| [certifyContext](certify_cmd.go/certifyContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [getCertifyFlags](certify_cmd.go/getCertifyFlags.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [bindExpireFlags](expire.go/bindExpireFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-03 |
-| [bindOnboardFlags](onboard_cmd.go/bindOnboardFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-03 |
+| [main](main.go/main.md) | function | 🟢 B | 83.3% | certified | 2026-06-04 |
+| [printQueueStatus](certify_cmd.go/printQueueStatus.md) | method | 🟢 B+ | 90.0% | certified | 2026-06-04 |
 
 ---
 

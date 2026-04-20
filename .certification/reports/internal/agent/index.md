@@ -2,22 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-06-03 |
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-06-03 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-03 |
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-06-03 |
-| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-03 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-06-03 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-06-03 |
-| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-06-03 |
+| [stage_test.go](stage_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-06-04 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-04 |
+| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 91.7% | certified | 2026-06-04 |
+| [joinModels](reviewer.go/joinModels.md) | function | 🟢 A | 93.3% | certified | 2026-06-04 |
 
 ---
 

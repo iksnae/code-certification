@@ -2,14 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.2%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseStatus](record.go/ParseStatus.md) | function | 🟢 A- | 92.2% | certified | 2026-06-03 |
+| [Evidence](evidence.go/Evidence.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [Violation](policy.go/Violation.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [GenerateRunID](record.go/GenerateRunID.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-04 |
 
 ---
 

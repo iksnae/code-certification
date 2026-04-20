@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
+**Grade:** 🟢 B+ (89.2%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchAppendix](architect_report.go/writeArchAppendix.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [pkgRow](site.go/pkgRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-03 |
-| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-06-03 |
-| [badgeMessage](badge.go/badgeMessage.md) | function | 🟢 A | 93.3% | certified | 2026-06-03 |
+| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-06-04 |
+| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [IssueCard](card.go/IssueCard.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-04 |
+| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-06-04 |
+| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A | 93.3% | certified | 2026-06-04 |
 
 ---
 
