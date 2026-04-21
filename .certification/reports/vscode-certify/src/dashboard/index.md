@@ -2,20 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (91.9%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DashboardPanel](DashboardPanel.ts/DashboardPanel.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-04 |
-| [computeDeepMetrics](DashboardPanel.ts/computeDeepMetrics.md) | method | 🟢 A- | 91.9% | certified | 2026-06-04 |
-| [constructor](DashboardPanel.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-06-04 |
-| [createOrShow](DashboardPanel.ts/createOrShow.md) | method | 🟢 A- | 91.9% | certified | 2026-06-04 |
-| [renderEmpty](DashboardPanel.ts/renderEmpty.md) | method | 🟢 A- | 91.9% | certified | 2026-06-04 |
-| [renderHTML](DashboardPanel.ts/renderHTML.md) | method | 🟢 A- | 91.9% | certified | 2026-06-04 |
-| [update](DashboardPanel.ts/update.md) | method | 🟢 A- | 91.9% | certified | 2026-06-04 |
+| [renderHTML](DashboardPanel.ts/renderHTML.md) | method | 🟢 A- | 91.9% | certified | 2026-06-05 |
 
 ---
 
