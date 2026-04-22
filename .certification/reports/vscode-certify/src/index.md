@@ -2,22 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertify](certifyBinary.ts/runCertify.md) | function | 🟢 B | 82.5% | certified | 2026-06-05 |
-| [DEEP_METRIC_LABELS](constants.ts/DEEP_METRIC_LABELS.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-05 |
-| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-05 |
-| [ProviderConfig](types.ts/ProviderConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-05 |
-| [buildReportFromRecords](dataLoader.ts/buildReportFromRecords.md) | method | 🟢 A- | 91.3% | certified | 2026-06-05 |
-| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.3% | certified | 2026-06-05 |
-| [hasArchitectReview](dataLoader.ts/hasArchitectReview.md) | method | 🟢 A- | 91.3% | certified | 2026-06-05 |
-| [loadFullReport](dataLoader.ts/loadFullReport.md) | method | 🟢 A- | 91.3% | certified | 2026-06-05 |
-| [detectLanguageName](dataLoader.ts/detectLanguageName.md) | function | 🟢 A- | 91.9% | certified | 2026-06-05 |
+| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-06 |
+| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-06-06 |
 
 ---
 

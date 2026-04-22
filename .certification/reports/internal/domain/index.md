@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](evidence.go/String.md) | method | 🟢 B | 82.8% | certified | 2026-06-05 |
-| [config_test.go](config_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-05 |
-| [Severity](evidence.go/Severity.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-05 |
+| [dimension_test.go](dimension_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-06 |
+| [Dimension](dimension.go/Dimension.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-06 |
+| [Severity](evidence.go/Severity.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-06 |
+| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-06 |
+| [ParseUnitID](unit.go/ParseUnitID.md) | function | 🟢 A- | 92.2% | certified | 2026-06-06 |
 
 ---
 

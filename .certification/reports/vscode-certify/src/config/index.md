@@ -2,15 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (92.5%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [renderHTML](ConfigPanel.ts/renderHTML.md) | method | 🟢 A- | 91.9% | certified | 2026-06-05 |
-| [readConfig](configWriter.ts/readConfig.md) | function | 🟢 A- | 92.5% | certified | 2026-06-05 |
+| [readConfig](configWriter.ts/readConfig.md) | function | 🟢 A- | 92.5% | certified | 2026-06-06 |
 
 ---
 

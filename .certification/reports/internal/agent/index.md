@@ -2,22 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-06-05 |
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-05 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-05 |
-| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-05 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-05 |
-| [StageInput](stage.go/StageInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-05 |
-| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-05 |
-| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-06-05 |
-| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-06-05 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-06-06 |
+| [fallback_test.go](fallback_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-06 |
+| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-06 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-06 |
+| [schemas_test.go](schemas_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-06 |
+| [suggest_test.go](suggest_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-06 |
+| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-06 |
+| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-06 |
+| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-06-06 |
+| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-06-06 |
 
 ---
 
