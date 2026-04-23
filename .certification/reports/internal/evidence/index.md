@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-06 |
-| [classifyAlgoComplexity](structural.go/classifyAlgoComplexity.md) | function | 🟢 A | 93.3% | certified | 2026-06-06 |
-| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-06-06 |
+| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-06-07 |
+| [ModuleRoots](executor.go/ModuleRoots.md) | method | 🟢 B | 85.0% | certified | 2026-06-07 |
+| [ComputeGoComplexity](complexity.go/ComputeGoComplexity.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-07 |
+| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-06-07 |
 
 ---
 

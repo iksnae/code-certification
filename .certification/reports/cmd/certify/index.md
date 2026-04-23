@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (84.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [flagBool](root.go/flagBool.md) | function | 🟢 B | 86.7% | certified | 2026-06-06 |
-| [buildCertificationRun](certify_cmd.go/buildCertificationRun.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-06 |
-| [defaultConfigObj](certify_cmd.go/defaultConfigObj.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-06 |
-| [printQueueStatus](certify_cmd.go/printQueueStatus.md) | method | 🟢 B+ | 90.0% | certified | 2026-06-06 |
-| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-06 |
+| [main](main.go/main.md) | function | 🟢 B | 82.2% | certified | 2026-06-07 |
+| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-06-07 |
+| [listFromProvider](models_cmd.go/listFromProvider.md) | function | 🟢 B | 86.1% | certified | 2026-06-07 |
+| [certifyFlags](certify_cmd.go/certifyFlags.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-07 |
 
 ---
 

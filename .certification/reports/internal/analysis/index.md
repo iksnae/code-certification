@@ -2,20 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.1%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-06-06 |
-| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-06-06 |
-| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-06-06 |
-| [NewPythonAnalyzer](python_analyzer.go/NewPythonAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-06-06 |
-| [goDetectUnsafeImports](go_analyzer.go/goDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-06-06 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-06-06 |
-| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-06-06 |
+| [goAnalyzeFileDecls](go_analyzer.go/goAnalyzeFileDecls.md) | function | 🟢 B | 84.4% | certified | 2026-06-07 |
+| [tsAnalyzeClass](ts_analyzer.go/tsAnalyzeClass.md) | function | 🟢 B | 85.0% | certified | 2026-06-07 |
+| [rsChildByType](rust_analyzer.go/rsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-06-07 |
+| [goCountCallExpr](go_analyzer.go/goCountCallExpr.md) | function | 🟢 B | 86.1% | certified | 2026-06-07 |
+| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-06-07 |
+| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-06-07 |
+| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-07 |
+| [FanOut](go_deep.go/FanOut.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-07 |
+| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-06-07 |
 
 ---
 

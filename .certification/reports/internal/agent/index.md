@@ -2,23 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-06-06 |
-| [fallback_test.go](fallback_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-06 |
-| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-06 |
-| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-06 |
-| [schemas_test.go](schemas_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-06 |
-| [suggest_test.go](suggest_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-06 |
-| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-06 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-06 |
-| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-06-06 |
-| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-06-06 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-07 |
+| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-07 |
+| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-07 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-07 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-06-07 |
 
 ---
 

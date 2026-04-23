@@ -2,16 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-06 |
-| [AreaSummary](detailed.go/AreaSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-06 |
-| [navLink](site.go/navLink.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-06 |
+| [FormatArchitectReport](architect_report.go/FormatArchitectReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-07 |
+| [dirOf](full.go/dirOf.md) | function | 🟢 A- | 92.8% | certified | 2026-06-07 |
+| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-06-07 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-06-07 |
+| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-06-07 |
 
 ---
 
