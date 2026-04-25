@@ -2,25 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (89.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-06-08 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-08 |
-| [ArchFinding](architect_review.go/ArchFinding.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-08 |
-| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-08 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-08 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-08 |
-| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-08 |
-| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-08 |
-| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-08 |
-| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-08 |
-| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-06-08 |
-| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2026-06-08 |
+| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
+| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-09 |
+| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-09 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
 
 ---
 

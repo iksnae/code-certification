@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (92.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 83.3% | certified | 2026-06-08 |
-| [ParseESLintJSON](tools.go/ParseESLintJSON.md) | function | 🟢 B | 85.0% | certified | 2026-06-08 |
-| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-08 |
-| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-08 |
-| [ParseGolangciLintJSON](runner.go/ParseGolangciLintJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-08 |
-| [findESLint](tools.go/findESLint.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-08 |
+| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-09 |
+| [isLetter](metrics.go/isLetter.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
+| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
 
 ---
 
