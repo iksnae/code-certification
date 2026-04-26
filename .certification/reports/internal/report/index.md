@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
+**Grade:** 🟢 B+ (89.2%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartI](architect_report.go/writeArchPartI.md) | function | 🟢 B | 84.4% | certified | 2026-06-09 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
-| [shortFile](full.go/shortFile.md) | function | 🟢 A- | 92.8% | certified | 2026-06-09 |
-| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
+| [writeArchRiskMatrix](architect_report.go/writeArchRiskMatrix.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-10 |
+| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-06-10 |
 
 ---
 

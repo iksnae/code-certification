@@ -2,23 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B+ (87.5%)  
 **Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-06-09 |
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-06-09 |
-| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-06-09 |
-| [tsWalkAll](ts_analyzer.go/tsWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-06-09 |
-| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-09 |
-| [goCognitiveWalk](go_analyzer.go/goCognitiveWalk.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-09 |
-| [goWalkStmt](go_analyzer.go/goWalkStmt.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-09 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-09 |
-| [buildPkgMap](go_deps.go/buildPkgMap.md) | method | 🟢 A | 93.3% | certified | 2026-06-09 |
-| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
+| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-06-10 |
+| [tsWalkAll](ts_analyzer.go/tsWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-06-10 |
+| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-10 |
+| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-06-10 |
+| [UnusedSymbol](go_deep.go/UnusedSymbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-10 |
+| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-10 |
+| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-10 |
+| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-06-10 |
+| [findFunc](go_refine.go/findFunc.md) | method | 🟢 A | 93.3% | certified | 2026-06-10 |
 
 ---
 

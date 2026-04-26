@@ -2,16 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (86.7%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-09 |
-| [isLetter](metrics.go/isLetter.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
-| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
+| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-06-10 |
+| [modules_test.go](modules_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-10 |
+| [walkNested](structural.go/walkNested.md) | function | 🟢 B | 86.7% | certified | 2026-06-10 |
+| [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-10 |
 
 ---
 

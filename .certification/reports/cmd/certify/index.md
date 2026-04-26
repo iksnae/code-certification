@@ -1,18 +1,15 @@
-# 🟢 `cmd/certify`
+# 🟡 `cmd/certify`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟡 C (75.6%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 B | 86.1% | certified | 2026-06-09 |
-| [bindReportFlags](report_cmd.go/bindReportFlags.md) | function | 🟢 B | 86.1% | certified | 2026-06-09 |
-| [certifyFlags](certify_cmd.go/certifyFlags.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
-| [filterUnits](certify_cmd.go/filterUnits.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-09 |
+| [runCertify](certify_cmd.go/runCertify.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-06-10 |
 
 ---
 

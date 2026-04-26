@@ -2,18 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Notify](client.go/Notify.md) | method | 🟢 B | 81.1% | certified | 2026-06-09 |
-| [CallHierarchyIncoming](client.go/CallHierarchyIncoming.md) | method | 🟢 B | 85.6% | certified | 2026-06-09 |
-| [CallHierarchyItem](types.go/CallHierarchyItem.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
-| [CallHierarchyPrepareParams](types.go/CallHierarchyPrepareParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
-| [TextDocumentPositionParams](types.go/TextDocumentPositionParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
+| [Range](types.go/Range.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-10 |
 
 ---
 

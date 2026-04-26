@@ -2,18 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
-| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-09 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-09 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-09 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-06-09 |
+| [analyzeDependencies](architect_snapshot.go/analyzeDependencies.md) | method | 🟢 B | 86.1% | certified | 2026-06-10 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-10 |
+| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-10 |
+| [formatHotspots](architect.go/formatHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-10 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-06-10 |
+| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-06-10 |
 
 ---
 
