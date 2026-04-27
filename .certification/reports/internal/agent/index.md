@@ -2,21 +2,28 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [analyzeDependencies](architect_snapshot.go/analyzeDependencies.md) | method | 🟢 B | 86.1% | certified | 2026-06-10 |
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-10 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-10 |
-| [formatHotspots](architect.go/formatHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
-| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-10 |
-| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-10 |
-| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-06-10 |
-| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-06-10 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-06-11 |
+| [WorkspaceMetrics](workspace_snapshot.go/WorkspaceMetrics.md) | class | 🟢 B | 83.3% | certified | 2026-06-11 |
+| [SubmoduleInfo](workspace_snapshot.go/SubmoduleInfo.md) | class | 🟢 B | 83.3% | certified | 2026-06-11 |
+| [analyzeDependencies](architect_snapshot.go/analyzeDependencies.md) | method | 🟢 B | 86.1% | certified | 2026-06-11 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-11 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [formatDeepAnalysisMetrics](architect.go/formatDeepAnalysisMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-11 |
+| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-11 |
+| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-06-11 |
+| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-06-11 |
+| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-06-11 |
 
 ---
 

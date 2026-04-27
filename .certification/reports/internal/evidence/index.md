@@ -2,20 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (86.8%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-06-10 |
-| [modules_test.go](modules_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-10 |
-| [walkNested](structural.go/walkNested.md) | function | 🟢 B | 86.7% | certified | 2026-06-10 |
-| [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
-| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
-| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-10 |
-| [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-10 |
+| [ParseESLintJSON](tools.go/ParseESLintJSON.md) | function | 🟢 B | 85.0% | certified | 2026-06-11 |
+| [TestResult](lint.go/TestResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-11 |
 
 ---
 

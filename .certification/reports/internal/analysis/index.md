@@ -2,23 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (85.3%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-06-10 |
-| [tsWalkAll](ts_analyzer.go/tsWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-06-10 |
-| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-10 |
-| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-06-10 |
-| [UnusedSymbol](go_deep.go/UnusedSymbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-10 |
-| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-10 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-10 |
-| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-10 |
-| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-06-10 |
-| [findFunc](go_refine.go/findFunc.md) | method | 🟢 A | 93.3% | certified | 2026-06-10 |
+| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-06-11 |
+| [FanOut](lsp_analyzer.go/FanOut.md) | method | 🟢 B | 82.2% | certified | 2026-06-11 |
+| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-06-11 |
+| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-06-11 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-06-11 |
+| [Metrics](analyzer.go/Metrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [go_refine_test.go](go_refine_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-11 |
+| [buildCallGraph](go_deep.go/buildCallGraph.md) | method | 🟢 B+ | 90.0% | certified | 2026-06-11 |
 
 ---
 
