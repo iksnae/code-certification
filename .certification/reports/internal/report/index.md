@@ -3,20 +3,17 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 B+ (87.9%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeTemplate](site.go/writeTemplate.md) | function | 🟢 B | 83.3% | certified | 2026-06-12 |
-| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [issueRow](site.go/issueRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-06-12 |
-| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-06-12 |
+| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-13 |
+| [Badge](badge.go/Badge.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-13 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-13 |
+| [indexData](site.go/indexData.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-13 |
+| [FormatCardMarkdown](card.go/FormatCardMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-06-13 |
 
 ---
 

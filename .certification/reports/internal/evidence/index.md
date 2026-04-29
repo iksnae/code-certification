@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.1%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.0%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-06-12 |
-| [modules_test.go](modules_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-12 |
-| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-12 |
-| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-12 |
+| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-06-13 |
+| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 85.0% | certified | 2026-06-13 |
+| [CoverageProfile](executor.go/CoverageProfile.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-13 |
+| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-13 |
+| [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 A | 93.3% | certified | 2026-06-13 |
+| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2026-06-13 |
 
 ---
 

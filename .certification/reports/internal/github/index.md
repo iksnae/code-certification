@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-12 |
+| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-13 |
 
 ---
 

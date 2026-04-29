@@ -2,16 +2,15 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.8%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (82.8%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [jsonRPCMessage](client.go/jsonRPCMessage.md) | class | 🟢 B | 83.3% | certified | 2026-06-12 |
-| [Initialize](client.go/Initialize.md) | method | 🟢 B | 85.6% | certified | 2026-06-12 |
-| [writeMessage](client.go/writeMessage.md) | method | 🟢 B | 85.6% | certified | 2026-06-12 |
+| [readMessage](client.go/readMessage.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-06-13 |
+| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-13 |
 
 ---
 

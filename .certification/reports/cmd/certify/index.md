@@ -2,16 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-06-12 |
-| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-06-12 |
-| [certifyFlags](certify_cmd.go/certifyFlags.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
+| [isLocalURL](certify_cmd.go/isLocalURL.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-13 |
 
 ---
 

@@ -2,23 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
+**Grade:** 🟢 B (85.8%)  
 **Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pyAnalyzeFunction](python_analyzer.go/pyAnalyzeFunction.md) | function | 🟢 B | 80.0% | certified | 2026-06-12 |
-| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [lsp_analyzer_test.go](lsp_analyzer_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-12 |
-| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-12 |
-| [classifyAlgo](go_analyzer.go/classifyAlgo.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-12 |
-| [buildCallGraph](go_deep.go/buildCallGraph.md) | method | 🟢 B+ | 90.0% | certified | 2026-06-12 |
-| [compute](go_deep.go/compute.md) | method | 🟢 A- | 92.8% | certified | 2026-06-12 |
+| [pyFindSymbol](python_analyzer.go/pyFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-06-13 |
+| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-06-13 |
+| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-06-13 |
+| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-06-13 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-06-13 |
+| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-06-13 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-13 |
+| [goIsConstLikeExpr](go_analyzer.go/goIsConstLikeExpr.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-13 |
+| [computeUnusedExports](go_deep.go/computeUnusedExports.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-13 |
+| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-06-13 |
 
 ---
 

@@ -2,22 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (88.5%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [Reviewer](reviewer.go/Reviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-12 |
-| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-12 |
-| [stripThinkTags](architect_review.go/stripThinkTags.md) | function | 🟢 A | 93.3% | certified | 2026-06-12 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-06-12 |
+| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-06-13 |
+| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 83.3% | certified | 2026-06-13 |
+| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-06-13 |
+| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-13 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-13 |
+| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-13 |
+| [NewPipeline](pipeline.go/NewPipeline.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-13 |
+| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-13 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-13 |
+| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-06-13 |
+| [NewOpenRouterProvider](openrouter.go/NewOpenRouterProvider.md) | function | 🟢 A | 93.3% | certified | 2026-06-13 |
+| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-06-13 |
 
 ---
 
