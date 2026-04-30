@@ -2,25 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-06-13 |
-| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 83.3% | certified | 2026-06-13 |
-| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-06-13 |
-| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-13 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-13 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-13 |
-| [NewPipeline](pipeline.go/NewPipeline.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-13 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-13 |
-| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-13 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-06-13 |
-| [NewOpenRouterProvider](openrouter.go/NewOpenRouterProvider.md) | function | 🟢 A | 93.3% | certified | 2026-06-13 |
-| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-06-13 |
+| [Chat](openrouter.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-06-14 |
+| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-06-14 |
+| [autodetect_test.go](autodetect_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-14 |
+| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-14 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-14 |
+| [ReviewUnit](pipeline.go/ReviewUnit.md) | method | 🟢 A | 93.3% | certified | 2026-06-14 |
 
 ---
 
