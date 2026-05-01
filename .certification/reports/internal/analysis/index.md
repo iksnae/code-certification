@@ -2,18 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (87.0%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (83.6%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-06-14 |
-| [goCallFuncName](go_analyzer.go/goCallFuncName.md) | function | 🟢 B | 86.1% | certified | 2026-06-14 |
-| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-06-14 |
-| [goWalkStmt](go_analyzer.go/goWalkStmt.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-14 |
-| [computeUnusedExports](go_deep.go/computeUnusedExports.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-14 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-06-15 |
+| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-06-15 |
 
 ---
 

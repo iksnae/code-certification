@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-14 |
-| [ModelAssignments](config.go/ModelAssignments.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-14 |
-| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-14 |
-| [String](evidence.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-14 |
-| [IsPassing](record.go/IsPassing.md) | method | 🟢 A- | 92.8% | certified | 2026-06-14 |
+| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
+| [UnitID](unit.go/UnitID.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
+| [IsPassing](record.go/IsPassing.md) | method | 🟢 A- | 92.8% | certified | 2026-06-15 |
+| [NewUnit](unit.go/NewUnit.md) | function | 🟢 A- | 92.8% | certified | 2026-06-15 |
 
 ---
 

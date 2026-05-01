@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B (86.7%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceCard](aggregate.go/WorkspaceCard.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-14 |
+| [workspace_test.go](workspace_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-15 |
 
 ---
 

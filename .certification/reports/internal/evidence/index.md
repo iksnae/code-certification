@@ -2,22 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseJestJSON](tools.go/ParseJestJSON.md) | function | 🟢 B | 85.0% | certified | 2026-06-14 |
-| [FileCoverage](coverage.go/FileCoverage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-14 |
-| [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-14 |
-| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-14 |
-| [countFuncLines](structural.go/countFuncLines.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-14 |
-| [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-14 |
-| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-14 |
-| [findESLint](tools.go/findESLint.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-14 |
-| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-06-14 |
+| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 83.3% | certified | 2026-06-15 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-15 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-15 |
+| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-06-15 |
 
 ---
 

@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
+**Grade:** 🟢 A- (90.6%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PROVIDER_PRESETS](constants.ts/PROVIDER_PRESETS.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-14 |
-| [ProjectState](types.ts/ProjectState.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-14 |
-| [architectReviewPath](dataLoader.ts/architectReviewPath.md) | method | 🟢 A- | 91.3% | certified | 2026-06-14 |
-| [startWatching](dataLoader.ts/startWatching.md) | method | 🟢 A- | 91.3% | certified | 2026-06-14 |
+| [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-15 |
+| [ProviderConfig](types.ts/ProviderConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-15 |
+| [startWatching](dataLoader.ts/startWatching.md) | method | 🟢 A- | 91.3% | certified | 2026-06-15 |
+| [ensureBinary](extension.ts/ensureBinary.md) | function | 🟢 A- | 92.5% | certified | 2026-06-15 |
 
 ---
 

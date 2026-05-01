@@ -2,16 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.1%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.8%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [dirOf](full.go/dirOf.md) | function | 🟢 A- | 92.8% | certified | 2026-06-14 |
-| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-06-14 |
-| [formatUnitMarkdownWithNav](report_tree.go/formatUnitMarkdownWithNav.md) | function | 🟢 A | 93.3% | certified | 2026-06-14 |
+| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-15 |
+| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-15 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-15 |
+| [pkgRow](site.go/pkgRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A- | 92.8% | certified | 2026-06-15 |
+| [unitAnchor](full.go/unitAnchor.md) | function | 🟢 A- | 92.8% | certified | 2026-06-15 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
+| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
+| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
+| [generateUnitPages](site.go/generateUnitPages.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
 
 ---
 
