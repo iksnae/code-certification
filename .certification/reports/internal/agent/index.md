@@ -2,27 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.5%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SubmoduleInfo](workspace_snapshot.go/SubmoduleInfo.md) | class | 🟢 B | 83.3% | certified | 2026-06-15 |
-| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-06-15 |
-| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
-| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
-| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-15 |
-| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-15 |
-| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-15 |
-| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-06-15 |
-| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
-| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
-| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
-| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-06-15 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-06-16 |
+| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-16 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-16 |
+| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-06-16 |
+| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-06-16 |
+| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-06-16 |
 
 ---
 

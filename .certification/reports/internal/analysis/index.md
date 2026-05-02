@@ -2,15 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (85.6%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-06-15 |
-| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-06-15 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-06-16 |
+| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 82.8% | certified | 2026-06-16 |
+| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-06-16 |
+| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-06-16 |
+| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-06-16 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-06-16 |
+| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [funcKeyFromSSA](go_deep.go/funcKeyFromSSA.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
+| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-16 |
 
 ---
 

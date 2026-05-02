@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
-| [UnitID](unit.go/UnitID.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-15 |
-| [IsPassing](record.go/IsPassing.md) | method | 🟢 A- | 92.8% | certified | 2026-06-15 |
-| [NewUnit](unit.go/NewUnit.md) | function | 🟢 A- | 92.8% | certified | 2026-06-15 |
+| [evidence_test.go](evidence_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-16 |
+| [String](dimension.go/String.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-16 |
+| [String](override.go/String.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-16 |
+| [ParseUnitType](unit.go/ParseUnitType.md) | function | 🟢 A- | 92.2% | certified | 2026-06-16 |
 
 ---
 
