@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
+**Grade:** 🟢 B+ (88.1%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pytestJUnitSuite](tools.go/pytestJUnitSuite.md) | class | 🟢 B | 83.3% | certified | 2026-06-16 |
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-06-16 |
-| [ParseJestJSON](tools.go/ParseJestJSON.md) | function | 🟢 B | 85.0% | certified | 2026-06-16 |
-| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-16 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-16 |
-| [DiscoverModuleRoots](modules.go/DiscoverModuleRoots.md) | function | 🟢 A | 93.3% | certified | 2026-06-16 |
+| [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [LintFinding](lint.go/LintFinding.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [analyzeAlgoComplexity](structural.go/analyzeAlgoComplexity.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 A- | 92.8% | certified | 2026-06-17 |
 
 ---
 

@@ -2,24 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (88.4%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-06-16 |
-| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-16 |
-| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-16 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-06-16 |
-| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-06-16 |
-| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-06-16 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-06-17 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [Name](circuit.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-17 |
+| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-17 |
+| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-06-17 |
+| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-06-17 |
 
 ---
 

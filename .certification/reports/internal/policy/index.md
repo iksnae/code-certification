@@ -3,13 +3,14 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A (93.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Match](matcher.go/Match.md) | method | 🟢 A | 93.3% | certified | 2026-06-16 |
+| [Match](matcher.go/Match.md) | method | 🟢 A | 93.3% | certified | 2026-06-17 |
+| [NewMatcher](matcher.go/NewMatcher.md) | function | 🟢 A | 93.3% | certified | 2026-06-17 |
 
 ---
 

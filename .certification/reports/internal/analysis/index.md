@@ -2,23 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (85.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-06-16 |
-| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 82.8% | certified | 2026-06-16 |
-| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-06-16 |
-| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-06-16 |
-| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-06-16 |
-| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-06-16 |
-| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [funcKeyFromSSA](go_deep.go/funcKeyFromSSA.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-16 |
-| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-16 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-06-17 |
+| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-06-17 |
+| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2026-06-17 |
+| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
+| [UnusedSymbol](go_deep.go/UnusedSymbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-17 |
 
 ---
 
