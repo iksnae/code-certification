@@ -2,14 +2,30 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (90.7%)  
+**Units:** 17 · **Passing:** 17 / 17
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [queue_test.go](queue_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-18 |
 | [persistedQueue](queue.go/persistedQueue.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-18 |
+| [Item](queue.go/Item.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-18 |
+| [ItemStatus](queue.go/ItemStatus.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-18 |
+| [Queue](queue.go/Queue.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-18 |
+| [BatchNext](queue.go/BatchNext.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-18 |
+| [Reset](queue.go/Reset.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-18 |
+| [Len](queue.go/Len.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-18 |
+| [New](queue.go/New.md) | function | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Next](queue.go/Next.md) | method | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Load](queue.go/Load.md) | function | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Fail](queue.go/Fail.md) | method | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Save](queue.go/Save.md) | method | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Skip](queue.go/Skip.md) | method | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Stats](queue.go/Stats.md) | class | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Enqueue](queue.go/Enqueue.md) | method | 🟢 A | 93.3% | certified | 2026-06-18 |
+| [Complete](queue.go/Complete.md) | method | 🟢 A | 93.3% | certified | 2026-06-18 |
 
 ---
 
