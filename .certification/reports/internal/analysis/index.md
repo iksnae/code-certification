@@ -2,26 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.8%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-06-19 |
-| [Shutdown](lsp_analyzer.go/Shutdown.md) | method | 🟢 B | 82.2% | certified | 2026-06-19 |
-| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-06-19 |
-| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-06-19 |
-| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-06-19 |
-| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-06-19 |
-| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-19 |
-| [go_refine_test.go](go_refine_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-19 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-19 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-19 |
-| [FanIn](go_deep.go/FanIn.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-19 |
-| [AnalyzeFile](ts_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-19 |
-| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-19 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-06-20 |
+| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-06-20 |
+| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-20 |
+| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-20 |
+| [goWalkStmt](go_analyzer.go/goWalkStmt.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-20 |
+| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-06-20 |
+| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-06-20 |
 
 ---
 

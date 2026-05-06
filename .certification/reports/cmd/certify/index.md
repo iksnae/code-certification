@@ -2,17 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runArchitect](architect_cmd.go/runArchitect.md) | function | 🟢 B | 80.6% | certified | 2026-06-19 |
-| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-06-19 |
-| [flagBool](root.go/flagBool.md) | function | 🟢 B | 86.7% | certified | 2026-06-19 |
-| [detectAPIKeyOnly](certify_cmd.go/detectAPIKeyOnly.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-19 |
+| [loadQueue](certify_cmd.go/loadQueue.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-20 |
+| [bindExpireFlags](expire.go/bindExpireFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-20 |
 
 ---
 
