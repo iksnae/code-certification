@@ -2,16 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (91.3%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertifyJSON](certifyBinary.ts/runCertifyJSON.md) | function | 🟢 B | 82.5% | certified | 2026-06-20 |
-| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-06-20 |
-| [parseArchitectMeta](dataLoader.ts/parseArchitectMeta.md) | function | 🟢 A- | 92.5% | certified | 2026-06-20 |
+| [loadArchitectMeta](dataLoader.ts/loadArchitectMeta.md) | method | 🟢 A- | 91.3% | certified | 2026-06-21 |
 
 ---
 
