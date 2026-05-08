@@ -2,27 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SubmoduleInfo](workspace_snapshot.go/SubmoduleInfo.md) | class | 🟢 B | 83.3% | certified | 2026-06-21 |
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-06-21 |
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-21 |
-| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-21 |
-| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-21 |
-| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-21 |
-| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-21 |
-| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-21 |
-| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-21 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-21 |
-| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-21 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-21 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-06-21 |
-| [NewModelChain](fallback.go/NewModelChain.md) | function | 🟢 A | 93.3% | certified | 2026-06-21 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-06-22 |
+| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-06-22 |
+| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-06-22 |
+| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-22 |
+| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-22 |
+| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-22 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-22 |
+| [RepoSummary](suggest.go/RepoSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-22 |
+| [Choice](types.go/Choice.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-22 |
+| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-22 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-22 |
+| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-06-22 |
 
 ---
 
