@@ -2,14 +2,59 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 46 · **Passing:** 46 / 46
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [DetectMoves](diff.go/DetectMoves.md) | function | 🟢 B | 81.1% | certified | 2026-06-25 |
+| [Scan](generic.go/Scan.md) | method | 🟢 B | 81.7% | certified | 2026-06-25 |
+| [MovedFile](diff.go/MovedFile.md) | class | 🟢 B | 83.3% | certified | 2026-06-25 |
+| [GenericScanner](generic.go/GenericScanner.md) | class | 🟢 B | 83.9% | certified | 2026-06-25 |
+| [Scan](ts_adapter.go/Scan.md) | method | 🟢 B | 85.0% | certified | 2026-06-25 |
+| [Scan](analysis_adapter.go/Scan.md) | method | 🟢 B | 85.0% | certified | 2026-06-25 |
+| [Scan](go_adapter.go/Scan.md) | method | 🟢 B | 85.0% | certified | 2026-06-25 |
+| [ChangedFiles](diff.go/ChangedFiles.md) | function | 🟢 B | 85.6% | certified | 2026-06-25 |
+| [scanner_test.go](scanner_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-25 |
+| [index_test.go](index_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-25 |
+| [go_adapter_test.go](go_adapter_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-25 |
+| [indexEntry](index.go/indexEntry.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [detect_test.go](detect_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [Scanner](scanner.go/Scanner.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [UnitList](scanner.go/UnitList.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [ts_adapter_test.go](ts_adapter_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [diff_test.go](diff_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [LanguageInfo](detect.go/LanguageInfo.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [Index](index.go/Index.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [TSAdapter](ts_adapter.go/TSAdapter.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [AnalysisAdapter](analysis_adapter.go/AnalysisAdapter.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [GoAdapter](go_adapter.go/GoAdapter.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [DiffResult](index.go/DiffResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-25 |
+| [parseFile](go_adapter.go/parseFile.md) | method | 🟢 B+ | 87.8% | certified | 2026-06-25 |
+| [parseFile](ts_adapter.go/parseFile.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-25 |
+| [NewAnalysisAdapter](analysis_adapter.go/NewAnalysisAdapter.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-25 |
+| [NewTSAdapter](ts_adapter.go/NewTSAdapter.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-25 |
+| [Diff](index.go/Diff.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-25 |
+| [NewGoAdapter](go_adapter.go/NewGoAdapter.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-25 |
+| [FilterChanged](diff.go/FilterChanged.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-25 |
 | [FilterByPaths](diff.go/FilterByPaths.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-25 |
+| [matchAny](generic.go/matchAny.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-25 |
+| [NewGenericScanner](generic.go/NewGenericScanner.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-25 |
+| [Merge](scanner.go/Merge.md) | function | 🟢 A- | 92.8% | certified | 2026-06-25 |
+| [Scanners](scanner.go/Scanners.md) | function | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [DeduplicateFileLevel](scanner.go/DeduplicateFileLevel.md) | function | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [matchesExt](analysis_adapter.go/matchesExt.md) | method | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [NewIndex](index.go/NewIndex.md) | function | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [Units](index.go/Units.md) | method | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [LoadIndex](index.go/LoadIndex.md) | function | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [isTestFile](analysis_adapter.go/isTestFile.md) | method | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [symbolToUnitType](analysis_adapter.go/symbolToUnitType.md) | method | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [DetectLanguages](detect.go/DetectLanguages.md) | function | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [DetectedAdapters](detect.go/DetectedAdapters.md) | function | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [Save](index.go/Save.md) | method | 🟢 A | 93.3% | certified | 2026-06-25 |
+| [buildLanguageList](detect.go/buildLanguageList.md) | function | 🟢 A | 93.3% | certified | 2026-06-25 |
 
 ---
 
