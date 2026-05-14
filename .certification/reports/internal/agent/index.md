@@ -2,19 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.4%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [fallback_test.go](fallback_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-27 |
-| [CoordinatorConfig](pipeline.go/CoordinatorConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-27 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-27 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-27 |
-| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-06-27 |
-| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-27 |
+| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-06-28 |
+| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-28 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-28 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-28 |
+| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-28 |
+| [classifySubmoduleRole](workspace_snapshot.go/classifySubmoduleRole.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-28 |
+| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-28 |
+| [NewDeepReviewStage](stage_deep.go/NewDeepReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-28 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-06-28 |
+| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-06-28 |
 
 ---
 

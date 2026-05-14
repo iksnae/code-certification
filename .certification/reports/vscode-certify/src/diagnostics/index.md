@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [dispose](CertifyDiagnostics.ts/dispose.md) | method | 🟢 A- | 92.5% | certified | 2026-06-27 |
+| [constructor](CertifyDiagnostics.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-06-28 |
 
 ---
 

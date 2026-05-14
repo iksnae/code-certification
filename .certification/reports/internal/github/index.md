@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildIssueCreateCommand](issues.go/BuildIssueCreateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-27 |
+| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-28 |
 
 ---
 

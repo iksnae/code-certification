@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-27 |
-| [GenerateReportTree](report_tree.go/GenerateReportTree.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-27 |
-| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-27 |
+| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-06-28 |
+| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-28 |
+| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A- | 92.8% | certified | 2026-06-28 |
+| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2026-06-28 |
+| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A | 93.3% | certified | 2026-06-28 |
 
 ---
 

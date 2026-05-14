@@ -2,26 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B (85.7%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-06-27 |
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-06-27 |
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-06-27 |
-| [goCognitiveStmt](go_analyzer.go/goCognitiveStmt.md) | function | 🟢 B | 82.2% | certified | 2026-06-27 |
-| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-06-27 |
-| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-27 |
-| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-06-27 |
-| [rsCountPanics](rust_analyzer.go/rsCountPanics.md) | function | 🟢 B | 86.1% | certified | 2026-06-27 |
-| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-06-27 |
-| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-27 |
-| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-27 |
-| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-27 |
-| [buildPkgMap](go_deps.go/buildPkgMap.md) | method | 🟢 A | 93.3% | certified | 2026-06-27 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-06-28 |
+| [pyFindSymbol](python_analyzer.go/pyFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-06-28 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-06-28 |
+| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-06-28 |
+| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-06-28 |
+| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-28 |
+| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-06-28 |
+| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-28 |
+| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-28 |
+| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-28 |
+| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-06-28 |
+| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-06-28 |
 
 ---
 
