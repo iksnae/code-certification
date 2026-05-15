@@ -2,25 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-06-28 |
-| [pyFindSymbol](python_analyzer.go/pyFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-06-28 |
-| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-06-28 |
-| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-06-28 |
-| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-06-28 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-28 |
-| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-06-28 |
-| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-28 |
-| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-06-28 |
-| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-28 |
-| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-06-28 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-06-28 |
+| [tsDiscoverNode](ts_analyzer.go/tsDiscoverNode.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-06-29 |
+| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-06-29 |
+| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-29 |
+| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-29 |
+| [goWalkStmt](go_analyzer.go/goWalkStmt.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-29 |
+| [computeUnusedExports](go_deep.go/computeUnusedExports.md) | method | 🟢 B+ | 89.4% | certified | 2026-06-29 |
+| [ParamAbstraction](go_deps.go/ParamAbstraction.md) | method | 🟢 A | 93.3% | certified | 2026-06-29 |
+| [findPkg](go_refine.go/findPkg.md) | method | 🟢 A | 93.3% | certified | 2026-06-29 |
 
 ---
 

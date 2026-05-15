@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
+**Grade:** 🟢 B (85.0%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [scoreStructuralReadability](scorer.go/scoreStructuralReadability.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-28 |
-| [severityPenalty](scorer.go/severityPenalty.md) | function | 🟢 B+ | 90.0% | certified | 2026-06-28 |
+| [CertifyUnit](pipeline.go/CertifyUnit.md) | function | 🟢 B | 82.8% | certified | 2026-06-29 |
+| [scoreFromMetrics](scorer.go/scoreFromMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-29 |
 
 ---
 

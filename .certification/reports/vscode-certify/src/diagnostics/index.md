@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [constructor](CertifyDiagnostics.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-06-28 |
+| [LOW_GRADES](CertifyDiagnostics.ts/LOW_GRADES.md) | function | 🟢 A- | 92.5% | certified | 2026-06-29 |
 
 ---
 

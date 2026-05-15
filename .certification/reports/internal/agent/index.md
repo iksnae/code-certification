@@ -2,23 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-06-28 |
-| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-28 |
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-28 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-28 |
-| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-28 |
-| [classifySubmoduleRole](workspace_snapshot.go/classifySubmoduleRole.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-28 |
-| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-28 |
-| [NewDeepReviewStage](stage_deep.go/NewDeepReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-28 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-06-28 |
-| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-06-28 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-06-29 |
+| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-06-29 |
+| [types_test.go](types_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-29 |
+| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-29 |
+| [classifySubmoduleRole](workspace_snapshot.go/classifySubmoduleRole.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-29 |
+| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-29 |
+| [NewModelChain](fallback.go/NewModelChain.md) | function | 🟢 A | 93.3% | certified | 2026-06-29 |
+| [NewOpenRouterProvider](openrouter.go/NewOpenRouterProvider.md) | function | 🟢 A | 93.3% | certified | 2026-06-29 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-06-29 |
 
 ---
 

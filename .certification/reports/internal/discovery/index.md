@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [go_adapter_test.go](go_adapter_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-06-28 |
-| [FilterChanged](diff.go/FilterChanged.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-28 |
+| [diff_test.go](diff_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-29 |
+| [FilterByPaths](diff.go/FilterByPaths.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-29 |
+| [DeduplicateFileLevel](scanner.go/DeduplicateFileLevel.md) | function | 🟢 A | 93.3% | certified | 2026-06-29 |
 
 ---
 
