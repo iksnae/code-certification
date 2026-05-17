@@ -2,14 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [main](main.go/main.md) | function | 🟢 B | 83.3% | certified | 2026-06-30 |
+| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-07-01 |
+| [gradeEmojiShort](report_cmd.go/gradeEmojiShort.md) | function | 🟢 B | 86.1% | certified | 2026-07-01 |
+| [runSubcommand](workspace_dispatch.go/runSubcommand.md) | function | 🟢 B | 86.1% | certified | 2026-07-01 |
+| [buildCertificationRun](certify_cmd.go/buildCertificationRun.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-01 |
+| [detectAPIKeyOnly](certify_cmd.go/detectAPIKeyOnly.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-01 |
+| [setupConservativeAgent](certify_cmd.go/setupConservativeAgent.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-01 |
 
 ---
 

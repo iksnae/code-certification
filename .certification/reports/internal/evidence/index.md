@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [TestResult](lint.go/TestResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-30 |
-| [analyzeAlgoComplexity](structural.go/analyzeAlgoComplexity.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-30 |
-| [computeNestingDepth](structural.go/computeNestingDepth.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-30 |
+| [FileCoverage](coverage.go/FileCoverage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-01 |
+| [computeNestingDepth](structural.go/computeNestingDepth.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-01 |
+| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-01 |
+| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-01 |
+| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-07-01 |
 
 ---
 

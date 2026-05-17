@@ -2,21 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [execFileAsync](certifyBinary.ts/execFileAsync.md) | function | 🟢 B+ | 87.5% | certified | 2026-06-30 |
-| [DIMENSION_NAMES](constants.ts/DIMENSION_NAMES.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-30 |
-| [GRADE_COLORS](constants.ts/GRADE_COLORS.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-30 |
-| [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 B+ | 89.4% | certified | 2026-06-30 |
-| [discoverSubmodules](dataLoader.ts/discoverSubmodules.md) | method | 🟢 A- | 91.3% | certified | 2026-06-30 |
-| [hasGitSubmodules](dataLoader.ts/hasGitSubmodules.md) | method | 🟢 A- | 91.3% | certified | 2026-06-30 |
-| [loadIndex](dataLoader.ts/loadIndex.md) | method | 🟢 A- | 91.3% | certified | 2026-06-30 |
-| [deactivate](extension.ts/deactivate.md) | function | 🟢 A- | 91.9% | certified | 2026-06-30 |
+| [RunResult](certifyBinary.ts/RunResult.md) | class | 🟢 B | 85.0% | certified | 2026-07-01 |
+| [loadArchitectMeta](dataLoader.ts/loadArchitectMeta.md) | method | 🟢 A- | 91.3% | certified | 2026-07-01 |
 
 ---
 

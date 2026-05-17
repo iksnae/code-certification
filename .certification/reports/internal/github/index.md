@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
+**Grade:** 🟢 B+ (87.2%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ComputeTrustDelta](pr.go/ComputeTrustDelta.md) | function | 🟢 B+ | 88.9% | certified | 2026-06-30 |
+| [pr_test.go](pr_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-01 |
 
 ---
 

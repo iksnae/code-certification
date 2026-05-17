@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GenerateCard](card.go/GenerateCard.md) | function | 🟢 B | 86.1% | certified | 2026-06-30 |
-| [findExpiringSoon](detailed.go/findExpiringSoon.md) | function | 🟢 B | 86.1% | certified | 2026-06-30 |
-| [IssueCard](card.go/IssueCard.md) | class | 🟢 B+ | 87.2% | certified | 2026-06-30 |
-| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-06-30 |
-| [site_search_test.go](site_search_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-30 |
+| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-07-01 |
+| [UnitReport](full.go/UnitReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-01 |
+| [computeDimensionAverages](detailed.go/computeDimensionAverages.md) | function | 🟢 A | 93.3% | certified | 2026-07-01 |
+| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-07-01 |
 
 ---
 

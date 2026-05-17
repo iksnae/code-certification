@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (86.6%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-06-30 |
-| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-06-30 |
-| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-06-30 |
-| [tsComputeLoopNesting](ts_analyzer.go/tsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-06-30 |
-| [go_deps_test.go](go_deps_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-06-30 |
-| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-06-30 |
-| [TypeAwareErrorWrapping](go_refine.go/TypeAwareErrorWrapping.md) | method | 🟢 A | 93.3% | certified | 2026-06-30 |
+| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-07-01 |
+| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-07-01 |
+| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-07-01 |
+| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-01 |
+| [AnalyzeFile](ts_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-01 |
 
 ---
 
