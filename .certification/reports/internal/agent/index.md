@@ -2,19 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (87.7%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceProjectContext](workspace_snapshot.go/WorkspaceProjectContext.md) | class | 🟢 B | 83.3% | certified | 2026-07-01 |
-| [formatDeepAnalysisMetrics](architect.go/formatDeepAnalysisMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-01 |
-| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-01 |
-| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-01 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-01 |
-| [detectCrossDeps](workspace_snapshot.go/detectCrossDeps.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-01 |
+| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-07-02 |
+| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-07-02 |
+| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-02 |
+| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-02 |
+| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-02 |
+| [DefaultGroqModels](providers.go/DefaultGroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-02 |
+| [DefaultModels](providers.go/DefaultModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-02 |
+| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-07-02 |
 
 ---
 

@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (85.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FileCoverage](coverage.go/FileCoverage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-01 |
-| [computeNestingDepth](structural.go/computeNestingDepth.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-01 |
-| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-01 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-01 |
-| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-07-01 |
+| [jestJSONOutput](tools.go/jestJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-07-02 |
+| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-07-02 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-02 |
+| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-02 |
 
 ---
 

@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.5%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-07-01 |
-| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-07-01 |
-| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-07-01 |
-| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-01 |
-| [AnalyzeFile](ts_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-01 |
+| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-07-02 |
+| [goCountCallExpr](go_analyzer.go/goCountCallExpr.md) | function | 🟢 B | 86.1% | certified | 2026-07-02 |
+| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-07-02 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-07-02 |
+| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-07-02 |
+| [FanIn](go_deep.go/FanIn.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-02 |
 
 ---
 

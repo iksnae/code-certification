@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Scanners](scanner.go/Scanners.md) | function | 🟢 A | 93.3% | certified | 2026-07-01 |
+| [isTestFile](analysis_adapter.go/isTestFile.md) | method | 🟢 A | 93.3% | certified | 2026-07-02 |
 
 ---
 
