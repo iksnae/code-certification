@@ -2,36 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 23 · **Passing:** 23 / 23
+**Grade:** 🟢 B (85.4%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [validate](loader.go/validate.md) | function | 🟢 B | 81.7% | certified | 2026-07-02 |
-| [Load](loader.go/Load.md) | function | 🟢 B | 82.8% | certified | 2026-07-02 |
-| [FilterPolicyPacks](matcher.go/FilterPolicyPacks.md) | function | 🟢 B | 82.8% | certified | 2026-07-02 |
-| [policy_test.go](policy_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-02 |
-| [loader_test.go](loader_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-02 |
-| [rawPolicyRule](policy.go/rawPolicyRule.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [ValidateConfig](validator.go/ValidateConfig.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [rawAgent](loader.go/rawAgent.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [validator_test.go](validator_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [ValidationError](validator.go/ValidationError.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [ValidatePolicyPack](validator.go/ValidatePolicyPack.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [rawConfig](loader.go/rawConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [rawPolicyPack](policy.go/rawPolicyPack.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-02 |
-| [Error](validator.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-02 |
-| [LoadFile](loader.go/LoadFile.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-02 |
-| [LoadPolicyPack](policy.go/LoadPolicyPack.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-02 |
-| [parsePolicyPack](policy.go/parsePolicyPack.md) | function | 🟢 A- | 92.2% | certified | 2026-07-02 |
-| [parseDimension](policy.go/parseDimension.md) | function | 🟢 A- | 92.2% | certified | 2026-07-02 |
-| [parseSeverity](policy.go/parseSeverity.md) | function | 🟢 A | 93.3% | certified | 2026-07-02 |
-| [LoadFromDir](loader.go/LoadFromDir.md) | function | 🟢 A | 93.3% | certified | 2026-07-02 |
-| [LoadPolicyPacks](policy.go/LoadPolicyPacks.md) | function | 🟢 A | 93.3% | certified | 2026-07-02 |
-| [isLocalURL](validator.go/isLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-07-02 |
-| [NewPolicyMatcher](matcher.go/NewPolicyMatcher.md) | function | 🟢 A | 93.3% | certified | 2026-07-02 |
+| [validate](loader.go/validate.md) | function | 🟢 B | 81.7% | certified | 2026-07-03 |
+| [rawPolicyRule](policy.go/rawPolicyRule.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-03 |
+| [ValidatePolicyPack](validator.go/ValidatePolicyPack.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-03 |
 
 ---
 

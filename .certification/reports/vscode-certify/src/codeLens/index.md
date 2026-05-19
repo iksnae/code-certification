@@ -2,19 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.8%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [findSymbolLine](CertifyCodeLensProvider.ts/findSymbolLine.md) | function | 🟢 B+ | 88.1% | certified | 2026-07-02 |
-| [CertifyCodeLensProvider](CertifyCodeLensProvider.ts/CertifyCodeLensProvider.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-02 |
-| [constructor](CertifyCodeLensProvider.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-07-02 |
-| [loadRecords](CertifyCodeLensProvider.ts/loadRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-07-02 |
-| [provideCodeLenses](CertifyCodeLensProvider.ts/provideCodeLenses.md) | method | 🟢 A- | 91.9% | certified | 2026-07-02 |
-| [showDimensionScores](CertifyCodeLensProvider.ts/showDimensionScores.md) | function | 🟢 A- | 91.9% | certified | 2026-07-02 |
+| [CertifyCodeLensProvider](CertifyCodeLensProvider.ts/CertifyCodeLensProvider.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-03 |
 
 ---
 
