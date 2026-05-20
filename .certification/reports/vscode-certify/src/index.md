@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ProviderConfig](types.ts/ProviderConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-03 |
-| [constructor](dataLoader.ts/constructor.md) | method | 🟢 A- | 91.3% | certified | 2026-07-03 |
-| [hasArchitectReview](dataLoader.ts/hasArchitectReview.md) | method | 🟢 A- | 91.3% | certified | 2026-07-03 |
-| [createStatusBarItem](statusBar.ts/createStatusBarItem.md) | function | 🟢 A- | 92.5% | certified | 2026-07-03 |
+| [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
+| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
+| [LanguageDetail](types.ts/LanguageDetail.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
+| [ProjectState](types.ts/ProjectState.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
+| [UnitReport](types.ts/UnitReport.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
+| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-07-04 |
 
 ---
 

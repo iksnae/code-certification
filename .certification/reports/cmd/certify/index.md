@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (86.1%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-07-03 |
-| [policyVersions](certify_cmd.go/policyVersions.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-03 |
-| [bindReviewFlags](review.go/bindReviewFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-03 |
+| [main](main.go/main.md) | function | 🟢 B | 83.3% | certified | 2026-07-04 |
+| [executeArchitectReview](architect_cmd.go/executeArchitectReview.md) | function | 🟢 B | 86.1% | certified | 2026-07-04 |
+| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-07-04 |
+| [runWorkspaceScan](scan.go/runWorkspaceScan.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
 
 ---
 

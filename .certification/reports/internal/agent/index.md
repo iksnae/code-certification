@@ -2,24 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-07-03 |
-| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 83.3% | certified | 2026-07-03 |
-| [Execute](stage.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-03 |
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-07-03 |
-| [fallback_test.go](fallback_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-03 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-03 |
-| [Stage](stage.go/Stage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-03 |
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-03 |
-| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-03 |
-| [ToPrescreenEvidence](reviewer.go/ToPrescreenEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-07-03 |
-| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-07-03 |
+| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
+| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
+| [Strategy](pipeline.go/Strategy.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
+| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-04 |
+| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-04 |
+| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
+| [IsDeepReview](stage_deep.go/IsDeepReview.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
+| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
+| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-07-04 |
+| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-07-04 |
+| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2026-07-04 |
 
 ---
 
