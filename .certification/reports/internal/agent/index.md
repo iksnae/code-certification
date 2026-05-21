@@ -2,25 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
-| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
-| [Strategy](pipeline.go/Strategy.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
-| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-04 |
-| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-04 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-04 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
-| [IsDeepReview](stage_deep.go/IsDeepReview.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
-| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
-| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-07-04 |
-| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-07-04 |
-| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2026-07-04 |
+| [formatLayerMap](architect.go/formatLayerMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-05 |
+| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-05 |
+| [Reviewer](reviewer.go/Reviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-05 |
+| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-07-05 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-07-05 |
 
 ---
 

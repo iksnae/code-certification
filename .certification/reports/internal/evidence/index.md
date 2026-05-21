@@ -2,14 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-04 |
+| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-07-05 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-05 |
+| [CoverageMap](coverage.go/CoverageMap.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-05 |
+| [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-05 |
+| [ToEvidence](git.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-05 |
+| [ToEvidence](metrics.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-05 |
+| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-05 |
 
 ---
 

@@ -2,19 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (91.3%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
-| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
-| [LanguageDetail](types.ts/LanguageDetail.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
-| [ProjectState](types.ts/ProjectState.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
-| [UnitReport](types.ts/UnitReport.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-04 |
-| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-07-04 |
+| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.3% | certified | 2026-07-05 |
 
 ---
 

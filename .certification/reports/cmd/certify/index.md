@@ -1,18 +1,16 @@
-# 🟢 `cmd/certify`
+# 🟡 `cmd/certify`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.1%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟡 C (79.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [main](main.go/main.md) | function | 🟢 B | 83.3% | certified | 2026-07-04 |
-| [executeArchitectReview](architect_cmd.go/executeArchitectReview.md) | function | 🟢 B | 86.1% | certified | 2026-07-04 |
-| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-07-04 |
-| [runWorkspaceScan](scan.go/runWorkspaceScan.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-04 |
+| [runCertify](certify_cmd.go/runCertify.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-07-05 |
+| [runModels](models_cmd.go/runModels.md) | function | 🟢 B | 83.3% | certified | 2026-07-05 |
 
 ---
 
