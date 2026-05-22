@@ -2,18 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.4%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatLayerMap](architect.go/formatLayerMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-05 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-05 |
-| [Reviewer](reviewer.go/Reviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-05 |
-| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-07-05 |
-| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-07-05 |
+| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-07-06 |
+| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-07-06 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-06 |
+| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-06 |
+| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-06 |
+| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-06 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-06 |
+| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-06 |
+| [CoordinatorConfig](pipeline.go/CoordinatorConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-06 |
+| [Version](prompts.go/Version.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-06 |
 
 ---
 
