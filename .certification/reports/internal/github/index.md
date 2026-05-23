@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-06 |
+| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-07 |
 
 ---
 
