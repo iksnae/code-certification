@@ -2,14 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-07 |
+| [ruffJSONFinding](tools.go/ruffJSONFinding.md) | class | 🟢 B | 83.3% | certified | 2026-07-08 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [LintFindings](executor.go/LintFindings.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-08 |
+| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-08 |
+| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-07-08 |
 
 ---
 

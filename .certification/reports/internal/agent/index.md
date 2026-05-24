@@ -2,21 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 83.3% | certified | 2026-07-07 |
-| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 83.3% | certified | 2026-07-07 |
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-07-07 |
-| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-07 |
-| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-07 |
-| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-07 |
-| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-07-07 |
-| [DetectAPIKey](autodetect.go/DetectAPIKey.md) | function | 🟢 A | 93.3% | certified | 2026-07-07 |
+| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [Usage](types.go/Usage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-08 |
+| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-08 |
+| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-08 |
+| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-08 |
+| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-07-08 |
 
 ---
 

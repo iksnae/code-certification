@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 85.0% | certified | 2026-07-07 |
-| [report_tree_test.go](report_tree_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-07 |
-| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-07 |
-| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-07 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-07-07 |
-| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-07-07 |
+| [writeArchPackageMap](architect_report.go/writeArchPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [Badge](badge.go/Badge.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [packageUnitRow](site.go/packageUnitRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-07-08 |
+| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-07-08 |
 
 ---
 

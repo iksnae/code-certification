@@ -2,25 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B (84.2%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsAnalyzeFunction](ts_analyzer.go/tsAnalyzeFunction.md) | function | 🟢 B | 80.6% | certified | 2026-07-07 |
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-07-07 |
-| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-07-07 |
-| [pyDiscoverNode](python_analyzer.go/pyDiscoverNode.md) | function | 🟢 B | 84.4% | certified | 2026-07-07 |
-| [NewRustAnalyzer](rust_analyzer.go/NewRustAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-07-07 |
-| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-07-07 |
-| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-07-07 |
-| [rsComputeNesting](rust_analyzer.go/rsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-07-07 |
-| [goCognitiveWalk](go_analyzer.go/goCognitiveWalk.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-07 |
-| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-07 |
-| [computeUnusedExports](go_deep.go/computeUnusedExports.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-07 |
-| [AnalyzeFile](ts_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-07 |
+| [NewLSPAnalyzer](lsp_analyzer.go/NewLSPAnalyzer.md) | function | 🟡 C | 78.3% | certified_with_observations | 2026-07-08 |
+| [TSAnalyzer](ts_analyzer.go/TSAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-08 |
+| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-07-08 |
+| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-07-08 |
+| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-07-08 |
+| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-07-08 |
+| [Symbol](analyzer.go/Symbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
 
 ---
 
