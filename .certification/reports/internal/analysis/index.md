@@ -3,20 +3,17 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 B (84.2%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewLSPAnalyzer](lsp_analyzer.go/NewLSPAnalyzer.md) | function | 🟡 C | 78.3% | certified_with_observations | 2026-07-08 |
-| [TSAnalyzer](ts_analyzer.go/TSAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-08 |
-| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-07-08 |
-| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-07-08 |
-| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-07-08 |
-| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-07-08 |
-| [Symbol](analyzer.go/Symbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-07-09 |
+| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-07-09 |
+| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-07-09 |
+| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-07-09 |
+| [regression_test.go](regression_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-09 |
 
 ---
 

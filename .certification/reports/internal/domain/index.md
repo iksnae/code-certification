@@ -2,14 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.8%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Path](unit.go/Path.md) | method | 🟢 A- | 92.8% | certified | 2026-07-08 |
+| [EvidenceKind](evidence.go/EvidenceKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-09 |
+| [Severity](evidence.go/Severity.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-09 |
+| [Override](override.go/Override.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-09 |
+| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-09 |
 
 ---
 

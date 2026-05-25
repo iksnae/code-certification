@@ -1,15 +1,15 @@
-# 🟢 `internal/analysis/lsp`
+# 🟢 `vscode-certify/src/dashboard`
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
+**Grade:** 🟢 A- (91.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Shutdown](client.go/Shutdown.md) | method | 🟢 B | 85.6% | certified | 2026-07-09 |
+| [constructor](DashboardPanel.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-07-09 |
 
 ---
 

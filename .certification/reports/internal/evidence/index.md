@@ -2,18 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ruffJSONFinding](tools.go/ruffJSONFinding.md) | class | 🟢 B | 83.3% | certified | 2026-07-08 |
-| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [LintFindings](executor.go/LintFindings.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-08 |
-| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-08 |
-| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-07-08 |
+| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-07-09 |
+| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-07-09 |
+| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-09 |
+| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
+| [ParseGolangciLintJSON](runner.go/ParseGolangciLintJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
+| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-09 |
+| [runGolangciLintAt](executor.go/runGolangciLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-09 |
+| [findESLint](tools.go/findESLint.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-09 |
+| [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 A | 93.3% | certified | 2026-07-09 |
 
 ---
 

@@ -2,25 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [Usage](types.go/Usage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-08 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-08 |
-| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-08 |
-| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-08 |
-| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-08 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-07-08 |
+| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-07-09 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-09 |
+| [classifySubmoduleRole](workspace_snapshot.go/classifySubmoduleRole.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-09 |
+| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-07-09 |
+| [runPhase](architect_review.go/runPhase.md) | method | 🟢 A- | 91.1% | certified | 2026-07-09 |
+| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2026-07-09 |
 
 ---
 
