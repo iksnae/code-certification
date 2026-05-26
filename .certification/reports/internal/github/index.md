@@ -2,30 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 17 · **Passing:** 17 / 17
+**Grade:** 🟢 B (85.8%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 B | 82.8% | certified | 2026-07-09 |
-| [FormatIssueBody](issues.go/FormatIssueBody.md) | function | 🟢 B | 82.8% | certified | 2026-07-09 |
-| [workflows_test.go](workflows_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-09 |
-| [pr_test.go](pr_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-09 |
-| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-09 |
-| [issues_test.go](issues_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-09 |
-| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
-| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
-| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
-| [ComputeTrustDelta](pr.go/ComputeTrustDelta.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
-| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
-| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
-| [BuildIssueCreateCommand](issues.go/BuildIssueCreateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-09 |
-| [FormatPRComment](pr.go/FormatPRComment.md) | function | 🟢 A | 93.3% | certified | 2026-07-09 |
-| [GenerateNightlyWorkflow](workflows.go/GenerateNightlyWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-07-09 |
-| [GeneratePRWorkflow](workflows.go/GeneratePRWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-07-09 |
-| [GenerateWeeklyWorkflow](workflows.go/GenerateWeeklyWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-07-09 |
+| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 B | 82.8% | certified | 2026-07-10 |
+| [ComputeTrustDelta](pr.go/ComputeTrustDelta.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-10 |
 
 ---
 
