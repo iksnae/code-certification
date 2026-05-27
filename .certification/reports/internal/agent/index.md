@@ -2,23 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (88.8%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-07-10 |
-| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-07-10 |
-| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-10 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-10 |
-| [suggest_test.go](suggest_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-10 |
-| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-10 |
-| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-07-10 |
-| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-07-10 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-07-10 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-07-10 |
+| [listOllamaModels](models.go/listOllamaModels.md) | function | 🟢 B | 81.1% | certified | 2026-07-11 |
+| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-07-11 |
+| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [StageInput](stage.go/StageInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [NewFallbackProvider](fallback.go/NewFallbackProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
+| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
+| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
+| [ModelFor](router.go/ModelFor.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-11 |
+| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-11 |
+| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-07-11 |
+| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-07-11 |
+| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-07-11 |
 
 ---
 

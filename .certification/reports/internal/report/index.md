@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.8%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-10 |
-| [BadgeMarkdown](badge.go/BadgeMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-07-10 |
-| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-07-10 |
-| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-07-10 |
+| [FormatArchitectReport](architect_report.go/FormatArchitectReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [writeArchExecutiveSummary](architect_report.go/writeArchExecutiveSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [dimRow](site.go/dimRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [issueRow](site.go/issueRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-07-11 |
 
 ---
 
