@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatArchitectReport](architect_report.go/FormatArchitectReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [writeArchExecutiveSummary](architect_report.go/writeArchExecutiveSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [dimRow](site.go/dimRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [issueRow](site.go/issueRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-07-11 |
+| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 85.0% | certified | 2026-07-12 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2026-07-12 |
+| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-07-12 |
 
 ---
 

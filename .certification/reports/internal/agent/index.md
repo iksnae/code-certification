@@ -2,27 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 B+ (87.8%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [listOllamaModels](models.go/listOllamaModels.md) | function | 🟢 B | 81.1% | certified | 2026-07-11 |
-| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-07-11 |
-| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [StageInput](stage.go/StageInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-11 |
-| [NewFallbackProvider](fallback.go/NewFallbackProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
-| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
-| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
-| [ModelFor](router.go/ModelFor.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-11 |
-| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-11 |
-| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-11 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-07-11 |
-| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-07-11 |
-| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-07-11 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-07-12 |
+| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-12 |
+| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
+| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
+| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
+| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 91.7% | certified | 2026-07-12 |
+| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-07-12 |
 
 ---
 

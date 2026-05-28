@@ -2,18 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.7%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsFindSymbol](rust_analyzer.go/rsFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-07-11 |
-| [Shutdown](lsp_analyzer.go/Shutdown.md) | method | 🟢 B | 82.2% | certified | 2026-07-11 |
-| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-07-11 |
-| [goIsMutableVar](go_analyzer.go/goIsMutableVar.md) | function | 🟢 B | 86.1% | certified | 2026-07-11 |
-| [goWalkBlock](go_analyzer.go/goWalkBlock.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-11 |
+| [pyAnalyzeFunction](python_analyzer.go/pyAnalyzeFunction.md) | function | 🟢 B | 80.0% | certified | 2026-07-12 |
+| [tsWalkAll](ts_analyzer.go/tsWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-07-12 |
+| [NewGoAnalyzer](go_analyzer.go/NewGoAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-07-12 |
+| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-07-12 |
+| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-07-12 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-07-12 |
+| [SymbolKind](analyzer.go/SymbolKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [lsp_analyzer_test.go](lsp_analyzer_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-12 |
+| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-12 |
+| [UnusedExports](go_deep.go/UnusedExports.md) | method | 🟢 A | 93.3% | certified | 2026-07-12 |
 
 ---
 

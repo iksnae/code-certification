@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (83.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [reportDirOf](report_cmd.go/reportDirOf.md) | function | 🟢 B | 86.1% | certified | 2026-07-11 |
-| [flagString](root.go/flagString.md) | function | 🟢 B | 86.7% | certified | 2026-07-11 |
-| [buildArchitectContext](architect_cmd.go/buildArchitectContext.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-11 |
-| [printSummary](certify_cmd.go/printSummary.md) | method | 🟢 B+ | 90.0% | certified | 2026-07-11 |
+| [runWorkspaceReport](report_cmd.go/runWorkspaceReport.md) | function | 🟡 C | 79.4% | certified_with_observations | 2026-07-12 |
+| [bindReportFlags](report_cmd.go/bindReportFlags.md) | function | 🟢 B | 86.1% | certified | 2026-07-12 |
+| [runSubcommand](workspace_dispatch.go/runSubcommand.md) | function | 🟢 B | 86.1% | certified | 2026-07-12 |
 
 ---
 
