@@ -2,14 +2,15 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (86.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
+| [Initialize](client.go/Initialize.md) | method | 🟢 B | 85.6% | certified | 2026-07-13 |
+| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-13 |
 
 ---
 

@@ -2,17 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.9%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (84.3%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [AttributeLintToUnit](attribution.go/AttributeLintToUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
-| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-12 |
-| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
-| [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 A- | 92.8% | certified | 2026-07-12 |
+| [structural_test.go](structural_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-07-13 |
+| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 83.3% | certified | 2026-07-13 |
+| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-07-13 |
+| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-07-13 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-13 |
 
 ---
 

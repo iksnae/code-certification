@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [severityPenalty](scorer.go/severityPenalty.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-12 |
+| [extractSummaryFloat](scorer.go/extractSummaryFloat.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-13 |
 
 ---
 

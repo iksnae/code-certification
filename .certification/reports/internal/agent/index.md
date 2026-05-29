@@ -2,25 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-07-12 |
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-12 |
-| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
-| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
-| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
-| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-12 |
-| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
-| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
-| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-12 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 91.7% | certified | 2026-07-12 |
-| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-07-12 |
+| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-07-13 |
+| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-13 |
+| [Stage](stage.go/Stage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-13 |
+| [suggest_test.go](suggest_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-13 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-13 |
+| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-13 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-07-13 |
+| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-07-13 |
+| [DetectAPIKey](autodetect.go/DetectAPIKey.md) | function | 🟢 A | 93.3% | certified | 2026-07-13 |
+| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-07-13 |
 
 ---
 

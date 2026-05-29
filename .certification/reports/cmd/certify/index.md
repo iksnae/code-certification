@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.9%)  
+**Grade:** 🟢 B (86.3%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceReport](report_cmd.go/runWorkspaceReport.md) | function | 🟡 C | 79.4% | certified_with_observations | 2026-07-12 |
-| [bindReportFlags](report_cmd.go/bindReportFlags.md) | function | 🟢 B | 86.1% | certified | 2026-07-12 |
-| [runSubcommand](workspace_dispatch.go/runSubcommand.md) | function | 🟢 B | 86.1% | certified | 2026-07-12 |
+| [runWorkspaceReport](report_cmd.go/runWorkspaceReport.md) | function | 🟡 C | 79.4% | certified_with_observations | 2026-07-13 |
+| [bindVersionInfo](version.go/bindVersionInfo.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-13 |
+| [printSummary](certify_cmd.go/printSummary.md) | method | 🟢 B+ | 90.0% | certified | 2026-07-13 |
 
 ---
 
