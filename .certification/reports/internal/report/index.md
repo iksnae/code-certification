@@ -2,18 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-07-14 |
-| [issueRow](site.go/issueRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [FormatDetailedText](detailed.go/FormatDetailedText.md) | function | 🟢 A- | 90.6% | certified | 2026-07-14 |
-| [computeLanguageBreakdowns](detailed.go/computeLanguageBreakdowns.md) | function | 🟢 A | 93.3% | certified | 2026-07-14 |
-| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-07-14 |
+| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [UnitReport](full.go/UnitReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-07-15 |
+| [buildUnitNavMaps](site.go/buildUnitNavMaps.md) | function | 🟢 A- | 92.8% | certified | 2026-07-15 |
+| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-07-15 |
+| [unitTreePath](report_tree.go/unitTreePath.md) | function | 🟢 A | 93.3% | certified | 2026-07-15 |
+| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-07-15 |
 
 ---
 

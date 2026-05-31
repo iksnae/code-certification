@@ -2,19 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [formatDeepAnalysisMetrics](architect.go/formatDeepAnalysisMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-14 |
-| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-07-14 |
-| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-07-14 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-15 |
+| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-15 |
+| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-15 |
+| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-07-15 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-07-15 |
 
 ---
 

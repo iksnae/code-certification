@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B+ (87.6%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PolicyConfig](config.go/PolicyConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
+| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [Dimension](dimension.go/Dimension.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [String](config.go/String.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-15 |
 
 ---
 

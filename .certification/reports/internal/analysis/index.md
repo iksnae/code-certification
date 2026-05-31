@@ -2,22 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.9%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (86.2%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsAnalyzeFunction](ts_analyzer.go/tsAnalyzeFunction.md) | function | 🟢 B | 80.6% | certified | 2026-07-14 |
-| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 82.8% | certified | 2026-07-14 |
-| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 82.8% | certified | 2026-07-14 |
-| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2026-07-14 |
-| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-07-14 |
-| [rsComputeNesting](rust_analyzer.go/rsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-07-14 |
-| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-07-14 |
-| [computeUnusedExports](go_deep.go/computeUnusedExports.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-14 |
-| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-07-14 |
+| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-15 |
+| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-07-15 |
+| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-07-15 |
+| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-07-15 |
+| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-15 |
+| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-07-15 |
 
 ---
 

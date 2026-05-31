@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (87.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ToolExecutor](executor.go/ToolExecutor.md) | class | 🟢 B | 80.0% | certified | 2026-07-14 |
-| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [runGoTestAt](executor.go/runGoTestAt.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-14 |
-| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-14 |
-| [AttributeLintToFile](attribution.go/AttributeLintToFile.md) | function | 🟢 A | 93.3% | certified | 2026-07-14 |
-| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-07-14 |
+| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 83.3% | certified | 2026-07-15 |
+| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [countDeferInLoop](structural.go/countDeferInLoop.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [runGoTestAt](executor.go/runGoTestAt.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-15 |
+| [ParseGolangciLintJSON](runner.go/ParseGolangciLintJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-15 |
 
 ---
 

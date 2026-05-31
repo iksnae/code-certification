@@ -2,18 +2,16 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.3%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Request](client.go/Request.md) | method | 🟡 C | 78.9% | certified_with_observations | 2026-07-14 |
-| [References](client.go/References.md) | method | 🟢 B | 85.6% | certified | 2026-07-14 |
-| [CallHierarchyIncomingCall](types.go/CallHierarchyIncomingCall.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
-| [ReferenceParams](types.go/ReferenceParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-14 |
+| [Error](client.go/Error.md) | method | 🟢 B | 84.4% | certified | 2026-07-15 |
+| [Location](types.go/Location.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
+| [ReferenceParams](types.go/ReferenceParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
 
 ---
 
