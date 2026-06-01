@@ -1,16 +1,16 @@
-# 🟢 `internal/policy`
+# 🟢 `internal/github`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
+**Grade:** 🟢 B (85.8%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Matcher](matcher.go/Matcher.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-16 |
-| [Match](matcher.go/Match.md) | method | 🟢 A | 93.3% | certified | 2026-07-16 |
+| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 B | 82.8% | certified | 2026-07-16 |
+| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-16 |
 
 ---
 

@@ -2,22 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (87.5%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-15 |
-| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
-| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
-| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-15 |
-| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-15 |
-| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-15 |
-| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-07-15 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-07-15 |
+| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 83.3% | certified | 2026-07-16 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-07-16 |
+| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-07-16 |
+| [stage_test.go](stage_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-07-16 |
+| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-16 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-16 |
+| [RepoSummary](suggest.go/RepoSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-16 |
+| [Name](circuit.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-16 |
+| [NewRateLimiter](ratelimit.go/NewRateLimiter.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-16 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-16 |
+| [detectRepoNameFromDir](workspace_snapshot.go/detectRepoNameFromDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-16 |
+| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-07-16 |
 
 ---
 

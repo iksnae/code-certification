@@ -2,14 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LoadSubmoduleCard](workspace.go/LoadSubmoduleCard.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-15 |
+| [Submodule](workspace.go/Submodule.md) | class | 🟢 B | 83.3% | certified | 2026-07-16 |
+| [CheckHasConfig](workspace.go/CheckHasConfig.md) | function | 🟢 B | 85.0% | certified | 2026-07-16 |
+| [workspace_test.go](workspace_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-16 |
+| [ConfiguredSubmodules](workspace.go/ConfiguredSubmodules.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-16 |
+| [gradeEmoji](report.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-07-16 |
 
 ---
 
