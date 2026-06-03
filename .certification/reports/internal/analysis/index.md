@@ -2,20 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.7%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 80.6% | certified | 2026-07-17 |
-| [PythonAnalyzer](python_analyzer.go/PythonAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-17 |
-| [NewTSAnalyzer](ts_analyzer.go/NewTSAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-07-17 |
-| [pyComputeNesting](python_analyzer.go/pyComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-07-17 |
-| [rsImplTypeName](rust_analyzer.go/rsImplTypeName.md) | function | 🟢 B | 86.1% | certified | 2026-07-17 |
-| [Languages](analyzer.go/Languages.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-17 |
-| [compute](go_deep.go/compute.md) | method | 🟢 A- | 92.8% | certified | 2026-07-17 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-07-18 |
+| [Discover](ts_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-07-18 |
+| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-07-18 |
+| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-07-18 |
+| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-07-18 |
+| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-18 |
+| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
+| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-07-18 |
+| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
 
 ---
 

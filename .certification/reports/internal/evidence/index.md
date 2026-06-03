@@ -2,15 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.8%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (86.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ToEvidence](metrics.go/ToEvidence.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-17 |
-| [isLetter](metrics.go/isLetter.md) | function | 🟢 A | 93.3% | certified | 2026-07-17 |
+| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-07-18 |
+| [tools_test.go](tools_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-18 |
+| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-18 |
+| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
+| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-18 |
 
 ---
 

@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [constructor](dataLoader.ts/constructor.md) | method | 🟢 A- | 91.3% | certified | 2026-07-17 |
-| [parseGitmodules](dataLoader.ts/parseGitmodules.md) | method | 🟢 A- | 91.3% | certified | 2026-07-17 |
+| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.3% | certified | 2026-07-18 |
+| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.3% | certified | 2026-07-18 |
 
 ---
 
