@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
+**Grade:** 🟢 B+ (89.2%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [scoreAlgoComplexity](scorer.go/scoreAlgoComplexity.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-18 |
-| [scoreStructuralReadability](scorer.go/scoreStructuralReadability.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-18 |
+| [resolveGoPackagePath](certifier.go/resolveGoPackagePath.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-19 |
+| [collectStructuralEvidence](certifier.go/collectStructuralEvidence.md) | method | 🟢 B+ | 90.0% | certified | 2026-07-19 |
 
 ---
 

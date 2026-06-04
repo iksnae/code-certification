@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LoadPolicyPacks](policy.go/LoadPolicyPacks.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
+| [NewPolicyMatcher](matcher.go/NewPolicyMatcher.md) | function | 🟢 A | 93.3% | certified | 2026-07-19 |
 
 ---
 

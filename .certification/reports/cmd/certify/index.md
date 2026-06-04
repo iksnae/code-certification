@@ -1,16 +1,16 @@
-# 🟢 `cmd/certify`
+# 🟡 `cmd/certify`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
+**Grade:** 🟡 C (78.9%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runArchitect](architect_cmd.go/runArchitect.md) | function | 🟢 B | 80.6% | certified | 2026-07-18 |
-| [isLocalURL](certify_cmd.go/isLocalURL.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-18 |
+| [runWorkspaceArchitect](architect_cmd.go/runWorkspaceArchitect.md) | function | 🟡 C | 70.6% | certified_with_observations | 2026-07-19 |
+| [policyVersions](certify_cmd.go/policyVersions.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-19 |
 
 ---
 

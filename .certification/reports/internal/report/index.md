@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Card](card.go/Card.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
+| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-07-19 |
+| [packagePageData](site.go/packagePageData.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-19 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A- | 92.8% | certified | 2026-07-19 |
 
 ---
 

@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (86.9%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IssueConfig](config.go/IssueConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [String](record.go/String.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-18 |
+| [record_test.go](record_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-19 |
+| [expiry_test.go](expiry_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-19 |
 
 ---
 

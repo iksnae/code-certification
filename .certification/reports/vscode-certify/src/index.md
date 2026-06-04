@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.3% | certified | 2026-07-18 |
-| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.3% | certified | 2026-07-18 |
+| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-19 |
+| [BadgeJSON](types.ts/BadgeJSON.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-19 |
+| [loadArchitectMeta](dataLoader.ts/loadArchitectMeta.md) | method | 🟢 A- | 91.3% | certified | 2026-07-19 |
+| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-07-19 |
 
 ---
 

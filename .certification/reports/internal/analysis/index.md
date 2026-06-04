@@ -2,22 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.3%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (85.5%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-07-18 |
-| [Discover](ts_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-07-18 |
-| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-07-18 |
-| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-07-18 |
-| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-07-18 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-18 |
-| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
-| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-07-18 |
-| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
+| [pyFindSymbol](python_analyzer.go/pyFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-07-19 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-07-19 |
+| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-07-19 |
+| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-07-19 |
+| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-19 |
+| [Register](analyzer.go/Register.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-19 |
+| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-19 |
+| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-07-19 |
 
 ---
 

@@ -2,23 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-18 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-18 |
-| [DetectAPIKey](autodetect.go/DetectAPIKey.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
-| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-07-18 |
-| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-07-18 |
+| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-07-19 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-19 |
+| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-19 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-19 |
+| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-19 |
+| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-19 |
+| [runPhase](architect_review.go/runPhase.md) | method | 🟢 A- | 91.1% | certified | 2026-07-19 |
+| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-07-19 |
+| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-07-19 |
 
 ---
 

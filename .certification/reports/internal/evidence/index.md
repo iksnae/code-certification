@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-07-18 |
-| [tools_test.go](tools_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-18 |
-| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-18 |
-| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-18 |
+| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 83.3% | certified | 2026-07-19 |
+| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-19 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-19 |
+| [analyzeAlgoComplexity](structural.go/analyzeAlgoComplexity.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-19 |
+| [isMutableVar](structural.go/isMutableVar.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-19 |
+| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-07-19 |
 
 ---
 

@@ -2,14 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [findSymbolLine](CertifyCodeLensProvider.ts/findSymbolLine.md) | function | 🟢 B+ | 88.1% | certified | 2026-07-18 |
+| [CertifyCodeLensProvider](CertifyCodeLensProvider.ts/CertifyCodeLensProvider.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-19 |
 
 ---
 
