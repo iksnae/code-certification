@@ -2,17 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.8%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (83.3%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [addToolWarn](doctor.go/addToolWarn.md) | method | 🟢 B | 86.1% | certified | 2026-07-19 |
-| [checkProviders](doctor.go/checkProviders.md) | method | 🟢 B | 86.1% | certified | 2026-07-19 |
-| [groupTitle](doctor.go/groupTitle.md) | function | 🟢 B | 86.1% | certified | 2026-07-19 |
-| [Emoji](onboard.go/Emoji.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-19 |
+| [Check](doctor.go/Check.md) | class | 🟢 B | 83.3% | certified | 2026-07-20 |
 
 ---
 
