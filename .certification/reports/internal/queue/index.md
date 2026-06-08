@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BatchNext](queue.go/BatchNext.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-22 |
-| [Next](queue.go/Next.md) | method | 🟢 A | 93.3% | certified | 2026-07-22 |
+| [Reset](queue.go/Reset.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-23 |
 
 ---
 

@@ -2,17 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.4%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (87.5%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseESLintJSON](tools.go/ParseESLintJSON.md) | function | 🟢 B | 85.0% | certified | 2026-07-22 |
-| [ParsePytestJUnitXML](tools.go/ParsePytestJUnitXML.md) | function | 🟢 B | 85.0% | certified | 2026-07-22 |
-| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-22 |
-| [ToEvidence](structural.go/ToEvidence.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-22 |
+| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 83.3% | certified | 2026-07-23 |
+| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-07-23 |
+| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-23 |
+| [countCallExpr](structural.go/countCallExpr.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-23 |
+| [ComputeGoComplexity](complexity.go/ComputeGoComplexity.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-23 |
+| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-23 |
+| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-07-23 |
 
 ---
 
