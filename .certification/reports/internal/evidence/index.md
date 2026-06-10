@@ -2,19 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [coberturaReport](tools.go/coberturaReport.md) | class | 🟢 B | 83.3% | certified | 2026-07-24 |
-| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 85.0% | certified | 2026-07-24 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [computeLoopNesting](structural.go/computeLoopNesting.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [simpleAtoi](runner.go/simpleAtoi.md) | function | 🟢 A | 93.3% | certified | 2026-07-24 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [ParseGolangciLintJSON](runner.go/ParseGolangciLintJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-25 |
 
 ---
 

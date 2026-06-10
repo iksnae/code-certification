@@ -2,16 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ProviderPreset](types.ts/ProviderPreset.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-24 |
-| [constructor](dataLoader.ts/constructor.md) | method | 🟢 A- | 91.3% | certified | 2026-07-24 |
-| [loadArchitectMeta](dataLoader.ts/loadArchitectMeta.md) | method | 🟢 A- | 91.3% | certified | 2026-07-24 |
+| [FullReport](types.ts/FullReport.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-25 |
 
 ---
 

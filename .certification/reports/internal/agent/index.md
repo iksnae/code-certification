@@ -2,29 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 16 · **Passing:** 16 / 16
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-07-24 |
-| [autodetect_test.go](autodetect_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-24 |
-| [models_test.go](models_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-24 |
-| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-24 |
-| [DefaultModels](providers.go/DefaultModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-24 |
-| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-24 |
-| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-24 |
-| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-07-24 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-07-24 |
-| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-07-24 |
+| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-25 |
+| [fallback_test.go](fallback_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-25 |
+| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-25 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
+| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
+| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
 
 ---
 

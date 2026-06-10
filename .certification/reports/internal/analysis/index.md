@@ -2,18 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (85.6%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-07-24 |
-| [SymbolKind](analyzer.go/SymbolKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-24 |
-| [ParamAbstraction](go_deps.go/ParamAbstraction.md) | method | 🟢 A | 93.3% | certified | 2026-07-24 |
+| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-25 |
+| [LSPAnalyzer](lsp_analyzer.go/LSPAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-25 |
+| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-07-25 |
+| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-07-25 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-07-25 |
+| [regression_test.go](regression_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-25 |
+| [Symbol](analyzer.go/Symbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
 
 ---
 

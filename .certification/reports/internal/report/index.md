@@ -2,18 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchHeader](architect_report.go/writeArchHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-24 |
-| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A- | 92.2% | certified | 2026-07-24 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-07-24 |
-| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-07-24 |
+| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-07-25 |
+| [site_templates.go](site_templates.go.md) | file | 🟢 B | 86.1% | certified | 2026-07-25 |
+| [writeHeader](full.go/writeHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
+| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-25 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A- | 92.8% | certified | 2026-07-25 |
+| [unitAnchor](full.go/unitAnchor.md) | function | 🟢 A- | 92.8% | certified | 2026-07-25 |
+| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A- | 92.8% | certified | 2026-07-25 |
+| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
 
 ---
 
