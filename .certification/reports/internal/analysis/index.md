@@ -2,23 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (86.7%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-25 |
-| [LSPAnalyzer](lsp_analyzer.go/LSPAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-25 |
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-07-25 |
-| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-07-25 |
-| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-07-25 |
-| [regression_test.go](regression_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-25 |
-| [Symbol](analyzer.go/Symbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
+| [NewLSPAnalyzer](lsp_analyzer.go/NewLSPAnalyzer.md) | function | 🟡 C | 78.3% | certified_with_observations | 2026-07-26 |
+| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-07-26 |
+| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-07-26 |
+| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-26 |
+| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-26 |
+| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-26 |
+| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-26 |
 
 ---
 

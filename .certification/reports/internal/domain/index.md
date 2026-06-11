@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.0%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [unit_test.go](unit_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-25 |
-| [AnalyzerConfig](config.go/AnalyzerConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [ExpiryFactors](expiry.go/ExpiryFactors.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [Override](override.go/Override.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [override_test.go](override_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [ParseUnitType](unit.go/ParseUnitType.md) | function | 🟢 A- | 92.2% | certified | 2026-07-25 |
+| [config_test.go](config_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [String](config.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-26 |
+| [Duration](expiry.go/Duration.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-26 |
+| [WeightedAverage](dimension.go/WeightedAverage.md) | method | 🟢 A | 93.3% | certified | 2026-07-26 |
 
 ---
 

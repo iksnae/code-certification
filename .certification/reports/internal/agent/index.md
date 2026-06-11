@@ -2,23 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (86.7%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-25 |
-| [fallback_test.go](fallback_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-25 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-25 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-25 |
-| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
-| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
-| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-07-25 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-07-26 |
+| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-07-26 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-07-26 |
+| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-26 |
+| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [Router](router.go/Router.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [Stage](stage.go/Stage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [scoringStage](stage.go/scoringStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
+| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-26 |
+| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-07-26 |
 
 ---
 
