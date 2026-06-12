@@ -2,25 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (87.8%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-07-26 |
-| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-07-26 |
-| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-07-26 |
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-26 |
-| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [Router](router.go/Router.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [Stage](stage.go/Stage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [scoringStage](stage.go/scoringStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-26 |
-| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-07-26 |
+| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-07-27 |
+| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-07-27 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [Choice](types.go/Choice.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-27 |
+| [detectRepoNameFromDir](workspace_snapshot.go/detectRepoNameFromDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-27 |
+| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-07-27 |
 
 ---
 

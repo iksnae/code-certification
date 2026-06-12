@@ -2,17 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (84.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [certifyFlags](certify_cmd.go/certifyFlags.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [getCertifyFlags](certify_cmd.go/getCertifyFlags.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [formatETA](certify_cmd.go/formatETA.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-26 |
-| [bindModelsFlags](models_cmd.go/bindModelsFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-26 |
+| [processQueue](certify_cmd.go/processQueue.md) | method | 🟢 B | 81.7% | certified | 2026-07-27 |
+| [flagStringSlice](root.go/flagStringSlice.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-27 |
 
 ---
 

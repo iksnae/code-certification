@@ -2,21 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewLSPAnalyzer](lsp_analyzer.go/NewLSPAnalyzer.md) | function | 🟡 C | 78.3% | certified_with_observations | 2026-07-26 |
-| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-07-26 |
-| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-07-26 |
-| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-26 |
-| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-26 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-26 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-26 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-07-27 |
+| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-07-27 |
+| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [buildCallGraph](go_deep.go/buildCallGraph.md) | method | 🟢 B+ | 90.0% | certified | 2026-07-27 |
+| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-07-27 |
 
 ---
 

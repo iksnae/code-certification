@@ -2,21 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.5%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B (86.5%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ToolExecutor](executor.go/ToolExecutor.md) | class | 🟢 B | 80.0% | certified | 2026-07-26 |
-| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 83.3% | certified | 2026-07-26 |
-| [eslintMsg](tools.go/eslintMsg.md) | class | 🟢 B | 83.3% | certified | 2026-07-26 |
-| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-07-26 |
-| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-07-26 |
-| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-26 |
-| [runGolangciLintAt](executor.go/runGolangciLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-26 |
-| [collectPythonCoverage](tools.go/collectPythonCoverage.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-26 |
+| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 83.3% | certified | 2026-07-27 |
+| [CoverageMap](coverage.go/CoverageMap.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-27 |
 
 ---
 
