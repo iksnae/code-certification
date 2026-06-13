@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 83.3% | certified | 2026-07-27 |
-| [CoverageMap](coverage.go/CoverageMap.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-27 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-07-28 |
+| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-28 |
 
 ---
 

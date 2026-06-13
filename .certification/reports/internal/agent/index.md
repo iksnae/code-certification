@@ -2,22 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-07-27 |
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-07-27 |
-| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [Choice](types.go/Choice.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-27 |
-| [detectRepoNameFromDir](workspace_snapshot.go/detectRepoNameFromDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-27 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-07-27 |
+| [WorkspaceMetrics](workspace_snapshot.go/WorkspaceMetrics.md) | class | 🟢 B | 83.3% | certified | 2026-07-28 |
+| [Execute](stage.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-28 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
+| [ArchCoverageGap](architect_review.go/ArchCoverageGap.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
+| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
+| [Stage](stage.go/Stage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-28 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-28 |
+| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-28 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-28 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-28 |
+| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-07-28 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-07-28 |
 
 ---
 

@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ApplyAll](applier.go/ApplyAll.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [ApplyAll](applier.go/ApplyAll.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-28 |
 
 ---
 

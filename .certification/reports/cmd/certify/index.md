@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.4%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (85.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [processQueue](certify_cmd.go/processQueue.md) | method | 🟢 B | 81.7% | certified | 2026-07-27 |
-| [flagStringSlice](root.go/flagStringSlice.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-27 |
+| [setupArchitectProvider](architect_cmd.go/setupArchitectProvider.md) | function | 🟢 B | 83.3% | certified | 2026-07-28 |
+| [loadCertifyContext](certify_cmd.go/loadCertifyContext.md) | function | 🟢 B | 84.4% | certified | 2026-07-28 |
+| [detectAPIKeyOnly](certify_cmd.go/detectAPIKeyOnly.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-28 |
 
 ---
 

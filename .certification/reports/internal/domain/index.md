@@ -2,19 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (92.8%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ProviderConfig](config.go/ProviderConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [Dimension](dimension.go/Dimension.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [EvidenceKind](evidence.go/EvidenceKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [Status](record.go/Status.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-27 |
-| [String](evidence.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-27 |
-| [DefaultConfig](config.go/DefaultConfig.md) | function | 🟢 A | 93.3% | certified | 2026-07-27 |
+| [Language](unit.go/Language.md) | method | 🟢 A- | 92.8% | certified | 2026-07-28 |
+| [Path](unit.go/Path.md) | method | 🟢 A- | 92.8% | certified | 2026-07-28 |
 
 ---
 
