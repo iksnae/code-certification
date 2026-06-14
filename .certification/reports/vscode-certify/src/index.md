@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [detectProjectState](dataLoader.ts/detectProjectState.md) | method | 🟢 A- | 91.3% | certified | 2026-07-28 |
-| [loadConfig](dataLoader.ts/loadConfig.md) | method | 🟢 A- | 91.3% | certified | 2026-07-28 |
+| [BRAND_COLORS](constants.ts/BRAND_COLORS.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-29 |
+| [RecordJSON](types.ts/RecordJSON.md) | class | 🟢 B+ | 89.4% | certified | 2026-07-29 |
 
 ---
 

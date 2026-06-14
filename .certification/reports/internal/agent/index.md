@@ -2,27 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 B+ (89.1%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceMetrics](workspace_snapshot.go/WorkspaceMetrics.md) | class | 🟢 B | 83.3% | certified | 2026-07-28 |
-| [Execute](stage.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-07-28 |
-| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
-| [ArchCoverageGap](architect_review.go/ArchCoverageGap.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
-| [Stage](stage.go/Stage.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-28 |
-| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-28 |
-| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-28 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-28 |
-| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-28 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-28 |
-| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-07-28 |
-| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-07-28 |
+| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-07-29 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-29 |
+| [Provider](provider.go/Provider.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-29 |
+| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-29 |
+| [StageResult](stage.go/StageResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-29 |
+| [TaskType](types.go/TaskType.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-29 |
+| [detectCrossDeps](workspace_snapshot.go/detectCrossDeps.md) | function | 🟢 B+ | 89.4% | certified | 2026-07-29 |
+| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-07-29 |
+| [NewCoordinator](pipeline.go/NewCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-07-29 |
+| [ReviewUnit](pipeline.go/ReviewUnit.md) | method | 🟢 A | 93.3% | certified | 2026-07-29 |
 
 ---
 

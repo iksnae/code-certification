@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.1%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (86.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SaveReportArtifactsFromStore](certifier.go/SaveReportArtifactsFromStore.md) | function | 🟢 B | 83.3% | certified | 2026-07-28 |
-| [Certify](certifier.go/Certify.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-28 |
+| [Certifier](certifier.go/Certifier.md) | class | 🟢 B | 83.9% | certified | 2026-07-29 |
+| [setMin](scorer.go/setMin.md) | function | 🟢 B | 83.9% | certified | 2026-07-29 |
+| [Certify](certifier.go/Certify.md) | method | 🟢 B+ | 88.9% | certified | 2026-07-29 |
+| [collectStructuralEvidence](certifier.go/collectStructuralEvidence.md) | method | 🟢 B+ | 90.0% | certified | 2026-07-29 |
 
 ---
 
