@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceReport](report_cmd.go/runWorkspaceReport.md) | function | 🟡 C | 79.4% | certified_with_observations | 2026-07-29 |
-| [reportDirOf](report_cmd.go/reportDirOf.md) | function | 🟢 B | 86.1% | certified | 2026-07-29 |
-| [buildArchitectContext](architect_cmd.go/buildArchitectContext.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-29 |
+| [setupExplicitAgent](certify_cmd.go/setupExplicitAgent.md) | function | 🟢 B | 86.1% | certified | 2026-07-30 |
+| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-07-30 |
+| [certifyContext](certify_cmd.go/certifyContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-30 |
+| [bindReviewFlags](review.go/bindReviewFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-07-30 |
 
 ---
 
