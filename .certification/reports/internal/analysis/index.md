@@ -2,22 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.1%)  
+**Grade:** 🟢 B (85.9%)  
 **Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-07-31 |
-| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-07-31 |
-| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-07-31 |
-| [pyAnalyzeClass](python_analyzer.go/pyAnalyzeClass.md) | function | 🟢 B | 83.3% | certified | 2026-07-31 |
-| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-07-31 |
-| [rsComputeCyclomatic](rust_analyzer.go/rsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-07-31 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-31 |
-| [go_deps_test.go](go_deps_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-31 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-07-31 |
+| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-08-01 |
+| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 82.8% | certified | 2026-08-01 |
+| [goCountNakedReturns](go_analyzer.go/goCountNakedReturns.md) | function | 🟢 B | 86.1% | certified | 2026-08-01 |
+| [goDetectUnsafeImports](go_analyzer.go/goDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-08-01 |
+| [tsComputeNesting](ts_analyzer.go/tsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-01 |
+| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-01 |
+| [Register](analyzer.go/Register.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-01 |
+| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-01 |
 
 ---
 

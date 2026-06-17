@@ -2,26 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 83.3% | certified | 2026-07-31 |
-| [RepoSummary](suggest.go/RepoSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-31 |
-| [TaskType](types.go/TaskType.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-31 |
-| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-31 |
-| [prompts_test.go](prompts_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-07-31 |
-| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 B+ | 87.2% | certified | 2026-07-31 |
-| [DefaultGroqModels](providers.go/DefaultGroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-31 |
-| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-31 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-07-31 |
-| [Stats](pipeline.go/Stats.md) | method | 🟢 A | 93.3% | certified | 2026-07-31 |
-| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2026-07-31 |
-| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-07-31 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-07-31 |
+| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [suggest_test.go](suggest_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-01 |
+| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-08-01 |
 
 ---
 

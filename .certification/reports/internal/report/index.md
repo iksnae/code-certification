@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.2%)  
+**Grade:** 🟢 B+ (89.7%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-07-31 |
-| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-07-31 |
-| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-07-31 |
-| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-07-31 |
-| [formatUnitMarkdownWithNav](report_tree.go/formatUnitMarkdownWithNav.md) | function | 🟢 A | 93.3% | certified | 2026-07-31 |
-| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-07-31 |
+| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 81.1% | certified | 2026-08-01 |
+| [Card](card.go/Card.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-08-01 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A- | 92.8% | certified | 2026-08-01 |
+| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A- | 92.8% | certified | 2026-08-01 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-01 |
 
 ---
 

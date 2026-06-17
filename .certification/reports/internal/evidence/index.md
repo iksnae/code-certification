@@ -2,18 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B (85.8%)  
 **Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseLCOV](tools.go/ParseLCOV.md) | function | 🟢 B | 80.0% | certified | 2026-07-31 |
-| [ParsePytestShort](tools.go/ParsePytestShort.md) | function | 🟢 B | 80.0% | certified | 2026-07-31 |
-| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-07-31 |
-| [DiscoverModuleRoots](modules.go/DiscoverModuleRoots.md) | function | 🟢 A | 93.3% | certified | 2026-07-31 |
-| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-07-31 |
+| [jestJSONOutput](tools.go/jestJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-08-01 |
+| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-08-01 |
+| [runner_test.go](runner_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-01 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-01 |
+| [computeLoopNesting](structural.go/computeLoopNesting.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-01 |
 
 ---
 
