@@ -2,14 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.5%)  
+**Grade:** 🟢 A- (91.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [syncSettingsToConfig](settingsSync.ts/syncSettingsToConfig.md) | function | 🟢 A- | 92.5% | certified | 2026-08-02 |
+| [handleMessage](ConfigPanel.ts/handleMessage.md) | method | 🟢 A- | 91.9% | certified | 2026-08-03 |
 
 ---
 

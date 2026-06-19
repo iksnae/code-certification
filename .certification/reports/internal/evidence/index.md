@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
+**Grade:** 🟢 B+ (89.8%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2026-08-02 |
-| [CoverageProfile](executor.go/CoverageProfile.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-02 |
-| [walkBlock](structural.go/walkBlock.md) | function | 🟢 A | 93.3% | certified | 2026-08-02 |
+| [CoverageMap](coverage.go/CoverageMap.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-03 |
+| [ToEvidence](structural.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-03 |
+| [walkBlock](structural.go/walkBlock.md) | function | 🟢 A | 93.3% | certified | 2026-08-03 |
 
 ---
 

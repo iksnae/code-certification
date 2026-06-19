@@ -2,21 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
+**Grade:** 🟢 B+ (88.4%)  
 **Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-08-02 |
-| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-08-02 |
-| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-02 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-02 |
-| [router_test.go](router_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-02 |
-| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-02 |
-| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-08-02 |
-| [ReviewUnit](pipeline.go/ReviewUnit.md) | method | 🟢 A | 93.3% | certified | 2026-08-02 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-08-03 |
+| [formatHotspots](architect.go/formatHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-03 |
+| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-03 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-03 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-03 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-03 |
+| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-08-03 |
+| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-08-03 |
 
 ---
 

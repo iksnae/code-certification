@@ -2,23 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-08-02 |
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-08-02 |
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-08-02 |
-| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-08-02 |
-| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-08-02 |
-| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-08-02 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-02 |
-| [Languages](analyzer.go/Languages.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-02 |
-| [FanOut](go_deep.go/FanOut.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-02 |
-| [goIsConstLikeExpr](go_analyzer.go/goIsConstLikeExpr.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-02 |
+| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-08-03 |
+| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-08-03 |
+| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-03 |
+| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-03 |
+| [classifyAlgo](go_analyzer.go/classifyAlgo.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-03 |
+| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-08-03 |
 
 ---
 

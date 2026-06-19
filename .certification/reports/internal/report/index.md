@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (86.5%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2026-08-02 |
-| [writeArchRiskMatrix](architect_report.go/writeArchRiskMatrix.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-02 |
-| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-02 |
-| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-02 |
-| [cleanDir](report_tree.go/cleanDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-02 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-02 |
+| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2026-08-03 |
+| [detailed_test.go](detailed_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-03 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-03 |
+| [gradeRow](site.go/gradeRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-03 |
 
 ---
 
