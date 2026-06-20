@@ -2,21 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-08-03 |
-| [formatHotspots](architect.go/formatHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-03 |
-| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-03 |
-| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-03 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-03 |
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-03 |
-| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-08-03 |
-| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-08-03 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-08-04 |
+| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-08-04 |
+| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-08-04 |
+| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
+| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
+| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
+| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
+| [Content](types.go/Content.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-04 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-04 |
+| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-08-04 |
 
 ---
 

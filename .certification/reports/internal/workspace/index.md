@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [workspace_test.go](workspace_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-03 |
+| [workspace_test.go](workspace_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-04 |
 
 ---
 

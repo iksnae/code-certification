@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [findCertifyBinary](certifyBinary.ts/findCertifyBinary.md) | function | 🟢 B | 86.3% | certified | 2026-08-03 |
-| [getUnitsForFile](dataLoader.ts/getUnitsForFile.md) | method | 🟢 A- | 91.3% | certified | 2026-08-03 |
+| [RecordJSON](types.ts/RecordJSON.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-04 |
+| [UnitReport](types.ts/UnitReport.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-04 |
+| [dispose](dataLoader.ts/dispose.md) | method | 🟢 A- | 91.3% | certified | 2026-08-04 |
 
 ---
 
