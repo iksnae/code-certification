@@ -2,25 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (88.8%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-08-04 |
-| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-08-04 |
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 85.0% | certified | 2026-08-04 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
-| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
-| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
-| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
-| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-04 |
-| [Content](types.go/Content.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-04 |
-| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-04 |
-| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-08-04 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-08-05 |
+| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-05 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-05 |
+| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-05 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-05 |
+| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-08-05 |
+| [toResult](pipeline.go/toResult.md) | method | 🟢 A | 93.3% | certified | 2026-08-05 |
 
 ---
 

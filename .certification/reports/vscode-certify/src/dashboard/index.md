@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [computeDeepMetrics](DashboardPanel.ts/computeDeepMetrics.md) | method | 🟢 A- | 91.9% | certified | 2026-08-04 |
+| [constructor](DashboardPanel.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-08-05 |
 
 ---
 

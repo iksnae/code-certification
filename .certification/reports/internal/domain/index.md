@@ -2,17 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [dimension_test.go](dimension_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-04 |
-| [String](evidence.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-04 |
-| [IsPassing](record.go/IsPassing.md) | method | 🟢 A- | 92.8% | certified | 2026-08-04 |
-| [NewUnitID](unit.go/NewUnitID.md) | function | 🟢 A- | 92.8% | certified | 2026-08-04 |
+| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [EnforcingConfig](config.go/EnforcingConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [PolicyConfig](config.go/PolicyConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
+| [Duration](expiry.go/Duration.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-05 |
+| [Path](unit.go/Path.md) | method | 🟢 A- | 92.8% | certified | 2026-08-05 |
 
 ---
 
