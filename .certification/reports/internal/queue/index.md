@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ItemStatus](queue.go/ItemStatus.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-05 |
-| [Enqueue](queue.go/Enqueue.md) | method | 🟢 A | 93.3% | certified | 2026-08-05 |
+| [Item](queue.go/Item.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-06 |
+| [Enqueue](queue.go/Enqueue.md) | method | 🟢 A | 93.3% | certified | 2026-08-06 |
 
 ---
 
