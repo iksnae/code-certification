@@ -2,23 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (88.5%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-08-07 |
-| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-08-07 |
-| [Choice](types.go/Choice.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-07 |
-| [ModelFor](router.go/ModelFor.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-07 |
-| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-07 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 91.7% | certified | 2026-08-07 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-08-07 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-08-07 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-08-07 |
-| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-08-07 |
+| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-08-08 |
+| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-08 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
+| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
+| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
+| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-08 |
+| [packagePath](architect_snapshot.go/packagePath.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
+| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
 
 ---
 
