@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [TextDocumentItem](types.go/TextDocumentItem.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
+| [ClientCapabilities](types.go/ClientCapabilities.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
 
 ---
 

@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (85.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ModuleRoots](executor.go/ModuleRoots.md) | method | 🟢 B | 85.0% | certified | 2026-08-08 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [LintResult](lint.go/LintResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [AttributeLintToUnit](attribution.go/AttributeLintToUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-08 |
-| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-08 |
-| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
+| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-08-09 |
+| [ParsePytestJUnitXML](tools.go/ParsePytestJUnitXML.md) | function | 🟢 B | 85.0% | certified | 2026-08-09 |
+| [modules_test.go](modules_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-09 |
 
 ---
 

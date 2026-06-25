@@ -2,23 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (85.4%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LSPAnalyzer](lsp_analyzer.go/LSPAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-08-08 |
-| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-08-08 |
-| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-08-08 |
-| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-08 |
-| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-08 |
-| [AnalyzeFile](python_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-08 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-08-08 |
-| [CouplingScore](go_deps.go/CouplingScore.md) | method | 🟢 A | 93.3% | certified | 2026-08-08 |
-| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
+| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-08-09 |
+| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-08-09 |
+| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 82.8% | certified | 2026-08-09 |
+| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-08-09 |
+| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-08-09 |
+| [rsUsePath](rust_analyzer.go/rsUsePath.md) | function | 🟢 B | 86.1% | certified | 2026-08-09 |
+| [SymbolKind](analyzer.go/SymbolKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-09 |
+| [compute](go_deep.go/compute.md) | method | 🟢 A- | 92.8% | certified | 2026-08-09 |
 
 ---
 

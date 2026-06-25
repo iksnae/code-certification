@@ -2,21 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-08-08 |
-| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-08 |
-| [packagePath](architect_snapshot.go/packagePath.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
-| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
+| [WorkspaceProjectContext](workspace_snapshot.go/WorkspaceProjectContext.md) | class | 🟢 B | 83.3% | certified | 2026-08-09 |
+| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-08-09 |
+| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [DeepAnalysisAggregates](architect_snapshot.go/DeepAnalysisAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-09 |
+| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-09 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-08-09 |
+| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
 
 ---
 

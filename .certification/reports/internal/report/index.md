@@ -2,19 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 81.1% | certified | 2026-08-08 |
-| [site_test.go](site_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-08-08 |
-| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-08-08 |
-| [gradeRow](site.go/gradeRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-08 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
+| [badge_test.go](badge_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [FullReport](full.go/FullReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [pkgRow](site.go/pkgRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
+| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
+| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
 
 ---
 

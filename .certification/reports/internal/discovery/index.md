@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [TSAdapter](ts_adapter.go/TSAdapter.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [NewTSAdapter](ts_adapter.go/NewTSAdapter.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-08 |
-| [FilterChanged](diff.go/FilterChanged.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-08 |
-| [Save](index.go/Save.md) | method | 🟢 A | 93.3% | certified | 2026-08-08 |
+| [AnalysisAdapter](analysis_adapter.go/AnalysisAdapter.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [Merge](scanner.go/Merge.md) | function | 🟢 A- | 92.8% | certified | 2026-08-09 |
+| [DetectedAdapters](detect.go/DetectedAdapters.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
 
 ---
 

@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.9%)  
+**Grade:** 🟢 A- (90.3%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ModelInfo](types.ts/ModelInfo.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-08 |
-| [computeGrade](dataLoader.ts/computeGrade.md) | function | 🟢 A- | 92.5% | certified | 2026-08-08 |
+| [PROVIDER_PRESETS](constants.ts/PROVIDER_PRESETS.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-09 |
+| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-08-09 |
 
 ---
 

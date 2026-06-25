@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](record.go/String.md) | method | 🟢 B | 82.8% | certified | 2026-08-08 |
-| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [Unit](unit.go/Unit.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-08 |
-| [AllDimensions](dimension.go/AllDimensions.md) | function | 🟢 A | 93.3% | certified | 2026-08-08 |
+| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [Grade](dimension.go/Grade.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [Severity](evidence.go/Severity.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [String](override.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-09 |
+| [ParseStatus](record.go/ParseStatus.md) | function | 🟢 A- | 92.2% | certified | 2026-08-09 |
 
 ---
 

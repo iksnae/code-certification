@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.1%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (80.3%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [gradeEmojiShort](report_cmd.go/gradeEmojiShort.md) | function | 🟢 B | 86.1% | certified | 2026-08-08 |
+| [runWorkspaceArchitect](architect_cmd.go/runWorkspaceArchitect.md) | function | 🟡 C | 70.6% | certified_with_observations | 2026-08-09 |
+| [tryScanSuggestions](scan.go/tryScanSuggestions.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-09 |
 
 ---
 
