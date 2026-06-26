@@ -2,22 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.4%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (86.9%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-08-09 |
-| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-08-09 |
-| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 82.8% | certified | 2026-08-09 |
-| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-08-09 |
-| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-08-09 |
-| [rsUsePath](rust_analyzer.go/rsUsePath.md) | function | 🟢 B | 86.1% | certified | 2026-08-09 |
-| [SymbolKind](analyzer.go/SymbolKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-09 |
-| [compute](go_deep.go/compute.md) | method | 🟢 A- | 92.8% | certified | 2026-08-09 |
+| [tsAnalyzeFunction](ts_analyzer.go/tsAnalyzeFunction.md) | function | 🟢 B | 80.6% | certified | 2026-08-10 |
+| [pyAnalyzeClass](python_analyzer.go/pyAnalyzeClass.md) | function | 🟢 B | 83.3% | certified | 2026-08-10 |
+| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-08-10 |
+| [goWalkNested](go_analyzer.go/goWalkNested.md) | function | 🟢 B | 85.6% | certified | 2026-08-10 |
+| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-08-10 |
+| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-08-10 |
+| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-08-10 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-08-10 |
+| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-08-10 |
+| [ToEvidence](analyzer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-08-10 |
+| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-08-10 |
+| [Instability](go_deps.go/Instability.md) | method | 🟢 A | 93.3% | certified | 2026-08-10 |
 
 ---
 

@@ -2,16 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-08-09 |
-| [ParsePytestJUnitXML](tools.go/ParsePytestJUnitXML.md) | function | 🟢 B | 85.0% | certified | 2026-08-09 |
-| [modules_test.go](modules_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-09 |
+| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-08-10 |
+| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-10 |
+| [CoverageProfile](executor.go/CoverageProfile.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-10 |
+| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-10 |
+| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-10 |
 
 ---
 

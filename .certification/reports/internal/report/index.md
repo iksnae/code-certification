@@ -2,20 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (88.8%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [badge_test.go](badge_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [FullReport](full.go/FullReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [pkgRow](site.go/pkgRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
-| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
-| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
+| [badge_test.go](badge_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [indexData](site.go/indexData.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-08-10 |
 
 ---
 

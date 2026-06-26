@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ClientCapabilities](types.go/ClientCapabilities.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
+| [DidOpenTextDocumentParams](types.go/DidOpenTextDocumentParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
 
 ---
 

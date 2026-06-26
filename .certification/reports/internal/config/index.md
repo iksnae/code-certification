@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Load](loader.go/Load.md) | function | 🟢 B | 82.8% | certified | 2026-08-09 |
-| [isLocalURL](validator.go/isLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
+| [rawPolicyPack](policy.go/rawPolicyPack.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [LoadFile](loader.go/LoadFile.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-10 |
 
 ---
 

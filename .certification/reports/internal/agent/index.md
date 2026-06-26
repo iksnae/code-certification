@@ -2,23 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceProjectContext](workspace_snapshot.go/WorkspaceProjectContext.md) | class | 🟢 B | 83.3% | certified | 2026-08-09 |
-| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-08-09 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [DeepAnalysisAggregates](architect_snapshot.go/DeepAnalysisAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [prompts_test.go](prompts_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-09 |
-| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-09 |
-| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-09 |
-| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-08-09 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-08-09 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-08-10 |
+| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [formatCoverageMetrics](architect.go/formatCoverageMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2026-08-10 |
+| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-08-10 |
 
 ---
 

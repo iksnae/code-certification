@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.8%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PROVIDER_PRESETS](constants.ts/PROVIDER_PRESETS.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-09 |
-| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.3% | certified | 2026-08-09 |
+| [cachedBinaryPath](certifyBinary.ts/cachedBinaryPath.md) | function | 🟢 B+ | 87.5% | certified | 2026-08-10 |
+| [CertifyConfig](types.ts/CertifyConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-10 |
+| [IndexEntry](types.ts/IndexEntry.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-10 |
 
 ---
 
