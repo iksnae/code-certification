@@ -2,19 +2,28 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.0%)  
+**Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 83.3% | certified | 2026-08-10 |
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-10 |
-| [formatCoverageMetrics](architect.go/formatCoverageMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-10 |
-| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
-| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2026-08-10 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-08-10 |
+| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 83.3% | certified | 2026-08-11 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-11 |
+| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
+| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
+| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
+| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
+| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-11 |
+| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-11 |
+| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-11 |
+| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-11 |
+| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-11 |
+| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-08-11 |
+| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-08-11 |
+| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-08-11 |
+| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2026-08-11 |
 
 ---
 

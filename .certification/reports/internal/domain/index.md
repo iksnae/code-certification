@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DimensionScores](dimension.go/DimensionScores.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
-| [policy_test.go](policy_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-10 |
+| [String](dimension.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-11 |
+| [RemainingAt](expiry.go/RemainingAt.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-11 |
 
 ---
 

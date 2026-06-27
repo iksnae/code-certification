@@ -2,20 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-08-10 |
-| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-10 |
-| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-10 |
-| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-10 |
-| [CoverageProfile](executor.go/CoverageProfile.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-10 |
-| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-10 |
-| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-10 |
+| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-08-11 |
+| [ParseRuffJSON](tools.go/ParseRuffJSON.md) | function | 🟢 B | 85.0% | certified | 2026-08-11 |
+| [tools_test.go](tools_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-11 |
+| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-08-11 |
+| [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 A- | 92.8% | certified | 2026-08-11 |
+| [walkStmt](structural.go/walkStmt.md) | function | 🟢 A | 93.3% | certified | 2026-08-11 |
 
 ---
 

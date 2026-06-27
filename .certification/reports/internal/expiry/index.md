@@ -1,15 +1,15 @@
-# 🟢 `vscode-certify/src`
+# 🟢 `internal/expiry`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
+**Grade:** 🟢 B+ (87.2%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [detectProjectState](dataLoader.ts/detectProjectState.md) | method | 🟢 A- | 91.3% | certified | 2026-08-11 |
+| [calculator_test.go](calculator_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-11 |
 
 ---
 

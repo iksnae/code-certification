@@ -2,25 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B (84.2%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsAnalyzeFunction](ts_analyzer.go/tsAnalyzeFunction.md) | function | 🟢 B | 80.6% | certified | 2026-08-10 |
-| [pyAnalyzeClass](python_analyzer.go/pyAnalyzeClass.md) | function | 🟢 B | 83.3% | certified | 2026-08-10 |
-| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-08-10 |
-| [goWalkNested](go_analyzer.go/goWalkNested.md) | function | 🟢 B | 85.6% | certified | 2026-08-10 |
-| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-08-10 |
-| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-08-10 |
-| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-08-10 |
-| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-08-10 |
-| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-08-10 |
-| [ToEvidence](analyzer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-08-10 |
-| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-08-10 |
-| [Instability](go_deps.go/Instability.md) | method | 🟢 A | 93.3% | certified | 2026-08-10 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-08-11 |
+| [rsFindSymbol](rust_analyzer.go/rsFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-08-11 |
+| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-08-11 |
+| [goComputeNestingDepth](go_analyzer.go/goComputeNestingDepth.md) | function | 🟢 B | 86.1% | certified | 2026-08-11 |
+| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-08-11 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-08-11 |
+| [funcKeyFromSSA](go_deep.go/funcKeyFromSSA.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-11 |
+| [AnalyzeFile](ts_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-11 |
 
 ---
 
