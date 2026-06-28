@@ -2,28 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 83.3% | certified | 2026-08-11 |
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-11 |
-| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
-| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
-| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-11 |
-| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-11 |
-| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-11 |
-| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-11 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-11 |
-| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-11 |
-| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-08-11 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-08-11 |
-| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-08-11 |
-| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2026-08-11 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-08-12 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-12 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-12 |
+| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-12 |
+| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-12 |
+| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-12 |
+| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-08-12 |
 
 ---
 

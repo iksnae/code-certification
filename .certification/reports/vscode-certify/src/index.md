@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (85.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [detectProjectState](dataLoader.ts/detectProjectState.md) | method | 🟢 A- | 91.3% | certified | 2026-08-11 |
+| [activate](extension.ts/activate.md) | function | 🟢 B | 80.6% | certified | 2026-08-12 |
+| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-12 |
 
 ---
 
