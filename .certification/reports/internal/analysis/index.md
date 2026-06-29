@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.4%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewGoAnalyzer](go_analyzer.go/NewGoAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-08-12 |
-| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-08-12 |
-| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-08-12 |
+| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-08-13 |
+| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-08-13 |
+| [goWalkBlock](go_analyzer.go/goWalkBlock.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-13 |
+| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-08-13 |
 
 ---
 

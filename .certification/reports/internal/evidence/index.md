@@ -2,16 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (86.8%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 83.3% | certified | 2026-08-12 |
-| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-12 |
-| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2026-08-12 |
+| [cargoSpan](tools.go/cargoSpan.md) | class | 🟢 B | 83.3% | certified | 2026-08-13 |
+| [GitStats](git.go/GitStats.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [isConstLikeCall](structural.go/isConstLikeCall.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [isMutableVar](structural.go/isMutableVar.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [ToEvidence](structural.go/ToEvidence.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-13 |
 
 ---
 

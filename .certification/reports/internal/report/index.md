@@ -2,17 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.8%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-12 |
-| [SiteConfig](site.go/SiteConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-12 |
-| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-12 |
-| [buildUnitNavMaps](site.go/buildUnitNavMaps.md) | function | 🟢 A- | 92.8% | certified | 2026-08-12 |
+| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 85.0% | certified | 2026-08-13 |
+| [card_test.go](card_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-13 |
+| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [dimRow](site.go/dimRow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 A- | 90.6% | certified | 2026-08-13 |
+| [unitAnchor](full.go/unitAnchor.md) | function | 🟢 A- | 92.8% | certified | 2026-08-13 |
+| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-08-13 |
 
 ---
 

@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.3%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](config.go/String.md) | method | 🟢 B | 82.8% | certified | 2026-08-12 |
-| [String](override.go/String.md) | method | 🟢 B | 82.8% | certified | 2026-08-12 |
-| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-12 |
-| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-12 |
-| [RemainingAt](expiry.go/RemainingAt.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-12 |
-| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-12 |
+| [GenerateRunID](record.go/GenerateRunID.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-13 |
+| [IsPassing](record.go/IsPassing.md) | method | 🟢 A- | 92.8% | certified | 2026-08-13 |
+| [Language](unit.go/Language.md) | method | 🟢 A- | 92.8% | certified | 2026-08-13 |
 
 ---
 

@@ -2,20 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_test.go](architect_test.go.md) | file | 🟢 B | 81.7% | certified | 2026-08-12 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-12 |
-| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-12 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-12 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-12 |
-| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-12 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-08-12 |
+| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-08-13 |
+| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [formatCodeMetrics](architect.go/formatCodeMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-13 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-13 |
+| [DetectAPIKey](autodetect.go/DetectAPIKey.md) | function | 🟢 A | 93.3% | certified | 2026-08-13 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-08-13 |
+| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-08-13 |
 
 ---
 
