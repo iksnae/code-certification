@@ -1,6 +1,6 @@
-# 🟢 `formatHeader`
+# 🟢 `UnusedParams`
 
-[← internal/agent](../index.md)
+[← internal/analysis](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/architect.go#formatHeader` |
-| **Type** | function |
-| **Path** | `internal/agent/architect.go` |
+| **Unit ID** | `go://internal/analysis/go_refine.go#UnusedParams` |
+| **Type** | method |
+| **Path** | `internal/analysis/go_refine.go` |
 | **Language** | go |
-| **Symbol** | `formatHeader` |
+| **Symbol** | `UnusedParams` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **B+** |
-| **Score** | 87.2% |
+| **Grade** | 🟢 **A** |
+| **Score** | 93.3% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-07-01 |
@@ -30,7 +30,7 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 65.0% | █████████████░░░░░░░ |
+| architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
 | maintainability | 95.0% | ███████████████████░ |
@@ -38,7 +38,7 @@
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
-| testability | 65.0% | █████████████░░░░░░░ |
+| testability | 90.0% | ██████████████████░░ |
 
 ## Evidence
 
@@ -96,69 +96,69 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-15 lines (15 code, 0 comment, 0 blank), 0 TODOs, complexity 6
+42 lines (34 code, 4 comment, 4 blank), 0 TODOs, complexity 12
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 0 |
-| `code_lines` | 15 |
-| `comment_lines` | 0 |
-| `complexity` | 6 |
+| `blank_lines` | 4 |
+| `code_lines` | 34 |
+| `comment_lines` | 4 |
+| `complexity` | 12 |
 | `todo_count` | 0 |
-| `total_lines` | 15 |
+| `total_lines` | 42 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 95%
+per-unit coverage: 40%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.95 |
+| `unit_test_coverage` | 0.40 |
 
 ### ✅ structural (`structural`)
 
-structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=4
+structural: params=2 returns=1 nesting=3 doc=true exported=true cognitive=18
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 4 |
+| `cognitive_complexity` | 18 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 0 |
-| `func_lines` | 13 |
+| `exported_name` | 1 |
+| `func_lines` | 38 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 0 |
+| `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 1 |
+| `loop_nesting_depth` | 2 |
+| `max_nesting_depth` | 3 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
-| `nested_loop_pairs` | 0 |
+| `nested_loop_pairs` | 1 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
 | `param_count` | 2 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 0 |
+| `return_count` | 1 |
 | `unsafe_import_count` | 0 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=3 dead=false depth=1 instab=0.20
+deep: fan_in=1 fan_out=4 dead=false depth=1 instab=0.33
 
 | Metric | Value |
 |--------|------:|
-| `concrete_deps` | 1 |
-| `coupling_score` | 0.03 |
+| `concrete_deps` | 0 |
+| `coupling_score` | 0.04 |
 | `dep_depth` | 1 |
 | `fan_in` | 1 |
-| `fan_out` | 3 |
-| `instability` | 0.20 |
+| `fan_out` | 4 |
+| `instability` | 0.33 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |

@@ -1,16 +1,16 @@
-# 🟢 `cmd/certify`
+# 🟢 `internal/record`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
+**Grade:** 🟢 A- (90.3%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runParams](certify_cmd.go/runParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-15 |
-| [runWorkspaceScan](scan.go/runWorkspaceScan.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-15 |
+| [toJSON](store.go/toJSON.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-15 |
+| [fromJSON](store.go/fromJSON.md) | function | 🟢 A | 93.3% | certified | 2026-08-15 |
 
 ---
 

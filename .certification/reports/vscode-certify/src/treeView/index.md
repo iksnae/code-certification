@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [worstGrade](CertificationTreeProvider.ts/worstGrade.md) | function | 🟢 A- | 91.9% | certified | 2026-08-14 |
+| [buildWorkspaceItems](CertificationTreeProvider.ts/buildWorkspaceItems.md) | method | 🟢 A- | 91.9% | certified | 2026-08-15 |
 
 ---
 

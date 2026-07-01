@@ -1,4 +1,4 @@
-# 🟢 `cmd/certify`
+# 🟢 `internal/github`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runParams](certify_cmd.go/runParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-15 |
-| [runWorkspaceScan](scan.go/runWorkspaceScan.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-15 |
+| [workflows_test.go](workflows_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-15 |
+| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-15 |
 
 ---
 

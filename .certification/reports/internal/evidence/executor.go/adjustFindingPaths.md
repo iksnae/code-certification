@@ -1,6 +1,6 @@
-# 🟢 `formatHeader`
+# 🟢 `adjustFindingPaths`
 
-[← internal/agent](../index.md)
+[← internal/evidence](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/architect.go#formatHeader` |
-| **Type** | function |
-| **Path** | `internal/agent/architect.go` |
+| **Unit ID** | `go://internal/evidence/executor.go#adjustFindingPaths` |
+| **Type** | method |
+| **Path** | `internal/evidence/executor.go` |
 | **Language** | go |
-| **Symbol** | `formatHeader` |
+| **Symbol** | `adjustFindingPaths` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **B+** |
-| **Score** | 87.2% |
+| **Score** | 89.4% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-07-01 |
@@ -30,15 +30,15 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 65.0% | █████████████░░░░░░░ |
+| architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
 | maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
-| security | 85.0% | █████████████████░░░ |
-| testability | 65.0% | █████████████░░░░░░░ |
+| security | 50.0% | ██████████░░░░░░░░░░ |
+| testability | 90.0% | ██████████████████░░ |
 
 ## Evidence
 
@@ -96,32 +96,32 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-15 lines (15 code, 0 comment, 0 blank), 0 TODOs, complexity 6
+18 lines (15 code, 3 comment, 0 blank), 0 TODOs, complexity 7
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
 | `code_lines` | 15 |
-| `comment_lines` | 0 |
-| `complexity` | 6 |
+| `comment_lines` | 3 |
+| `complexity` | 7 |
 | `todo_count` | 0 |
-| `total_lines` | 15 |
+| `total_lines` | 18 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 95%
+per-unit coverage: 3%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.95 |
+| `unit_test_coverage` | 0.03 |
 
 ### ✅ structural (`structural`)
 
-structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=4
+structural: params=2 returns=0 nesting=2 doc=true exported=false cognitive=5
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 4 |
+| `cognitive_complexity` | 5 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
@@ -131,11 +131,11 @@ structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=4
 | `func_lines` | 13 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 0 |
+| `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 1 |
+| `loop_nesting_depth` | 1 |
+| `max_nesting_depth` | 2 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
@@ -145,24 +145,28 @@ structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=4
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
 | `return_count` | 0 |
-| `unsafe_import_count` | 0 |
+| `unsafe_import_count` | 1 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=3 dead=false depth=1 instab=0.20
+deep: fan_in=5 fan_out=3 dead=false depth=1 instab=0.25
 
 | Metric | Value |
 |--------|------:|
-| `concrete_deps` | 1 |
-| `coupling_score` | 0.03 |
+| `concrete_deps` | 0 |
+| `coupling_score` | 0.15 |
 | `dep_depth` | 1 |
-| `fan_in` | 1 |
+| `fan_in` | 5 |
 | `fan_out` | 3 |
-| `instability` | 0.20 |
+| `instability` | 0.25 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
+
+## Observations
+
+- unsafe_import_count: 1 exceeds threshold 0
 
 ---
 

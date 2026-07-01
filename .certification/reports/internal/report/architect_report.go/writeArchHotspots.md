@@ -1,6 +1,6 @@
-# 🟢 `formatHeader`
+# 🟢 `writeArchHotspots`
 
-[← internal/agent](../index.md)
+[← internal/report](../index.md)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/architect.go#formatHeader` |
+| **Unit ID** | `go://internal/report/architect_report.go#writeArchHotspots` |
 | **Type** | function |
-| **Path** | `internal/agent/architect.go` |
+| **Path** | `internal/report/architect_report.go` |
 | **Language** | go |
-| **Symbol** | `formatHeader` |
+| **Symbol** | `writeArchHotspots` |
 
 ## Certification
 
@@ -96,45 +96,45 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-15 lines (15 code, 0 comment, 0 blank), 0 TODOs, complexity 6
+14 lines (14 code, 0 comment, 0 blank), 0 TODOs, complexity 3
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 15 |
+| `code_lines` | 14 |
 | `comment_lines` | 0 |
-| `complexity` | 6 |
+| `complexity` | 3 |
 | `todo_count` | 0 |
-| `total_lines` | 15 |
+| `total_lines` | 14 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 95%
+per-unit coverage: 89%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.95 |
+| `unit_test_coverage` | 0.89 |
 
 ### ✅ structural (`structural`)
 
-structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=4
+structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=2
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 4 |
+| `cognitive_complexity` | 2 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 0 |
-| `func_lines` | 13 |
+| `func_lines` | 12 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 0 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
+| `loop_nesting_depth` | 1 |
 | `max_nesting_depth` | 1 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
@@ -149,16 +149,16 @@ structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=4
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=3 dead=false depth=1 instab=0.20
+deep: fan_in=1 fan_out=2 dead=false depth=2 instab=0.40
 
 | Metric | Value |
 |--------|------:|
-| `concrete_deps` | 1 |
-| `coupling_score` | 0.03 |
-| `dep_depth` | 1 |
+| `concrete_deps` | 2 |
+| `coupling_score` | 0.02 |
+| `dep_depth` | 2 |
 | `fan_in` | 1 |
-| `fan_out` | 3 |
-| `instability` | 0.20 |
+| `fan_out` | 2 |
+| `instability` | 0.40 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |

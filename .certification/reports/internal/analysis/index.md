@@ -2,17 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.8%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.5%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-08-14 |
-| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-08-14 |
-| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2026-08-14 |
-| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-08-14 |
+| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-08-15 |
+| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 82.8% | certified | 2026-08-15 |
+| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-08-15 |
+| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-08-15 |
+| [rsComputeNesting](rust_analyzer.go/rsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-15 |
+| [tsHasReturnWithValue](ts_analyzer.go/tsHasReturnWithValue.md) | function | 🟢 B | 86.1% | certified | 2026-08-15 |
+| [regression_test.go](regression_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-15 |
+| [classifyAlgo](go_analyzer.go/classifyAlgo.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-15 |
+| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-08-15 |
 
 ---
 

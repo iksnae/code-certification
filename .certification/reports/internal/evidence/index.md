@@ -2,17 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 83.3% | certified | 2026-08-14 |
-| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-14 |
-| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-14 |
-| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-14 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-15 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-15 |
+| [countGlobalMutables](structural.go/countGlobalMutables.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-15 |
+| [isConstLikeCall](structural.go/isConstLikeCall.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-15 |
+| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-15 |
+| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-15 |
+| [NewToolExecutor](executor.go/NewToolExecutor.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-15 |
+| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-15 |
 
 ---
 

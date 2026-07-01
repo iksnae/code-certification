@@ -1,6 +1,6 @@
-# 🟢 `formatHeader`
+# 🟢 `countGlobalMutables`
 
-[← internal/agent](../index.md)
+[← internal/evidence](../index.md)
 
 ---
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/architect.go#formatHeader` |
+| **Unit ID** | `go://internal/evidence/structural.go#countGlobalMutables` |
 | **Type** | function |
-| **Path** | `internal/agent/architect.go` |
+| **Path** | `internal/evidence/structural.go` |
 | **Language** | go |
-| **Symbol** | `formatHeader` |
+| **Symbol** | `countGlobalMutables` |
 
 ## Certification
 
@@ -96,69 +96,69 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-15 lines (15 code, 0 comment, 0 blank), 0 TODOs, complexity 6
+20 lines (17 code, 3 comment, 0 blank), 0 TODOs, complexity 5
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 15 |
-| `comment_lines` | 0 |
-| `complexity` | 6 |
+| `code_lines` | 17 |
+| `comment_lines` | 3 |
+| `complexity` | 5 |
 | `todo_count` | 0 |
-| `total_lines` | 15 |
+| `total_lines` | 20 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 95%
+per-unit coverage: 90%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.95 |
+| `unit_test_coverage` | 0.90 |
 
 ### ✅ structural (`structural`)
 
-structural: params=2 returns=0 nesting=1 doc=false exported=false cognitive=4
+structural: params=1 returns=1 nesting=2 doc=true exported=false cognitive=6
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 4 |
+| `cognitive_complexity` | 6 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 0 |
-| `func_lines` | 13 |
+| `func_lines` | 15 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 0 |
+| `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 1 |
+| `loop_nesting_depth` | 1 |
+| `max_nesting_depth` | 2 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 2 |
+| `param_count` | 1 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 0 |
+| `return_count` | 1 |
 | `unsafe_import_count` | 0 |
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=3 dead=false depth=1 instab=0.20
+deep: fan_in=1 fan_out=1 dead=false depth=1 instab=0.25
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 1 |
-| `coupling_score` | 0.03 |
+| `coupling_score` | 0.01 |
 | `dep_depth` | 1 |
 | `fan_in` | 1 |
-| `fan_out` | 3 |
-| `instability` | 0.20 |
+| `fan_out` | 1 |
+| `instability` | 0.25 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |
