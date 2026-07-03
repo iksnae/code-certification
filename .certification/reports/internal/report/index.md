@@ -2,21 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.5%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [site_templates.go](site_templates.go.md) | file | 🟢 B | 86.1% | certified | 2026-08-16 |
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-08-16 |
-| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-16 |
-| [buildUnitPageData](site.go/buildUnitPageData.md) | function | 🟢 A- | 92.2% | certified | 2026-08-16 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-08-16 |
-| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A- | 92.8% | certified | 2026-08-16 |
-| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2026-08-16 |
-| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-08-16 |
+| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 85.0% | certified | 2026-08-17 |
+| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-17 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-08-17 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
+| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
 
 ---
 

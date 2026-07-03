@@ -2,17 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (91.3%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [promptInstall](certifyBinary.ts/promptInstall.md) | function | 🟢 B+ | 88.1% | certified | 2026-08-16 |
-| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-16 |
-| [IssueCard](types.ts/IssueCard.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-16 |
-| [architectReviewPath](dataLoader.ts/architectReviewPath.md) | method | 🟢 A- | 91.3% | certified | 2026-08-16 |
+| [parseGitmodules](dataLoader.ts/parseGitmodules.md) | method | 🟢 A- | 91.3% | certified | 2026-08-17 |
 
 ---
 
