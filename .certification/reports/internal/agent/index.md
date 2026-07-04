@@ -2,22 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-08-17 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-17 |
-| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
-| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
+| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-08-18 |
+| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-18 |
+| [Name](fallback.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-18 |
+| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-18 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-08-18 |
+| [stripThinkTags](architect_review.go/stripThinkTags.md) | function | 🟢 A | 93.3% | certified | 2026-08-18 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-08-18 |
+| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-08-18 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-08-18 |
 
 ---
 

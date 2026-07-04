@@ -2,21 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.9%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B (85.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsDiscoverNode](ts_analyzer.go/tsDiscoverNode.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-08-17 |
-| [goCognitiveStmt](go_analyzer.go/goCognitiveStmt.md) | function | 🟢 B | 82.2% | certified | 2026-08-17 |
-| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-08-17 |
-| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-08-17 |
-| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-08-17 |
-| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-08-17 |
-| [UnusedSymbol](go_deep.go/UnusedSymbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-08-17 |
+| [tsDiscoverNode](ts_analyzer.go/tsDiscoverNode.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-08-18 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-08-18 |
+| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [goCognitiveWalk](go_analyzer.go/goCognitiveWalk.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-18 |
+| [Instability](go_deps.go/Instability.md) | method | 🟢 A | 93.3% | certified | 2026-08-18 |
 
 ---
 

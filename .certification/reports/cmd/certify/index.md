@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B+ (88.0%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [certifyContext](certify_cmd.go/certifyContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [cli_test.go](cli_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [flagInt](root.go/flagInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-17 |
+| [flagBool](root.go/flagBool.md) | function | 🟢 B | 86.7% | certified | 2026-08-18 |
+| [filterUnits](certify_cmd.go/filterUnits.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [bindOnboardFlags](onboard_cmd.go/bindOnboardFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-18 |
 
 ---
 

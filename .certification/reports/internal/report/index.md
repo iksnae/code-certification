@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 85.0% | certified | 2026-08-17 |
-| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-08-17 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
-| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
+| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [Card](card.go/Card.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [indexData](site.go/indexData.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-18 |
 
 ---
 

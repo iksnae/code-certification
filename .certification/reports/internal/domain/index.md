@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.1%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DimensionWeights](dimension.go/DimensionWeights.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [Violation](policy.go/Violation.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-17 |
-| [Validate](override.go/Validate.md) | method | 🟢 A- | 92.2% | certified | 2026-08-17 |
+| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [DimensionWeights](dimension.go/DimensionWeights.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [Path](unit.go/Path.md) | method | 🟢 A- | 92.8% | certified | 2026-08-18 |
 
 ---
 

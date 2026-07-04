@@ -2,23 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.3%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseLCOV](tools.go/ParseLCOV.md) | function | 🟢 B | 80.0% | certified | 2026-08-17 |
-| [structural_test.go](structural_test.go.md) | file | 🟢 B | 83.3% | certified | 2026-08-17 |
-| [coberturaReport](tools.go/coberturaReport.md) | class | 🟢 B | 83.3% | certified | 2026-08-17 |
-| [ParseCargoClippyJSON](tools.go/ParseCargoClippyJSON.md) | function | 🟢 B | 85.0% | certified | 2026-08-17 |
-| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-08-17 |
-| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-17 |
-| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-17 |
-| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-17 |
-| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2026-08-17 |
+| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-08-18 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-18 |
+| [FindModuleForUnit](modules.go/FindModuleForUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-18 |
+| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-18 |
+| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-18 |
 
 ---
 

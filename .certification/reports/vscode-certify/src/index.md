@@ -3,13 +3,14 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (91.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [parseGitmodules](dataLoader.ts/parseGitmodules.md) | method | 🟢 A- | 91.3% | certified | 2026-08-17 |
+| [dispose](dataLoader.ts/dispose.md) | method | 🟢 A- | 91.3% | certified | 2026-08-18 |
+| [hasArchitectReview](dataLoader.ts/hasArchitectReview.md) | method | 🟢 A- | 91.3% | certified | 2026-08-18 |
 
 ---
 
