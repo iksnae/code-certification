@@ -3,14 +3,13 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 B (85.0%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertifyUnit](pipeline.go/CertifyUnit.md) | function | 🟢 B | 82.8% | certified | 2026-08-19 |
-| [scoreFromGitHistory](scorer.go/scoreFromGitHistory.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-19 |
+| [scorer_test.go](scorer_test.go.md) | file | 🟢 B | 85.0% | certified | 2026-08-20 |
 
 ---
 

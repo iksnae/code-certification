@@ -2,18 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (87.0%)  
+**Grade:** 🟢 A- (90.6%)  
 **Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [detailed_test.go](detailed_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-19 |
-| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-08-19 |
-| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-19 |
+| [card_test.go](card_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-20 |
+| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-20 |
+| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A- | 92.8% | certified | 2026-08-20 |
+| [dirOf](full.go/dirOf.md) | function | 🟢 A- | 92.8% | certified | 2026-08-20 |
+| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-08-20 |
 
 ---
 

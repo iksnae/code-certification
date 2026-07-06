@@ -2,22 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.4%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (87.0%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-08-19 |
-| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-08-19 |
-| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-08-19 |
-| [NewTSAnalyzer](ts_analyzer.go/NewTSAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-08-19 |
-| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2026-08-19 |
-| [Metrics](analyzer.go/Metrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-19 |
-| [goWalkBlock](go_analyzer.go/goWalkBlock.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-19 |
-| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-08-19 |
+| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-08-20 |
+| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 82.8% | certified | 2026-08-20 |
+| [tsNodeName](ts_analyzer.go/tsNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-08-20 |
+| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-08-20 |
+| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-08-20 |
+| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-20 |
+| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-08-20 |
+| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-08-20 |
+| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-20 |
+| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-08-20 |
+| [Instability](go_deps.go/Instability.md) | method | 🟢 A | 93.3% | certified | 2026-08-20 |
 
 ---
 

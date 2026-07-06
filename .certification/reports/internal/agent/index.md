@@ -2,24 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.0%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-08-19 |
-| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [router_test.go](router_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [TaskType](types.go/TaskType.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-19 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-19 |
-| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-19 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-19 |
-| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-19 |
-| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-08-19 |
+| [formatLayerMap](architect.go/formatLayerMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-20 |
+| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-20 |
+| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-20 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-20 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-20 |
+| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-20 |
+| [NewFallbackProvider](fallback.go/NewFallbackProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-20 |
+| [NewPipeline](pipeline.go/NewPipeline.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-20 |
+| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-20 |
+| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-20 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-08-20 |
+| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-08-20 |
 
 ---
 
