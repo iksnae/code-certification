@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [collections](content.config.ts/collections.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-20 |
+| [collections](content.config.ts/collections.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-21 |
 
 ---
 
