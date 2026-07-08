@@ -9,9 +9,9 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FullReport](types.ts/FullReport.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-21 |
-| [loadArchitectMeta](dataLoader.ts/loadArchitectMeta.md) | method | 🟢 A- | 91.3% | certified | 2026-08-21 |
-| [ensureBinary](extension.ts/ensureBinary.md) | function | 🟢 A- | 92.5% | certified | 2026-08-21 |
+| [ModelInfo](types.ts/ModelInfo.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-22 |
+| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.3% | certified | 2026-08-22 |
+| [ensureBinary](extension.ts/ensureBinary.md) | function | 🟢 A- | 92.5% | certified | 2026-08-22 |
 
 ---
 

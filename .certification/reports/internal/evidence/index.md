@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (85.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 83.3% | certified | 2026-08-21 |
-| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-08-21 |
-| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-21 |
+| [ParsePytestShort](tools.go/ParsePytestShort.md) | function | 🟢 B | 80.0% | certified | 2026-08-22 |
+| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-08-22 |
+| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-22 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-22 |
 
 ---
 

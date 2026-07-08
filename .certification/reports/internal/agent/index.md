@@ -2,23 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-08-21 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-21 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-21 |
-| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-21 |
-| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-21 |
-| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-21 |
-| [scoringStage](stage.go/scoringStage.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-21 |
-| [parseGoModReplaces](workspace_snapshot.go/parseGoModReplaces.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-21 |
-| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-08-21 |
-| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-08-21 |
+| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-08-22 |
+| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-22 |
+| [formatDeepAnalysisMetrics](architect.go/formatDeepAnalysisMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-22 |
+| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-22 |
+| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-22 |
+| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-22 |
+| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-08-22 |
+| [joinModels](reviewer.go/joinModels.md) | function | 🟢 A | 93.3% | certified | 2026-08-22 |
+| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-08-22 |
 
 ---
 

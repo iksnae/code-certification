@@ -2,23 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.7%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pyAnalyzeFunction](python_analyzer.go/pyAnalyzeFunction.md) | function | 🟢 B | 80.0% | certified | 2026-08-21 |
-| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-08-21 |
-| [FanOut](lsp_analyzer.go/FanOut.md) | method | 🟢 B | 82.2% | certified | 2026-08-21 |
-| [pyAnalyzeClass](python_analyzer.go/pyAnalyzeClass.md) | function | 🟢 B | 83.3% | certified | 2026-08-21 |
-| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-08-21 |
-| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-08-21 |
-| [tsNodeName](ts_analyzer.go/tsNodeName.md) | function | 🟢 B | 85.6% | certified | 2026-08-21 |
-| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-08-21 |
-| [tsCountRecursive](ts_analyzer.go/tsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-08-21 |
-| [CouplingScore](go_deps.go/CouplingScore.md) | method | 🟢 A | 93.3% | certified | 2026-08-21 |
+| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-08-22 |
+| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-22 |
+| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-08-22 |
+| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-22 |
+| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-08-22 |
+| [TypeAwareErrorWrapping](go_refine.go/TypeAwareErrorWrapping.md) | method | 🟢 A | 93.3% | certified | 2026-08-22 |
 
 ---
 
