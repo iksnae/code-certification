@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [parseFile](go_adapter.go/parseFile.md) | method | 🟢 B+ | 87.8% | certified | 2026-08-22 |
+| [diff_test.go](diff_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-23 |
+| [NewGenericScanner](generic.go/NewGenericScanner.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-23 |
 
 ---
 

@@ -2,22 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-08-22 |
-| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-22 |
-| [formatDeepAnalysisMetrics](architect.go/formatDeepAnalysisMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-22 |
-| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-22 |
-| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-22 |
-| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-22 |
-| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-08-22 |
-| [joinModels](reviewer.go/joinModels.md) | function | 🟢 A | 93.3% | certified | 2026-08-22 |
-| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-08-22 |
+| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-08-23 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-08-23 |
+| [ArchPhase1Result](architect_review.go/ArchPhase1Result.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-23 |
+| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-23 |
+| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-23 |
+| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-23 |
+| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-23 |
+| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-08-23 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-08-23 |
+| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-08-23 |
+| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-08-23 |
 
 ---
 

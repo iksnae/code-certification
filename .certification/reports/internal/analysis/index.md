@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-08-22 |
-| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-22 |
-| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-08-22 |
-| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-22 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-08-22 |
-| [TypeAwareErrorWrapping](go_refine.go/TypeAwareErrorWrapping.md) | method | 🟢 A | 93.3% | certified | 2026-08-22 |
+| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-08-23 |
+| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-08-23 |
+| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-08-23 |
+| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-23 |
+| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-08-23 |
 
 ---
 

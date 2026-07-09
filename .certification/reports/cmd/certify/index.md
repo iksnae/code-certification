@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-08-22 |
-| [flagString](root.go/flagString.md) | function | 🟢 B | 86.7% | certified | 2026-08-22 |
-| [formatETA](certify_cmd.go/formatETA.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-22 |
+| [bindCertifyFlags](certify_cmd.go/bindCertifyFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-23 |
+| [bindExpireFlags](expire.go/bindExpireFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-23 |
 
 ---
 

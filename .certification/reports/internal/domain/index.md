@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [unit_test.go](unit_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-22 |
-| [EvidenceKind](evidence.go/EvidenceKind.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-22 |
-| [String](evidence.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-22 |
-| [ParseEvidenceKind](evidence.go/ParseEvidenceKind.md) | function | 🟢 A- | 92.2% | certified | 2026-08-22 |
-| [ParseUnitID](unit.go/ParseUnitID.md) | function | 🟢 A- | 92.2% | certified | 2026-08-22 |
+| [String](dimension.go/String.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-23 |
+| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-23 |
+| [ParseUnitType](unit.go/ParseUnitType.md) | function | 🟢 A- | 92.2% | certified | 2026-08-23 |
 
 ---
 

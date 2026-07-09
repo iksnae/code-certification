@@ -2,17 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (87.0%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParsePytestShort](tools.go/ParsePytestShort.md) | function | 🟢 B | 80.0% | certified | 2026-08-22 |
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-08-22 |
-| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-22 |
-| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-22 |
+| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-08-23 |
+| [ModuleRoots](executor.go/ModuleRoots.md) | method | 🟢 B | 85.0% | certified | 2026-08-23 |
+| [ParseESLintJSON](tools.go/ParseESLintJSON.md) | function | 🟢 B | 85.0% | certified | 2026-08-23 |
+| [ParseJestJSON](tools.go/ParseJestJSON.md) | function | 🟢 B | 85.0% | certified | 2026-08-23 |
+| [runner_test.go](runner_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-23 |
+| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-23 |
+| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-08-23 |
 
 ---
 

@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-22 |
-| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 A- | 90.6% | certified | 2026-08-22 |
-| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A | 93.3% | certified | 2026-08-22 |
-| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-08-22 |
+| [writeTemplate](site.go/writeTemplate.md) | function | 🟢 B | 83.3% | certified | 2026-08-23 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-23 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A | 93.3% | certified | 2026-08-23 |
 
 ---
 

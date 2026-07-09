@@ -2,18 +2,16 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.5%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [readMessage](client.go/readMessage.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-08-22 |
-| [Initialize](client.go/Initialize.md) | method | 🟢 B | 85.6% | certified | 2026-08-22 |
-| [DidOpenTextDocumentParams](types.go/DidOpenTextDocumentParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-22 |
-| [DocumentSymbolCapability](types.go/DocumentSymbolCapability.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-22 |
-| [ReferencesCapability](types.go/ReferencesCapability.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-22 |
+| [SetTimeout](client.go/SetTimeout.md) | method | 🟢 B | 85.0% | certified | 2026-08-23 |
+| [DidOpenTextDocumentParams](types.go/DidOpenTextDocumentParams.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-23 |
+| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-23 |
 
 ---
 
