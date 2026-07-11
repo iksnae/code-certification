@@ -2,15 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [Override](override.go/Override.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
+| [AnalyzerConfig](config.go/AnalyzerConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-25 |
+| [Override](override.go/Override.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-25 |
+| [Violation](policy.go/Violation.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-25 |
+| [NewUnit](unit.go/NewUnit.md) | function | 🟢 A- | 92.8% | certified | 2026-08-25 |
+| [NewUnitID](unit.go/NewUnitID.md) | function | 🟢 A- | 92.8% | certified | 2026-08-25 |
 
 ---
 

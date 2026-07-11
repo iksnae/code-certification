@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeTemplate](site.go/writeTemplate.md) | function | 🟢 B | 83.3% | certified | 2026-08-24 |
-| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-08-24 |
+| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-08-25 |
+| [computeDimensionAverages](detailed.go/computeDimensionAverages.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
 
 ---
 

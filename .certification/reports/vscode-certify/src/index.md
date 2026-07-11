@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BRAND_COLORS](constants.ts/BRAND_COLORS.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-24 |
+| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-25 |
 
 ---
 

@@ -2,28 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-08-24 |
-| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-08-24 |
-| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-08-24 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-24 |
-| [ToPrescreenEvidence](reviewer.go/ToPrescreenEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-08-24 |
-| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2026-08-24 |
+| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-08-25 |
+| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-25 |
+| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-25 |
+| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-08-25 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-08-25 |
 
 ---
 

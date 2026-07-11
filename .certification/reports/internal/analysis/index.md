@@ -2,23 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (86.5%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-08-24 |
-| [goCognitiveStmt](go_analyzer.go/goCognitiveStmt.md) | function | 🟢 B | 82.2% | certified | 2026-08-24 |
-| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-08-24 |
-| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-08-24 |
-| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-08-24 |
-| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-24 |
-| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-08-24 |
-| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-24 |
+| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-08-25 |
+| [goCognitiveStmt](go_analyzer.go/goCognitiveStmt.md) | function | 🟢 B | 82.2% | certified | 2026-08-25 |
+| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-08-25 |
+| [tsCountEmptyCatch](ts_analyzer.go/tsCountEmptyCatch.md) | function | 🟢 B | 86.1% | certified | 2026-08-25 |
+| [tsHasReturnWithValue](ts_analyzer.go/tsHasReturnWithValue.md) | function | 🟢 B | 86.1% | certified | 2026-08-25 |
+| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-25 |
+| [go_deps_test.go](go_deps_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-25 |
+| [Register](analyzer.go/Register.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-25 |
+| [FanIn](go_deep.go/FanIn.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
+| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-25 |
+| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-25 |
 
 ---
 

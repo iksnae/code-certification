@@ -2,20 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (87.5%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [jestJSONOutput](tools.go/jestJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-08-24 |
-| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 85.0% | certified | 2026-08-24 |
-| [LintFinding](lint.go/LintFinding.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [TestResult](lint.go/TestResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-24 |
-| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-24 |
-| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2026-08-24 |
+| [ModuleRoots](executor.go/ModuleRoots.md) | method | 🟢 B | 85.0% | certified | 2026-08-25 |
+| [ParseJestJSON](tools.go/ParseJestJSON.md) | function | 🟢 B | 85.0% | certified | 2026-08-25 |
+| [lint_test.go](lint_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-25 |
+| [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
 
 ---
 
