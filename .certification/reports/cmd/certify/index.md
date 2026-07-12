@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [bindVersionInfo](version.go/bindVersionInfo.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-25 |
-| [hasGoUnits](certify_cmd.go/hasGoUnits.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-25 |
-| [tryScanSuggestions](scan.go/tryScanSuggestions.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-25 |
+| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-08-26 |
+| [writeArchitectOutput](architect_cmd.go/writeArchitectOutput.md) | function | 🟢 B | 86.1% | certified | 2026-08-26 |
+| [buildArchitectContext](architect_cmd.go/buildArchitectContext.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-26 |
+| [defaultConfigObj](certify_cmd.go/defaultConfigObj.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-26 |
+| [bindDoctorFlags](doctor_cmd.go/bindDoctorFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-08-26 |
 
 ---
 

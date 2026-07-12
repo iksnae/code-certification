@@ -2,24 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-08-25 |
-| [goCognitiveStmt](go_analyzer.go/goCognitiveStmt.md) | function | 🟢 B | 82.2% | certified | 2026-08-25 |
-| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-08-25 |
-| [tsCountEmptyCatch](ts_analyzer.go/tsCountEmptyCatch.md) | function | 🟢 B | 86.1% | certified | 2026-08-25 |
-| [tsHasReturnWithValue](ts_analyzer.go/tsHasReturnWithValue.md) | function | 🟢 B | 86.1% | certified | 2026-08-25 |
-| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-25 |
-| [go_deps_test.go](go_deps_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-25 |
-| [Register](analyzer.go/Register.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-25 |
-| [FanIn](go_deep.go/FanIn.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
-| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-25 |
-| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-25 |
+| [Language](go_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-08-26 |
+| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2026-08-26 |
+| [rsComputeNesting](rust_analyzer.go/rsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-26 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-08-26 |
+| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-26 |
+| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-08-26 |
 
 ---
 

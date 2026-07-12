@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
+**Grade:** 🟢 B (86.7%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ModuleRoots](executor.go/ModuleRoots.md) | method | 🟢 B | 85.0% | certified | 2026-08-25 |
-| [ParseJestJSON](tools.go/ParseJestJSON.md) | function | 🟢 B | 85.0% | certified | 2026-08-25 |
-| [lint_test.go](lint_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-25 |
-| [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 83.3% | certified | 2026-08-26 |
+| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 83.3% | certified | 2026-08-26 |
+| [modules_test.go](modules_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-26 |
+| [CoverageForFile](coverage.go/CoverageForFile.md) | function | 🟢 A | 93.3% | certified | 2026-08-26 |
 
 ---
 

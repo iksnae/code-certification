@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [getDirectoryChildren](CertificationTreeProvider.ts/getDirectoryChildren.md) | method | 🟢 A- | 91.9% | certified | 2026-08-25 |
+| [buildConfigNoDataItems](CertificationTreeProvider.ts/buildConfigNoDataItems.md) | method | 🟢 A- | 91.9% | certified | 2026-08-26 |
 
 ---
 

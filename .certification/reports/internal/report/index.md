@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-08-25 |
-| [computeDimensionAverages](detailed.go/computeDimensionAverages.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
-| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
-| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-26 |
+| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-26 |
+| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-26 |
+| [indexData](site.go/indexData.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-26 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-08-26 |
+| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-08-26 |
 
 ---
 

@@ -2,24 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (89.1%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-08-25 |
-| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-25 |
-| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-25 |
-| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
-| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
-| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-25 |
-| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-08-25 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-08-25 |
-| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-08-25 |
+| [stage_test.go](stage_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-08-26 |
+| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-26 |
+| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-26 |
+| [StageResult](stage.go/StageResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-26 |
+| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-26 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-26 |
+| [parseGoModReplaces](workspace_snapshot.go/parseGoModReplaces.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-26 |
+| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-08-26 |
+| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-08-26 |
 
 ---
 
