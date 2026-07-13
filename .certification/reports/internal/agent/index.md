@@ -2,22 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
+**Grade:** 🟢 B+ (88.2%)  
 **Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [stage_test.go](stage_test.go.md) | file | 🟢 B | 86.1% | certified | 2026-08-26 |
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-26 |
-| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-26 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-26 |
-| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-26 |
-| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-26 |
-| [parseGoModReplaces](workspace_snapshot.go/parseGoModReplaces.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-26 |
-| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-08-26 |
-| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-08-26 |
+| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-08-27 |
+| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-27 |
+| [schemas_test.go](schemas_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-27 |
+| [Message](types.go/Message.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-27 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-27 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-27 |
+| [DefaultModels](providers.go/DefaultModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-27 |
+| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-27 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-08-27 |
 
 ---
 

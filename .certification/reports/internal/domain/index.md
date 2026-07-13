@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Unit](unit.go/Unit.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-26 |
-| [NewUnitID](unit.go/NewUnitID.md) | function | 🟢 A- | 92.8% | certified | 2026-08-26 |
+| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-27 |
+| [UnitID](unit.go/UnitID.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-27 |
+| [ParseEvidenceKind](evidence.go/ParseEvidenceKind.md) | function | 🟢 A- | 92.2% | certified | 2026-08-27 |
 
 ---
 
