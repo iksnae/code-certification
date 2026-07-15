@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [dimension_test.go](dimension_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-28 |
-| [record_test.go](record_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-28 |
+| [override_test.go](override_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-29 |
+| [UnitType](unit.go/UnitType.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
+| [String](evidence.go/String.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-29 |
 
 ---
 

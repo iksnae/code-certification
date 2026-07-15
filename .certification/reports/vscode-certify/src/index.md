@@ -2,18 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertifyJSON](certifyBinary.ts/runCertifyJSON.md) | function | 🟢 B | 82.5% | certified | 2026-08-28 |
-| [RunResult](certifyBinary.ts/RunResult.md) | class | 🟢 B | 85.0% | certified | 2026-08-28 |
-| [runInTerminal](certifyBinary.ts/runInTerminal.md) | function | 🟢 B+ | 87.5% | certified | 2026-08-28 |
-| [DEEP_METRIC_LABELS](constants.ts/DEEP_METRIC_LABELS.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-28 |
-| [parseArchitectMeta](dataLoader.ts/parseArchitectMeta.md) | function | 🟢 A- | 92.5% | certified | 2026-08-28 |
+| [ModelInfo](types.ts/ModelInfo.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-29 |
+| [loadConfig](dataLoader.ts/loadConfig.md) | method | 🟢 A- | 91.3% | certified | 2026-08-29 |
 
 ---
 

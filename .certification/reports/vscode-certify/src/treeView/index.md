@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildReadyItems](CertificationTreeProvider.ts/buildReadyItems.md) | method | 🟢 A- | 91.9% | certified | 2026-08-28 |
+| [buildConfigNoDataItems](CertificationTreeProvider.ts/buildConfigNoDataItems.md) | method | 🟢 A- | 91.9% | certified | 2026-08-29 |
 
 ---
 

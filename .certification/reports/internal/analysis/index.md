@@ -2,17 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (85.5%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 80.6% | certified | 2026-08-28 |
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-08-28 |
-| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.0% | certified | 2026-08-28 |
-| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-08-28 |
+| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-08-29 |
+| [pyDetectUnsafeImports](python_analyzer.go/pyDetectUnsafeImports.md) | function | 🟢 B | 84.4% | certified | 2026-08-29 |
+| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-08-29 |
+| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-08-29 |
+| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-29 |
+| [tsCountRecursive](ts_analyzer.go/tsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-08-29 |
+| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-29 |
 
 ---
 

@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (87.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 83.3% | certified | 2026-08-28 |
-| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-28 |
-| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-08-28 |
-| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-28 |
+| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-08-29 |
+| [LintResult](lint.go/LintResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
+| [FindModuleForUnit](modules.go/FindModuleForUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-29 |
 
 ---
 
