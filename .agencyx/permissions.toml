@@ -1,0 +1,32 @@
+# .agencyx/permissions.toml — the operator's clamp on a privileged-by-default agent.
+#
+# The agent can read, write, edit, and run trusted commands without a per-call prompt.
+# This file is how you CLAMP that: a match here downgrades an auto-allowed call to a
+# clickable approval (it never hard-refuses — catastrophic commands like `sudo`/`rm -rf /`
+# and force-pushes to main are always refused regardless).
+#
+# Everything is commented out → full privilege. Uncomment to make something ask first.
+# Path globs are gitignore-style: a slash-free pattern matches the basename at any depth,
+# `**` spans directories, `*` stays within one.
+
+[deny]
+paths = [
+    # ".env",
+    # ".env.*",
+    # "**/*.pem",
+    # "**/*.key",
+    # "**/secrets/**",
+    # "infra/**",
+    # "terraform/**",
+    # ".github/workflows/**",
+]
+commands = [
+    # "terraform apply",
+    # "terraform destroy",
+    # "gh release",
+    # "npm publish",
+    # "docker push",
+]
+tools = [
+    # "run_workflow",
+]

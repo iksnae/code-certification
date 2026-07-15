@@ -1,0 +1,7 @@
+# The work repo tracks ONLY the primary agency files: config + permissions.
+# Everything else — chat, runs, research, the agency's private brain, runtime state —
+# lives in the out-of-tree shadow repo (ADR-0055) and is never tracked here.
+*
+!.gitignore
+!config.json
+!permissions.toml

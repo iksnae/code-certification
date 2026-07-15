@@ -1,0 +1,32 @@
+{
+  "engagement" : {
+    "displayName" : "code-certification",
+    "id" : "iksnae/code-certification",
+    "localPath" : ""
+  },
+  "indexIgnore" : [
+
+  ],
+  "provider" : {
+    "kind" : "deepseek",
+    "model" : "deepseek-v4-pro"
+  },
+  "roles" : {
+
+  },
+  "schemaVersion" : "agencyx.config.v1",
+  "shadow" : {
+    "layout" : "flat.v1",
+    "repo" : "iksnae/code-certification-shadow"
+  },
+  "verification" : {
+    "buildCommand" : "go build -o build/bin/certify ./cmd/certify/",
+    "testCommand" : "go test ./... -count=1",
+    "timeoutMs" : 300000
+  },
+  "vision" : {
+    "briefPaths" : [
+
+    ]
+  }
+}
