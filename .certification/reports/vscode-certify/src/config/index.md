@@ -2,14 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.9%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [renderHTML](ConfigPanel.ts/renderHTML.md) | method | 🟢 A- | 91.9% | certified | 2026-08-29 |
+| [ConnectionTestResult](configWriter.ts/ConnectionTestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-08-30 |
 
 ---
 

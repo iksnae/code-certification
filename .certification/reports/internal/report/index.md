@@ -2,16 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FullReport](full.go/FullReport.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-08-29 |
+| [writeArchAppendix](architect_report.go/writeArchAppendix.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-30 |
+| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-30 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-30 |
+| [full_test.go](full_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-30 |
+| [Badge](badge.go/Badge.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [badge_test.go](badge_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [cleanDir](report_tree.go/cleanDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-30 |
+| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
+| [badgeMessage](badge.go/badgeMessage.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
+| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
 
 ---
 

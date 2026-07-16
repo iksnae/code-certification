@@ -2,16 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-08-29 |
-| [LintResult](lint.go/LintResult.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [FindModuleForUnit](modules.go/FindModuleForUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-29 |
+| [modules_test.go](modules_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-30 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-30 |
+| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [LintFindings](executor.go/LintFindings.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-30 |
+| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-30 |
+| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
+| [hasStringLit](structural.go/hasStringLit.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
 
 ---
 

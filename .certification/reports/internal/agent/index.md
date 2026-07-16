@@ -2,25 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [types_test.go](types_test.go.md) | file | 🟢 B | 86.7% | certified | 2026-08-29 |
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [formatCoverageMetrics](architect.go/formatCoverageMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [APIError](openrouter.go/APIError.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
-| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-29 |
-| [NewPipeline](pipeline.go/NewPipeline.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-29 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-29 |
-| [parseGoModReplaces](workspace_snapshot.go/parseGoModReplaces.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-29 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-08-29 |
-| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-08-29 |
+| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-30 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-08-30 |
+| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
 
 ---
 

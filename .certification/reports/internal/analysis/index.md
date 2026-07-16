@@ -2,20 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.5%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (85.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-08-29 |
-| [pyDetectUnsafeImports](python_analyzer.go/pyDetectUnsafeImports.md) | function | 🟢 B | 84.4% | certified | 2026-08-29 |
-| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 84.4% | certified | 2026-08-29 |
-| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 85.6% | certified | 2026-08-29 |
-| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-08-29 |
-| [tsCountRecursive](ts_analyzer.go/tsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-08-29 |
-| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-29 |
+| [LSPAnalyzer](lsp_analyzer.go/LSPAnalyzer.md) | class | 🟢 B | 81.1% | certified | 2026-08-30 |
+| [NewPythonAnalyzer](python_analyzer.go/NewPythonAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-08-30 |
+| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-08-30 |
+| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-08-30 |
+| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
+| [FanOut](go_deep.go/FanOut.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-30 |
 
 ---
 

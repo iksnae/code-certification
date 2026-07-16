@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
+**Grade:** 🟢 A- (92.2%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ModelInfo](types.ts/ModelInfo.md) | class | 🟢 B+ | 89.4% | certified | 2026-08-29 |
-| [loadConfig](dataLoader.ts/loadConfig.md) | method | 🟢 A- | 91.3% | certified | 2026-08-29 |
+| [loadArchitectMeta](dataLoader.ts/loadArchitectMeta.md) | method | 🟢 A- | 91.9% | certified | 2026-08-30 |
+| [deactivate](extension.ts/deactivate.md) | function | 🟢 A- | 92.5% | certified | 2026-08-30 |
 
 ---
 

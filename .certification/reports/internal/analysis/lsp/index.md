@@ -1,15 +1,15 @@
-# 🟢 `internal/analysis/lsp`
+# 🟡 `internal/analysis/lsp`
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟡 C (79.4%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DocumentSymbol](types.go/DocumentSymbol.md) | class | 🟢 B+ | 87.2% | certified | 2026-08-29 |
+| [Request](client.go/Request.md) | method | 🟡 C | 79.4% | certified_with_observations | 2026-08-30 |
 
 ---
 
