@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewMatcher](matcher.go/NewMatcher.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
+| [matchesPack](matcher.go/matchesPack.md) | method | 🟢 A | 93.3% | certified | 2026-08-31 |
 
 ---
 

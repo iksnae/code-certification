@@ -2,21 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (87.7%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [modules_test.go](modules_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-30 |
-| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-30 |
-| [git_test.go](git_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-08-30 |
-| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
-| [LintFindings](executor.go/LintFindings.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-30 |
-| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-30 |
-| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
-| [hasStringLit](structural.go/hasStringLit.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
+| [ToolExecutor](executor.go/ToolExecutor.md) | class | 🟢 B | 80.6% | certified | 2026-08-31 |
+| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 83.9% | certified | 2026-08-31 |
+| [pytestJUnitSuite](tools.go/pytestJUnitSuite.md) | class | 🟢 B | 83.9% | certified | 2026-08-31 |
+| [tools_test.go](tools_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-31 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
+| [AttributeLintToUnit](attribution.go/AttributeLintToUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
+| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
+| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-31 |
+| [isLetter](metrics.go/isLetter.md) | function | 🟢 A | 93.3% | certified | 2026-08-31 |
+| [simpleAtoi](runner.go/simpleAtoi.md) | function | 🟢 A | 93.3% | certified | 2026-08-31 |
 
 ---
 

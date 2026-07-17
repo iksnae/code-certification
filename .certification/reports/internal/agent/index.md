@@ -2,19 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
-| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
-| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-30 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-30 |
-| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-08-30 |
-| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-08-30 |
+| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
+| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
+| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
+| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
+| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-31 |
+| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
+| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-31 |
+| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
+| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-31 |
 
 ---
 
