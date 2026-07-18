@@ -2,23 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.7%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B (86.9%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ToolExecutor](executor.go/ToolExecutor.md) | class | 🟢 B | 80.6% | certified | 2026-08-31 |
-| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 83.9% | certified | 2026-08-31 |
-| [pytestJUnitSuite](tools.go/pytestJUnitSuite.md) | class | 🟢 B | 83.9% | certified | 2026-08-31 |
-| [tools_test.go](tools_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-08-31 |
-| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
-| [AttributeLintToUnit](attribution.go/AttributeLintToUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
-| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
-| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-08-31 |
-| [isLetter](metrics.go/isLetter.md) | function | 🟢 A | 93.3% | certified | 2026-08-31 |
-| [simpleAtoi](runner.go/simpleAtoi.md) | function | 🟢 A | 93.3% | certified | 2026-08-31 |
+| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-09-01 |
+| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 85.0% | certified | 2026-09-01 |
+| [runner_test.go](runner_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-09-01 |
+| [countFuncLines](structural.go/countFuncLines.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-01 |
+| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-01 |
+| [walkBlock](structural.go/walkBlock.md) | function | 🟢 A | 93.3% | certified | 2026-09-01 |
 
 ---
 

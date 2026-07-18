@@ -9,15 +9,15 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
-| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
-| [reviewStage](stage.go/reviewStage.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
-| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
-| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-31 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
-| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-08-31 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-08-31 |
-| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-31 |
+| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-01 |
+| [ArchRecommendation](architect_review.go/ArchRecommendation.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-01 |
+| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-01 |
+| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-01 |
+| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-01 |
+| [suggest_test.go](suggest_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-09-01 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-01 |
+| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-01 |
+| [Stats](pipeline.go/Stats.md) | method | 🟢 A | 93.3% | certified | 2026-09-01 |
 
 ---
 

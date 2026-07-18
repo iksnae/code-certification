@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 A- (92.5%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [execFileAsync](certifyBinary.ts/execFileAsync.md) | function | 🟢 B+ | 88.1% | certified | 2026-08-31 |
-| [parseGitmodules](dataLoader.ts/parseGitmodules.md) | method | 🟢 A- | 91.9% | certified | 2026-08-31 |
+| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-09-01 |
+| [createStatusBarItem](statusBar.ts/createStatusBarItem.md) | function | 🟢 A | 93.1% | certified | 2026-09-01 |
 
 ---
 

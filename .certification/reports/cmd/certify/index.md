@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.4%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (85.8%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [loadCertifyContext](certify_cmd.go/loadCertifyContext.md) | function | 🟢 B | 84.4% | certified | 2026-08-31 |
+| [loadCertifyContext](certify_cmd.go/loadCertifyContext.md) | function | 🟢 B | 84.4% | certified | 2026-09-01 |
+| [setupAgent](certify_cmd.go/setupAgent.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-01 |
 
 ---
 

@@ -2,18 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (85.6%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-08-31 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-08-31 |
-| [goIsConstLikeExpr](go_analyzer.go/goIsConstLikeExpr.md) | function | 🟢 B+ | 89.4% | certified | 2026-08-31 |
-| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-08-31 |
-| [compute](go_deep.go/compute.md) | method | 🟢 A | 93.3% | certified | 2026-08-31 |
+| [goAnalyzeFunc](go_analyzer.go/goAnalyzeFunc.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-09-01 |
+| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 83.3% | certified | 2026-09-01 |
+| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-09-01 |
+| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-09-01 |
+| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-09-01 |
+| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-09-01 |
+| [goWalkNested](go_analyzer.go/goWalkNested.md) | function | 🟢 B | 86.1% | certified | 2026-09-01 |
+| [rsImplTypeName](rust_analyzer.go/rsImplTypeName.md) | function | 🟢 B | 86.1% | certified | 2026-09-01 |
+| [buildPkgMap](go_deps.go/buildPkgMap.md) | method | 🟢 A | 93.3% | certified | 2026-09-01 |
 
 ---
 

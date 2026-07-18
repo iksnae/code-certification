@@ -2,16 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.8%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeMessage](client.go/writeMessage.md) | method | 🟢 B | 85.6% | certified | 2026-08-31 |
-| [CallHierarchyPrepareParams](types.go/CallHierarchyPrepareParams.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
-| [TextDocumentPositionParams](types.go/TextDocumentPositionParams.md) | class | 🟢 B+ | 87.8% | certified | 2026-08-31 |
+| [CallHierarchyOutgoingCall](types.go/CallHierarchyOutgoingCall.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-01 |
 
 ---
 

@@ -2,18 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.9%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-31 |
-| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-08-31 |
-| [BadgeMarkdown](badge.go/BadgeMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-08-31 |
-| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-08-31 |
-| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-08-31 |
+| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-09-01 |
+| [GenerateCard](card.go/GenerateCard.md) | function | 🟢 B | 86.1% | certified | 2026-09-01 |
+| [findExpiringSoon](detailed.go/findExpiringSoon.md) | function | 🟢 B | 86.1% | certified | 2026-09-01 |
+| [full_test.go](full_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-09-01 |
+| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-01 |
+| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-01 |
+| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-09-01 |
+| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-09-01 |
 
 ---
 
