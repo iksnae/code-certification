@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rawOverride](loader.go/rawOverride.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-01 |
+| [rawOverrideFile](loader.go/rawOverrideFile.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-02 |
 
 ---
 
