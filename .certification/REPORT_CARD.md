@@ -1,56 +1,67 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `7cd7344ba`
-**Generated:** 2026-07-20T05:34:39
+**Commit:** `764ae5b70`
+**Generated:** 2026-07-20T10:44:24
 
-## 🟢 Overall: B+ (89.0%)
+## 🟢 Overall: B+ (88.4%)
 
 | Metric | Value |
 |--------|-------|
-| Total Units | 50 |
-| Passing | 50 |
+| Total Units | 1218 |
+| Passing | 1218 |
 | Failing | 0 |
 | Pass Rate | 100.0% |
-| Observations | 1 |
+| Observations | 15 |
 | Expired | 0 |
 
 ### Grade Distribution
 
 | Grade | Count | % |
 |-------|-------|---|
-| A | 14 | 28.0% |
-| A- | 2 | 4.0% |
-| B+ | 22 | 44.0% |
-| B | 11 | 22.0% |
-| C | 1 | 2.0% |
+| A | 217 | 17.8% |
+| A- | 110 | 9.0% |
+| B+ | 601 | 49.3% |
+| B | 275 | 22.6% |
+| C | 15 | 1.2% |
 
 ### By Language
 
 | Language | Units | Grade | Score |
 |----------|-------|-------|-------|
-| go | 49 | 🟢 B+ | 89.0% |
-| ts | 1 | 🟢 B+ | 88.1% |
+| go | 1108 | 🟢 B+ | 88.2% |
+| ts | 110 | 🟢 A- | 91.0% |
 
 ### Packages
 
 | Package | Units | Grade | Score |
 |---------|------:|:-----:|------:|
-| [cmd/certify](reports/cmd/certify/index.md) | 1 | 🟢 B+ | 90.0% |
-| [internal/agent](reports/internal/agent/index.md) | 10 | 🟢 A- | 90.1% |
-| [internal/analysis](reports/internal/analysis/index.md) | 11 | 🟢 B | 86.2% |
-| [internal/analysis/lsp](reports/internal/analysis/lsp/index.md) | 2 | 🟢 B+ | 87.8% |
-| [internal/discovery](reports/internal/discovery/index.md) | 4 | 🟢 A- | 90.0% |
-| [internal/doctor](reports/internal/doctor/index.md) | 1 | 🟢 B+ | 88.9% |
-| [internal/domain](reports/internal/domain/index.md) | 2 | 🟢 A- | 90.6% |
-| [internal/engine](reports/internal/engine/index.md) | 3 | 🟢 B+ | 87.2% |
-| [internal/evidence](reports/internal/evidence/index.md) | 7 | 🟢 A- | 90.5% |
-| [internal/expiry](reports/internal/expiry/index.md) | 1 | 🟢 B+ | 87.2% |
-| [internal/github](reports/internal/github/index.md) | 1 | 🟢 B+ | 88.9% |
-| [internal/override](reports/internal/override/index.md) | 1 | 🟢 A- | 92.2% |
-| [internal/queue](reports/internal/queue/index.md) | 1 | 🟢 B+ | 87.2% |
-| [internal/report](reports/internal/report/index.md) | 4 | 🟢 A- | 91.7% |
-| [vscode-certify/src](reports/vscode-certify/src/index.md) | 1 | 🟢 B+ | 88.1% |
+| [cmd/certify](reports/cmd/certify/index.md) | 63 | 🟢 B | 86.9% |
+| [internal](reports/internal/index.md) | 1 | 🟢 B | 86.7% |
+| [internal/agent](reports/internal/agent/index.md) | 245 | 🟢 B+ | 88.9% |
+| [internal/analysis](reports/internal/analysis/index.md) | 184 | 🟢 B | 86.5% |
+| [internal/analysis/lsp](reports/internal/analysis/lsp/index.md) | 46 | 🟢 B | 86.4% |
+| [internal/config](reports/internal/config/index.md) | 23 | 🟢 B+ | 88.7% |
+| [internal/discovery](reports/internal/discovery/index.md) | 46 | 🟢 B+ | 89.0% |
+| [internal/doctor](reports/internal/doctor/index.md) | 32 | 🟢 B | 85.9% |
+| [internal/domain](reports/internal/domain/index.md) | 70 | 🟢 B+ | 89.2% |
+| [internal/engine](reports/internal/engine/index.md) | 37 | 🟢 B+ | 87.5% |
+| [internal/evidence](reports/internal/evidence/index.md) | 124 | 🟢 B+ | 87.9% |
+| [internal/expiry](reports/internal/expiry/index.md) | 2 | 🟢 B+ | 87.5% |
+| [internal/github](reports/internal/github/index.md) | 17 | 🟢 B+ | 89.0% |
+| [internal/override](reports/internal/override/index.md) | 9 | 🟢 B+ | 88.2% |
+| [internal/policy](reports/internal/policy/index.md) | 17 | 🟢 B+ | 89.4% |
+| [internal/queue](reports/internal/queue/index.md) | 17 | 🟢 A- | 90.9% |
+| [internal/record](reports/internal/record/index.md) | 33 | 🟢 A- | 90.7% |
+| [internal/report](reports/internal/report/index.md) | 123 | 🟢 B+ | 89.2% |
+| [internal/workspace](reports/internal/workspace/index.md) | 19 | 🟢 B+ | 89.8% |
+| [vscode-certify/src](reports/vscode-certify/src/index.md) | 59 | 🟢 A- | 90.1% |
+| [vscode-certify/src/codeLens](reports/vscode-certify/src/codeLens/index.md) | 6 | 🟢 A- | 91.5% |
+| [vscode-certify/src/config](reports/vscode-certify/src/config/index.md) | 13 | 🟢 A- | 92.5% |
+| [vscode-certify/src/dashboard](reports/vscode-certify/src/dashboard/index.md) | 7 | 🟢 A- | 92.1% |
+| [vscode-certify/src/diagnostics](reports/vscode-certify/src/diagnostics/index.md) | 7 | 🟢 A- | 92.7% |
+| [vscode-certify/src/treeView](reports/vscode-certify/src/treeView/index.md) | 17 | 🟢 A- | 92.0% |
+| [website/src](reports/website/src/index.md) | 1 | 🟢 A- | 90.0% |
 
 ---
 
