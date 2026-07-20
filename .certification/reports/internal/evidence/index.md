@@ -2,21 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [structural_test.go](structural_test.go.md) | file | 🟢 B | 83.9% | certified | 2026-09-02 |
-| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-09-02 |
-| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-02 |
-| [ToEvidence](git.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-02 |
-| [ToEvidence](structural.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-02 |
-| [NewToolExecutor](executor.go/NewToolExecutor.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-02 |
-| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-02 |
-| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-02 |
+| [complexity_test.go](complexity_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-09-03 |
+| [runGoTestAt](executor.go/runGoTestAt.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-03 |
+| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-03 |
+| [ToEvidence](git.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-03 |
+| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-09-03 |
+| [isConstLikeExpr](structural.go/isConstLikeExpr.md) | function | 🟢 A | 93.3% | certified | 2026-09-03 |
+| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-09-03 |
 
 ---
 
