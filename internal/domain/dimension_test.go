@@ -116,6 +116,18 @@ func TestDimensionScores_Grade(t *testing.T) {
 	}
 }
 
+func TestGradeNA_Value(t *testing.T) {
+	if domain.GradeNA != -1 {
+		t.Errorf("GradeNA = %d, want -1", domain.GradeNA)
+	}
+}
+
+func TestGradeNA_String(t *testing.T) {
+	if got := domain.GradeNA.String(); got != "N/A" {
+		t.Errorf("GradeNA.String() = %q, want %q", got, "N/A")
+	}
+}
+
 func TestGrade_String(t *testing.T) {
 	tests := []struct {
 		g    domain.Grade
@@ -128,6 +140,7 @@ func TestGrade_String(t *testing.T) {
 		{domain.GradeC, "C"},
 		{domain.GradeD, "D"},
 		{domain.GradeF, "F"},
+		{domain.GradeNA, "N/A"},
 	}
 	for _, tt := range tests {
 		if got := tt.g.String(); got != tt.want {

@@ -113,6 +113,8 @@ const (
 	GradeF                   // < 0.60
 )
 
+const GradeNA Grade = -1 // N/A — not applicable
+
 var gradeStrings = map[Grade]string{
 	GradeA:      "A",
 	GradeAMinus: "A-",
@@ -121,6 +123,7 @@ var gradeStrings = map[Grade]string{
 	GradeC:      "C",
 	GradeD:      "D",
 	GradeF:      "F",
+	GradeNA:     "N/A",
 }
 
 // String returns the letter grade string.
