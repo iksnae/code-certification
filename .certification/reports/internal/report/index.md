@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (91.5%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-04 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-09-04 |
+| [badge_test.go](badge_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-09-05 |
+| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-09-05 |
 
 ---
 

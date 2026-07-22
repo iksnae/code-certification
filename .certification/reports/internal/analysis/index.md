@@ -2,21 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-09-04 |
-| [Language](python_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-09-04 |
-| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 83.3% | certified | 2026-09-04 |
-| [goCountDeferInLoop](go_analyzer.go/goCountDeferInLoop.md) | function | 🟢 B | 86.1% | certified | 2026-09-04 |
-| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-09-04 |
-| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-09-04 |
-| [rsCountPanics](rust_analyzer.go/rsCountPanics.md) | function | 🟢 B | 86.1% | certified | 2026-09-04 |
-| [tsComputeNesting](ts_analyzer.go/tsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-09-04 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-09-05 |
+| [NewPythonAnalyzer](python_analyzer.go/NewPythonAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-09-05 |
+| [goComputeNestingDepth](go_analyzer.go/goComputeNestingDepth.md) | function | 🟢 B | 86.1% | certified | 2026-09-05 |
+| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2026-09-05 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-05 |
+| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-05 |
+| [goCognitiveWalk](go_analyzer.go/goCognitiveWalk.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-05 |
+| [compute](go_deep.go/compute.md) | method | 🟢 A | 93.3% | certified | 2026-09-05 |
+| [findFunc](go_refine.go/findFunc.md) | method | 🟢 A | 93.3% | certified | 2026-09-05 |
 
 ---
 

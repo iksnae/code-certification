@@ -2,16 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](record.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-04 |
-| [ParseSeverity](evidence.go/ParseSeverity.md) | function | 🟢 A- | 92.2% | certified | 2026-09-04 |
-| [Symbol](unit.go/Symbol.md) | method | 🟢 A | 93.3% | certified | 2026-09-04 |
+| [evidence_test.go](evidence_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-09-05 |
+| [record_test.go](record_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-09-05 |
+| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [expiry_test.go](expiry_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [Override](override.go/Override.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [Violation](policy.go/Violation.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-05 |
+| [String](unit.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-05 |
 
 ---
 

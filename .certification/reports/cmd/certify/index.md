@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (85.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 B | 86.1% | certified | 2026-09-04 |
-| [isLocalURL](certify_cmd.go/isLocalURL.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-04 |
+| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-09-05 |
+| [writeArchitectOutput](architect_cmd.go/writeArchitectOutput.md) | function | 🟢 B | 86.1% | certified | 2026-09-05 |
+| [bindReportFlags](report_cmd.go/bindReportFlags.md) | function | 🟢 B | 86.1% | certified | 2026-09-05 |
+| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-09-05 |
 
 ---
 

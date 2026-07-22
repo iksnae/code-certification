@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 A- (91.9%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertifyConfig](types.ts/CertifyConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-04 |
-| [FullReport](types.ts/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-09-04 |
+| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.9% | certified | 2026-09-05 |
+| [parseGitmodules](dataLoader.ts/parseGitmodules.md) | method | 🟢 A- | 91.9% | certified | 2026-09-05 |
 
 ---
 

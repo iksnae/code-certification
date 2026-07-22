@@ -2,29 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 16 · **Passing:** 16 / 16
+**Grade:** 🟢 B+ (89.0%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ArchRecommendation](architect_review.go/ArchRecommendation.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [NewReviewStage](stage.go/NewReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-04 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-04 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-04 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-04 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-04 |
-| [detectRepoNameFromDir](workspace_snapshot.go/detectRepoNameFromDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-04 |
-| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-09-04 |
-| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2026-09-04 |
-| [ReviewUnit](pipeline.go/ReviewUnit.md) | method | 🟢 A | 93.3% | certified | 2026-09-04 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-09-04 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-09-05 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-05 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-05 |
+| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-09-05 |
 
 ---
 

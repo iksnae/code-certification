@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-04 |
-| [executor_test.go](executor_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-09-04 |
-| [ToEvidence](git.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-04 |
-| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-04 |
+| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2026-09-05 |
+| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-09-05 |
+| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-05 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-09-05 |
+| [LintFindings](executor.go/LintFindings.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-05 |
+| [AttributeLintToFile](attribution.go/AttributeLintToFile.md) | function | 🟢 A | 93.3% | certified | 2026-09-05 |
 
 ---
 
