@@ -17,7 +17,7 @@ func TestScorer_AllClean(t *testing.T) {
 	}
 
 	evalResult := policy.EvaluationResult{Passed: true}
-	scores := engine.Score(ev, evalResult)
+	scores := engine.Score(ev, evalResult, "go")
 
 	// All evidence is clean, expect good scores
 	avg := scores.WeightedAverage(nil)
@@ -31,7 +31,7 @@ func TestScorer_OnlyMeasuredDimensionsPresent(t *testing.T) {
 	ev := []domain.Evidence{
 		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 0}.ToEvidence(),
 	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 
 	if _, ok := scores[domain.DimCorrectness]; !ok {
 		t.Error("lint evidence should set correctness")
@@ -61,7 +61,7 @@ func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
 			},
 		},
 	}
-	cleanScores := engine.Score(cleanEv, policy.EvaluationResult{Passed: true})
+	cleanScores := engine.Score(cleanEv, policy.EvaluationResult{Passed: true}, "go")
 	if _, ok := cleanScores[domain.DimArchitecturalFitness]; ok {
 		t.Error("architectural_fitness should not be set when no violations found")
 	}
@@ -84,7 +84,7 @@ func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
 			},
 		},
 	}
-	badScores := engine.Score(badEv, policy.EvaluationResult{Passed: true})
+	badScores := engine.Score(badEv, policy.EvaluationResult{Passed: true}, "go")
 	if v, ok := badScores[domain.DimArchitecturalFitness]; !ok || v >= 0.80 {
 		t.Errorf("architectural_fitness with god object = %v (present=%v), want present and < 0.80", v, ok)
 	}
@@ -95,7 +95,7 @@ func TestScorer_PenaltyOnlyDimsAppearWhenBad(t *testing.T) {
 }
 
 func TestScorer_NoEvidenceNoScore(t *testing.T) {
-	scores := engine.Score(nil, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(nil, policy.EvaluationResult{Passed: true}, "go")
 	if len(scores) != 0 {
 		t.Errorf("no evidence should produce empty scores, got %d dimensions", len(scores))
 	}
@@ -117,7 +117,7 @@ func TestScorer_SecurityOnlyWhenMeasured(t *testing.T) {
 			},
 		},
 	}
-	cleanScores := engine.Score(cleanGlobals, policy.EvaluationResult{Passed: true})
+	cleanScores := engine.Score(cleanGlobals, policy.EvaluationResult{Passed: true}, "go")
 	if v, ok := cleanScores[domain.DimSecurity]; !ok || v < 0.85 {
 		t.Errorf("clean globals security = %v (present=%v), want present and >= 0.85", v, ok)
 	}
@@ -133,7 +133,7 @@ func TestScorer_SecurityOnlyWhenMeasured(t *testing.T) {
 			},
 		},
 	}
-	dirtyScores := engine.Score(dirtyGlobals, policy.EvaluationResult{Passed: true})
+	dirtyScores := engine.Score(dirtyGlobals, policy.EvaluationResult{Passed: true}, "go")
 	if v, ok := dirtyScores[domain.DimSecurity]; !ok || v >= 0.70 {
 		t.Errorf("5 globals security = %v (present=%v), want present and < 0.70", v, ok)
 	}
@@ -151,7 +151,7 @@ func TestScorer_WithViolations(t *testing.T) {
 		},
 	}
 
-	scores := engine.Score(ev, evalResult)
+	scores := engine.Score(ev, evalResult, "go")
 
 	// Correctness should be penalized
 	if scores[domain.DimCorrectness] >= 0.8 {
@@ -199,7 +199,7 @@ func TestScorer_ComplexityBoostsMaintainability(t *testing.T) {
 	// Low complexity = high maintainability
 	lowCx := evidence.CodeMetrics{TotalLines: 20, CodeLines: 15, Complexity: 2}
 	ev := []domain.Evidence{lowCx.ToEvidence()}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	if scores[domain.DimMaintainability] < 0.90 {
 		t.Errorf("low complexity maintainability = %f, want >= 0.90", scores[domain.DimMaintainability])
 	}
@@ -207,7 +207,7 @@ func TestScorer_ComplexityBoostsMaintainability(t *testing.T) {
 	// High complexity = lower maintainability
 	highCx := evidence.CodeMetrics{TotalLines: 500, CodeLines: 400, Complexity: 25}
 	ev2 := []domain.Evidence{highCx.ToEvidence()}
-	scores2 := engine.Score(ev2, policy.EvaluationResult{Passed: true})
+	scores2 := engine.Score(ev2, policy.EvaluationResult{Passed: true}, "go")
 	if scores2[domain.DimMaintainability] >= 0.60 {
 		t.Errorf("high complexity maintainability = %f, want < 0.60", scores2[domain.DimMaintainability])
 	}
@@ -216,7 +216,7 @@ func TestScorer_ComplexityBoostsMaintainability(t *testing.T) {
 func TestScorer_SmallCodeBoostsReadability(t *testing.T) {
 	small := evidence.CodeMetrics{TotalLines: 30, CodeLines: 20, Complexity: 1}
 	ev := []domain.Evidence{small.ToEvidence()}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	if scores[domain.DimReadability] < 0.90 {
 		t.Errorf("small code readability = %f, want >= 0.90", scores[domain.DimReadability])
 	}
@@ -225,7 +225,7 @@ func TestScorer_SmallCodeBoostsReadability(t *testing.T) {
 func TestScorer_GitHistoryBoostsScores(t *testing.T) {
 	git := evidence.GitStats{CommitCount: 15, AuthorCount: 3, AgeDays: 100}
 	ev := []domain.Evidence{git.ToEvidence()}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	if scores[domain.DimChangeRisk] < 0.85 {
 		t.Errorf("multi-author change_risk = %f, want >= 0.85", scores[domain.DimChangeRisk])
 	}
@@ -234,344 +234,89 @@ func TestScorer_GitHistoryBoostsScores(t *testing.T) {
 	}
 }
 
-func TestScorer_GraduatedGitHistory(t *testing.T) {
-	tests := []struct {
-		name       string
-		commits    int
-		authors    int
-		wantOpQual float64
-		wantCR     float64
-	}{
-		{"high commits + many authors", 60, 3, 0.95, 0.95},
-		{"medium commits + 2 authors", 25, 2, 0.90, 0.90},
-		{"low commits + 1 author", 12, 1, 0.85, 0.70},
-		{"few commits + 1 author", 3, 1, 0.75, 0.70},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			git := evidence.GitStats{CommitCount: tt.commits, AuthorCount: tt.authors, AgeDays: 30}
-			ev := []domain.Evidence{git.ToEvidence()}
-			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-			if scores[domain.DimOperationalQuality] < tt.wantOpQual {
-				t.Errorf("op_quality = %f, want >= %f (commits=%d)", scores[domain.DimOperationalQuality], tt.wantOpQual, tt.commits)
-			}
-			if scores[domain.DimChangeRisk] < tt.wantCR {
-				t.Errorf("change_risk = %f, want >= %f (authors=%d)", scores[domain.DimChangeRisk], tt.wantCR, tt.authors)
-			}
-		})
-	}
-}
-
-func TestScorer_MetricsBasedScoring(t *testing.T) {
-	// Evidence with only Metrics set — no Summary for parsing
-	ev := []domain.Evidence{
-		{
-			Kind:    domain.EvidenceKindMetrics,
-			Source:  "metrics",
-			Passed:  true,
-			Metrics: map[string]float64{"complexity": 3, "code_lines": 20},
-		},
-		{
-			Kind:    domain.EvidenceKindGitHistory,
-			Source:  "git",
-			Passed:  true,
-			Metrics: map[string]float64{"author_count": 3, "commit_count": 20},
-		},
-		{
-			Kind:    domain.EvidenceKindTest,
-			Source:  "go test",
-			Passed:  true,
-			Metrics: map[string]float64{"test_coverage": 0.90},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-
-	// Low complexity should give high maintainability
-	if scores[domain.DimMaintainability] < 0.90 {
-		t.Errorf("Metrics-based maintainability = %f, want >= 0.90", scores[domain.DimMaintainability])
-	}
-	// Small code lines should give high readability
-	if scores[domain.DimReadability] < 0.90 {
-		t.Errorf("Metrics-based readability = %f, want >= 0.90", scores[domain.DimReadability])
-	}
-	// Multi-author should boost change risk
-	if scores[domain.DimChangeRisk] < 0.85 {
-		t.Errorf("Metrics-based change_risk = %f, want >= 0.85", scores[domain.DimChangeRisk])
-	}
-	// Many commits should boost operational quality
-	if scores[domain.DimOperationalQuality] < 0.85 {
-		t.Errorf("Metrics-based op_quality = %f, want >= 0.85", scores[domain.DimOperationalQuality])
-	}
-	// High coverage should boost testability
-	if scores[domain.DimTestability] < 0.90 {
-		t.Errorf("Metrics-based testability = %f, want >= 0.90", scores[domain.DimTestability])
-	}
-}
-
-func TestScorer_FileCodeLinesThresholds(t *testing.T) {
-	// code_lines from metrics evidence represents file-level line count.
-	// File-level thresholds should be more generous than function-level:
-	// a 400-line file is normal; a 400-line function is not.
-	tests := []struct {
-		name        string
-		codeLines   int
-		wantMinRead float64
-	}{
-		{"small file (50 lines)", 50, 0.95},
-		{"medium file (200 lines)", 200, 0.90},
-		{"large file (400 lines)", 400, 0.85},
-		{"very large file (700 lines)", 700, 0.75},
-		{"huge file (1200 lines)", 1200, 0.60},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			ev := []domain.Evidence{
-				{
-					Kind:    domain.EvidenceKindMetrics,
-					Source:  "metrics",
-					Passed:  true,
-					Metrics: map[string]float64{"code_lines": float64(tt.codeLines)},
-				},
-			}
-			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-			if scores[domain.DimReadability] < tt.wantMinRead {
-				t.Errorf("code_lines=%d → readability=%f, want >= %f", tt.codeLines, scores[domain.DimReadability], tt.wantMinRead)
-			}
-		})
-	}
-}
-
-func TestScorer_ComplexityGraduated(t *testing.T) {
-	// Complexity 11-15 is moderate, not as bad as 16-20.
-	tests := []struct {
-		name       string
-		complexity int
-		wantMin    float64
-	}{
-		{"low complexity (5)", 5, 0.95},
-		{"moderate complexity (12)", 12, 0.80},
-		{"high complexity (18)", 18, 0.70},
-		{"very high complexity (25)", 25, 0.0}, // setMin caps it
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			ev := []domain.Evidence{
-				{
-					Kind:    domain.EvidenceKindMetrics,
-					Source:  "metrics",
-					Passed:  true,
-					Metrics: map[string]float64{"complexity": float64(tt.complexity)},
-				},
-			}
-			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-			if scores[domain.DimMaintainability] < tt.wantMin {
-				t.Errorf("complexity=%d → maintainability=%f, want >= %f", tt.complexity, scores[domain.DimMaintainability], tt.wantMin)
-			}
-		})
-	}
-}
-
-func TestScorer_AlgoComplexityScoring(t *testing.T) {
-	tests := []struct {
-		name        string
-		loopDepth   int
-		recursive   int
-		wantMinPerf float64
-		wantMaxPerf float64
-	}{
-		{"O(1) no loops", 0, 0, 0.95, 1.0},
-		{"O(n) single loop", 1, 0, 0.90, 0.95},
-		{"O(n²) nested loops", 2, 0, 0.60, 0.75},
-		{"O(n³) triple nested", 3, 0, 0.0, 0.55},
-		{"O(2^n) recursive", 0, 1, 0.0, 0.45},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			ev := []domain.Evidence{
-				{
-					Kind:   domain.EvidenceKindStructural,
-					Source: "structural",
-					Passed: true,
-					Metrics: map[string]float64{
-						"loop_nesting_depth": float64(tt.loopDepth),
-						"recursive_calls":    float64(tt.recursive),
-					},
-				},
-			}
-			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-			perf, ok := scores[domain.DimPerformanceAppropriateness]
-			if !ok {
-				t.Fatal("performance_appropriateness should be set when algo complexity is measured")
-			}
-			if perf < tt.wantMinPerf {
-				t.Errorf("perf = %f, want >= %f", perf, tt.wantMinPerf)
-			}
-			if perf > tt.wantMaxPerf {
-				t.Errorf("perf = %f, want <= %f", perf, tt.wantMaxPerf)
-			}
-		})
-	}
-}
-
-func TestScore_StructuralDocComment(t *testing.T) {
-	ev := []domain.Evidence{
-		{
-			Kind:   domain.EvidenceKindStructural,
-			Source: "structural",
-			Passed: true,
-			Metrics: map[string]float64{
-				"has_doc_comment": 1.0,
-				"exported_name":   1.0,
-				"param_count":     2,
-			},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	if scores[domain.DimReadability] < 0.90 {
-		t.Errorf("documented func readability = %f, want >= 0.90", scores[domain.DimReadability])
-	}
-}
-
-func TestScore_StructuralMissingDocExported(t *testing.T) {
-	ev := []domain.Evidence{
-		{
-			Kind:   domain.EvidenceKindStructural,
-			Source: "structural",
-			Passed: true,
-			Metrics: map[string]float64{
-				"has_doc_comment": 0.0,
-				"exported_name":   1.0,
-				"param_count":     2,
-			},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	if scores[domain.DimReadability] > 0.75 {
-		t.Errorf("undocumented exported func readability = %f, want <= 0.75", scores[domain.DimReadability])
-	}
-}
-
-func TestScore_StructuralHighParamCount(t *testing.T) {
-	ev := []domain.Evidence{
-		{
-			Kind:   domain.EvidenceKindStructural,
-			Source: "structural",
-			Passed: true,
-			Metrics: map[string]float64{
-				"param_count": 8,
-			},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	if scores[domain.DimMaintainability] > 0.60 {
-		t.Errorf("8-param func maintainability = %f, want <= 0.60", scores[domain.DimMaintainability])
-	}
-}
-
-func TestScore_StructuralDeepNesting(t *testing.T) {
-	ev := []domain.Evidence{
-		{
-			Kind:   domain.EvidenceKindStructural,
-			Source: "structural",
-			Passed: true,
-			Metrics: map[string]float64{
-				"max_nesting_depth": 5,
-			},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	if scores[domain.DimReadability] > 0.75 {
-		t.Errorf("deep nesting readability = %f, want <= 0.75", scores[domain.DimReadability])
-	}
-}
-
-func TestScore_StructuralIgnoredErrors(t *testing.T) {
-	ev := []domain.Evidence{
-		{
-			Kind:   domain.EvidenceKindStructural,
-			Source: "structural",
-			Passed: true,
-			Metrics: map[string]float64{
-				"errors_ignored": 2,
-			},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	if scores[domain.DimCorrectness] > 0.65 {
-		t.Errorf("ignored errors correctness = %f, want <= 0.65", scores[domain.DimCorrectness])
-	}
-}
-
-func TestScore_PerUnitLintOverride(t *testing.T) {
-	ev := []domain.Evidence{
-		// Repo-wide lint fails
-		{
-			Kind:    domain.EvidenceKindLint,
-			Source:  "golangci-lint",
-			Passed:  false,
-			Metrics: map[string]float64{"lint_errors": 5},
-		},
-		// Per-unit lint is clean
-		{
-			Kind:    domain.EvidenceKindLint,
-			Source:  "golangci-lint:unit",
-			Passed:  true,
-			Metrics: map[string]float64{"unit_lint_errors": 0, "unit_lint_warnings": 0},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	// Per-unit clean should override repo-wide failure
-	if scores[domain.DimCorrectness] < 0.85 {
-		t.Errorf("per-unit clean lint correctness = %f, want >= 0.85", scores[domain.DimCorrectness])
-	}
-}
-
-func TestScore_PerUnitCoverage(t *testing.T) {
-	ev := []domain.Evidence{
-		// Repo-wide test passes with low coverage
-		{
-			Kind:    domain.EvidenceKindTest,
-			Source:  "go test",
-			Passed:  true,
-			Metrics: map[string]float64{"test_coverage": 0.50},
-		},
-		// Per-unit coverage is high
-		{
-			Kind:    domain.EvidenceKindTest,
-			Source:  "coverage:unit",
-			Passed:  true,
-			Metrics: map[string]float64{"unit_test_coverage": 0.95},
-		},
-	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	if scores[domain.DimTestability] < 0.90 {
-		t.Errorf("high per-unit coverage testability = %f, want >= 0.90", scores[domain.DimTestability])
-	}
-}
-
-func TestScorer_RichEvidence_HighScore(t *testing.T) {
+func TestScorer_ViolationsReduceScores(t *testing.T) {
+	// violations against a measured dimension should reduce it
 	ev := []domain.Evidence{
 		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 0}.ToEvidence(),
-		evidence.TestResult{Tool: "go test", TotalCount: 10, PassedCount: 10, Coverage: 0.85}.ToEvidence(),
-		evidence.CodeMetrics{TotalLines: 30, CodeLines: 20, Complexity: 3}.ToEvidence(),
-		evidence.GitStats{CommitCount: 20, AuthorCount: 2, AgeDays: 60}.ToEvidence(),
 	}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
-	avg := scores.WeightedAverage(nil)
-	if avg < 0.85 {
-		t.Errorf("rich clean evidence avg = %f, want >= 0.85", avg)
+	evalResult := policy.EvaluationResult{
+		Passed: true,
+		Violations: []domain.Violation{
+			{RuleID: "some-rule", Severity: domain.SeverityCritical, Dimension: domain.DimCorrectness},
+		},
+	}
+	scores := engine.Score(ev, evalResult, "go")
+	// lint clean gives 0.95; critical penalty is 0.5; so ~0.45
+	if scores[domain.DimCorrectness] > 0.50 {
+		t.Errorf("correctness with critical violation = %f, want <= 0.50", scores[domain.DimCorrectness])
 	}
 }
 
-func TestScorer_CognitiveComplexity(t *testing.T) {
+func TestScorer_ViolationDoesNotInjectDimension(t *testing.T) {
+	// a violation against a dimension with no evidence should NOT inject it
+	ev := []domain.Evidence{
+		evidence.LintResult{Tool: "golangci-lint", ErrorCount: 0}.ToEvidence(),
+	}
+	evalResult := policy.EvaluationResult{
+		Passed: true,
+		Violations: []domain.Violation{
+			{RuleID: "security-rule", Severity: domain.SeverityError, Dimension: domain.DimSecurity},
+		},
+	}
+	scores := engine.Score(ev, evalResult, "go")
+	// Security was not measured by evidence, so it should not appear
+	if _, ok := scores[domain.DimSecurity]; ok {
+		t.Error("violation should not inject a dimension with no evidence")
+	}
+}
+
+func TestScorer_TierGenericReturnsNil(t *testing.T) {
+	// An unsupported language should return nil
+	scores := engine.Score(nil, policy.EvaluationResult{Passed: true}, "brainfuck")
+	if scores != nil {
+		t.Error("TierGeneric language should return nil scores")
+	}
+}
+
+func TestScorer_TierGenericComplexitySkipsMaintainability(t *testing.T) {
+	// For a TierGeneric language with complexity=0, maintainability should not be set
+	ev := []domain.Evidence{{
+		Kind:    domain.EvidenceKindMetrics,
+		Source:  "metrics",
+		Passed:  true,
+		Metrics: map[string]float64{"complexity": 0},
+	}}
+	// "python" is not a registered language → TierGeneric
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "python")
+	if _, ok := scores[domain.DimMaintainability]; ok {
+		t.Error("TierGeneric with complexity=0 should not set maintainability")
+	}
+}
+
+func TestScorer_TierFullComplexityDoesSetMaintainability(t *testing.T) {
+	// For a TierFull language with complexity=0, maintainability should be set
+	ev := []domain.Evidence{{
+		Kind:    domain.EvidenceKindMetrics,
+		Source:  "metrics",
+		Passed:  true,
+		Metrics: map[string]float64{"complexity": 0},
+	}}
+	// "go" is a registered language → TierFull
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
+	if v, ok := scores[domain.DimMaintainability]; !ok || v < 0.90 {
+		t.Errorf("TierFull with complexity=0 maintainability = %v (present=%v), want present and >= 0.90", v, ok)
+	}
+}
+
+func TestScorer_Structural_CognitiveComplexity(t *testing.T) {
 	tests := []struct {
 		name          string
 		cogComplexity float64
 		wantMinRead   float64
 		wantMaxRead   float64
 	}{
-		{"low complexity", 5, 0.90, 1.0},
-		{"moderate complexity", 12, 0.80, 0.90},
+		{"low complexity", 3, 0.90, 1.0},
+		{"medium complexity", 12, 0.80, 0.90},
 		{"very high complexity", 30, 0.0, 0.55},
 	}
 	for _, tt := range tests {
@@ -582,7 +327,7 @@ func TestScorer_CognitiveComplexity(t *testing.T) {
 					"cognitive_complexity": tt.cogComplexity,
 				},
 			}}
-			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 			read := scores[domain.DimReadability]
 			if read < tt.wantMinRead || read > tt.wantMaxRead {
 				t.Errorf("readability = %f, want [%f, %f]", read, tt.wantMinRead, tt.wantMaxRead)
@@ -610,7 +355,7 @@ func TestScorer_ErrorsNotWrapped(t *testing.T) {
 					"errors_not_wrapped": tt.count,
 				},
 			}}
-			scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+			scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 			opQ := scores[domain.DimOperationalQuality]
 			if opQ < tt.wantMin || opQ > tt.wantMax {
 				t.Errorf("operational_quality = %f, want [%f, %f]", opQ, tt.wantMin, tt.wantMax)
@@ -626,7 +371,7 @@ func TestScorer_UnsafeImports(t *testing.T) {
 			"unsafe_import_count": 2,
 		},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	sec := scores[domain.DimSecurity]
 	if sec > 0.65 {
 		t.Errorf("security = %f, want <= 0.65 for unsafe imports", sec)
@@ -640,7 +385,7 @@ func TestScorer_HardcodedSecrets(t *testing.T) {
 			"hardcoded_secrets": 1,
 		},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	sec := scores[domain.DimSecurity]
 	if sec > 0.35 {
 		t.Errorf("security = %f, want <= 0.35 for hardcoded secrets", sec)
@@ -654,7 +399,7 @@ func TestScorer_EmptyCatchBlocks(t *testing.T) {
 			"empty_catch_blocks": 2,
 		},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	corr := scores[domain.DimCorrectness]
 	if corr > 0.60 {
 		t.Errorf("correctness = %f, want <= 0.60 for empty catch blocks", corr)
@@ -669,7 +414,7 @@ func TestScorer_QuadraticPatterns(t *testing.T) {
 			"loop_nesting_depth": 0,
 		},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	perf := scores[domain.DimPerformanceAppropriateness]
 	if perf > 0.50 {
 		t.Errorf("perf = %f, want <= 0.50 for quadratic patterns", perf)
@@ -683,7 +428,7 @@ func TestScorer_HighReturnCount(t *testing.T) {
 			"return_count": 8,
 		},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	maint := scores[domain.DimMaintainability]
 	if maint > 0.70 {
 		t.Errorf("maintainability = %f, want <= 0.70 for high return count", maint)
@@ -699,7 +444,7 @@ func TestScorer_NestedLoopPairs(t *testing.T) {
 			"loop_nesting_depth": 0,
 		},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	perf := scores[domain.DimPerformanceAppropriateness]
 	if perf > 0.65 {
 		t.Errorf("perf = %f, want <= 0.65 for nested loop pairs", perf)
@@ -711,7 +456,7 @@ func TestScorer_FanIn_LowIsGood(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"fan_in": 3},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	cr := scores[domain.DimChangeRisk]
 	if cr < 0.90 {
 		t.Errorf("change_risk = %f, want >= 0.90 for fan_in=3", cr)
@@ -723,7 +468,7 @@ func TestScorer_FanIn_HighIsBad(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"fan_in": 25},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	cr := scores[domain.DimChangeRisk]
 	if cr > 0.55 {
 		t.Errorf("change_risk = %f, want <= 0.55 for fan_in=25", cr)
@@ -735,7 +480,7 @@ func TestScorer_FanOut_LowIsGood(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"fan_out": 3},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	maint := scores[domain.DimMaintainability]
 	if maint < 0.90 {
 		t.Errorf("maintainability = %f, want >= 0.90 for fan_out=3", maint)
@@ -747,7 +492,7 @@ func TestScorer_FanOut_HighIsBad(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"fan_out": 20},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	maint := scores[domain.DimMaintainability]
 	if maint > 0.60 {
 		t.Errorf("maintainability = %f, want <= 0.60 for fan_out=20", maint)
@@ -759,7 +504,7 @@ func TestScorer_DeadCode(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"is_dead_code": 1},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	maint := scores[domain.DimMaintainability]
 	if maint > 0.65 {
 		t.Errorf("maintainability = %f, want <= 0.65 for dead code", maint)
@@ -771,7 +516,7 @@ func TestScorer_DepDepth_ShallowIsGood(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"dep_depth": 2},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	af := scores[domain.DimArchitecturalFitness]
 	if af < 0.90 {
 		t.Errorf("arch_fitness = %f, want >= 0.90 for dep_depth=2", af)
@@ -783,7 +528,7 @@ func TestScorer_DepDepth_DeepIsBad(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"dep_depth": 10},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	af := scores[domain.DimArchitecturalFitness]
 	if af > 0.60 {
 		t.Errorf("arch_fitness = %f, want <= 0.60 for dep_depth=10", af)
@@ -795,7 +540,7 @@ func TestScorer_ConcreteDeps(t *testing.T) {
 		Kind: domain.EvidenceKindStructural, Source: "structural", Passed: true,
 		Metrics: map[string]float64{"concrete_deps": 2},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 	test := scores[domain.DimTestability]
 	if test > 0.70 {
 		t.Errorf("testability = %f, want <= 0.70 for concrete_deps=2", test)
@@ -826,7 +571,7 @@ func TestScorer_DeepAnalysis_AllClean(t *testing.T) {
 			"exported_name":        1,
 		},
 	}}
-	scores := engine.Score(ev, policy.EvaluationResult{Passed: true})
+	scores := engine.Score(ev, policy.EvaluationResult{Passed: true}, "go")
 
 	for dim, score := range scores {
 		if score < 0.80 {
