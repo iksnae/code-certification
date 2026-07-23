@@ -2,19 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B+ | 87.2% | certified | 2026-09-05 |
-| [openAIModel](models.go/openAIModel.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
-| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 B+ | 87.8% | certified | 2026-09-05 |
-| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-05 |
-| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-05 |
-| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-09-05 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 83.7% | certified | 2026-09-06 |
+| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-09-06 |
+| [formatCoverageMetrics](architect.go/formatCoverageMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-06 |
+| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-06 |
+| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-06 |
+| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-09-06 |
+| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-09-06 |
+| [schemas_test.go](schemas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-06 |
+| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-09-06 |
+| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-09-06 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-09-06 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-09-06 |
 
 ---
 

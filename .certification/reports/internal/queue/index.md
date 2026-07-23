@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BatchNext](queue.go/BatchNext.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-05 |
+| [Len](queue.go/Len.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-06 |
 
 ---
 

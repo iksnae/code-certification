@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [badge_test.go](badge_test.go.md) | file | 🟢 B+ | 87.8% | certified | 2026-09-05 |
-| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-09-05 |
-| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-09-05 |
+| [writeArchExecutiveSummary](architect_report.go/writeArchExecutiveSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-06 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-06 |
+| [detailed_test.go](detailed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-06 |
+| [pkgRow](site.go/pkgRow.md) | class | 🟢 A- | 90.0% | certified | 2026-09-06 |
+| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-09-06 |
 
 ---
 
