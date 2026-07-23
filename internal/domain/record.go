@@ -76,6 +76,7 @@ type CertificationRecord struct {
 	Grade      Grade           `json:"grade"`
 	Score      float64         `json:"score"`
 	Confidence float64         `json:"confidence"`
+	Unsupported bool           `json:"unsupported"`
 	Dimensions DimensionScores `json:"dimensions,omitempty"`
 
 	// Evidence
