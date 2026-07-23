@@ -2,24 +2,75 @@
 // based on the depth of analysis support available.
 package language_tiers
 
-import "github.com/iksnae/code-certification/internal/analysis"
-
 // Tier represents the level of analysis support for a language.
 type Tier int
 
 const (
+	// TierNone means the language is explicitly not supported.
+	TierNone Tier = iota
 	// TierGeneric is the baseline tier for languages without specialized analysis.
-	TierGeneric Tier = iota
+	TierGeneric
+	// TierLint means basic linting support is available.
+	TierLint
+	// TierParse means syntactic parsing support is available.
+	TierParse
 	// TierFull is the tier for languages with full structural analysis support.
 	TierFull
 )
 
+// String returns the human-readable name of the tier.
+func (t Tier) String() string {
+	switch t {
+	case TierNone:
+		return "None"
+	case TierGeneric:
+		return "Generic"
+	case TierLint:
+		return "Lint"
+	case TierParse:
+		return "Parse"
+	case TierFull:
+		return "Full"
+	default:
+		return "Unknown"
+	}
+}
+
+// languageTiers maps known language IDs to their analysis capability tier.
+// This registry should be updated when new language support is added to discovery.
+var languageTiers = map[string]Tier{
+	// TierFull languages: full structural analysis available
+	"go":   TierFull,
+	"ts":   TierFull,
+	"js":   TierFull,
+	"py":   TierFull,
+	"rs":   TierFull,
+
+	// TierGeneric languages: baseline support only
+	"rb":       TierGeneric,
+	"java":     TierGeneric,
+	"kt":       TierGeneric,
+	"sh":       TierGeneric,
+	"c":        TierGeneric,
+	"cpp":      TierGeneric,
+	"cs":       TierGeneric,
+	"swift":    TierGeneric,
+	"php":      TierGeneric,
+	"elixir":   TierGeneric,
+	"erlang":   TierGeneric,
+	"scala":    TierGeneric,
+	"lua":      TierGeneric,
+	"r":        TierGeneric,
+	"zig":      TierGeneric,
+	"sql":      TierGeneric,
+	"proto":    TierGeneric,
+}
+
 // TierForLanguage returns the analysis tier for a given language identifier.
-// Languages registered with the analysis package return TierFull;
-// unrecognized languages return TierGeneric.
+// Returns the mapped tier from the registry, or TierGeneric for unknown languages.
 func TierForLanguage(lang string) Tier {
-	if analysis.ForLanguage(lang) != nil {
-		return TierFull
+	if tier, ok := languageTiers[lang]; ok {
+		return tier
 	}
 	return TierGeneric
 }
