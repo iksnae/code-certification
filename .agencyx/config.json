@@ -1,31 +1,32 @@
 {
-  "engagement" : {
-    "displayName" : "code-certification",
-    "id" : "iksnae/code-certification",
-    "localPath" : ""
+  "engagement": {
+    "displayName": "code-certification",
+    "id": "iksnae/code-certification",
+    "localPath": ""
   },
-  "indexIgnore" : [
-
-  ],
-  "provider" : {
-    "kind" : "deepseek",
-    "model" : "deepseek-v4-pro"
+  "indexIgnore": [],
+  "provider": {
+    "kind": "deepseek",
+    "model": "deepseek-v4-pro"
   },
-  "roles" : {
-
+  "roles": {
+    "builder": {
+      "model": "moonshotai/kimi-k2",
+      "provider": "openrouter"
+    }
   },
-  "schemaVersion" : "agencyx.config.v1",
-  "shadow" : {
-    "layout" : "flat.v1",
-    "repo" : "iksnae/code-certification-shadow"
+  "schemaVersion": "agencyx.config.v1",
+  "shadow": {
+    "layout": "flat.v1",
+    "repo": "iksnae/code-certification-shadow"
   },
-  "verification" : {
-    "buildCommand" : "go build -o build/bin/certify ./cmd/certify/",
-    "testCommand" : "go test ./... -count=1",
-    "timeoutMs" : 300000
+  "verification": {
+    "buildCommand": "go build -o build/bin/certify ./cmd/certify/",
+    "testCommand": "go test ./... -count=1",
+    "timeoutMs": 300000
   },
-  "vision" : {
-    "briefPaths" : [
+  "vision": {
+    "briefPaths": [
       "docs/VISION.md"
     ]
   }
