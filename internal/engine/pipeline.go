@@ -21,7 +21,7 @@ func CertifyUnit(
 	evalResult := policy.Evaluate(rules, ev, unit.ID.Path())
 
 	// 2. Score across dimensions
-	scores := Score(ev, evalResult)
+	scores := Score(ev, evalResult, unit.ID.Language())
 
 	// 3. Compute weighted average
 	avg := scores.WeightedAverage(nil)

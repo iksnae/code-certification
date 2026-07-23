@@ -6,13 +6,22 @@ import (
 	"strings"
 
 	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/language_tiers"
 	"github.com/iksnae/code-certification/internal/policy"
 )
 
 // Score computes dimension scores from evidence and evaluation results.
 // Only dimensions with actual evidence are included in the returned map.
 // Dimensions without evidence are absent — they don't dilute the average.
-func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.DimensionScores {
+//
+// The lang parameter controls the language-tier gate: if the language resolves
+// to TierGeneric (unrecognized / no analysis support), Score returns nil
+// immediately — no dimensions are computed for unsupported languages.
+func Score(ev []domain.Evidence, evalResult policy.EvaluationResult, lang string) domain.DimensionScores {
+	if language_tiers.TierForLanguage(lang) == language_tiers.TierGeneric {
+		return nil
+	}
+
 	scores := make(domain.DimensionScores)
 
 	for _, e := range ev {
@@ -28,7 +37,7 @@ func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.Dime
 			scoreFromTest(e, scores)
 
 		case domain.EvidenceKindMetrics:
-			scoreFromMetrics(e, scores)
+			scoreFromMetrics(e, scores, lang)
 
 		case domain.EvidenceKindGitHistory:
 			scoreFromGitHistory(e, scores)
@@ -51,14 +60,12 @@ func Score(ev []domain.Evidence, evalResult policy.EvaluationResult) domain.Dime
 		}
 	}
 
-	// Penalize for violations — only affects dimensions already in the map
+	// Penalize for violations — only affects dimensions already in the map.
+	// Dimensions without evidence are absent; violations do not inject them.
 	for _, v := range evalResult.Violations {
 		penalty := severityPenalty(v.Severity)
 		if _, ok := scores[v.Dimension]; ok {
 			scores[v.Dimension] = max(0, scores[v.Dimension]-penalty)
-		} else {
-			// Violation introduces the dimension at a penalized value
-			scores[v.Dimension] = max(0, 0.80-penalty)
 		}
 	}
 
@@ -106,20 +113,27 @@ func scoreFromTest(e domain.Evidence, scores domain.DimensionScores) {
 	}
 }
 
-func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores) {
+func scoreFromMetrics(e domain.Evidence, scores domain.DimensionScores, lang string) {
 	complexity := metricOrSummaryInt(e, "complexity", "complexity")
 	if complexity >= 0 {
-		switch {
-		case complexity <= 5:
-			setMax(scores, domain.DimMaintainability, 0.95)
-		case complexity <= 10:
-			setMax(scores, domain.DimMaintainability, 0.85)
-		case complexity <= 15:
-			setMax(scores, domain.DimMaintainability, 0.80)
-		case complexity <= 20:
-			setMax(scores, domain.DimMaintainability, 0.70)
-		default:
-			setMin(scores, domain.DimMaintainability, 0.50)
+		// Guard: skip the complexity→maintainability mapping when complexity
+		// is zero AND the language has no specialized analysis support.
+		// Zero complexity on TierGeneric means unparseable code, not clean code.
+		if complexity == 0 && language_tiers.TierForLanguage(lang) == language_tiers.TierGeneric {
+			// skip complexity-derived maintainability
+		} else {
+			switch {
+			case complexity <= 5:
+				setMax(scores, domain.DimMaintainability, 0.95)
+			case complexity <= 10:
+				setMax(scores, domain.DimMaintainability, 0.85)
+			case complexity <= 15:
+				setMax(scores, domain.DimMaintainability, 0.80)
+			case complexity <= 20:
+				setMax(scores, domain.DimMaintainability, 0.70)
+			default:
+				setMin(scores, domain.DimMaintainability, 0.50)
+			}
 		}
 	}
 
