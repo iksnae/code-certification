@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.7%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Evidence](evidence.go/Evidence.md) | class | 🟢 A- | 90.0% | certified | 2026-09-06 |
-| [Symbol](unit.go/Symbol.md) | method | 🟢 A | 93.3% | certified | 2026-09-06 |
+| [IssueConfig](config.go/IssueConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-07 |
+| [expiry_test.go](expiry_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-07 |
+| [Path](unit.go/Path.md) | method | 🟢 A | 93.3% | certified | 2026-09-07 |
 
 ---
 

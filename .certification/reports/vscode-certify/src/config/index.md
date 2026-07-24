@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [bootstrapFromConfig](settingsSync.ts/bootstrapFromConfig.md) | function | 🟢 A | 93.1% | certified | 2026-09-06 |
+| [applyPreset](settingsSync.ts/applyPreset.md) | function | 🟢 A | 93.1% | certified | 2026-09-07 |
 
 ---
 
