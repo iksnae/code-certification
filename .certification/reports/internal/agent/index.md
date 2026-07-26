@@ -2,25 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
+**Grade:** 🟢 A- (91.3%)  
 **Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-09-08 |
-| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-09-08 |
-| [stage_test.go](stage_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-08 |
-| [Content](types.go/Content.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-08 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-08 |
-| [types_test.go](types_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-08 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-09-08 |
-| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 A- | 90.0% | certified | 2026-09-08 |
-| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-09-08 |
-| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-08 |
-| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-09-08 |
-| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-09-08 |
+| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-09 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-09 |
+| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-09 |
+| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
+| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
+| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-09-09 |
+| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
 
 ---
 

@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-08 |
-| [GenerateReportTree](report_tree.go/GenerateReportTree.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-08 |
-| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2026-09-08 |
-| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A- | 92.2% | certified | 2026-09-08 |
-| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-09-08 |
+| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-09-09 |
+| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-09 |
+| [health_test.go](health_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-09 |
 
 ---
 
