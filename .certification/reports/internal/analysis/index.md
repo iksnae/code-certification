@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (86.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsFindSymbol](rust_analyzer.go/rsFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-09-09 |
-| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-09-09 |
-| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-09 |
-| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-09 |
-| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-09 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-09-10 |
+| [pyChildByType](python_analyzer.go/pyChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-09-10 |
+| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-09-10 |
+| [Metrics](analyzer.go/Metrics.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
 
 ---
 

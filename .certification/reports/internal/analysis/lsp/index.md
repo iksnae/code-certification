@@ -3,15 +3,17 @@
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
 **Grade:** 🟢 B+ (88.1%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Error](client.go/Error.md) | method | 🟢 B | 84.4% | certified | 2026-09-09 |
-| [CallHierarchyPrepareParams](types.go/CallHierarchyPrepareParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
+| [DocumentSymbols](client.go/DocumentSymbols.md) | method | 🟢 B | 81.1% | certified | 2026-09-10 |
+| [client_test.go](client_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-10 |
+| [CallHierarchyPrepareParams](types.go/CallHierarchyPrepareParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [DocumentSymbol](types.go/DocumentSymbol.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [DocumentSymbolCapability](types.go/DocumentSymbolCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
 
 ---
 

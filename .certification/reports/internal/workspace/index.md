@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.3%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (86.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [AggregateCards](aggregate.go/AggregateCards.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
-| [shortCommit](report.go/shortCommit.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [ParseSubmoduleStatus](workspace.go/ParseSubmoduleStatus.md) | function | 🟢 B | 85.0% | certified | 2026-09-10 |
+| [Submodule](workspace.go/Submodule.md) | class | 🟢 B | 85.6% | certified | 2026-09-10 |
+| [WorkspaceCard](aggregate.go/WorkspaceCard.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
 
 ---
 

@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [provideCodeLenses](CertifyCodeLensProvider.ts/provideCodeLenses.md) | method | 🟢 A- | 92.5% | certified | 2026-09-09 |
+| [constructor](CertifyCodeLensProvider.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-09-10 |
 
 ---
 

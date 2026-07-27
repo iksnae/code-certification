@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.0%)  
+**Grade:** 🟢 A- (91.3%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 86.7% | certified | 2026-09-09 |
-| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-09 |
-| [health_test.go](health_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-09 |
+| [detailed_test.go](detailed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-10 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-09-10 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-09-10 |
 
 ---
 

@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertificationMode](config.go/CertificationMode.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [Config](config.go/Config.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [EnforcingConfig](config.go/EnforcingConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [UnitID](unit.go/UnitID.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
+| [String](override.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-10 |
+| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-10 |
+| [ModelAssignments](config.go/ModelAssignments.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [DimensionScores](dimension.go/DimensionScores.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
 
 ---
 

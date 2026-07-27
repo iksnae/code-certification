@@ -2,25 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-09 |
-| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-09 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-09 |
-| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-09-09 |
-| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
-| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
-| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
-| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-09-10 |
+| [formatCodeMetrics](architect.go/formatCodeMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-10 |
+| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-10 |
+| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-10 |
+| [fallback_test.go](fallback_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-10 |
+| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-09-10 |
+| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-09-10 |
 
 ---
 

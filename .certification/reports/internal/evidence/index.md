@@ -2,18 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [structural_test.go](structural_test.go.md) | file | 🟢 B | 85.6% | certified | 2026-09-09 |
-| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-09 |
-| [lint_test.go](lint_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-09 |
-| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 A- | 90.0% | certified | 2026-09-09 |
-| [classifyAlgoComplexity](structural.go/classifyAlgoComplexity.md) | function | 🟢 A | 93.3% | certified | 2026-09-09 |
+| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2026-09-10 |
+| [ParseCargoClippyJSON](tools.go/ParseCargoClippyJSON.md) | function | 🟢 B | 85.0% | certified | 2026-09-10 |
+| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-10 |
+| [executor_test.go](executor_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
+| [AttributeLintToFile](attribution.go/AttributeLintToFile.md) | function | 🟢 A | 93.3% | certified | 2026-09-10 |
 
 ---
 

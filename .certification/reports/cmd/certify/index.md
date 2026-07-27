@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (85.1%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [setupAgent](certify_cmd.go/setupAgent.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-09 |
-| [isLocalURL](certify_cmd.go/isLocalURL.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-09 |
+| [runWorkspaceArchitect](architect_cmd.go/runWorkspaceArchitect.md) | function | 🟡 C | 70.6% | certified_with_observations | 2026-09-10 |
+| [bindOnboardFlags](onboard_cmd.go/bindOnboardFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-10 |
+| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-10 |
+| [certifyContext](certify_cmd.go/certifyContext.md) | class | 🟢 A- | 90.0% | certified | 2026-09-10 |
 
 ---
 
