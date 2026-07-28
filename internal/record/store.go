@@ -25,6 +25,7 @@ type recordJSON struct {
 	Grade        string             `json:"grade"`
 	Score        float64            `json:"score"`
 	Confidence   float64            `json:"confidence"`
+	Unsupported  bool               `json:"unsupported,omitempty"`
 	Dimensions   map[string]float64 `json:"dimensions,omitempty"`
 	Evidence     []evidenceJSON     `json:"evidence,omitempty"`
 	Observations []string           `json:"observations,omitempty"`
@@ -323,6 +324,7 @@ func toJSON(rec domain.CertificationRecord) recordJSON {
 		Grade:        rec.Grade.String(),
 		Score:        rec.Score,
 		Confidence:   rec.Confidence,
+		Unsupported:  rec.Unsupported,
 		Dimensions:   dimensionsToMap(rec.Dimensions),
 		Evidence:     evJSON,
 		Observations: rec.Observations,
@@ -356,6 +358,7 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 		Grade:         parseGrade(rj.Grade),
 		Score:         rj.Score,
 		Confidence:    rj.Confidence,
+		Unsupported:   rj.Unsupported,
 		Dimensions:    mapToDimensions(rj.Dimensions),
 		Evidence:      evidence,
 		Observations:  rj.Observations,
@@ -516,6 +519,11 @@ func parseGrade(s string) domain.Grade {
 	m := map[string]domain.Grade{
 		"A": domain.GradeA, "A-": domain.GradeAMinus, "B+": domain.GradeBPlus,
 		"B": domain.GradeB, "C": domain.GradeC, "D": domain.GradeD, "F": domain.GradeF,
+		// "N/A" is a real verdict, not a missing one: the unit was never
+		// assessed. Without this entry it falls to the F default below and the
+		// stored record silently reports a failing grade for code the engine
+		// never looked at.
+		"N/A": domain.GradeNA,
 	}
 	if g, ok := m[s]; ok {
 		return g

@@ -6,6 +6,7 @@ import (
 
 	"github.com/iksnae/code-certification/internal/domain"
 	"github.com/iksnae/code-certification/internal/expiry"
+	"github.com/iksnae/code-certification/internal/language_tiers"
 	"github.com/iksnae/code-certification/internal/policy"
 )
 
@@ -23,14 +24,43 @@ func CertifyUnit(
 	// 2. Score across dimensions
 	scores := Score(ev, evalResult, unit.ID.Language())
 
-	// 3. Compute weighted average
-	avg := scores.WeightedAverage(nil)
-
-	// 4. Determine status
-	status := StatusFromScore(avg, !evalResult.Passed)
-
-	// 5. Compute grade
-	grade := domain.GradeFromScore(avg)
+	// 3-5. Derive the verdict.
+	//
+	// "Scored well", "scored badly" and "cannot be scored" are three distinct
+	// states. Only the first two are expressible as a score, so the third is
+	// decided before any arithmetic happens: a unit in a language the engine
+	// cannot analyse yields no dimension evidence, and running an empty score
+	// set through WeightedAverage/GradeFromScore would silently manufacture a
+	// 0.0 and an F for code that was never examined.
+	//
+	// The tier is asked directly rather than inferred from `scores` being nil.
+	// Nil-vs-empty would work today but is not a contract: a future change that
+	// returns an empty map for an unsupported language, or nil for "supported
+	// but no evidence gathered", would reintroduce the fabricated grade with no
+	// test failing.
+	var (
+		avg        float64
+		status     domain.Status
+		grade      domain.Grade
+		confidence float64
+	)
+	unsupported := !language_tiers.IsSupported(unit.ID.Language())
+	if unsupported {
+		// No judgement is asserted: not passing, not failing, not assessed.
+		// Exempt is the only status that withholds a quality verdict; the
+		// Unsupported flag is what distinguishes "outside the engine's reach"
+		// from "excluded by an operator override".
+		avg = 0
+		grade = domain.GradeNA
+		status = domain.StatusExempt
+		confidence = 0
+		scores = nil
+	} else {
+		avg = scores.WeightedAverage(nil)
+		status = StatusFromScore(avg, !evalResult.Passed)
+		grade = domain.GradeFromScore(avg)
+		confidence = 1.0 // Deterministic evidence = full confidence
+	}
 
 	// 6. Compute expiry window
 	factors := domain.ExpiryFactors{
@@ -60,7 +90,8 @@ func CertifyUnit(
 		Status:       status,
 		Grade:        grade,
 		Score:        avg,
-		Confidence:   1.0, // Deterministic evidence = full confidence
+		Confidence:   confidence,
+		Unsupported:  unsupported,
 		Dimensions:   scores,
 		Evidence:     ev,
 		Observations: observations,
