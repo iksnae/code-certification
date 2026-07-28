@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/iksnae/code-certification/internal/analysis"
 	"github.com/iksnae/code-certification/internal/domain"
 )
 
@@ -33,8 +34,14 @@ func Health(records []domain.CertificationRecord) HealthReport {
 
 	var totalScore float64
 	var passing int
+	var counted int
 
 	for _, r := range records {
+		if analysis.ForLanguage(r.UnitID.Language()) == nil {
+			continue
+		}
+		counted++
+
 		totalScore += r.Score
 
 		switch r.Status {
@@ -56,8 +63,13 @@ func Health(records []domain.CertificationRecord) HealthReport {
 		}
 	}
 
-	h.PassRate = float64(passing) / float64(h.TotalUnits)
-	h.AverageScore = totalScore / float64(h.TotalUnits)
+	if counted > 0 {
+		h.PassRate = float64(passing) / float64(counted)
+		h.AverageScore = totalScore / float64(counted)
+	} else {
+		h.PassRate = 0
+		h.AverageScore = 0
+	}
 
 	return h
 }
