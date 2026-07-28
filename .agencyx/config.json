@@ -9,12 +9,6 @@
     "kind": "deepseek",
     "model": "deepseek-v4-pro"
   },
-  "roles": {
-    "builder": {
-      "model": "moonshotai/kimi-k2",
-      "provider": "openrouter"
-    }
-  },
   "schemaVersion": "agencyx.config.v1",
   "shadow": {
     "layout": "flat.v1",
