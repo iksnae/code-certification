@@ -515,20 +515,25 @@ func mapToDimensions(m map[string]float64) domain.DimensionScores {
 	return dims
 }
 
+// parseGrade converts a persisted grade string back to a domain.Grade.
+//
+// Unrecognised input decays to GradeNA, never to GradeF. A grade string this
+// binary does not know — an empty one from a truncated or partially written
+// record, a corrupted byte, a grade emitted by a newer version — carries no
+// information about quality. Returning GradeF for it manufactures a confident
+// failing verdict out of absent data, which is the same defect as grading an
+// unanalysed language an F: it reports a judgement that was never made.
+// GradeNA says only what is true, that the grade is not known.
 func parseGrade(s string) domain.Grade {
 	m := map[string]domain.Grade{
 		"A": domain.GradeA, "A-": domain.GradeAMinus, "B+": domain.GradeBPlus,
 		"B": domain.GradeB, "C": domain.GradeC, "D": domain.GradeD, "F": domain.GradeF,
-		// "N/A" is a real verdict, not a missing one: the unit was never
-		// assessed. Without this entry it falls to the F default below and the
-		// stored record silently reports a failing grade for code the engine
-		// never looked at.
 		"N/A": domain.GradeNA,
 	}
 	if g, ok := m[s]; ok {
 		return g
 	}
-	return domain.GradeF
+	return domain.GradeNA
 }
 
 // parseUnitIDOrEmpty parses a unit ID, returning a zero value on error.

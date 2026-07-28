@@ -72,12 +72,12 @@ type CertificationRecord struct {
 	PolicyVersion string `json:"policy_version"`
 
 	// Result
-	Status     Status          `json:"status"`
-	Grade      Grade           `json:"grade"`
-	Score      float64         `json:"score"`
-	Confidence float64         `json:"confidence"`
-	Unsupported bool           `json:"unsupported"`
-	Dimensions DimensionScores `json:"dimensions,omitempty"`
+	Status      Status          `json:"status"`
+	Grade       Grade           `json:"grade"`
+	Score       float64         `json:"score"`
+	Confidence  float64         `json:"confidence"`
+	Unsupported bool            `json:"unsupported"`
+	Dimensions  DimensionScores `json:"dimensions,omitempty"`
 
 	// Evidence
 	Evidence     []Evidence `json:"evidence,omitempty"`
@@ -104,8 +104,13 @@ type CertificationRun struct {
 	UnitsProcessed int       `json:"units_processed"`
 	UnitsCertified int       `json:"units_certified"`
 	UnitsFailed    int       `json:"units_failed"`
-	OverallGrade   string    `json:"overall_grade"`
-	OverallScore   float64   `json:"overall_score"`
+	// UnitsUnsupported counts units in languages the engine cannot analyse. They
+	// are neither certified nor failed: no verdict was asserted about them.
+	// Folding them into UnitsCertified writes a durable falsehood into
+	// .certification/runs.jsonl — a claim of certification for code never opened.
+	UnitsUnsupported int     `json:"units_unsupported,omitempty"`
+	OverallGrade     string  `json:"overall_grade"`
+	OverallScore     float64 `json:"overall_score"`
 }
 
 // GenerateRunID creates a timestamp-based run identifier.
