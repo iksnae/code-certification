@@ -78,11 +78,13 @@ func TestRunTally_AssessedUnitsUnchanged(t *testing.T) {
 // lands on disk in .certification/runs.jsonl.
 func TestBuildCertificationRun_UnsupportedPersistedSeparately(t *testing.T) {
 	run := buildCertificationRun(runParams{
-		runID:     "run-test",
-		processed: 3,
-		tally:     runTally{unsupported: 3, processed: 3},
+		runID: "run-test",
+		tally: runTally{unsupported: 3, processed: 3},
 	}, nil)
 
+	if run.UnitsProcessed != 3 {
+		t.Errorf("UnitsProcessed = %d, want 3 — runTally.processed is the only carrier", run.UnitsProcessed)
+	}
 	if run.UnitsCertified != 0 {
 		t.Errorf("UnitsCertified = %d, want 0 — unassessed units must not be persisted as certified", run.UnitsCertified)
 	}

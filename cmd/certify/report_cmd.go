@@ -218,6 +218,7 @@ func runWorkspaceReport(root string) error {
 				summary.Units = card.TotalUnits
 				summary.Passing = card.Passing
 				summary.Failing = card.Failing
+				summary.Unsupported = card.UnsupportedCount
 				summary.PassRate = card.PassRate
 				summary.StateAt = card.GeneratedAt
 			}

@@ -23,18 +23,36 @@ func GenerateBadge(c Card) Badge {
 		SchemaVersion: 1,
 		Label:         "certification",
 		Message:       badgeMessage(c),
-		Color:         badgeColor(c.OverallGrade),
+		Color:         badgeColor(badgeGrade(c)),
 		NamedLogo:     "checkmarx",
 		LogoColor:     "white",
 	}
 }
 
+// badgeMessage is what the public README badge says. It is the most widely
+// read output the product has, so it must never state a rate that was not
+// measured: with nothing analyzable, "0%" and "100%" are equally false claims
+// about code the engine never opened.
 func badgeMessage(c Card) string {
 	if c.TotalUnits == 0 {
 		return "no data"
 	}
+	if !c.PassRateKnown() {
+		return fmt.Sprintf("not assessed · 0 of %d units analyzable", c.TotalUnits)
+	}
 	return fmt.Sprintf("%s · %.0f%% · %d units",
 		c.OverallGrade, c.PassRate*100, c.TotalUnits)
+}
+
+// badgeGrade is the grade the badge colours itself by. A card with no
+// analyzable units has no verdict to colour, so it falls through to the
+// neutral gray rather than painting the README red or green off a grade
+// derived from units that were never scored.
+func badgeGrade(c Card) string {
+	if c.TotalUnits > 0 && !c.PassRateKnown() {
+		return ""
+	}
+	return c.OverallGrade
 }
 
 // badgeColor maps grade to brand-consistent colors.

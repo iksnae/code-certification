@@ -5,6 +5,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/iksnae/code-certification/internal/report"
 )
 
 // gradeEmoji maps grades to status emoji (matches report package convention).
@@ -23,6 +25,12 @@ func gradeEmoji(grade string) string {
 	}
 }
 
+// formatRate delegates to the report package so the workspace rollup and the
+// per-repo card cannot disagree about how an undefined rate renders.
+func formatRate(known bool, rate float64, decimals int) string {
+	return report.FormatRate(known, rate, decimals)
+}
+
 // FormatWorkspaceCardMarkdown renders the workspace-level REPORT_CARD.md.
 func FormatWorkspaceCardMarkdown(wc WorkspaceCard) string {
 	var b strings.Builder
@@ -38,7 +46,11 @@ func FormatWorkspaceCardMarkdown(wc WorkspaceCard) string {
 	fmt.Fprintf(&b, "| Total Units | %d |\n", wc.TotalUnits)
 	fmt.Fprintf(&b, "| Passing | %d |\n", wc.TotalPassing)
 	fmt.Fprintf(&b, "| Failing | %d |\n", wc.TotalFailing)
-	fmt.Fprintf(&b, "| Pass Rate | %.1f%% |\n", wc.PassRate*100)
+	if wc.TotalUnsupported > 0 {
+		fmt.Fprintf(&b, "| Not Assessed | %d |\n", wc.TotalUnsupported)
+		fmt.Fprintf(&b, "| Analyzable Units | %d |\n", wc.AnalyzableUnits)
+	}
+	fmt.Fprintf(&b, "| Pass Rate | %s |\n", formatRate(wc.PassRateKnown(), wc.PassRate, 1))
 	fmt.Fprintf(&b, "| Submodules | %d |\n\n", len(wc.Submodules))
 
 	// Submodules table
@@ -56,8 +68,9 @@ func FormatWorkspaceCardMarkdown(wc WorkspaceCard) string {
 				s.Name, s.Path, shortCommit(s.Commit))
 			continue
 		}
-		fmt.Fprintf(&b, "| [%s](%s/.certification/reports/index.md) | %d | %s %s | %.1f%% | %.0f%% | `%s` |\n",
-			s.Name, s.Path, s.Units, gradeEmoji(s.Grade), s.Grade, s.Score*100, s.PassRate*100, shortCommit(s.Commit))
+		fmt.Fprintf(&b, "| [%s](%s/.certification/reports/index.md) | %d | %s %s | %.1f%% | %s | `%s` |\n",
+			s.Name, s.Path, s.Units, gradeEmoji(s.Grade), s.Grade, s.Score*100,
+			formatRate(s.PassRateKnown(), s.PassRate, 0), shortCommit(s.Commit))
 	}
 	b.WriteString("\n")
 
@@ -124,8 +137,9 @@ func formatWorkspaceIndex(wc WorkspaceCard) string {
 			continue
 		}
 		filename := submoduleFilename(s.Name) + ".md"
-		fmt.Fprintf(&b, "| [%s](%s) | %d | %s %s | %.1f%% | %.0f%% |\n",
-			s.Name, filename, s.Units, gradeEmoji(s.Grade), s.Grade, s.Score*100, s.PassRate*100)
+		fmt.Fprintf(&b, "| [%s](%s) | %d | %s %s | %.1f%% | %s |\n",
+			s.Name, filename, s.Units, gradeEmoji(s.Grade), s.Grade, s.Score*100,
+			formatRate(s.PassRateKnown(), s.PassRate, 0))
 	}
 
 	b.WriteString("\n---\n\n")
@@ -150,7 +164,11 @@ func formatSubmoduleSummary(s SubmoduleSummary) string {
 	fmt.Fprintf(&b, "| **Units** | %d |\n", s.Units)
 	fmt.Fprintf(&b, "| **Passing** | %d |\n", s.Passing)
 	fmt.Fprintf(&b, "| **Failing** | %d |\n", s.Failing)
-	fmt.Fprintf(&b, "| **Pass Rate** | %.0f%% |\n", s.PassRate*100)
+	if s.Unsupported > 0 {
+		fmt.Fprintf(&b, "| **Not Assessed** | %d |\n", s.Unsupported)
+		fmt.Fprintf(&b, "| **Analyzable** | %d |\n", s.Analyzable())
+	}
+	fmt.Fprintf(&b, "| **Pass Rate** | %s |\n", formatRate(s.PassRateKnown(), s.PassRate, 0))
 	if s.Commit != "" {
 		fmt.Fprintf(&b, "| **Commit** | `%s` |\n", shortCommit(s.Commit))
 	}

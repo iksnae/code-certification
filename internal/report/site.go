@@ -63,9 +63,10 @@ type indexData struct {
 	OverallGrade   string
 	OverallScore   float64
 	TotalUnits     int
-	PassRate       float64
+	PassRate       string
 	Passing        int
 	Failing        int
+	Unsupported    int
 	HasGrades      bool
 	Grades         []gradeRow
 	HasDimensions  bool
@@ -123,15 +124,16 @@ func generateIndex(r FullReport, cfg SiteConfig) error {
 		OverallGrade:   r.Card.OverallGrade,
 		OverallScore:   r.Card.OverallScore,
 		TotalUnits:     r.Card.TotalUnits,
-		PassRate:       r.Card.PassRate,
+		PassRate:       formatPassRate(r.Card),
 		Passing:        r.Card.Passing,
 		Failing:        r.Card.Failing,
+		Unsupported:    r.Card.UnsupportedCount,
 		IncludeSearch:  cfg.IncludeSearch,
 		ReportCardLink: true,
 	}
 
 	// Grade distribution
-	gradeOrder := []string{"A", "A-", "B+", "B", "C", "D", "F"}
+	gradeOrder := distributionGrades
 	for _, g := range gradeOrder {
 		if count, ok := r.Card.GradeDistribution[g]; ok && count > 0 {
 			data.Grades = append(data.Grades, gradeRow{
@@ -213,7 +215,8 @@ type packagePageData struct {
 	Grade       string
 	AvgScore    float64
 	UnitCount   int
-	PassRate    float64
+	PassRate    string
+	Unsupported int
 	Units       []packageUnitRow
 	IndexURL    string
 }
@@ -251,15 +254,26 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 		// Compute stats
 		var totalScore float64
 		passing := 0
+		unsupported := 0
 		for _, u := range units {
 			totalScore += u.Score
-			s := statusFromString(u.Status)
-			if s.IsPassing() {
+			// Unsupported units carry status "exempt", which IsPassing() reads
+			// as true. They are unassessed, so they leave both sides of the rate.
+			if u.Unsupported {
+				unsupported++
+				continue
+			}
+			if statusFromString(u.Status).IsPassing() {
 				passing++
 			}
 		}
 		avgScore := totalScore / float64(len(units))
-		passRate := float64(passing) / float64(len(units))
+		analyzable := len(units) - unsupported
+		var rate float64
+		if analyzable > 0 {
+			rate = float64(passing) / float64(analyzable)
+		}
+		passRate := FormatRate(analyzable > 0, rate, 1)
 		grade := domain.GradeFromScore(avgScore).String()
 
 		// Compute relative path from package page to site root
@@ -295,6 +309,7 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 			AvgScore:    avgScore,
 			UnitCount:   len(units),
 			PassRate:    passRate,
+			Unsupported: unsupported,
 			Units:       unitRows,
 			IndexURL:    indexURL,
 		}

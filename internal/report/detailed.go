@@ -252,7 +252,11 @@ func FormatDetailedText(d DetailedReport) string {
 		sort.Strings(langs)
 		for _, lang := range langs {
 			lb := d.ByLanguage[lang]
-			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %.3f\n", lang, lb.Units, lb.Passing, lb.AverageScore)
+			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %.3f", lang, lb.Units, lb.Passing, lb.AverageScore)
+			if lb.Unsupported > 0 {
+				fmt.Fprintf(&b, " (%d not assessed)", lb.Unsupported)
+			}
+			b.WriteString("\n")
 		}
 	}
 

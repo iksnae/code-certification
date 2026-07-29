@@ -142,7 +142,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	run := buildCertificationRun(runParams{
 		runID: runID, startedAt: startedAt, commit: commit,
 		policyVersions: ctx.certifier.PolicyVersions,
-		tally:          tally, processed: tally.processed,
+		tally:          tally,
 	}, ctx.certifier.Store)
 	if err := ctx.certifier.Store.AppendRun(run); err != nil {
 		fmt.Fprintf(os.Stderr, "warning: saving run record: %v\n", err)
@@ -626,13 +626,16 @@ func (t *runTally) assessed() int {
 }
 
 // runParams holds parameters for building a CertificationRun record.
+//
+// The unit counts live only on tally. A second processed field alongside it was
+// two carriers for one number, which a caller could set inconsistently and no
+// test would catch.
 type runParams struct {
 	runID          string
 	startedAt      time.Time
 	commit         string
 	policyVersions []string
 	tally          runTally
-	processed      int
 }
 
 // buildCertificationRun creates a CertificationRun from run results.
@@ -644,7 +647,7 @@ func buildCertificationRun(p runParams, store *record.Store) domain.Certificatio
 		CompletedAt:      time.Now(),
 		Commit:           p.commit,
 		PolicyVersions:   p.policyVersions,
-		UnitsProcessed:   p.processed,
+		UnitsProcessed:   p.tally.processed,
 		UnitsCertified:   p.tally.certified + p.tally.observations,
 		UnitsFailed:      p.tally.failed,
 		UnitsUnsupported: p.tally.unsupported,

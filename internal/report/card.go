@@ -42,11 +42,46 @@ type Card struct {
 	// Package summaries (populated for report tree navigation)
 	Packages []PackageSummary `json:"packages,omitempty"`
 
-	// Unsupported-unit counts
+	// Unsupported-unit counts. UnsupportedCount units carry no verdict: the
+	// engine has no analyzer for their language, so nothing about them was
+	// measured. AnalyzableUnits is TotalUnits minus that count and is the
+	// denominator of PassRate — an unassessed unit belongs in neither the
+	// numerator nor the denominator of a rate that claims to summarise verdicts.
 	UnsupportedCount     int      `json:"unsupported_count"`
 	UnsupportedLanguages []string `json:"unsupported_languages"`
 	AnalyzableUnits      int      `json:"analyzable_units"`
 }
+
+// PassRateKnown reports whether PassRate is a measurement rather than a
+// placeholder. With no analyzable units the ratio is 0/0 — undefined, which is
+// neither 0% nor 100% — so every renderer must gate on this and print a
+// non-numeric marker rather than a percentage that implies an assessment ran.
+func (c Card) PassRateKnown() bool { return c.AnalyzableUnits > 0 }
+
+// FormatRate renders a pass rate for display. It is the single place that
+// decides how an undefined rate looks, so the marker cannot drift between the
+// report card, the full report, the site, the report tree and the workspace
+// rollup — surfaces that a reader compares against each other.
+func FormatRate(known bool, rate float64, decimals int) string {
+	if !known {
+		return "n/a"
+	}
+	return fmt.Sprintf("%.*f%%", decimals, rate*100)
+}
+
+// formatPassRate renders a Card's pass rate, honouring the undefined case.
+func formatPassRate(c Card) string {
+	return FormatRate(c.PassRateKnown(), c.PassRate, 1)
+}
+
+// distributionGrades is the render order for the grade distribution. N/A is a
+// real bucket, not a gap: it is what an unassessed unit records, and omitting
+// it printed a Grade Distribution header with no rows over an all-unsupported
+// repo's units.
+var distributionGrades = []string{"A", "A-", "B+", "B", "C", "D", "F", "N/A"}
+
+// distributionBarWidth is the column budget for the text card's histogram bar.
+const distributionBarWidth = 36
 
 // IssueCard describes a single unit needing attention.
 type IssueCard struct {
@@ -72,10 +107,23 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 
 	c.TotalUnits = len(records)
 	var totalScore float64
+	unsupportedLangs := make(map[string]bool)
 
 	for _, r := range records {
 		totalScore += r.Score
 		c.GradeDistribution[r.Grade.String()]++
+
+		// Unsupported units are unassessed, not passed and not failed. They
+		// carry StatusExempt, whose IsPassing() is true, so the switch below
+		// would otherwise count code the engine never opened as certified.
+		// Reading the recorded flag rather than re-deriving the language
+		// verdict here keeps this surface in agreement with the run tally and
+		// the PR comment, which branch on the same field.
+		if r.Unsupported {
+			c.UnsupportedCount++
+			unsupportedLangs[r.UnitID.Language()] = true
+			continue
+		}
 
 		switch {
 		case r.Status == domain.StatusExpired:
@@ -90,9 +138,17 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 		}
 	}
 
+	c.AnalyzableUnits = c.TotalUnits - c.UnsupportedCount
+	for lang := range unsupportedLangs {
+		c.UnsupportedLanguages = append(c.UnsupportedLanguages, lang)
+	}
+	sort.Strings(c.UnsupportedLanguages)
+
 	c.OverallScore = totalScore / float64(c.TotalUnits)
 	c.OverallGrade = domain.GradeFromScore(c.OverallScore).String()
-	c.PassRate = float64(c.Passing) / float64(c.TotalUnits)
+	if c.PassRateKnown() {
+		c.PassRate = float64(c.Passing) / float64(c.AnalyzableUnits)
+	}
 	c.Languages = buildLanguageDetail(records)
 	c.TopIssues = buildTopIssues(records)
 
@@ -158,14 +214,17 @@ func FormatCardText(c Card) string {
 	b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 
 	// Stats
-	fmt.Fprintf(&b, "║  Total Units:     %-6d    Pass Rate:  %6.1f%%              ║\n", c.TotalUnits, c.PassRate*100)
+	fmt.Fprintf(&b, "║  Total Units:     %-6d    Pass Rate:  %7s              ║\n", c.TotalUnits, formatPassRate(c))
 	fmt.Fprintf(&b, "║  Passing:         %-6d    Failing:    %6d               ║\n", c.Passing, c.Failing)
 	fmt.Fprintf(&b, "║  Observations:    %-6d    Expired:    %6d               ║\n", c.Observations, c.Expired)
+	if c.UnsupportedCount > 0 {
+		fmt.Fprintf(&b, "║  Not Assessed:    %-6d    Analyzable: %6d               ║\n", c.UnsupportedCount, c.AnalyzableUnits)
+	}
 	b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 
 	// Grade distribution
 	b.WriteString("║  Grade Distribution:                                         ║\n")
-	grades := []string{"A", "A-", "B+", "B", "C", "D", "F"}
+	grades := distributionGrades
 	for _, g := range grades {
 		count := c.GradeDistribution[g]
 		if count == 0 {
@@ -175,6 +234,11 @@ func FormatCardText(c Card) string {
 		barLen := int(pct / 2)
 		if barLen < 1 && count > 0 {
 			barLen = 1
+		}
+		// The bar shares a 36-column field with the box border; a grade holding
+		// 100% of the units would otherwise run straight through the right edge.
+		if barLen > distributionBarWidth {
+			barLen = distributionBarWidth
 		}
 		bar := strings.Repeat("█", barLen)
 		fmt.Fprintf(&b, "║    %2s: %4d (%5.1f%%) %-36s║\n", g, count, pct, bar)
@@ -235,7 +299,11 @@ func FormatCardMarkdown(c Card) string {
 	fmt.Fprintf(&b, "| Total Units | %d |\n", c.TotalUnits)
 	fmt.Fprintf(&b, "| Passing | %d |\n", c.Passing)
 	fmt.Fprintf(&b, "| Failing | %d |\n", c.Failing)
-	fmt.Fprintf(&b, "| Pass Rate | %.1f%% |\n", c.PassRate*100)
+	if c.UnsupportedCount > 0 {
+		fmt.Fprintf(&b, "| Not Assessed | %d |\n", c.UnsupportedCount)
+		fmt.Fprintf(&b, "| Analyzable Units | %d |\n", c.AnalyzableUnits)
+	}
+	fmt.Fprintf(&b, "| Pass Rate | %s |\n", formatPassRate(c))
 	fmt.Fprintf(&b, "| Observations | %d |\n", c.Observations)
 	fmt.Fprintf(&b, "| Expired | %d |\n\n", c.Expired)
 
@@ -243,7 +311,7 @@ func FormatCardMarkdown(c Card) string {
 	b.WriteString("### Grade Distribution\n\n")
 	b.WriteString("| Grade | Count | % |\n")
 	b.WriteString("|-------|-------|---|\n")
-	grades := []string{"A", "A-", "B+", "B", "C", "D", "F"}
+	grades := distributionGrades
 	for _, g := range grades {
 		count := c.GradeDistribution[g]
 		if count == 0 {
