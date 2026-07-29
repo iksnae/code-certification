@@ -80,8 +80,9 @@ func formatPassRate(c Card) string {
 // repo's units.
 var distributionGrades = []string{"A", "A-", "B+", "B", "C", "D", "F", "N/A"}
 
-// distributionBarWidth is the column budget for the text card's histogram bar.
-const distributionBarWidth = 36
+// distributionBarWidth is the column budget for the text card's histogram bar:
+// the box interior is 62 columns and the row's label prefix takes 22.
+const distributionBarWidth = 40
 
 // IssueCard describes a single unit needing attention.
 type IssueCard struct {
@@ -235,13 +236,18 @@ func FormatCardText(c Card) string {
 		if barLen < 1 && count > 0 {
 			barLen = 1
 		}
-		// The bar shares a 36-column field with the box border; a grade holding
-		// 100% of the units would otherwise run straight through the right edge.
-		if barLen > distributionBarWidth {
-			barLen = distributionBarWidth
+		// The bar must fill exactly barField columns: shorter and the right
+		// border pulls left, longer and it runs through the edge. Padding with
+		// %-Ns cannot do this — that pads to a width in BYTES, and █ is three
+		// bytes, so the pad silently stopped applying past 12 bars. %2s does not
+		// truncate either, and the N/A bucket's label is three columns — one more
+		// than its field — so it borrows a column from the bar.
+		barField := distributionBarWidth - max(0, len(g)-2)
+		if barLen > barField {
+			barLen = barField
 		}
-		bar := strings.Repeat("█", barLen)
-		fmt.Fprintf(&b, "║    %2s: %4d (%5.1f%%) %-36s║\n", g, count, pct, bar)
+		bar := strings.Repeat("█", barLen) + strings.Repeat(" ", barField-barLen)
+		fmt.Fprintf(&b, "║    %2s: %4d (%5.1f%%) %s║\n", g, count, pct, bar)
 	}
 	b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 

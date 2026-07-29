@@ -251,30 +251,10 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 			return units[i].Score < units[j].Score
 		})
 
-		// Compute stats
-		var totalScore float64
-		passing := 0
-		unsupported := 0
-		for _, u := range units {
-			totalScore += u.Score
-			// Unsupported units carry status "exempt", which IsPassing() reads
-			// as true. They are unassessed, so they leave both sides of the rate.
-			if u.Unsupported {
-				unsupported++
-				continue
-			}
-			if statusFromString(u.Status).IsPassing() {
-				passing++
-			}
-		}
-		avgScore := totalScore / float64(len(units))
-		analyzable := len(units) - unsupported
-		var rate float64
-		if analyzable > 0 {
-			rate = float64(passing) / float64(analyzable)
-		}
-		passRate := FormatRate(analyzable > 0, rate, 1)
-		grade := domain.GradeFromScore(avgScore).String()
+		// One aggregation, shared with the markdown surfaces. See packageStats.
+		stats := statsForUnits(units)
+		passRate := FormatRate(stats.passRateKnown(), stats.passRate(), 1)
+		grade := stats.grade()
 
 		// Compute relative path from package page to site root
 		depth := strings.Count(dir, "/") + 1 // +1 for packages/ prefix
@@ -306,10 +286,10 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 			PackagePath: dir,
 			GradeEmoji:  gradeEmoji(grade),
 			Grade:       grade,
-			AvgScore:    avgScore,
-			UnitCount:   len(units),
+			AvgScore:    stats.avgScore,
+			UnitCount:   stats.units,
 			PassRate:    passRate,
-			Unsupported: unsupported,
+			Unsupported: stats.unsupported,
 			Units:       unitRows,
 			IndexURL:    indexURL,
 		}

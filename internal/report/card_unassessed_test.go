@@ -1,6 +1,7 @@
 package report_test
 
 import (
+	"regexp"
 	"strings"
 	"testing"
 	"time"
@@ -206,3 +207,40 @@ func TestGenerateBadge_AssessedRepoUnchanged(t *testing.T) {
 		t.Errorf("badge message = %q, want %q", b.Message, "A- · 100% · 2 units")
 	}
 }
+
+// TestFormatCardText_HistogramRowsAlign pins the histogram row width. The bar
+// was padded with %-36s against a 40-column field, and %-Ns pads to a width in
+// BYTES while █ is three bytes — so the pad never applied at any width and
+// every bar row was misaligned. The N/A label is a third column wide in a %2s
+// field, which costs the bar one more.
+//
+// Scoped to the bar rows on purpose: other rows of this box (the title, the
+// language rows, the top-issue rows) are independently misaligned, several
+// because an emoji is one rune but two display columns. That is pre-existing
+// and separate from this change.
+func TestFormatCardText_HistogramRowsAlign(t *testing.T) {
+	records := []domain.CertificationRecord{
+		makeCardRecord("go", "a.go", "A", domain.StatusCertified, 0.95),
+		makeCardRecord("go", "b.go", "B", domain.StatusDecertified, 0.20),
+		unassessedRecord("swift", "c.swift", "c"),
+	}
+	out := report.FormatCardText(report.GenerateCard(records, "r", "abc", time.Now()))
+
+	const boxWidth = 64 // the ╔══…╗ border, in display columns
+	rows := 0
+	for _, line := range strings.Split(out, "\n") {
+		if !histogramRow.MatchString(line) {
+			continue
+		}
+		rows++
+		if got := len([]rune(line)); got != boxWidth {
+			t.Errorf("histogram row is %d columns, want %d:\n%q", got, boxWidth, line)
+		}
+	}
+	if rows != 3 {
+		t.Fatalf("matched %d histogram rows, want 3 (A, F and N/A)", rows)
+	}
+}
+
+// histogramRow matches "║    A:    1 ( 33.3%) ███…" and nothing else in the box.
+var histogramRow = regexp.MustCompile(`^║ {4} *[A-Z/+-]{1,3}: +\d+ \( *\d+\.\d%\) `)

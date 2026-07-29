@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/iksnae/code-certification/internal/domain"
@@ -29,58 +30,87 @@ func (p PackageSummary) Analyzable() int { return p.Units - p.Unsupported }
 // PassRateKnown reports whether PassRate is a measurement. See Card.PassRateKnown.
 func (p PackageSummary) PassRateKnown() bool { return p.Analyzable() > 0 }
 
+// packageStats is the one aggregation over a package's units. Three surfaces
+// render these numbers — the markdown packages table, the markdown package page
+// and the HTML package page — and each used to recompute them independently,
+// which is how the unassessed-unit false positive survived at two of them after
+// being fixed at the third. Adding a fourth reader must not mean adding a fourth
+// chance to get the numerator wrong.
+type packageStats struct {
+	units       int
+	passing     int
+	unsupported int
+	avgScore    float64
+}
+
+// statsForUnits aggregates one package's units. avgScore spans every unit,
+// including unassessed ones (whose score is 0) — that is the score the package
+// grade has always been derived from. passing spans only the units about which
+// a verdict was asserted: an unsupported unit carries status "exempt", whose
+// IsPassing() is true, so counting it here is the report card's false positive
+// one level down.
+func statsForUnits(units []UnitReport) packageStats {
+	s := packageStats{units: len(units)}
+	var totalScore float64
+	for _, u := range units {
+		totalScore += u.Score
+		if u.Unsupported {
+			s.unsupported++
+			continue
+		}
+		if statusFromString(u.Status).IsPassing() {
+			s.passing++
+		}
+	}
+	if s.units > 0 {
+		s.avgScore = totalScore / float64(s.units)
+	}
+	return s
+}
+
+// analyzable is the number of units about which a verdict was asserted — the
+// denominator of the pass rate.
+func (s packageStats) analyzable() int { return s.units - s.unsupported }
+
+// passRateKnown reports whether the pass rate is a measurement. With no
+// analyzable units the ratio is 0/0 — undefined, which is neither 0% nor 100%.
+func (s packageStats) passRateKnown() bool { return s.analyzable() > 0 }
+
+func (s packageStats) passRate() float64 {
+	if !s.passRateKnown() {
+		return 0
+	}
+	return float64(s.passing) / float64(s.analyzable())
+}
+
+func (s packageStats) grade() string { return domain.GradeFromScore(s.avgScore).String() }
+
 // BuildPackageSummaries computes per-package stats from a FullReport.
 func BuildPackageSummaries(r FullReport) []PackageSummary {
-	type accum struct {
-		scores      []float64
-		passing     int
-		unsupported int
-	}
-	pkgs := make(map[string]*accum)
+	pkgUnits := make(map[string][]UnitReport)
 	var dirs []string
 
 	for _, u := range r.Units {
 		dir := dirOf(u.Path)
-		a, ok := pkgs[dir]
-		if !ok {
-			a = &accum{}
-			pkgs[dir] = a
+		if _, ok := pkgUnits[dir]; !ok {
 			dirs = append(dirs, dir)
 		}
-		a.scores = append(a.scores, u.Score)
-		// An unsupported unit's status is "exempt", which IsPassing() reads as
-		// true. Counting it here is the same false positive the report card
-		// carried, one level down.
-		if u.Unsupported {
-			a.unsupported++
-			continue
-		}
-		if statusFromString(u.Status).IsPassing() {
-			a.passing++
-		}
+		pkgUnits[dir] = append(pkgUnits[dir], u)
 	}
 
 	sort.Strings(dirs)
 
 	summaries := make([]PackageSummary, 0, len(dirs))
 	for _, dir := range dirs {
-		a := pkgs[dir]
-		var total float64
-		for _, s := range a.scores {
-			total += s
-		}
-		avg := total / float64(len(a.scores))
-		p := PackageSummary{
+		s := statsForUnits(pkgUnits[dir])
+		summaries = append(summaries, PackageSummary{
 			Path:        dir,
-			Units:       len(a.scores),
-			Unsupported: a.unsupported,
-			Grade:       domain.GradeFromScore(avg).String(),
-			AvgScore:    avg,
-		}
-		if p.PassRateKnown() {
-			p.PassRate = float64(a.passing) / float64(p.Analyzable())
-		}
-		summaries = append(summaries, p)
+			Units:       s.units,
+			Unsupported: s.unsupported,
+			Grade:       s.grade(),
+			AvgScore:    s.avgScore,
+			PassRate:    s.passRate(),
+		})
 	}
 	return summaries
 }
@@ -339,13 +369,40 @@ func formatReportTreeIndex(packages []PackageSummary, r FullReport) string {
 	}
 	b.WriteString("\n\n")
 
-	b.WriteString("## Packages\n\n")
-	b.WriteString("| Package | Units | Grade | Score | Pass Rate |\n")
-	b.WriteString("|---------|------:|:-----:|------:|----------:|\n")
+	// A row reading "3 units · 100%" is read as three passing units, when the
+	// rate covers only the analyzable ones. The Not Assessed column carries the
+	// gap, and appears only when there is a gap — an all-assessed repo keeps the
+	// table it had, the same rule the summary line above already follows.
+	anyUnsupported := false
 	for _, p := range packages {
-		fmt.Fprintf(&b, "| [%s](%s/index.md) | %d | %s %s | %.1f%% | %s |\n",
-			p.Path, p.Path, p.Units, gradeEmoji(p.Grade), p.Grade, p.AvgScore*100,
-			FormatRate(p.PassRateKnown(), p.PassRate, 0))
+		if p.Unsupported > 0 {
+			anyUnsupported = true
+			break
+		}
+	}
+
+	b.WriteString("## Packages\n\n")
+	if anyUnsupported {
+		b.WriteString("| Package | Units | Not Assessed | Grade | Score | Pass Rate |\n")
+		b.WriteString("|---------|------:|-------------:|:-----:|------:|----------:|\n")
+	} else {
+		b.WriteString("| Package | Units | Grade | Score | Pass Rate |\n")
+		b.WriteString("|---------|------:|:-----:|------:|----------:|\n")
+	}
+	for _, p := range packages {
+		cells := []string{
+			fmt.Sprintf("[%s](%s/index.md)", p.Path, p.Path),
+			strconv.Itoa(p.Units),
+		}
+		if anyUnsupported {
+			cells = append(cells, strconv.Itoa(p.Unsupported))
+		}
+		cells = append(cells,
+			fmt.Sprintf("%s %s", gradeEmoji(p.Grade), p.Grade),
+			fmt.Sprintf("%.1f%%", p.AvgScore*100),
+			FormatRate(p.PassRateKnown(), p.PassRate, 0),
+		)
+		fmt.Fprintf(&b, "| %s |\n", strings.Join(cells, " | "))
 	}
 	b.WriteString("\n---\n\n")
 	b.WriteString("*Generated by [Certify](https://github.com/iksnae/code-certification)*\n")
@@ -357,25 +414,26 @@ func formatReportTreeIndex(packages []PackageSummary, r FullReport) string {
 func formatPackageIndexMarkdown(pkg string, units []UnitReport, r FullReport, relRoot string) string {
 	var b strings.Builder
 
-	// Compute package stats
-	var totalScore float64
-	passing := 0
-	for _, u := range units {
-		totalScore += u.Score
-		s := statusFromString(u.Status)
-		if s.IsPassing() {
-			passing++
-		}
-	}
-	avgScore := totalScore / float64(len(units))
-	grade := domain.GradeFromScore(avgScore).String()
+	s := statsForUnits(units)
+	grade := s.grade()
 	emoji := gradeEmoji(grade)
 
 	fmt.Fprintf(&b, "# %s `%s`\n\n", emoji, pkg)
 	fmt.Fprintf(&b, "[← All Packages](%sindex.md) · [← Report Card](%s../REPORT_CARD.md)\n\n", relRoot, relRoot)
 
-	fmt.Fprintf(&b, "**Grade:** %s %s (%.1f%%)  \n", emoji, grade, avgScore*100)
-	fmt.Fprintf(&b, "**Units:** %d · **Passing:** %d / %d\n\n", len(units), passing, len(units))
+	fmt.Fprintf(&b, "**Grade:** %s %s (%.1f%%)  \n", emoji, grade, s.avgScore*100)
+	// Passing is stated over analyzable units, and only when some unit was
+	// analyzed — "0 / 0" is not a modest claim, it is a claim about units the
+	// engine never opened. This page sits one click from the packages table; the
+	// two disagreeing put contradicting certification claims in one artifact.
+	fmt.Fprintf(&b, "**Units:** %d", s.units)
+	if s.passRateKnown() {
+		fmt.Fprintf(&b, " · **Passing:** %d / %d", s.passing, s.analyzable())
+	}
+	if s.unsupported > 0 {
+		fmt.Fprintf(&b, " · **Not Assessed:** %d", s.unsupported)
+	}
+	b.WriteString("\n\n")
 
 	// Sort units by score ascending (worst first)
 	sorted := make([]UnitReport, len(units))

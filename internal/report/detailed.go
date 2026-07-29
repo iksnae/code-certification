@@ -94,28 +94,19 @@ func computeDimensionAverages(records []domain.CertificationRecord) map[string]f
 	return result
 }
 
+// computeLanguageBreakdowns keys buildLanguageDetail's output by language.
+//
+// It deliberately owns no arithmetic. A second aggregation over the same
+// records is what let Unsupported reach the renderer as a hard zero — the
+// "(n not assessed)" suffix in FormatDetailedText read a field this function
+// never set — while the passing count included units the engine never opened.
+// LanguageDetail already documents itself as the unified language summary; one
+// type with two producers is the half of that unification that was missed.
 func computeLanguageBreakdowns(records []domain.CertificationRecord) map[string]LanguageDetail {
-	totals := make(map[string]int)
-	passing := make(map[string]int)
-	scores := make(map[string]float64)
-	for _, r := range records {
-		lang := r.UnitID.Language()
-		totals[lang]++
-		scores[lang] += r.Score
-		if r.Status.IsPassing() {
-			passing[lang]++
-		}
-	}
-	result := make(map[string]LanguageDetail, len(totals))
-	for lang, total := range totals {
-		avg := scores[lang] / float64(total)
-		result[lang] = LanguageDetail{
-			Name:         lang,
-			Units:        total,
-			Passing:      passing[lang],
-			AverageScore: avg,
-			Grade:        domain.GradeFromScore(avg).String(),
-		}
+	details := buildLanguageDetail(records)
+	result := make(map[string]LanguageDetail, len(details))
+	for _, d := range details {
+		result[d.Name] = d
 	}
 	return result
 }
