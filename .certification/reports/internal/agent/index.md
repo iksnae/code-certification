@@ -2,19 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DefaultGroqModels](providers.go/DefaultGroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-11 |
-| [models_test.go](models_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-11 |
-| [ArchRecommendation](architect_review.go/ArchRecommendation.md) | class | 🟢 A- | 90.0% | certified | 2026-09-11 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-09-11 |
-| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 A- | 90.0% | certified | 2026-09-11 |
-| [packagePath](architect_snapshot.go/packagePath.md) | function | 🟢 A | 93.3% | certified | 2026-09-11 |
+| [OllamaModels](providers.go/OllamaModels.md) | function | 🟢 B | 86.1% | certified | 2026-09-12 |
+| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-12 |
+| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-12 |
+| [AdaptiveMessages](fallback.go/AdaptiveMessages.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-12 |
+| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-12 |
+| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-12 |
+| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
+| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
+| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
+| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
+| [suggest_test.go](suggest_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-12 |
+| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-09-12 |
+| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-09-12 |
 
 ---
 

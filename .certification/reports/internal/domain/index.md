@@ -2,19 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (92.2%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Duration](expiry.go/Duration.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-11 |
-| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-11 |
-| [EvidenceKind](evidence.go/EvidenceKind.md) | class | 🟢 A- | 90.0% | certified | 2026-09-11 |
-| [ExpiryFactors](expiry.go/ExpiryFactors.md) | class | 🟢 A- | 90.0% | certified | 2026-09-11 |
-| [Violation](policy.go/Violation.md) | class | 🟢 A- | 90.0% | certified | 2026-09-11 |
-| [WeightedAverage](dimension.go/WeightedAverage.md) | method | 🟢 A | 93.3% | certified | 2026-09-11 |
+| [ParseUnitID](unit.go/ParseUnitID.md) | function | 🟢 A- | 92.2% | certified | 2026-09-12 |
 
 ---
 

@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.6%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-11 |
-| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-11 |
-| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-11 |
-| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-11 |
-| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-11 |
+| [pytestJUnitSuite](tools.go/pytestJUnitSuite.md) | class | 🟢 B | 85.6% | certified | 2026-09-12 |
+| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-12 |
+| [FileCoverage](coverage.go/FileCoverage.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
 
 ---
 
