@@ -66,8 +66,10 @@ func (c Card) PassRateKnown() bool { return c.AnalyzableUnits > 0 }
 // failure — the same false claim as a 100% pass rate over units the engine never
 // opened, inverted — and it used to appear directly above "Pass Rate: n/a".
 //
-// This covers only the case where NOTHING was analyzable. Which denominator to
-// use when some unit was is issue #32, and is deliberately unchanged.
+// The denominator is AnalyzableUnits in both the degenerate case and the mixed
+// one — the same set PassRate is taken over. Two figures printed side by side
+// that summarise different populations contradict each other whenever the
+// populations differ, which over a mixed repo is always.
 func (c Card) ScoreKnown() bool { return c.AnalyzableUnits > 0 }
 
 // FormatRate renders a rate or score in [0,1] as a percentage. It is the single
@@ -102,8 +104,17 @@ type IssueCard struct {
 	UnitID string  `json:"unit_id"`
 	Grade  string  `json:"grade"`
 	Score  float64 `json:"score"`
-	Reason string  `json:"reason"`
+	// Unsupported marks a unit about which no verdict was asserted. Score is
+	// then the pipeline's placeholder rather than a measurement, and both
+	// renderers must gate on ScoreKnown rather than print it.
+	Unsupported bool   `json:"unsupported,omitempty"`
+	Reason      string `json:"reason"`
 }
+
+// ScoreKnown reports whether this issue's Score is a measurement. See
+// Card.ScoreKnown — every surface that prints a score needs a companion
+// predicate, or it states a measured zero for code that was never opened.
+func (i IssueCard) ScoreKnown() bool { return !i.Unsupported }
 
 // GenerateCard creates a report card from certification records.
 func GenerateCard(records []domain.CertificationRecord, repo, commit string, now time.Time) Card {
@@ -124,7 +135,6 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 	unsupportedLangs := make(map[string]bool)
 
 	for _, r := range records {
-		totalScore += r.Score
 		c.GradeDistribution[r.Grade.String()]++
 
 		// Unsupported units are unassessed, not passed and not failed. They
@@ -138,6 +148,7 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 			unsupportedLangs[r.UnitID.Language()] = true
 			continue
 		}
+		totalScore += r.Score
 
 		switch {
 		case r.Status == domain.StatusExpired:
@@ -158,11 +169,17 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 	}
 	sort.Strings(c.UnsupportedLanguages)
 
-	// A grade is a claim about assessed code. With nothing analyzable there is
-	// no claim to make, and OverallScore stays at its zero value rather than
-	// carrying a computed 0.0 that renderers would print as a measurement.
+	// A grade is a claim about assessed code, over exactly the units it was
+	// asserted about. AnalyzableUnits is that set — the same denominator PassRate
+	// uses one line below, which is the point: the two figures sit beside each
+	// other in every artifact, and dividing them differently is what let a card
+	// print "Overall: F (53.4%)" next to "Pass Rate: 100.0%" over one corpus. An
+	// unassessed unit contributes no score to the numerator (see the loop above)
+	// and no unit to the denominator; with nothing analyzable there is no claim to
+	// make at all, and OverallScore stays at its zero value rather than carrying a
+	// computed 0.0 that renderers would print as a measurement.
 	if c.ScoreKnown() {
-		c.OverallScore = totalScore / float64(c.TotalUnits)
+		c.OverallScore = totalScore / float64(c.AnalyzableUnits)
 		c.OverallGrade = domain.GradeFromScore(c.OverallScore).String()
 	} else {
 		c.OverallGrade = domain.GradeNA.String()
@@ -189,7 +206,14 @@ func buildTopIssues(records []domain.CertificationRecord) []IssueCard {
 		if len(issues) >= 10 {
 			break
 		}
-		if r.Status == domain.StatusExempt {
+		// A unit the engine never opened is not known to need attention, and it
+		// heads a worst-first list only because its placeholder score sorts
+		// below every real one. The recorded flag is the predicate — the same
+		// one every other surface here reads. StatusExempt is kept as a separate
+		// exclusion because it also covers units that are genuinely exempt by
+		// policy, but it is a derived proxy for "unassessed" and must not be the
+		// only thing standing between this table and a row about unopened code.
+		if r.Unsupported || r.Status == domain.StatusExempt {
 			continue
 		}
 		reason := "lowest score"
@@ -199,10 +223,11 @@ func buildTopIssues(records []domain.CertificationRecord) []IssueCard {
 			reason = r.Observations[0]
 		}
 		issues = append(issues, IssueCard{
-			UnitID: r.UnitID.String(),
-			Grade:  r.Grade.String(),
-			Score:  r.Score,
-			Reason: reason,
+			UnitID:      r.UnitID.String(),
+			Grade:       r.Grade.String(),
+			Score:       r.Score,
+			Unsupported: r.Unsupported,
+			Reason:      reason,
 		})
 	}
 	return issues
@@ -385,8 +410,8 @@ func FormatCardMarkdown(c Card) string {
 			if i >= 10 {
 				break
 			}
-			fmt.Fprintf(&b, "| `%s` | %s | %.1f%% | %s |\n",
-				issue.UnitID, issue.Grade, issue.Score*100, issue.Reason)
+			fmt.Fprintf(&b, "| `%s` | %s | %s | %s |\n",
+				issue.UnitID, issue.Grade, FormatRate(issue.ScoreKnown(), issue.Score, 1), issue.Reason)
 		}
 		b.WriteString("\n")
 	}

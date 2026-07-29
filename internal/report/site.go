@@ -110,8 +110,14 @@ type issueRow struct {
 	Grade    string
 	CSSClass string
 	Score    float64
-	Reason   string
+	// Unsupported carries IssueCard.Unsupported through to the template, which
+	// gates on ScoreKnown. See IssueCard.ScoreKnown.
+	Unsupported bool
+	Reason      string
 }
+
+// ScoreKnown reports whether this row's Score is a measurement.
+func (r issueRow) ScoreKnown() bool { return !r.Unsupported }
 
 func generateIndex(r FullReport, cfg SiteConfig) error {
 	tmpl, err := template.New("index").Funcs(siteFuncMap).Parse(indexTemplateStr)
@@ -185,12 +191,13 @@ func generateIndex(r FullReport, cfg SiteConfig) error {
 			}
 		}
 		data.TopIssues = append(data.TopIssues, issueRow{
-			Name:     name,
-			Anchor:   anchor,
-			Grade:    issue.Grade,
-			CSSClass: gradeCSSClass(issue.Grade),
-			Score:    issue.Score,
-			Reason:   issue.Reason,
+			Name:        name,
+			Anchor:      anchor,
+			Grade:       issue.Grade,
+			CSSClass:    gradeCSSClass(issue.Grade),
+			Score:       issue.Score,
+			Unsupported: issue.Unsupported,
+			Reason:      issue.Reason,
 		})
 	}
 	data.HasTopIssues = len(data.TopIssues) > 0

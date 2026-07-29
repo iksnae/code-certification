@@ -186,6 +186,29 @@ func bindReportFlags() {
 	reportCmd.Flags().Bool("site", false, "Generate a static HTML site (shorthand for --format site)")
 }
 
+// submoduleSummaryFromCard copies a submodule's report card onto its workspace
+// summary, preserving the identity fields the caller has already filled in.
+//
+// It is a named function rather than a block of assignments inside
+// runWorkspaceReport because it is the ONLY path by which the workspace rollup
+// learns anything about a submodule — including how many of its units were never
+// analysed. Every workspace-package test builds a SubmoduleSummary by hand and so
+// cannot observe this mapping at all; inline, it was reachable only by a command
+// that needs a git checkout with submodules, which is why dropping the
+// Unsupported assignment left both suites green while an all-unassessed
+// workspace printed a real grade, score and pass rate.
+func submoduleSummaryFromCard(summary workspace.SubmoduleSummary, card report.Card) workspace.SubmoduleSummary {
+	summary.Grade = card.OverallGrade
+	summary.Score = card.OverallScore
+	summary.Units = card.TotalUnits
+	summary.Passing = card.Passing
+	summary.Failing = card.Failing
+	summary.Unsupported = card.UnsupportedCount
+	summary.PassRate = card.PassRate
+	summary.StateAt = card.GeneratedAt
+	return summary
+}
+
 func runWorkspaceReport(root string) error {
 	subs, err := workspace.DiscoverSubmodules(root)
 	if err != nil {
@@ -213,14 +236,7 @@ func runWorkspaceReport(root string) error {
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "  warning: loading %s: %v\n", s.Path, err)
 			} else if card != nil {
-				summary.Grade = card.OverallGrade
-				summary.Score = card.OverallScore
-				summary.Units = card.TotalUnits
-				summary.Passing = card.Passing
-				summary.Failing = card.Failing
-				summary.Unsupported = card.UnsupportedCount
-				summary.PassRate = card.PassRate
-				summary.StateAt = card.GeneratedAt
+				summary = submoduleSummaryFromCard(summary, *card)
 			}
 		}
 

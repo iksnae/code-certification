@@ -22,10 +22,10 @@ import (
 // not a low score, so a mean over nothing but placeholders is undefined. It is
 // rendered as N/A and n/a, never as F and 0.0%.
 //
-// Deliberately NOT pinned here: which denominator to use when SOME unit was
-// analyzable. That is issue #32, fenced out of this branch, and the mixed-repo
-// values below are pinned at their current behaviour precisely so #32 cannot be
-// answered by accident.
+// This file covers the all-unassessed case, where every rate short-circuits. The
+// MIXED case — where the score and the pass rate are both defined and can
+// therefore disagree — is in mixed_denominator_test.go, and is the half in which
+// #47's own definition of the defect kept reproducing after this file was green.
 
 // unsupportedPackageRecords is the fixture whose absence let three mutants live.
 // The suite had an all-unassessed *repo* and a *mixed* package, but no package
@@ -466,24 +466,26 @@ func TestFormatFullMarkdown_AllUnassessed(t *testing.T) {
 	}
 }
 
-// --- The #32 fence ----------------------------------------------------------
+// --- The score denominator, moved (was the #32 fence) ------------------------
 
-// TestBuildPackageSummaries_MixedPackageScoreDenominatorIsPinned states the
-// behaviour this branch deliberately does NOT change, so that changing it
-// becomes a decision rather than a side effect.
+// These two tests used to PIN the whole-unit denominator, on the reading that
+// changing it was issue #32 and out of scope here. That reading was wrong, and
+// the reason is worth keeping: #47's defect is a card that contradicts itself,
+// and over a mixed corpus it still did — `## 🔴 Overall: F (53.4%)` above
+// `| Pass Rate | 100.0% |`. Leaving the score denominator alone closed the
+// all-unassessed case and left the defect's own definition reproducing. So the
+// flip is the remainder of #47, not a follow-up to it.
 //
-// A package holding one 0.90 Go unit and two unassessed Swift units grades F at
-// 30.0%, because the average is taken over all three units. Dividing by the
-// analyzable count instead yields 🟢 A- at 90.0%. Both were unasserted before
-// this test, which is why the reviewer could flip the denominator with the suite
-// still green.
-//
-// The flip belongs to issue #32 and cannot be applied here alone: Card.
-// OverallScore uses the same denominator and is explicitly out of scope, so a
-// package-only flip would put `## Overall: F (30.0%)` and `| app | 3 | 🟢 A- |
-// 90.0% |` in the same REPORT_CARD.md — the contradiction this branch exists to
-// remove, reintroduced one table lower.
-func TestBuildPackageSummaries_MixedPackageScoreDenominatorIsPinned(t *testing.T) {
+// What the fence got right is that a PARTIAL flip is worse than none: the card,
+// the package aggregate, the language aggregate and the workspace rollup all
+// print into the same artifacts, and any one of them moving alone relocates the
+// contradiction rather than removing it. They are asserted together in
+// mixed_denominator_test.go; these two remain as the record of the reversal, so
+// a future reader finds the reasoning rather than an unexplained flip.
+
+// TestBuildPackageSummaries_MixedPackageScoreExcludesUnassessed pins the package
+// aggregate at the analyzable mean.
+func TestBuildPackageSummaries_MixedPackageScoreExcludesUnassessed(t *testing.T) {
 	pkgs := report.BuildPackageSummaries(mixedPackageReport())
 	if len(pkgs) != 1 {
 		t.Fatalf("package count = %d, want 1", len(pkgs))
@@ -493,27 +495,27 @@ func TestBuildPackageSummaries_MixedPackageScoreDenominatorIsPinned(t *testing.T
 	if !p.ScoreKnown() {
 		t.Fatal("ScoreKnown() = false, want true — one unit was assessed")
 	}
-	if math.Abs(p.AvgScore-0.30) > 1e-9 {
-		t.Errorf("AvgScore = %v, want 0.30 (0.90 over 3 units). Changing this denominator is issue #32; "+
-			"it must move together with Card.OverallScore or the report card contradicts itself", p.AvgScore)
+	if math.Abs(p.AvgScore-0.90) > 1e-9 {
+		t.Errorf("AvgScore = %v, want 0.90 — the mean over the analyzable unit. 0.30 divides by all three, "+
+			"grading a package F on the strength of two units that were never opened", p.AvgScore)
 	}
-	if p.Grade != "F" {
-		t.Errorf("Grade = %q, want %q — see #32", p.Grade, "F")
+	if p.Grade != "A-" {
+		t.Errorf("Grade = %q, want %q", p.Grade, "A-")
 	}
 }
 
-// TestGenerateCard_MixedOverallScoreDenominatorIsPinned is the same fence at the
-// card level, and the reason the package one cannot move alone.
-func TestGenerateCard_MixedOverallScoreDenominatorIsPinned(t *testing.T) {
+// TestGenerateCard_MixedOverallScoreExcludesUnassessed is the same at the card
+// level — the figure printed directly above the pass rate it must agree with.
+func TestGenerateCard_MixedOverallScoreExcludesUnassessed(t *testing.T) {
 	c := report.GenerateCard(mixedPackageRecords(), "test/repo", "abc", time.Now())
 
 	if !c.ScoreKnown() {
 		t.Fatal("ScoreKnown() = false, want true — one unit was assessed")
 	}
-	if math.Abs(c.OverallScore-0.30) > 1e-9 {
-		t.Errorf("OverallScore = %v, want 0.30 (0.90 over 3 units) — see #32", c.OverallScore)
+	if math.Abs(c.OverallScore-0.90) > 1e-9 {
+		t.Errorf("OverallScore = %v, want 0.90 — the same denominator PassRate uses", c.OverallScore)
 	}
-	if c.OverallGrade != "F" {
-		t.Errorf("OverallGrade = %q, want %q — see #32", c.OverallGrade, "F")
+	if c.OverallGrade != "A-" {
+		t.Errorf("OverallGrade = %q, want %q", c.OverallGrade, "A-")
 	}
 }

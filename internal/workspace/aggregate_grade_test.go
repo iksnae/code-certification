@@ -9,10 +9,13 @@ import (
 // The workspace rollup carries the same pair of claims as the report card — a
 // pass rate and a weighted score — and #47 fixed only the first. A workspace in
 // which nothing was analysable rendered `Pass Rate: n/a` beside `Overall: F
-// (0.0%)`.
+// (0.0%)`; one in which SOME unit was analysable rendered a real grade computed
+// over units nobody opened.
 //
-// As at the card and package levels, the denominator used when SOME unit was
-// analysable is issue #32 and is pinned rather than changed.
+// Both halves are now taken over AnalyzableUnits, together with the card, the
+// package aggregate and the language aggregate. A partial flip is worse than
+// none: these four print into the same artifacts, so any one moving alone
+// relocates the contradiction instead of removing it.
 
 func allUnassessedWorkspace() []SubmoduleSummary {
 	return []SubmoduleSummary{
@@ -81,12 +84,16 @@ func TestFormatWorkspaceIndex_AllUnassessedGrade(t *testing.T) {
 	}
 }
 
-// TestAggregateCards_MixedScoreDenominatorIsPinned states what this branch
-// deliberately leaves alone. The weighted mean spans every unit, including the
-// unassessed ones — 0.95 over 10 assessed units and 0 over 3 unassessed ones
-// gives 0.731 rather than 0.95. Moving that denominator is issue #32 and must
-// move together with Card.OverallScore.
-func TestAggregateCards_MixedScoreDenominatorIsPinned(t *testing.T) {
+// TestAggregateCards_MixedScoreExcludesUnassessedUnits is the workspace half of
+// the score denominator, moved together with Card.OverallScore and the package
+// and language aggregates.
+//
+// It used to pin the whole-unit weighting: 0.95 over 10 assessed units, spread
+// across 13, gave 0.731 and graded the workspace C — a two-grade drop caused
+// entirely by a submodule nobody analysed. The submodule scores summed here are
+// already means over each submodule's ANALYZABLE units, so the only weighting
+// that reconstructs a correct overall mean is by that same count.
+func TestAggregateCards_MixedScoreExcludesUnassessedUnits(t *testing.T) {
 	wc := AggregateCards([]SubmoduleSummary{
 		{Name: "api", Path: "services/api", Grade: "A", Score: 0.95, Units: 10, Passing: 8, Failing: 2, HasCertify: true},
 		{Name: "ios", Path: "apps/ios", Grade: "N/A", Score: 0, Units: 3, Unsupported: 3, HasCertify: true},
@@ -95,9 +102,37 @@ func TestAggregateCards_MixedScoreDenominatorIsPinned(t *testing.T) {
 	if !wc.ScoreKnown() {
 		t.Fatal("ScoreKnown() = false, want true — ten units were assessed")
 	}
-	want := 0.95 * 10 / 13
+	if wc.AnalyzableUnits != 10 {
+		t.Fatalf("AnalyzableUnits = %d, want 10", wc.AnalyzableUnits)
+	}
+	if math.Abs(wc.OverallScore-0.95) > 1e-9 {
+		t.Errorf("OverallScore = %v, want 0.95 — the mean over the ten units that were assessed. "+
+			"Spreading it over all 13 gives 0.731 and grades the workspace on unopened code", wc.OverallScore)
+	}
+	if wc.OverallGrade != "A" {
+		t.Errorf("OverallGrade = %q, want %q", wc.OverallGrade, "A")
+	}
+}
+
+// TestAggregateCards_MixedWeightsBySubmoduleAnalyzableCount pins the WEIGHTING
+// rather than the denominator. With one submodule per test above, weight and
+// denominator cancel and either could be wrong unobserved; two submodules of
+// different analyzable size are the only shape that tells them apart.
+func TestAggregateCards_MixedWeightsBySubmoduleAnalyzableCount(t *testing.T) {
+	wc := AggregateCards([]SubmoduleSummary{
+		// 3 analyzable at 1.00, 7 unassessed.
+		{Name: "api", Path: "services/api", Grade: "A", Score: 1.00, Units: 10, Passing: 3, Unsupported: 7, HasCertify: true},
+		// 1 analyzable at 0.60, 0 unassessed.
+		{Name: "web", Path: "apps/web", Grade: "D", Score: 0.60, Units: 1, Passing: 0, Failing: 1, HasCertify: true},
+	})
+
+	if wc.AnalyzableUnits != 4 {
+		t.Fatalf("AnalyzableUnits = %d, want 4", wc.AnalyzableUnits)
+	}
+	want := (1.00*3 + 0.60*1) / 4 // 0.90
 	if math.Abs(wc.OverallScore-want) > 1e-9 {
-		t.Errorf("OverallScore = %v, want %v (weighted over all 13 units) — changing this denominator is issue #32",
-			wc.OverallScore, want)
+		t.Errorf("OverallScore = %v, want %v — each submodule's score weighted by the units it was "+
+			"actually taken over. Weighting by Units gives %v, which counts seven unopened files as "+
+			"evidence for the 1.00", wc.OverallScore, want, (1.00*10+0.60*1)/4)
 	}
 }

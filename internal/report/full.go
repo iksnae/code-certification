@@ -163,7 +163,11 @@ func unitReportFrom(rec domain.CertificationRecord) UnitReport {
 }
 
 func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail {
+	// scores holds only the units this language was actually scored on. units
+	// counts them all: an unassessed unit still exists and is still reported, it
+	// simply contributes no measurement to any figure derived from a score.
 	type langAccum struct {
+		units       int
 		scores      []float64
 		grades      map[string]int
 		passing     int
@@ -178,7 +182,7 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 			a = &langAccum{grades: make(map[string]int)}
 			accum[lang] = a
 		}
-		a.scores = append(a.scores, r.Score)
+		a.units++
 		a.grades[r.Grade.String()]++
 		// StatusExempt is IsPassing(), so an unassessed unit would otherwise be
 		// counted as a passing unit of its language.
@@ -186,6 +190,7 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 			a.unsupported++
 			continue
 		}
+		a.scores = append(a.scores, r.Score)
 		if r.Status.IsPassing() {
 			a.passing++
 		}
@@ -204,21 +209,24 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 				bottom = s
 			}
 		}
-		// A language none of whose units could be analysed has no mean score and
-		// no grade: every score summed above is the placeholder an unassessed
-		// unit carries, and averaging placeholders produced a confident F for a
-		// language the engine has no analyzer for. The denominator when some
-		// unit WAS analysed is left at every unit, matching Card.OverallScore —
-		// see #32 and statsForUnits.
+		// The mean, the grade and the top/bottom extremes all summarise the units
+		// this language was scored on — a.scores, which excludes the unassessed
+		// ones. Averaging their placeholder zeroes produced a confident F for a
+		// language the engine has no analyzer for, and reported one as the
+		// language's worst measurement. This is the denominator Card.OverallScore
+		// and statsForUnits use; all three move together or the report card
+		// contradicts its own By Language table.
 		var avg float64
 		grade := domain.GradeNA.String()
-		if len(a.scores) > a.unsupported {
+		if len(a.scores) > 0 {
 			avg = sum / float64(len(a.scores))
 			grade = domain.GradeFromScore(avg).String()
+		} else {
+			bottom = 0
 		}
 		details = append(details, LanguageDetail{
 			Name:              lang,
-			Units:             len(a.scores),
+			Units:             a.units,
 			Passing:           a.passing,
 			Unsupported:       a.unsupported,
 			AverageScore:      avg,

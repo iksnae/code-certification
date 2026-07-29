@@ -52,28 +52,27 @@ type packageStats struct {
 // "exempt", whose IsPassing() is true, so counting it here is the report card's
 // false positive one level down.
 //
-// avgScore spans every unit, including unassessed ones (whose score is 0) —
-// that is the score the package grade has always been derived from, and it is
-// the same denominator Card.OverallScore uses. Narrowing it to the analyzable
-// count is issue #32; the two must move together or the report card's Overall
-// line and its Packages table would state different grades for the same units.
-// What is fixed here is the degenerate case: with nothing analyzable there is
-// no mean at all, which grade() reports as N/A rather than F.
+// avgScore spans the same set, for the same reason. An unassessed unit's score is
+// the placeholder the pipeline assigns when it declines to score, so summing it
+// pulls the mean toward zero as though a failure had been measured there. This is
+// the denominator Card.OverallScore uses, and the two must stay identical: the
+// package grade and the overall grade are printed in one artifact one table
+// apart, and disagreeing is the contradiction this branch exists to remove.
 func statsForUnits(units []UnitReport) packageStats {
 	s := packageStats{units: len(units)}
 	var totalScore float64
 	for _, u := range units {
-		totalScore += u.Score
 		if u.Unsupported {
 			s.unsupported++
 			continue
 		}
+		totalScore += u.Score
 		if statusFromString(u.Status).IsPassing() {
 			s.passing++
 		}
 	}
 	if s.measured() {
-		s.avgScore = totalScore / float64(s.units)
+		s.avgScore = totalScore / float64(s.analyzable())
 	}
 	return s
 }

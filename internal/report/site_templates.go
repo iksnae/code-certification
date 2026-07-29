@@ -261,7 +261,7 @@ const indexTemplateStr = `<!DOCTYPE html>
 {{range .TopIssues}}<tr>
 <td><a href="units/{{.Anchor}}.html">{{.Name}}</a></td>
 <td><span class="grade grade-{{.CSSClass}}">{{.Grade}}</span></td>
-<td>{{pct .Score}}</td><td>{{.Reason}}</td>
+<td>{{pctKnown .ScoreKnown .Score}}</td><td>{{.Reason}}</td>
 </tr>{{end}}
 </table>
 {{end}}

@@ -84,7 +84,12 @@ func AggregateCards(subs []SubmoduleSummary) WorkspaceCard {
 		wc.TotalPassing += s.Passing
 		wc.TotalFailing += s.Failing
 		wc.TotalUnsupported += s.Unsupported
-		totalWeightedScore += s.Score * float64(s.Units)
+		// s.Score is the mean over the submodule's ANALYZABLE units, so its
+		// weight is that count — weighting by s.Units would re-admit the
+		// unassessed units this rollup's own denominator excludes, and would
+		// scale each submodule's contribution by a population its score was never
+		// taken over.
+		totalWeightedScore += s.Score * float64(s.Analyzable())
 	}
 
 	wc.TotalUnits = totalUnits
@@ -95,14 +100,15 @@ func AggregateCards(subs []SubmoduleSummary) WorkspaceCard {
 		return wc
 	}
 
-	// A grade is a claim about assessed code. With nothing analyzable anywhere
-	// in the workspace the weighted mean is taken over placeholder zeroes only,
-	// and printing "F (0.0%)" from it states a definite failure beside a pass
-	// rate that already admits nothing was measured. The denominator when SOME
-	// unit was analyzable is issue #32 and is left alone — it must move together
-	// with Card.OverallScore, which the submodule scores summed here come from.
+	// A grade is a claim about assessed code, over exactly the units it was
+	// asserted about — AnalyzableUnits, the same denominator PassRate uses below.
+	// Dividing by totalUnits instead spreads the assessed submodules' scores over
+	// units nobody opened, so a workspace whose one certified submodule scored
+	// 0.95 rolled up as 0.73 and graded C. With nothing analyzable anywhere there
+	// is no mean at all, and printing "F (0.0%)" from it states a definite failure
+	// beside a pass rate that already admits nothing was measured.
 	if wc.ScoreKnown() {
-		wc.OverallScore = totalWeightedScore / float64(totalUnits)
+		wc.OverallScore = totalWeightedScore / float64(wc.AnalyzableUnits)
 		wc.OverallGrade = domain.GradeFromScore(wc.OverallScore).String()
 	} else {
 		wc.OverallGrade = domain.GradeNA.String()

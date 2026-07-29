@@ -7,17 +7,28 @@ import (
 )
 
 // SearchEntry is a compact representation of a unit for client-side search.
+//
+// search-index.js is a published artifact: it carries a per-unit Grade and Score
+// to every reader of the site. Score is therefore a pointer — an unassessed unit
+// has no score to publish, and omitting the key says so, where a float64 could
+// only ever say "zero". The field is minified like the rest, which is why no
+// rendered-cell assertion elsewhere could observe the fabricated value.
 type SearchEntry struct {
-	Name       string  `json:"n"`
-	Path       string  `json:"p"`
-	UnitID     string  `json:"id"`
-	Grade      string  `json:"g"`
-	Status     string  `json:"s"`
-	Language   string  `json:"l"`
-	Score      float64 `json:"sc"`
-	PackageURL string  `json:"pu"`
-	UnitURL    string  `json:"uu"`
+	Name        string   `json:"n"`
+	Path        string   `json:"p"`
+	UnitID      string   `json:"id"`
+	Grade       string   `json:"g"`
+	Status      string   `json:"s"`
+	Language    string   `json:"l"`
+	Score       *float64 `json:"sc,omitempty"`
+	Unsupported bool     `json:"u,omitempty"`
+	PackageURL  string   `json:"pu"`
+	UnitURL     string   `json:"uu"`
 }
+
+// ScoreKnown reports whether this entry's Score is a measurement. See
+// Card.ScoreKnown.
+func (e SearchEntry) ScoreKnown() bool { return !e.Unsupported }
 
 // BuildSearchIndex creates a compact search index from a FullReport.
 func BuildSearchIndex(r FullReport) []SearchEntry {
@@ -30,16 +41,26 @@ func BuildSearchIndex(r FullReport) []SearchEntry {
 		anchor := unitAnchor(u)
 		dir := dirOf(u.Path)
 
+		// An unassessed unit publishes no score. Its stored value is the
+		// pipeline's placeholder, and shipping it as "sc":0 states a measured
+		// total failure to every consumer of the index.
+		var score *float64
+		if u.ScoreKnown() {
+			s := u.Score
+			score = &s
+		}
+
 		entries = append(entries, SearchEntry{
-			Name:       name,
-			Path:       u.Path,
-			UnitID:     u.UnitID,
-			Grade:      u.Grade,
-			Status:     u.Status,
-			Language:   u.Language,
-			Score:      u.Score,
-			PackageURL: "packages/" + dir + "/index.html",
-			UnitURL:    "units/" + anchor + ".html",
+			Name:        name,
+			Path:        u.Path,
+			UnitID:      u.UnitID,
+			Grade:       u.Grade,
+			Status:      u.Status,
+			Language:    u.Language,
+			Score:       score,
+			Unsupported: u.Unsupported,
+			PackageURL:  "packages/" + dir + "/index.html",
+			UnitURL:     "units/" + anchor + ".html",
 		})
 	}
 	return entries
