@@ -4,6 +4,7 @@ package report
 import (
 	"fmt"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 
@@ -42,19 +43,99 @@ type Card struct {
 	// Package summaries (populated for report tree navigation)
 	Packages []PackageSummary `json:"packages,omitempty"`
 
-	// Unsupported-unit counts
+	// Unsupported-unit counts. UnsupportedCount units carry no verdict: the
+	// engine has no analyzer for their language, so nothing about them was
+	// measured. AnalyzableUnits is TotalUnits minus that count and is the
+	// denominator of PassRate — an unassessed unit belongs in neither the
+	// numerator nor the denominator of a rate that claims to summarise verdicts.
 	UnsupportedCount     int      `json:"unsupported_count"`
 	UnsupportedLanguages []string `json:"unsupported_languages"`
 	AnalyzableUnits      int      `json:"analyzable_units"`
 }
+
+// PassRateKnown reports whether PassRate is a measurement rather than a
+// placeholder. With no analyzable units the ratio is 0/0 — undefined, which is
+// neither 0% nor 100% — so every renderer must gate on this and print a
+// non-numeric marker rather than a percentage that implies an assessment ran.
+func (c Card) PassRateKnown() bool { return c.AnalyzableUnits > 0 }
+
+// ScoreKnown reports whether OverallScore and OverallGrade are measurements.
+//
+// An unassessed unit contributes a placeholder zero, not a low score, so a mean
+// over nothing but placeholders is undefined in exactly the way an 0/0 pass rate
+// is. Printing "F (0.0%)" from it states that an assessment ran and found total
+// failure — the same false claim as a 100% pass rate over units the engine never
+// opened, inverted — and it used to appear directly above "Pass Rate: n/a".
+//
+// The denominator is AnalyzableUnits in both the degenerate case and the mixed
+// one — the same set PassRate is taken over. Two figures printed side by side
+// that summarise different populations contradict each other whenever the
+// populations differ, which over a mixed repo is always.
+func (c Card) ScoreKnown() bool { return c.AnalyzableUnits > 0 }
+
+// FormatRate renders a rate or score in [0,1] as a percentage. It is the single
+// place that decides how an undefined figure looks, so the marker cannot drift
+// between the report card, the full report, the site, the report tree and the
+// workspace rollup — surfaces that a reader compares against each other — nor
+// between a grade line and the pass rate printed beside it.
+func FormatRate(known bool, rate float64, decimals int) string {
+	if !known {
+		return "n/a"
+	}
+	return fmt.Sprintf("%.*f%%", decimals, rate*100)
+}
+
+// FormatUnitPopulation renders a unit count that is about to be printed beside
+// a grade, a score or a rate. It is the counterpart to FormatRate: FormatRate
+// keeps an unmeasured figure from being read as a measurement, and this keeps a
+// measured figure from being read as covering more units than it does.
+//
+// "B+ · 100% · 9 units" is the failure it exists to prevent. The grade and the
+// rate are taken over the five analyzable units; the count is all nine; and
+// nothing in the string says so, so it reads as nine passing units. The same
+// three-part shape appears on the README badge, in the report card's Packages
+// and By Language tables, and in the full report's language sections, and every
+// one of them was assembled independently. When the populations agree there is
+// nothing to disclose and the short form is used, so an all-assessed repo sees
+// exactly the string it saw before.
+func FormatUnitPopulation(total, unsupported int) string {
+	if unsupported <= 0 {
+		return fmt.Sprintf("%d units", total)
+	}
+	return fmt.Sprintf("%d of %d units analyzable", total-unsupported, total)
+}
+
+// formatPassRate renders a Card's pass rate, honouring the undefined case.
+func formatPassRate(c Card) string {
+	return FormatRate(c.PassRateKnown(), c.PassRate, 1)
+}
+
+// distributionGrades is the render order for the grade distribution. N/A is a
+// real bucket, not a gap: it is what an unassessed unit records, and omitting
+// it printed a Grade Distribution header with no rows over an all-unsupported
+// repo's units.
+var distributionGrades = []string{"A", "A-", "B+", "B", "C", "D", "F", "N/A"}
+
+// distributionBarWidth is the column budget for the text card's histogram bar:
+// the box interior is 62 columns and the row's label prefix takes 22.
+const distributionBarWidth = 40
 
 // IssueCard describes a single unit needing attention.
 type IssueCard struct {
 	UnitID string  `json:"unit_id"`
 	Grade  string  `json:"grade"`
 	Score  float64 `json:"score"`
-	Reason string  `json:"reason"`
+	// Unsupported marks a unit about which no verdict was asserted. Score is
+	// then the pipeline's placeholder rather than a measurement, and both
+	// renderers must gate on ScoreKnown rather than print it.
+	Unsupported bool   `json:"unsupported,omitempty"`
+	Reason      string `json:"reason"`
 }
+
+// ScoreKnown reports whether this issue's Score is a measurement. See
+// Card.ScoreKnown — every surface that prints a score needs a companion
+// predicate, or it states a measured zero for code that was never opened.
+func (i IssueCard) ScoreKnown() bool { return !i.Unsupported }
 
 // GenerateCard creates a report card from certification records.
 func GenerateCard(records []domain.CertificationRecord, repo, commit string, now time.Time) Card {
@@ -72,10 +153,23 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 
 	c.TotalUnits = len(records)
 	var totalScore float64
+	unsupportedLangs := make(map[string]bool)
 
 	for _, r := range records {
-		totalScore += r.Score
 		c.GradeDistribution[r.Grade.String()]++
+
+		// Unsupported units are unassessed, not passed and not failed. They
+		// carry StatusExempt, whose IsPassing() is true, so the switch below
+		// would otherwise count code the engine never opened as certified.
+		// Reading the recorded flag rather than re-deriving the language
+		// verdict here keeps this surface in agreement with the run tally and
+		// the PR comment, which branch on the same field.
+		if r.Unsupported {
+			c.UnsupportedCount++
+			unsupportedLangs[r.UnitID.Language()] = true
+			continue
+		}
+		totalScore += r.Score
 
 		switch {
 		case r.Status == domain.StatusExpired:
@@ -90,9 +184,30 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 		}
 	}
 
-	c.OverallScore = totalScore / float64(c.TotalUnits)
-	c.OverallGrade = domain.GradeFromScore(c.OverallScore).String()
-	c.PassRate = float64(c.Passing) / float64(c.TotalUnits)
+	c.AnalyzableUnits = c.TotalUnits - c.UnsupportedCount
+	for lang := range unsupportedLangs {
+		c.UnsupportedLanguages = append(c.UnsupportedLanguages, lang)
+	}
+	sort.Strings(c.UnsupportedLanguages)
+
+	// A grade is a claim about assessed code, over exactly the units it was
+	// asserted about. AnalyzableUnits is that set — the same denominator PassRate
+	// uses one line below, which is the point: the two figures sit beside each
+	// other in every artifact, and dividing them differently is what let a card
+	// print "Overall: F (53.4%)" next to "Pass Rate: 100.0%" over one corpus. An
+	// unassessed unit contributes no score to the numerator (see the loop above)
+	// and no unit to the denominator; with nothing analyzable there is no claim to
+	// make at all, and OverallScore stays at its zero value rather than carrying a
+	// computed 0.0 that renderers would print as a measurement.
+	if c.ScoreKnown() {
+		c.OverallScore = totalScore / float64(c.AnalyzableUnits)
+		c.OverallGrade = domain.GradeFromScore(c.OverallScore).String()
+	} else {
+		c.OverallGrade = domain.GradeNA.String()
+	}
+	if c.PassRateKnown() {
+		c.PassRate = float64(c.Passing) / float64(c.AnalyzableUnits)
+	}
 	c.Languages = buildLanguageDetail(records)
 	c.TopIssues = buildTopIssues(records)
 
@@ -112,7 +227,14 @@ func buildTopIssues(records []domain.CertificationRecord) []IssueCard {
 		if len(issues) >= 10 {
 			break
 		}
-		if r.Status == domain.StatusExempt {
+		// A unit the engine never opened is not known to need attention, and it
+		// heads a worst-first list only because its placeholder score sorts
+		// below every real one. The recorded flag is the predicate — the same
+		// one every other surface here reads. StatusExempt is kept as a separate
+		// exclusion because it also covers units that are genuinely exempt by
+		// policy, but it is a derived proxy for "unassessed" and must not be the
+		// only thing standing between this table and a row about unopened code.
+		if r.Unsupported || r.Status == domain.StatusExempt {
 			continue
 		}
 		reason := "lowest score"
@@ -122,10 +244,11 @@ func buildTopIssues(records []domain.CertificationRecord) []IssueCard {
 			reason = r.Observations[0]
 		}
 		issues = append(issues, IssueCard{
-			UnitID: r.UnitID.String(),
-			Grade:  r.Grade.String(),
-			Score:  r.Score,
-			Reason: reason,
+			UnitID:      r.UnitID.String(),
+			Grade:       r.Grade.String(),
+			Score:       r.Score,
+			Unsupported: r.Unsupported,
+			Reason:      reason,
 		})
 	}
 	return issues
@@ -152,20 +275,23 @@ func FormatCardText(c Card) string {
 	// Overall grade — big and prominent
 	emoji := gradeEmoji(c.OverallGrade)
 	fmt.Fprintf(&b, "║                                                              ║\n")
-	fmt.Fprintf(&b, "║       Overall Grade:  %s %-5s    Score: %-6.1f%%            ║\n",
-		emoji, c.OverallGrade, c.OverallScore*100)
+	fmt.Fprintf(&b, "║       Overall Grade:  %s %-5s    Score: %-7s            ║\n",
+		emoji, c.OverallGrade, FormatRate(c.ScoreKnown(), c.OverallScore, 1))
 	fmt.Fprintf(&b, "║                                                              ║\n")
 	b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 
 	// Stats
-	fmt.Fprintf(&b, "║  Total Units:     %-6d    Pass Rate:  %6.1f%%              ║\n", c.TotalUnits, c.PassRate*100)
+	fmt.Fprintf(&b, "║  Total Units:     %-6d    Pass Rate:  %7s              ║\n", c.TotalUnits, formatPassRate(c))
 	fmt.Fprintf(&b, "║  Passing:         %-6d    Failing:    %6d               ║\n", c.Passing, c.Failing)
 	fmt.Fprintf(&b, "║  Observations:    %-6d    Expired:    %6d               ║\n", c.Observations, c.Expired)
+	if c.UnsupportedCount > 0 {
+		fmt.Fprintf(&b, "║  Not Assessed:    %-6d    Analyzable: %6d               ║\n", c.UnsupportedCount, c.AnalyzableUnits)
+	}
 	b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 
 	// Grade distribution
 	b.WriteString("║  Grade Distribution:                                         ║\n")
-	grades := []string{"A", "A-", "B+", "B", "C", "D", "F"}
+	grades := distributionGrades
 	for _, g := range grades {
 		count := c.GradeDistribution[g]
 		if count == 0 {
@@ -176,8 +302,18 @@ func FormatCardText(c Card) string {
 		if barLen < 1 && count > 0 {
 			barLen = 1
 		}
-		bar := strings.Repeat("█", barLen)
-		fmt.Fprintf(&b, "║    %2s: %4d (%5.1f%%) %-36s║\n", g, count, pct, bar)
+		// The bar must fill exactly barField columns: shorter and the right
+		// border pulls left, longer and it runs through the edge. Padding with
+		// %-Ns cannot do this — that pads to a width in BYTES, and █ is three
+		// bytes, so the pad silently stopped applying past 12 bars. %2s does not
+		// truncate either, and the N/A bucket's label is three columns — one more
+		// than its field — so it borrows a column from the bar.
+		barField := distributionBarWidth - max(0, len(g)-2)
+		if barLen > barField {
+			barLen = barField
+		}
+		bar := strings.Repeat("█", barLen) + strings.Repeat(" ", barField-barLen)
+		fmt.Fprintf(&b, "║    %2s: %4d (%5.1f%%) %s║\n", g, count, pct, bar)
 	}
 	b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 
@@ -185,8 +321,9 @@ func FormatCardText(c Card) string {
 	if len(c.Languages) > 0 {
 		b.WriteString("║  By Language:                                                ║\n")
 		for _, l := range c.Languages {
-			fmt.Fprintf(&b, "║    %-12s %4d units   %s %-5s  (%.1f%%)              ║\n",
-				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade, l.AverageScore*100)
+			fmt.Fprintf(&b, "║    %-12s %4d units   %s %-5s  (%s)              ║\n",
+				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade,
+				FormatRate(l.ScoreKnown(), l.AverageScore, 1))
 		}
 		b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 	}
@@ -228,14 +365,19 @@ func FormatCardMarkdown(c Card) string {
 	}
 	fmt.Fprintf(&b, "**Generated:** %s\n\n", c.GeneratedAt[:19])
 
-	fmt.Fprintf(&b, "## %s Overall: %s (%.1f%%)\n\n", emoji, c.OverallGrade, c.OverallScore*100)
+	fmt.Fprintf(&b, "## %s Overall: %s (%s)\n\n", emoji, c.OverallGrade,
+		FormatRate(c.ScoreKnown(), c.OverallScore, 1))
 
 	fmt.Fprintf(&b, "| Metric | Value |\n")
 	fmt.Fprintf(&b, "|--------|-------|\n")
 	fmt.Fprintf(&b, "| Total Units | %d |\n", c.TotalUnits)
 	fmt.Fprintf(&b, "| Passing | %d |\n", c.Passing)
 	fmt.Fprintf(&b, "| Failing | %d |\n", c.Failing)
-	fmt.Fprintf(&b, "| Pass Rate | %.1f%% |\n", c.PassRate*100)
+	if c.UnsupportedCount > 0 {
+		fmt.Fprintf(&b, "| Not Assessed | %d |\n", c.UnsupportedCount)
+		fmt.Fprintf(&b, "| Analyzable Units | %d |\n", c.AnalyzableUnits)
+	}
+	fmt.Fprintf(&b, "| Pass Rate | %s |\n", formatPassRate(c))
 	fmt.Fprintf(&b, "| Observations | %d |\n", c.Observations)
 	fmt.Fprintf(&b, "| Expired | %d |\n\n", c.Expired)
 
@@ -243,7 +385,7 @@ func FormatCardMarkdown(c Card) string {
 	b.WriteString("### Grade Distribution\n\n")
 	b.WriteString("| Grade | Count | % |\n")
 	b.WriteString("|-------|-------|---|\n")
-	grades := []string{"A", "A-", "B+", "B", "C", "D", "F"}
+	grades := distributionGrades
 	for _, g := range grades {
 		count := c.GradeDistribution[g]
 		if count == 0 {
@@ -254,26 +396,70 @@ func FormatCardMarkdown(c Card) string {
 	}
 	b.WriteString("\n")
 
-	// Languages
+	// Languages and Packages both print a unit count in the same row as a grade
+	// and a score taken over the analyzable subset. The report tree's Packages
+	// table already carries a Not Assessed column for exactly this reason; these
+	// two tables are the same row shape in the same document and did not. The
+	// column appears only when some row has a gap, so an all-assessed repo keeps
+	// the table it had.
 	if len(c.Languages) > 0 {
-		b.WriteString("### By Language\n\n")
-		b.WriteString("| Language | Units | Grade | Score |\n")
-		b.WriteString("|----------|-------|-------|-------|\n")
+		anyUnsupported := false
 		for _, l := range c.Languages {
-			fmt.Fprintf(&b, "| %s | %d | %s %s | %.1f%% |\n",
-				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade, l.AverageScore*100)
+			if l.Unsupported > 0 {
+				anyUnsupported = true
+				break
+			}
+		}
+		b.WriteString("### By Language\n\n")
+		if anyUnsupported {
+			b.WriteString("| Language | Units | Not Assessed | Grade | Score |\n")
+			b.WriteString("|----------|-------|-------------:|-------|-------|\n")
+		} else {
+			b.WriteString("| Language | Units | Grade | Score |\n")
+			b.WriteString("|----------|-------|-------|-------|\n")
+		}
+		for _, l := range c.Languages {
+			cells := []string{l.Name, strconv.Itoa(l.Units)}
+			if anyUnsupported {
+				cells = append(cells, strconv.Itoa(l.Unsupported))
+			}
+			cells = append(cells,
+				fmt.Sprintf("%s %s", gradeEmoji(l.Grade), l.Grade),
+				FormatRate(l.ScoreKnown(), l.AverageScore, 1))
+			fmt.Fprintf(&b, "| %s |\n", strings.Join(cells, " | "))
 		}
 		b.WriteString("\n")
 	}
 
 	// Packages (with links into the report tree)
 	if len(c.Packages) > 0 {
-		b.WriteString("### Packages\n\n")
-		b.WriteString("| Package | Units | Grade | Score |\n")
-		b.WriteString("|---------|------:|:-----:|------:|\n")
+		anyUnsupported := false
 		for _, p := range c.Packages {
-			fmt.Fprintf(&b, "| [%s](reports/%s/index.md) | %d | %s %s | %.1f%% |\n",
-				p.Path, p.Path, p.Units, gradeEmoji(p.Grade), p.Grade, p.AvgScore*100)
+			if p.Unsupported > 0 {
+				anyUnsupported = true
+				break
+			}
+		}
+		b.WriteString("### Packages\n\n")
+		if anyUnsupported {
+			b.WriteString("| Package | Units | Not Assessed | Grade | Score |\n")
+			b.WriteString("|---------|------:|-------------:|:-----:|------:|\n")
+		} else {
+			b.WriteString("| Package | Units | Grade | Score |\n")
+			b.WriteString("|---------|------:|:-----:|------:|\n")
+		}
+		for _, p := range c.Packages {
+			cells := []string{
+				fmt.Sprintf("[%s](reports/%s/index.md)", p.Path, p.Path),
+				strconv.Itoa(p.Units),
+			}
+			if anyUnsupported {
+				cells = append(cells, strconv.Itoa(p.Unsupported))
+			}
+			cells = append(cells,
+				fmt.Sprintf("%s %s", gradeEmoji(p.Grade), p.Grade),
+				FormatRate(p.ScoreKnown(), p.AvgScore, 1))
+			fmt.Fprintf(&b, "| %s |\n", strings.Join(cells, " | "))
 		}
 		b.WriteString("\n")
 	}
@@ -287,8 +473,8 @@ func FormatCardMarkdown(c Card) string {
 			if i >= 10 {
 				break
 			}
-			fmt.Fprintf(&b, "| `%s` | %s | %.1f%% | %s |\n",
-				issue.UnitID, issue.Grade, issue.Score*100, issue.Reason)
+			fmt.Fprintf(&b, "| `%s` | %s | %s | %s |\n",
+				issue.UnitID, issue.Grade, FormatRate(issue.ScoreKnown(), issue.Score, 1), issue.Reason)
 		}
 		b.WriteString("\n")
 	}

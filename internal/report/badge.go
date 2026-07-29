@@ -23,18 +23,42 @@ func GenerateBadge(c Card) Badge {
 		SchemaVersion: 1,
 		Label:         "certification",
 		Message:       badgeMessage(c),
-		Color:         badgeColor(c.OverallGrade),
+		Color:         badgeColor(badgeGrade(c)),
 		NamedLogo:     "checkmarx",
 		LogoColor:     "white",
 	}
 }
 
+// badgeMessage is what the public README badge says. It is the most widely
+// read output the product has, so it must never state a rate that was not
+// measured: with nothing analyzable, "0%" and "100%" are equally false claims
+// about code the engine never opened.
 func badgeMessage(c Card) string {
 	if c.TotalUnits == 0 {
 		return "no data"
 	}
-	return fmt.Sprintf("%s · %.0f%% · %d units",
-		c.OverallGrade, c.PassRate*100, c.TotalUnits)
+	if !c.PassRateKnown() {
+		return "not assessed · " + FormatUnitPopulation(c.TotalUnits, c.UnsupportedCount)
+	}
+	// The mixed case is the one that shipped wrong. The degenerate branch above
+	// already qualified its population — "0 of 9 units analyzable" — while this
+	// branch printed "B+ · 100% · 9 units" over the same nine units, five of
+	// which were the entire basis of both the grade and the rate. A partly
+	// analyzable repo needs the qualifier at least as much as a wholly
+	// unanalyzable one, and now both branches get it from the same function.
+	return fmt.Sprintf("%s · %.0f%% · %s",
+		c.OverallGrade, c.PassRate*100, FormatUnitPopulation(c.TotalUnits, c.UnsupportedCount))
+}
+
+// badgeGrade is the grade the badge colours itself by. A card with no
+// analyzable units has no verdict to colour, so it falls through to the
+// neutral gray rather than painting the README red or green off a grade
+// derived from units that were never scored.
+func badgeGrade(c Card) string {
+	if c.TotalUnits > 0 && !c.PassRateKnown() {
+		return ""
+	}
+	return c.OverallGrade
 }
 
 // badgeColor maps grade to brand-consistent colors.

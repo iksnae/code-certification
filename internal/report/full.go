@@ -40,15 +40,20 @@ type EvidenceSummary struct {
 
 // UnitReport is the complete certification detail for a single unit.
 type UnitReport struct {
-	UnitID       string             `json:"unit_id"`
-	UnitType     string             `json:"unit_type"`
-	Path         string             `json:"path"`
-	Language     string             `json:"language"`
-	Symbol       string             `json:"symbol,omitempty"`
-	Status       string             `json:"status"`
-	Grade        string             `json:"grade"`
-	Score        float64            `json:"score"`
-	Confidence   float64            `json:"confidence"`
+	UnitID     string  `json:"unit_id"`
+	UnitType   string  `json:"unit_type"`
+	Path       string  `json:"path"`
+	Language   string  `json:"language"`
+	Symbol     string  `json:"symbol,omitempty"`
+	Status     string  `json:"status"`
+	Grade      string  `json:"grade"`
+	Score      float64 `json:"score"`
+	Confidence float64 `json:"confidence"`
+	// Unsupported marks a unit the engine could not analyse. Status alone
+	// cannot express it — it is "exempt", which IsPassing() reads as true — so
+	// every consumer counting over UnitReport needs this flag to avoid
+	// certifying code that was never opened.
+	Unsupported  bool               `json:"unsupported,omitempty"`
 	Dimensions   map[string]float64 `json:"dimensions"`
 	Evidence     []EvidenceSummary  `json:"evidence,omitempty"`
 	Observations []string           `json:"observations,omitempty"`
@@ -61,15 +66,32 @@ type UnitReport struct {
 // LanguageDetail is the unified language summary type used across all report formats.
 // It replaces the former LanguageCard, LanguageBreakdown, and langRow types.
 type LanguageDetail struct {
-	Name              string         `json:"name"`
-	Units             int            `json:"units"`
-	Passing           int            `json:"passing"`
+	Name    string `json:"name"`
+	Units   int    `json:"units"`
+	Passing int    `json:"passing"`
+	// Unsupported counts this language's unassessed units, which are excluded
+	// from Passing. See Card.
+	Unsupported       int            `json:"unsupported"`
 	AverageScore      float64        `json:"average_score"`
 	Grade             string         `json:"grade"`
 	GradeDistribution map[string]int `json:"grade_distribution"`
 	TopScore          float64        `json:"top_score"`
 	BottomScore       float64        `json:"bottom_score"`
 }
+
+// ScoreKnown reports whether this unit's Score is a measurement. An unassessed
+// unit carries the placeholder zero the pipeline assigns when it declines to
+// score, so rendering it as "0.0%" states a measured total failure next to a
+// grade of N/A that says nothing was measured. See Card.ScoreKnown.
+func (u UnitReport) ScoreKnown() bool { return !u.Unsupported }
+
+// Analyzable is the number of this language's units about which a verdict was
+// asserted — the denominator of any rate over the language.
+func (l LanguageDetail) Analyzable() int { return l.Units - l.Unsupported }
+
+// ScoreKnown reports whether AverageScore and Grade are measurements. See
+// Card.ScoreKnown.
+func (l LanguageDetail) ScoreKnown() bool { return l.Analyzable() > 0 }
 
 // GenerateFullReport creates a comprehensive per-unit report.
 func GenerateFullReport(records []domain.CertificationRecord, repo, commit string, now time.Time) FullReport {
@@ -129,6 +151,7 @@ func unitReportFrom(rec domain.CertificationRecord) UnitReport {
 		Grade:        rec.Grade.String(),
 		Score:        rec.Score,
 		Confidence:   rec.Confidence,
+		Unsupported:  rec.Unsupported,
 		Dimensions:   dims,
 		Evidence:     evSummaries,
 		Observations: rec.Observations,
@@ -140,10 +163,15 @@ func unitReportFrom(rec domain.CertificationRecord) UnitReport {
 }
 
 func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail {
+	// scores holds only the units this language was actually scored on. units
+	// counts them all: an unassessed unit still exists and is still reported, it
+	// simply contributes no measurement to any figure derived from a score.
 	type langAccum struct {
-		scores  []float64
-		grades  map[string]int
-		passing int
+		units       int
+		scores      []float64
+		grades      map[string]int
+		passing     int
+		unsupported int
 	}
 	accum := make(map[string]*langAccum)
 
@@ -154,8 +182,15 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 			a = &langAccum{grades: make(map[string]int)}
 			accum[lang] = a
 		}
-		a.scores = append(a.scores, r.Score)
+		a.units++
 		a.grades[r.Grade.String()]++
+		// StatusExempt is IsPassing(), so an unassessed unit would otherwise be
+		// counted as a passing unit of its language.
+		if r.Unsupported {
+			a.unsupported++
+			continue
+		}
+		a.scores = append(a.scores, r.Score)
 		if r.Status.IsPassing() {
 			a.passing++
 		}
@@ -174,13 +209,28 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 				bottom = s
 			}
 		}
-		avg := sum / float64(len(a.scores))
+		// The mean, the grade and the top/bottom extremes all summarise the units
+		// this language was scored on — a.scores, which excludes the unassessed
+		// ones. Averaging their placeholder zeroes produced a confident F for a
+		// language the engine has no analyzer for, and reported one as the
+		// language's worst measurement. This is the denominator Card.OverallScore
+		// and statsForUnits use; all three move together or the report card
+		// contradicts its own By Language table.
+		var avg float64
+		grade := domain.GradeNA.String()
+		if len(a.scores) > 0 {
+			avg = sum / float64(len(a.scores))
+			grade = domain.GradeFromScore(avg).String()
+		} else {
+			bottom = 0
+		}
 		details = append(details, LanguageDetail{
 			Name:              lang,
-			Units:             len(a.scores),
+			Units:             a.units,
 			Passing:           a.passing,
+			Unsupported:       a.unsupported,
 			AverageScore:      avg,
-			Grade:             domain.GradeFromScore(avg).String(),
+			Grade:             grade,
 			GradeDistribution: a.grades,
 			TopScore:          top,
 			BottomScore:       bottom,
@@ -202,7 +252,7 @@ func FormatFullMarkdown(r FullReport) string {
 	writeAIInsights(&b, r)
 	writeLanguageDetail(&b, r)
 	writeAllUnits(&b, r)
-	fmt.Fprintf(&b, "---\n\n*%d units certified. Generated by [Certify](https://github.com/iksnae/code-certification).*\n", len(r.Units))
+	fmt.Fprintf(&b, "---\n\n*%d units. Generated by [Certify](https://github.com/iksnae/code-certification).*\n", len(r.Units))
 	return b.String()
 }
 
@@ -224,11 +274,15 @@ func writeSummary(b *strings.Builder, r FullReport) {
 	b.WriteString("---\n\n## Summary\n\n")
 	fmt.Fprintf(b, "| Metric | Value |\n|--------|-------|\n")
 	fmt.Fprintf(b, "| **Overall Grade** | %s **%s** |\n", emoji, r.Card.OverallGrade)
-	fmt.Fprintf(b, "| **Overall Score** | %.1f%% |\n", r.Card.OverallScore*100)
+	fmt.Fprintf(b, "| **Overall Score** | %s |\n", FormatRate(r.Card.ScoreKnown(), r.Card.OverallScore, 1))
 	fmt.Fprintf(b, "| **Total Units** | %d |\n", r.Card.TotalUnits)
 	fmt.Fprintf(b, "| **Passing** | %d |\n", r.Card.Passing)
 	fmt.Fprintf(b, "| **Failing** | %d |\n", r.Card.Failing)
-	fmt.Fprintf(b, "| **Pass Rate** | %.1f%% |\n", r.Card.PassRate*100)
+	if r.Card.UnsupportedCount > 0 {
+		fmt.Fprintf(b, "| **Not Assessed** | %d |\n", r.Card.UnsupportedCount)
+		fmt.Fprintf(b, "| **Analyzable Units** | %d |\n", r.Card.AnalyzableUnits)
+	}
+	fmt.Fprintf(b, "| **Pass Rate** | %s |\n", formatPassRate(r.Card))
 	fmt.Fprintf(b, "| **Observations** | %d |\n", r.Card.Observations)
 	fmt.Fprintf(b, "| **Expired** | %d |\n\n", r.Card.Expired)
 }
@@ -236,7 +290,7 @@ func writeSummary(b *strings.Builder, r FullReport) {
 func writeGradeDistribution(b *strings.Builder, r FullReport) {
 	b.WriteString("## Grade Distribution\n\n")
 	b.WriteString("| Grade | Count | % | Bar |\n|:-----:|------:|----:|-----|\n")
-	for _, g := range []string{"A", "A-", "B+", "B", "C", "D", "F"} {
+	for _, g := range distributionGrades {
 		count := r.Card.GradeDistribution[g]
 		if count == 0 {
 			continue
@@ -272,10 +326,13 @@ func writeLanguageDetail(b *strings.Builder, r FullReport) {
 	}
 	b.WriteString("## By Language\n\n")
 	for _, lang := range r.LanguageDetail {
-		fmt.Fprintf(b, "### %s — %s %s (%.1f%%)\n\n",
-			lang.Name, gradeEmoji(lang.Grade), lang.Grade, lang.AverageScore*100)
-		fmt.Fprintf(b, "- **Units:** %d\n", lang.Units)
-		fmt.Fprintf(b, "- **Score range:** %.1f%% – %.1f%%\n", lang.BottomScore*100, lang.TopScore*100)
+		fmt.Fprintf(b, "### %s — %s %s (%s)\n\n",
+			lang.Name, gradeEmoji(lang.Grade), lang.Grade,
+			FormatRate(lang.ScoreKnown(), lang.AverageScore, 1))
+		fmt.Fprintf(b, "- **Units:** %s\n", FormatUnitPopulation(lang.Units, lang.Unsupported))
+		fmt.Fprintf(b, "- **Score range:** %s – %s\n",
+			FormatRate(lang.ScoreKnown(), lang.BottomScore, 1),
+			FormatRate(lang.ScoreKnown(), lang.TopScore, 1))
 		b.WriteString("- **Grades:** ")
 		first := true
 		for _, g := range []string{"A", "A-", "B+", "B", "C", "D", "F"} {
@@ -316,8 +373,9 @@ func writeAllUnits(b *strings.Builder, r FullReport) {
 				name = shortFile(u.Path)
 			}
 			anchor := unitAnchor(u)
-			fmt.Fprintf(b, "| [`%s`](#%s) | %s | %s | %.1f%% | %s | %s |\n",
-				name, anchor, u.UnitType, u.Grade, u.Score*100, u.Status, u.ExpiresAt[:10])
+			fmt.Fprintf(b, "| [`%s`](#%s) | %s | %s | %s | %s | %s |\n",
+				name, anchor, u.UnitType, u.Grade, FormatRate(u.ScoreKnown(), u.Score, 1),
+				u.Status, u.ExpiresAt[:10])
 		}
 		b.WriteString("\n")
 		writeUnitDetails(b, units)
@@ -351,7 +409,11 @@ func writeAIInsights(b *strings.Builder, r FullReport) {
 
 	b.WriteString("## 🤖 AI Insights\n\n")
 	if aiModel != "" {
-		fmt.Fprintf(b, "*Powered by `%s` — %d units analyzed*\n\n", aiModel, len(r.Units))
+		// "9 units analyzed" over a corpus where four were never opened is the
+		// same overstated population as the badge, in the sentence that names
+		// the model that supposedly did the analysing.
+		fmt.Fprintf(b, "*Powered by `%s` — %s analyzed*\n\n", aiModel,
+			FormatUnitPopulation(r.Card.TotalUnits, r.Card.UnsupportedCount))
 	}
 
 	// Top suggestions by frequency

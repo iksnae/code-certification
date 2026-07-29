@@ -94,28 +94,19 @@ func computeDimensionAverages(records []domain.CertificationRecord) map[string]f
 	return result
 }
 
+// computeLanguageBreakdowns keys buildLanguageDetail's output by language.
+//
+// It deliberately owns no arithmetic. A second aggregation over the same
+// records is what let Unsupported reach the renderer as a hard zero — the
+// "(n not assessed)" suffix in FormatDetailedText read a field this function
+// never set — while the passing count included units the engine never opened.
+// LanguageDetail already documents itself as the unified language summary; one
+// type with two producers is the half of that unification that was missed.
 func computeLanguageBreakdowns(records []domain.CertificationRecord) map[string]LanguageDetail {
-	totals := make(map[string]int)
-	passing := make(map[string]int)
-	scores := make(map[string]float64)
-	for _, r := range records {
-		lang := r.UnitID.Language()
-		totals[lang]++
-		scores[lang] += r.Score
-		if r.Status.IsPassing() {
-			passing[lang]++
-		}
-	}
-	result := make(map[string]LanguageDetail, len(totals))
-	for lang, total := range totals {
-		avg := scores[lang] / float64(total)
-		result[lang] = LanguageDetail{
-			Name:         lang,
-			Units:        total,
-			Passing:      passing[lang],
-			AverageScore: avg,
-			Grade:        domain.GradeFromScore(avg).String(),
-		}
+	details := buildLanguageDetail(records)
+	result := make(map[string]LanguageDetail, len(details))
+	for _, d := range details {
+		result[d.Name] = d
 	}
 	return result
 }
@@ -170,6 +161,16 @@ func findRecurrentlyFailing(records []domain.CertificationRecord) []AreaSummary 
 	dirFailing := make(map[string]int)
 	dirScores := make(map[string]float64)
 	for _, r := range records {
+		// dirFailing already excludes unassessed units — StatusExempt is
+		// passing — so counting them in dirTotals and summing their placeholder
+		// zeroes into dirScores made the two sides disagree: a directory of two
+		// failing Go units beside one unassessed Swift file rendered
+		// "2/3 failing, avg 0.300" where the measurement is "2/2, avg 0.450".
+		// Both the ratio and the mean cover the analyzable units, or neither
+		// figure means what the row says it means.
+		if r.Unsupported {
+			continue
+		}
 		dir := filepath.Dir(r.UnitPath)
 		dirTotals[dir]++
 		dirScores[dir] += r.Score
@@ -252,7 +253,19 @@ func FormatDetailedText(d DetailedReport) string {
 		sort.Strings(langs)
 		for _, lang := range langs {
 			lb := d.ByLanguage[lang]
-			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %.3f\n", lang, lb.Units, lb.Passing, lb.AverageScore)
+			// The average follows the same rule as the pass rate above it: a
+			// language whose units were never opened has no mean to state, and
+			// "avg 0.000 (3 not assessed)" is a definite verdict beside an
+			// admission that nothing was measured.
+			avg := "n/a"
+			if lb.ScoreKnown() {
+				avg = fmt.Sprintf("%.3f", lb.AverageScore)
+			}
+			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %s", lang, lb.Units, lb.Passing, avg)
+			if lb.Unsupported > 0 {
+				fmt.Fprintf(&b, " (%d not assessed)", lb.Unsupported)
+			}
+			b.WriteString("\n")
 		}
 	}
 

@@ -74,3 +74,16 @@ func TierForLanguage(lang string) Tier {
 	}
 	return TierGeneric
 }
+
+// IsSupported reports whether a language has enough analysis support for its
+// code to be scored at all. At TierGeneric and below no dimension evidence can
+// be produced, so any score or grade derived from such a unit would be
+// fabricated rather than measured.
+//
+// This is the single source of truth for the supported/unsupported split.
+// Callers must ask it directly rather than inferring the answer from the shape
+// of a scoring result — an absent or empty score map means "nothing scored",
+// which is not the same question.
+func IsSupported(lang string) bool {
+	return TierForLanguage(lang) > TierGeneric
+}

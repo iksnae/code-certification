@@ -72,12 +72,12 @@ type CertificationRecord struct {
 	PolicyVersion string `json:"policy_version"`
 
 	// Result
-	Status     Status          `json:"status"`
-	Grade      Grade           `json:"grade"`
-	Score      float64         `json:"score"`
-	Confidence float64         `json:"confidence"`
-	Unsupported bool           `json:"unsupported"`
-	Dimensions DimensionScores `json:"dimensions,omitempty"`
+	Status      Status          `json:"status"`
+	Grade       Grade           `json:"grade"`
+	Score       float64         `json:"score"`
+	Confidence  float64         `json:"confidence"`
+	Unsupported bool            `json:"unsupported"`
+	Dimensions  DimensionScores `json:"dimensions,omitempty"`
 
 	// Evidence
 	Evidence     []Evidence `json:"evidence,omitempty"`
@@ -94,6 +94,51 @@ type CertificationRecord struct {
 	Version int    `json:"version"` // record schema version
 }
 
+// Verdict is the quality judgement a record asserts: the four fields that
+// together say what the engine concluded about a unit.
+type Verdict struct {
+	Status     Status
+	Grade      Grade
+	Score      float64
+	Confidence float64
+}
+
+// UnassessedVerdict is the verdict of a unit the engine cannot analyse: no
+// judgement, expressed consistently in every field that could carry one.
+//
+// One function decides this, and both producers of an unassessed record call
+// it — the pipeline, which builds one from a fresh run, and the store, which
+// backfills one from a record written before the `unsupported` field existed.
+// That is the whole point. A record that says "unassessed" in one field and
+// "decertified / F / confidence 1.0" in the next is not a record with a
+// display bug; it is a record that disagrees with itself, and every surface
+// downstream then has to remember to distrust the fields and re-derive from
+// the flag. Six review rounds each found one more site that had forgotten.
+// Making the fields agree at the boundary is what removes the obligation.
+func UnassessedVerdict() Verdict {
+	return Verdict{
+		Status:     StatusExempt,
+		Grade:      GradeNA,
+		Score:      0,
+		Confidence: 0,
+	}
+}
+
+// VerdictOf returns the verdict r currently asserts.
+func (r CertificationRecord) VerdictOf() Verdict {
+	return Verdict{Status: r.Status, Grade: r.Grade, Score: r.Score, Confidence: r.Confidence}
+}
+
+// WithUnassessedVerdict returns r carrying UnassessedVerdict and no dimension
+// scores. It is idempotent: a record a fresh run already wrote as unassessed
+// is returned unchanged.
+func (r CertificationRecord) WithUnassessedVerdict() CertificationRecord {
+	v := UnassessedVerdict()
+	r.Status, r.Grade, r.Score, r.Confidence = v.Status, v.Grade, v.Score, v.Confidence
+	r.Dimensions = nil
+	return r
+}
+
 // CertificationRun captures metadata about a single certification invocation.
 type CertificationRun struct {
 	ID             string    `json:"id"`
@@ -104,8 +149,13 @@ type CertificationRun struct {
 	UnitsProcessed int       `json:"units_processed"`
 	UnitsCertified int       `json:"units_certified"`
 	UnitsFailed    int       `json:"units_failed"`
-	OverallGrade   string    `json:"overall_grade"`
-	OverallScore   float64   `json:"overall_score"`
+	// UnitsUnsupported counts units in languages the engine cannot analyse. They
+	// are neither certified nor failed: no verdict was asserted about them.
+	// Folding them into UnitsCertified writes a durable falsehood into
+	// .certification/runs.jsonl — a claim of certification for code never opened.
+	UnitsUnsupported int     `json:"units_unsupported,omitempty"`
+	OverallGrade     string  `json:"overall_grade"`
+	OverallScore     float64 `json:"overall_score"`
 }
 
 // GenerateRunID creates a timestamp-based run identifier.

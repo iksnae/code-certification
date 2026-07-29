@@ -14,11 +14,16 @@ import (
 // Only dimensions with actual evidence are included in the returned map.
 // Dimensions without evidence are absent — they don't dilute the average.
 //
-// The lang parameter controls the language-tier gate: if the language resolves
-// to TierGeneric (unrecognized / no analysis support), Score returns nil
+// The lang parameter controls the language-tier gate: if the language has no
+// analysis support (see language_tiers.IsSupported), Score returns nil
 // immediately — no dimensions are computed for unsupported languages.
+//
+// Callers must not read the nil return as "unsupported": it only means no
+// dimension was scored. Ask language_tiers.IsSupported for that question —
+// CertifyUnit does, and depends on the distinction to avoid grading a unit it
+// never assessed.
 func Score(ev []domain.Evidence, evalResult policy.EvaluationResult, lang string) domain.DimensionScores {
-	if language_tiers.TierForLanguage(lang) == language_tiers.TierGeneric {
+	if !language_tiers.IsSupported(lang) {
 		return nil
 	}
 

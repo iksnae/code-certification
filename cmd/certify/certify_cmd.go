@@ -17,6 +17,7 @@ import (
 	"github.com/iksnae/code-certification/internal/policy"
 	"github.com/iksnae/code-certification/internal/queue"
 	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/report"
 	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
@@ -125,9 +126,9 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	}
 	fmt.Println()
 
-	certified, observations, failed, processed := ctx.processQueue(cmd, remaining, flags.batch)
+	tally := ctx.processQueue(cmd, remaining, flags.batch)
 
-	ctx.printSummary(certified, observations, failed, processed)
+	ctx.printSummary(tally)
 
 	now := time.Now()
 	repo := detectRepoName(ctx.root)
@@ -142,7 +143,7 @@ func runCertify(cmd *cobra.Command, args []string) error {
 	run := buildCertificationRun(runParams{
 		runID: runID, startedAt: startedAt, commit: commit,
 		policyVersions: ctx.certifier.PolicyVersions,
-		certified:      certified + observations, failed: failed, processed: processed,
+		tally:          tally,
 	}, ctx.certifier.Store)
 	if err := ctx.certifier.Store.AppendRun(run); err != nil {
 		fmt.Fprintf(os.Stderr, "warning: saving run record: %v\n", err)
@@ -156,10 +157,34 @@ func runCertify(cmd *cobra.Command, args []string) error {
 
 	ctx.wq.Save(ctx.queuePath)
 
-	if ctx.cfg.Mode == domain.ModeEnforcing && failed > 0 {
-		return fmt.Errorf("%d units failed certification in enforcing mode", failed)
+	if warning := enforcingGateWarning(ctx.cfg.Mode, tally); warning != "" {
+		fmt.Fprintln(os.Stderr, warning)
+	}
+	if ctx.cfg.Mode == domain.ModeEnforcing && tally.failed > 0 {
+		return fmt.Errorf("%d units failed certification in enforcing mode", tally.failed)
 	}
 	return nil
+}
+
+// enforcingGateWarning returns the message to surface when an enforcing run
+// exits successfully without having certified anything.
+//
+// The gate itself stays a two-state exit: 0 when nothing failed, 1 when
+// something did. An all-unsupported repo therefore exits 0, because no unit
+// failed — manufacturing exit 1 would reassert the "unassessed means failed"
+// defect at the process level, and every such repo's CI would break on upgrade.
+// But exiting 0 silently would tell the client's CI that certification passed
+// when nothing was certified, which is the false positive this change exists to
+// stop. Until the exit-code contract itself can carry a third state, the run
+// exits 0 and says plainly that it certified nothing.
+func enforcingGateWarning(mode domain.CertificationMode, t runTally) string {
+	if mode != domain.ModeEnforcing || t.assessed() > 0 || t.unsupported == 0 {
+		return ""
+	}
+	return fmt.Sprintf(
+		"warning: enforcing mode certified nothing — all %d processed units are in "+
+			"unsupported languages. This run asserts no verdict about this repository.",
+		t.unsupported)
 }
 
 func loadCertifyContext(flags certifyFlags) (*certifyContext, error) {
@@ -264,7 +289,8 @@ func (c *certifyContext) printQueueStatus() int {
 	return remaining
 }
 
-func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch int) (certified, observations, failed, processed int) {
+func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch int) runTally {
+	var tally runTally
 	now := time.Now()
 	batchSize := remaining
 	if batch > 0 && batch < batchSize {
@@ -273,7 +299,7 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch i
 
 	startTime := time.Now()
 
-	for processed < batchSize {
+	for tally.processed < batchSize {
 		item, ok := c.wq.Next()
 		if !ok {
 			break
@@ -285,13 +311,13 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch i
 			continue
 		}
 
-		processed++
+		tally.processed++
 
 		result, err := c.certifier.Certify(cmd.Context(), unit, c.repoEv, now)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "\n  ✗ %s — error: %v\n", unit.ID, err)
 			c.wq.Fail(item.UnitID, err.Error())
-			failed++
+			tally.failed++
 			c.wq.Save(c.queuePath)
 			continue
 		}
@@ -317,21 +343,14 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch i
 			c.wq.Complete(item.UnitID, "")
 		}
 
-		switch {
-		case result.Record.Status == domain.StatusCertified:
-			certified++
-		case result.Record.Status == domain.StatusCertifiedWithObservations || result.Record.Status == domain.StatusExempt:
-			observations++
-		default:
-			failed++
-		}
+		tally.add(result.Record)
 
 		// Per-unit progress line
 		grade := result.Record.Grade.String()
 		emoji := gradeEmoji(grade)
 		elapsed := time.Since(startTime)
-		rate := float64(processed) / elapsed.Seconds()
-		eta := time.Duration(float64(batchSize-processed)/rate) * time.Second
+		rate := float64(tally.processed) / elapsed.Seconds()
+		eta := time.Duration(float64(batchSize-tally.processed)/rate) * time.Second
 
 		obsTag := ""
 		if len(result.Record.Observations) > 0 {
@@ -342,17 +361,24 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch i
 			failTag = " ✗"
 		}
 
-		fmt.Printf("  [%d/%d] %s %-2s  %-55s %5.1f%%%s%s%s  (%.1f/s, ~%s)\n",
-			processed, batchSize,
+		// An unassessed unit has no score, so the column shows the same "n/a"
+		// marker every other surface uses rather than a right-aligned "0.0%"
+		// that reads as a measured total failure beside a grade of N/A.
+		scoreCol := fmt.Sprintf("%5.1f%%", result.Record.Score*100)
+		if result.Record.Unsupported {
+			scoreCol = "  n/a "
+		}
+		fmt.Printf("  [%d/%d] %s %-2s  %-55s %s%s%s%s  (%.1f/s, ~%s)\n",
+			tally.processed, batchSize,
 			emoji, grade,
 			unit.ID,
-			result.Record.Score*100,
+			scoreCol,
 			agentTag, obsTag, failTag,
 			rate, formatETA(eta))
 
 		c.wq.Save(c.queuePath)
 	}
-	return
+	return tally
 }
 
 func formatETA(d time.Duration) string {
@@ -382,15 +408,15 @@ func gradeEmoji(g string) string {
 	}
 }
 
-func (c *certifyContext) printSummary(certified, observations, failed, processed int) {
-	total := certified + observations + failed
+func (c *certifyContext) printSummary(t runTally) {
+	assessed := t.assessed()
 	fmt.Println()
 	if c.certifier.Agent != nil {
 		filesReviewed, totalFiles, tokens := c.certifier.Agent.Stats()
 		fmt.Printf("  🤖 Agent: %d/%d files reviewed, %d tokens used\n", filesReviewed, totalFiles, tokens)
 	}
 
-	fmt.Printf("  Processed %d units this run\n", processed)
+	fmt.Printf("  Processed %d units this run\n", t.processed)
 
 	finalStats := c.wq.Stats()
 	if finalStats.Pending > 0 {
@@ -399,12 +425,19 @@ func (c *certifyContext) printSummary(certified, observations, failed, processed
 		fmt.Printf("  Queue complete!\n")
 	}
 
-	fmt.Printf("✓ Certified %d/%d units", certified+observations, total)
-	if observations > 0 {
-		fmt.Printf(" (%d with observations)", observations)
+	if assessed == 0 {
+		fmt.Printf("• No units were assessed")
+	} else {
+		fmt.Printf("✓ Certified %d/%d units", t.certified+t.observations, assessed)
+		if t.observations > 0 {
+			fmt.Printf(" (%d with observations)", t.observations)
+		}
+		if t.failed > 0 {
+			fmt.Printf(" (%d need attention)", t.failed)
+		}
 	}
-	if failed > 0 {
-		fmt.Printf(" (%d need attention)", failed)
+	if t.unsupported > 0 {
+		fmt.Printf(" — %d not assessed (unsupported language)", t.unsupported)
 	}
 	fmt.Println()
 }
@@ -566,40 +599,86 @@ func policyVersions(matcher *policy.Matcher) []string {
 	return vers
 }
 
+// runTally counts the outcome of each unit processed in a run.
+//
+// Unsupported units get their own counter rather than folding into certified or
+// failed. They carry StatusExempt, which the outcome switch would otherwise read
+// as "certified with observations" — so a repo the engine cannot analyse would
+// report, and persist, full certification. Counting them as failed instead is
+// the original defect. Unassessed is a third outcome and is counted as one.
+type runTally struct {
+	certified    int
+	observations int
+	failed       int
+	unsupported  int
+	processed    int
+}
+
+// add classifies one completed record into the tally.
+func (t *runTally) add(rec domain.CertificationRecord) {
+	switch {
+	case rec.Unsupported:
+		t.unsupported++
+	case rec.Status == domain.StatusCertified:
+		t.certified++
+	case rec.Status == domain.StatusCertifiedWithObservations || rec.Status == domain.StatusExempt:
+		t.observations++
+	default:
+		t.failed++
+	}
+}
+
+// assessed is the number of units about which a verdict was actually asserted.
+func (t *runTally) assessed() int {
+	return t.certified + t.observations + t.failed
+}
+
 // runParams holds parameters for building a CertificationRun record.
+//
+// The unit counts live only on tally. A second processed field alongside it was
+// two carriers for one number, which a caller could set inconsistently and no
+// test would catch.
 type runParams struct {
 	runID          string
 	startedAt      time.Time
 	commit         string
 	policyVersions []string
-	certified      int
-	failed         int
-	processed      int
+	tally          runTally
 }
 
 // buildCertificationRun creates a CertificationRun from run results.
 // It computes overall grade/score from all records currently in the store.
 func buildCertificationRun(p runParams, store *record.Store) domain.CertificationRun {
 	run := domain.CertificationRun{
-		ID:             p.runID,
-		StartedAt:      p.startedAt,
-		CompletedAt:    time.Now(),
-		Commit:         p.commit,
-		PolicyVersions: p.policyVersions,
-		UnitsProcessed: p.processed,
-		UnitsCertified: p.certified,
-		UnitsFailed:    p.failed,
+		ID:               p.runID,
+		StartedAt:        p.startedAt,
+		CompletedAt:      time.Now(),
+		Commit:           p.commit,
+		PolicyVersions:   p.policyVersions,
+		UnitsProcessed:   p.tally.processed,
+		UnitsCertified:   p.tally.certified + p.tally.observations,
+		UnitsFailed:      p.tally.failed,
+		UnitsUnsupported: p.tally.unsupported,
 	}
 
-	// Compute overall grade/score from all records in store
+	// The run record's grade is the report card's grade, taken from the report
+	// card, because they are the same claim about the same corpus and this
+	// command writes both.
+	//
+	// It used to be a second, independent aggregation: sum every score, divide
+	// by len(records). On a repo of 5 Go and 4 Swift units that wrote
+	// "B+ (88.9%)" into REPORT_CARD.md and "F" / 0.4938 into runs.jsonl and
+	// state.json — 5 × 0.8889 / 9 — from one invocation. state.json is
+	// git-tracked, so the false grade is the one that persists and the one a
+	// client sees in a diff. Two aggregations over one record set is the defect;
+	// deleting the second one is the fix. GenerateCard already divides by the
+	// analyzable units, so the unassessed ones leave both the numerator and the
+	// denominator exactly once, in exactly one place.
 	if store != nil {
 		if records, err := store.ListAll(); err == nil && len(records) > 0 {
-			var totalScore float64
-			for _, r := range records {
-				totalScore += r.Score
-			}
-			run.OverallScore = totalScore / float64(len(records))
-			run.OverallGrade = domain.GradeFromScore(run.OverallScore).String()
+			card := report.GenerateCard(records, "", p.commit, time.Now())
+			run.OverallScore = card.OverallScore
+			run.OverallGrade = card.OverallGrade
 		}
 	}
 

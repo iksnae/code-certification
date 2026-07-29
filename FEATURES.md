@@ -71,7 +71,12 @@
 ## 6. Language-Agnostic Support Model
 - [x] The system is not limited to certifying only the implementation language of the engine.
 - [x] The system supports polyglot repositories.
-- [x] The system supports a generic certification path for unsupported languages.
+- [ ] ~~The system supports a generic certification path for unsupported languages.~~ **Withdrawn.**
+      The generic path produced a *verdict* from zero measured dimensions — a letter grade at
+      confidence 1.0 for code no analyzer had opened. Unanalyzable units now report `N/A` /
+      `unsupported` and are excluded from grades, scores and pass rates rather than given a
+      fabricated one. Reinstating a generic *tier* — grading on what can be measured for any
+      language, at honest low confidence — is open work, not a delivered capability.
 - [x] The system supports language-aware adapters for supported languages.
 - [x] The core certification model does not embed hard-coded assumptions specific to Go, TypeScript, or any one language.
 - [x] New language adapters can be added without redesigning core domain concepts.
@@ -317,7 +322,8 @@
 - [x] Reports are generated successfully in machine-readable and human-readable form.
 - [x] Remediation issues can be created and updated successfully when configured.
 - [x] Go and TypeScript/JavaScript receive at least initial language-aware support.
-- [x] Unsupported languages still receive generic certification treatment.
+- [ ] ~~Unsupported languages still receive generic certification treatment.~~ **Withdrawn.**
+      They are reported as not assessed. See above.
 - [x] The architecture and interfaces are ready for future language expansion without core redesign.
 
 ## 27. Program-Level Success Indicators

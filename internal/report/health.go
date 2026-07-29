@@ -21,7 +21,18 @@ type HealthReport struct {
 	Exempt           int     `json:"exempt"`
 	PassRate         float64 `json:"pass_rate"`
 	AverageScore     float64 `json:"average_score"`
+
+	// Unsupported counts units in languages the engine cannot analyse, and
+	// AnalyzableUnits is TotalUnits minus that count. Every bucket above is
+	// counted over analyzable units only, so without these two the report shows
+	// a unit total that no bucket accounts for. See Card.
+	Unsupported     int `json:"unsupported"`
+	AnalyzableUnits int `json:"analyzable_units"`
 }
+
+// PassRateKnown reports whether PassRate and AverageScore are measurements
+// rather than placeholders. See Card.PassRateKnown.
+func (h HealthReport) PassRateKnown() bool { return h.AnalyzableUnits > 0 }
 
 // Health computes a health report from certification records.
 func Health(records []domain.CertificationRecord) HealthReport {
@@ -63,12 +74,15 @@ func Health(records []domain.CertificationRecord) HealthReport {
 		}
 	}
 
-	if counted > 0 {
+	// Every bucket above is counted over analyzable units only, so TotalUnits
+	// alone leaves the difference unexplained: an all-unassessed repo showed
+	// three units and seven zeroes.
+	h.AnalyzableUnits = counted
+	h.Unsupported = h.TotalUnits - counted
+
+	if h.PassRateKnown() {
 		h.PassRate = float64(passing) / float64(counted)
 		h.AverageScore = totalScore / float64(counted)
-	} else {
-		h.PassRate = 0
-		h.AverageScore = 0
 	}
 
 	return h
@@ -93,9 +107,19 @@ func FormatText(h HealthReport) string {
 	fmt.Fprintf(&b, "  Expired:                %d\n", h.Expired)
 	fmt.Fprintf(&b, "  Decertified:            %d\n", h.Decertified)
 	fmt.Fprintf(&b, "  Exempt:                 %d\n", h.Exempt)
+	if h.Unsupported > 0 {
+		fmt.Fprintf(&b, "  Not Assessed:           %d\n", h.Unsupported)
+	}
 	b.WriteString("\n")
-	fmt.Fprintf(&b, "  Pass Rate:              %.1f%%\n", h.PassRate*100)
-	fmt.Fprintf(&b, "  Average Score:          %.3f\n", h.AverageScore)
+	// With nothing analyzed both figures are 0/0. Printing "0.0%" here states
+	// that an assessment ran and found total failure, which is the same false
+	// claim as a 100% pass rate over units the engine never opened — inverted.
+	fmt.Fprintf(&b, "  Pass Rate:              %s\n", FormatRate(h.PassRateKnown(), h.PassRate, 1))
+	avgScore := "n/a"
+	if h.PassRateKnown() {
+		avgScore = fmt.Sprintf("%.3f", h.AverageScore)
+	}
+	fmt.Fprintf(&b, "  Average Score:          %s\n", avgScore)
 	b.WriteString("\n═══════════════════════════════════════════\n")
 
 	return b.String()
