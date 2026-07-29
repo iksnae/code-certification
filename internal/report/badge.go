@@ -38,10 +38,16 @@ func badgeMessage(c Card) string {
 		return "no data"
 	}
 	if !c.PassRateKnown() {
-		return fmt.Sprintf("not assessed · 0 of %d units analyzable", c.TotalUnits)
+		return "not assessed · " + FormatUnitPopulation(c.TotalUnits, c.UnsupportedCount)
 	}
-	return fmt.Sprintf("%s · %.0f%% · %d units",
-		c.OverallGrade, c.PassRate*100, c.TotalUnits)
+	// The mixed case is the one that shipped wrong. The degenerate branch above
+	// already qualified its population — "0 of 9 units analyzable" — while this
+	// branch printed "B+ · 100% · 9 units" over the same nine units, five of
+	// which were the entire basis of both the grade and the rate. A partly
+	// analyzable repo needs the qualifier at least as much as a wholly
+	// unanalyzable one, and now both branches get it from the same function.
+	return fmt.Sprintf("%s · %.0f%% · %s",
+		c.OverallGrade, c.PassRate*100, FormatUnitPopulation(c.TotalUnits, c.UnsupportedCount))
 }
 
 // badgeGrade is the grade the badge colours itself by. A card with no

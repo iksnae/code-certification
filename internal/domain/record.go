@@ -94,6 +94,51 @@ type CertificationRecord struct {
 	Version int    `json:"version"` // record schema version
 }
 
+// Verdict is the quality judgement a record asserts: the four fields that
+// together say what the engine concluded about a unit.
+type Verdict struct {
+	Status     Status
+	Grade      Grade
+	Score      float64
+	Confidence float64
+}
+
+// UnassessedVerdict is the verdict of a unit the engine cannot analyse: no
+// judgement, expressed consistently in every field that could carry one.
+//
+// One function decides this, and both producers of an unassessed record call
+// it — the pipeline, which builds one from a fresh run, and the store, which
+// backfills one from a record written before the `unsupported` field existed.
+// That is the whole point. A record that says "unassessed" in one field and
+// "decertified / F / confidence 1.0" in the next is not a record with a
+// display bug; it is a record that disagrees with itself, and every surface
+// downstream then has to remember to distrust the fields and re-derive from
+// the flag. Six review rounds each found one more site that had forgotten.
+// Making the fields agree at the boundary is what removes the obligation.
+func UnassessedVerdict() Verdict {
+	return Verdict{
+		Status:     StatusExempt,
+		Grade:      GradeNA,
+		Score:      0,
+		Confidence: 0,
+	}
+}
+
+// VerdictOf returns the verdict r currently asserts.
+func (r CertificationRecord) VerdictOf() Verdict {
+	return Verdict{Status: r.Status, Grade: r.Grade, Score: r.Score, Confidence: r.Confidence}
+}
+
+// WithUnassessedVerdict returns r carrying UnassessedVerdict and no dimension
+// scores. It is idempotent: a record a fresh run already wrote as unassessed
+// is returned unchanged.
+func (r CertificationRecord) WithUnassessedVerdict() CertificationRecord {
+	v := UnassessedVerdict()
+	r.Status, r.Grade, r.Score, r.Confidence = v.Status, v.Grade, v.Score, v.Confidence
+	r.Dimensions = nil
+	return r
+}
+
 // CertificationRun captures metadata about a single certification invocation.
 type CertificationRun struct {
 	ID             string    `json:"id"`

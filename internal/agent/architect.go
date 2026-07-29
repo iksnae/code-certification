@@ -76,6 +76,13 @@ func GatherContext(root, certDir string, records []domain.CertificationRecord) (
 	}
 	var units []scoredUnit
 	for _, r := range records {
+		// "Lowest scoring" is a ranking of measurements. An unassessed unit
+		// carries the pipeline's placeholder zero, so including it sorts it to
+		// the very top of the worst-units list and hands the model twenty
+		// files it was never told the engine could not read.
+		if r.Unsupported {
+			continue
+		}
 		units = append(units, scoredUnit{
 			id:    r.UnitID.String(),
 			score: r.Score,
@@ -234,12 +241,23 @@ func formatHotspots(b *strings.Builder, snap *ArchSnapshot) {
 		return
 	}
 	b.WriteString("## Hotspots (highest risk)\n")
-	b.WriteString("| Rank | Package | Units | Score | Risk Factor |\n")
-	b.WriteString("|-----:|---------|------:|------:|------------:|\n")
+	b.WriteString("| Rank | Package | Units | Not Assessed | Score | Risk Factor |\n")
+	b.WriteString("|-----:|---------|------:|-------------:|------:|------------:|\n")
 	for i, h := range snap.Hotspots {
-		risk := float64(h.Units) * (1.0 - h.AvgScore)
-		fmt.Fprintf(b, "| %d | %s | %d | %.1f%% | %.2f |\n",
-			i+1, h.Path, h.Units, h.AvgScore*100, risk)
+		// Risk is analyzable units × shortfall. Weighting by every unit gave a
+		// package the engine cannot read the maximum possible risk — score 0,
+		// full unit count — so an all-Swift directory ranked as the number one
+		// hotspot in the prompt handed to the model.
+		analyzable := h.Units - h.Unsupported
+		risk := float64(analyzable) * (1.0 - h.AvgScore)
+		score := "n/a"
+		if analyzable > 0 {
+			score = fmt.Sprintf("%.1f%%", h.AvgScore*100)
+		} else {
+			risk = 0
+		}
+		fmt.Fprintf(b, "| %d | %s | %d | %d | %s | %.2f |\n",
+			i+1, h.Path, h.Units, h.Unsupported, score, risk)
 	}
 	b.WriteString("\n")
 }

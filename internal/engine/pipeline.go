@@ -50,10 +50,13 @@ func CertifyUnit(
 		// Exempt is the only status that withholds a quality verdict; the
 		// Unsupported flag is what distinguishes "outside the engine's reach"
 		// from "excluded by an operator override".
-		avg = 0
-		grade = domain.GradeNA
-		status = domain.StatusExempt
-		confidence = 0
+		//
+		// The four values come from domain.UnassessedVerdict rather than being
+		// spelled out here, because the store's legacy backfill has to produce
+		// exactly the same verdict. Two literals would be two answers waiting
+		// to drift; this way the fresh path and the migrated path are one path.
+		v := domain.UnassessedVerdict()
+		avg, grade, status, confidence = v.Score, v.Grade, v.Status, v.Confidence
 		scores = nil
 	} else {
 		avg = scores.WeightedAverage(nil)

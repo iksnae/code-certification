@@ -17,6 +17,7 @@ import (
 	"github.com/iksnae/code-certification/internal/policy"
 	"github.com/iksnae/code-certification/internal/queue"
 	"github.com/iksnae/code-certification/internal/record"
+	"github.com/iksnae/code-certification/internal/report"
 	"github.com/iksnae/code-certification/internal/workspace"
 	"github.com/spf13/cobra"
 )
@@ -360,11 +361,18 @@ func (c *certifyContext) processQueue(cmd *cobra.Command, remaining int, batch i
 			failTag = " ✗"
 		}
 
-		fmt.Printf("  [%d/%d] %s %-2s  %-55s %5.1f%%%s%s%s  (%.1f/s, ~%s)\n",
+		// An unassessed unit has no score, so the column shows the same "n/a"
+		// marker every other surface uses rather than a right-aligned "0.0%"
+		// that reads as a measured total failure beside a grade of N/A.
+		scoreCol := fmt.Sprintf("%5.1f%%", result.Record.Score*100)
+		if result.Record.Unsupported {
+			scoreCol = "  n/a "
+		}
+		fmt.Printf("  [%d/%d] %s %-2s  %-55s %s%s%s%s  (%.1f/s, ~%s)\n",
 			tally.processed, batchSize,
 			emoji, grade,
 			unit.ID,
-			result.Record.Score*100,
+			scoreCol,
 			agentTag, obsTag, failTag,
 			rate, formatETA(eta))
 
@@ -653,15 +661,24 @@ func buildCertificationRun(p runParams, store *record.Store) domain.Certificatio
 		UnitsUnsupported: p.tally.unsupported,
 	}
 
-	// Compute overall grade/score from all records in store
+	// The run record's grade is the report card's grade, taken from the report
+	// card, because they are the same claim about the same corpus and this
+	// command writes both.
+	//
+	// It used to be a second, independent aggregation: sum every score, divide
+	// by len(records). On a repo of 5 Go and 4 Swift units that wrote
+	// "B+ (88.9%)" into REPORT_CARD.md and "F" / 0.4938 into runs.jsonl and
+	// state.json — 5 × 0.8889 / 9 — from one invocation. state.json is
+	// git-tracked, so the false grade is the one that persists and the one a
+	// client sees in a diff. Two aggregations over one record set is the defect;
+	// deleting the second one is the fix. GenerateCard already divides by the
+	// analyzable units, so the unassessed ones leave both the numerator and the
+	// denominator exactly once, in exactly one place.
 	if store != nil {
 		if records, err := store.ListAll(); err == nil && len(records) > 0 {
-			var totalScore float64
-			for _, r := range records {
-				totalScore += r.Score
-			}
-			run.OverallScore = totalScore / float64(len(records))
-			run.OverallGrade = domain.GradeFromScore(run.OverallScore).String()
+			card := report.GenerateCard(records, "", p.commit, time.Now())
+			run.OverallScore = card.OverallScore
+			run.OverallGrade = card.OverallGrade
 		}
 	}
 

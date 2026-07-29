@@ -161,6 +161,16 @@ func findRecurrentlyFailing(records []domain.CertificationRecord) []AreaSummary 
 	dirFailing := make(map[string]int)
 	dirScores := make(map[string]float64)
 	for _, r := range records {
+		// dirFailing already excludes unassessed units — StatusExempt is
+		// passing — so counting them in dirTotals and summing their placeholder
+		// zeroes into dirScores made the two sides disagree: a directory of two
+		// failing Go units beside one unassessed Swift file rendered
+		// "2/3 failing, avg 0.300" where the measurement is "2/2, avg 0.450".
+		// Both the ratio and the mean cover the analyzable units, or neither
+		// figure means what the row says it means.
+		if r.Unsupported {
+			continue
+		}
 		dir := filepath.Dir(r.UnitPath)
 		dirTotals[dir]++
 		dirScores[dir] += r.Score

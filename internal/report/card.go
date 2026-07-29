@@ -4,6 +4,7 @@ package report
 import (
 	"fmt"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 
@@ -82,6 +83,26 @@ func FormatRate(known bool, rate float64, decimals int) string {
 		return "n/a"
 	}
 	return fmt.Sprintf("%.*f%%", decimals, rate*100)
+}
+
+// FormatUnitPopulation renders a unit count that is about to be printed beside
+// a grade, a score or a rate. It is the counterpart to FormatRate: FormatRate
+// keeps an unmeasured figure from being read as a measurement, and this keeps a
+// measured figure from being read as covering more units than it does.
+//
+// "B+ · 100% · 9 units" is the failure it exists to prevent. The grade and the
+// rate are taken over the five analyzable units; the count is all nine; and
+// nothing in the string says so, so it reads as nine passing units. The same
+// three-part shape appears on the README badge, in the report card's Packages
+// and By Language tables, and in the full report's language sections, and every
+// one of them was assembled independently. When the populations agree there is
+// nothing to disclose and the short form is used, so an all-assessed repo sees
+// exactly the string it saw before.
+func FormatUnitPopulation(total, unsupported int) string {
+	if unsupported <= 0 {
+		return fmt.Sprintf("%d units", total)
+	}
+	return fmt.Sprintf("%d of %d units analyzable", total-unsupported, total)
 }
 
 // formatPassRate renders a Card's pass rate, honouring the undefined case.
@@ -375,28 +396,70 @@ func FormatCardMarkdown(c Card) string {
 	}
 	b.WriteString("\n")
 
-	// Languages
+	// Languages and Packages both print a unit count in the same row as a grade
+	// and a score taken over the analyzable subset. The report tree's Packages
+	// table already carries a Not Assessed column for exactly this reason; these
+	// two tables are the same row shape in the same document and did not. The
+	// column appears only when some row has a gap, so an all-assessed repo keeps
+	// the table it had.
 	if len(c.Languages) > 0 {
-		b.WriteString("### By Language\n\n")
-		b.WriteString("| Language | Units | Grade | Score |\n")
-		b.WriteString("|----------|-------|-------|-------|\n")
+		anyUnsupported := false
 		for _, l := range c.Languages {
-			fmt.Fprintf(&b, "| %s | %d | %s %s | %s |\n",
-				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade,
+			if l.Unsupported > 0 {
+				anyUnsupported = true
+				break
+			}
+		}
+		b.WriteString("### By Language\n\n")
+		if anyUnsupported {
+			b.WriteString("| Language | Units | Not Assessed | Grade | Score |\n")
+			b.WriteString("|----------|-------|-------------:|-------|-------|\n")
+		} else {
+			b.WriteString("| Language | Units | Grade | Score |\n")
+			b.WriteString("|----------|-------|-------|-------|\n")
+		}
+		for _, l := range c.Languages {
+			cells := []string{l.Name, strconv.Itoa(l.Units)}
+			if anyUnsupported {
+				cells = append(cells, strconv.Itoa(l.Unsupported))
+			}
+			cells = append(cells,
+				fmt.Sprintf("%s %s", gradeEmoji(l.Grade), l.Grade),
 				FormatRate(l.ScoreKnown(), l.AverageScore, 1))
+			fmt.Fprintf(&b, "| %s |\n", strings.Join(cells, " | "))
 		}
 		b.WriteString("\n")
 	}
 
 	// Packages (with links into the report tree)
 	if len(c.Packages) > 0 {
-		b.WriteString("### Packages\n\n")
-		b.WriteString("| Package | Units | Grade | Score |\n")
-		b.WriteString("|---------|------:|:-----:|------:|\n")
+		anyUnsupported := false
 		for _, p := range c.Packages {
-			fmt.Fprintf(&b, "| [%s](reports/%s/index.md) | %d | %s %s | %s |\n",
-				p.Path, p.Path, p.Units, gradeEmoji(p.Grade), p.Grade,
+			if p.Unsupported > 0 {
+				anyUnsupported = true
+				break
+			}
+		}
+		b.WriteString("### Packages\n\n")
+		if anyUnsupported {
+			b.WriteString("| Package | Units | Not Assessed | Grade | Score |\n")
+			b.WriteString("|---------|------:|-------------:|:-----:|------:|\n")
+		} else {
+			b.WriteString("| Package | Units | Grade | Score |\n")
+			b.WriteString("|---------|------:|:-----:|------:|\n")
+		}
+		for _, p := range c.Packages {
+			cells := []string{
+				fmt.Sprintf("[%s](reports/%s/index.md)", p.Path, p.Path),
+				strconv.Itoa(p.Units),
+			}
+			if anyUnsupported {
+				cells = append(cells, strconv.Itoa(p.Unsupported))
+			}
+			cells = append(cells,
+				fmt.Sprintf("%s %s", gradeEmoji(p.Grade), p.Grade),
 				FormatRate(p.ScoreKnown(), p.AvgScore, 1))
+			fmt.Fprintf(&b, "| %s |\n", strings.Join(cells, " | "))
 		}
 		b.WriteString("\n")
 	}

@@ -1,0 +1,116 @@
+{
+  "unit_id": "swift://src/View2.swift",
+  "unit_type": "file",
+  "unit_path": "src/View2.swift",
+  "policy_version": "",
+  "status": "decertified",
+  "grade": "F",
+  "score": 0,
+  "confidence": 1,
+  "evidence": [
+    {
+      "kind": "lint",
+      "source": "go vet",
+      "passed": true,
+      "summary": "go vet: 0 errors, 0 warnings",
+      "metrics": {
+        "lint_errors": 0,
+        "lint_warnings": 0
+      },
+      "details": {
+        "tool": "go vet",
+        "error_count": 0,
+        "warn_count": 0
+      },
+      "timestamp": "2026-07-28T22:42:58-04:00",
+      "confidence": 1
+    },
+    {
+      "kind": "test",
+      "source": "go test",
+      "passed": true,
+      "summary": "go test: 0/0 passed (0% coverage)",
+      "metrics": {
+        "test_coverage": 0,
+        "test_failed": 0,
+        "test_passed": 0,
+        "test_skipped": 0,
+        "test_total": 0
+      },
+      "details": {
+        "tool": "go test",
+        "total_count": 0,
+        "passed_count": 0,
+        "failed_count": 0,
+        "skip_count": 0,
+        "coverage": 0
+      },
+      "timestamp": "2026-07-28T22:42:58-04:00",
+      "confidence": 1
+    },
+    {
+      "kind": "lint",
+      "source": "golangci-lint",
+      "passed": true,
+      "summary": "golangci-lint: 0 errors, 0 warnings",
+      "metrics": {
+        "lint_errors": 0,
+        "lint_warnings": 0
+      },
+      "details": {
+        "tool": "golangci-lint",
+        "error_count": 0,
+        "warn_count": 0
+      },
+      "timestamp": "2026-07-28T22:42:58-04:00",
+      "confidence": 1
+    },
+    {
+      "kind": "git_history",
+      "source": "git",
+      "passed": true,
+      "summary": "1 commits by 1 authors over 1 days",
+      "metrics": {
+        "age_days": 1,
+        "author_count": 1,
+        "commit_count": 1
+      },
+      "details": {
+        "commit_count": 1,
+        "author_count": 1,
+        "age_days": 1
+      },
+      "timestamp": "2026-07-28T22:42:58-04:00",
+      "confidence": 1
+    },
+    {
+      "kind": "metrics",
+      "source": "metrics",
+      "passed": true,
+      "summary": "8 lines (7 code, 0 comment, 1 blank), 0 TODOs, complexity 0",
+      "metrics": {
+        "blank_lines": 1,
+        "code_lines": 7,
+        "comment_lines": 0,
+        "complexity": 0,
+        "todo_count": 0,
+        "total_lines": 8
+      },
+      "details": {
+        "total_lines": 8,
+        "blank_lines": 1,
+        "comment_lines": 0,
+        "code_lines": 7,
+        "todo_count": 0,
+        "complexity": 0
+      },
+      "timestamp": "2026-07-28T22:42:58-04:00",
+      "confidence": 1
+    }
+  ],
+  "certified_at": "2026-07-28T22:42:58-04:00",
+  "expires_at": "2026-09-11T22:42:58-04:00",
+  "source": "deterministic",
+  "run_id": "run-20260729T024258Z",
+  "version": 1
+}

@@ -27,8 +27,11 @@ type ArchSnapshot struct {
 
 // PackageNode holds metrics for a single package directory.
 type PackageNode struct {
-	Path         string   `json:"path"`
+	Path string `json:"path"`
+	// Units is every unit in the package; Unsupported is how many of them the
+	// engine could not analyse. AvgScore and Grade summarise the difference.
 	Units        int      `json:"units"`
+	Unsupported  int      `json:"unsupported,omitempty"`
 	AvgScore     float64  `json:"avg_score"`
 	Grade        string   `json:"grade"`
 	Observations int      `json:"observations"`
@@ -54,7 +57,11 @@ type CouplingPair struct {
 
 // SnapshotMetrics holds aggregate metrics across all packages.
 type SnapshotMetrics struct {
-	TotalUnits        int                    `json:"total_units"`
+	TotalUnits int `json:"total_units"`
+	// UnitsUnsupported counts units in languages the engine cannot analyse.
+	// AvgScore is taken over TotalUnits minus this; see AnalyzableUnits on
+	// report.Card, which is the same denominator on the client-facing side.
+	UnitsUnsupported  int                    `json:"units_unsupported,omitempty"`
 	TotalPackages     int                    `json:"total_packages"`
 	AvgScore          float64                `json:"avg_score"`
 	GradeDistribution map[string]int         `json:"grade_distribution"`
@@ -144,6 +151,8 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 
 	// Group records by package path
 	type pkgAccum struct {
+		units        int
+		unsupported  int
 		scores       []float64
 		observations []string
 		issueCounts  map[string]int
@@ -166,7 +175,18 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 			pkgMap[pkgPath] = a
 			pkgPaths = append(pkgPaths, pkgPath)
 		}
-		a.scores = append(a.scores, r.Score)
+		// This snapshot is a second, independent implementation of the rollup
+		// that internal/report and internal/workspace already do correctly —
+		// and it is the one that feeds the architect's LLM prompt. Without the
+		// gate, an all-Swift package arrives at the model as a confident F and
+		// ranks as the repository's top hotspot (risk = units × (1 − avgScore)),
+		// so the model is asked to explain a failure that was never measured.
+		a.units++
+		if r.Unsupported {
+			a.unsupported++
+		} else {
+			a.scores = append(a.scores, r.Score)
+		}
 		a.observations = append(a.observations, r.Observations...)
 
 		for _, obs := range r.Observations {
@@ -176,7 +196,11 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 		}
 
 		snap.Metrics.GradeDistribution[r.Grade.String()]++
-		totalScore += r.Score
+		if r.Unsupported {
+			snap.Metrics.UnitsUnsupported++
+		} else {
+			totalScore += r.Score
+		}
 
 		// Aggregate evidence metrics by kind
 		for _, ev := range r.Evidence {
@@ -252,7 +276,9 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 	}
 
 	snap.Metrics.TotalUnits = len(records)
-	snap.Metrics.AvgScore = totalScore / float64(len(records))
+	if analyzable := len(records) - snap.Metrics.UnitsUnsupported; analyzable > 0 {
+		snap.Metrics.AvgScore = totalScore / float64(analyzable)
+	}
 
 	// Finalize coverage aggregates
 	snap.Metrics.Coverage.UnitsWithCoverage = len(coverageValues)
@@ -297,13 +323,19 @@ func BuildSnapshot(records []domain.CertificationRecord, root string) *ArchSnaps
 		for _, s := range a.scores {
 			sum += s
 		}
-		avg := sum / float64(len(a.scores))
+		var avg float64
+		grade := domain.GradeNA.String()
+		if len(a.scores) > 0 {
+			avg = sum / float64(len(a.scores))
+			grade = domain.GradeFromScore(avg).String()
+		}
 
 		node := PackageNode{
 			Path:         path,
-			Units:        len(a.scores),
+			Units:        a.units,
+			Unsupported:  a.unsupported,
 			AvgScore:     avg,
-			Grade:        domain.GradeFromScore(avg).String(),
+			Grade:        grade,
 			Observations: len(a.observations),
 			TopIssues:    topNIssues(a.issueCounts, 5),
 		}

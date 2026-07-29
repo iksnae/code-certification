@@ -77,10 +77,10 @@ func TestFormatCardMarkdown_AllUnassessedGradeAndScore(t *testing.T) {
 	if strings.Contains(out, "🔴") {
 		t.Errorf("markdown card renders a failing marker for a repo that was never assessed:\n%s", out)
 	}
-	if !strings.Contains(out, "| swift | 3 | ⚪ N/A | n/a |") {
+	if !strings.Contains(out, "| swift | 3 | 3 | ⚪ N/A | n/a |") {
 		t.Errorf("by-language row should be N/A over an unassessed language, got:\n%s", out)
 	}
-	if !strings.Contains(out, "| [app](reports/app/index.md) | 3 | ⚪ N/A | n/a |") {
+	if !strings.Contains(out, "| [app](reports/app/index.md) | 3 | 3 | ⚪ N/A | n/a |") {
 		t.Errorf("packages row should be N/A over an unassessed package, got:\n%s", out)
 	}
 }

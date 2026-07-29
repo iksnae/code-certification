@@ -392,7 +392,7 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 		evidence = append(evidence, evidenceFromJSON(ej))
 	}
 
-	return domain.CertificationRecord{
+	rec := domain.CertificationRecord{
 		UnitID:        id,
 		UnitType:      ut,
 		UnitPath:      rj.UnitPath,
@@ -412,6 +412,20 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 		RunID:         rj.RunID,
 		Version:       rj.Version,
 	}
+
+	// Records written before the `unsupported` field existed carry a confident
+	// verdict the engine was never entitled to assert: the binary at 6c9110de3
+	// wrote {"status":"decertified","grade":"F","score":0,"confidence":1} for
+	// every Swift file it could not analyse, and those records are committed in
+	// every client repo that has ever run certify. Backfilling only the flag
+	// leaves the record half-migrated — unassessed by one field, an F by the
+	// next — so a report card renders "Not Assessed: 4" directly above "F: 4"
+	// over one corpus. The flag and the verdict are one fact; deriving the
+	// second from the first here is what keeps them from disagreeing.
+	if rec.Unsupported {
+		rec = rec.WithUnassessedVerdict()
+	}
+	return rec
 }
 
 // AppendHistory appends a history entry for the given record.

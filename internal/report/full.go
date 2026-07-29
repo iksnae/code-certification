@@ -329,7 +329,7 @@ func writeLanguageDetail(b *strings.Builder, r FullReport) {
 		fmt.Fprintf(b, "### %s — %s %s (%s)\n\n",
 			lang.Name, gradeEmoji(lang.Grade), lang.Grade,
 			FormatRate(lang.ScoreKnown(), lang.AverageScore, 1))
-		fmt.Fprintf(b, "- **Units:** %d\n", lang.Units)
+		fmt.Fprintf(b, "- **Units:** %s\n", FormatUnitPopulation(lang.Units, lang.Unsupported))
 		fmt.Fprintf(b, "- **Score range:** %s – %s\n",
 			FormatRate(lang.ScoreKnown(), lang.BottomScore, 1),
 			FormatRate(lang.ScoreKnown(), lang.TopScore, 1))
@@ -409,7 +409,11 @@ func writeAIInsights(b *strings.Builder, r FullReport) {
 
 	b.WriteString("## 🤖 AI Insights\n\n")
 	if aiModel != "" {
-		fmt.Fprintf(b, "*Powered by `%s` — %d units analyzed*\n\n", aiModel, len(r.Units))
+		// "9 units analyzed" over a corpus where four were never opened is the
+		// same overstated population as the badge, in the sentence that names
+		// the model that supposedly did the analysing.
+		fmt.Fprintf(b, "*Powered by `%s` — %s analyzed*\n\n", aiModel,
+			FormatUnitPopulation(r.Card.TotalUnits, r.Card.UnsupportedCount))
 	}
 
 	// Top suggestions by frequency

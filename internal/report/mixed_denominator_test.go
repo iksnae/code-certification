@@ -83,14 +83,17 @@ func TestFormatCardMarkdown_MixedHasNoFBesideAPerfectPassRate(t *testing.T) {
 	}
 	// The tables below the headline must agree with it, or the contradiction is
 	// simply relocated.
-	if !strings.Contains(out, "| go | 1 | 🟢 A- | 90.0% |") {
+	// Each row names its own unassessed count, so a reader can see which units
+	// the grade beside it covers. Without that column the packages row reads
+	// "3 units · A- · 90.0%" over a package where only one unit was scored.
+	if !strings.Contains(out, "| go | 1 | 0 | 🟢 A- | 90.0% |") {
 		t.Errorf("by-language row for the assessed language should read A-/90.0%%, got:\n%s", out)
 	}
-	if !strings.Contains(out, "| swift | 2 | ⚪ N/A | n/a |") {
-		t.Errorf("by-language row for the unassessed language should read N/A, got:\n%s", out)
+	if !strings.Contains(out, "| swift | 2 | 2 | ⚪ N/A | n/a |") {
+		t.Errorf("by-language row for the unassessed language should read N/A over 2 unassessed, got:\n%s", out)
 	}
-	if !strings.Contains(out, "| [app](reports/app/index.md) | 3 | 🟢 A- | 90.0% |") {
-		t.Errorf("packages row should agree with the overall grade, got:\n%s", out)
+	if !strings.Contains(out, "| [app](reports/app/index.md) | 3 | 2 | 🟢 A- | 90.0% |") {
+		t.Errorf("packages row should agree with the overall grade and name its unassessed units, got:\n%s", out)
 	}
 }
 

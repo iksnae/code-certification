@@ -92,7 +92,13 @@ func BuildWorkspaceSnapshot(root string, subs []SubmoduleInfo) *WorkspaceArchSna
 		}
 		snap.SubmoduleSnapshots = append(snap.SubmoduleSnapshots, entry)
 
-		units := subSnap.Metrics.TotalUnits
+		// Weight each submodule by the units its score actually covers, and
+		// divide by the same total — the rollup internal/workspace/aggregate.go
+		// already does at its line 92. Weighting by every unit while the score
+		// covers only the analyzable ones does not cancel out: it drags the
+		// workspace mean toward whichever submodules have the most code the
+		// engine cannot read.
+		units := subSnap.Metrics.TotalUnits - subSnap.Metrics.UnitsUnsupported
 		totalUnits += units
 
 		if units > 0 {
