@@ -243,7 +243,15 @@ func FormatDetailedText(d DetailedReport) string {
 		sort.Strings(langs)
 		for _, lang := range langs {
 			lb := d.ByLanguage[lang]
-			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %.3f", lang, lb.Units, lb.Passing, lb.AverageScore)
+			// The average follows the same rule as the pass rate above it: a
+			// language whose units were never opened has no mean to state, and
+			// "avg 0.000 (3 not assessed)" is a definite verdict beside an
+			// admission that nothing was measured.
+			avg := "n/a"
+			if lb.ScoreKnown() {
+				avg = fmt.Sprintf("%.3f", lb.AverageScore)
+			}
+			fmt.Fprintf(&b, "    %-10s %d units, %d passing, avg %s", lang, lb.Units, lb.Passing, avg)
 			if lb.Unsupported > 0 {
 				fmt.Fprintf(&b, " (%d not assessed)", lb.Unsupported)
 			}

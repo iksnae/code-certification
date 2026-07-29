@@ -143,6 +143,10 @@ var siteFuncMap = template.FuncMap{
 	"pct": func(score float64) string {
 		return fmt.Sprintf("%.1f%%", score*100)
 	},
+	// pctKnown renders a score that may be undefined. See report.FormatRate.
+	"pctKnown": func(known bool, score float64) string {
+		return FormatRate(known, score, 1)
+	},
 	"pctWidth": func(score float64) string {
 		return fmt.Sprintf("%.1f%%", score*100)
 	},
@@ -195,7 +199,7 @@ const indexTemplateStr = `<!DOCTYPE html>
 
 <div class="summary-grid">
 <div class="stat-card"><div class="value">{{.OverallGrade}}</div><div class="label">Overall Grade</div></div>
-<div class="stat-card"><div class="value">{{pct .OverallScore}}</div><div class="label">Overall Score</div></div>
+<div class="stat-card"><div class="value">{{.OverallScore}}</div><div class="label">Overall Score</div></div>
 <div class="stat-card"><div class="value">{{.TotalUnits}}</div><div class="label">Total Units</div></div>
 <div class="stat-card"><div class="value">{{.PassRate}}</div><div class="label">Pass Rate</div></div>
 <div class="stat-card"><div class="value">{{.Passing}}</div><div class="label">Passing</div></div>
@@ -232,7 +236,7 @@ const indexTemplateStr = `<!DOCTYPE html>
 {{range .Languages}}<tr>
 <td>{{.Name}}</td><td>{{.Units}}</td>
 <td><span class="grade grade-{{gradeCSSClass .Grade}}">{{.Grade}}</span></td>
-<td>{{pct .AverageScore}}</td>
+<td>{{pctKnown .ScoreKnown .AverageScore}}</td>
 </tr>{{end}}
 </table>
 {{end}}
@@ -245,7 +249,7 @@ const indexTemplateStr = `<!DOCTYPE html>
 <td><a href="packages/{{.Path}}/index.html">{{.Path}}/</a></td>
 <td>{{.Units}}</td>
 <td><span class="grade grade-{{.CSSClass}}">{{.Grade}}</span></td>
-<td>{{pct .AvgScore}}</td>
+<td>{{.AvgScore}}</td>
 </tr>{{end}}
 </table>
 {{end}}
@@ -296,7 +300,7 @@ const packageTemplateStr = `<!DOCTYPE html>
 
 <div class="summary-grid">
 <div class="stat-card"><div class="value">{{.Grade}}</div><div class="label">Grade</div></div>
-<div class="stat-card"><div class="value">{{pct .AvgScore}}</div><div class="label">Avg Score</div></div>
+<div class="stat-card"><div class="value">{{.AvgScore}}</div><div class="label">Avg Score</div></div>
 <div class="stat-card"><div class="value">{{.UnitCount}}</div><div class="label">Units</div></div>
 <div class="stat-card"><div class="value">{{.PassRate}}</div><div class="label">Pass Rate</div></div>
 {{if .Unsupported}}<div class="stat-card"><div class="value">{{.Unsupported}}</div><div class="label">Not Assessed</div></div>{{end}}
@@ -309,7 +313,7 @@ const packageTemplateStr = `<!DOCTYPE html>
 <td><a href="{{.UnitURL}}">{{.Name}}</a></td>
 <td>{{.UnitType}}</td>
 <td><span class="grade grade-{{.CSSClass}}">{{.Grade}}</span></td>
-<td>{{pct .Score}}</td>
+<td>{{.Score}}</td>
 <td class="status-{{.Status}}">{{.Status}}</td>
 <td>{{.ExpiresAt}}</td>
 </tr>{{end}}
@@ -352,7 +356,7 @@ const unitTemplateStr = `<!DOCTYPE html>
 <table>
 <tr><th>Field</th><th>Value</th></tr>
 <tr><td>Grade</td><td><span class="grade grade-{{.CSSClass}}">{{.Grade}}</span></td></tr>
-<tr><td>Score</td><td>{{pct .Score}}</td></tr>
+<tr><td>Score</td><td>{{.Score}}</td></tr>
 <tr><td>Status</td><td class="status-{{.Status}}">{{.Status}}</td></tr>
 <tr><td>Confidence</td><td>{{pct .Confidence}}</td></tr>
 <tr><td>Certified</td><td>{{.CertifiedAt}}</td></tr>

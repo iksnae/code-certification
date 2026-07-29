@@ -56,12 +56,15 @@ func GenerateSite(r FullReport, cfg SiteConfig) error {
 // --- Index page ---
 
 type indexData struct {
-	Title          string
-	CommitSHA      string
-	GeneratedAt    string
-	GradeEmoji     string
-	OverallGrade   string
-	OverallScore   float64
+	Title        string
+	CommitSHA    string
+	GeneratedAt  string
+	GradeEmoji   string
+	OverallGrade string
+	// OverallScore is preformatted, like PassRate below: the undefined case
+	// (nothing analyzable) has no number to render, and one formatter for both
+	// keeps the markers from drifting apart on the same page.
+	OverallScore   string
 	TotalUnits     int
 	PassRate       string
 	Passing        int
@@ -98,7 +101,7 @@ type pkgRow struct {
 	Units    int
 	Grade    string
 	CSSClass string
-	AvgScore float64
+	AvgScore string
 }
 
 type issueRow struct {
@@ -122,7 +125,7 @@ func generateIndex(r FullReport, cfg SiteConfig) error {
 		GeneratedAt:    r.GeneratedAt,
 		GradeEmoji:     gradeEmoji(r.Card.OverallGrade),
 		OverallGrade:   r.Card.OverallGrade,
-		OverallScore:   r.Card.OverallScore,
+		OverallScore:   FormatRate(r.Card.ScoreKnown(), r.Card.OverallScore, 1),
 		TotalUnits:     r.Card.TotalUnits,
 		PassRate:       formatPassRate(r.Card),
 		Passing:        r.Card.Passing,
@@ -213,7 +216,7 @@ type packagePageData struct {
 	PackagePath string
 	GradeEmoji  string
 	Grade       string
-	AvgScore    float64
+	AvgScore    string
 	UnitCount   int
 	PassRate    string
 	Unsupported int
@@ -222,11 +225,13 @@ type packagePageData struct {
 }
 
 type packageUnitRow struct {
-	Name      string
-	UnitType  string
-	Grade     string
-	CSSClass  string
-	Score     float64
+	Name     string
+	UnitType string
+	Grade    string
+	CSSClass string
+	// Score is preformatted: an unassessed unit's score is a placeholder, and
+	// there is no number to render for it. See UnitReport.ScoreKnown.
+	Score     string
 	Status    string
 	ExpiresAt string
 	UnitURL   string
@@ -253,7 +258,7 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 
 		// One aggregation, shared with the markdown surfaces. See packageStats.
 		stats := statsForUnits(units)
-		passRate := FormatRate(stats.passRateKnown(), stats.passRate(), 1)
+		passRate := FormatRate(stats.measured(), stats.passRate(), 1)
 		grade := stats.grade()
 
 		// Compute relative path from package page to site root
@@ -274,7 +279,7 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 				UnitType:  u.UnitType,
 				Grade:     u.Grade,
 				CSSClass:  gradeCSSClass(u.Grade),
-				Score:     u.Score,
+				Score:     FormatRate(u.ScoreKnown(), u.Score, 1),
 				Status:    u.Status,
 				ExpiresAt: formatDate(u.ExpiresAt),
 				UnitURL:   unitURL,
@@ -286,7 +291,7 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 			PackagePath: dir,
 			GradeEmoji:  gradeEmoji(grade),
 			Grade:       grade,
-			AvgScore:    stats.avgScore,
+			AvgScore:    FormatRate(stats.measured(), stats.avgScore, 1),
 			UnitCount:   stats.units,
 			PassRate:    passRate,
 			Unsupported: stats.unsupported,
@@ -309,17 +314,18 @@ func generatePackagePages(r FullReport, cfg SiteConfig) error {
 // --- Unit pages ---
 
 type unitPageData struct {
-	Title                string
-	Name                 string
-	GradeEmoji           string
-	UnitID               string
-	UnitType             string
-	Path                 string
-	Language             string
-	Symbol               string
-	Grade                string
-	CSSClass             string
-	Score                float64
+	Title      string
+	Name       string
+	GradeEmoji string
+	UnitID     string
+	UnitType   string
+	Path       string
+	Language   string
+	Symbol     string
+	Grade      string
+	CSSClass   string
+	// Score is preformatted. See packageUnitRow.Score.
+	Score                string
 	Status               string
 	Confidence           float64
 	CertifiedAt          string
@@ -433,7 +439,7 @@ func buildUnitPageData(u UnitReport, cfg SiteConfig, prevMap, nextMap map[string
 		Symbol:               u.Symbol,
 		Grade:                u.Grade,
 		CSSClass:             gradeCSSClass(u.Grade),
-		Score:                u.Score,
+		Score:                FormatRate(u.ScoreKnown(), u.Score, 1),
 		Status:               u.Status,
 		Confidence:           u.Confidence,
 		CertifiedAt:          formatDate(u.CertifiedAt),
@@ -467,39 +473,37 @@ func buildUnitPageData(u UnitReport, cfg SiteConfig, prevMap, nextMap map[string
 
 // --- Helpers ---
 
+// buildPackageStats builds the site dashboard's packages table.
+//
+// It was the fourth independent aggregation over a package's units, with its
+// own accumulator and its own call to GradeFromScore, so the unassessed-unit
+// correction reached the other three and left this one grading an unopened
+// package F. It now reads the shared aggregation, which is what packageStats
+// exists to guarantee: a new reader must not be a new chance to get it wrong.
 func buildPackageStats(r FullReport) []pkgRow {
-	type pkgAccum struct {
-		units int
-		score float64
-	}
-	accum := make(map[string]*pkgAccum)
+	pkgUnits := make(map[string][]UnitReport)
 	var dirs []string
 
 	for _, u := range r.Units {
 		dir := dirOf(u.Path)
-		a, ok := accum[dir]
-		if !ok {
-			a = &pkgAccum{}
-			accum[dir] = a
+		if _, ok := pkgUnits[dir]; !ok {
 			dirs = append(dirs, dir)
 		}
-		a.units++
-		a.score += u.Score
+		pkgUnits[dir] = append(pkgUnits[dir], u)
 	}
 
 	sort.Strings(dirs)
 
 	var rows []pkgRow
 	for _, dir := range dirs {
-		a := accum[dir]
-		avg := a.score / float64(a.units)
-		grade := domain.GradeFromScore(avg).String()
+		s := statsForUnits(pkgUnits[dir])
+		grade := s.grade()
 		rows = append(rows, pkgRow{
 			Path:     dir,
-			Units:    a.units,
+			Units:    s.units,
 			Grade:    grade,
 			CSSClass: gradeCSSClass(grade),
-			AvgScore: avg,
+			AvgScore: FormatRate(s.measured(), s.avgScore, 1),
 		})
 	}
 	return rows

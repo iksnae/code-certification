@@ -30,6 +30,10 @@ func (p PackageSummary) Analyzable() int { return p.Units - p.Unsupported }
 // PassRateKnown reports whether PassRate is a measurement. See Card.PassRateKnown.
 func (p PackageSummary) PassRateKnown() bool { return p.Analyzable() > 0 }
 
+// ScoreKnown reports whether AvgScore and Grade are measurements. See
+// Card.ScoreKnown.
+func (p PackageSummary) ScoreKnown() bool { return p.Analyzable() > 0 }
+
 // packageStats is the one aggregation over a package's units. Three surfaces
 // render these numbers — the markdown packages table, the markdown package page
 // and the HTML package page — and each used to recompute them independently,
@@ -43,12 +47,18 @@ type packageStats struct {
 	avgScore    float64
 }
 
-// statsForUnits aggregates one package's units. avgScore spans every unit,
-// including unassessed ones (whose score is 0) — that is the score the package
-// grade has always been derived from. passing spans only the units about which
-// a verdict was asserted: an unsupported unit carries status "exempt", whose
-// IsPassing() is true, so counting it here is the report card's false positive
-// one level down.
+// statsForUnits aggregates one package's units. passing spans only the units
+// about which a verdict was asserted: an unsupported unit carries status
+// "exempt", whose IsPassing() is true, so counting it here is the report card's
+// false positive one level down.
+//
+// avgScore spans every unit, including unassessed ones (whose score is 0) —
+// that is the score the package grade has always been derived from, and it is
+// the same denominator Card.OverallScore uses. Narrowing it to the analyzable
+// count is issue #32; the two must move together or the report card's Overall
+// line and its Packages table would state different grades for the same units.
+// What is fixed here is the degenerate case: with nothing analyzable there is
+// no mean at all, which grade() reports as N/A rather than F.
 func statsForUnits(units []UnitReport) packageStats {
 	s := packageStats{units: len(units)}
 	var totalScore float64
@@ -62,7 +72,7 @@ func statsForUnits(units []UnitReport) packageStats {
 			s.passing++
 		}
 	}
-	if s.units > 0 {
+	if s.measured() {
 		s.avgScore = totalScore / float64(s.units)
 	}
 	return s
@@ -72,18 +82,28 @@ func statsForUnits(units []UnitReport) packageStats {
 // denominator of the pass rate.
 func (s packageStats) analyzable() int { return s.units - s.unsupported }
 
-// passRateKnown reports whether the pass rate is a measurement. With no
-// analyzable units the ratio is 0/0 — undefined, which is neither 0% nor 100%.
-func (s packageStats) passRateKnown() bool { return s.analyzable() > 0 }
+// measured reports whether any unit in this package was assessed.
+//
+// It gates the pass rate AND the grade, because both are summaries of assessed
+// code and both are undefined over none of it: 0/0 is neither 0% nor 100%, and
+// a mean over nothing but placeholder zeroes is not an F. One predicate rather
+// than two, so a surface cannot gate the rate and forget the grade — which is
+// exactly how "Pass Rate: n/a" came to be printed beneath "🔴 F (0.0%)".
+func (s packageStats) measured() bool { return s.analyzable() > 0 }
 
 func (s packageStats) passRate() float64 {
-	if !s.passRateKnown() {
+	if !s.measured() {
 		return 0
 	}
 	return float64(s.passing) / float64(s.analyzable())
 }
 
-func (s packageStats) grade() string { return domain.GradeFromScore(s.avgScore).String() }
+func (s packageStats) grade() string {
+	if !s.measured() {
+		return domain.GradeNA.String()
+	}
+	return domain.GradeFromScore(s.avgScore).String()
+}
 
 // BuildPackageSummaries computes per-package stats from a FullReport.
 func BuildPackageSummaries(r FullReport) []PackageSummary {
@@ -268,7 +288,7 @@ func writeUnitCertification(b *strings.Builder, u UnitReport, emoji string) {
 	b.WriteString("| Field | Value |\n")
 	b.WriteString("|-------|-------|\n")
 	fmt.Fprintf(b, "| **Grade** | %s **%s** |\n", emoji, u.Grade)
-	fmt.Fprintf(b, "| **Score** | %.1f%% |\n", u.Score*100)
+	fmt.Fprintf(b, "| **Score** | %s |\n", FormatRate(u.ScoreKnown(), u.Score, 1))
 	fmt.Fprintf(b, "| **Status** | %s |\n", u.Status)
 	fmt.Fprintf(b, "| **Confidence** | %.0f%% |\n", u.Confidence*100)
 	fmt.Fprintf(b, "| **Certified** | %s |\n", formatDate(u.CertifiedAt))
@@ -362,7 +382,8 @@ func formatReportTreeIndex(packages []PackageSummary, r FullReport) string {
 	if r.CommitSHA != "" {
 		fmt.Fprintf(&b, "**Commit:** `%s`  \n", r.CommitSHA)
 	}
-	fmt.Fprintf(&b, "**Overall:** %s %s (%.1f%%)  \n", emoji, r.Card.OverallGrade, r.Card.OverallScore*100)
+	fmt.Fprintf(&b, "**Overall:** %s %s (%s)  \n", emoji, r.Card.OverallGrade,
+		FormatRate(r.Card.ScoreKnown(), r.Card.OverallScore, 1))
 	fmt.Fprintf(&b, "**Units:** %d · **Passing:** %d · **Failing:** %d", r.Card.TotalUnits, r.Card.Passing, r.Card.Failing)
 	if r.Card.UnsupportedCount > 0 {
 		fmt.Fprintf(&b, " · **Not Assessed:** %d", r.Card.UnsupportedCount)
@@ -399,7 +420,7 @@ func formatReportTreeIndex(packages []PackageSummary, r FullReport) string {
 		}
 		cells = append(cells,
 			fmt.Sprintf("%s %s", gradeEmoji(p.Grade), p.Grade),
-			fmt.Sprintf("%.1f%%", p.AvgScore*100),
+			FormatRate(p.ScoreKnown(), p.AvgScore, 1),
 			FormatRate(p.PassRateKnown(), p.PassRate, 0),
 		)
 		fmt.Fprintf(&b, "| %s |\n", strings.Join(cells, " | "))
@@ -421,13 +442,13 @@ func formatPackageIndexMarkdown(pkg string, units []UnitReport, r FullReport, re
 	fmt.Fprintf(&b, "# %s `%s`\n\n", emoji, pkg)
 	fmt.Fprintf(&b, "[← All Packages](%sindex.md) · [← Report Card](%s../REPORT_CARD.md)\n\n", relRoot, relRoot)
 
-	fmt.Fprintf(&b, "**Grade:** %s %s (%.1f%%)  \n", emoji, grade, s.avgScore*100)
+	fmt.Fprintf(&b, "**Grade:** %s %s (%s)  \n", emoji, grade, FormatRate(s.measured(), s.avgScore, 1))
 	// Passing is stated over analyzable units, and only when some unit was
 	// analyzed — "0 / 0" is not a modest claim, it is a claim about units the
 	// engine never opened. This page sits one click from the packages table; the
 	// two disagreeing put contradicting certification claims in one artifact.
 	fmt.Fprintf(&b, "**Units:** %d", s.units)
-	if s.passRateKnown() {
+	if s.measured() {
 		fmt.Fprintf(&b, " · **Passing:** %d / %d", s.passing, s.analyzable())
 	}
 	if s.unsupported > 0 {
@@ -452,8 +473,9 @@ func formatPackageIndexMarkdown(pkg string, units []UnitReport, r FullReport, re
 		if name == "" {
 			name = shortFile(u.Path)
 		}
-		fmt.Fprintf(&b, "| [%s](%s) | %s | %s %s | %.1f%% | %s | %s |\n",
-			name, link, u.UnitType, gradeEmoji(u.Grade), u.Grade, u.Score*100, u.Status, formatDate(u.ExpiresAt))
+		fmt.Fprintf(&b, "| [%s](%s) | %s | %s %s | %s | %s | %s |\n",
+			name, link, u.UnitType, gradeEmoji(u.Grade), u.Grade,
+			FormatRate(u.ScoreKnown(), u.Score, 1), u.Status, formatDate(u.ExpiresAt))
 	}
 
 	b.WriteString("\n---\n\n")

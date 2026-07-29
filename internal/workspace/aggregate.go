@@ -25,6 +25,10 @@ type WorkspaceCard struct {
 // PassRateKnown reports whether PassRate is a measurement. See Card.PassRateKnown.
 func (wc WorkspaceCard) PassRateKnown() bool { return wc.AnalyzableUnits > 0 }
 
+// ScoreKnown reports whether OverallScore and OverallGrade are measurements.
+// See Card.ScoreKnown.
+func (wc WorkspaceCard) ScoreKnown() bool { return wc.AnalyzableUnits > 0 }
+
 // SubmoduleSummary holds certification stats for a single submodule.
 type SubmoduleSummary struct {
 	Name    string  `json:"name"`
@@ -50,6 +54,10 @@ func (s SubmoduleSummary) Analyzable() int { return s.Units - s.Unsupported }
 
 // PassRateKnown reports whether PassRate is a measurement. See Card.PassRateKnown.
 func (s SubmoduleSummary) PassRateKnown() bool { return s.Analyzable() > 0 }
+
+// ScoreKnown reports whether Score and Grade are measurements. See
+// Card.ScoreKnown.
+func (s SubmoduleSummary) ScoreKnown() bool { return s.Analyzable() > 0 }
 
 // AggregateCards builds a WorkspaceCard from submodule summaries.
 // Submodules without certify setup (HasCertify=false) or with zero units
@@ -87,8 +95,18 @@ func AggregateCards(subs []SubmoduleSummary) WorkspaceCard {
 		return wc
 	}
 
-	wc.OverallScore = totalWeightedScore / float64(totalUnits)
-	wc.OverallGrade = domain.GradeFromScore(wc.OverallScore).String()
+	// A grade is a claim about assessed code. With nothing analyzable anywhere
+	// in the workspace the weighted mean is taken over placeholder zeroes only,
+	// and printing "F (0.0%)" from it states a definite failure beside a pass
+	// rate that already admits nothing was measured. The denominator when SOME
+	// unit was analyzable is issue #32 and is left alone — it must move together
+	// with Card.OverallScore, which the submodule scores summed here come from.
+	if wc.ScoreKnown() {
+		wc.OverallScore = totalWeightedScore / float64(totalUnits)
+		wc.OverallGrade = domain.GradeFromScore(wc.OverallScore).String()
+	} else {
+		wc.OverallGrade = domain.GradeNA.String()
+	}
 	// Unassessed units leave both sides of the ratio. With none analyzable the
 	// rate is 0/0 — undefined — and PassRateKnown() tells the renderers to say
 	// so instead of printing the zero value as a measurement.

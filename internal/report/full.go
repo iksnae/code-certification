@@ -79,6 +79,20 @@ type LanguageDetail struct {
 	BottomScore       float64        `json:"bottom_score"`
 }
 
+// ScoreKnown reports whether this unit's Score is a measurement. An unassessed
+// unit carries the placeholder zero the pipeline assigns when it declines to
+// score, so rendering it as "0.0%" states a measured total failure next to a
+// grade of N/A that says nothing was measured. See Card.ScoreKnown.
+func (u UnitReport) ScoreKnown() bool { return !u.Unsupported }
+
+// Analyzable is the number of this language's units about which a verdict was
+// asserted — the denominator of any rate over the language.
+func (l LanguageDetail) Analyzable() int { return l.Units - l.Unsupported }
+
+// ScoreKnown reports whether AverageScore and Grade are measurements. See
+// Card.ScoreKnown.
+func (l LanguageDetail) ScoreKnown() bool { return l.Analyzable() > 0 }
+
 // GenerateFullReport creates a comprehensive per-unit report.
 func GenerateFullReport(records []domain.CertificationRecord, repo, commit string, now time.Time) FullReport {
 	r := FullReport{
@@ -190,14 +204,25 @@ func buildLanguageDetail(records []domain.CertificationRecord) []LanguageDetail 
 				bottom = s
 			}
 		}
-		avg := sum / float64(len(a.scores))
+		// A language none of whose units could be analysed has no mean score and
+		// no grade: every score summed above is the placeholder an unassessed
+		// unit carries, and averaging placeholders produced a confident F for a
+		// language the engine has no analyzer for. The denominator when some
+		// unit WAS analysed is left at every unit, matching Card.OverallScore —
+		// see #32 and statsForUnits.
+		var avg float64
+		grade := domain.GradeNA.String()
+		if len(a.scores) > a.unsupported {
+			avg = sum / float64(len(a.scores))
+			grade = domain.GradeFromScore(avg).String()
+		}
 		details = append(details, LanguageDetail{
 			Name:              lang,
 			Units:             len(a.scores),
 			Passing:           a.passing,
 			Unsupported:       a.unsupported,
 			AverageScore:      avg,
-			Grade:             domain.GradeFromScore(avg).String(),
+			Grade:             grade,
 			GradeDistribution: a.grades,
 			TopScore:          top,
 			BottomScore:       bottom,
@@ -241,7 +266,7 @@ func writeSummary(b *strings.Builder, r FullReport) {
 	b.WriteString("---\n\n## Summary\n\n")
 	fmt.Fprintf(b, "| Metric | Value |\n|--------|-------|\n")
 	fmt.Fprintf(b, "| **Overall Grade** | %s **%s** |\n", emoji, r.Card.OverallGrade)
-	fmt.Fprintf(b, "| **Overall Score** | %.1f%% |\n", r.Card.OverallScore*100)
+	fmt.Fprintf(b, "| **Overall Score** | %s |\n", FormatRate(r.Card.ScoreKnown(), r.Card.OverallScore, 1))
 	fmt.Fprintf(b, "| **Total Units** | %d |\n", r.Card.TotalUnits)
 	fmt.Fprintf(b, "| **Passing** | %d |\n", r.Card.Passing)
 	fmt.Fprintf(b, "| **Failing** | %d |\n", r.Card.Failing)
@@ -293,10 +318,13 @@ func writeLanguageDetail(b *strings.Builder, r FullReport) {
 	}
 	b.WriteString("## By Language\n\n")
 	for _, lang := range r.LanguageDetail {
-		fmt.Fprintf(b, "### %s — %s %s (%.1f%%)\n\n",
-			lang.Name, gradeEmoji(lang.Grade), lang.Grade, lang.AverageScore*100)
+		fmt.Fprintf(b, "### %s — %s %s (%s)\n\n",
+			lang.Name, gradeEmoji(lang.Grade), lang.Grade,
+			FormatRate(lang.ScoreKnown(), lang.AverageScore, 1))
 		fmt.Fprintf(b, "- **Units:** %d\n", lang.Units)
-		fmt.Fprintf(b, "- **Score range:** %.1f%% – %.1f%%\n", lang.BottomScore*100, lang.TopScore*100)
+		fmt.Fprintf(b, "- **Score range:** %s – %s\n",
+			FormatRate(lang.ScoreKnown(), lang.BottomScore, 1),
+			FormatRate(lang.ScoreKnown(), lang.TopScore, 1))
 		b.WriteString("- **Grades:** ")
 		first := true
 		for _, g := range []string{"A", "A-", "B+", "B", "C", "D", "F"} {
@@ -337,8 +365,9 @@ func writeAllUnits(b *strings.Builder, r FullReport) {
 				name = shortFile(u.Path)
 			}
 			anchor := unitAnchor(u)
-			fmt.Fprintf(b, "| [`%s`](#%s) | %s | %s | %.1f%% | %s | %s |\n",
-				name, anchor, u.UnitType, u.Grade, u.Score*100, u.Status, u.ExpiresAt[:10])
+			fmt.Fprintf(b, "| [`%s`](#%s) | %s | %s | %s | %s | %s |\n",
+				name, anchor, u.UnitType, u.Grade, FormatRate(u.ScoreKnown(), u.Score, 1),
+				u.Status, u.ExpiresAt[:10])
 		}
 		b.WriteString("\n")
 		writeUnitDetails(b, units)

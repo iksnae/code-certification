@@ -13,19 +13,30 @@ import (
 	"time"
 
 	"github.com/iksnae/code-certification/internal/domain"
+	"github.com/iksnae/code-certification/internal/language_tiers"
 )
 
 // recordJSON is the JSON-serializable form of a CertificationRecord.
 type recordJSON struct {
-	UnitID       string             `json:"unit_id"`
-	UnitType     string             `json:"unit_type"`
-	UnitPath     string             `json:"unit_path"`
-	PolicyVer    string             `json:"policy_version"`
-	Status       string             `json:"status"`
-	Grade        string             `json:"grade"`
-	Score        float64            `json:"score"`
-	Confidence   float64            `json:"confidence"`
-	Unsupported  bool               `json:"unsupported,omitempty"`
+	UnitID     string  `json:"unit_id"`
+	UnitType   string  `json:"unit_type"`
+	UnitPath   string  `json:"unit_path"`
+	PolicyVer  string  `json:"policy_version"`
+	Status     string  `json:"status"`
+	Grade      string  `json:"grade"`
+	Score      float64 `json:"score"`
+	Confidence float64 `json:"confidence"`
+	// Unsupported is a pointer because the wire format has three states, not
+	// two: the engine determined it could not assess this unit (true), the
+	// engine assessed it (false), and no determination was recorded at all
+	// (absent — the key did not exist before the unassessed-unit correction).
+	//
+	// A bare bool collapses the third into the second, so every record already
+	// on disk decoded as "assessed" and every consumer that branches on the
+	// flag counted code the engine never opened as certified. That is the
+	// original defect arriving through stale data instead of stale code: a
+	// missing measurement rendered as a definite verdict.
+	Unsupported  *bool              `json:"unsupported,omitempty"`
 	Dimensions   map[string]float64 `json:"dimensions,omitempty"`
 	Evidence     []evidenceJSON     `json:"evidence,omitempty"`
 	Observations []string           `json:"observations,omitempty"`
@@ -310,6 +321,38 @@ func (s *Store) pathFor(id domain.UnitID) string {
 	return filepath.Join(s.dir, name)
 }
 
+// unsupportedToJSON decides what the wire format records. It emits the key only
+// for a unit the engine could not assess, which is the only case where the byte
+// carries information the reader cannot otherwise obtain: for every other unit
+// the language derivation reproduces the same answer, because the writer decides
+// it with the same predicate (see engine.Pipeline).
+//
+// Writing an explicit `false` into every record instead would rewrite the whole
+// committed corpus for no gain in meaning — a schema migration, which is
+// tracked separately as #48 and does not belong in a report-correctness fix.
+func unsupportedToJSON(unsupported bool) *bool {
+	if !unsupported {
+		return nil
+	}
+	return &unsupported
+}
+
+// unsupportedFromJSON reconstructs the determination a record may not carry.
+//
+// A recorded determination always wins: the store's job is to read a
+// measurement back, not to re-decide it, and a release that gains an analyzer
+// must still be able to read "this unit was assessed under the old registry".
+// Absent means no determination was recorded, and the answer is derived from
+// the language — the same single source of truth the writer consults, so a
+// backfilled record and a freshly written one agree by construction rather than
+// by coincidence.
+func unsupportedFromJSON(recorded *bool, language string) bool {
+	if recorded != nil {
+		return *recorded
+	}
+	return !language_tiers.IsSupported(language)
+}
+
 func toJSON(rec domain.CertificationRecord) recordJSON {
 	var evJSON []evidenceJSON
 	for _, ev := range rec.Evidence {
@@ -324,7 +367,7 @@ func toJSON(rec domain.CertificationRecord) recordJSON {
 		Grade:        rec.Grade.String(),
 		Score:        rec.Score,
 		Confidence:   rec.Confidence,
-		Unsupported:  rec.Unsupported,
+		Unsupported:  unsupportedToJSON(rec.Unsupported),
 		Dimensions:   dimensionsToMap(rec.Dimensions),
 		Evidence:     evJSON,
 		Observations: rec.Observations,
@@ -358,7 +401,7 @@ func fromJSON(rj recordJSON) domain.CertificationRecord {
 		Grade:         parseGrade(rj.Grade),
 		Score:         rj.Score,
 		Confidence:    rj.Confidence,
-		Unsupported:   rj.Unsupported,
+		Unsupported:   unsupportedFromJSON(rj.Unsupported, id.Language()),
 		Dimensions:    mapToDimensions(rj.Dimensions),
 		Evidence:      evidence,
 		Observations:  rj.Observations,

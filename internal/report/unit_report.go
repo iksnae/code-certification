@@ -60,7 +60,7 @@ func FormatUnitMarkdown(u UnitReport, r FullReport) string {
 	b.WriteString("| Field | Value |\n")
 	b.WriteString("|-------|-------|\n")
 	fmt.Fprintf(&b, "| **Grade** | %s **%s** |\n", emoji, u.Grade)
-	fmt.Fprintf(&b, "| **Score** | %.1f%% |\n", u.Score*100)
+	fmt.Fprintf(&b, "| **Score** | %s |\n", FormatRate(u.ScoreKnown(), u.Score, 1))
 	fmt.Fprintf(&b, "| **Status** | %s |\n", u.Status)
 	fmt.Fprintf(&b, "| **Confidence** | %.0f%% |\n", u.Confidence*100)
 	fmt.Fprintf(&b, "| **Certified** | %s |\n", formatDate(u.CertifiedAt))

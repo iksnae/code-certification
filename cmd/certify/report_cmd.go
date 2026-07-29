@@ -250,18 +250,11 @@ func runWorkspaceReport(root string) error {
 		return fmt.Errorf("generating workspace report tree: %w", err)
 	}
 
-	// Print summary
-	emoji := "🟢"
-	switch {
-	case wc.OverallGrade == "F":
-		emoji = "🔴"
-	case wc.OverallGrade == "D":
-		emoji = "🟠"
-	case wc.OverallGrade == "C":
-		emoji = "🟡"
-	}
-
-	fmt.Printf("  %s Workspace: %s (%.1f%%)\n", emoji, wc.OverallGrade, wc.OverallScore*100)
+	// Print summary. gradeEmojiShort rather than a local switch: the local one
+	// defaulted to green, so an N/A workspace printed a passing marker beside a
+	// grade that asserts nothing.
+	fmt.Printf("  %s Workspace: %s (%s)\n", gradeEmojiShort(wc.OverallGrade), wc.OverallGrade,
+		report.FormatRate(wc.ScoreKnown(), wc.OverallScore, 1))
 	fmt.Printf("  Units: %d · Passing: %d · Failing: %d\n\n", wc.TotalUnits, wc.TotalPassing, wc.TotalFailing)
 
 	for _, s := range summaries {
@@ -270,8 +263,9 @@ func runWorkspaceReport(root string) error {
 		} else if s.Units == 0 {
 			fmt.Printf("  %-30s  — no data\n", s.Name)
 		} else {
-			fmt.Printf("  %-30s  %s %-3s %5.1f%%  %d units\n",
-				s.Name, gradeEmojiShort(s.Grade), s.Grade, s.Score*100, s.Units)
+			fmt.Printf("  %-30s  %s %-3s %6s  %d units\n",
+				s.Name, gradeEmojiShort(s.Grade), s.Grade,
+				report.FormatRate(s.ScoreKnown(), s.Score, 1), s.Units)
 		}
 	}
 

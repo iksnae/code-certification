@@ -39,7 +39,8 @@ func FormatWorkspaceCardMarkdown(wc WorkspaceCard) string {
 
 	fmt.Fprintf(&b, "# %s Workspace Report Card\n\n", emoji)
 	fmt.Fprintf(&b, "**Generated:** %s\n\n", wc.GeneratedAt[:19])
-	fmt.Fprintf(&b, "## %s Overall: %s (%.1f%%)\n\n", emoji, wc.OverallGrade, wc.OverallScore*100)
+	fmt.Fprintf(&b, "## %s Overall: %s (%s)\n\n", emoji, wc.OverallGrade,
+		formatRate(wc.ScoreKnown(), wc.OverallScore, 1))
 
 	fmt.Fprintf(&b, "| Metric | Value |\n")
 	fmt.Fprintf(&b, "|--------|-------|\n")
@@ -68,8 +69,9 @@ func FormatWorkspaceCardMarkdown(wc WorkspaceCard) string {
 				s.Name, s.Path, shortCommit(s.Commit))
 			continue
 		}
-		fmt.Fprintf(&b, "| [%s](%s/.certification/reports/index.md) | %d | %s %s | %.1f%% | %s | `%s` |\n",
-			s.Name, s.Path, s.Units, gradeEmoji(s.Grade), s.Grade, s.Score*100,
+		fmt.Fprintf(&b, "| [%s](%s/.certification/reports/index.md) | %d | %s %s | %s | %s | `%s` |\n",
+			s.Name, s.Path, s.Units, gradeEmoji(s.Grade), s.Grade,
+			formatRate(s.ScoreKnown(), s.Score, 1),
 			formatRate(s.PassRateKnown(), s.PassRate, 0), shortCommit(s.Commit))
 	}
 	b.WriteString("\n")
@@ -125,7 +127,8 @@ func formatWorkspaceIndex(wc WorkspaceCard) string {
 	emoji := gradeEmoji(wc.OverallGrade)
 	fmt.Fprintf(&b, "# %s Workspace Certification Report\n\n", emoji)
 	fmt.Fprintf(&b, "[← Report Card](../REPORT_CARD.md)\n\n")
-	fmt.Fprintf(&b, "**Overall:** %s %s (%.1f%%)  \n", emoji, wc.OverallGrade, wc.OverallScore*100)
+	fmt.Fprintf(&b, "**Overall:** %s %s (%s)  \n", emoji, wc.OverallGrade,
+		formatRate(wc.ScoreKnown(), wc.OverallScore, 1))
 	fmt.Fprintf(&b, "**Units:** %d · **Passing:** %d · **Failing:** %d\n\n", wc.TotalUnits, wc.TotalPassing, wc.TotalFailing)
 
 	b.WriteString("## Submodules\n\n")
@@ -137,8 +140,9 @@ func formatWorkspaceIndex(wc WorkspaceCard) string {
 			continue
 		}
 		filename := submoduleFilename(s.Name) + ".md"
-		fmt.Fprintf(&b, "| [%s](%s) | %d | %s %s | %.1f%% | %s |\n",
-			s.Name, filename, s.Units, gradeEmoji(s.Grade), s.Grade, s.Score*100,
+		fmt.Fprintf(&b, "| [%s](%s) | %d | %s %s | %s | %s |\n",
+			s.Name, filename, s.Units, gradeEmoji(s.Grade), s.Grade,
+			formatRate(s.ScoreKnown(), s.Score, 1),
 			formatRate(s.PassRateKnown(), s.PassRate, 0))
 	}
 
@@ -160,7 +164,7 @@ func formatSubmoduleSummary(s SubmoduleSummary) string {
 	b.WriteString("|-------|-------|\n")
 	fmt.Fprintf(&b, "| **Path** | `%s` |\n", s.Path)
 	fmt.Fprintf(&b, "| **Grade** | %s %s |\n", emoji, s.Grade)
-	fmt.Fprintf(&b, "| **Score** | %.1f%% |\n", s.Score*100)
+	fmt.Fprintf(&b, "| **Score** | %s |\n", formatRate(s.ScoreKnown(), s.Score, 1))
 	fmt.Fprintf(&b, "| **Units** | %d |\n", s.Units)
 	fmt.Fprintf(&b, "| **Passing** | %d |\n", s.Passing)
 	fmt.Fprintf(&b, "| **Failing** | %d |\n", s.Failing)

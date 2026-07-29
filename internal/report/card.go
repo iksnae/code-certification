@@ -58,10 +58,23 @@ type Card struct {
 // non-numeric marker rather than a percentage that implies an assessment ran.
 func (c Card) PassRateKnown() bool { return c.AnalyzableUnits > 0 }
 
-// FormatRate renders a pass rate for display. It is the single place that
-// decides how an undefined rate looks, so the marker cannot drift between the
-// report card, the full report, the site, the report tree and the workspace
-// rollup — surfaces that a reader compares against each other.
+// ScoreKnown reports whether OverallScore and OverallGrade are measurements.
+//
+// An unassessed unit contributes a placeholder zero, not a low score, so a mean
+// over nothing but placeholders is undefined in exactly the way an 0/0 pass rate
+// is. Printing "F (0.0%)" from it states that an assessment ran and found total
+// failure — the same false claim as a 100% pass rate over units the engine never
+// opened, inverted — and it used to appear directly above "Pass Rate: n/a".
+//
+// This covers only the case where NOTHING was analyzable. Which denominator to
+// use when some unit was is issue #32, and is deliberately unchanged.
+func (c Card) ScoreKnown() bool { return c.AnalyzableUnits > 0 }
+
+// FormatRate renders a rate or score in [0,1] as a percentage. It is the single
+// place that decides how an undefined figure looks, so the marker cannot drift
+// between the report card, the full report, the site, the report tree and the
+// workspace rollup — surfaces that a reader compares against each other — nor
+// between a grade line and the pass rate printed beside it.
 func FormatRate(known bool, rate float64, decimals int) string {
 	if !known {
 		return "n/a"
@@ -145,8 +158,15 @@ func GenerateCard(records []domain.CertificationRecord, repo, commit string, now
 	}
 	sort.Strings(c.UnsupportedLanguages)
 
-	c.OverallScore = totalScore / float64(c.TotalUnits)
-	c.OverallGrade = domain.GradeFromScore(c.OverallScore).String()
+	// A grade is a claim about assessed code. With nothing analyzable there is
+	// no claim to make, and OverallScore stays at its zero value rather than
+	// carrying a computed 0.0 that renderers would print as a measurement.
+	if c.ScoreKnown() {
+		c.OverallScore = totalScore / float64(c.TotalUnits)
+		c.OverallGrade = domain.GradeFromScore(c.OverallScore).String()
+	} else {
+		c.OverallGrade = domain.GradeNA.String()
+	}
 	if c.PassRateKnown() {
 		c.PassRate = float64(c.Passing) / float64(c.AnalyzableUnits)
 	}
@@ -209,8 +229,8 @@ func FormatCardText(c Card) string {
 	// Overall grade — big and prominent
 	emoji := gradeEmoji(c.OverallGrade)
 	fmt.Fprintf(&b, "║                                                              ║\n")
-	fmt.Fprintf(&b, "║       Overall Grade:  %s %-5s    Score: %-6.1f%%            ║\n",
-		emoji, c.OverallGrade, c.OverallScore*100)
+	fmt.Fprintf(&b, "║       Overall Grade:  %s %-5s    Score: %-7s            ║\n",
+		emoji, c.OverallGrade, FormatRate(c.ScoreKnown(), c.OverallScore, 1))
 	fmt.Fprintf(&b, "║                                                              ║\n")
 	b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 
@@ -255,8 +275,9 @@ func FormatCardText(c Card) string {
 	if len(c.Languages) > 0 {
 		b.WriteString("║  By Language:                                                ║\n")
 		for _, l := range c.Languages {
-			fmt.Fprintf(&b, "║    %-12s %4d units   %s %-5s  (%.1f%%)              ║\n",
-				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade, l.AverageScore*100)
+			fmt.Fprintf(&b, "║    %-12s %4d units   %s %-5s  (%s)              ║\n",
+				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade,
+				FormatRate(l.ScoreKnown(), l.AverageScore, 1))
 		}
 		b.WriteString("╠══════════════════════════════════════════════════════════════╣\n")
 	}
@@ -298,7 +319,8 @@ func FormatCardMarkdown(c Card) string {
 	}
 	fmt.Fprintf(&b, "**Generated:** %s\n\n", c.GeneratedAt[:19])
 
-	fmt.Fprintf(&b, "## %s Overall: %s (%.1f%%)\n\n", emoji, c.OverallGrade, c.OverallScore*100)
+	fmt.Fprintf(&b, "## %s Overall: %s (%s)\n\n", emoji, c.OverallGrade,
+		FormatRate(c.ScoreKnown(), c.OverallScore, 1))
 
 	fmt.Fprintf(&b, "| Metric | Value |\n")
 	fmt.Fprintf(&b, "|--------|-------|\n")
@@ -334,8 +356,9 @@ func FormatCardMarkdown(c Card) string {
 		b.WriteString("| Language | Units | Grade | Score |\n")
 		b.WriteString("|----------|-------|-------|-------|\n")
 		for _, l := range c.Languages {
-			fmt.Fprintf(&b, "| %s | %d | %s %s | %.1f%% |\n",
-				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade, l.AverageScore*100)
+			fmt.Fprintf(&b, "| %s | %d | %s %s | %s |\n",
+				l.Name, l.Units, gradeEmoji(l.Grade), l.Grade,
+				FormatRate(l.ScoreKnown(), l.AverageScore, 1))
 		}
 		b.WriteString("\n")
 	}
@@ -346,8 +369,9 @@ func FormatCardMarkdown(c Card) string {
 		b.WriteString("| Package | Units | Grade | Score |\n")
 		b.WriteString("|---------|------:|:-----:|------:|\n")
 		for _, p := range c.Packages {
-			fmt.Fprintf(&b, "| [%s](reports/%s/index.md) | %d | %s %s | %.1f%% |\n",
-				p.Path, p.Path, p.Units, gradeEmoji(p.Grade), p.Grade, p.AvgScore*100)
+			fmt.Fprintf(&b, "| [%s](reports/%s/index.md) | %d | %s %s | %s |\n",
+				p.Path, p.Path, p.Units, gradeEmoji(p.Grade), p.Grade,
+				FormatRate(p.ScoreKnown(), p.AvgScore, 1))
 		}
 		b.WriteString("\n")
 	}
