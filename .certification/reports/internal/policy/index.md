@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
+**Grade:** 🟢 B (81.7%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 B | 86.7% | certified | 2026-09-12 |
+| [ruleAppliesToPath](evaluator.go/ruleAppliesToPath.md) | function | 🟢 B | 81.7% | certified | 2026-09-13 |
 
 ---
 

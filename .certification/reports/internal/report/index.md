@@ -2,17 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.4%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-12 |
-| [full_test.go](full_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-12 |
-| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-09-12 |
-| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A | 93.3% | certified | 2026-09-12 |
+| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 86.7% | certified | 2026-09-13 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-13 |
+| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-13 |
+| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-13 |
+| [unitAnchor](full.go/unitAnchor.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
 
 ---
 

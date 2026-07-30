@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Error](validator.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-12 |
+| [Error](validator.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-13 |
 
 ---
 

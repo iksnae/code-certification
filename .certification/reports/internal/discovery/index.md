@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [diff_test.go](diff_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-12 |
+| [AnalysisAdapter](analysis_adapter.go/AnalysisAdapter.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
 
 ---
 

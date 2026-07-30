@@ -3,14 +3,15 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 B+ (90.0%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildArchitectContext](architect_cmd.go/buildArchitectContext.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-12 |
-| [defaultConfigObj](certify_cmd.go/defaultConfigObj.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-12 |
+| [assessed](certify_cmd.go/assessed.md) | method | 🟢 B+ | 90.0% | certified | 2026-09-13 |
+| [printSummary](certify_cmd.go/printSummary.md) | method | 🟢 B+ | 90.0% | certified | 2026-09-13 |
+| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-13 |
 
 ---
 

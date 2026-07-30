@@ -2,27 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 A- (91.4%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OllamaModels](providers.go/OllamaModels.md) | function | 🟢 B | 86.1% | certified | 2026-09-12 |
-| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-12 |
-| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-12 |
-| [AdaptiveMessages](fallback.go/AdaptiveMessages.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-12 |
-| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-12 |
-| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-12 |
-| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
-| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
-| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
-| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 A- | 90.0% | certified | 2026-09-12 |
-| [suggest_test.go](suggest_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-12 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-09-12 |
-| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-09-12 |
+| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-13 |
+| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-13 |
+| [detectCrossDeps](workspace_snapshot.go/detectCrossDeps.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-13 |
+| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
+| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
 
 ---
 

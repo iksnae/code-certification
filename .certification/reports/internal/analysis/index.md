@@ -2,19 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.4%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (86.1%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-09-12 |
-| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 83.3% | certified | 2026-09-12 |
-| [goWalkNested](go_analyzer.go/goWalkNested.md) | function | 🟢 B | 86.1% | certified | 2026-09-12 |
-| [pyComputeNesting](python_analyzer.go/pyComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-09-12 |
-| [rsImplTypeName](rust_analyzer.go/rsImplTypeName.md) | function | 🟢 B | 86.1% | certified | 2026-09-12 |
-| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-12 |
+| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-09-13 |
+| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-09-13 |
+| [NewGoAnalyzer](go_analyzer.go/NewGoAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-09-13 |
+| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-09-13 |
+| [goCountNakedReturns](go_analyzer.go/goCountNakedReturns.md) | function | 🟢 B | 86.1% | certified | 2026-09-13 |
+| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-13 |
+| [go_refine_test.go](go_refine_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-13 |
+| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-09-13 |
 
 ---
 
