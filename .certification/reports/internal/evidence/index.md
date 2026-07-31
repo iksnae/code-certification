@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2026-09-13 |
-| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-09-13 |
-| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 85.6% | certified | 2026-09-13 |
-| [countCallExpr](structural.go/countCallExpr.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-13 |
-| [walkNested](structural.go/walkNested.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-13 |
-| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-13 |
-| [CoverageForFile](coverage.go/CoverageForFile.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-09-14 |
+| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 85.6% | certified | 2026-09-14 |
+| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 85.6% | certified | 2026-09-14 |
+| [CoverageForFile](coverage.go/CoverageForFile.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
+| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
 
 ---
 

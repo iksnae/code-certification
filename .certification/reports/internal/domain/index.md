@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](evidence.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-13 |
-| [EnforcingConfig](config.go/EnforcingConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
+| [String](unit.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-14 |
+| [EnforcingConfig](config.go/EnforcingConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-14 |
+| [override_test.go](override_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-14 |
 
 ---
 

@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (81.9%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [assessed](certify_cmd.go/assessed.md) | method | 🟢 B+ | 90.0% | certified | 2026-09-13 |
-| [printSummary](certify_cmd.go/printSummary.md) | method | 🟢 B+ | 90.0% | certified | 2026-09-13 |
-| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-13 |
+| [runArchitect](architect_cmd.go/runArchitect.md) | function | 🟢 B | 80.6% | certified | 2026-09-14 |
+| [runWorkspaceCertify](certify_cmd.go/runWorkspaceCertify.md) | function | 🟢 B | 83.3% | certified | 2026-09-14 |
 
 ---
 

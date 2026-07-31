@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
+**Grade:** 🟢 A- (91.7%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PassRateKnown](aggregate.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-13 |
-| [formatRate](report.go/formatRate.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [aggregate_test.go](aggregate_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-14 |
+| [FormatWorkspaceCardMarkdown](report.go/FormatWorkspaceCardMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
 
 ---
 

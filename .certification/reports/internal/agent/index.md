@@ -2,25 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.4%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-13 |
-| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-13 |
-| [detectCrossDeps](workspace_snapshot.go/detectCrossDeps.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-13 |
-| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
-| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
-| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-09-13 |
-| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
-| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
-| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
-| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-09-13 |
+| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-09-14 |
+| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-14 |
+| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-14 |
+| [APIError](openrouter.go/APIError.md) | class | 🟢 A- | 90.0% | certified | 2026-09-14 |
+| [router_test.go](router_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-14 |
+| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-09-14 |
+| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-09-14 |
+| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
 
 ---
 
