@@ -2,18 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
+**Grade:** 🟢 B+ (87.2%)  
 **Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-09-14 |
-| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 85.6% | certified | 2026-09-14 |
-| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 85.6% | certified | 2026-09-14 |
-| [CoverageForFile](coverage.go/CoverageForFile.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
-| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
+| [eslintMsg](tools.go/eslintMsg.md) | class | 🟢 B | 85.6% | certified | 2026-09-15 |
+| [analyzeFunc](structural.go/analyzeFunc.md) | function | 🟢 B | 86.1% | certified | 2026-09-15 |
+| [countCallExpr](structural.go/countCallExpr.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-15 |
+| [countGlobalMutables](structural.go/countGlobalMutables.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-15 |
+| [executor_test.go](executor_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-15 |
 
 ---
 

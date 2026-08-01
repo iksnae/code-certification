@@ -2,21 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.4%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewTSAnalyzer](ts_analyzer.go/NewTSAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-09-14 |
-| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-09-14 |
-| [tsNodeName](ts_analyzer.go/tsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-09-14 |
-| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-09-14 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-14 |
-| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-09-14 |
-| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-09-14 |
-| [DepDepth](go_deps.go/DepDepth.md) | method | 🟢 A | 93.3% | certified | 2026-09-14 |
+| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-09-15 |
+| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 83.3% | certified | 2026-09-15 |
+| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-09-15 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-09-15 |
+| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-09-15 |
+| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-09-15 |
+| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
+| [Instability](go_deps.go/Instability.md) | method | 🟢 A | 93.3% | certified | 2026-09-15 |
+| [buildPkgMap](go_deps.go/buildPkgMap.md) | method | 🟢 A | 93.3% | certified | 2026-09-15 |
+| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-09-15 |
+| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-09-15 |
 
 ---
 

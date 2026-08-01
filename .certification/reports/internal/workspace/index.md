@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.7%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [aggregate_test.go](aggregate_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-14 |
-| [FormatWorkspaceCardMarkdown](report.go/FormatWorkspaceCardMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
+| [Analyzable](aggregate.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-15 |
+| [workspace_test.go](workspace_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-15 |
+| [DiscoverSubmodules](workspace.go/DiscoverSubmodules.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-15 |
+| [aggregate_unassessed_test.go](aggregate_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-15 |
 
 ---
 

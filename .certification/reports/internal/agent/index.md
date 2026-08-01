@@ -2,22 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-09-14 |
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-14 |
-| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-14 |
-| [APIError](openrouter.go/APIError.md) | class | 🟢 A- | 90.0% | certified | 2026-09-14 |
-| [router_test.go](router_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-14 |
-| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-09-14 |
-| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
-| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-09-14 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-09-14 |
+| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-09-15 |
+| [NewPipeline](pipeline.go/NewPipeline.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-15 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-15 |
+| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
+| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
+| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-09-15 |
 
 ---
 
