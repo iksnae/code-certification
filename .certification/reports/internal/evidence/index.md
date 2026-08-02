@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintMsg](tools.go/eslintMsg.md) | class | 🟢 B | 85.6% | certified | 2026-09-15 |
-| [analyzeFunc](structural.go/analyzeFunc.md) | function | 🟢 B | 86.1% | certified | 2026-09-15 |
-| [countCallExpr](structural.go/countCallExpr.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-15 |
-| [countGlobalMutables](structural.go/countGlobalMutables.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-15 |
-| [executor_test.go](executor_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-15 |
+| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-09-16 |
+| [walkNested](structural.go/walkNested.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-16 |
+| [FindModuleForUnit](modules.go/FindModuleForUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-16 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-16 |
+| [GitStats](git.go/GitStats.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
 
 ---
 

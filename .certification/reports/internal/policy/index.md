@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [extractCoverage](evaluator.go/extractCoverage.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-15 |
+| [evaluateRule](evaluator.go/evaluateRule.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-16 |
 
 ---
 

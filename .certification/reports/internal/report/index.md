@@ -2,16 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.9%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IssueCard](card.go/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
-| [packageUnitRow](site.go/packageUnitRow.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A- | 90.6% | certified | 2026-09-15 |
+| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-16 |
+| [writeUnitDetails](full.go/writeUnitDetails.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-16 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-16 |
+| [Analyzable](report_tree.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-16 |
+| [buildUnitPageData](site.go/buildUnitPageData.md) | function | 🟢 A- | 92.2% | certified | 2026-09-16 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-09-16 |
+| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-09-16 |
 
 ---
 

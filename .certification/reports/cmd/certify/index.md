@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (84.7%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceArchitect](architect_cmd.go/runWorkspaceArchitect.md) | function | 🟡 C | 70.6% | certified_with_observations | 2026-09-15 |
-| [runWorkspaceScan](scan.go/runWorkspaceScan.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-15 |
-| [report_cmd_test.go](report_cmd_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-15 |
-| [tryScanSuggestions](scan.go/tryScanSuggestions.md) | function | 🟢 B+ | 90.0% | certified | 2026-09-15 |
+| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-09-16 |
+| [runWorkspaceExpire](expire.go/runWorkspaceExpire.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-16 |
+| [add](certify_cmd.go/add.md) | method | 🟢 B+ | 90.0% | certified | 2026-09-16 |
 
 ---
 

@@ -2,24 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (87.0%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-09-15 |
-| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 83.3% | certified | 2026-09-15 |
-| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-09-15 |
-| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-09-15 |
-| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-09-15 |
-| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-09-15 |
-| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-15 |
-| [Instability](go_deps.go/Instability.md) | method | 🟢 A | 93.3% | certified | 2026-09-15 |
-| [buildPkgMap](go_deps.go/buildPkgMap.md) | method | 🟢 A | 93.3% | certified | 2026-09-15 |
-| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-09-15 |
-| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-09-15 |
+| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-09-16 |
+| [goCallFuncName](go_analyzer.go/goCallFuncName.md) | function | 🟢 B | 86.1% | certified | 2026-09-16 |
+| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-09-16 |
+| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-09-16 |
+| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-09-16 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-16 |
+| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-16 |
+| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
 
 ---
 
