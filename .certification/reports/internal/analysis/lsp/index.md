@@ -1,0 +1,61 @@
+# 🟢 `internal/analysis/lsp`
+
+[← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
+
+**Grade:** 🟢 B+ (87.8%)  
+**Units:** 46 · **Passing:** 46 / 46
+
+## Units
+
+| Unit | Type | Grade | Score | Status | Expires |
+|------|------|:-----:|------:|--------|--------:|
+| [readMessage](client.go/readMessage.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-09-17 |
+| [Request](client.go/Request.md) | method | 🟡 C | 79.4% | certified_with_observations | 2026-09-17 |
+| [DocumentSymbols](client.go/DocumentSymbols.md) | method | 🟢 B | 81.1% | certified | 2026-09-17 |
+| [Notify](client.go/Notify.md) | method | 🟢 B | 81.1% | certified | 2026-09-17 |
+| [Client](client.go/Client.md) | class | 🟢 B | 81.9% | certified | 2026-09-17 |
+| [Error](client.go/Error.md) | method | 🟢 B | 84.4% | certified | 2026-09-17 |
+| [SetTimeout](client.go/SetTimeout.md) | method | 🟢 B | 85.0% | certified | 2026-09-17 |
+| [Initialize](client.go/Initialize.md) | method | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [CallHierarchyIncoming](client.go/CallHierarchyIncoming.md) | method | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [References](client.go/References.md) | method | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [CallHierarchyPrepare](client.go/CallHierarchyPrepare.md) | method | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [Shutdown](client.go/Shutdown.md) | method | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [CallHierarchyOutgoing](client.go/CallHierarchyOutgoing.md) | method | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [writeMessage](client.go/writeMessage.md) | method | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [jsonRPCError](client.go/jsonRPCError.md) | class | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [jsonRPCMessage](client.go/jsonRPCMessage.md) | class | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [readLoop](client.go/readLoop.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-17 |
+| [client_test.go](client_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-17 |
+| [DidOpen](client.go/DidOpen.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-17 |
+| [Start](client.go/Start.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-17 |
+| [CallHierarchyIncomingCallsParams](types.go/CallHierarchyIncomingCallsParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [InitializeParams](types.go/InitializeParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [CallHierarchyCapability](types.go/CallHierarchyCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [CallHierarchyItem](types.go/CallHierarchyItem.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [CallHierarchyOutgoingCall](types.go/CallHierarchyOutgoingCall.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [CallHierarchyOutgoingCallsParams](types.go/CallHierarchyOutgoingCallsParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [CallHierarchyPrepareParams](types.go/CallHierarchyPrepareParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [ClientCapabilities](types.go/ClientCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [Diagnostic](types.go/Diagnostic.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [DidOpenTextDocumentParams](types.go/DidOpenTextDocumentParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [DocumentSymbol](types.go/DocumentSymbol.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [DocumentSymbolCapability](types.go/DocumentSymbolCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [DocumentSymbolParams](types.go/DocumentSymbolParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [CallHierarchyIncomingCall](types.go/CallHierarchyIncomingCall.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [InitializeResult](types.go/InitializeResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [Location](types.go/Location.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [Position](types.go/Position.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [Range](types.go/Range.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [ReferenceContext](types.go/ReferenceContext.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [ReferenceParams](types.go/ReferenceParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [ReferencesCapability](types.go/ReferencesCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [ServerCapabilities](types.go/ServerCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [TextDocumentClientCapabilities](types.go/TextDocumentClientCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [TextDocumentIdentifier](types.go/TextDocumentIdentifier.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [TextDocumentItem](types.go/TextDocumentItem.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [TextDocumentPositionParams](types.go/TextDocumentPositionParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+
+---
+
+*Generated by [Certify](https://github.com/iksnae/code-certification)*
