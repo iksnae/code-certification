@@ -2,21 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-16 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-16 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-16 |
-| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [DeepAnalysisAggregates](architect_snapshot.go/DeepAnalysisAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2026-09-16 |
-| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-09-16 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-09-17 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-17 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-17 |
+| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-17 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-17 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
+| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-09-17 |
 
 ---
 

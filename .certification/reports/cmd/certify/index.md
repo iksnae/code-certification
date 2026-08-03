@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
+**Grade:** 🟢 B (86.5%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-09-16 |
-| [runWorkspaceExpire](expire.go/runWorkspaceExpire.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-16 |
-| [add](certify_cmd.go/add.md) | method | 🟢 B+ | 90.0% | certified | 2026-09-16 |
+| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-09-17 |
+| [detectRepoName](report_cmd.go/detectRepoName.md) | function | 🟢 B | 86.1% | certified | 2026-09-17 |
+| [flagInt](root.go/flagInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-17 |
 
 ---
 

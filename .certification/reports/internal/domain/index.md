@@ -2,20 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RemainingAt](expiry.go/RemainingAt.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-16 |
-| [ModelAssignments](config.go/ModelAssignments.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [config_test.go](config_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [Violation](policy.go/Violation.md) | class | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [policy_test.go](policy_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-16 |
-| [DefaultConfig](config.go/DefaultConfig.md) | function | 🟢 A | 93.3% | certified | 2026-09-16 |
+| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-09-17 |
 
 ---
 
