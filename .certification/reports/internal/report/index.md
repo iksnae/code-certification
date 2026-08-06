@@ -2,21 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatDetailedText](detailed.go/FormatDetailedText.md) | function | 🟢 B | 86.1% | certified | 2026-09-19 |
-| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-19 |
-| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-19 |
-| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-19 |
-| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-09-19 |
-| [recurrent_areas_test.go](recurrent_areas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-19 |
-| [issueRow](site.go/issueRow.md) | class | 🟢 A- | 90.0% | certified | 2026-09-19 |
-| [pkgRow](site.go/pkgRow.md) | class | 🟢 A- | 90.0% | certified | 2026-09-19 |
+| [ScoreKnown](card.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-20 |
+| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-20 |
+| [SiteConfig](site.go/SiteConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-20 |
+| [packageUnitRow](site.go/packageUnitRow.md) | class | 🟢 A- | 90.0% | certified | 2026-09-20 |
 
 ---
 

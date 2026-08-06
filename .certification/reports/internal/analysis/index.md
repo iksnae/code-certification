@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.5%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](ts_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-09-19 |
-| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-09-19 |
-| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-09-19 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-19 |
-| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-19 |
+| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-09-20 |
+| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-09-20 |
+| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-20 |
+| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-20 |
 
 ---
 

@@ -2,22 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.5%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 A- (90.8%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-09-19 |
-| [DefaultGroqModels](providers.go/DefaultGroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-19 |
-| [fallback_test.go](fallback_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-19 |
-| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-19 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-19 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-19 |
-| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 A- | 90.0% | certified | 2026-09-19 |
-| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-09-19 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-09-19 |
+| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-20 |
+| [fallback_test.go](fallback_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-20 |
+| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 A- | 90.0% | certified | 2026-09-20 |
+| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-20 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-09-20 |
+| [ToPrescreenEvidence](reviewer.go/ToPrescreenEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-09-20 |
 
 ---
 

@@ -2,18 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (91.9%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [activate](extension.ts/activate.md) | function | 🟢 B | 81.2% | certified | 2026-09-19 |
-| [promptInstall](certifyBinary.ts/promptInstall.md) | function | 🟢 B+ | 88.8% | certified | 2026-09-19 |
-| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 A- | 90.0% | certified | 2026-09-19 |
-| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.9% | certified | 2026-09-19 |
-| [createStatusBarItem](statusBar.ts/createStatusBarItem.md) | function | 🟢 A | 93.1% | certified | 2026-09-19 |
+| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.9% | certified | 2026-09-20 |
+| [loadConfig](dataLoader.ts/loadConfig.md) | method | 🟢 A- | 91.9% | certified | 2026-09-20 |
 
 ---
 
