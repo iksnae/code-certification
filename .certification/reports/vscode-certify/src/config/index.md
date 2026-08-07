@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [renderHTML](ConfigPanel.ts/renderHTML.md) | method | 🟢 A- | 92.5% | certified | 2026-09-20 |
+| [renderHTML](ConfigPanel.ts/renderHTML.md) | method | 🟢 A- | 92.5% | certified | 2026-09-21 |
 
 ---
 
