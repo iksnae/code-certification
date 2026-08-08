@@ -2,22 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-21 |
-| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-21 |
-| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-09-21 |
-| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-09-21 |
-| [health_test.go](health_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-21 |
-| [stored_records_test.go](stored_records_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-21 |
-| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2026-09-21 |
-| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A | 93.3% | certified | 2026-09-21 |
-| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-09-21 |
+| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-22 |
+| [writeHeader](full.go/writeHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-22 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-09-22 |
+| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-09-22 |
+| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A- | 92.2% | certified | 2026-09-22 |
+| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-09-22 |
+| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-09-22 |
 
 ---
 
