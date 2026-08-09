@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ts_adapter_test.go](ts_adapter_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-22 |
+| [UnitList](scanner.go/UnitList.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
 
 ---
 

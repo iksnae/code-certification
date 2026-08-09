@@ -2,14 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (86.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [add](certify_cmd.go/add.md) | method | 🟢 B+ | 90.0% | certified | 2026-09-22 |
+| [main](main.go/main.md) | function | 🟢 B | 83.3% | certified | 2026-09-23 |
+| [flagString](root.go/flagString.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-23 |
+| [cli_test.go](cli_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-23 |
 
 ---
 
