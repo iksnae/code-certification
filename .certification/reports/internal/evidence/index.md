@@ -2,15 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.4%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2026-09-23 |
-| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-23 |
+| [ParseLCOV](tools.go/ParseLCOV.md) | function | 🟢 B | 80.0% | certified | 2026-09-24 |
+| [ComputeGoComplexity](complexity.go/ComputeGoComplexity.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [tools_test.go](tools_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-24 |
+| [collectPythonCoverage](tools.go/collectPythonCoverage.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-24 |
+| [coverage_test.go](coverage_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-09-24 |
 
 ---
 

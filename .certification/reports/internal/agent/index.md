@@ -2,21 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (90.7%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-09-23 |
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-23 |
-| [Name](circuit.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-23 |
-| [NewDeepReviewStage](stage_deep.go/NewDeepReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-23 |
-| [ArchPhase1Result](architect_review.go/ArchPhase1Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-09-23 |
-| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-09-23 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-09-24 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [ToPrescreenEvidence](reviewer.go/ToPrescreenEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-09-24 |
 
 ---
 

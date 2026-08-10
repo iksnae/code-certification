@@ -2,18 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.0%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Override](override.go/Override.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
-| [OverrideAction](override.go/OverrideAction.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
-| [NewUnit](unit.go/NewUnit.md) | function | 🟢 A | 93.3% | certified | 2026-09-23 |
-| [Path](unit.go/Path.md) | method | 🟢 A | 93.3% | certified | 2026-09-23 |
-| [Symbol](unit.go/Symbol.md) | method | 🟢 A | 93.3% | certified | 2026-09-23 |
+| [evidence_test.go](evidence_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-24 |
 
 ---
 

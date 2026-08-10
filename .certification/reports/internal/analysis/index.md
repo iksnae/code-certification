@@ -2,17 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.9%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goCountNakedReturns](go_analyzer.go/goCountNakedReturns.md) | function | 🟢 B | 86.1% | certified | 2026-09-23 |
-| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-09-23 |
-| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-23 |
-| [SymbolKind](analyzer.go/SymbolKind.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
+| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-09-24 |
+| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-09-24 |
+| [goComputeNestingDepth](go_analyzer.go/goComputeNestingDepth.md) | function | 🟢 B | 86.1% | certified | 2026-09-24 |
+| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-09-24 |
+| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-09-24 |
+| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-09-24 |
+| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-09-24 |
+| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-24 |
+| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
 
 ---
 

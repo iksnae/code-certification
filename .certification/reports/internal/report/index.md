@@ -3,17 +3,18 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (90.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-09-23 |
-| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
-| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
-| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-09-23 |
-| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-09-23 |
+| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-24 |
+| [GenerateReportTree](report_tree.go/GenerateReportTree.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [LanguageDetail](full.go/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-09-24 |
+| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
 
 ---
 

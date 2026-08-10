@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
+**Grade:** 🟢 B+ (89.1%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-23 |
-| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
+| [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [pr_legacy_test.go](pr_legacy_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-24 |
 
 ---
 

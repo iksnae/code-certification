@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CallHierarchyOutgoing](client.go/CallHierarchyOutgoing.md) | method | 🟢 B | 85.6% | certified | 2026-09-23 |
-| [DocumentSymbolCapability](types.go/DocumentSymbolCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-09-23 |
+| [CallHierarchyIncoming](client.go/CallHierarchyIncoming.md) | method | 🟢 B | 85.6% | certified | 2026-09-24 |
+| [DocumentSymbolCapability](types.go/DocumentSymbolCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-09-24 |
 
 ---
 
