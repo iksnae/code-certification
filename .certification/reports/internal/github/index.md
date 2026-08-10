@@ -2,15 +2,32 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 19 · **Passing:** 19 / 19
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [FormatIssueBody](issues.go/FormatIssueBody.md) | function | 🟢 B | 82.8% | certified | 2026-09-24 |
+| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 B | 82.8% | certified | 2026-09-24 |
+| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
 | [BuildIssueUpdateCommand](issues.go/BuildIssueUpdateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [BuildIssueSearchCommand](issues.go/BuildIssueSearchCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [BuildIssueCreateCommand](issues.go/BuildIssueCreateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [ComputeTrustDelta](pr.go/ComputeTrustDelta.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-24 |
+| [pr_unsupported_test.go](pr_unsupported_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-24 |
 | [pr_legacy_test.go](pr_legacy_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-24 |
+| [TrustDelta](pr.go/TrustDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [issues_test.go](issues_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [workflows_test.go](workflows_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-24 |
+| [FormatPRComment](pr.go/FormatPRComment.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [GenerateNightlyWorkflow](workflows.go/GenerateNightlyWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [GeneratePRWorkflow](workflows.go/GeneratePRWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
+| [GenerateWeeklyWorkflow](workflows.go/GenerateWeeklyWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-09-24 |
 
 ---
 
