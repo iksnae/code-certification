@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.7%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-25 |
-| [explainStatus](detailed.go/explainStatus.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-25 |
-| [full_unassessed_test.go](full_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-25 |
-| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-09-25 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 A- | 90.0% | certified | 2026-09-25 |
-| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-09-25 |
+| [site_templates.go](site_templates.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-26 |
+| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
+| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-09-26 |
 
 ---
 
