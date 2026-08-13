@@ -2,28 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_test.go](architect_test.go.md) | file | 🟢 B | 83.7% | certified | 2026-09-26 |
-| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 85.6% | certified | 2026-09-26 |
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-09-26 |
-| [NewRateLimiter](ratelimit.go/NewRateLimiter.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-26 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-26 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-26 |
-| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-09-26 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-09-26 |
+| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-09-27 |
+| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-09-27 |
+| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-27 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-27 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-27 |
+| [Strategy](pipeline.go/Strategy.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
+| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
+| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
+| [ToPrescreenEvidence](reviewer.go/ToPrescreenEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-09-27 |
 
 ---
 

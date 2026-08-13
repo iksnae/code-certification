@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [TextDocumentPositionParams](types.go/TextDocumentPositionParams.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
+| [Range](types.go/Range.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
 
 ---
 

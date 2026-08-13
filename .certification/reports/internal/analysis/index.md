@@ -2,18 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.8%)  
+**Grade:** 🟢 B (86.6%)  
 **Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-09-26 |
-| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-09-26 |
-| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-09-26 |
-| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-09-26 |
-| [go_deps_test.go](go_deps_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-26 |
+| [Language](go_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-09-27 |
+| [NewPythonAnalyzer](python_analyzer.go/NewPythonAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-09-27 |
+| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-09-27 |
+| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-09-27 |
+| [DetectLSPServers](lsp_config.go/DetectLSPServers.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
 
 ---
 

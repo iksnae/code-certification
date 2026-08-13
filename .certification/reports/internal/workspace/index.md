@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [shortCommit](report.go/shortCommit.md) | function | 🟢 A | 93.3% | certified | 2026-09-26 |
+| [ScoreKnown](aggregate.go/ScoreKnown.md) | method | 🟢 A | 93.3% | certified | 2026-09-27 |
 
 ---
 

@@ -2,19 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (91.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [EnforcingConfig](config.go/EnforcingConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [IssueConfig](config.go/IssueConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [ScopeConfig](config.go/ScopeConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [UnitID](unit.go/UnitID.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [IsPassing](record.go/IsPassing.md) | method | 🟢 A | 93.3% | certified | 2026-09-26 |
+| [dimension_test.go](dimension_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-27 |
+| [GradeFromScore](dimension.go/GradeFromScore.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
 
 ---
 

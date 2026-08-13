@@ -2,16 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [site_templates.go](site_templates.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-26 |
-| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-09-26 |
-| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-09-26 |
+| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-09-27 |
+| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-09-27 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-27 |
+| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-27 |
+| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
+| [stored_records_test.go](stored_records_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-27 |
 
 ---
 
