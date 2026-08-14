@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertify](certify_cmd.go/runCertify.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-09-27 |
-| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-09-27 |
-| [getCertifyFlags](certify_cmd.go/getCertifyFlags.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-27 |
-| [setupAgent](certify_cmd.go/setupAgent.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-27 |
+| [listFromProvider](models_cmd.go/listFromProvider.md) | function | 🟢 B | 86.1% | certified | 2026-09-28 |
+| [runWorkspaceExpire](expire.go/runWorkspaceExpire.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-28 |
+| [certifyFlags](certify_cmd.go/certifyFlags.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
 
 ---
 

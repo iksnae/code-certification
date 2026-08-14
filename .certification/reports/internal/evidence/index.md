@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-27 |
-| [complexity_test.go](complexity_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-27 |
-| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
-| [simpleAtoi](runner.go/simpleAtoi.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-28 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-09-28 |
+| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-09-28 |
+| [FileCoverage](coverage.go/FileCoverage.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
+| [hasStringLit](structural.go/hasStringLit.md) | function | 🟢 A | 93.3% | certified | 2026-09-28 |
+| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2026-09-28 |
 
 ---
 

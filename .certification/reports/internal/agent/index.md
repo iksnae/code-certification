@@ -9,16 +9,16 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-09-27 |
-| [NewRouter](router.go/NewRouter.md) | function | 🟢 B | 82.8% | certified | 2026-09-27 |
-| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-09-27 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-09-27 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-27 |
-| [Strategy](pipeline.go/Strategy.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
-| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
-| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
-| [ToPrescreenEvidence](reviewer.go/ToPrescreenEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-09-27 |
+| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-09-28 |
+| [architect_test.go](architect_test.go.md) | file | 🟢 B | 83.7% | certified | 2026-09-28 |
+| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-28 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-28 |
+| [ArchCoverageGap](architect_review.go/ArchCoverageGap.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
+| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
+| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
+| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-09-28 |
+| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-09-28 |
 
 ---
 

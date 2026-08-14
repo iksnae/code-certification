@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
+**Grade:** 🟢 A- (90.9%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-09-27 |
-| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-09-27 |
-| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-27 |
-| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-27 |
-| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-09-27 |
-| [stored_records_test.go](stored_records_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-27 |
+| [writeTemplate](site.go/writeTemplate.md) | function | 🟢 B | 83.3% | certified | 2026-09-28 |
+| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-09-28 |
+| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-09-28 |
+| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A | 93.3% | certified | 2026-09-28 |
+| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-09-28 |
+| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-09-28 |
 
 ---
 

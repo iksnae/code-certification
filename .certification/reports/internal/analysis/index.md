@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Language](go_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-09-27 |
-| [NewPythonAnalyzer](python_analyzer.go/NewPythonAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-09-27 |
-| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-09-27 |
-| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-09-27 |
-| [DetectLSPServers](lsp_config.go/DetectLSPServers.md) | function | 🟢 A | 93.3% | certified | 2026-09-27 |
+| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-09-28 |
+| [tsCountRecursive](ts_analyzer.go/tsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-09-28 |
+| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-09-28 |
+| [UnusedParams](go_refine.go/UnusedParams.md) | method | 🟢 A | 93.3% | certified | 2026-09-28 |
 
 ---
 
