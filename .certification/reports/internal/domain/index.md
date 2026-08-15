@@ -2,20 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ProviderConfig](config.go/ProviderConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
-| [DimensionScores](dimension.go/DimensionScores.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
-| [EvidenceKind](evidence.go/EvidenceKind.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
-| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
-| [UnitType](unit.go/UnitType.md) | class | 🟢 A- | 90.0% | certified | 2026-09-28 |
-| [ParseEvidenceKind](evidence.go/ParseEvidenceKind.md) | function | 🟢 A- | 92.2% | certified | 2026-09-28 |
-| [ParseUnitID](unit.go/ParseUnitID.md) | function | 🟢 A- | 92.2% | certified | 2026-09-28 |
+| [evidence_test.go](evidence_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-29 |
+| [config_test.go](config_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-29 |
+| [WithUnassessedVerdict](record.go/WithUnassessedVerdict.md) | method | 🟢 A | 93.3% | certified | 2026-09-29 |
 
 ---
 
