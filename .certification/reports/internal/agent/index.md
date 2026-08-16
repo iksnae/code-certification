@@ -2,26 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.0%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-29 |
-| [AdaptiveMessages](fallback.go/AdaptiveMessages.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-29 |
-| [models_test.go](models_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-29 |
-| [autodetect_test.go](autodetect_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-09-29 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-09-29 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-29 |
-| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-09-29 |
-| [Usage](types.go/Usage.md) | class | 🟢 A- | 90.0% | certified | 2026-09-29 |
-| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-09-29 |
-| [NewModelChain](fallback.go/NewModelChain.md) | function | 🟢 A | 93.3% | certified | 2026-09-29 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-09-29 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-09-29 |
-| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-09-29 |
+| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-30 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-09-30 |
+| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 A- | 90.0% | certified | 2026-09-30 |
+| [snapshot_unassessed_test.go](snapshot_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-09-30 |
+| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-09-30 |
 
 ---
 
