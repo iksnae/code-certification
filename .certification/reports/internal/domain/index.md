@@ -9,9 +9,9 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-09-30 |
-| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 A- | 90.0% | certified | 2026-09-30 |
-| [UnitType](unit.go/UnitType.md) | class | 🟢 A- | 90.0% | certified | 2026-09-30 |
+| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-01 |
+| [ProviderConfig](config.go/ProviderConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-01 |
+| [override_test.go](override_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-01 |
 
 ---
 

@@ -2,21 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParsePytestShort](tools.go/ParsePytestShort.md) | function | 🟢 B | 80.0% | certified | 2026-09-30 |
-| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-09-30 |
-| [structural_test.go](structural_test.go.md) | file | 🟢 B | 85.6% | certified | 2026-09-30 |
-| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 85.6% | certified | 2026-09-30 |
-| [FindModuleForUnit](modules.go/FindModuleForUnit.md) | function | 🟢 B+ | 88.9% | certified | 2026-09-30 |
-| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2026-09-30 |
-| [TestResult](lint.go/TestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-09-30 |
-| [AnalyzeGoType](structural.go/AnalyzeGoType.md) | function | 🟢 A | 93.3% | certified | 2026-09-30 |
+| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-01 |
+| [exprTypeName](structural.go/exprTypeName.md) | function | 🟢 A | 93.3% | certified | 2026-10-01 |
 
 ---
 
