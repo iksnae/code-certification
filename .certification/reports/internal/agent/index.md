@@ -2,26 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatDeepAnalysisMetrics](architect.go/formatDeepAnalysisMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-02 |
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-10-02 |
-| [NewDeepReviewStage](stage_deep.go/NewDeepReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-02 |
-| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-02 |
-| [types_test.go](types_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-02 |
-| [parseGoModReplaces](workspace_snapshot.go/parseGoModReplaces.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-02 |
-| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-02 |
-| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-10-02 |
-| [router_test.go](router_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-02 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-02 |
-| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 A- | 90.0% | certified | 2026-10-02 |
-| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-02 |
-| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-02 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-10-03 |
+| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-03 |
+| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 A- | 90.0% | certified | 2026-10-03 |
+| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 A- | 90.0% | certified | 2026-10-03 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-10-03 |
+| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-10-03 |
 
 ---
 

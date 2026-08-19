@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DEEP_METRIC_LABELS](constants.ts/DEEP_METRIC_LABELS.md) | function | 🟢 A- | 90.0% | certified | 2026-10-02 |
+| [SubmoduleInfo](types.ts/SubmoduleInfo.md) | class | 🟢 A- | 90.0% | certified | 2026-10-03 |
 
 ---
 
