@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (91.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [go_adapter_test.go](go_adapter_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-03 |
-| [Index](index.go/Index.md) | class | 🟢 A- | 90.0% | certified | 2026-10-03 |
-| [Scanner](scanner.go/Scanner.md) | class | 🟢 A- | 90.0% | certified | 2026-10-03 |
+| [FilterChanged](diff.go/FilterChanged.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-04 |
+| [matchesExt](analysis_adapter.go/matchesExt.md) | method | 🟢 A | 93.3% | certified | 2026-10-04 |
 
 ---
 

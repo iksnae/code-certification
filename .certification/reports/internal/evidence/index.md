@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
+**Grade:** 🟢 B+ (89.3%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoClippyJSON](tools.go/ParseCargoClippyJSON.md) | function | 🟢 B | 85.0% | certified | 2026-10-03 |
-| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 85.6% | certified | 2026-10-03 |
-| [ParseCoverProfile](runner.go/ParseCoverProfile.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-03 |
-| [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-03 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-03 |
-| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-10-03 |
+| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-04 |
+| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-04 |
+| [ParseGoTestJSON](runner.go/ParseGoTestJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-04 |
+| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-04 |
+| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-04 |
+| [TestResult](lint.go/TestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-04 |
 
 ---
 

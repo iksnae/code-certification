@@ -2,17 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.4%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-10-03 |
-| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-03 |
-| [goIsConstLikeExpr](go_analyzer.go/goIsConstLikeExpr.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-03 |
-| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-10-03 |
+| [Discover](ts_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-10-04 |
+| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-10-04 |
+| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-10-04 |
+| [rsCountPanics](rust_analyzer.go/rsCountPanics.md) | function | 🟢 B | 86.1% | certified | 2026-10-04 |
+| [tsCountEmptyCatch](ts_analyzer.go/tsCountEmptyCatch.md) | function | 🟢 B | 86.1% | certified | 2026-10-04 |
+| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-04 |
+| [CouplingScore](go_deps.go/CouplingScore.md) | method | 🟢 A | 93.3% | certified | 2026-10-04 |
 
 ---
 

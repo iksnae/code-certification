@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.4%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertify](certify_cmd.go/runCertify.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-10-03 |
-| [setupConservativeAgent](certify_cmd.go/setupConservativeAgent.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-03 |
-| [bindDoctorFlags](doctor_cmd.go/bindDoctorFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-03 |
-| [tryScanSuggestions](scan.go/tryScanSuggestions.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-03 |
+| [resolveArchitectProvider](architect_cmd.go/resolveArchitectProvider.md) | function | 🟢 B | 86.1% | certified | 2026-10-04 |
+| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 B | 86.1% | certified | 2026-10-04 |
+| [defaultConfigObj](certify_cmd.go/defaultConfigObj.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-04 |
 
 ---
 

@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.9%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-10-03 |
-| [health_test.go](health_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-03 |
-| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-10-03 |
-| [badgeMessage](badge.go/badgeMessage.md) | function | 🟢 A | 93.3% | certified | 2026-10-03 |
-| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A | 93.3% | certified | 2026-10-03 |
-| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-10-03 |
+| [unitReportFrom](full.go/unitReportFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-04 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-04 |
+| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-04 |
+| [buildUnitPageData](site.go/buildUnitPageData.md) | function | 🟢 A- | 92.2% | certified | 2026-10-04 |
+| [partitionByLanguage](card.go/partitionByLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-10-04 |
 
 ---
 

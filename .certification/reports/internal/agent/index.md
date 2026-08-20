@@ -2,19 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-10-03 |
-| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-03 |
-| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 A- | 90.0% | certified | 2026-10-03 |
-| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 A- | 90.0% | certified | 2026-10-03 |
-| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-10-03 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-10-03 |
+| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-10-04 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-04 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-04 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-04 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-04 |
+| [parseGoModReplaces](workspace_snapshot.go/parseGoModReplaces.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-04 |
+| [CouplingPair](architect_snapshot.go/CouplingPair.md) | class | 🟢 A- | 90.0% | certified | 2026-10-04 |
+| [Message](types.go/Message.md) | class | 🟢 A- | 90.0% | certified | 2026-10-04 |
+| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-10-04 |
+| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-10-04 |
 
 ---
 
