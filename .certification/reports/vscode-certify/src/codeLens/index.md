@@ -2,14 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.5%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [provideCodeLenses](CertifyCodeLensProvider.ts/provideCodeLenses.md) | method | 🟢 A- | 92.5% | certified | 2026-10-05 |
+| [CertifyCodeLensProvider](CertifyCodeLensProvider.ts/CertifyCodeLensProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-10-06 |
 
 ---
 
