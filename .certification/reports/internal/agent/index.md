@@ -2,24 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Name](fallback.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-06 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-06 |
-| [NewRateLimiter](ratelimit.go/NewRateLimiter.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-06 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-06 |
-| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-06 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 A- | 90.0% | certified | 2026-10-06 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-06 |
-| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-10-06 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-10-06 |
-| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-10-06 |
-| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-10-06 |
+| [OllamaModels](providers.go/OllamaModels.md) | function | 🟢 B | 86.1% | certified | 2026-10-07 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-07 |
+| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-07 |
+| [ArchCoverageGap](architect_review.go/ArchCoverageGap.md) | class | 🟢 A- | 90.0% | certified | 2026-10-07 |
+| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 A- | 90.0% | certified | 2026-10-07 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-10-07 |
 
 ---
 

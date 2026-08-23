@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.5%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (86.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [processQueue](certify_cmd.go/processQueue.md) | method | 🟢 B | 81.7% | certified | 2026-10-06 |
-| [report_cmd_test.go](report_cmd_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-06 |
+| [submoduleSummaryFromCard](report_cmd.go/submoduleSummaryFromCard.md) | function | 🟢 B | 83.3% | certified | 2026-10-07 |
+| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 B | 86.1% | certified | 2026-10-07 |
+| [setupAgent](certify_cmd.go/setupAgent.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-07 |
+| [defaultConfigObj](certify_cmd.go/defaultConfigObj.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-07 |
 
 ---
 

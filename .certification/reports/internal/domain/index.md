@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-06 |
-| [config_test.go](config_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-06 |
-| [WeightedAverage](dimension.go/WeightedAverage.md) | method | 🟢 A | 93.3% | certified | 2026-10-06 |
+| [Duration](expiry.go/Duration.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-07 |
+| [String](override.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-07 |
+| [evidence_test.go](evidence_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-07 |
+| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-07 |
+| [IsPassing](record.go/IsPassing.md) | method | 🟢 A | 93.3% | certified | 2026-10-07 |
 
 ---
 

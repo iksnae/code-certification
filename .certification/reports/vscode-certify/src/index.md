@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (90.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RunResult](certifyBinary.ts/RunResult.md) | class | 🟢 B | 85.6% | certified | 2026-10-06 |
-| [architectReviewPath](dataLoader.ts/architectReviewPath.md) | method | 🟢 A- | 91.9% | certified | 2026-10-06 |
+| [DIMENSION_NAMES](constants.ts/DIMENSION_NAMES.md) | function | 🟢 A- | 90.0% | certified | 2026-10-07 |
+| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-07 |
+| [CertifyConfig](types.ts/CertifyConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-07 |
+| [detectLanguageName](dataLoader.ts/detectLanguageName.md) | function | 🟢 A- | 92.5% | certified | 2026-10-07 |
 
 ---
 
