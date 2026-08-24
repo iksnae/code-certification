@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartI](architect_report.go/writeArchPartI.md) | function | 🟢 B | 84.4% | certified | 2026-10-07 |
-| [FormatRate](card.go/FormatRate.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-07 |
-| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-07 |
-| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-10-07 |
+| [writeArchRiskMatrix](architect_report.go/writeArchRiskMatrix.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-08 |
+| [ScoreKnown](site.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-08 |
+| [mixed_unassessed_test.go](mixed_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-08 |
+| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-08 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-08 |
+| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
 
 ---
 

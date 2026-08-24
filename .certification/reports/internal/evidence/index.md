@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 85.6% | certified | 2026-10-07 |
-| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-10-07 |
-| [ToEvidence](git.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-07 |
-| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-07 |
-| [lint_test.go](lint_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-07 |
-| [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 A- | 90.0% | certified | 2026-10-07 |
+| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 85.0% | certified | 2026-10-08 |
+| [executor_test.go](executor_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-08 |
+| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
 
 ---
 

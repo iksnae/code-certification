@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ScoreKnown](aggregate.go/ScoreKnown.md) | method | 🟢 A | 93.3% | certified | 2026-10-07 |
+| [aggregate_grade_test.go](aggregate_grade_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-08 |
+| [shortCommit](report.go/shortCommit.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
 
 ---
 
