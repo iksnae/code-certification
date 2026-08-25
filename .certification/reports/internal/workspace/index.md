@@ -2,39 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 26 · **Passing:** 26 / 26
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseSubmoduleStatus](workspace.go/ParseSubmoduleStatus.md) | function | 🟢 B | 85.0% | certified | 2026-10-08 |
-| [CheckHasConfig](workspace.go/CheckHasConfig.md) | function | 🟢 B | 85.0% | certified | 2026-10-08 |
-| [Submodule](workspace.go/Submodule.md) | class | 🟢 B | 85.6% | certified | 2026-10-08 |
-| [Analyzable](aggregate.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-08 |
-| [PassRateKnown](aggregate.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-08 |
-| [report_test.go](report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-08 |
-| [workspace_test.go](workspace_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-08 |
-| [LoadSubmoduleCard](workspace.go/LoadSubmoduleCard.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-08 |
-| [DiscoverSubmodules](workspace.go/DiscoverSubmodules.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-08 |
-| [ConfiguredSubmodules](workspace.go/ConfiguredSubmodules.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-08 |
-| [aggregate_grade_test.go](aggregate_grade_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-08 |
-| [aggregate_weight_test.go](aggregate_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-08 |
-| [SubmoduleSummary](aggregate.go/SubmoduleSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-08 |
-| [WorkspaceCard](aggregate.go/WorkspaceCard.md) | class | 🟢 A- | 90.0% | certified | 2026-10-08 |
-| [aggregate_test.go](aggregate_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-08 |
-| [aggregate_unassessed_test.go](aggregate_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-08 |
-| [GenerateWorkspaceReportTree](report.go/GenerateWorkspaceReportTree.md) | function | 🟢 A- | 92.2% | certified | 2026-10-08 |
-| [AggregateCards](aggregate.go/AggregateCards.md) | function | 🟢 A- | 92.2% | certified | 2026-10-08 |
-| [formatWorkspaceIndex](report.go/formatWorkspaceIndex.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
-| [FormatWorkspaceCardMarkdown](report.go/FormatWorkspaceCardMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
-| [submoduleFilename](report.go/submoduleFilename.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
-| [shortCommit](report.go/shortCommit.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
-| [gradeEmoji](report.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
-| [formatSubmoduleSummary](report.go/formatSubmoduleSummary.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
-| [formatRate](report.go/formatRate.md) | function | 🟢 A | 93.3% | certified | 2026-10-08 |
-| [ScoreKnown](aggregate.go/ScoreKnown.md) | method | 🟢 A | 93.3% | certified | 2026-10-08 |
+| [aggregate_unassessed_test.go](aggregate_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-09 |
 
 ---
 
