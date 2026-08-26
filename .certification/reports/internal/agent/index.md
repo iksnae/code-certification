@@ -2,28 +2,28 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.9%)  
+**Grade:** 🟢 A- (90.1%)  
 **Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 83.9% | certified | 2026-10-09 |
-| [Execute](stage.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-10-09 |
-| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-10-09 |
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-09 |
-| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 A- | 90.0% | certified | 2026-10-09 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-10-09 |
-| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-09 |
-| [CoordinatorConfig](pipeline.go/CoordinatorConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-09 |
-| [snapshot_unassessed_test.go](snapshot_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-09 |
-| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-09 |
-| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 A- | 90.0% | certified | 2026-10-09 |
-| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-10-09 |
-| [joinModels](reviewer.go/joinModels.md) | function | 🟢 A | 93.3% | certified | 2026-10-09 |
-| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-10-09 |
-| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-09 |
+| [LMStudioModels](providers.go/LMStudioModels.md) | function | 🟢 B | 86.1% | certified | 2026-10-10 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-10 |
+| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-10 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-10 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-10 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-10 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-10-10 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-10 |
+| [ArchPhase1Result](architect_review.go/ArchPhase1Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-10 |
+| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 A- | 90.0% | certified | 2026-10-10 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-10-10 |
+| [TaskType](types.go/TaskType.md) | class | 🟢 A- | 90.0% | certified | 2026-10-10 |
+| [toResult](pipeline.go/toResult.md) | method | 🟢 A | 93.3% | certified | 2026-10-10 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-10-10 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-10-10 |
 
 ---
 

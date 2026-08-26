@@ -2,16 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GenerateCard](card.go/GenerateCard.md) | function | 🟢 B | 85.0% | certified | 2026-10-09 |
-| [full_unassessed_test.go](full_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-09 |
-| [computeDimensionAverages](detailed.go/computeDimensionAverages.md) | function | 🟢 A | 93.3% | certified | 2026-10-09 |
+| [site_test.go](site_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-10-10 |
+| [ScoreKnown](site_search.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-10 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-10 |
+| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-10 |
+| [formatUnitMarkdownWithNav](report_tree.go/formatUnitMarkdownWithNav.md) | function | 🟢 A | 93.3% | certified | 2026-10-10 |
+| [passRate](report_tree.go/passRate.md) | method | 🟢 A | 93.3% | certified | 2026-10-10 |
 
 ---
 

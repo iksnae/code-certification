@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (91.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [MovedFile](diff.go/MovedFile.md) | class | 🟢 B | 85.6% | certified | 2026-10-09 |
+| [index_test.go](index_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-10 |
+| [LoadIndex](index.go/LoadIndex.md) | function | 🟢 A | 93.3% | certified | 2026-10-10 |
 
 ---
 

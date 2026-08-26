@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (85.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [add](certify_cmd.go/add.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-09 |
-| [assessed](certify_cmd.go/assessed.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-09 |
-| [formatETA](certify_cmd.go/formatETA.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-09 |
+| [main](main.go/main.md) | function | 🟢 B | 83.3% | certified | 2026-10-10 |
+| [listFromProvider](models_cmd.go/listFromProvider.md) | function | 🟢 B | 86.1% | certified | 2026-10-10 |
+| [bindReportFlags](report_cmd.go/bindReportFlags.md) | function | 🟢 B | 86.1% | certified | 2026-10-10 |
+| [runSubcommand](workspace_dispatch.go/runSubcommand.md) | function | 🟢 B | 86.1% | certified | 2026-10-10 |
+| [buildCertificationRun](certify_cmd.go/buildCertificationRun.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-10 |
 
 ---
 
