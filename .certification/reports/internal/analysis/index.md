@@ -2,20 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B+ (88.2%)  
 **Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-11 |
-| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-10-11 |
-| [goCountCallExpr](go_analyzer.go/goCountCallExpr.md) | function | 🟢 B | 86.1% | certified | 2026-10-11 |
-| [goIsMutableVar](go_analyzer.go/goIsMutableVar.md) | function | 🟢 B | 86.1% | certified | 2026-10-11 |
-| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-10-11 |
-| [AnalyzeFile](python_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-11 |
-| [findPkg](go_refine.go/findPkg.md) | method | 🟢 A | 93.3% | certified | 2026-10-11 |
+| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-10-12 |
+| [goCheckContextNotFirst](go_analyzer.go/goCheckContextNotFirst.md) | function | 🟢 B | 86.1% | certified | 2026-10-12 |
+| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-10-12 |
+| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2026-10-12 |
+| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
+| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-10-12 |
+| [DepDepth](go_deps.go/DepDepth.md) | method | 🟢 A | 93.3% | certified | 2026-10-12 |
 
 ---
 

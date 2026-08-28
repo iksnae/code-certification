@@ -2,21 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-10-11 |
-| [writeArchCoupling](architect_report.go/writeArchCoupling.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-11 |
-| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-11 |
-| [full_unassessed_test.go](full_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-11 |
-| [SiteConfig](site.go/SiteConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-11 |
-| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-10-11 |
-| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2026-10-11 |
-| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-10-11 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-12 |
+| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-12 |
+| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
+| [gradeRow](site.go/gradeRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
+| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-10-12 |
+| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-10-12 |
 
 ---
 

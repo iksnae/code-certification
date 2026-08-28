@@ -2,20 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (87.2%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-10-11 |
-| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 85.6% | certified | 2026-10-11 |
-| [ToEvidence](metrics.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-11 |
-| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-11 |
-| [LintResult](lint.go/LintResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-11 |
-| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-10-11 |
-| [exprTypeName](structural.go/exprTypeName.md) | function | 🟢 A | 93.3% | certified | 2026-10-11 |
+| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-10-12 |
+| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-12 |
+| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-12 |
 
 ---
 

@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.2%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Certifier](certifier.go/Certifier.md) | class | 🟢 B | 86.2% | certified | 2026-10-11 |
+| [artifacts_unassessed_test.go](artifacts_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-12 |
 
 ---
 

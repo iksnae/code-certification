@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-11 |
-| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-11 |
-| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-11 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-11 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-10-11 |
-| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-10-11 |
+| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-12 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
+| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
+| [workspace_snapshot_weight_test.go](workspace_snapshot_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-12 |
+| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-12 |
 
 ---
 
