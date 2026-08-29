@@ -2,14 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 A (93.1%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertifyDiagnostics](CertifyDiagnostics.ts/CertifyDiagnostics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
+| [EXPIRY_WARNING_DAYS](CertifyDiagnostics.ts/EXPIRY_WARNING_DAYS.md) | function | 🟢 A | 93.1% | certified | 2026-10-13 |
 
 ---
 

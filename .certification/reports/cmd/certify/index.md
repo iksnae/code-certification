@@ -3,17 +3,18 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 B+ (88.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [executeArchitectReview](architect_cmd.go/executeArchitectReview.md) | function | 🟢 B | 86.1% | certified | 2026-10-12 |
-| [buildCertificationRun](certify_cmd.go/buildCertificationRun.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-12 |
-| [runWorkspaceExpire](expire.go/runWorkspaceExpire.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-12 |
-| [runWorkspaceScan](scan.go/runWorkspaceScan.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-12 |
-| [bindScanFlags](scan.go/bindScanFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-12 |
+| [writeArchitectOutput](architect_cmd.go/writeArchitectOutput.md) | function | 🟢 B | 86.1% | certified | 2026-10-13 |
+| [detectRepoName](report_cmd.go/detectRepoName.md) | function | 🟢 B | 86.1% | certified | 2026-10-13 |
+| [setupAgent](certify_cmd.go/setupAgent.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
+| [enforcingGateWarning](certify_cmd.go/enforcingGateWarning.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-13 |
+| [gradeEmoji](certify_cmd.go/gradeEmoji.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-13 |
+| [runTally](certify_cmd.go/runTally.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
 
 ---
 

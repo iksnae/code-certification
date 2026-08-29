@@ -2,19 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-12 |
-| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-12 |
-| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
-| [gradeRow](site.go/gradeRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
-| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-10-12 |
-| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-10-12 |
+| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
+| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
+| [detailed_test.go](detailed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
+| [FullReport](full.go/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-10-13 |
+| [passRate](report_tree.go/passRate.md) | method | 🟢 A | 93.3% | certified | 2026-10-13 |
 
 ---
 

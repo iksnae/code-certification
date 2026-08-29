@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildArchitectItems](CertificationTreeProvider.ts/buildArchitectItems.md) | method | 🟢 A- | 92.5% | certified | 2026-10-12 |
-| [refresh](CertificationTreeProvider.ts/refresh.md) | method | 🟢 A- | 92.5% | certified | 2026-10-12 |
+| [GRADE_ORDER](CertificationTreeProvider.ts/GRADE_ORDER.md) | function | 🟢 A- | 92.5% | certified | 2026-10-13 |
+| [buildWorkspaceItems](CertificationTreeProvider.ts/buildWorkspaceItems.md) | method | 🟢 A- | 92.5% | certified | 2026-10-13 |
 
 ---
 

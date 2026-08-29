@@ -2,18 +2,28 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-12 |
-| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
-| [ArchLayer](architect_review.go/ArchLayer.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
-| [workspace_snapshot_weight_test.go](workspace_snapshot_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-12 |
-| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-12 |
+| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
+| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
+| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
+| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-13 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-13 |
+| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [Stage](stage.go/Stage.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [StageResult](stage.go/StageResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [scoringStage](stage.go/scoringStage.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-10-13 |
 
 ---
 

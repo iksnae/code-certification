@@ -9,13 +9,13 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-10-12 |
-| [goCheckContextNotFirst](go_analyzer.go/goCheckContextNotFirst.md) | function | 🟢 B | 86.1% | certified | 2026-10-12 |
-| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-10-12 |
-| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2026-10-12 |
-| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-10-12 |
-| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-10-12 |
-| [DepDepth](go_deps.go/DepDepth.md) | method | 🟢 A | 93.3% | certified | 2026-10-12 |
+| [Shutdown](lsp_analyzer.go/Shutdown.md) | method | 🟢 B | 82.2% | certified | 2026-10-13 |
+| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-10-13 |
+| [rsCountRecursive](rust_analyzer.go/rsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-10-13 |
+| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
+| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [UnusedExports](go_deep.go/UnusedExports.md) | method | 🟢 A | 93.3% | certified | 2026-10-13 |
+| [findFunc](go_refine.go/findFunc.md) | method | 🟢 A | 93.3% | certified | 2026-10-13 |
 
 ---
 

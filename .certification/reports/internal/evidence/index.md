@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
+**Grade:** 🟢 B+ (89.6%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-10-12 |
-| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-12 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-12 |
+| [complexity_test.go](complexity_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
+| [runESLintAt](tools.go/runESLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-13 |
+| [git_test.go](git_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-13 |
 
 ---
 
