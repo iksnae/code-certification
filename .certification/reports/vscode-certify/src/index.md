@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [getUnitsForFile](dataLoader.ts/getUnitsForFile.md) | method | 🟢 A- | 91.9% | certified | 2026-10-13 |
+| [loadIndex](dataLoader.ts/loadIndex.md) | method | 🟢 A- | 91.9% | certified | 2026-10-14 |
 
 ---
 

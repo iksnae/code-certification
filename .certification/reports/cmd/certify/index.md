@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchitectOutput](architect_cmd.go/writeArchitectOutput.md) | function | 🟢 B | 86.1% | certified | 2026-10-13 |
-| [detectRepoName](report_cmd.go/detectRepoName.md) | function | 🟢 B | 86.1% | certified | 2026-10-13 |
-| [setupAgent](certify_cmd.go/setupAgent.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
-| [enforcingGateWarning](certify_cmd.go/enforcingGateWarning.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-13 |
-| [gradeEmoji](certify_cmd.go/gradeEmoji.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-13 |
-| [runTally](certify_cmd.go/runTally.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
+| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-10-14 |
+| [printArchitectHeader](architect_cmd.go/printArchitectHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-14 |
+| [bindCertifyFlags](certify_cmd.go/bindCertifyFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-14 |
+| [gradeEmoji](certify_cmd.go/gradeEmoji.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-14 |
+| [certifyFlags](certify_cmd.go/certifyFlags.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
 
 ---
 

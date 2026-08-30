@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
-| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
-| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
-| [detailed_test.go](detailed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
-| [FullReport](full.go/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-10-13 |
-| [passRate](report_tree.go/passRate.md) | method | 🟢 A | 93.3% | certified | 2026-10-13 |
+| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-10-14 |
+| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-14 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-14 |
+| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-14 |
+| [measured](report_tree.go/measured.md) | method | 🟢 A | 93.3% | certified | 2026-10-14 |
 
 ---
 

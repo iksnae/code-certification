@@ -2,28 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
-| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
-| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-13 |
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-13 |
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-13 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-13 |
-| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [Stage](stage.go/Stage.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [scoringStage](stage.go/scoringStage.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-13 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-10-13 |
+| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-14 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-14 |
+| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-14 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-14 |
+| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
+| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
+| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
+| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-10-14 |
 
 ---
 
