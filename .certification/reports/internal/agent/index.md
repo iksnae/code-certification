@@ -2,22 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-14 |
-| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-14 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-14 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-14 |
-| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [openAIModel](models.go/openAIModel.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-10-14 |
+| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-15 |
+| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-15 |
+| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [provider_multi_test.go](provider_multi_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-15 |
+| [Message](types.go/Message.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-10-15 |
 
 ---
 

@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
+**Grade:** 🟢 B+ (88.1%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-10-14 |
-| [isMutableVar](structural.go/isMutableVar.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-14 |
-| [metrics_test.go](metrics_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-14 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 A- | 92.8% | certified | 2026-10-14 |
-| [walkStmt](structural.go/walkStmt.md) | function | 🟢 A | 93.3% | certified | 2026-10-14 |
+| [structural_test.go](structural_test.go.md) | file | 🟢 B | 85.6% | certified | 2026-10-15 |
+| [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-15 |
+| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [ToEvidence](structural.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [complexity_test.go](complexity_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-15 |
 
 ---
 

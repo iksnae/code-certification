@@ -2,18 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-10-14 |
-| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-14 |
-| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-14 |
-| [measured](report_tree.go/measured.md) | method | 🟢 A | 93.3% | certified | 2026-10-14 |
+| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-10-15 |
+| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-15 |
+| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [dimRow](site.go/dimRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [issueRow](site.go/issueRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
 
 ---
 

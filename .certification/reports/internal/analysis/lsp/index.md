@@ -3,13 +3,14 @@
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (90.0%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CallHierarchyCapability](types.go/CallHierarchyCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
+| [CallHierarchyItem](types.go/CallHierarchyItem.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [Location](types.go/Location.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
 
 ---
 

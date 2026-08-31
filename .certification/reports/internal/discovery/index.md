@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (85.8%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [symbolToUnitType](analysis_adapter.go/symbolToUnitType.md) | method | 🟢 A | 93.3% | certified | 2026-10-14 |
+| [Scan](generic.go/Scan.md) | method | 🟢 B | 81.7% | certified | 2026-10-15 |
+| [DiffResult](index.go/DiffResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
 
 ---
 

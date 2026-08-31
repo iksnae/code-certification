@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.6%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](dimension.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-14 |
-| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [ScopeConfig](config.go/ScopeConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
-| [ParseSeverity](evidence.go/ParseSeverity.md) | function | 🟢 A- | 92.2% | certified | 2026-10-14 |
+| [String](config.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [Evidence](evidence.go/Evidence.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [ExpiryFactors](expiry.go/ExpiryFactors.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [DefaultConfig](config.go/DefaultConfig.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
 
 ---
 

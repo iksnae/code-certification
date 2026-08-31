@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-10-14 |
-| [goCheckContextNotFirst](go_analyzer.go/goCheckContextNotFirst.md) | function | 🟢 B | 86.1% | certified | 2026-10-14 |
-| [tsComputeLoopNesting](ts_analyzer.go/tsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-10-14 |
-| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-10-14 |
-| [isIdentUsedInBlock](go_refine.go/isIdentUsedInBlock.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-14 |
-| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 A- | 90.0% | certified | 2026-10-14 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-10-15 |
+| [goWalkLoops](go_analyzer.go/goWalkLoops.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-15 |
+| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-10-15 |
 
 ---
 
