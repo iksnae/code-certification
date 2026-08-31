@@ -2,15 +2,36 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 23 · **Passing:** 23 / 23
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [validate](loader.go/validate.md) | function | 🟢 B | 81.7% | certified | 2026-10-15 |
+| [Load](loader.go/Load.md) | function | 🟢 B | 82.8% | certified | 2026-10-15 |
+| [FilterPolicyPacks](matcher.go/FilterPolicyPacks.md) | function | 🟢 B | 82.8% | certified | 2026-10-15 |
+| [ValidatePolicyPack](validator.go/ValidatePolicyPack.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-15 |
+| [ValidateConfig](validator.go/ValidateConfig.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-15 |
+| [Error](validator.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-15 |
 | [LoadFile](loader.go/LoadFile.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [LoadPolicyPack](policy.go/LoadPolicyPack.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-15 |
+| [loader_test.go](loader_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-15 |
+| [policy_test.go](policy_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-15 |
+| [rawPolicyRule](policy.go/rawPolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [rawPolicyPack](policy.go/rawPolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [rawConfig](loader.go/rawConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [rawAgent](loader.go/rawAgent.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
 | [ValidationError](validator.go/ValidationError.md) | class | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [validator_test.go](validator_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-15 |
+| [parseDimension](policy.go/parseDimension.md) | function | 🟢 A- | 92.2% | certified | 2026-10-15 |
+| [parsePolicyPack](policy.go/parsePolicyPack.md) | function | 🟢 A- | 92.2% | certified | 2026-10-15 |
+| [parseSeverity](policy.go/parseSeverity.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
+| [LoadPolicyPacks](policy.go/LoadPolicyPacks.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
+| [NewPolicyMatcher](matcher.go/NewPolicyMatcher.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
+| [LoadFromDir](loader.go/LoadFromDir.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
+| [isLocalURL](validator.go/isLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-10-15 |
 
 ---
 
