@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatDetailedText](detailed.go/FormatDetailedText.md) | function | 🟢 B | 86.1% | certified | 2026-10-16 |
-| [writeArchCoupling](architect_report.go/writeArchCoupling.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-16 |
-| [unitReportFrom](full.go/unitReportFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-16 |
-| [badge_test.go](badge_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-16 |
-| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
-| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
+| [FormatUnitPopulation](card.go/FormatUnitPopulation.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-17 |
+| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-17 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-17 |
+| [health_test.go](health_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-17 |
 
 ---
 

@@ -2,20 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (86.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [processQueue](certify_cmd.go/processQueue.md) | method | 🟢 B | 81.7% | certified | 2026-10-16 |
-| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-10-16 |
-| [detectRepoName](report_cmd.go/detectRepoName.md) | function | 🟢 B | 86.1% | certified | 2026-10-16 |
-| [bindArchitectFlags](architect_cmd.go/bindArchitectFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-16 |
-| [assessed](certify_cmd.go/assessed.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-16 |
-| [printQueueStatus](certify_cmd.go/printQueueStatus.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-16 |
-| [certifyContext](certify_cmd.go/certifyContext.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
+| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-10-17 |
+| [filterUnits](certify_cmd.go/filterUnits.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-17 |
 
 ---
 

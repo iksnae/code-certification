@@ -2,15 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [parseFile](go_adapter.go/parseFile.md) | method | 🟢 B+ | 87.8% | certified | 2026-10-16 |
-| [isTestFile](analysis_adapter.go/isTestFile.md) | method | 🟢 A | 93.3% | certified | 2026-10-16 |
+| [Scan](generic.go/Scan.md) | method | 🟢 B | 81.7% | certified | 2026-10-17 |
+| [matchAny](generic.go/matchAny.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-17 |
+| [AnalysisAdapter](analysis_adapter.go/AnalysisAdapter.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [indexEntry](index.go/indexEntry.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [TSAdapter](ts_adapter.go/TSAdapter.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [DetectedAdapters](detect.go/DetectedAdapters.md) | function | 🟢 A | 93.3% | certified | 2026-10-17 |
 
 ---
 

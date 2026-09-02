@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [record_test.go](record_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-16 |
-| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
-| [ExpiryWindow](expiry.go/ExpiryWindow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
+| [String](config.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-17 |
+| [String](unit.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-17 |
+| [AnalyzerConfig](config.go/AnalyzerConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
 
 ---
 

@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (91.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertifyDataLoader](dataLoader.ts/CertifyDataLoader.md) | class | 🟢 B | 80.0% | certified | 2026-10-16 |
-| [FullReport](types.ts/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
-| [IssueCard](types.ts/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
-| [hasGitSubmodules](dataLoader.ts/hasGitSubmodules.md) | method | 🟢 A- | 91.9% | certified | 2026-10-16 |
-| [startWatching](dataLoader.ts/startWatching.md) | method | 🟢 A- | 91.9% | certified | 2026-10-16 |
+| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-10-17 |
+| [loadConfig](dataLoader.ts/loadConfig.md) | method | 🟢 A- | 91.9% | certified | 2026-10-17 |
+| [loadIndex](dataLoader.ts/loadIndex.md) | method | 🟢 A- | 91.9% | certified | 2026-10-17 |
 
 ---
 

@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Tier](language_tiers.go/Tier.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
+| [Tier](language_tiers.go/Tier.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
 
 ---
 

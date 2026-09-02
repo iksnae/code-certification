@@ -2,19 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.6%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OllamaModels](providers.go/OllamaModels.md) | function | 🟢 B | 86.1% | certified | 2026-10-16 |
-| [Name](fallback.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-16 |
-| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-16 |
-| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
-| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-10-16 |
-| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-10-16 |
+| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-17 |
+| [Version](prompts.go/Version.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-17 |
+| [Content](types.go/Content.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-17 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-17 |
+| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [Provider](provider.go/Provider.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-10-17 |
+| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-10-17 |
+| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-10-17 |
+| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-10-17 |
 
 ---
 
