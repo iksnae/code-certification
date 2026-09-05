@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ConnectionTestResult](configWriter.ts/ConnectionTestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-19 |
+| [ConfigPanel](ConfigPanel.ts/ConfigPanel.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
 
 ---
 

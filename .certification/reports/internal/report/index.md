@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.9%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Analyzable](full.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-19 |
-| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-19 |
-| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-10-19 |
+| [PassRateKnown](health.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-20 |
+| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
+| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
+| [packagePageData](site.go/packagePageData.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
+| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A- | 92.2% | certified | 2026-10-20 |
 
 ---
 

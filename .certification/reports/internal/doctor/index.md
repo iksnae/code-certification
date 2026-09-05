@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Check](doctor.go/Check.md) | class | 🟢 B | 85.6% | certified | 2026-10-19 |
+| [CheckStatus](doctor.go/CheckStatus.md) | class | 🟢 B | 85.6% | certified | 2026-10-20 |
 
 ---
 
