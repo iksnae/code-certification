@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.5%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IndexEntry](types.ts/IndexEntry.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [loadConfig](dataLoader.ts/loadConfig.md) | method | 🟢 A- | 91.9% | certified | 2026-10-20 |
-| [detectLanguageName](dataLoader.ts/detectLanguageName.md) | function | 🟢 A- | 92.5% | certified | 2026-10-20 |
+| [execFileAsync](certifyBinary.ts/execFileAsync.md) | function | 🟢 B+ | 88.1% | certified | 2026-10-21 |
+| [BRAND_COLORS](constants.ts/BRAND_COLORS.md) | function | 🟢 A- | 90.0% | certified | 2026-10-21 |
+| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
+| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-10-21 |
 
 ---
 

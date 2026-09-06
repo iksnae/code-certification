@@ -2,14 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-10-20 |
+| [runWorkspaceCertify](certify_cmd.go/runWorkspaceCertify.md) | function | 🟢 B | 83.3% | certified | 2026-10-21 |
+| [runModels](models_cmd.go/runModels.md) | function | 🟢 B | 83.3% | certified | 2026-10-21 |
+| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-10-21 |
+| [flagBool](root.go/flagBool.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-21 |
+| [add](certify_cmd.go/add.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-21 |
+| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-21 |
+| [runParams](certify_cmd.go/runParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
 
 ---
 

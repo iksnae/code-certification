@@ -2,22 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.5%)  
+**Grade:** 🟢 B (86.2%)  
 **Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewLSPAnalyzer](lsp_analyzer.go/NewLSPAnalyzer.md) | function | 🟡 C | 78.3% | certified_with_observations | 2026-10-20 |
-| [FanOut](lsp_analyzer.go/FanOut.md) | method | 🟢 B | 82.2% | certified | 2026-10-20 |
-| [Shutdown](lsp_analyzer.go/Shutdown.md) | method | 🟢 B | 82.2% | certified | 2026-10-20 |
-| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-10-20 |
-| [PythonAnalyzer](python_analyzer.go/PythonAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-10-20 |
-| [goCheckContextNotFirst](go_analyzer.go/goCheckContextNotFirst.md) | function | 🟢 B | 86.1% | certified | 2026-10-20 |
-| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-10-20 |
-| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-10-20 |
-| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-10-20 |
+| [goCognitiveStmt](go_analyzer.go/goCognitiveStmt.md) | function | 🟢 B | 82.2% | certified | 2026-10-21 |
+| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-21 |
+| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-21 |
+| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-10-21 |
+| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-10-21 |
+| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-10-21 |
+| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-21 |
+| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-10-21 |
+| [Symbol](analyzer.go/Symbol.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
 
 ---
 

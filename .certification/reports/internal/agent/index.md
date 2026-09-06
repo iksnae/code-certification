@@ -2,22 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 A- (92.5%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-10-20 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-20 |
-| [ArchPhase1Result](architect_review.go/ArchPhase1Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [DeepAnalysisAggregates](architect_snapshot.go/DeepAnalysisAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-10-20 |
-| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-10-20 |
-| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2026-10-20 |
-| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-10-20 |
+| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
+| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
+| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-10-21 |
 
 ---
 

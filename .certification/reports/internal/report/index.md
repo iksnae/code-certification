@@ -2,18 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PassRateKnown](health.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-20 |
-| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [packagePageData](site.go/packagePageData.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A- | 92.2% | certified | 2026-10-20 |
+| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-21 |
+| [unitReportFrom](full.go/unitReportFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-21 |
+| [writeUnitDetails](full.go/writeUnitDetails.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-21 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-21 |
+| [packageStats](report_tree.go/packageStats.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
+| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
 
 ---
 

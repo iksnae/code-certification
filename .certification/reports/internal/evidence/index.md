@@ -2,19 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParsePytestShort](tools.go/ParsePytestShort.md) | function | 🟢 B | 80.0% | certified | 2026-10-20 |
-| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-10-20 |
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2026-10-20 |
-| [TestResult](lint.go/TestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-20 |
-| [hasStringLit](structural.go/hasStringLit.md) | function | 🟢 A | 93.3% | certified | 2026-10-20 |
+| [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
+| [walkStmt](structural.go/walkStmt.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
 
 ---
 
