@@ -2,20 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceCertify](certify_cmd.go/runWorkspaceCertify.md) | function | 🟢 B | 83.3% | certified | 2026-10-21 |
-| [runModels](models_cmd.go/runModels.md) | function | 🟢 B | 83.3% | certified | 2026-10-21 |
-| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-10-21 |
-| [flagBool](root.go/flagBool.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-21 |
-| [add](certify_cmd.go/add.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-21 |
-| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-21 |
-| [runParams](certify_cmd.go/runParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
+| [flagInt](root.go/flagInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-22 |
+| [add](certify_cmd.go/add.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-22 |
+| [gradeEmoji](certify_cmd.go/gradeEmoji.md) | function | 🟢 B+ | 90.0% | certified | 2026-10-22 |
+| [printQueueStatus](certify_cmd.go/printQueueStatus.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-22 |
 
 ---
 

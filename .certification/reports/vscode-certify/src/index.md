@@ -2,17 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (85.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [execFileAsync](certifyBinary.ts/execFileAsync.md) | function | 🟢 B+ | 88.1% | certified | 2026-10-21 |
-| [BRAND_COLORS](constants.ts/BRAND_COLORS.md) | function | 🟢 A- | 90.0% | certified | 2026-10-21 |
-| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
-| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-10-21 |
+| [CertifyDataLoader](dataLoader.ts/CertifyDataLoader.md) | class | 🟢 B | 80.0% | certified | 2026-10-22 |
+| [PROVIDER_PRESETS](constants.ts/PROVIDER_PRESETS.md) | function | 🟢 A- | 90.0% | certified | 2026-10-22 |
 
 ---
 

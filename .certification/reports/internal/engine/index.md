@@ -2,14 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (86.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [resolveGoPackagePath](certifier.go/resolveGoPackagePath.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-21 |
+| [CertifyUnit](pipeline.go/CertifyUnit.md) | function | 🟢 B | 82.8% | certified | 2026-10-22 |
+| [Certifier](certifier.go/Certifier.md) | class | 🟢 B | 86.2% | certified | 2026-10-22 |
+| [runAgentReview](certifier.go/runAgentReview.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-22 |
 
 ---
 

@@ -2,17 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ModelInfo](models.go/ModelInfo.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
-| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
-| [NewCircuitBreaker](circuit.go/NewCircuitBreaker.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
-| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-10-21 |
+| [listOpenAIModels](models.go/listOpenAIModels.md) | function | 🟢 B | 81.1% | certified | 2026-10-22 |
+| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-10-22 |
+| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-22 |
+| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-22 |
+| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-22 |
+| [NewFallbackProvider](fallback.go/NewFallbackProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-22 |
+| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-22 |
+| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-22 |
+| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-22 |
 
 ---
 

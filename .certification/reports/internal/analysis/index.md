@@ -2,22 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.2%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (85.9%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goCognitiveStmt](go_analyzer.go/goCognitiveStmt.md) | function | 🟢 B | 82.2% | certified | 2026-10-21 |
-| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-21 |
-| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-21 |
-| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-10-21 |
-| [tsChildByType](ts_analyzer.go/tsChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-10-21 |
-| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-10-21 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-21 |
-| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-10-21 |
-| [Symbol](analyzer.go/Symbol.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
+| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-10-22 |
+| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 82.5% | certified | 2026-10-22 |
+| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-22 |
+| [goWalkBlock](go_analyzer.go/goWalkBlock.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-22 |
+| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
 
 ---
 

@@ -2,14 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.3%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (92.2%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GenerateNightlyWorkflow](workflows.go/GenerateNightlyWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
+| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [FormatPRComment](pr.go/FormatPRComment.md) | function | 🟢 A | 93.3% | certified | 2026-10-22 |
+| [GenerateWeeklyWorkflow](workflows.go/GenerateWeeklyWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-10-22 |
 
 ---
 

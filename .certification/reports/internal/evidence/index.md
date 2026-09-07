@@ -2,15 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.7%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 A- | 90.0% | certified | 2026-10-21 |
-| [walkStmt](structural.go/walkStmt.md) | function | 🟢 A | 93.3% | certified | 2026-10-21 |
+| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-22 |
+| [runner_test.go](runner_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-22 |
+| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-22 |
 
 ---
 
