@@ -2,18 +2,59 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.9%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (87.8%)  
+**Units:** 46 · **Passing:** 46 / 46
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [readMessage](client.go/readMessage.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-10-22 |
+| [Request](client.go/Request.md) | method | 🟡 C | 79.4% | certified_with_observations | 2026-10-22 |
+| [DocumentSymbols](client.go/DocumentSymbols.md) | method | 🟢 B | 81.1% | certified | 2026-10-22 |
+| [Notify](client.go/Notify.md) | method | 🟢 B | 81.1% | certified | 2026-10-22 |
+| [Client](client.go/Client.md) | class | 🟢 B | 81.9% | certified | 2026-10-22 |
+| [Error](client.go/Error.md) | method | 🟢 B | 84.4% | certified | 2026-10-22 |
+| [SetTimeout](client.go/SetTimeout.md) | method | 🟢 B | 85.0% | certified | 2026-10-22 |
+| [Initialize](client.go/Initialize.md) | method | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [CallHierarchyIncoming](client.go/CallHierarchyIncoming.md) | method | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [References](client.go/References.md) | method | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [CallHierarchyPrepare](client.go/CallHierarchyPrepare.md) | method | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [Shutdown](client.go/Shutdown.md) | method | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [CallHierarchyOutgoing](client.go/CallHierarchyOutgoing.md) | method | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [writeMessage](client.go/writeMessage.md) | method | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [jsonRPCError](client.go/jsonRPCError.md) | class | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [jsonRPCMessage](client.go/jsonRPCMessage.md) | class | 🟢 B | 85.6% | certified | 2026-10-22 |
+| [readLoop](client.go/readLoop.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-22 |
+| [client_test.go](client_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-22 |
 | [DidOpen](client.go/DidOpen.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-22 |
+| [Start](client.go/Start.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-22 |
+| [CallHierarchyIncomingCallsParams](types.go/CallHierarchyIncomingCallsParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [InitializeParams](types.go/InitializeParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [CallHierarchyCapability](types.go/CallHierarchyCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [CallHierarchyItem](types.go/CallHierarchyItem.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [CallHierarchyOutgoingCall](types.go/CallHierarchyOutgoingCall.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [CallHierarchyOutgoingCallsParams](types.go/CallHierarchyOutgoingCallsParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [CallHierarchyPrepareParams](types.go/CallHierarchyPrepareParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
 | [ClientCapabilities](types.go/ClientCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [Diagnostic](types.go/Diagnostic.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [DidOpenTextDocumentParams](types.go/DidOpenTextDocumentParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
 | [DocumentSymbol](types.go/DocumentSymbol.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [DocumentSymbolCapability](types.go/DocumentSymbolCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [DocumentSymbolParams](types.go/DocumentSymbolParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [CallHierarchyIncomingCall](types.go/CallHierarchyIncomingCall.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
 | [InitializeResult](types.go/InitializeResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [Location](types.go/Location.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [Position](types.go/Position.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [Range](types.go/Range.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [ReferenceContext](types.go/ReferenceContext.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [ReferenceParams](types.go/ReferenceParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [ReferencesCapability](types.go/ReferencesCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [ServerCapabilities](types.go/ServerCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [TextDocumentClientCapabilities](types.go/TextDocumentClientCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
 | [TextDocumentIdentifier](types.go/TextDocumentIdentifier.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [TextDocumentItem](types.go/TextDocumentItem.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
+| [TextDocumentPositionParams](types.go/TextDocumentPositionParams.md) | class | 🟢 A- | 90.0% | certified | 2026-10-22 |
 
 ---
 
