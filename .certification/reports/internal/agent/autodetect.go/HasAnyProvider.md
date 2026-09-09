@@ -1,4 +1,4 @@
-# 🟢 `AutoDetectEnvVars`
+# 🟢 `HasAnyProvider`
 
 [← internal/agent](../index.md)
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/autodetect.go#AutoDetectEnvVars` |
+| **Unit ID** | `go://internal/agent/autodetect.go#HasAnyProvider` |
 | **Type** | function |
 | **Path** | `internal/agent/autodetect.go` |
 | **Language** | go |
-| **Symbol** | `AutoDetectEnvVars` |
+| **Symbol** | `HasAnyProvider` |
 
 ## Certification
 
@@ -96,16 +96,16 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+5 lines (4 code, 1 comment, 0 blank), 0 TODOs, complexity 1
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 3 |
+| `code_lines` | 4 |
 | `comment_lines` | 1 |
 | `complexity` | 1 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 5 |
 
 ### ✅ test (`coverage:unit`)
 
@@ -128,7 +128,7 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 1 |
-| `func_lines` | 1 |
+| `func_lines` | 2 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
@@ -149,15 +149,15 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=0 fan_out=1 dead=true depth=1 instab=0.20
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
 | `dep_depth` | 1 |
-| `fan_in` | 1 |
-| `fan_out` | 0 |
+| `fan_in` | 0 |
+| `fan_out` | 1 |
 | `instability` | 0.20 |
 | `interface_size` | 0 |
 | `is_dead_code` | 1 |

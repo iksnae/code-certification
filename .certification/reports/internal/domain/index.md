@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RemainingAt](expiry.go/RemainingAt.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-23 |
-| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-23 |
-| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-23 |
-| [UnitID](unit.go/UnitID.md) | class | 🟢 A- | 90.0% | certified | 2026-10-23 |
-| [ParseStatus](record.go/ParseStatus.md) | function | 🟢 A- | 92.2% | certified | 2026-10-23 |
-| [Symbol](unit.go/Symbol.md) | method | 🟢 A | 93.3% | certified | 2026-10-23 |
+| [record_test.go](record_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-24 |
+| [Dimension](dimension.go/Dimension.md) | class | 🟢 A- | 90.0% | certified | 2026-10-24 |
+| [Symbol](unit.go/Symbol.md) | method | 🟢 A | 93.3% | certified | 2026-10-24 |
 
 ---
 

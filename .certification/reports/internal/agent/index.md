@@ -2,28 +2,29 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 16 · **Passing:** 16 / 16
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-10-23 |
-| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 85.6% | certified | 2026-10-23 |
-| [stage_test.go](stage_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-10-23 |
-| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-23 |
-| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-23 |
-| [DefaultOllamaModels](providers.go/DefaultOllamaModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-23 |
-| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-23 |
-| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-23 |
-| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-23 |
-| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-23 |
-| [ArchPhase1Result](architect_review.go/ArchPhase1Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-23 |
-| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-10-23 |
-| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-10-23 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-10-23 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-10-23 |
+| [WorkspaceMetrics](workspace_snapshot.go/WorkspaceMetrics.md) | class | 🟢 B | 85.6% | certified | 2026-10-24 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-10-24 |
+| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
+| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
+| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
+| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-24 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
+| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-24 |
+| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-24 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-24 |
+| [runPhase](architect_review.go/runPhase.md) | method | 🟢 A- | 91.1% | certified | 2026-10-24 |
+| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
+| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-10-24 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
+| [NewOpenRouterProvider](openrouter.go/NewOpenRouterProvider.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
 
 ---
 

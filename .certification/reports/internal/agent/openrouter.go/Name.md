@@ -1,4 +1,4 @@
-# 🟢 `AutoDetectEnvVars`
+# 🟢 `Name`
 
 [← internal/agent](../index.md)
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/agent/autodetect.go#AutoDetectEnvVars` |
-| **Type** | function |
-| **Path** | `internal/agent/autodetect.go` |
+| **Unit ID** | `go://internal/agent/openrouter.go#Name` |
+| **Type** | method |
+| **Path** | `internal/agent/openrouter.go` |
 | **Language** | go |
-| **Symbol** | `AutoDetectEnvVars` |
+| **Symbol** | `Name` |
 
 ## Certification
 
@@ -109,11 +109,11 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 100%
+per-unit coverage: 84%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 1 |
+| `unit_test_coverage` | 0.84 |
 
 ### ✅ structural (`structural`)
 
@@ -149,14 +149,14 @@ structural: params=0 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=1 fan_out=0 dead=true depth=1 instab=0.20
+deep: fan_in=0 fan_out=0 dead=true depth=1 instab=0.20
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
 | `dep_depth` | 1 |
-| `fan_in` | 1 |
+| `fan_in` | 0 |
 | `fan_out` | 0 |
 | `instability` | 0.20 |
 | `interface_size` | 0 |
