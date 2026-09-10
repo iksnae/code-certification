@@ -2,29 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 16 · **Passing:** 16 / 16
+**Grade:** 🟢 A- (92.0%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceMetrics](workspace_snapshot.go/WorkspaceMetrics.md) | class | 🟢 B | 85.6% | certified | 2026-10-24 |
-| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-10-24 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-24 |
-| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-24 |
-| [prompts_test.go](prompts_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-24 |
-| [runPhase](architect_review.go/runPhase.md) | method | 🟢 A- | 91.1% | certified | 2026-10-24 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
-| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-10-24 |
-| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
-| [NewOpenRouterProvider](openrouter.go/NewOpenRouterProvider.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-25 |
+| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
+| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
+| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-10-25 |
+| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
+| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
+| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
+| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
+| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
 
 ---
 

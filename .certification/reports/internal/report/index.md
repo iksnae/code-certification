@@ -2,21 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [findExpiringSoon](detailed.go/findExpiringSoon.md) | function | 🟢 B | 86.1% | certified | 2026-10-24 |
-| [unitReportFrom](full.go/unitReportFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-24 |
-| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-24 |
-| [PassRateKnown](health.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [Analyzable](report_tree.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-24 |
-| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-24 |
-| [badgeGrade](badge.go/badgeGrade.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
-| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A | 93.3% | certified | 2026-10-24 |
+| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-25 |
+| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
+| [gradeRow](site.go/gradeRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-25 |
+| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-10-25 |
 
 ---
 
