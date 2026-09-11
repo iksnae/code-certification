@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
+**Grade:** 🟢 B (85.6%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 85.6% | certified | 2026-10-25 |
-| [isMutableVar](structural.go/isMutableVar.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-25 |
-| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-25 |
+| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-10-26 |
+| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 85.0% | certified | 2026-10-26 |
+| [computeLoopNesting](structural.go/computeLoopNesting.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-26 |
 
 ---
 

@@ -2,22 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.0%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-25 |
-| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
-| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-10-25 |
-| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
-| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
-| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-10-26 |
+| [NewReviewStage](stage.go/NewReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-26 |
+| [types_test.go](types_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-26 |
+| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-10-26 |
 
 ---
 

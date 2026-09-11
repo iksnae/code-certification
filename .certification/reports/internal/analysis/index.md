@@ -2,21 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.5%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Language](python_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-10-25 |
-| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-25 |
-| [pyDiscoverNode](python_analyzer.go/pyDiscoverNode.md) | function | 🟢 B | 84.4% | certified | 2026-10-25 |
-| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-10-25 |
-| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-10-25 |
-| [lsp_analyzer_test.go](lsp_analyzer_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-25 |
-| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-10-25 |
-| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-10-25 |
+| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-10-26 |
+| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-26 |
+| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-10-26 |
+| [goCountNakedReturns](go_analyzer.go/goCountNakedReturns.md) | function | 🟢 B | 86.1% | certified | 2026-10-26 |
+| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-10-26 |
+| [goIsConstLikeCall](go_analyzer.go/goIsConstLikeCall.md) | function | 🟢 B | 86.1% | certified | 2026-10-26 |
+| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-26 |
+| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-26 |
+| [ToEvidence](analyzer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-10-26 |
+| [DepDepth](go_deps.go/DepDepth.md) | method | 🟢 A | 93.3% | certified | 2026-10-26 |
+| [ParamAbstraction](go_deps.go/ParamAbstraction.md) | method | 🟢 A | 93.3% | certified | 2026-10-26 |
+| [depDepthRec](go_deps.go/depDepthRec.md) | method | 🟢 A | 93.3% | certified | 2026-10-26 |
 
 ---
 

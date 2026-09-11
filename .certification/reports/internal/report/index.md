@@ -2,18 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-25 |
-| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
-| [gradeRow](site.go/gradeRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-25 |
-| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-25 |
-| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-10-25 |
+| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-26 |
+| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-26 |
+| [ScoreKnown](card.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-26 |
+| [FormatBadgeJSON](badge.go/FormatBadgeJSON.md) | function | 🟢 A | 93.3% | certified | 2026-10-26 |
+| [unitAnchor](full.go/unitAnchor.md) | function | 🟢 A | 93.3% | certified | 2026-10-26 |
 
 ---
 
