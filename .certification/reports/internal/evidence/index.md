@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 85.6% | certified | 2026-10-27 |
-| [countDeferInLoop](structural.go/countDeferInLoop.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-27 |
-| [countGlobalMutables](structural.go/countGlobalMutables.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-27 |
-| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-27 |
+| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 85.6% | certified | 2026-10-28 |
+| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-28 |
+| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-28 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-10-28 |
+| [CoverageForFile](coverage.go/CoverageForFile.md) | function | 🟢 A | 93.3% | certified | 2026-10-28 |
+| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-10-28 |
 
 ---
 

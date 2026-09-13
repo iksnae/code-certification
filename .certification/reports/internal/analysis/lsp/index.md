@@ -2,15 +2,15 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (82.5%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Request](client.go/Request.md) | method | 🟡 C | 79.4% | certified_with_observations | 2026-10-27 |
-| [writeMessage](client.go/writeMessage.md) | method | 🟢 B | 85.6% | certified | 2026-10-27 |
+| [CallHierarchyItem](types.go/CallHierarchyItem.md) | class | 🟢 A- | 90.0% | certified | 2026-10-28 |
+| [TextDocumentClientCapabilities](types.go/TextDocumentClientCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2026-10-28 |
 
 ---
 

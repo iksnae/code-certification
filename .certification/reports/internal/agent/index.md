@@ -2,20 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.6%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-27 |
-| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-27 |
-| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-27 |
-| [ArchFinding](architect_review.go/ArchFinding.md) | class | 🟢 A- | 90.0% | certified | 2026-10-27 |
-| [modelPinnedProvider](fallback.go/modelPinnedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-10-27 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-10-27 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-10-27 |
+| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-28 |
+| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-28 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-28 |
+| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 A- | 90.0% | certified | 2026-10-28 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-10-28 |
+| [router_test.go](router_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-28 |
+| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-10-28 |
+| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-10-28 |
+| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-10-28 |
 
 ---
 

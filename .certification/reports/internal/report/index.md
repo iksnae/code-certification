@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.8%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-27 |
-| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-27 |
-| [packageStats](report_tree.go/packageStats.md) | class | 🟢 A- | 90.0% | certified | 2026-10-27 |
+| [FormatDetailedText](detailed.go/FormatDetailedText.md) | function | 🟢 B | 86.1% | certified | 2026-10-28 |
+| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-10-28 |
+| [Analyzable](full.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-28 |
+| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-10-28 |
 
 ---
 

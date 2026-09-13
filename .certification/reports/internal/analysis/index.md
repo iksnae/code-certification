@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (84.4%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-10-27 |
-| [NewGoAnalyzer](go_analyzer.go/NewGoAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-10-27 |
-| [rsComputeCognitive](rust_analyzer.go/rsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-10-27 |
-| [goCheckContextNotFirst](go_analyzer.go/goCheckContextNotFirst.md) | function | 🟢 B | 86.1% | certified | 2026-10-27 |
-| [goCountDeferInLoop](go_analyzer.go/goCountDeferInLoop.md) | function | 🟢 B | 86.1% | certified | 2026-10-27 |
-| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-10-27 |
+| [FanIn](lsp_analyzer.go/FanIn.md) | method | 🟢 B | 82.2% | certified | 2026-10-28 |
+| [tsWalkAll](ts_analyzer.go/tsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-10-28 |
+| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-10-28 |
 
 ---
 
