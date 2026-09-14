@@ -2,20 +2,165 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 152 · **Passing:** 152 / 152
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 80.0% | certified | 2026-10-29 |
 | [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-10-29 |
 | [writeTemplate](site.go/writeTemplate.md) | function | 🟢 B | 83.3% | certified | 2026-10-29 |
+| [FormatCardMarkdown](card.go/FormatCardMarkdown.md) | function | 🟢 B | 83.9% | certified | 2026-10-29 |
+| [writeArchPartI](architect_report.go/writeArchPartI.md) | function | 🟢 B | 84.4% | certified | 2026-10-29 |
+| [GenerateCard](card.go/GenerateCard.md) | function | 🟢 B | 85.0% | certified | 2026-10-29 |
+| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2026-10-29 |
+| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 85.6% | certified | 2026-10-29 |
+| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-10-29 |
+| [FormatDetailedText](detailed.go/FormatDetailedText.md) | function | 🟢 B | 86.1% | certified | 2026-10-29 |
+| [findExpiringSoon](detailed.go/findExpiringSoon.md) | function | 🟢 B | 86.1% | certified | 2026-10-29 |
+| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-10-29 |
+| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-10-29 |
+| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 86.7% | certified | 2026-10-29 |
+| [FormatRate](card.go/FormatRate.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchExecutiveSummary](architect_report.go/writeArchExecutiveSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [unitReportFrom](full.go/unitReportFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchAppendix](architect_report.go/writeArchAppendix.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchPackageMap](architect_report.go/writeArchPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeHeader](full.go/writeHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [FormatArchitectReport](architect_report.go/FormatArchitectReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchCoupling](architect_report.go/writeArchCoupling.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchDependencyGraph](architect_report.go/writeArchDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchHeader](architect_report.go/writeArchHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [explainStatus](detailed.go/explainStatus.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchRiskMatrix](architect_report.go/writeArchRiskMatrix.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeUnitDetails](full.go/writeUnitDetails.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-29 |
+| [site_templates.go](site_templates.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-10-29 |
+| [unassessed_grade_test.go](unassessed_grade_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-10-29 |
 | [site_test.go](site_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-10-29 |
 | [ScoreKnown](full.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [ScoreKnown](card.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [FormatUnitPopulation](card.go/FormatUnitPopulation.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [GenerateReportTree](report_tree.go/GenerateReportTree.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [ScoreKnown](site.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [ScoreKnown](site_search.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [Analyzable](full.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [PassRateKnown](health.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [PassRateKnown](report_tree.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [Analyzable](report_tree.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-29 |
+| [report_tree_test.go](report_tree_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [full_test.go](full_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [mixed_unassessed_test.go](mixed_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [mixed_denominator_test.go](mixed_denominator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [detailed_test.go](detailed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [full_unassessed_test.go](full_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [cleanDir](report_tree.go/cleanDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2026-10-29 |
+| [issueRow](site.go/issueRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [packageUnitRow](site.go/packageUnitRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [UnitReport](full.go/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [stored_records_test.go](stored_records_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [unitPageData](site.go/unitPageData.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [pkgRow](site.go/pkgRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [health_test.go](health_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [packagePageData](site.go/packagePageData.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [FullReport](full.go/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [partition_test.go](partition_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [recurrent_areas_test.go](recurrent_areas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [navLink](site.go/navLink.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [AreaSummary](detailed.go/AreaSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [LanguageDetail](full.go/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [gradeRow](site.go/gradeRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [badge_test.go](badge_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [dimRow](site.go/dimRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
 | [SiteConfig](site.go/SiteConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [IssueCard](card.go/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [packageStats](report_tree.go/packageStats.md) | class | 🟢 A- | 90.0% | certified | 2026-10-29 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A- | 90.6% | certified | 2026-10-29 |
+| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-10-29 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-10-29 |
+| [buildUnitPageData](site.go/buildUnitPageData.md) | function | 🟢 A- | 92.2% | certified | 2026-10-29 |
 | [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A- | 92.2% | certified | 2026-10-29 |
+| [buildUnitNavMaps](site.go/buildUnitNavMaps.md) | function | 🟢 A- | 92.8% | certified | 2026-10-29 |
+| [unitAnchor](full.go/unitAnchor.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [dirOf](full.go/dirOf.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [formatUnitMarkdownWithNav](report_tree.go/formatUnitMarkdownWithNav.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [partitionByLanguage](card.go/partitionByLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [unitTreePath](report_tree.go/unitTreePath.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [badgeMessage](badge.go/badgeMessage.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [generateUnitPages](site.go/generateUnitPages.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [measured](report_tree.go/measured.md) | method | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [formatPassRate](card.go/formatPassRate.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
 | [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [badgeGrade](badge.go/badgeGrade.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [FormatBadgeJSON](badge.go/FormatBadgeJSON.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [BadgeMarkdown](badge.go/BadgeMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [computeDimensionAverages](detailed.go/computeDimensionAverages.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [passRate](report_tree.go/passRate.md) | method | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [computeLanguageBreakdowns](detailed.go/computeLanguageBreakdowns.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
+| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-10-29 |
 
 ---
 
