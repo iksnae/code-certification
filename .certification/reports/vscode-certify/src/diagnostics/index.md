@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [constructor](CertifyDiagnostics.ts/constructor.md) | method | 🟢 A | 93.1% | certified | 2026-10-28 |
+| [refresh](CertifyDiagnostics.ts/refresh.md) | method | 🟢 A | 93.1% | certified | 2026-10-29 |
 
 ---
 
