@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.3%)  
+**Grade:** 🟢 B (86.7%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runArchitect](architect_cmd.go/runArchitect.md) | function | 🟢 B | 80.6% | certified | 2026-10-30 |
-| [printQueueStatus](certify_cmd.go/printQueueStatus.md) | method | 🟢 B+ | 90.0% | certified | 2026-10-30 |
+| [runSubcommand](workspace_dispatch.go/runSubcommand.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
+| [flagString](root.go/flagString.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-31 |
 
 ---
 

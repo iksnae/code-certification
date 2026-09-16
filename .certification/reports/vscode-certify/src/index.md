@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.9%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (91.9%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IndexEntry](types.ts/IndexEntry.md) | class | 🟢 A- | 90.0% | certified | 2026-10-30 |
-| [hasCertification](dataLoader.ts/hasCertification.md) | method | 🟢 A- | 91.9% | certified | 2026-10-30 |
+| [hasGitSubmodules](dataLoader.ts/hasGitSubmodules.md) | method | 🟢 A- | 91.9% | certified | 2026-10-31 |
 
 ---
 

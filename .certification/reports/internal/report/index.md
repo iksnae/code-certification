@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-30 |
-| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-30 |
-| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-30 |
-| [Analyzable](full.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-30 |
-| [mixed_denominator_test.go](mixed_denominator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-10-30 |
-| [UnitReport](full.go/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-10-30 |
+| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 80.0% | certified | 2026-10-31 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-31 |
+| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-31 |
+| [packageUnitRow](site.go/packageUnitRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-31 |
+| [unitTreePath](report_tree.go/unitTreePath.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
 
 ---
 

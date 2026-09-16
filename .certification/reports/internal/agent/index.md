@@ -2,19 +2,29 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 16 · **Passing:** 16 / 16
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-10-30 |
-| [NewReviewStage](stage.go/NewReviewStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-30 |
-| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-30 |
-| [TaskType](types.go/TaskType.md) | class | 🟢 A- | 90.0% | certified | 2026-10-30 |
-| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-10-30 |
-| [ToPrescreenEvidence](reviewer.go/ToPrescreenEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-10-30 |
+| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-10-31 |
+| [formatCodeMetrics](architect.go/formatCodeMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-31 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-10-31 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-31 |
+| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-31 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-31 |
+| [Strategy](pipeline.go/Strategy.md) | class | 🟢 A- | 90.0% | certified | 2026-10-31 |
+| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-10-31 |
+| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-10-31 |
+| [runPhase](architect_review.go/runPhase.md) | method | 🟢 A- | 91.1% | certified | 2026-10-31 |
+| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [DetectAPIKey](autodetect.go/DetectAPIKey.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
 
 ---
 

@@ -2,22 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (86.3%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-10-30 |
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-10-30 |
-| [NewRustAnalyzer](rust_analyzer.go/NewRustAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-10-30 |
-| [goCheckContextNotFirst](go_analyzer.go/goCheckContextNotFirst.md) | function | 🟢 B | 86.1% | certified | 2026-10-30 |
-| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 86.1% | certified | 2026-10-30 |
-| [Languages](analyzer.go/Languages.md) | function | 🟢 B+ | 88.9% | certified | 2026-10-30 |
-| [DeepResult](go_deep.go/DeepResult.md) | class | 🟢 A- | 90.0% | certified | 2026-10-30 |
-| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-10-30 |
-| [buildPkgMap](go_deps.go/buildPkgMap.md) | method | 🟢 A | 93.3% | certified | 2026-10-30 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-10-31 |
+| [Language](python_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-10-31 |
+| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-31 |
+| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-10-31 |
+| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
+| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
+| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
+| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
+| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [ParamAbstraction](go_deps.go/ParamAbstraction.md) | method | 🟢 A | 93.3% | certified | 2026-10-31 |
 
 ---
 
