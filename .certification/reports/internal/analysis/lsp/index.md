@@ -2,14 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (81.9%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Client](client.go/Client.md) | class | 🟢 B | 81.9% | certified | 2026-10-31 |
+| [DocumentSymbol](types.go/DocumentSymbol.md) | class | 🟢 A- | 90.0% | certified | 2026-11-01 |
 
 ---
 

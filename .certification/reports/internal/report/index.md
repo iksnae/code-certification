@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.7%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 80.0% | certified | 2026-10-31 |
-| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-10-31 |
-| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-10-31 |
-| [packageUnitRow](site.go/packageUnitRow.md) | class | 🟢 A- | 90.0% | certified | 2026-10-31 |
-| [unitTreePath](report_tree.go/unitTreePath.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [Analyzable](report_tree.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-01 |
+| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2026-11-01 |
+| [computeLanguageBreakdowns](detailed.go/computeLanguageBreakdowns.md) | function | 🟢 A | 93.3% | certified | 2026-11-01 |
 
 ---
 

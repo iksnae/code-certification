@@ -2,15 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParsePytestJUnitXML](tools.go/ParsePytestJUnitXML.md) | function | 🟢 B | 85.0% | certified | 2026-10-31 |
-| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-11-01 |
+| [pytestJUnitSuites](tools.go/pytestJUnitSuites.md) | class | 🟢 B | 85.6% | certified | 2026-11-01 |
+| [runGoTestAt](executor.go/runGoTestAt.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-01 |
+| [runner_test.go](runner_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-01 |
+| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-01 |
+| [git_test.go](git_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-01 |
+| [walkBlock](structural.go/walkBlock.md) | function | 🟢 A | 93.3% | certified | 2026-11-01 |
 
 ---
 

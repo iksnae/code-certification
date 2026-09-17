@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 A (93.3%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [store_unsupported_test.go](store_unsupported_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-10-31 |
+| [Save](store.go/Save.md) | method | 🟢 A | 93.3% | certified | 2026-11-01 |
 
 ---
 

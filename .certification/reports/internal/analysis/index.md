@@ -2,24 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.3%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-10-31 |
-| [Language](python_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-10-31 |
-| [init](python_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-10-31 |
-| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-10-31 |
-| [goComputeLoopNesting](go_analyzer.go/goComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
-| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
-| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
-| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
-| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-10-31 |
-| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-10-31 |
-| [ParamAbstraction](go_deps.go/ParamAbstraction.md) | method | 🟢 A | 93.3% | certified | 2026-10-31 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-11-01 |
+| [NewRustAnalyzer](rust_analyzer.go/NewRustAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-11-01 |
+| [tsAnalyzeNode](ts_analyzer.go/tsAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-11-01 |
+| [goCountDeferInLoop](go_analyzer.go/goCountDeferInLoop.md) | function | 🟢 B | 86.1% | certified | 2026-11-01 |
+| [classifyAlgo](go_analyzer.go/classifyAlgo.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-01 |
+| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 A- | 90.0% | certified | 2026-11-01 |
+| [depDepthRec](go_deps.go/depDepthRec.md) | method | 🟢 A | 93.3% | certified | 2026-11-01 |
 
 ---
 

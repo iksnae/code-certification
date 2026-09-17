@@ -3,13 +3,14 @@
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A (93.1%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [dispose](CertifyDiagnostics.ts/dispose.md) | method | 🟢 A | 93.1% | certified | 2026-10-31 |
+| [dispose](CertifyDiagnostics.ts/dispose.md) | method | 🟢 A | 93.1% | certified | 2026-11-01 |
+| [updateDocument](CertifyDiagnostics.ts/updateDocument.md) | method | 🟢 A | 93.1% | certified | 2026-11-01 |
 
 ---
 
