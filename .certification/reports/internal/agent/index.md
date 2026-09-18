@@ -2,28 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.5%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-11-01 |
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-11-01 |
-| [runPrescreen](reviewer.go/runPrescreen.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-01 |
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-11-01 |
-| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-01 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-01 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-01 |
-| [Name](circuit.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-01 |
-| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 A- | 90.0% | certified | 2026-11-01 |
-| [Stage](stage.go/Stage.md) | class | 🟢 A- | 90.0% | certified | 2026-11-01 |
-| [Choice](types.go/Choice.md) | class | 🟢 A- | 90.0% | certified | 2026-11-01 |
-| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-11-01 |
-| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-11-01 |
-| [isRetryable](openrouter.go/isRetryable.md) | function | 🟢 A | 93.3% | certified | 2026-11-01 |
-| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-11-01 |
+| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-11-02 |
+| [formatDeepAnalysisMetrics](architect.go/formatDeepAnalysisMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-02 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-02 |
+| [Content](types.go/Content.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-02 |
+| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-02 |
+| [runWorkspacePhase](architect_review.go/runWorkspacePhase.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-02 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-11-02 |
+| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-02 |
+| [Stage](stage.go/Stage.md) | class | 🟢 A- | 90.0% | certified | 2026-11-02 |
+| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 A- | 90.0% | certified | 2026-11-02 |
+| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-11-02 |
+| [Stats](pipeline.go/Stats.md) | method | 🟢 A | 93.3% | certified | 2026-11-02 |
+| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-11-02 |
+| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-11-02 |
 
 ---
 
