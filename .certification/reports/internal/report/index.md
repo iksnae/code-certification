@@ -2,17 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-02 |
-| [explainStatus](detailed.go/explainStatus.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-02 |
-| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-11-02 |
-| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-11-02 |
+| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-11-03 |
 
 ---
 
