@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [refresh](CertificationTreeProvider.ts/refresh.md) | method | 🟢 A- | 92.5% | certified | 2026-11-03 |
+| [getChildren](CertificationTreeProvider.ts/getChildren.md) | method | 🟢 A- | 92.5% | certified | 2026-11-04 |
 
 ---
 
