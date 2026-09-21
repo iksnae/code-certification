@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
+**Grade:** 🟢 A- (90.3%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatArchitectReport](architect_report.go/FormatArchitectReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-04 |
-| [writeArchCoupling](architect_report.go/writeArchCoupling.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-04 |
-| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-04 |
-| [PassRateKnown](report_tree.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-04 |
+| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-05 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-05 |
+| [recurrent_areas_test.go](recurrent_areas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-05 |
+| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-11-05 |
 
 ---
 

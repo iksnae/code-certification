@@ -2,24 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_test.go](architect_test.go.md) | file | 🟢 B | 83.7% | certified | 2026-11-04 |
-| [BuildWorkspaceSnapshot](workspace_snapshot.go/BuildWorkspaceSnapshot.md) | function | 🟢 B | 83.9% | certified | 2026-11-04 |
-| [ArchitectPhasePrompts](architect_prompts.go/ArchitectPhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-04 |
-| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-04 |
-| [ArchFinding](architect_review.go/ArchFinding.md) | class | 🟢 A- | 90.0% | certified | 2026-11-04 |
-| [DeepAnalysisAggregates](architect_snapshot.go/DeepAnalysisAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-11-04 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-11-04 |
-| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2026-11-04 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-11-04 |
-| [joinModels](reviewer.go/joinModels.md) | function | 🟢 A | 93.3% | certified | 2026-11-04 |
-| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-11-04 |
+| [analyzeDependencies](architect_snapshot.go/analyzeDependencies.md) | method | 🟢 B | 86.1% | certified | 2026-11-05 |
+| [DefaultGroqModels](providers.go/DefaultGroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-05 |
+| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-05 |
+| [models_test.go](models_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-05 |
+| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-11-05 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-11-05 |
+| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-11-05 |
 
 ---
 
