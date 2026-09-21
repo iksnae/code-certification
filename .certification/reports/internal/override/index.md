@@ -2,14 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [Apply](applier.go/Apply.md) | function | 🟢 B | 82.8% | certified | 2026-11-05 |
 | [ApplyAll](applier.go/ApplyAll.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-05 |
+| [LoadFile](loader.go/LoadFile.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-05 |
+| [applier_test.go](applier_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-05 |
+| [rawOverride](loader.go/rawOverride.md) | class | 🟢 A- | 90.0% | certified | 2026-11-05 |
+| [rawOverrideFile](loader.go/rawOverrideFile.md) | class | 🟢 A- | 90.0% | certified | 2026-11-05 |
+| [loader_test.go](loader_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-05 |
+| [parseAction](loader.go/parseAction.md) | function | 🟢 A- | 92.2% | certified | 2026-11-05 |
+| [LoadDir](loader.go/LoadDir.md) | function | 🟢 A- | 92.2% | certified | 2026-11-05 |
 
 ---
 
