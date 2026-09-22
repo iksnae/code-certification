@@ -2,30 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
-**Units:** 17 · **Passing:** 17 / 17
+**Grade:** 🟢 A- (91.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ruleAppliesToPath](evaluator.go/ruleAppliesToPath.md) | function | 🟢 B | 81.7% | certified | 2026-11-05 |
-| [extractTodoCount](evaluator.go/extractTodoCount.md) | function | 🟢 B | 86.7% | certified | 2026-11-05 |
-| [evaluateRule](evaluator.go/evaluateRule.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-05 |
-| [extractComplexity](evaluator.go/extractComplexity.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-05 |
-| [extractCoverage](evaluator.go/extractCoverage.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-05 |
-| [extractMetric](evaluator.go/extractMetric.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-05 |
-| [evaluator_test.go](evaluator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-05 |
-| [EvaluationResult](evaluator.go/EvaluationResult.md) | class | 🟢 A- | 90.0% | certified | 2026-11-05 |
-| [Matcher](matcher.go/Matcher.md) | class | 🟢 A- | 90.0% | certified | 2026-11-05 |
-| [matcher_test.go](matcher_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-05 |
-| [matchPath](matcher.go/matchPath.md) | function | 🟢 A- | 92.8% | certified | 2026-11-05 |
-| [Evaluate](evaluator.go/Evaluate.md) | function | 🟢 A | 93.3% | certified | 2026-11-05 |
-| [Match](matcher.go/Match.md) | method | 🟢 A | 93.3% | certified | 2026-11-05 |
-| [NewMatcher](matcher.go/NewMatcher.md) | function | 🟢 A | 93.3% | certified | 2026-11-05 |
-| [Packs](matcher.go/Packs.md) | method | 🟢 A | 93.3% | certified | 2026-11-05 |
-| [globMatch](matcher.go/globMatch.md) | function | 🟢 A | 93.3% | certified | 2026-11-05 |
-| [matchesPack](matcher.go/matchesPack.md) | method | 🟢 A | 93.3% | certified | 2026-11-05 |
+| [evaluator_test.go](evaluator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-06 |
+| [globMatch](matcher.go/globMatch.md) | function | 🟢 A | 93.3% | certified | 2026-11-06 |
 
 ---
 
