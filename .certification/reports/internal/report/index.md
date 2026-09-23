@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchDependencyGraph](architect_report.go/writeArchDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-06 |
-| [writeUnitDetails](full.go/writeUnitDetails.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-06 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A- | 90.6% | certified | 2026-11-06 |
-| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-11-06 |
-| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-11-06 |
+| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-11-07 |
+| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-07 |
+| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
+| [dimRow](site.go/dimRow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
+| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-11-07 |
+| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-11-07 |
 
 ---
 
