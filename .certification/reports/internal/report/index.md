@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-11-07 |
-| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-07 |
-| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
-| [dimRow](site.go/dimRow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
-| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-11-07 |
-| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-11-07 |
+| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
+| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-08 |
+| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A- | 92.2% | certified | 2026-11-08 |
+| [BadgeMarkdown](badge.go/BadgeMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-11-08 |
 
 ---
 

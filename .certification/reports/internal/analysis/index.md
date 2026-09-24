@@ -2,26 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B (85.6%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-11-07 |
-| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-11-07 |
-| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-11-07 |
-| [tsCountRecursive](ts_analyzer.go/tsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-11-07 |
-| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-11-07 |
-| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-11-07 |
-| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-11-07 |
-| [rsChildByType](rust_analyzer.go/rsChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-11-07 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-07 |
-| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-07 |
-| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-07 |
-| [AnalyzeFile](ts_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-07 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-11-07 |
+| [rsFindSymbol](rust_analyzer.go/rsFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-11-08 |
+| [PythonAnalyzer](python_analyzer.go/PythonAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-11-08 |
+| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-11-08 |
+| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-11-08 |
+| [tsComputeLoopNesting](ts_analyzer.go/tsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-08 |
+| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-11-08 |
+| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-08 |
+| [goWalkLoops](go_analyzer.go/goWalkLoops.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-08 |
+| [AnalyzeFile](python_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-08 |
 
 ---
 

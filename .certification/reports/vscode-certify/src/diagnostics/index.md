@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [EXPIRY_WARNING_DAYS](CertifyDiagnostics.ts/EXPIRY_WARNING_DAYS.md) | function | 🟢 A | 93.1% | certified | 2026-11-07 |
+| [EXPIRY_WARNING_DAYS](CertifyDiagnostics.ts/EXPIRY_WARNING_DAYS.md) | function | 🟢 A | 93.1% | certified | 2026-11-08 |
 
 ---
 

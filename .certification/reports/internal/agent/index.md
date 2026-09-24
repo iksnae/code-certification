@@ -2,25 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 85.6% | certified | 2026-11-07 |
-| [WorkspaceProjectContext](workspace_snapshot.go/WorkspaceProjectContext.md) | class | 🟢 B | 85.6% | certified | 2026-11-07 |
-| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-07 |
-| [NewFallbackProvider](fallback.go/NewFallbackProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-07 |
-| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-07 |
-| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-07 |
-| [ArchCoverageGap](architect_review.go/ArchCoverageGap.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
-| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
-| [Strategy](pipeline.go/Strategy.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
-| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
-| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-11-07 |
+| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-11-08 |
+| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
+| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
+| [types_test.go](types_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-08 |
+| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-11-08 |
+| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-08 |
+| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 A- | 90.0% | certified | 2026-11-08 |
+| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 A- | 90.0% | certified | 2026-11-08 |
+| [Stage](stage.go/Stage.md) | class | 🟢 A- | 90.0% | certified | 2026-11-08 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-08 |
+| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-11-08 |
 
 ---
 

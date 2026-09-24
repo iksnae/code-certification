@@ -2,15 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (87.8%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-11-07 |
-| [LintFinding](lint.go/LintFinding.md) | class | 🟢 A- | 90.0% | certified | 2026-11-07 |
+| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-11-08 |
+| [computeLoopNesting](structural.go/computeLoopNesting.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
+| [countCallExpr](structural.go/countCallExpr.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
+| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-08 |
+| [coverage_test.go](coverage_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-08 |
+| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-11-08 |
 
 ---
 
