@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.8%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-11-08 |
-| [computeLoopNesting](structural.go/computeLoopNesting.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
-| [countCallExpr](structural.go/countCallExpr.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
-| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-08 |
-| [coverage_test.go](coverage_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-08 |
-| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-11-08 |
+| [metrics_test.go](metrics_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-09 |
+| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-09 |
+| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-09 |
+| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-11-09 |
 
 ---
 

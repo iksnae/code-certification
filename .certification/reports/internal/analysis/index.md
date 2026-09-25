@@ -2,22 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B (86.4%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsFindSymbol](rust_analyzer.go/rsFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-11-08 |
-| [PythonAnalyzer](python_analyzer.go/PythonAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-11-08 |
-| [RustAnalyzer](rust_analyzer.go/RustAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-11-08 |
-| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-11-08 |
-| [tsComputeLoopNesting](ts_analyzer.go/tsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-08 |
-| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-11-08 |
-| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-08 |
-| [goWalkLoops](go_analyzer.go/goWalkLoops.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-08 |
-| [AnalyzeFile](python_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-08 |
+| [tsDiscoverNode](ts_analyzer.go/tsDiscoverNode.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-11-09 |
+| [pyDiscoverNode](python_analyzer.go/pyDiscoverNode.md) | function | 🟢 B | 84.4% | certified | 2026-11-09 |
+| [NewTSAnalyzer](ts_analyzer.go/NewTSAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-11-09 |
+| [pyChildByType](python_analyzer.go/pyChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-11-09 |
+| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-09 |
+| [tsNodeName](ts_analyzer.go/tsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-11-09 |
+| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-11-09 |
+| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-09 |
+| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-09 |
+| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-09 |
+| [go_deps_test.go](go_deps_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-09 |
 
 ---
 

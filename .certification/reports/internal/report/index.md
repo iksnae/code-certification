@@ -2,17 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-08 |
-| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-08 |
-| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A- | 92.2% | certified | 2026-11-08 |
-| [BadgeMarkdown](badge.go/BadgeMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-11-08 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-09 |
+| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-09 |
+| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-09 |
+| [formatReportTreeIndex](report_tree.go/formatReportTreeIndex.md) | function | 🟢 A- | 92.2% | certified | 2026-11-09 |
+| [scoreBar](unit_report.go/scoreBar.md) | function | 🟢 A | 93.3% | certified | 2026-11-09 |
 
 ---
 

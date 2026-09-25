@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
+**Grade:** 🟢 A- (90.0%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pr_legacy_test.go](pr_legacy_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-08 |
+| [workflows_test.go](workflows_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-09 |
 
 ---
 
