@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.5%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [metrics_test.go](metrics_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-09 |
-| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-09 |
-| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-09 |
-| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-11-09 |
+| [analyzeAlgoComplexity](structural.go/analyzeAlgoComplexity.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-10 |
+| [isMutableVar](structural.go/isMutableVar.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-10 |
+| [runGoTestAt](executor.go/runGoTestAt.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-10 |
+| [ToEvidence](git.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-10 |
+| [coverage_test.go](coverage_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-10 |
+| [classifyAlgoComplexity](structural.go/classifyAlgoComplexity.md) | function | 🟢 A | 93.3% | certified | 2026-11-10 |
 
 ---
 

@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [workflows_test.go](workflows_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-09 |
+| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-10 |
 
 ---
 

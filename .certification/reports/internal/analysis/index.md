@@ -2,24 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.4%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B (85.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsDiscoverNode](ts_analyzer.go/tsDiscoverNode.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-11-09 |
-| [pyDiscoverNode](python_analyzer.go/pyDiscoverNode.md) | function | 🟢 B | 84.4% | certified | 2026-11-09 |
-| [NewTSAnalyzer](ts_analyzer.go/NewTSAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-11-09 |
-| [pyChildByType](python_analyzer.go/pyChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-11-09 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-09 |
-| [tsNodeName](ts_analyzer.go/tsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-11-09 |
-| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-11-09 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-09 |
-| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-09 |
-| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-09 |
-| [go_deps_test.go](go_deps_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-09 |
+| [pyFindSymbol](python_analyzer.go/pyFindSymbol.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-11-10 |
+| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-11-10 |
+| [pyDiscoverNode](python_analyzer.go/pyDiscoverNode.md) | function | 🟢 B | 84.4% | certified | 2026-11-10 |
+| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 A- | 90.0% | certified | 2026-11-10 |
+| [compute](go_deep.go/compute.md) | method | 🟢 A | 93.3% | certified | 2026-11-10 |
 
 ---
 

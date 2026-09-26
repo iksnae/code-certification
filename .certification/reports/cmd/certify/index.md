@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [submoduleSummaryFromCard](report_cmd.go/submoduleSummaryFromCard.md) | function | 🟢 B | 83.3% | certified | 2026-11-09 |
-| [listFromProvider](models_cmd.go/listFromProvider.md) | function | 🟢 B | 86.1% | certified | 2026-11-09 |
-| [printSummary](certify_cmd.go/printSummary.md) | method | 🟢 B+ | 90.0% | certified | 2026-11-09 |
+| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-11-10 |
+| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-10 |
 
 ---
 

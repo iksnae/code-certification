@@ -2,24 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-11-09 |
-| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-11-09 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-09 |
-| [stage_test.go](stage_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-11-09 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-09 |
-| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-09 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-09 |
-| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-09 |
-| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 A- | 90.0% | certified | 2026-11-09 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-11-09 |
-| [ToEvidence](reviewer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-11-09 |
+| [BuildSnapshot](architect_snapshot.go/BuildSnapshot.md) | function | 🟢 B | 80.6% | certified | 2026-11-10 |
+| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-11-10 |
+| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-10 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-10 |
+| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-10 |
+| [ArchFinding](architect_review.go/ArchFinding.md) | class | 🟢 A- | 90.0% | certified | 2026-11-10 |
+| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 A- | 90.0% | certified | 2026-11-10 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-11-10 |
+| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-11-10 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-11-10 |
+| [joinModels](reviewer.go/joinModels.md) | function | 🟢 A | 93.3% | certified | 2026-11-10 |
+| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-11-10 |
 
 ---
 
