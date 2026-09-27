@@ -2,18 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeTemplate](site.go/writeTemplate.md) | function | 🟢 B | 83.3% | certified | 2026-11-10 |
-| [writeArchRiskMatrix](architect_report.go/writeArchRiskMatrix.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-10 |
-| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-10 |
-| [full_test.go](full_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-10 |
-| [LanguageDetail](full.go/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-11-10 |
+| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 85.6% | certified | 2026-11-11 |
+| [writeArchAppendix](architect_report.go/writeArchAppendix.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-11 |
+| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-11 |
+| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-11 |
+| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
+| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A | 93.3% | certified | 2026-11-11 |
+| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-11-11 |
+| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-11-11 |
+| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2026-11-11 |
 
 ---
 

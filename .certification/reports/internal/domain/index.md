@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 A- (92.2%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Evidence](evidence.go/Evidence.md) | class | 🟢 A- | 90.0% | certified | 2026-11-10 |
-| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 A- | 90.0% | certified | 2026-11-10 |
-| [UnitID](unit.go/UnitID.md) | class | 🟢 A- | 90.0% | certified | 2026-11-10 |
+| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
+| [WithUnassessedVerdict](record.go/WithUnassessedVerdict.md) | method | 🟢 A | 93.3% | certified | 2026-11-11 |
+| [Path](unit.go/Path.md) | method | 🟢 A | 93.3% | certified | 2026-11-11 |
 
 ---
 
