@@ -2,18 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (83.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertify](certify_cmd.go/runCertify.md) | function | 🟡 C | 75.6% | certified_with_observations | 2026-11-11 |
-| [main](main.go/main.md) | function | 🟢 B | 82.2% | certified | 2026-11-11 |
-| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-11-11 |
-| [loadCertifyContext](certify_cmd.go/loadCertifyContext.md) | function | 🟢 B | 84.4% | certified | 2026-11-11 |
-| [tryScanSuggestions](scan.go/tryScanSuggestions.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-11 |
+| [bindModelsFlags](models_cmd.go/bindModelsFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
+| [tally_test.go](tally_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-12 |
 
 ---
 

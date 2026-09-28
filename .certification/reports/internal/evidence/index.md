@@ -2,20 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCoberturaXML](tools.go/ParseCoberturaXML.md) | function | 🟢 B | 85.0% | certified | 2026-11-11 |
-| [countDeferInLoop](structural.go/countDeferInLoop.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-11 |
-| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-11 |
-| [LintResult](lint.go/LintResult.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-11-11 |
+| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 85.6% | certified | 2026-11-12 |
+| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-12 |
+| [DiscoverModuleRoots](modules.go/DiscoverModuleRoots.md) | function | 🟢 A | 93.3% | certified | 2026-11-12 |
+| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2026-11-12 |
 
 ---
 

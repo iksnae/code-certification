@@ -2,22 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.3%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (88.6%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeLanguageDetail](full.go/writeLanguageDetail.md) | function | 🟢 B | 85.6% | certified | 2026-11-11 |
-| [writeArchAppendix](architect_report.go/writeArchAppendix.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-11 |
-| [writeArchHotspots](architect_report.go/writeArchHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-11 |
-| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-11 |
-| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A | 93.3% | certified | 2026-11-11 |
-| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-11-11 |
-| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-11-11 |
-| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2026-11-11 |
+| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
+| [pkgRow](site.go/pkgRow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-12 |
 
 ---
 

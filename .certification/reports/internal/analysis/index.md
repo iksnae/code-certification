@@ -2,17 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (85.7%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsAnalyzeFunction](rust_analyzer.go/rsAnalyzeFunction.md) | function | 🟢 B | 82.8% | certified | 2026-11-11 |
-| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-11-11 |
-| [LoadGoProject](go_deep.go/LoadGoProject.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-11 |
-| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-11 |
+| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-11-12 |
+| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-11-12 |
+| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-11-12 |
+| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-11-12 |
+| [rsComputeNesting](rust_analyzer.go/rsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-12 |
+| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-11-12 |
+| [tsHasReturnWithValue](ts_analyzer.go/tsHasReturnWithValue.md) | function | 🟢 B | 86.1% | certified | 2026-11-12 |
+| [goIsConstLikeExpr](go_analyzer.go/goIsConstLikeExpr.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-12 |
+| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-12 |
+| [lsp_analyzer_test.go](lsp_analyzer_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-12 |
+| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-11-12 |
 
 ---
 

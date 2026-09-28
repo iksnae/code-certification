@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [scoreStructuralArchitecture](scorer.go/scoreStructuralArchitecture.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-11 |
+| [scoreAlgoComplexity](scorer.go/scoreAlgoComplexity.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
 
 ---
 

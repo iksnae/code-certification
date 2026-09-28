@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.5%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [findCertifyBinary](certifyBinary.ts/findCertifyBinary.md) | function | 🟢 B | 86.9% | certified | 2026-11-11 |
-| [PROVIDER_PRESETS](constants.ts/PROVIDER_PRESETS.md) | function | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [CertifyCard](types.ts/CertifyCard.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [constructor](dataLoader.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-11-11 |
-| [detectProjectState](dataLoader.ts/detectProjectState.md) | method | 🟢 A- | 91.9% | certified | 2026-11-11 |
+| [RunResult](certifyBinary.ts/RunResult.md) | class | 🟢 B | 85.6% | certified | 2026-11-12 |
+| [BRAND_COLORS](constants.ts/BRAND_COLORS.md) | function | 🟢 A- | 90.0% | certified | 2026-11-12 |
+| [DEEP_METRIC_LABELS](constants.ts/DEEP_METRIC_LABELS.md) | function | 🟢 A- | 90.0% | certified | 2026-11-12 |
 
 ---
 

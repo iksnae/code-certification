@@ -2,20 +2,26 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 13 · **Passing:** 13 / 13
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-11 |
-| [Name](stage_deep.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-11 |
-| [fallback_test.go](fallback_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-11 |
-| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-11 |
-| [ArchitectReviewer](architect_review.go/ArchitectReviewer.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 A- | 90.0% | certified | 2026-11-11 |
-| [ReviewUnit](pipeline.go/ReviewUnit.md) | method | 🟢 A | 93.3% | certified | 2026-11-11 |
+| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
+| [formatCoverageMetrics](architect.go/formatCoverageMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
+| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
+| [classifySubmoduleRole](workspace_snapshot.go/classifySubmoduleRole.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
+| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-12 |
+| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-12 |
+| [Version](prompts.go/Version.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-12 |
+| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-12 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-12 |
+| [openAIModel](models.go/openAIModel.md) | class | 🟢 A- | 90.0% | certified | 2026-11-12 |
+| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-12 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-11-12 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-11-12 |
 
 ---
 
