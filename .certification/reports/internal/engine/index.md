@@ -2,52 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 39 · **Passing:** 39 / 39
+**Grade:** 🟢 B (81.7%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [scoreDeepAnalysis](scorer.go/scoreDeepAnalysis.md) | function | 🟢 B | 81.7% | certified | 2026-11-12 |
-| [Score](scorer.go/Score.md) | function | 🟢 B | 82.2% | certified | 2026-11-12 |
-| [CertifyUnit](pipeline.go/CertifyUnit.md) | function | 🟢 B | 82.8% | certified | 2026-11-12 |
-| [SaveReportArtifactsFromStore](certifier.go/SaveReportArtifactsFromStore.md) | function | 🟢 B | 83.3% | certified | 2026-11-12 |
-| [setMin](scorer.go/setMin.md) | function | 🟢 B | 83.9% | certified | 2026-11-12 |
-| [setMax](scorer.go/setMax.md) | function | 🟢 B | 83.9% | certified | 2026-11-12 |
-| [collectStructuralViaAnalyzer](certifier.go/collectStructuralViaAnalyzer.md) | method | 🟢 B | 85.0% | certified | 2026-11-12 |
-| [Certifier](certifier.go/Certifier.md) | class | 🟢 B | 86.2% | certified | 2026-11-12 |
-| [scoreFromGitHistory](scorer.go/scoreFromGitHistory.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
-| [metricOrSummaryFloat](scorer.go/metricOrSummaryFloat.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
-| [scoreFromStructural](scorer.go/scoreFromStructural.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
-| [metricOrSummaryInt](scorer.go/metricOrSummaryInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
-| [scoreFromTest](scorer.go/scoreFromTest.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
-| [scoreFromMetrics](scorer.go/scoreFromMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
-| [SaveReportArtifacts](certifier.go/SaveReportArtifacts.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-12 |
-| [scorer_test.go](scorer_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-11-12 |
-| [resolveGoPackagePath](certifier.go/resolveGoPackagePath.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-12 |
-| [certifier_test.go](certifier_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-11-12 |
-| [collectUnitEvidence](certifier.go/collectUnitEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-12 |
-| [runAgentReview](certifier.go/runAgentReview.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-12 |
-| [Certify](certifier.go/Certify.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-12 |
-| [StatusFromScore](scorer.go/StatusFromScore.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-12 |
-| [collectDeepEvidence](certifier.go/collectDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-12 |
-| [extractSummaryInt](scorer.go/extractSummaryInt.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-12 |
-| [collectStructuralEvidence](certifier.go/collectStructuralEvidence.md) | method | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [buildCoverageEvidence](certifier.go/buildCoverageEvidence.md) | method | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [scoreAlgoComplexity](scorer.go/scoreAlgoComplexity.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [severityPenalty](scorer.go/severityPenalty.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [extractSummaryFloat](scorer.go/extractSummaryFloat.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [matchRules](certifier.go/matchRules.md) | method | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [collectStructuralLegacyGo](certifier.go/collectStructuralLegacyGo.md) | method | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [CollectRepoEvidence](certifier.go/CollectRepoEvidence.md) | method | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [scoreStructuralArchitecture](scorer.go/scoreStructuralArchitecture.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [scoreStructuralCorrectness](scorer.go/scoreStructuralCorrectness.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [scoreStructuralReadability](scorer.go/scoreStructuralReadability.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-12 |
-| [pipeline_test.go](pipeline_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-12 |
-| [artifacts_unassessed_test.go](artifacts_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-12 |
-| [pipeline_unsupported_test.go](pipeline_unsupported_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-12 |
-| [CertifyResult](certifier.go/CertifyResult.md) | class | 🟢 A- | 90.0% | certified | 2026-11-12 |
+| [scoreDeepAnalysis](scorer.go/scoreDeepAnalysis.md) | function | 🟢 B | 81.7% | certified | 2026-11-13 |
 
 ---
 
