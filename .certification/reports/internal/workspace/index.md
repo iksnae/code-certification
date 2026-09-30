@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [report_test.go](report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-13 |
+| [PassRateKnown](aggregate.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-14 |
 
 ---
 

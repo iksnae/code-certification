@@ -2,24 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-13 |
-| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-13 |
-| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-13 |
-| [DefaultLMStudioModels](providers.go/DefaultLMStudioModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-13 |
-| [ArchCoverageGap](architect_review.go/ArchCoverageGap.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
-| [openAIModel](models.go/openAIModel.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
-| [Coordinator](pipeline.go/Coordinator.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
-| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
-| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-11-13 |
-| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-11-13 |
-| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-11-13 |
+| [Chat](openrouter.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-11-14 |
+| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-14 |
+| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-11-14 |
 
 ---
 

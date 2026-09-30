@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
-| [Override](override.go/Override.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
-| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
+| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [Path](unit.go/Path.md) | method | 🟢 A | 93.3% | certified | 2026-11-14 |
 
 ---
 

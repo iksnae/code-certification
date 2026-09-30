@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rawConfig](loader.go/rawConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
+| [rawAgent](loader.go/rawAgent.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
 
 ---
 

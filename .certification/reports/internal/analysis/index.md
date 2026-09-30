@@ -2,26 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.7%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B (86.4%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsAnalyzeFunction](ts_analyzer.go/tsAnalyzeFunction.md) | function | 🟢 B | 80.6% | certified | 2026-11-13 |
-| [pyWalkAll](python_analyzer.go/pyWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-11-13 |
-| [goDetectUnsafeImports](go_analyzer.go/goDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-11-13 |
-| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-13 |
-| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-11-13 |
-| [goCountDeferInLoop](go_analyzer.go/goCountDeferInLoop.md) | function | 🟢 B | 86.1% | certified | 2026-11-13 |
-| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-11-13 |
-| [Analyze](python_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-13 |
-| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-13 |
-| [goCognitiveWalk](go_analyzer.go/goCognitiveWalk.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-13 |
-| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-13 |
-| [Instability](go_deps.go/Instability.md) | method | 🟢 A | 93.3% | certified | 2026-11-13 |
-| [TypeAwareErrorWrapping](go_refine.go/TypeAwareErrorWrapping.md) | method | 🟢 A | 93.3% | certified | 2026-11-13 |
+| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-11-14 |
+| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-11-14 |
+| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-11-14 |
+| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 86.1% | certified | 2026-11-14 |
+| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-11-14 |
+| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-11-14 |
+| [compute](go_deep.go/compute.md) | method | 🟢 A | 93.3% | certified | 2026-11-14 |
 
 ---
 

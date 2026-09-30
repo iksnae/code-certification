@@ -2,16 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.0%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [analyzeFunc](structural.go/analyzeFunc.md) | function | 🟢 B | 86.1% | certified | 2026-11-13 |
-| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-13 |
-| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-13 |
+| [computeNestingDepth](structural.go/computeNestingDepth.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-14 |
+| [countGlobalMutables](structural.go/countGlobalMutables.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-14 |
+| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-14 |
+| [GitStats](git.go/GitStats.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [git_test.go](git_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [ModuleRoot](modules.go/ModuleRoot.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
+| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
 
 ---
 

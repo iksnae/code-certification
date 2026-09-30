@@ -9,9 +9,9 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [getUnitsForFile](dataLoader.ts/getUnitsForFile.md) | method | 🟢 A- | 91.9% | certified | 2026-11-13 |
-| [loadArchitectMeta](dataLoader.ts/loadArchitectMeta.md) | method | 🟢 A- | 91.9% | certified | 2026-11-13 |
-| [loadBadge](dataLoader.ts/loadBadge.md) | method | 🟢 A- | 91.9% | certified | 2026-11-13 |
+| [buildReportFromRecords](dataLoader.ts/buildReportFromRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-11-14 |
+| [hasCertification](dataLoader.ts/hasCertification.md) | method | 🟢 A- | 91.9% | certified | 2026-11-14 |
+| [loadFullReport](dataLoader.ts/loadFullReport.md) | method | 🟢 A- | 91.9% | certified | 2026-11-14 |
 
 ---
 
