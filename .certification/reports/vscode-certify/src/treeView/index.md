@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [projectState](CertificationTreeProvider.ts/projectState.md) | method | 🟢 A- | 92.5% | certified | 2026-11-14 |
+| [getParent](CertificationTreeProvider.ts/getParent.md) | method | 🟢 A- | 92.5% | certified | 2026-11-15 |
 
 ---
 

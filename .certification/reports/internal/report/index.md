@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [unassessed_grade_test.go](unassessed_grade_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-11-14 |
-| [Analyzable](full.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-14 |
-| [SiteConfig](site.go/SiteConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
-| [gradeRow](site.go/gradeRow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-14 |
-| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-11-14 |
-| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-11-14 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
+| [issueRow](site.go/issueRow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
+| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-11-15 |
 
 ---
 

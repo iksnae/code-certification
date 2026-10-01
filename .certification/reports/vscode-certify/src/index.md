@@ -3,15 +3,13 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (91.9%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildReportFromRecords](dataLoader.ts/buildReportFromRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-11-14 |
-| [hasCertification](dataLoader.ts/hasCertification.md) | method | 🟢 A- | 91.9% | certified | 2026-11-14 |
-| [loadFullReport](dataLoader.ts/loadFullReport.md) | method | 🟢 A- | 91.9% | certified | 2026-11-14 |
+| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.9% | certified | 2026-11-15 |
 
 ---
 
