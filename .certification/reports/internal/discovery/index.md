@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
+**Grade:** 🟢 B+ (89.2%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [NewAnalysisAdapter](analysis_adapter.go/NewAnalysisAdapter.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-15 |
-| [Scanners](scanner.go/Scanners.md) | function | 🟢 A | 93.3% | certified | 2026-11-15 |
+| [Scan](analysis_adapter.go/Scan.md) | method | 🟢 B | 85.0% | certified | 2026-11-16 |
+| [Scanners](scanner.go/Scanners.md) | function | 🟢 A | 93.3% | certified | 2026-11-16 |
 
 ---
 

@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.8%)  
+**Grade:** 🟢 B (86.7%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 82.5% | certified | 2026-11-15 |
-| [pyHasDocstring](python_analyzer.go/pyHasDocstring.md) | function | 🟢 B | 86.1% | certified | 2026-11-15 |
-| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-11-15 |
-| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-11-15 |
-| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
+| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-11-16 |
+| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 82.5% | certified | 2026-11-16 |
+| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-11-16 |
+| [go_deep_test.go](go_deep_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-16 |
+| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
+| [UnusedSymbol](go_deep.go/UnusedSymbol.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
 
 ---
 

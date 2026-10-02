@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [issueRow](site.go/issueRow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2026-11-15 |
+| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-16 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-16 |
+| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
+| [EvidenceSummary](full.go/EvidenceSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
+| [measured](report_tree.go/measured.md) | method | 🟢 A | 93.3% | certified | 2026-11-16 |
 
 ---
 

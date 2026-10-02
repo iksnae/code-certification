@@ -3,27 +3,30 @@
 [← Report Card](../REPORT_CARD.md)
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `afbfd3f4a`  
-**Overall:** 🟢 B+ (89.3%)  
+**Commit:** `4a834c297`  
+**Overall:** 🟢 B+ (88.9%)  
 **Units:** 50 · **Passing:** 50 · **Failing:** 0
 
 ## Packages
 
 | Package | Units | Grade | Score | Pass Rate |
 |---------|------:|:-----:|------:|----------:|
-| [cmd/certify](cmd/certify/index.md) | 6 | 🟢 B+ | 88.1% | 100% |
-| [internal/agent](internal/agent/index.md) | 11 | 🟢 A- | 90.1% | 100% |
-| [internal/analysis](internal/analysis/index.md) | 6 | 🟢 B | 86.8% | 100% |
-| [internal/discovery](internal/discovery/index.md) | 2 | 🟢 A- | 91.1% | 100% |
-| [internal/doctor](internal/doctor/index.md) | 2 | 🟢 B | 84.2% | 100% |
-| [internal/domain](internal/domain/index.md) | 2 | 🟢 A- | 91.7% | 100% |
-| [internal/engine](internal/engine/index.md) | 5 | 🟢 B+ | 88.0% | 100% |
-| [internal/evidence](internal/evidence/index.md) | 6 | 🟢 A- | 90.3% | 100% |
-| [internal/expiry](internal/expiry/index.md) | 1 | 🟢 B+ | 87.2% | 100% |
-| [internal/github](internal/github/index.md) | 1 | 🟢 A | 93.3% | 100% |
-| [internal/record](internal/record/index.md) | 3 | 🟢 A- | 90.2% | 100% |
-| [internal/report](internal/report/index.md) | 3 | 🟢 A- | 91.1% | 100% |
-| [vscode-certify/src](vscode-certify/src/index.md) | 1 | 🟢 A- | 91.9% | 100% |
+| [cmd/certify](cmd/certify/index.md) | 3 | 🟢 B | 85.2% | 100% |
+| [internal/agent](internal/agent/index.md) | 9 | 🟢 A- | 91.7% | 100% |
+| [internal/analysis](internal/analysis/index.md) | 6 | 🟢 B | 86.7% | 100% |
+| [internal/analysis/lsp](internal/analysis/lsp/index.md) | 3 | 🟢 B | 84.8% | 100% |
+| [internal/config](internal/config/index.md) | 1 | 🟢 B | 81.7% | 100% |
+| [internal/discovery](internal/discovery/index.md) | 2 | 🟢 B+ | 89.2% | 100% |
+| [internal/domain](internal/domain/index.md) | 6 | 🟢 A- | 90.2% | 100% |
+| [internal/engine](internal/engine/index.md) | 2 | 🟢 B+ | 88.1% | 100% |
+| [internal/evidence](internal/evidence/index.md) | 6 | 🟢 B+ | 88.5% | 100% |
+| [internal/github](internal/github/index.md) | 1 | 🟢 A- | 90.0% | 100% |
+| [internal/language_tiers](internal/language_tiers/index.md) | 1 | 🟢 B+ | 89.4% | 100% |
+| [internal/override](internal/override/index.md) | 1 | 🟢 A- | 90.0% | 100% |
+| [internal/record](internal/record/index.md) | 1 | 🟢 B+ | 89.4% | 100% |
+| [internal/report](internal/report/index.md) | 5 | 🟢 B+ | 90.0% | 100% |
+| [internal/workspace](internal/workspace/index.md) | 1 | 🟢 B+ | 89.4% | 100% |
+| [vscode-certify/src](vscode-certify/src/index.md) | 1 | 🟢 A- | 90.0% | 100% |
 | [vscode-certify/src/treeView](vscode-certify/src/treeView/index.md) | 1 | 🟢 A- | 92.5% | 100% |
 
 ---

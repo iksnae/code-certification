@@ -2,24 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Execute](stage.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-11-15 |
-| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-15 |
-| [models_test.go](models_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-15 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-15 |
-| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-11-15 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-11-15 |
-| [toResult](pipeline.go/toResult.md) | method | 🟢 A | 93.3% | certified | 2026-11-15 |
+| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-16 |
+| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-16 |
+| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
+| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
+| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-11-16 |
+| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-11-16 |
+| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-11-16 |
+| [Stats](pipeline.go/Stats.md) | method | 🟢 A | 93.3% | certified | 2026-11-16 |
+| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-11-16 |
 
 ---
 
