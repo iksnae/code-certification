@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](config.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-16 |
-| [String](record.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-16 |
-| [EvidenceKind](evidence.go/EvidenceKind.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
-| [Violation](policy.go/Violation.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
-| [policy_test.go](policy_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-16 |
-| [ParseUnitTypeOrDefault](unit.go/ParseUnitTypeOrDefault.md) | function | 🟢 A | 93.3% | certified | 2026-11-16 |
+| [record_test.go](record_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-17 |
+| [EnforcingConfig](config.go/EnforcingConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
+| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
 
 ---
 

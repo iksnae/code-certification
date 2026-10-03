@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [issues_test.go](issues_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-16 |
+| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-17 |
 
 ---
 

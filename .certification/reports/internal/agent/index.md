@@ -2,22 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.7%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-16 |
-| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-16 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
-| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 A- | 90.0% | certified | 2026-11-16 |
-| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-11-16 |
-| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-11-16 |
-| [IsLocal](pipeline.go/IsLocal.md) | method | 🟢 A | 93.3% | certified | 2026-11-16 |
-| [Stats](pipeline.go/Stats.md) | method | 🟢 A | 93.3% | certified | 2026-11-16 |
-| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-11-16 |
+| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-17 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-11-17 |
+| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-11-17 |
+| [NewRateLimiter](ratelimit.go/NewRateLimiter.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-17 |
+| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
+| [CoordinatorConfig](pipeline.go/CoordinatorConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
+| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-11-17 |
+| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-11-17 |
 
 ---
 
