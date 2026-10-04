@@ -2,19 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (92.4%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-11-17 |
-| [unitReportFrom](full.go/unitReportFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-17 |
-| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-17 |
-| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-17 |
-| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
-| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-11-17 |
+| [partition_test.go](partition_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-11-18 |
+| [formatPassRate](card.go/formatPassRate.md) | function | 🟢 A | 93.3% | certified | 2026-11-18 |
+| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-11-18 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2026-11-18 |
+| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-11-18 |
 
 ---
 

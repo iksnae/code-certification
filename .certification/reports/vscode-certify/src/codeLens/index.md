@@ -1,15 +1,15 @@
-# 🟢 `vscode-certify/src/config`
+# 🟢 `vscode-certify/src/codeLens`
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.1%)  
+**Grade:** 🟢 A- (92.5%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [syncSettingsToConfig](settingsSync.ts/syncSettingsToConfig.md) | function | 🟢 A | 93.1% | certified | 2026-11-18 |
+| [showDimensionScores](CertifyCodeLensProvider.ts/showDimensionScores.md) | function | 🟢 A- | 92.5% | certified | 2026-11-18 |
 
 ---
 

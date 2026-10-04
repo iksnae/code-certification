@@ -1,4 +1,4 @@
-# 🟢 `vscode-certify/src/config`
+# 🟢 `vscode-certify/src/diagnostics`
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [syncSettingsToConfig](settingsSync.ts/syncSettingsToConfig.md) | function | 🟢 A | 93.1% | certified | 2026-11-18 |
+| [LOW_GRADES](CertifyDiagnostics.ts/LOW_GRADES.md) | function | 🟢 A | 93.1% | certified | 2026-11-18 |
 
 ---
 

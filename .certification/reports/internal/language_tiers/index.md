@@ -1,16 +1,16 @@
-# 🟢 `cmd/certify`
+# 🟢 `internal/language_tiers`
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
+**Grade:** 🟢 B+ (89.7%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [setupAgent](certify_cmd.go/setupAgent.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-18 |
-| [certifyContext](certify_cmd.go/certifyContext.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [language_tiers_test.go](language_tiers_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-18 |
+| [Tier](language_tiers.go/Tier.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
 
 ---
 

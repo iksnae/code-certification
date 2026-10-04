@@ -2,21 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (91.3%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatDependencyGraph](architect.go/formatDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-17 |
-| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-11-17 |
-| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-11-17 |
-| [NewRateLimiter](ratelimit.go/NewRateLimiter.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-17 |
-| [ArchRisk](architect_review.go/ArchRisk.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
-| [CoordinatorConfig](pipeline.go/CoordinatorConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
-| [detectModulePath](architect_snapshot.go/detectModulePath.md) | function | 🟢 A | 93.3% | certified | 2026-11-17 |
-| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-11-17 |
+| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-18 |
+| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [ollamaModel](models.go/ollamaModel.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-11-18 |
+| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2026-11-18 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-11-18 |
 
 ---
 

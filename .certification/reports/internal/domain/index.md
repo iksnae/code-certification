@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [record_test.go](record_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-17 |
-| [EnforcingConfig](config.go/EnforcingConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
-| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2026-11-17 |
+| [unit_test.go](unit_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-18 |
+| [AnalyzerConfig](config.go/AnalyzerConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
+| [ParseEvidenceKind](evidence.go/ParseEvidenceKind.md) | function | 🟢 A- | 92.2% | certified | 2026-11-18 |
 
 ---
 
