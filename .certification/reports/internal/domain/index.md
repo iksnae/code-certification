@@ -2,17 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [unit_test.go](unit_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-18 |
-| [AnalyzerConfig](config.go/AnalyzerConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
-| [ExpiryConfig](config.go/ExpiryConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-18 |
-| [ParseEvidenceKind](evidence.go/ParseEvidenceKind.md) | function | 🟢 A- | 92.2% | certified | 2026-11-18 |
+| [String](unit.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-19 |
+| [ModelAssignments](config.go/ModelAssignments.md) | class | 🟢 A- | 90.0% | certified | 2026-11-19 |
+| [Evidence](evidence.go/Evidence.md) | class | 🟢 A- | 90.0% | certified | 2026-11-19 |
+| [override_test.go](override_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-19 |
+| [ParseStatus](record.go/ParseStatus.md) | function | 🟢 A- | 92.2% | certified | 2026-11-19 |
 
 ---
 
