@@ -2,23 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (87.1%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goCountQuadraticPatterns](go_analyzer.go/goCountQuadraticPatterns.md) | function | 🟢 B | 86.1% | certified | 2026-11-20 |
-| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-11-20 |
-| [rsCountPanics](rust_analyzer.go/rsCountPanics.md) | function | 🟢 B | 86.1% | certified | 2026-11-20 |
-| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-11-20 |
-| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2026-11-20 |
-| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-20 |
-| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 A- | 90.0% | certified | 2026-11-20 |
-| [ForLanguage](analyzer.go/ForLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-11-20 |
-| [ToEvidence](analyzer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-11-20 |
-| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-11-20 |
+| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-11-21 |
+| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-11-21 |
+| [goCountCallExpr](go_analyzer.go/goCountCallExpr.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
+| [goCountMethods](go_analyzer.go/goCountMethods.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
+| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
+| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
+| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-21 |
+| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-21 |
+| [go_deep_test.go](go_deep_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-21 |
+| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-21 |
+| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
 
 ---
 

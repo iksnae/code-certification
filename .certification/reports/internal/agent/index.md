@@ -2,26 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 A- (91.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-11-20 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-20 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-20 |
-| [autodetect_test.go](autodetect_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-20 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-20 |
-| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-20 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-11-20 |
-| [RemediationStep](schemas.go/RemediationStep.md) | class | 🟢 A- | 90.0% | certified | 2026-11-20 |
-| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-20 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-11-20 |
-| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-11-20 |
-| [Stats](pipeline.go/Stats.md) | method | 🟢 A | 93.3% | certified | 2026-11-20 |
-| [FormatDeepObservations](stage_deep.go/FormatDeepObservations.md) | function | 🟢 A | 93.3% | certified | 2026-11-20 |
+| [DefaultGroqModels](providers.go/DefaultGroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-21 |
+| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
+| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-11-21 |
+| [NewModelChain](fallback.go/NewModelChain.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
 
 ---
 

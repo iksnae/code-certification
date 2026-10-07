@@ -2,17 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PassRateKnown](health.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-20 |
-| [partitionByLanguage](card.go/partitionByLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-11-20 |
-| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-11-20 |
-| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-11-20 |
+| [FormatCardMarkdown](card.go/FormatCardMarkdown.md) | function | 🟢 B | 83.9% | certified | 2026-11-21 |
+| [findExpiringSoon](detailed.go/findExpiringSoon.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
+| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
+| [writeArchPackageMap](architect_report.go/writeArchPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
+| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
+| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A- | 90.6% | certified | 2026-11-21 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
+| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
+| [measured](report_tree.go/measured.md) | method | 🟢 A | 93.3% | certified | 2026-11-21 |
+| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
 
 ---
 

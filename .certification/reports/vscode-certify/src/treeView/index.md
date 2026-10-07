@@ -3,13 +3,15 @@
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (92.5%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [constructor](CertificationTreeProvider.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-11-20 |
+| [buildArchitectItems](CertificationTreeProvider.ts/buildArchitectItems.md) | method | 🟢 A- | 92.5% | certified | 2026-11-21 |
+| [constructor](CertificationTreeProvider.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-11-21 |
+| [getDirectoryChildren](CertificationTreeProvider.ts/getDirectoryChildren.md) | method | 🟢 A- | 92.5% | certified | 2026-11-21 |
 
 ---
 

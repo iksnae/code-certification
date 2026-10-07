@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [VerdictOf](record.go/VerdictOf.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-20 |
-| [ParseEvidenceKind](evidence.go/ParseEvidenceKind.md) | function | 🟢 A- | 92.2% | certified | 2026-11-20 |
+| [String](unit.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-21 |
+| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
+| [ParseUnitID](unit.go/ParseUnitID.md) | function | 🟢 A- | 92.2% | certified | 2026-11-21 |
+| [UnassessedVerdict](record.go/UnassessedVerdict.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
 
 ---
 
