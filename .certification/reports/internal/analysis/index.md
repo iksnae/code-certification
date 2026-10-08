@@ -2,24 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.1%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B (85.6%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-11-21 |
-| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-11-21 |
-| [goCountCallExpr](go_analyzer.go/goCountCallExpr.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
-| [goCountMethods](go_analyzer.go/goCountMethods.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
-| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
-| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
-| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-21 |
-| [String](analyzer.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-21 |
-| [go_deep_test.go](go_deep_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-21 |
-| [AnalyzeFile](go_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-21 |
-| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
+| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-11-22 |
+| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-11-22 |
+| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
+| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
+| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
+| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-22 |
 
 ---
 

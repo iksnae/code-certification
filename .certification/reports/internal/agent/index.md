@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DefaultGroqModels](providers.go/DefaultGroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-21 |
-| [ArchDataFlow](architect_review.go/ArchDataFlow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
-| [parsePhaseResult](architect_review.go/parsePhaseResult.md) | method | 🟢 A | 93.3% | certified | 2026-11-21 |
-| [NewModelChain](fallback.go/NewModelChain.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
+| [types_test.go](types_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-22 |
+| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-22 |
+| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 A- | 90.0% | certified | 2026-11-22 |
+| [StageResult](stage.go/StageResult.md) | class | 🟢 A- | 90.0% | certified | 2026-11-22 |
+| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 A- | 90.0% | certified | 2026-11-22 |
+| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-11-22 |
 
 ---
 

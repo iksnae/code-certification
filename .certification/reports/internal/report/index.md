@@ -2,25 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 A- (90.6%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatCardMarkdown](card.go/FormatCardMarkdown.md) | function | 🟢 B | 83.9% | certified | 2026-11-21 |
-| [findExpiringSoon](detailed.go/findExpiringSoon.md) | function | 🟢 B | 86.1% | certified | 2026-11-21 |
-| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
-| [writeArchPackageMap](architect_report.go/writeArchPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
-| [writeArchPartIII](architect_report.go/writeArchPartIII.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
-| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-21 |
-| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
-| [buildLanguageDetail](full.go/buildLanguageDetail.md) | function | 🟢 A- | 90.6% | certified | 2026-11-21 |
-| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
-| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
-| [measured](report_tree.go/measured.md) | method | 🟢 A | 93.3% | certified | 2026-11-21 |
-| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-11-21 |
+| [writeArchHeader](architect_report.go/writeArchHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-22 |
+| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-22 |
+| [badge_test.go](badge_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-22 |
+| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-11-22 |
+| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-11-22 |
+| [formatUnitMarkdownWithNav](report_tree.go/formatUnitMarkdownWithNav.md) | function | 🟢 A | 93.3% | certified | 2026-11-22 |
+| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-11-22 |
 
 ---
 

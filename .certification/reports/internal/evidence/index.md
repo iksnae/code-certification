@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B (86.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCoverProfile](runner.go/ParseCoverProfile.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-21 |
-| [lint_test.go](lint_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-21 |
-| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-21 |
+| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-11-22 |
+| [countDeferInLoop](structural.go/countDeferInLoop.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-22 |
+| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-22 |
+| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 A- | 90.0% | certified | 2026-11-22 |
 
 ---
 
