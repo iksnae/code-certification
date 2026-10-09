@@ -1,4 +1,4 @@
-# 🟢 `NewStore`
+# 🟢 `evidenceFromJSON`
 
 [← internal/record](../index.md)
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/record/store.go#NewStore` |
+| **Unit ID** | `go://internal/record/store.go#evidenceFromJSON` |
 | **Type** | function |
 | **Path** | `internal/record/store.go` |
 | **Language** | go |
-| **Symbol** | `NewStore` |
+| **Symbol** | `evidenceFromJSON` |
 
 ## Certification
 
@@ -96,16 +96,16 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+29 lines (27 code, 0 comment, 2 blank), 0 TODOs, complexity 5
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `blank_lines` | 2 |
+| `code_lines` | 27 |
+| `comment_lines` | 0 |
+| `complexity` | 5 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 29 |
 
 ### ✅ test (`coverage:unit`)
 
@@ -117,25 +117,25 @@ per-unit coverage: 70%
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=1 returns=1 nesting=2 doc=false exported=false cognitive=5
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 5 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 1 |
-| `func_lines` | 1 |
+| `exported_name` | 0 |
+| `func_lines` | 27 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 1 |
+| `has_doc_comment` | 0 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
+| `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `max_nesting_depth` | 2 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
@@ -149,15 +149,15 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=5 fan_out=0 dead=false depth=1 instab=0.40
+deep: fan_in=1 fan_out=3 dead=false depth=1 instab=0.40
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
-| `coupling_score` | 0 |
+| `coupling_score` | 0.03 |
 | `dep_depth` | 1 |
-| `fan_in` | 5 |
-| `fan_out` | 0 |
+| `fan_in` | 1 |
+| `fan_out` | 3 |
 | `instability` | 0.40 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |

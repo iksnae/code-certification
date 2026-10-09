@@ -2,20 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (86.2%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-11-22 |
-| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-11-22 |
-| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
-| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
-| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
-| [tsCountThrows](ts_analyzer.go/tsCountThrows.md) | function | 🟢 B | 86.1% | certified | 2026-11-22 |
-| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-22 |
+| [Discover](ts_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-11-23 |
+| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-11-23 |
+| [rsWalkAll](rust_analyzer.go/rsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-11-23 |
+| [goCountNakedReturns](go_analyzer.go/goCountNakedReturns.md) | function | 🟢 B | 86.1% | certified | 2026-11-23 |
+| [rsCountRecursive](rust_analyzer.go/rsCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-11-23 |
+| [Languages](analyzer.go/Languages.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-23 |
+| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-23 |
+| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-23 |
 
 ---
 

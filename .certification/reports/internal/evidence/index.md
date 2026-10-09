@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (87.0%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseCargoTestOutput](tools.go/ParseCargoTestOutput.md) | function | 🟢 B | 80.0% | certified | 2026-11-22 |
-| [countDeferInLoop](structural.go/countDeferInLoop.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-22 |
-| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-22 |
-| [golangciLintIssue](runner.go/golangciLintIssue.md) | class | 🟢 A- | 90.0% | certified | 2026-11-22 |
+| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-11-23 |
+| [structural_test.go](structural_test.go.md) | file | 🟢 B | 85.6% | certified | 2026-11-23 |
+| [countIgnoredErrors](structural.go/countIgnoredErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-23 |
+| [isConstLikeCall](structural.go/isConstLikeCall.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-23 |
+| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-11-23 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-23 |
 
 ---
 

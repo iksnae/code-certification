@@ -1,6 +1,6 @@
-# 🟢 `NewStore`
+# 🟢 `NewReviewer`
 
-[← internal/record](../index.md)
+[← internal/agent](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/record/store.go#NewStore` |
+| **Unit ID** | `go://internal/agent/reviewer.go#NewReviewer` |
 | **Type** | function |
-| **Path** | `internal/record/store.go` |
+| **Path** | `internal/agent/reviewer.go` |
 | **Language** | go |
-| **Symbol** | `NewStore` |
+| **Symbol** | `NewReviewer` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **A** |
-| **Score** | 93.3% |
+| **Grade** | 🟢 **B+** |
+| **Score** | 88.9% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-09 |
@@ -33,7 +33,7 @@
 | architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 95.0% | ███████████████████░ |
+| maintainability | 55.0% | ██████████░░░░░░░░░░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
@@ -109,15 +109,15 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 70%
+per-unit coverage: 88%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.70 |
+| `unit_test_coverage` | 0.88 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=2 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 | Metric | Value |
 |--------|------:|
@@ -141,7 +141,7 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 1 |
+| `param_count` | 2 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
 | `return_count` | 1 |
@@ -149,20 +149,24 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=5 fan_out=0 dead=false depth=1 instab=0.40
+deep: fan_in=0 fan_out=0 dead=true depth=1 instab=0.20
 
 | Metric | Value |
 |--------|------:|
 | `concrete_deps` | 0 |
 | `coupling_score` | 0 |
 | `dep_depth` | 1 |
-| `fan_in` | 5 |
+| `fan_in` | 0 |
 | `fan_out` | 0 |
-| `instability` | 0.40 |
+| `instability` | 0.20 |
 | `interface_size` | 0 |
-| `is_dead_code` | 0 |
+| `is_dead_code` | 1 |
 | `type_aware_unwrapped` | 0 |
 | `unused_params` | 0 |
+
+## Observations
+
+- is_dead_code: 1 exceeds threshold 0
 
 ---
 

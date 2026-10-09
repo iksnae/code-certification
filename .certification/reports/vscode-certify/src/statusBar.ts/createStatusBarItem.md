@@ -1,6 +1,6 @@
-# 🟢 `NewStore`
+# 🟢 `createStatusBarItem`
 
-[← internal/record](../index.md)
+[← vscode-certify/src](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/record/store.go#NewStore` |
+| **Unit ID** | `ts://vscode-certify/src/statusBar.ts#createStatusBarItem` |
 | **Type** | function |
-| **Path** | `internal/record/store.go` |
-| **Language** | go |
-| **Symbol** | `NewStore` |
+| **Path** | `vscode-certify/src/statusBar.ts` |
+| **Language** | ts |
+| **Symbol** | `createStatusBarItem` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **A** |
-| **Score** | 93.3% |
+| **Score** | 93.1% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-09 |
@@ -30,7 +30,6 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
 | maintainability | 95.0% | ███████████████████░ |
@@ -96,46 +95,38 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+26 lines (22 code, 0 comment, 4 blank), 0 TODOs, complexity 0
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `blank_lines` | 4 |
+| `code_lines` | 22 |
+| `comment_lines` | 0 |
+| `complexity` | 0 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
-
-### ✅ test (`coverage:unit`)
-
-per-unit coverage: 70%
-
-| Metric | Value |
-|--------|------:|
-| `unit_test_coverage` | 0.70 |
+| `total_lines` | 26 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=1 returns=1 nesting=1 doc=false exported=true cognitive=2
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 2 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 1 |
-| `func_lines` | 1 |
+| `func_lines` | 20 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 1 |
+| `has_doc_comment` | 0 |
 | `has_init_func` | 0 |
 | `is_constructor` | 1 |
 | `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `max_nesting_depth` | 1 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
@@ -146,23 +137,6 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 | `recursive_calls` | 0 |
 | `return_count` | 1 |
 | `unsafe_import_count` | 0 |
-
-### ✅ structural (`deep-analysis`)
-
-deep: fan_in=5 fan_out=0 dead=false depth=1 instab=0.40
-
-| Metric | Value |
-|--------|------:|
-| `concrete_deps` | 0 |
-| `coupling_score` | 0 |
-| `dep_depth` | 1 |
-| `fan_in` | 5 |
-| `fan_out` | 0 |
-| `instability` | 0.40 |
-| `interface_size` | 0 |
-| `is_dead_code` | 0 |
-| `type_aware_unwrapped` | 0 |
-| `unused_params` | 0 |
 
 ---
 

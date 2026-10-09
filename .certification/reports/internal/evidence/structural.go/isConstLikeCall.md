@@ -1,6 +1,6 @@
-# 🟢 `NewStore`
+# 🟢 `isConstLikeCall`
 
-[← internal/record](../index.md)
+[← internal/evidence](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `go://internal/record/store.go#NewStore` |
+| **Unit ID** | `go://internal/evidence/structural.go#isConstLikeCall` |
 | **Type** | function |
-| **Path** | `internal/record/store.go` |
+| **Path** | `internal/evidence/structural.go` |
 | **Language** | go |
-| **Symbol** | `NewStore` |
+| **Symbol** | `isConstLikeCall` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **A** |
-| **Score** | 93.3% |
+| **Grade** | 🟢 **B+** |
+| **Score** | 87.2% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-09 |
@@ -30,7 +30,7 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
-| architectural_fitness | 95.0% | ███████████████████░ |
+| architectural_fitness | 65.0% | █████████████░░░░░░░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
 | maintainability | 95.0% | ███████████████████░ |
@@ -38,7 +38,7 @@
 | performance_appropriateness | 95.0% | ███████████████████░ |
 | readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
-| testability | 90.0% | ██████████████████░░ |
+| testability | 65.0% | █████████████░░░░░░░ |
 
 ## Evidence
 
@@ -96,46 +96,46 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-4 lines (3 code, 1 comment, 0 blank), 0 TODOs, complexity 1
+25 lines (17 code, 8 comment, 0 blank), 0 TODOs, complexity 3
 
 | Metric | Value |
 |--------|------:|
 | `blank_lines` | 0 |
-| `code_lines` | 3 |
-| `comment_lines` | 1 |
-| `complexity` | 1 |
+| `code_lines` | 17 |
+| `comment_lines` | 8 |
+| `complexity` | 3 |
 | `todo_count` | 0 |
-| `total_lines` | 4 |
+| `total_lines` | 25 |
 
 ### ✅ test (`coverage:unit`)
 
-per-unit coverage: 70%
+per-unit coverage: 90%
 
 | Metric | Value |
 |--------|------:|
-| `unit_test_coverage` | 0.70 |
+| `unit_test_coverage` | 0.90 |
 
 ### ✅ structural (`structural`)
 
-structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
+structural: params=1 returns=1 nesting=1 doc=true exported=false cognitive=2
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 2 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 1 |
-| `func_lines` | 1 |
+| `exported_name` | 0 |
+| `func_lines` | 21 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
-| `is_constructor` | 1 |
+| `is_constructor` | 0 |
 | `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `max_nesting_depth` | 1 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
@@ -149,16 +149,16 @@ structural: params=1 returns=1 nesting=0 doc=true exported=true cognitive=0
 
 ### ✅ structural (`deep-analysis`)
 
-deep: fan_in=5 fan_out=0 dead=false depth=1 instab=0.40
+deep: fan_in=1 fan_out=1 dead=false depth=1 instab=0.25
 
 | Metric | Value |
 |--------|------:|
-| `concrete_deps` | 0 |
-| `coupling_score` | 0 |
+| `concrete_deps` | 1 |
+| `coupling_score` | 0.01 |
 | `dep_depth` | 1 |
-| `fan_in` | 5 |
-| `fan_out` | 0 |
-| `instability` | 0.40 |
+| `fan_in` | 1 |
+| `fan_out` | 1 |
+| `instability` | 0.25 |
 | `interface_size` | 0 |
 | `is_dead_code` | 0 |
 | `type_aware_unwrapped` | 0 |

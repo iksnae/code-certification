@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [flagInt](root.go/flagInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-22 |
-| [bindOnboardFlags](onboard_cmd.go/bindOnboardFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-22 |
+| [executeArchitectReview](architect_cmd.go/executeArchitectReview.md) | function | 🟢 B | 86.1% | certified | 2026-11-23 |
+| [detectRepoName](report_cmd.go/detectRepoName.md) | function | 🟢 B | 86.1% | certified | 2026-11-23 |
+| [flagString](root.go/flagString.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-23 |
+| [bindExpireFlags](expire.go/bindExpireFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-23 |
 
 ---
 
