@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (91.3%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Load](store.go/Load.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-23 |
-| [evidenceJSON](store.go/evidenceJSON.md) | class | 🟢 A- | 90.0% | certified | 2026-11-23 |
-| [NewStore](store.go/NewStore.md) | function | 🟢 A | 93.3% | certified | 2026-11-23 |
-| [evidenceFromJSON](store.go/evidenceFromJSON.md) | function | 🟢 A | 93.3% | certified | 2026-11-23 |
-| [parseTimeOrZero](store.go/parseTimeOrZero.md) | function | 🟢 A | 93.3% | certified | 2026-11-23 |
+| [toJSON](store.go/toJSON.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
+| [parseUnitIDOrEmpty](store.go/parseUnitIDOrEmpty.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
+| [unsupportedToJSON](store.go/unsupportedToJSON.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
 
 ---
 

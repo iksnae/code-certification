@@ -1,6 +1,6 @@
-# 🟢 `buildReportFromRecords`
+# 🟡 `IsDeadCode`
 
-[← vscode-certify/src](../index.md)
+[← internal/analysis](../index.md)
 
 ---
 
@@ -8,19 +8,19 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `ts://vscode-certify/src/dataLoader.ts#buildReportFromRecords` |
+| **Unit ID** | `go://internal/analysis/lsp_analyzer.go#IsDeadCode` |
 | **Type** | method |
-| **Path** | `vscode-certify/src/dataLoader.ts` |
-| **Language** | ts |
-| **Symbol** | `buildReportFromRecords` |
+| **Path** | `internal/analysis/lsp_analyzer.go` |
+| **Language** | go |
+| **Symbol** | `IsDeadCode` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **A-** |
-| **Score** | 91.9% |
-| **Status** | certified |
+| **Grade** | 🟡 **C** |
+| **Score** | 78.3% |
+| **Status** | certified_with_observations |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-10 |
 | **Expires** | 2026-11-24 |
@@ -30,14 +30,15 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
+| architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 95.0% | ███████████████████░ |
-| operational_quality | 95.0% | ███████████████████░ |
+| maintainability | 55.0% | ██████████░░░░░░░░░░ |
+| operational_quality | 60.0% | ████████████░░░░░░░░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
-| readability | 85.0% | █████████████████░░░ |
-| security | 85.0% | █████████████████░░░ |
-| testability | 90.0% | ██████████████████░░ |
+| readability | 95.0% | ███████████████████░ |
+| security | 50.0% | ██████████░░░░░░░░░░ |
+| testability | 65.0% | █████████████░░░░░░░ |
 
 ## Evidence
 
@@ -95,48 +96,78 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-393 lines (329 code, 17 comment, 47 blank), 0 TODOs, complexity 0
+18 lines (14 code, 2 comment, 2 blank), 0 TODOs, complexity 4
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 47 |
-| `code_lines` | 329 |
-| `comment_lines` | 17 |
-| `complexity` | 0 |
+| `blank_lines` | 2 |
+| `code_lines` | 14 |
+| `comment_lines` | 2 |
+| `complexity` | 4 |
 | `todo_count` | 0 |
-| `total_lines` | 393 |
+| `total_lines` | 18 |
+
+### ✅ test (`coverage:unit`)
+
+per-unit coverage: 23%
+
+| Metric | Value |
+|--------|------:|
+| `unit_test_coverage` | 0.23 |
 
 ### ✅ structural (`structural`)
 
-structural: params=0 returns=0 nesting=0 doc=false exported=false cognitive=0
+structural: params=3 returns=2 nesting=2 doc=true exported=true cognitive=4
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 4 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 0 |
-| `func_lines` | 0 |
-| `global_mutable_count` | 0 |
+| `exported_name` | 1 |
+| `func_lines` | 15 |
+| `global_mutable_count` | 1 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 0 |
+| `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `loop_nesting_depth` | 1 |
+| `max_nesting_depth` | 2 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 0 |
+| `param_count` | 3 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 0 |
-| `unsafe_import_count` | 0 |
+| `return_count` | 2 |
+| `unsafe_import_count` | 1 |
+
+### ✅ structural (`deep-analysis`)
+
+deep: fan_in=0 fan_out=3 dead=true depth=1 instab=0.29
+
+| Metric | Value |
+|--------|------:|
+| `concrete_deps` | 0 |
+| `coupling_score` | 0 |
+| `dep_depth` | 1 |
+| `fan_in` | 0 |
+| `fan_out` | 3 |
+| `instability` | 0.29 |
+| `interface_size` | 0 |
+| `is_dead_code` | 1 |
+| `type_aware_unwrapped` | 1 |
+| `unused_params` | 0 |
+
+## Observations
+
+- unsafe_import_count: 1 exceeds threshold 0
+- is_dead_code: 1 exceeds threshold 0
 
 ---
 

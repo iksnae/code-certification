@@ -2,18 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-11-23 |
-| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-23 |
-| [PackageSummary](report_tree.go/PackageSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-11-23 |
-| [issueRow](site.go/issueRow.md) | class | 🟢 A- | 90.0% | certified | 2026-11-23 |
-| [unitTreePath](report_tree.go/unitTreePath.md) | function | 🟢 A | 93.3% | certified | 2026-11-23 |
+| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
+| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-24 |
+| [partition_test.go](partition_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [recurrent_areas_test.go](recurrent_areas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [navLink](site.go/navLink.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
+| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
 
 ---
 

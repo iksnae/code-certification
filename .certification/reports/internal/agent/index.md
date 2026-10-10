@@ -2,22 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.9%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [analyzeDependencies](architect_snapshot.go/analyzeDependencies.md) | method | 🟢 B | 86.1% | certified | 2026-11-23 |
-| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-23 |
-| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-23 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-23 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-11-23 |
-| [ArchRecommendation](architect_review.go/ArchRecommendation.md) | class | 🟢 A- | 90.0% | certified | 2026-11-23 |
-| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-23 |
-| [topNIssues](architect_snapshot.go/topNIssues.md) | function | 🟢 A | 93.3% | certified | 2026-11-23 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-11-23 |
+| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-11-24 |
+| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
+| [formatLayerMap](architect.go/formatLayerMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
+| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-24 |
+| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-24 |
+| [Provider](provider.go/Provider.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
 
 ---
 

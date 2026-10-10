@@ -1,4 +1,4 @@
-# 🟢 `buildReportFromRecords`
+# 🟢 `IssueCard`
 
 [← vscode-certify/src](../index.md)
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `ts://vscode-certify/src/dataLoader.ts#buildReportFromRecords` |
-| **Type** | method |
-| **Path** | `vscode-certify/src/dataLoader.ts` |
+| **Unit ID** | `ts://vscode-certify/src/types.ts#IssueCard` |
+| **Type** | class |
+| **Path** | `vscode-certify/src/types.ts` |
 | **Language** | ts |
-| **Symbol** | `buildReportFromRecords` |
+| **Symbol** | `IssueCard` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **A-** |
-| **Score** | 91.9% |
+| **Score** | 90.0% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-10 |
@@ -35,7 +35,7 @@
 | maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
-| readability | 85.0% | █████████████████░░░ |
+| readability | 70.0% | ██████████████░░░░░░ |
 | security | 85.0% | █████████████████░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
@@ -95,20 +95,20 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-393 lines (329 code, 17 comment, 47 blank), 0 TODOs, complexity 0
+160 lines (140 code, 3 comment, 17 blank), 0 TODOs, complexity 0
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 47 |
-| `code_lines` | 329 |
-| `comment_lines` | 17 |
+| `blank_lines` | 17 |
+| `code_lines` | 140 |
+| `comment_lines` | 3 |
 | `complexity` | 0 |
 | `todo_count` | 0 |
-| `total_lines` | 393 |
+| `total_lines` | 160 |
 
 ### ✅ structural (`structural`)
 
-structural: params=0 returns=0 nesting=0 doc=false exported=false cognitive=0
+structural: params=0 returns=0 nesting=0 doc=false exported=true cognitive=0
 
 | Metric | Value |
 |--------|------:|
@@ -118,7 +118,7 @@ structural: params=0 returns=0 nesting=0 doc=false exported=false cognitive=0
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 0 |
+| `exported_name` | 1 |
 | `func_lines` | 0 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |

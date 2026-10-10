@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildReportFromRecords](dataLoader.ts/buildReportFromRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-11-23 |
-| [dispose](dataLoader.ts/dispose.md) | method | 🟢 A- | 91.9% | certified | 2026-11-23 |
-| [getUnitsForFile](dataLoader.ts/getUnitsForFile.md) | method | 🟢 A- | 91.9% | certified | 2026-11-23 |
-| [hasCertification](dataLoader.ts/hasCertification.md) | method | 🟢 A- | 91.9% | certified | 2026-11-23 |
-| [loadAllRecords](dataLoader.ts/loadAllRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-11-23 |
-| [createStatusBarItem](statusBar.ts/createStatusBarItem.md) | function | 🟢 A | 93.1% | certified | 2026-11-23 |
+| [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [IssueCard](types.ts/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [RecordJSON](types.ts/RecordJSON.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [buildReportFromRecords](dataLoader.ts/buildReportFromRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-11-24 |
+| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.9% | certified | 2026-11-24 |
 
 ---
 

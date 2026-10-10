@@ -1,6 +1,6 @@
-# 🟢 `buildReportFromRecords`
+# 🟢 `constructor`
 
-[← vscode-certify/src](../index.md)
+[← vscode-certify/src/codeLens](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `ts://vscode-certify/src/dataLoader.ts#buildReportFromRecords` |
+| **Unit ID** | `ts://vscode-certify/src/codeLens/CertifyCodeLensProvider.ts#constructor` |
 | **Type** | method |
-| **Path** | `vscode-certify/src/dataLoader.ts` |
+| **Path** | `vscode-certify/src/codeLens/CertifyCodeLensProvider.ts` |
 | **Language** | ts |
-| **Symbol** | `buildReportFromRecords` |
+| **Symbol** | `constructor` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
 | **Grade** | 🟢 **A-** |
-| **Score** | 91.9% |
+| **Score** | 92.5% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-10 |
@@ -35,7 +35,7 @@
 | maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
-| readability | 85.0% | █████████████████░░░ |
+| readability | 90.0% | ██████████████████░░ |
 | security | 85.0% | █████████████████░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
@@ -95,16 +95,16 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-393 lines (329 code, 17 comment, 47 blank), 0 TODOs, complexity 0
+154 lines (128 code, 4 comment, 22 blank), 0 TODOs, complexity 0
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 47 |
-| `code_lines` | 329 |
-| `comment_lines` | 17 |
+| `blank_lines` | 22 |
+| `code_lines` | 128 |
+| `comment_lines` | 4 |
 | `complexity` | 0 |
 | `todo_count` | 0 |
-| `total_lines` | 393 |
+| `total_lines` | 154 |
 
 ### ✅ structural (`structural`)
 

@@ -1,6 +1,6 @@
-# 🟢 `buildReportFromRecords`
+# 🟢 `bindReviewFlags`
 
-[← vscode-certify/src](../index.md)
+[← cmd/certify](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `ts://vscode-certify/src/dataLoader.ts#buildReportFromRecords` |
-| **Type** | method |
-| **Path** | `vscode-certify/src/dataLoader.ts` |
-| **Language** | ts |
-| **Symbol** | `buildReportFromRecords` |
+| **Unit ID** | `go://cmd/certify/review.go#bindReviewFlags` |
+| **Type** | function |
+| **Path** | `cmd/certify/review.go` |
+| **Language** | go |
+| **Symbol** | `bindReviewFlags` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **A-** |
-| **Score** | 91.9% |
+| **Grade** | 🟢 **B+** |
+| **Score** | 90.0% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-10 |
@@ -30,12 +30,13 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
+| architectural_fitness | 65.0% | █████████████░░░░░░░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
 | maintainability | 95.0% | ███████████████████░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
-| readability | 85.0% | █████████████████░░░ |
+| readability | 95.0% | ███████████████████░ |
 | security | 85.0% | █████████████████░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
@@ -95,16 +96,24 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-393 lines (329 code, 17 comment, 47 blank), 0 TODOs, complexity 0
+3 lines (3 code, 0 comment, 0 blank), 0 TODOs, complexity 1
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 47 |
-| `code_lines` | 329 |
-| `comment_lines` | 17 |
-| `complexity` | 0 |
+| `blank_lines` | 0 |
+| `code_lines` | 3 |
+| `comment_lines` | 0 |
+| `complexity` | 1 |
 | `todo_count` | 0 |
-| `total_lines` | 393 |
+| `total_lines` | 3 |
+
+### ✅ test (`coverage:unit`)
+
+per-unit coverage: 5%
+
+| Metric | Value |
+|--------|------:|
+| `unit_test_coverage` | 0.05 |
 
 ### ✅ structural (`structural`)
 
@@ -119,7 +128,7 @@ structural: params=0 returns=0 nesting=0 doc=false exported=false cognitive=0
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
 | `exported_name` | 0 |
-| `func_lines` | 0 |
+| `func_lines` | 1 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
 | `has_doc_comment` | 0 |
@@ -137,6 +146,23 @@ structural: params=0 returns=0 nesting=0 doc=false exported=false cognitive=0
 | `recursive_calls` | 0 |
 | `return_count` | 0 |
 | `unsafe_import_count` | 0 |
+
+### ✅ structural (`deep-analysis`)
+
+deep: fan_in=1 fan_out=2 dead=false depth=4 instab=1.00
+
+| Metric | Value |
+|--------|------:|
+| `concrete_deps` | 0 |
+| `coupling_score` | 0.02 |
+| `dep_depth` | 4 |
+| `fan_in` | 1 |
+| `fan_out` | 2 |
+| `instability` | 1 |
+| `interface_size` | 0 |
+| `is_dead_code` | 0 |
+| `type_aware_unwrapped` | 0 |
+| `unused_params` | 0 |
 
 ---
 

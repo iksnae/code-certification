@@ -1,6 +1,6 @@
-# 🟢 `buildReportFromRecords`
+# 🟢 `GatherContext`
 
-[← vscode-certify/src](../index.md)
+[← internal/agent](../index.md)
 
 ---
 
@@ -8,18 +8,18 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `ts://vscode-certify/src/dataLoader.ts#buildReportFromRecords` |
-| **Type** | method |
-| **Path** | `vscode-certify/src/dataLoader.ts` |
-| **Language** | ts |
-| **Symbol** | `buildReportFromRecords` |
+| **Unit ID** | `go://internal/agent/architect.go#GatherContext` |
+| **Type** | function |
+| **Path** | `internal/agent/architect.go` |
+| **Language** | go |
+| **Symbol** | `GatherContext` |
 
 ## Certification
 
 | Field | Value |
 |-------|-------|
-| **Grade** | 🟢 **A-** |
-| **Score** | 91.9% |
+| **Grade** | 🟢 **B+** |
+| **Score** | 89.4% |
 | **Status** | certified |
 | **Confidence** | 100% |
 | **Certified** | 2026-10-10 |
@@ -30,12 +30,13 @@
 
 | Dimension | Score | Bar |
 |-----------|------:|-----|
+| architectural_fitness | 95.0% | ███████████████████░ |
 | change_risk | 95.0% | ███████████████████░ |
 | correctness | 95.0% | ███████████████████░ |
-| maintainability | 95.0% | ███████████████████░ |
+| maintainability | 85.0% | █████████████████░░░ |
 | operational_quality | 95.0% | ███████████████████░ |
 | performance_appropriateness | 95.0% | ███████████████████░ |
-| readability | 85.0% | █████████████████░░░ |
+| readability | 70.0% | ██████████████░░░░░░ |
 | security | 85.0% | █████████████████░░░ |
 | testability | 90.0% | ██████████████████░░ |
 
@@ -95,48 +96,73 @@ go test: 0/0 passed (0% coverage)
 
 ### ✅ metrics (`metrics`)
 
-393 lines (329 code, 17 comment, 47 blank), 0 TODOs, complexity 0
+87 lines (69 code, 11 comment, 7 blank), 0 TODOs, complexity 16
 
 | Metric | Value |
 |--------|------:|
-| `blank_lines` | 47 |
-| `code_lines` | 329 |
-| `comment_lines` | 17 |
-| `complexity` | 0 |
+| `blank_lines` | 7 |
+| `code_lines` | 69 |
+| `comment_lines` | 11 |
+| `complexity` | 16 |
 | `todo_count` | 0 |
-| `total_lines` | 393 |
+| `total_lines` | 87 |
+
+### ✅ test (`coverage:unit`)
+
+per-unit coverage: 95%
+
+| Metric | Value |
+|--------|------:|
+| `unit_test_coverage` | 0.95 |
 
 ### ✅ structural (`structural`)
 
-structural: params=0 returns=0 nesting=0 doc=false exported=false cognitive=0
+structural: params=3 returns=2 nesting=3 doc=true exported=true cognitive=21
 
 | Metric | Value |
 |--------|------:|
-| `cognitive_complexity` | 0 |
+| `cognitive_complexity` | 21 |
 | `context_not_first` | 0 |
 | `defer_in_loop` | 0 |
 | `empty_catch_blocks` | 0 |
 | `errors_ignored` | 0 |
 | `errors_not_wrapped` | 0 |
-| `exported_name` | 0 |
-| `func_lines` | 0 |
+| `exported_name` | 1 |
+| `func_lines` | 84 |
 | `global_mutable_count` | 0 |
 | `hardcoded_secrets` | 0 |
-| `has_doc_comment` | 0 |
+| `has_doc_comment` | 1 |
 | `has_init_func` | 0 |
 | `is_constructor` | 0 |
-| `loop_nesting_depth` | 0 |
-| `max_nesting_depth` | 0 |
+| `loop_nesting_depth` | 1 |
+| `max_nesting_depth` | 3 |
 | `method_count` | 0 |
 | `naked_returns` | 0 |
 | `nested_loop_pairs` | 0 |
 | `os_exit_calls` | 0 |
 | `panic_calls` | 0 |
-| `param_count` | 0 |
+| `param_count` | 3 |
 | `quadratic_patterns` | 0 |
 | `recursive_calls` | 0 |
-| `return_count` | 0 |
+| `return_count` | 2 |
 | `unsafe_import_count` | 0 |
+
+### ✅ structural (`deep-analysis`)
+
+deep: fan_in=1 fan_out=10 dead=false depth=1 instab=0.20
+
+| Metric | Value |
+|--------|------:|
+| `concrete_deps` | 0 |
+| `coupling_score` | 0.10 |
+| `dep_depth` | 1 |
+| `fan_in` | 1 |
+| `fan_out` | 10 |
+| `instability` | 0.20 |
+| `interface_size` | 0 |
+| `is_dead_code` | 0 |
+| `type_aware_unwrapped` | 0 |
+| `unused_params` | 0 |
 
 ---
 

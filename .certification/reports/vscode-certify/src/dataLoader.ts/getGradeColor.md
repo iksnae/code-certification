@@ -1,4 +1,4 @@
-# 🟢 `buildReportFromRecords`
+# 🟢 `getGradeColor`
 
 [← vscode-certify/src](../index.md)
 
@@ -8,11 +8,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Unit ID** | `ts://vscode-certify/src/dataLoader.ts#buildReportFromRecords` |
+| **Unit ID** | `ts://vscode-certify/src/dataLoader.ts#getGradeColor` |
 | **Type** | method |
 | **Path** | `vscode-certify/src/dataLoader.ts` |
 | **Language** | ts |
-| **Symbol** | `buildReportFromRecords` |
+| **Symbol** | `getGradeColor` |
 
 ## Certification
 

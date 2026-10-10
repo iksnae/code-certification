@@ -2,14 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [UnitType](unit.go/UnitType.md) | class | 🟢 A- | 90.0% | certified | 2026-11-23 |
+| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-24 |
+| [PolicyConfig](config.go/PolicyConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [config_test.go](config_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-24 |
+| [Evidence](evidence.go/Evidence.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
 
 ---
 
