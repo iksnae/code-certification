@@ -2,19 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (86.3%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-11-24 |
-| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-11-24 |
-| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-11-24 |
-| [pyCountRaises](python_analyzer.go/pyCountRaises.md) | function | 🟢 B | 86.1% | certified | 2026-11-24 |
-| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
+| [rsAnalyzeFunction](rust_analyzer.go/rsAnalyzeFunction.md) | function | 🟢 B | 82.8% | certified | 2026-11-25 |
+| [init](go_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-11-25 |
+| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-11-25 |
+| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2026-11-25 |
+| [languageID](lsp_analyzer.go/languageID.md) | function | 🟢 B | 86.7% | certified | 2026-11-25 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-11-25 |
+| [goWalkLoops](go_analyzer.go/goWalkLoops.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-25 |
 
 ---
 

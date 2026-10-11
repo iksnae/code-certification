@@ -2,18 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.8%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ArchitectMeta](dataLoader.ts/ArchitectMeta.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [IssueCard](types.ts/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [RecordJSON](types.ts/RecordJSON.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [buildReportFromRecords](dataLoader.ts/buildReportFromRecords.md) | method | 🟢 A- | 91.9% | certified | 2026-11-24 |
-| [getGradeColor](dataLoader.ts/getGradeColor.md) | method | 🟢 A- | 91.9% | certified | 2026-11-24 |
+| [IssueCard](types.ts/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
 
 ---
 

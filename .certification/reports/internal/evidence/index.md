@@ -2,20 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (88.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
-| [ParseGitLog](git.go/ParseGitLog.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-24 |
-| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-24 |
-| [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [ParseCoverProfilePerFunc](coverage.go/ParseCoverProfilePerFunc.md) | function | 🟢 A- | 92.2% | certified | 2026-11-24 |
-| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
+| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 85.6% | certified | 2026-11-25 |
+| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-25 |
+| [adjustFindingPaths](executor.go/adjustFindingPaths.md) | method | 🟢 B+ | 89.4% | certified | 2026-11-25 |
 
 ---
 

@@ -2,19 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Scan](go_adapter.go/Scan.md) | method | 🟢 B | 85.0% | certified | 2026-11-24 |
-| [ChangedFiles](diff.go/ChangedFiles.md) | function | 🟢 B | 85.6% | certified | 2026-11-24 |
-| [NewGenericScanner](generic.go/NewGenericScanner.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-24 |
-| [AnalysisAdapter](analysis_adapter.go/AnalysisAdapter.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [Merge](scanner.go/Merge.md) | function | 🟢 A- | 92.8% | certified | 2026-11-24 |
-| [buildLanguageList](detect.go/buildLanguageList.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
+| [scanner_test.go](scanner_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-25 |
+| [diff_test.go](diff_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-25 |
+| [GoAdapter](go_adapter.go/GoAdapter.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
 
 ---
 

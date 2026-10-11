@@ -2,20 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.5%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (88.7%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
-| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-24 |
-| [partition_test.go](partition_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [recurrent_areas_test.go](recurrent_areas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [navLink](site.go/navLink.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
-| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
+| [writeTemplate](site.go/writeTemplate.md) | function | 🟢 B | 83.3% | certified | 2026-11-25 |
+| [GenerateCard](card.go/GenerateCard.md) | function | 🟢 B | 85.0% | certified | 2026-11-25 |
+| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-25 |
+| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-25 |
+| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-25 |
+| [mixed_denominator_test.go](mixed_denominator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-25 |
+| [badgeGrade](badge.go/badgeGrade.md) | function | 🟢 A | 93.3% | certified | 2026-11-25 |
+| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-11-25 |
 
 ---
 

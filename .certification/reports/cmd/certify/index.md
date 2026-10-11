@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (90.0%)  
+**Grade:** 🟢 B+ (88.6%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildArchitectContext](architect_cmd.go/buildArchitectContext.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-24 |
-| [bindReviewFlags](review.go/bindReviewFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-24 |
+| [policyVersions](certify_cmd.go/policyVersions.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-25 |
+| [bindReviewFlags](review.go/bindReviewFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-25 |
 
 ---
 

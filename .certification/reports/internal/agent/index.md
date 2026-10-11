@@ -2,22 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
+**Grade:** 🟢 A- (90.2%)  
 **Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-11-24 |
-| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
-| [formatLayerMap](architect.go/formatLayerMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-24 |
-| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-24 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-24 |
-| [Provider](provider.go/Provider.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-24 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-11-24 |
+| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-11-25 |
+| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-25 |
+| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-25 |
+| [ArchRecommendation](architect_review.go/ArchRecommendation.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
+| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
+| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
+| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
+| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-11-25 |
+| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-11-25 |
 
 ---
 
