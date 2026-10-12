@@ -2,22 +2,26 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.3%)  
+**Units:** 13 · **Passing:** 13 / 13
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2026-11-25 |
-| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-25 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-25 |
-| [ArchRecommendation](architect_review.go/ArchRecommendation.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
-| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
-| [PromptTemplate](prompts.go/PromptTemplate.md) | class | 🟢 A- | 90.0% | certified | 2026-11-25 |
-| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-11-25 |
-| [looseParseNeedsReview](stage.go/looseParseNeedsReview.md) | function | 🟢 A | 93.3% | certified | 2026-11-25 |
+| [Chat](openrouter.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-11-26 |
+| [formatCoverageMetrics](architect.go/formatCoverageMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-26 |
+| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-11-26 |
+| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-26 |
+| [autodetect_test.go](autodetect_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-26 |
+| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-26 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [Strategy](pipeline.go/Strategy.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [ResponseFormat](types.go/ResponseFormat.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [ArchPhase2Result](architect_review.go/ArchPhase2Result.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [normalizeImport](architect_snapshot.go/normalizeImport.md) | function | 🟢 A | 93.3% | certified | 2026-11-26 |
 
 ---
 
