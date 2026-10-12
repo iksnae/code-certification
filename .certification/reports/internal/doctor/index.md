@@ -2,15 +2,45 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (86.3%)  
+**Units:** 32 · **Passing:** 32 / 32
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [checkProjectSetup](doctor.go/checkProjectSetup.md) | method | 🟡 C | 78.9% | certified_with_observations | 2026-11-26 |
 | [Report](doctor.go/Report.md) | class | 🟢 B | 81.9% | certified | 2026-11-26 |
+| [checkConfiguration](doctor.go/checkConfiguration.md) | method | 🟢 B | 82.2% | certified | 2026-11-26 |
+| [commandOutput](doctor.go/commandOutput.md) | function | 🟢 B | 82.2% | certified | 2026-11-26 |
+| [checkTools](doctor.go/checkTools.md) | method | 🟢 B | 83.3% | certified | 2026-11-26 |
+| [Emoji](doctor.go/Emoji.md) | method | 🟢 B | 85.0% | certified | 2026-11-26 |
+| [String](doctor.go/String.md) | method | 🟢 B | 85.0% | certified | 2026-11-26 |
+| [Summary](doctor.go/Summary.md) | method | 🟢 B | 85.0% | certified | 2026-11-26 |
+| [checkAgentConfig](doctor.go/checkAgentConfig.md) | method | 🟢 B | 85.0% | certified | 2026-11-26 |
+| [CheckStatus](doctor.go/CheckStatus.md) | class | 🟢 B | 85.6% | certified | 2026-11-26 |
+| [Check](doctor.go/Check.md) | class | 🟢 B | 85.6% | certified | 2026-11-26 |
+| [checkProviders](doctor.go/checkProviders.md) | method | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [checkAnalysisTiers](doctor.go/checkAnalysisTiers.md) | method | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [checkEnvironment](doctor.go/checkEnvironment.md) | method | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [checkModuleRoots](doctor.go/checkModuleRoots.md) | method | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [addToolWarn](doctor.go/addToolWarn.md) | method | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [RunAll](doctor.go/RunAll.md) | function | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [HasFailures](doctor.go/HasFailures.md) | method | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [FormatReport](doctor.go/FormatReport.md) | function | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [groupTitle](doctor.go/groupTitle.md) | function | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [min](doctor.go/min.md) | function | 🟢 B | 86.1% | certified | 2026-11-26 |
+| [BuildOnboardPlan](onboard.go/BuildOnboardPlan.md) | function | 🟢 B+ | 87.8% | certified | 2026-11-26 |
+| [AllDone](onboard.go/AllDone.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-26 |
+| [Emoji](onboard.go/Emoji.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-26 |
+| [FormatOnboardPlan](onboard.go/FormatOnboardPlan.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-26 |
+| [NextStep](onboard.go/NextStep.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-26 |
 | [doctor_test.go](doctor_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-26 |
+| [onboard_test.go](onboard_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-11-26 |
+| [hasJSONFiles](onboard.go/hasJSONFiles.md) | function | 🟢 B+ | 90.0% | certified | 2026-11-26 |
+| [OnboardPlan](onboard.go/OnboardPlan.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [OnboardStatus](onboard.go/OnboardStatus.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
+| [OnboardStep](onboard.go/OnboardStep.md) | class | 🟢 A- | 90.0% | certified | 2026-11-26 |
 
 ---
 
