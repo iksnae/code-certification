@@ -3,17 +3,13 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (90.0%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ProviderConfig](config.go/ProviderConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-27 |
-| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-27 |
-| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 A- | 90.0% | certified | 2026-11-27 |
-| [Verdict](record.go/Verdict.md) | class | 🟢 A- | 90.0% | certified | 2026-11-27 |
-| [UnitType](unit.go/UnitType.md) | class | 🟢 A- | 90.0% | certified | 2026-11-27 |
+| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 A- | 90.0% | certified | 2026-11-28 |
 
 ---
 
