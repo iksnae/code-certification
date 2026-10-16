@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 A- (92.2%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-11-29 |
-| [EvidenceKind](evidence.go/EvidenceKind.md) | class | 🟢 A- | 90.0% | certified | 2026-11-29 |
-| [ExpiryFactors](expiry.go/ExpiryFactors.md) | class | 🟢 A- | 90.0% | certified | 2026-11-29 |
-| [Status](record.go/Status.md) | class | 🟢 A- | 90.0% | certified | 2026-11-29 |
+| [Config](config.go/Config.md) | class | 🟢 A- | 90.0% | certified | 2026-11-30 |
+| [ParseUnitType](unit.go/ParseUnitType.md) | function | 🟢 A- | 92.2% | certified | 2026-11-30 |
+| [ParseUnitTypeOrDefault](unit.go/ParseUnitTypeOrDefault.md) | function | 🟢 A | 93.3% | certified | 2026-11-30 |
+| [Path](unit.go/Path.md) | method | 🟢 A | 93.3% | certified | 2026-11-30 |
 
 ---
 
