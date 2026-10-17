@@ -2,26 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-11-30 |
-| [WorkspaceMetrics](workspace_snapshot.go/WorkspaceMetrics.md) | class | 🟢 B | 85.6% | certified | 2026-11-30 |
-| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-11-30 |
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-11-30 |
-| [AdaptiveMessages](fallback.go/AdaptiveMessages.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-30 |
-| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-30 |
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-11-30 |
-| [Strategy](pipeline.go/Strategy.md) | class | 🟢 A- | 90.0% | certified | 2026-11-30 |
-| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 A- | 90.0% | certified | 2026-11-30 |
-| [FallbackProvider](fallback.go/FallbackProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-11-30 |
-| [ReviewWorkspace](architect_review.go/ReviewWorkspace.md) | method | 🟢 A- | 92.2% | certified | 2026-11-30 |
-| [SuggestForRepo](suggest.go/SuggestForRepo.md) | function | 🟢 A | 93.3% | certified | 2026-11-30 |
-| [NewCoordinator](pipeline.go/NewCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-11-30 |
+| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-01 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-01 |
+| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
+| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
+| [Stage](stage.go/Stage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
 
 ---
 

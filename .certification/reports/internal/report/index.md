@@ -9,14 +9,14 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-30 |
-| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-11-30 |
-| [FormatUnitPopulation](card.go/FormatUnitPopulation.md) | function | 🟢 B+ | 88.9% | certified | 2026-11-30 |
-| [cleanDir](report_tree.go/cleanDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-30 |
-| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2026-11-30 |
-| [LanguageDetail](full.go/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-11-30 |
-| [BadgeMarkdown](badge.go/BadgeMarkdown.md) | function | 🟢 A | 93.3% | certified | 2026-11-30 |
-| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2026-11-30 |
+| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-12-01 |
+| [writeArchExecutiveSummary](architect_report.go/writeArchExecutiveSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-01 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-01 |
+| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-01 |
+| [UnitReport](full.go/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
+| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-12-01 |
+| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2026-12-01 |
+| [generateUnitPages](site.go/generateUnitPages.md) | function | 🟢 A | 93.3% | certified | 2026-12-01 |
 
 ---
 
