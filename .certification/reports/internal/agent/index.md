@@ -2,18 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-01 |
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-01 |
-| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
-| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
-| [Stage](stage.go/Stage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
+| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-12-02 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-12-02 |
+| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-02 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
+| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-12-02 |
+| [stripThinkTags](architect_review.go/stripThinkTags.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [topNIssues](architect_snapshot.go/topNIssues.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
 
 ---
 

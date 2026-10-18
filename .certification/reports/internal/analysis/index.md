@@ -2,22 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (87.4%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-12-01 |
-| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-12-01 |
-| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-12-01 |
-| [pyComputeNesting](python_analyzer.go/pyComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-01 |
-| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-12-01 |
-| [go_deep_test.go](go_deep_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-01 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-01 |
-| [goIsConstLikeExpr](go_analyzer.go/goIsConstLikeExpr.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-01 |
-| [findFunc](go_refine.go/findFunc.md) | method | 🟢 A | 93.3% | certified | 2026-12-01 |
+| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-12-02 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-12-02 |
+| [rsComputeCyclomatic](rust_analyzer.go/rsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-02 |
+| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-02 |
+| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-02 |
+| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-02 |
+| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-02 |
+| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-12-02 |
 
 ---
 

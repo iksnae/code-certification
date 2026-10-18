@@ -2,17 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [certifier_test.go](certifier_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-01 |
-| [collectUnitEvidence](certifier.go/collectUnitEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-01 |
-| [buildCoverageEvidence](certifier.go/buildCoverageEvidence.md) | method | 🟢 B+ | 90.0% | certified | 2026-12-01 |
-| [artifacts_unassessed_test.go](artifacts_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-01 |
+| [metricOrSummaryFloat](scorer.go/metricOrSummaryFloat.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-02 |
+| [metricOrSummaryInt](scorer.go/metricOrSummaryInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-02 |
+| [scoreAlgoComplexity](scorer.go/scoreAlgoComplexity.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-02 |
 
 ---
 

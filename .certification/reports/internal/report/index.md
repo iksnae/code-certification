@@ -2,21 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.9%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (89.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-12-01 |
-| [writeArchExecutiveSummary](architect_report.go/writeArchExecutiveSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-01 |
-| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-01 |
-| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-01 |
-| [UnitReport](full.go/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-01 |
-| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-12-01 |
-| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2026-12-01 |
-| [generateUnitPages](site.go/generateUnitPages.md) | function | 🟢 A | 93.3% | certified | 2026-12-01 |
+| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 80.0% | certified | 2026-12-02 |
+| [Analyzable](full.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
+| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
+| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-12-02 |
+| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
 
 ---
 
