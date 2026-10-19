@@ -2,21 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B (87.0%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](python_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-12-02 |
-| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-12-02 |
-| [rsComputeCyclomatic](rust_analyzer.go/rsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-02 |
-| [Analyze](rust_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-02 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-02 |
-| [AnalyzeFile](rust_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-02 |
-| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-02 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-12-03 |
+| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-12-03 |
+| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-12-03 |
+| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-03 |
+| [pyCountRecursive](python_analyzer.go/pyCountRecursive.md) | function | 🟢 B | 86.1% | certified | 2026-12-03 |
+| [rsAnalyzeNode](rust_analyzer.go/rsAnalyzeNode.md) | function | 🟢 B | 86.1% | certified | 2026-12-03 |
+| [rsComputeNesting](rust_analyzer.go/rsComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-03 |
+| [go_refine_test.go](go_refine_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-03 |
+| [AllResults](go_deep.go/AllResults.md) | method | 🟢 A | 93.3% | certified | 2026-12-03 |
+| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-12-03 |
 
 ---
 

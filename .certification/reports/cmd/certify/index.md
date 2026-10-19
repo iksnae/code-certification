@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
+**Grade:** 🟢 B+ (87.2%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2026-12-02 |
-| [submoduleSummaryFromCard](report_cmd.go/submoduleSummaryFromCard.md) | function | 🟢 B | 83.3% | certified | 2026-12-02 |
-| [enforcingGateWarning](certify_cmd.go/enforcingGateWarning.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-02 |
-| [isLocalURL](certify_cmd.go/isLocalURL.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-02 |
+| [loadCertifyContext](certify_cmd.go/loadCertifyContext.md) | function | 🟢 B | 84.4% | certified | 2026-12-03 |
+| [getCertifyFlags](certify_cmd.go/getCertifyFlags.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-03 |
+| [flagInt](root.go/flagInt.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-03 |
+| [runParams](certify_cmd.go/runParams.md) | class | 🟢 A- | 90.0% | certified | 2026-12-03 |
 
 ---
 

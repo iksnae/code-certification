@@ -2,24 +2,28 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (88.5%)  
+**Units:** 15 · **Passing:** 15 / 15
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-12-02 |
-| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-12-02 |
-| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-02 |
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
-| [Review](reviewer.go/Review.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-12-02 |
-| [stripThinkTags](architect_review.go/stripThinkTags.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
-| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
-| [topNIssues](architect_snapshot.go/topNIssues.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
-| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-12-02 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2026-12-03 |
+| [Execute](stage.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-12-03 |
+| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-12-03 |
+| [WorkspaceArchSnapshot](workspace_snapshot.go/WorkspaceArchSnapshot.md) | class | 🟢 B | 85.6% | certified | 2026-12-03 |
+| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-03 |
+| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-12-03 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-03 |
+| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 A- | 90.0% | certified | 2026-12-03 |
+| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-03 |
+| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-03 |
+| [Strategy](pipeline.go/Strategy.md) | class | 🟢 A- | 90.0% | certified | 2026-12-03 |
+| [ArchFinding](architect_review.go/ArchFinding.md) | class | 🟢 A- | 90.0% | certified | 2026-12-03 |
+| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2026-12-03 |
+| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-12-03 |
+| [NewOpenRouterProvider](openrouter.go/NewOpenRouterProvider.md) | function | 🟢 A | 93.3% | certified | 2026-12-03 |
 
 ---
 

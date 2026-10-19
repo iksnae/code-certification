@@ -2,19 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeAIInsights](full.go/writeAIInsights.md) | function | 🟢 B | 80.0% | certified | 2026-12-02 |
-| [Analyzable](full.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
-| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-02 |
-| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-12-02 |
-| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
-| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-12-02 |
+| [indexData](site.go/indexData.md) | class | 🟢 A- | 90.0% | certified | 2026-12-03 |
+| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-12-03 |
 
 ---
 
