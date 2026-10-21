@@ -2,20 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.9%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Get](prompts.go/Get.md) | method | 🟢 B | 83.9% | certified | 2026-12-04 |
-| [autodetect_test.go](autodetect_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-04 |
-| [models_test.go](models_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-04 |
-| [ArchPhase4Result](architect_review.go/ArchPhase4Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-04 |
-| [SnapshotMetrics](architect_snapshot.go/SnapshotMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-12-04 |
-| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-12-04 |
-| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-12-04 |
+| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-05 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-12-05 |
+| [stage_test.go](stage_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-05 |
+| [Name](circuit.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-05 |
+| [autodetect_test.go](autodetect_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-05 |
+| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-05 |
+| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2026-12-05 |
+| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-05 |
+| [ChatResponse](types.go/ChatResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-05 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-12-05 |
+| [ReviewUnit](pipeline.go/ReviewUnit.md) | method | 🟢 A | 93.3% | certified | 2026-12-05 |
 
 ---
 

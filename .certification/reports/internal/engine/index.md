@@ -2,18 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (82.2%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [collectDeepEvidence](certifier.go/collectDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [runAgentReview](certifier.go/runAgentReview.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [collectStructuralLegacyGo](certifier.go/collectStructuralLegacyGo.md) | method | 🟢 B+ | 90.0% | certified | 2026-12-04 |
-| [artifacts_unassessed_test.go](artifacts_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-04 |
-| [CertifyResult](certifier.go/CertifyResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-04 |
+| [Score](scorer.go/Score.md) | function | 🟢 B | 82.2% | certified | 2026-12-05 |
 
 ---
 

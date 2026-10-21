@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-04 |
-| [FormatUnitPopulation](card.go/FormatUnitPopulation.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [GenerateReportTree](report_tree.go/GenerateReportTree.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [GenerateUnitReports](unit_report.go/GenerateUnitReports.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-04 |
-| [formatPassRate](card.go/formatPassRate.md) | function | 🟢 A | 93.3% | certified | 2026-12-04 |
+| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-12-05 |
+| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-05 |
+| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-05 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-05 |
+| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-12-05 |
 
 ---
 

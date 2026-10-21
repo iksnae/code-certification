@@ -2,18 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatIssueBody](issues.go/FormatIssueBody.md) | function | 🟢 B | 82.8% | certified | 2026-12-04 |
-| [BuildIssueCreateCommand](issues.go/BuildIssueCreateCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [ComputeTrustDelta](pr.go/ComputeTrustDelta.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-04 |
-| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-04 |
+| [pr_test.go](pr_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-05 |
 
 ---
 

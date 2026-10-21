@@ -2,15 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (85.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [resolveArchitectProvider](architect_cmd.go/resolveArchitectProvider.md) | function | 🟢 B | 86.1% | certified | 2026-12-04 |
-| [detectAPIKeyOnly](certify_cmd.go/detectAPIKeyOnly.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-04 |
+| [runWorkspaceArchitect](architect_cmd.go/runWorkspaceArchitect.md) | function | 🟡 C | 70.6% | certified_with_observations | 2026-12-05 |
+| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-12-05 |
+| [getCertifyFlags](certify_cmd.go/getCertifyFlags.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-05 |
+| [flagBool](root.go/flagBool.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-05 |
+| [bindCertifyFlags](certify_cmd.go/bindCertifyFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-05 |
+| [certifyContext](certify_cmd.go/certifyContext.md) | class | 🟢 A- | 90.0% | certified | 2026-12-05 |
 
 ---
 

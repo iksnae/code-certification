@@ -2,18 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (82.6%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (86.9%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsFindSymbol](ts_analyzer.go/tsFindSymbol.md) | function | 🟡 C | 77.8% | certified_with_observations | 2026-12-04 |
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-12-04 |
-| [fileURI](lsp_analyzer.go/fileURI.md) | function | 🟢 B | 81.7% | certified | 2026-12-04 |
-| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-04 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-04 |
+| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-12-05 |
+| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-12-05 |
+| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-12-05 |
+| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-12-05 |
+| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-12-05 |
+| [FanOut](go_deep.go/FanOut.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-05 |
+| [Symbol](analyzer.go/Symbol.md) | class | 🟢 A- | 90.0% | certified | 2026-12-05 |
+| [depDepthRec](go_deps.go/depDepthRec.md) | method | 🟢 A | 93.3% | certified | 2026-12-05 |
 
 ---
 
