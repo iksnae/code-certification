@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RemainingAt](expiry.go/RemainingAt.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-05 |
-| [ModelAssignments](config.go/ModelAssignments.md) | class | 🟢 A- | 90.0% | certified | 2026-12-05 |
-| [ParseEvidenceKind](evidence.go/ParseEvidenceKind.md) | function | 🟢 A- | 92.2% | certified | 2026-12-05 |
+| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-06 |
+| [NewUnitID](unit.go/NewUnitID.md) | function | 🟢 A | 93.3% | certified | 2026-12-06 |
 
 ---
 

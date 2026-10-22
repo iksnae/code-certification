@@ -3,28 +3,31 @@
 [← Report Card](../REPORT_CARD.md)
 
 **Repository:** `iksnae/code-certification`  
-**Commit:** `cd1d380eb`  
-**Overall:** 🟢 B+ (88.9%)  
-**Units:** 50 · **Passing:** 50 · **Failing:** 0
+**Commit:** `56dd2f4a8`  
+**Overall:** 🟢 B+ (89.1%)  
+**Units:** 50 · **Passing:** 49 · **Failing:** 0 · **Not Assessed:** 1
 
 ## Packages
 
-| Package | Units | Grade | Score | Pass Rate |
-|---------|------:|:-----:|------:|----------:|
-| [cmd/certify](cmd/certify/index.md) | 6 | 🟢 B | 85.2% | 100% |
-| [internal/agent](internal/agent/index.md) | 11 | 🟢 B+ | 89.9% | 100% |
-| [internal/analysis](internal/analysis/index.md) | 8 | 🟢 B | 86.9% | 100% |
-| [internal/analysis/lsp](internal/analysis/lsp/index.md) | 3 | 🟢 A- | 90.0% | 100% |
-| [internal/discovery](internal/discovery/index.md) | 2 | 🟢 B+ | 89.2% | 100% |
-| [internal/domain](internal/domain/index.md) | 3 | 🟢 A- | 90.4% | 100% |
-| [internal/engine](internal/engine/index.md) | 1 | 🟢 B | 82.2% | 100% |
-| [internal/evidence](internal/evidence/index.md) | 1 | 🟢 A- | 90.0% | 100% |
-| [internal/github](internal/github/index.md) | 1 | 🟢 A- | 90.0% | 100% |
-| [internal/queue](internal/queue/index.md) | 1 | 🟢 A | 93.3% | 100% |
-| [internal/record](internal/record/index.md) | 3 | 🟢 A- | 90.6% | 100% |
-| [internal/report](internal/report/index.md) | 5 | 🟢 B+ | 89.1% | 100% |
-| [internal/workspace](internal/workspace/index.md) | 2 | 🟢 A- | 91.1% | 100% |
-| [vscode-certify/src](vscode-certify/src/index.md) | 3 | 🟢 A- | 91.3% | 100% |
+| Package | Units | Not Assessed | Grade | Score | Pass Rate |
+|---------|------:|-------------:|:-----:|------:|----------:|
+| [cmd/certify](cmd/certify/index.md) | 3 | 0 | 🟢 B | 85.9% | 100% |
+| [internal/agent](internal/agent/index.md) | 8 | 0 | 🟢 A- | 90.0% | 100% |
+| [internal/analysis](internal/analysis/index.md) | 10 | 0 | 🟢 B+ | 87.9% | 100% |
+| [internal/discovery](internal/discovery/index.md) | 1 | 0 | 🟢 B+ | 88.9% | 100% |
+| [internal/doctor](internal/doctor/index.md) | 3 | 0 | 🟢 B | 85.9% | 100% |
+| [internal/domain](internal/domain/index.md) | 2 | 0 | 🟢 A- | 91.7% | 100% |
+| [internal/engine](internal/engine/index.md) | 2 | 0 | 🟢 B | 85.6% | 100% |
+| [internal/evidence](internal/evidence/index.md) | 6 | 0 | 🟢 B+ | 88.8% | 100% |
+| [internal/override](internal/override/index.md) | 1 | 0 | 🟢 A- | 90.0% | 100% |
+| [internal/policy](internal/policy/index.md) | 1 | 0 | 🟢 B+ | 87.2% | 100% |
+| [internal/queue](internal/queue/index.md) | 1 | 0 | 🟢 A | 93.3% | 100% |
+| [internal/record](internal/record/index.md) | 1 | 0 | 🟢 B+ | 88.9% | 100% |
+| [internal/report](internal/report/index.md) | 6 | 0 | 🟢 A- | 90.8% | 100% |
+| [internal/workspace](internal/workspace/index.md) | 1 | 0 | 🟢 A | 93.3% | 100% |
+| [scripts](scripts/index.md) | 1 | 1 | ⚪ N/A | n/a | n/a |
+| [vscode-certify/src/codeLens](vscode-certify/src/codeLens/index.md) | 2 | 0 | 🟢 A- | 92.5% | 100% |
+| [vscode-certify/src/config](vscode-certify/src/config/index.md) | 1 | 0 | 🟢 A | 93.1% | 100% |
 
 ---
 

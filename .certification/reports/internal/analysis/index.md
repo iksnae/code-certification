@@ -2,21 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2026-12-05 |
-| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-12-05 |
-| [rsAnalyzeTrait](rust_analyzer.go/rsAnalyzeTrait.md) | function | 🟢 B | 85.0% | certified | 2026-12-05 |
-| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-12-05 |
-| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-12-05 |
-| [FanOut](go_deep.go/FanOut.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-05 |
-| [Symbol](analyzer.go/Symbol.md) | class | 🟢 A- | 90.0% | certified | 2026-12-05 |
-| [depDepthRec](go_deps.go/depDepthRec.md) | method | 🟢 A | 93.3% | certified | 2026-12-05 |
+| [TSAnalyzer](ts_analyzer.go/TSAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-12-06 |
+| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-12-06 |
+| [goCountMethods](go_analyzer.go/goCountMethods.md) | function | 🟢 B | 86.1% | certified | 2026-12-06 |
+| [goCountRecursiveCalls](go_analyzer.go/goCountRecursiveCalls.md) | function | 🟢 B | 86.1% | certified | 2026-12-06 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-12-06 |
+| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-12-06 |
+| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-06 |
+| [AbstractionResult](go_deps.go/AbstractionResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-06 |
+| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-12-06 |
+| [compute](go_deep.go/compute.md) | method | 🟢 A | 93.3% | certified | 2026-12-06 |
 
 ---
 

@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.8%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-12-05 |
-| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-05 |
-| [FormatSearchIndexJS](site_search.go/FormatSearchIndexJS.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-05 |
-| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-05 |
-| [Health](health.go/Health.md) | function | 🟢 A | 93.3% | certified | 2026-12-05 |
+| [PassRateKnown](report_tree.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-06 |
+| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-06 |
+| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-06 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-06 |
+| [analyzable](report_tree.go/analyzable.md) | method | 🟢 A | 93.3% | certified | 2026-12-06 |
+| [gradeCSSClass](site.go/gradeCSSClass.md) | function | 🟢 A | 93.3% | certified | 2026-12-06 |
 
 ---
 

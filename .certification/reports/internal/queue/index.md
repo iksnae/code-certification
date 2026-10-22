@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Fail](queue.go/Fail.md) | method | 🟢 A | 93.3% | certified | 2026-12-05 |
+| [Load](queue.go/Load.md) | function | 🟢 A | 93.3% | certified | 2026-12-06 |
 
 ---
 
