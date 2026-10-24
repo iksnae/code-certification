@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
+**Grade:** 🟢 A- (92.2%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GenerateRunID](record.go/GenerateRunID.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-07 |
-| [Dimension](dimension.go/Dimension.md) | class | 🟢 A- | 90.0% | certified | 2026-12-07 |
-| [WithUnassessedVerdict](record.go/WithUnassessedVerdict.md) | method | 🟢 A | 93.3% | certified | 2026-12-07 |
+| [override_test.go](override_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-08 |
+| [DefaultConfig](config.go/DefaultConfig.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
+| [UnassessedVerdict](record.go/UnassessedVerdict.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
 
 ---
 

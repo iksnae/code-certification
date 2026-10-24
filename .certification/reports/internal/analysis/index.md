@@ -2,17 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (86.2%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsNodeName](rust_analyzer.go/rsNodeName.md) | function | 🟢 B | 86.1% | certified | 2026-12-07 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-07 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-07 |
-| [UnusedExports](go_deep.go/UnusedExports.md) | method | 🟢 A | 93.3% | certified | 2026-12-07 |
+| [tsAnalyzeClass](ts_analyzer.go/tsAnalyzeClass.md) | function | 🟢 B | 85.0% | certified | 2026-12-08 |
+| [tsWalkAll](ts_analyzer.go/tsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-12-08 |
+| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-12-08 |
+| [goCountCallExpr](go_analyzer.go/goCountCallExpr.md) | function | 🟢 B | 86.1% | certified | 2026-12-08 |
+| [pyChildByType](python_analyzer.go/pyChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-12-08 |
+| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-12-08 |
+| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-08 |
 
 ---
 

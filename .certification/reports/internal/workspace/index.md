@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatWorkspaceIndex](report.go/formatWorkspaceIndex.md) | function | 🟢 A | 93.3% | certified | 2026-12-07 |
+| [gradeEmoji](report.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
 
 ---
 

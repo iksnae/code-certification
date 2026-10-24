@@ -2,16 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [callFuncName](structural.go/callFuncName.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-07 |
-| [computeLoopNesting](structural.go/computeLoopNesting.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-07 |
-| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2026-12-07 |
+| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2026-12-08 |
+| [UnitBelongsToModule](modules.go/UnitBelongsToModule.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-08 |
+| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-08 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 A- | 90.0% | certified | 2026-12-08 |
 
 ---
 

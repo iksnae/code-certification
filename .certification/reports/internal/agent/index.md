@@ -2,28 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 15 · **Passing:** 15 / 15
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Chat](circuit.go/Chat.md) | method | 🟢 B | 83.9% | certified | 2026-12-07 |
-| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-07 |
-| [formatCoverageMetrics](architect.go/formatCoverageMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-07 |
-| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-07 |
-| [IsOpen](circuit.go/IsOpen.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-07 |
-| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-07 |
-| [openrouter_test.go](openrouter_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-07 |
-| [detectCrossDeps](workspace_snapshot.go/detectCrossDeps.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-07 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-12-07 |
-| [DetectedProvider](providers.go/DetectedProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-12-07 |
-| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 A- | 90.0% | certified | 2026-12-07 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-07 |
-| [topNIssues](architect_snapshot.go/topNIssues.md) | function | 🟢 A | 93.3% | certified | 2026-12-07 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-12-07 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-12-07 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-08 |
+| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-12-08 |
+| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-08 |
+| [prompts_test.go](prompts_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-08 |
+| [suggest_test.go](suggest_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-08 |
+| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
+| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
+| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
 
 ---
 
