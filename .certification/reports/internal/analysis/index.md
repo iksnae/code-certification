@@ -2,20 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.2%)  
+**Grade:** 🟢 B (85.4%)  
 **Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [tsAnalyzeClass](ts_analyzer.go/tsAnalyzeClass.md) | function | 🟢 B | 85.0% | certified | 2026-12-08 |
-| [tsWalkAll](ts_analyzer.go/tsWalkAll.md) | function | 🟢 B | 85.0% | certified | 2026-12-08 |
-| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2026-12-08 |
-| [goCountCallExpr](go_analyzer.go/goCountCallExpr.md) | function | 🟢 B | 86.1% | certified | 2026-12-08 |
-| [pyChildByType](python_analyzer.go/pyChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-12-08 |
-| [tsHasDocComment](ts_analyzer.go/tsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-12-08 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-08 |
+| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-12-09 |
+| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-12-09 |
+| [PythonAnalyzer](python_analyzer.go/PythonAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-12-09 |
+| [goWalkNested](go_analyzer.go/goWalkNested.md) | function | 🟢 B | 86.1% | certified | 2026-12-09 |
+| [rsChildByType](rust_analyzer.go/rsChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-12-09 |
+| [goWalkLoops](go_analyzer.go/goWalkLoops.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-09 |
+| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-12-09 |
 
 ---
 

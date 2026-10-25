@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.8%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [override_test.go](override_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-08 |
-| [DefaultConfig](config.go/DefaultConfig.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
-| [UnassessedVerdict](record.go/UnassessedVerdict.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
+| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-09 |
+| [ScopeConfig](config.go/ScopeConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [Grade](dimension.go/Grade.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [OverrideAction](override.go/OverrideAction.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
 
 ---
 

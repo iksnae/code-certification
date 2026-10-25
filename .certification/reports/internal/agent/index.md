@@ -2,21 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-08 |
-| [UnitSummary](architect.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-12-08 |
-| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-08 |
-| [prompts_test.go](prompts_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-08 |
-| [suggest_test.go](suggest_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-08 |
-| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
-| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
+| [WorkspaceProjectContext](workspace_snapshot.go/WorkspaceProjectContext.md) | class | 🟢 B | 85.6% | certified | 2026-12-09 |
+| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-09 |
+| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-09 |
+| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-09 |
+| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-09 |
+| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-09 |
+| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-09 |
+| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-09 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [snapshot_unassessed_test.go](snapshot_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-12-09 |
 
 ---
 

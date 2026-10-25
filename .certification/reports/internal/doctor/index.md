@@ -2,17 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [checkTools](doctor.go/checkTools.md) | method | 🟢 B | 83.3% | certified | 2026-12-08 |
-| [onboard_test.go](onboard_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-08 |
-| [hasJSONFiles](onboard.go/hasJSONFiles.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-08 |
-| [OnboardPlan](onboard.go/OnboardPlan.md) | class | 🟢 A- | 90.0% | certified | 2026-12-08 |
+| [AllDone](onboard.go/AllDone.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-09 |
 
 ---
 

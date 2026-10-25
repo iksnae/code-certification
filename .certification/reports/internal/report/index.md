@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatUnitMarkdown](unit_report.go/FormatUnitMarkdown.md) | function | 🟢 B | 86.1% | certified | 2026-12-08 |
-| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-08 |
-| [site_templates.go](site_templates.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-08 |
-| [navLink](site.go/navLink.md) | class | 🟢 A- | 90.0% | certified | 2026-12-08 |
-| [buildTopIssues](card.go/buildTopIssues.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
-| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2026-12-08 |
+| [writeArchDependencyGraph](architect_report.go/writeArchDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-09 |
+| [writeHeader](full.go/writeHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-09 |
+| [FullReport](full.go/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A | 93.3% | certified | 2026-12-09 |
 
 ---
 
