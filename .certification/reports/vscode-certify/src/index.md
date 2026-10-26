@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.1%)  
+**Grade:** 🟢 B+ (88.4%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GRADE_EMOJI](constants.ts/GRADE_EMOJI.md) | function | 🟢 A- | 90.0% | certified | 2026-12-09 |
-| [ModelAssignments](types.ts/ModelAssignments.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
-| [loadFullReport](dataLoader.ts/loadFullReport.md) | method | 🟢 A- | 91.9% | certified | 2026-12-09 |
-| [detectLanguageName](dataLoader.ts/detectLanguageName.md) | function | 🟢 A- | 92.5% | certified | 2026-12-09 |
+| [runCertifyJSON](certifyBinary.ts/runCertifyJSON.md) | function | 🟢 B | 83.1% | certified | 2026-12-10 |
+| [listModels](certifyBinary.ts/listModels.md) | function | 🟢 B+ | 88.8% | certified | 2026-12-10 |
+| [DEEP_METRIC_LABELS](constants.ts/DEEP_METRIC_LABELS.md) | function | 🟢 A- | 90.0% | certified | 2026-12-10 |
+| [loadFullReport](dataLoader.ts/loadFullReport.md) | method | 🟢 A- | 91.9% | certified | 2026-12-10 |
 
 ---
 

@@ -2,16 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.0%)  
+**Grade:** 🟢 B (81.3%)  
 **Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-12-09 |
-| [formatETA](certify_cmd.go/formatETA.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-09 |
-| [tally_test.go](tally_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-09 |
+| [runWorkspaceArchitect](architect_cmd.go/runWorkspaceArchitect.md) | function | 🟡 C | 70.6% | certified_with_observations | 2026-12-10 |
+| [languagePolicy](init_cmd.go/languagePolicy.md) | function | 🟢 B | 86.1% | certified | 2026-12-10 |
+| [filterUnits](certify_cmd.go/filterUnits.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-10 |
 
 ---
 

@@ -2,25 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 A- (90.7%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [WorkspaceProjectContext](workspace_snapshot.go/WorkspaceProjectContext.md) | class | 🟢 B | 85.6% | certified | 2026-12-09 |
-| [workspace_snapshot_test.go](workspace_snapshot_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-09 |
-| [GroqModels](providers.go/GroqModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-09 |
-| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-09 |
-| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-09 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-09 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-09 |
-| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-09 |
-| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
-| [ArchPhase3Result](architect_review.go/ArchPhase3Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
-| [snapshot_unassessed_test.go](snapshot_unassessed_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-09 |
-| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-12-09 |
+| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-10 |
+| [NewFallbackProvider](fallback.go/NewFallbackProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-10 |
+| [Allow](ratelimit.go/Allow.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-10 |
+| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-10 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-12-10 |
+| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-10 |
+| [ArchitectPhaseNames](architect_prompts.go/ArchitectPhaseNames.md) | function | 🟢 A | 93.3% | certified | 2026-12-10 |
+| [extractImportPaths](architect_snapshot.go/extractImportPaths.md) | function | 🟢 A | 93.3% | certified | 2026-12-10 |
+| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-12-10 |
+| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-12-10 |
 
 ---
 

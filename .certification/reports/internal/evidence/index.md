@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.9%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (87.0%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [HasGoMod](executor.go/HasGoMod.md) | method | 🟢 B | 85.0% | certified | 2026-12-09 |
-| [analyzeFunc](structural.go/analyzeFunc.md) | function | 🟢 B | 86.1% | certified | 2026-12-09 |
-| [isConstLikeCall](structural.go/isConstLikeCall.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-09 |
-| [runGitStats](executor.go/runGitStats.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-09 |
+| [ToolExecutor](executor.go/ToolExecutor.md) | class | 🟢 B | 81.9% | certified | 2026-12-10 |
+| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-12-10 |
+| [structural_test.go](structural_test.go.md) | file | 🟢 B | 85.6% | certified | 2026-12-10 |
+| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-10 |
+| [ParseGolangciLintJSON](runner.go/ParseGolangciLintJSON.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-10 |
+| [DiscoverModuleRoots](modules.go/DiscoverModuleRoots.md) | function | 🟢 A | 93.3% | certified | 2026-12-10 |
 
 ---
 

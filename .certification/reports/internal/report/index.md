@@ -2,17 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
+**Grade:** 🟢 A- (91.1%)  
 **Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchDependencyGraph](architect_report.go/writeArchDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-09 |
-| [writeHeader](full.go/writeHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-09 |
-| [FullReport](full.go/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-09 |
-| [formatDate](unit_report.go/formatDate.md) | function | 🟢 A | 93.3% | certified | 2026-12-09 |
+| [ScoreKnown](report_tree.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-10 |
+| [Card](card.go/Card.md) | class | 🟢 A- | 90.0% | certified | 2026-12-10 |
+| [buildUnitPageData](site.go/buildUnitPageData.md) | function | 🟢 A- | 92.2% | certified | 2026-12-10 |
+| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2026-12-10 |
 
 ---
 

@@ -2,20 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.4%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B (85.2%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-12-09 |
-| [Language](rust_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-12-09 |
-| [PythonAnalyzer](python_analyzer.go/PythonAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-12-09 |
-| [goWalkNested](go_analyzer.go/goWalkNested.md) | function | 🟢 B | 86.1% | certified | 2026-12-09 |
-| [rsChildByType](rust_analyzer.go/rsChildByType.md) | function | 🟢 B | 86.1% | certified | 2026-12-09 |
-| [goWalkLoops](go_analyzer.go/goWalkLoops.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-09 |
-| [errorInterface](go_refine.go/errorInterface.md) | function | 🟢 A | 93.3% | certified | 2026-12-09 |
+| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-12-10 |
+| [rsIsPub](rust_analyzer.go/rsIsPub.md) | function | 🟢 B | 83.3% | certified | 2026-12-10 |
+| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-12-10 |
+| [init](rust_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-12-10 |
+| [pyAnalyzeNode](python_analyzer.go/pyAnalyzeNode.md) | function | 🟢 B | 85.0% | certified | 2026-12-10 |
+| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-10 |
+| [tsCountParams](ts_analyzer.go/tsCountParams.md) | function | 🟢 B | 86.1% | certified | 2026-12-10 |
+| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-12-10 |
+| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-10 |
 
 ---
 
