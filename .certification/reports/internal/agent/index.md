@@ -2,21 +2,26 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.8%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (91.6%)  
+**Units:** 13 · **Passing:** 13 / 13
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-12-11 |
-| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-11 |
-| [OpenRouterProvider](openrouter.go/OpenRouterProvider.md) | class | 🟢 A- | 90.0% | certified | 2026-12-11 |
-| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-11 |
-| [workspace_snapshot_weight_test.go](workspace_snapshot_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-11 |
-| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2026-12-11 |
-| [NewConservativeCoordinator](autodetect.go/NewConservativeCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-12-11 |
-| [isAuthError](openrouter.go/isAuthError.md) | function | 🟢 A | 93.3% | certified | 2026-12-11 |
+| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-12-12 |
+| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-12 |
+| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-12 |
+| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-12 |
+| [schemas_test.go](schemas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-12 |
+| [StageResult](stage.go/StageResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-12 |
+| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [NewCoordinator](pipeline.go/NewCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
 
 ---
 

@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.6%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCertifyJSON](certifyBinary.ts/runCertifyJSON.md) | function | 🟢 B | 83.1% | certified | 2026-12-11 |
-| [UnitReport](types.ts/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-11 |
+| [DIMENSION_NAMES](constants.ts/DIMENSION_NAMES.md) | function | 🟢 A- | 90.0% | certified | 2026-12-12 |
 
 ---
 

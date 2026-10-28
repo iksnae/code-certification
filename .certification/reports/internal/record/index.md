@@ -2,17 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [store_legacy_capture_test.go](store_legacy_capture_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-11 |
-| [listAllFromDir](store.go/listAllFromDir.md) | method | 🟢 A- | 92.2% | certified | 2026-12-11 |
-| [NewStore](store.go/NewStore.md) | function | 🟢 A | 93.3% | certified | 2026-12-11 |
-| [historyPathFor](store.go/historyPathFor.md) | method | 🟢 A | 93.3% | certified | 2026-12-11 |
+| [Load](store.go/Load.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-12 |
+| [LoadRuns](store.go/LoadRuns.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-12 |
 
 ---
 

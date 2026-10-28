@@ -2,24 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.4%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 B+ (88.3%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Language](ts_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-12-11 |
-| [goCallFuncName](go_analyzer.go/goCallFuncName.md) | function | 🟢 B | 86.1% | certified | 2026-12-11 |
-| [pyComputeCognitive](python_analyzer.go/pyComputeCognitive.md) | function | 🟢 B | 86.1% | certified | 2026-12-11 |
-| [rsComputeCyclomatic](rust_analyzer.go/rsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-11 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-11 |
-| [Analyze](ts_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-11 |
-| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-11 |
-| [regression_test.go](regression_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-11 |
-| [classifyAlgo](go_analyzer.go/classifyAlgo.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-11 |
-| [goWalkBlock](go_analyzer.go/goWalkBlock.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-11 |
-| [isExported](go_analyzer.go/isExported.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-11 |
+| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-12-12 |
+| [goCountIgnoredErrors](go_analyzer.go/goCountIgnoredErrors.md) | function | 🟢 B | 86.1% | certified | 2026-12-12 |
+| [regression_test.go](regression_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-12 |
+| [goExprTypeName](go_analyzer.go/goExprTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-12 |
+| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-12-12 |
 
 ---
 

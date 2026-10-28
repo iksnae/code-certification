@@ -2,16 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-11 |
-| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-11 |
-| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2026-12-11 |
+| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2026-12-12 |
+| [writeHeader](full.go/writeHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-12 |
+| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-12 |
+| [ScoreKnown](site_search.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-12 |
+| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-12 |
+| [unitPageData](site.go/unitPageData.md) | class | 🟢 A- | 90.0% | certified | 2026-12-12 |
+| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [generateUnitPages](site.go/generateUnitPages.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
 
 ---
 
