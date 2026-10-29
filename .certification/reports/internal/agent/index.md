@@ -2,26 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.6%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 A- (90.9%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2026-12-12 |
-| [Name](stage.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-12 |
-| [ratelimit_test.go](ratelimit_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-12 |
-| [openAIModelsResponse](models.go/openAIModelsResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-12 |
-| [schemas_test.go](schemas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-12 |
-| [StageResult](stage.go/StageResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-12 |
-| [SetTimeout](openrouter.go/SetTimeout.md) | method | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [NewCoordinator](pipeline.go/NewCoordinator.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [extractIssueType](architect_snapshot.go/extractIssueType.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [defaultScores](stage.go/defaultScores.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [extractFirstSentence](stage_deep.go/extractFirstSentence.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-13 |
+| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
+| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
+| [Router](router.go/Router.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
+| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
 
 ---
 

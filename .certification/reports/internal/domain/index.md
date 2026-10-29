@@ -2,16 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.2%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (91.3%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DimensionWeights](dimension.go/DimensionWeights.md) | class | 🟢 A- | 90.0% | certified | 2026-12-12 |
-| [DefaultConfig](config.go/DefaultConfig.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [WeightedAverage](dimension.go/WeightedAverage.md) | method | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
+| [override_test.go](override_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-13 |
+| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
+| [ParseSeverity](evidence.go/ParseSeverity.md) | function | 🟢 A- | 92.2% | certified | 2026-12-13 |
+| [Validate](override.go/Validate.md) | method | 🟢 A- | 92.2% | certified | 2026-12-13 |
+| [NewUnit](unit.go/NewUnit.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
 
 ---
 

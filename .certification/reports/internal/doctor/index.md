@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (81.9%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Report](doctor.go/Report.md) | class | 🟢 B | 81.9% | certified | 2026-12-12 |
+| [onboard_test.go](onboard_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-13 |
 
 ---
 

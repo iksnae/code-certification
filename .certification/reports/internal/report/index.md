@@ -2,23 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 A- (90.5%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2026-12-12 |
-| [writeHeader](full.go/writeHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-12 |
-| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-12 |
-| [ScoreKnown](site_search.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-12 |
-| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-12 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 A- | 90.0% | certified | 2026-12-12 |
-| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [shortFile](full.go/shortFile.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [FormatText](health.go/FormatText.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
-| [generateUnitPages](site.go/generateUnitPages.md) | function | 🟢 A | 93.3% | certified | 2026-12-12 |
+| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 86.7% | certified | 2026-12-13 |
+| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-13 |
+| [PassRateKnown](report_tree.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-13 |
+| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
+| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-12-13 |
 
 ---
 
