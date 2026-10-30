@@ -2,20 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.8%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Discover](go_analyzer.go/Discover.md) | method | 🟢 B | 80.6% | certified | 2026-12-13 |
-| [Language](go_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-12-13 |
-| [goComputeCognitiveComplexity](go_analyzer.go/goComputeCognitiveComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-12-13 |
-| [pyComputeLoopNesting](python_analyzer.go/pyComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-13 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-13 |
-| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-12-13 |
-| [Lookup](go_deep.go/Lookup.md) | method | 🟢 A | 93.3% | certified | 2026-12-13 |
+| [Metrics](analyzer.go/Metrics.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [LangDisplayName](lsp_config.go/LangDisplayName.md) | function | 🟢 A | 93.3% | certified | 2026-12-14 |
 
 ---
 

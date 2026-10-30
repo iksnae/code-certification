@@ -2,19 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.6%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 86.7% | certified | 2026-12-13 |
-| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-13 |
-| [PassRateKnown](report_tree.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-13 |
-| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
-| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
-| [grade](report_tree.go/grade.md) | method | 🟢 A | 93.3% | certified | 2026-12-13 |
+| [writeAllUnits](full.go/writeAllUnits.md) | function | 🟢 B | 86.1% | certified | 2026-12-14 |
+| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
+| [site_templates.go](site_templates.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-14 |
+| [FormatUnitPopulation](card.go/FormatUnitPopulation.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-14 |
+| [mixed_denominator_test.go](mixed_denominator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-14 |
+| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-14 |
+| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [packageStats](report_tree.go/packageStats.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A | 93.3% | certified | 2026-12-14 |
+| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2026-12-14 |
 
 ---
 

@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [readConfig](configWriter.ts/readConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-13 |
+| [readConfig](configWriter.ts/readConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-14 |
 
 ---
 

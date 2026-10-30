@@ -2,19 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-13 |
-| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-13 |
-| [runGoVetAt](executor.go/runGoVetAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-13 |
-| [runGolangciLintAt](executor.go/runGolangciLintAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-13 |
-| [FileMetrics](structural.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
-| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
+| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-12-14 |
+| [computeNestingDepth](structural.go/computeNestingDepth.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
+| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
+| [tools_test.go](tools_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-14 |
+| [executor_test.go](executor_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-14 |
 
 ---
 

@@ -2,17 +2,16 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [readLoop](client.go/readLoop.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-13 |
-| [client_test.go](client_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-13 |
-| [CallHierarchyCapability](types.go/CallHierarchyCapability.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
-| [DidOpenTextDocumentParams](types.go/DidOpenTextDocumentParams.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
+| [CallHierarchyIncomingCallsParams](types.go/CallHierarchyIncomingCallsParams.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [CallHierarchyOutgoingCallsParams](types.go/CallHierarchyOutgoingCallsParams.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [DocumentSymbol](types.go/DocumentSymbol.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
 
 ---
 

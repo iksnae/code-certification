@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.8%)  
+**Grade:** 🟢 B+ (89.4%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [scoreDeepAnalysis](scorer.go/scoreDeepAnalysis.md) | function | 🟢 B | 81.7% | certified | 2026-12-13 |
-| [CollectRepoEvidence](certifier.go/CollectRepoEvidence.md) | method | 🟢 B+ | 90.0% | certified | 2026-12-13 |
+| [collectUnitEvidence](certifier.go/collectUnitEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-14 |
+| [scoreAlgoComplexity](scorer.go/scoreAlgoComplexity.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-14 |
 
 ---
 

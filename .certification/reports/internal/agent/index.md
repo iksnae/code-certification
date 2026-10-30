@@ -2,19 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.9%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Render](prompts.go/Render.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-13 |
-| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
-| [RateLimiter](ratelimit.go/RateLimiter.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
-| [Router](router.go/Router.md) | class | 🟢 A- | 90.0% | certified | 2026-12-13 |
-| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
-| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-12-13 |
+| [formatLayerMap](architect.go/formatLayerMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
+| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
+| [NewPrescreenStage](stage.go/NewPrescreenStage.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-14 |
+| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [Usage](types.go/Usage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-12-14 |
+| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2026-12-14 |
 
 ---
 
