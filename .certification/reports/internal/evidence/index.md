@@ -9,11 +9,11 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2026-12-14 |
-| [computeNestingDepth](structural.go/computeNestingDepth.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
-| [countQuadraticPatterns](structural.go/countQuadraticPatterns.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
-| [tools_test.go](tools_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-14 |
-| [executor_test.go](executor_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-14 |
+| [ParseCargoClippyJSON](tools.go/ParseCargoClippyJSON.md) | function | 🟢 B | 85.0% | certified | 2026-12-15 |
+| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 85.6% | certified | 2026-12-15 |
+| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-15 |
+| [findESLint](tools.go/findESLint.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-15 |
+| [hasStringLit](structural.go/hasStringLit.md) | function | 🟢 A | 93.3% | certified | 2026-12-15 |
 
 ---
 

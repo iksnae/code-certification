@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.3%)  
+**Grade:** 🟢 B (86.6%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [AgentConfig](types.ts/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-14 |
-| [deactivate](extension.ts/deactivate.md) | function | 🟢 A- | 92.5% | certified | 2026-12-14 |
+| [runCertify](certifyBinary.ts/runCertify.md) | function | 🟢 B | 83.1% | certified | 2026-12-15 |
+| [IssueCard](types.ts/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-12-15 |
 
 ---
 

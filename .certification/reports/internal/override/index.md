@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.0%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Apply](applier.go/Apply.md) | function | 🟢 B | 82.8% | certified | 2026-12-14 |
-| [ApplyAll](applier.go/ApplyAll.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-14 |
+| [rawOverride](loader.go/rawOverride.md) | class | 🟢 A- | 90.0% | certified | 2026-12-15 |
 
 ---
 
