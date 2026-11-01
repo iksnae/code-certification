@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [mutation-test.sh](mutation-test.sh.md) | file | ⚪ N/A | n/a | exempt | 2026-12-15 |
+| [gen-legacy-fixture.sh](gen-legacy-fixture.sh.md) | file | ⚪ N/A | n/a | exempt | 2026-12-16 |
 
 ---
 
