@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runPytestAt](tools.go/runPytestAt.md) | method | 🟢 B | 83.3% | certified | 2026-12-16 |
-| [eslintJSONOutput](tools.go/eslintJSONOutput.md) | class | 🟢 B | 85.6% | certified | 2026-12-16 |
-| [countFuncLines](structural.go/countFuncLines.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-16 |
-| [ParseGitLogWithAge](runner.go/ParseGitLogWithAge.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-16 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-16 |
-| [golangciLintOutput](runner.go/golangciLintOutput.md) | class | 🟢 A- | 90.0% | certified | 2026-12-16 |
-| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-12-16 |
+| [eslintMsg](tools.go/eslintMsg.md) | class | 🟢 B | 85.6% | certified | 2026-12-17 |
+| [ToEvidence](lint.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-17 |
+| [GoModuleRoots](modules.go/GoModuleRoots.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-17 |
+| [simpleAtoi](runner.go/simpleAtoi.md) | function | 🟢 A | 93.3% | certified | 2026-12-17 |
+| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-12-17 |
 
 ---
 

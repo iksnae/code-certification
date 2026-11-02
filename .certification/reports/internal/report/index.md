@@ -2,21 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-12-16 |
-| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-16 |
-| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-16 |
-| [PassRateKnown](card.go/PassRateKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-16 |
-| [badge_test.go](badge_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-16 |
-| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-16 |
-| [packagePageData](site.go/packagePageData.md) | class | 🟢 A- | 90.0% | certified | 2026-12-16 |
-| [pkgRow](site.go/pkgRow.md) | class | 🟢 A- | 90.0% | certified | 2026-12-16 |
+| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2026-12-17 |
+| [findExpiringSoon](detailed.go/findExpiringSoon.md) | function | 🟢 B | 86.1% | certified | 2026-12-17 |
+| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-12-17 |
 
 ---
 

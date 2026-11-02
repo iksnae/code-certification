@@ -2,14 +2,16 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (87.3%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CallHierarchyIncomingCall](types.go/CallHierarchyIncomingCall.md) | class | 🟢 A- | 90.0% | certified | 2026-12-16 |
+| [Client](client.go/Client.md) | class | 🟢 B | 81.9% | certified | 2026-12-17 |
+| [ReferenceContext](types.go/ReferenceContext.md) | class | 🟢 A- | 90.0% | certified | 2026-12-17 |
+| [TextDocumentItem](types.go/TextDocumentItem.md) | class | 🟢 A- | 90.0% | certified | 2026-12-17 |
 
 ---
 

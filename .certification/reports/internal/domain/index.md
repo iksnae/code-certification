@@ -9,9 +9,9 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ExpiryFactors](expiry.go/ExpiryFactors.md) | class | 🟢 A- | 90.0% | certified | 2026-12-16 |
-| [policy_test.go](policy_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-16 |
-| [DefaultConfig](config.go/DefaultConfig.md) | function | 🟢 A | 93.3% | certified | 2026-12-16 |
+| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-12-17 |
+| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2026-12-17 |
+| [UnassessedVerdict](record.go/UnassessedVerdict.md) | function | 🟢 A | 93.3% | certified | 2026-12-17 |
 
 ---
 

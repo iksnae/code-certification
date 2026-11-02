@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.3%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (85.9%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [main](main.go/main.md) | function | 🟢 B | 83.3% | certified | 2026-12-16 |
-| [runWorkspaceInit](init_cmd.go/runWorkspaceInit.md) | function | 🟢 B | 83.9% | certified | 2026-12-16 |
-| [printArchitectHeader](architect_cmd.go/printArchitectHeader.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-16 |
-| [flagStringSlice](root.go/flagStringSlice.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-16 |
-| [isLocalURL](certify_cmd.go/isLocalURL.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-16 |
+| [processQueue](certify_cmd.go/processQueue.md) | method | 🟢 B | 81.7% | certified | 2026-12-17 |
+| [detectCommit](report_cmd.go/detectCommit.md) | function | 🟢 B | 86.1% | certified | 2026-12-17 |
+| [hasGoUnits](certify_cmd.go/hasGoUnits.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-17 |
 
 ---
 
