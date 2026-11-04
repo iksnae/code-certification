@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.7%)  
+**Grade:** 🟢 A- (90.3%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ValidationError](validator.go/ValidationError.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [isLocalURL](validator.go/isLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-12-18 |
+| [ValidateConfig](validator.go/ValidateConfig.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-19 |
+| [LoadPolicyPacks](policy.go/LoadPolicyPacks.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
 
 ---
 

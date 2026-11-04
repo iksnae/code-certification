@@ -2,22 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatDetailedText](detailed.go/FormatDetailedText.md) | function | 🟢 B | 86.1% | certified | 2026-12-18 |
-| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-18 |
-| [GenerateReportTree](report_tree.go/GenerateReportTree.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-18 |
-| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-18 |
-| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-18 |
-| [AreaSummary](detailed.go/AreaSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [GenerateBadge](badge.go/GenerateBadge.md) | function | 🟢 A | 93.3% | certified | 2026-12-18 |
-| [badgeColor](badge.go/badgeColor.md) | function | 🟢 A | 93.3% | certified | 2026-12-18 |
-| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-12-18 |
+| [writeArchLayerStructure](architect_report.go/writeArchLayerStructure.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-19 |
+| [GenerateFullReport](full.go/GenerateFullReport.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-19 |
+| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-19 |
+| [SiteConfig](site.go/SiteConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
 
 ---
 

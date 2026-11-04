@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (82.8%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatIssueTitle](issues.go/FormatIssueTitle.md) | function | 🟢 B | 82.8% | certified | 2026-12-18 |
+| [BuildIssueCloseCommand](issues.go/BuildIssueCloseCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-19 |
 
 ---
 

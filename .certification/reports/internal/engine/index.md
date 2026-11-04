@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [setMin](scorer.go/setMin.md) | function | 🟢 B | 83.9% | certified | 2026-12-18 |
-| [SaveReportArtifacts](certifier.go/SaveReportArtifacts.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-18 |
+| [setMin](scorer.go/setMin.md) | function | 🟢 B | 83.9% | certified | 2026-12-19 |
+| [scoreFromMetrics](scorer.go/scoreFromMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-19 |
 
 ---
 

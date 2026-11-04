@@ -2,15 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.9%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (86.7%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 82.5% | certified | 2026-12-18 |
-| [findFunc](go_refine.go/findFunc.md) | method | 🟢 A | 93.3% | certified | 2026-12-18 |
+| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-12-19 |
+| [Language](python_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-12-19 |
+| [goComputeNestingDepth](go_analyzer.go/goComputeNestingDepth.md) | function | 🟢 B | 86.1% | certified | 2026-12-19 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-19 |
+| [Languages](analyzer.go/Languages.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-19 |
+| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-19 |
+| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
 
 ---
 

@@ -2,17 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 A- (91.7%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [config_test.go](config_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [override_test.go](override_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [Verdict](record.go/Verdict.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
+| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [IsPassing](record.go/IsPassing.md) | method | 🟢 A | 93.3% | certified | 2026-12-19 |
 
 ---
 

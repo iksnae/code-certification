@@ -2,22 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SubmoduleInfo](workspace_snapshot.go/SubmoduleInfo.md) | class | 🟢 B | 85.6% | certified | 2026-12-18 |
-| [formatTopObservations](architect.go/formatTopObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-18 |
-| [classifySubmoduleRole](workspace_snapshot.go/classifySubmoduleRole.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-18 |
-| [Run](pipeline.go/Run.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-18 |
-| [ArchFinding](architect_review.go/ArchFinding.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [PromptRegistry](prompts.go/PromptRegistry.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-12-18 |
+| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-12-19 |
+| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-19 |
+| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-19 |
+| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
+| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
 
 ---
 

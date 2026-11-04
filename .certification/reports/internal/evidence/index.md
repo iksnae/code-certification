@@ -2,19 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.5%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [structural_test.go](structural_test.go.md) | file | 🟢 B | 85.6% | certified | 2026-12-18 |
-| [cargoSpan](tools.go/cargoSpan.md) | class | 🟢 B | 85.6% | certified | 2026-12-18 |
-| [isConstLikeCall](structural.go/isConstLikeCall.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-18 |
-| [isMutableVar](structural.go/isMutableVar.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-18 |
-| [FileCoverage](coverage.go/FileCoverage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-18 |
-| [executor_test.go](executor_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-18 |
+| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-12-19 |
+| [cargoSpan](tools.go/cargoSpan.md) | class | 🟢 B | 85.6% | certified | 2026-12-19 |
+| [countFuncLines](structural.go/countFuncLines.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-19 |
+| [metrics_test.go](metrics_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-19 |
+| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-19 |
+| [TestResult](lint.go/TestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
 
 ---
 
