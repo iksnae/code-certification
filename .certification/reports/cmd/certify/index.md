@@ -2,16 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [bindInitFlags](init_cmd.go/bindInitFlags.md) | function | 🟢 B | 86.1% | certified | 2026-12-19 |
-| [gradeEmoji](certify_cmd.go/gradeEmoji.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-19 |
-| [runTally](certify_cmd.go/runTally.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [detectAPIKeyOnly](certify_cmd.go/detectAPIKeyOnly.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-20 |
 
 ---
 

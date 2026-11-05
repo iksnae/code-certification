@@ -2,21 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.4%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (92.0%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatQualitativeContext](architect.go/formatQualitativeContext.md) | function | 🟢 B | 81.1% | certified | 2026-12-19 |
-| [ConservativeModels](autodetect.go/ConservativeModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-19 |
-| [WorkspacePhaseNames](workspace_prompts.go/WorkspacePhaseNames.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-19 |
-| [ProjectContext](architect.go/ProjectContext.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
-| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
+| [ArchRoadItem](architect_review.go/ArchRoadItem.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [ReviewResult](reviewer.go/ReviewResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [doRequest](openrouter.go/doRequest.md) | method | 🟢 A- | 92.2% | certified | 2026-12-20 |
+| [buildArchitectUserPrompt](architect_review.go/buildArchitectUserPrompt.md) | function | 🟢 A | 93.3% | certified | 2026-12-20 |
+| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2026-12-20 |
+| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2026-12-20 |
 
 ---
 

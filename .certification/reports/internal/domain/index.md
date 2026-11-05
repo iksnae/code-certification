@@ -2,15 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.7%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
-| [IsPassing](record.go/IsPassing.md) | method | 🟢 A | 93.3% | certified | 2026-12-19 |
+| [CertificationMode](config.go/CertificationMode.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [ModelAssignments](config.go/ModelAssignments.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [Evidence](evidence.go/Evidence.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [AllDimensions](dimension.go/AllDimensions.md) | function | 🟢 A | 93.3% | certified | 2026-12-20 |
+| [Symbol](unit.go/Symbol.md) | method | 🟢 A | 93.3% | certified | 2026-12-20 |
 
 ---
 

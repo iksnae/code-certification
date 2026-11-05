@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-12-19 |
-| [cargoSpan](tools.go/cargoSpan.md) | class | 🟢 B | 85.6% | certified | 2026-12-19 |
-| [countFuncLines](structural.go/countFuncLines.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-19 |
-| [metrics_test.go](metrics_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-19 |
-| [runCargoClippyAt](tools.go/runCargoClippyAt.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-19 |
-| [TestResult](lint.go/TestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
-| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2026-12-19 |
+| [checkContextNotFirst](structural.go/checkContextNotFirst.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-20 |
+| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-20 |
+| [git_test.go](git_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [CodeMetrics](metrics.go/CodeMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
+| [AnalyzeGoFunc](structural.go/AnalyzeGoFunc.md) | function | 🟢 A | 93.3% | certified | 2026-12-20 |
 
 ---
 

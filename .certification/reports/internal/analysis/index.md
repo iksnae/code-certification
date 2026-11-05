@@ -2,21 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.7%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B (85.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-12-19 |
-| [Language](python_analyzer.go/Language.md) | method | 🟢 B | 82.2% | certified | 2026-12-19 |
-| [goComputeNestingDepth](go_analyzer.go/goComputeNestingDepth.md) | function | 🟢 B | 86.1% | certified | 2026-12-19 |
-| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-19 |
-| [Languages](analyzer.go/Languages.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-19 |
-| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-19 |
-| [FuncKey](go_deep.go/FuncKey.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
-| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 A- | 90.0% | certified | 2026-12-19 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-12-20 |
+| [NewGoAnalyzer](go_analyzer.go/NewGoAnalyzer.md) | function | 🟢 B | 85.0% | certified | 2026-12-20 |
+| [goIsMutableVar](go_analyzer.go/goIsMutableVar.md) | function | 🟢 B | 86.1% | certified | 2026-12-20 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-12-20 |
+| [tsFuncBody](ts_analyzer.go/tsFuncBody.md) | function | 🟢 B | 86.1% | certified | 2026-12-20 |
+| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-20 |
 
 ---
 
