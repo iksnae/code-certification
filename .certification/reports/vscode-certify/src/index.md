@@ -9,9 +9,9 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [BadgeJSON](types.ts/BadgeJSON.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
-| [UnitReport](types.ts/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
-| [constructor](dataLoader.ts/constructor.md) | method | 🟢 A- | 91.9% | certified | 2026-12-20 |
+| [listModels](certifyBinary.ts/listModels.md) | function | 🟢 B+ | 88.8% | certified | 2026-12-21 |
+| [GRADE_EMOJI](constants.ts/GRADE_EMOJI.md) | function | 🟢 A- | 90.0% | certified | 2026-12-21 |
+| [parseArchitectMeta](dataLoader.ts/parseArchitectMeta.md) | function | 🟢 A | 93.1% | certified | 2026-12-21 |
 
 ---
 

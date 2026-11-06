@@ -2,21 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.3%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchDependencyGraph](architect_report.go/writeArchDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-20 |
-| [writeArchPackageMap](architect_report.go/writeArchPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-20 |
-| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-20 |
-| [unassessed_grade_test.go](unassessed_grade_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-20 |
-| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-20 |
-| [IssueCard](card.go/IssueCard.md) | class | 🟢 A- | 90.0% | certified | 2026-12-20 |
-| [buildUnitPageData](site.go/buildUnitPageData.md) | function | 🟢 A- | 92.2% | certified | 2026-12-20 |
-| [buildUnitNavMaps](site.go/buildUnitNavMaps.md) | function | 🟢 A- | 92.8% | certified | 2026-12-20 |
+| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2026-12-21 |
+| [FormatRate](card.go/FormatRate.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-21 |
+| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-21 |
+| [FormatUnitPopulation](card.go/FormatUnitPopulation.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-21 |
+| [Badge](badge.go/Badge.md) | class | 🟢 A- | 90.0% | certified | 2026-12-21 |
+| [site_search_test.go](site_search_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-21 |
+| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2026-12-21 |
 
 ---
 
