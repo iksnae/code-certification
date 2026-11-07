@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B (85.2%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pyAnalyzeClass](python_analyzer.go/pyAnalyzeClass.md) | function | 🟢 B | 83.3% | certified | 2026-12-21 |
-| [tsIsExported](ts_analyzer.go/tsIsExported.md) | function | 🟢 B | 83.3% | certified | 2026-12-21 |
-| [goDetectUnsafeImports](go_analyzer.go/goDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2026-12-21 |
-| [rsHasDocComment](rust_analyzer.go/rsHasDocComment.md) | function | 🟢 B | 86.1% | certified | 2026-12-21 |
-| [TypeAwareErrorWrapping](go_refine.go/TypeAwareErrorWrapping.md) | method | 🟢 A | 93.3% | certified | 2026-12-21 |
+| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 82.5% | certified | 2026-12-22 |
+| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-22 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-12-22 |
+| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-22 |
 
 ---
 

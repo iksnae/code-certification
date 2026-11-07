@@ -2,16 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.6%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [collectStructuralViaAnalyzer](certifier.go/collectStructuralViaAnalyzer.md) | method | 🟢 B | 85.0% | certified | 2026-12-21 |
-| [collectDeepEvidence](certifier.go/collectDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-21 |
-| [collectUnitEvidence](certifier.go/collectUnitEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-21 |
+| [scoreStructuralArchitecture](scorer.go/scoreStructuralArchitecture.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-22 |
 
 ---
 

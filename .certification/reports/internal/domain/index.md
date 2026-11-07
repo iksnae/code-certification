@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ScheduleConfig](config.go/ScheduleConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-21 |
+| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
+| [ParseUnitID](unit.go/ParseUnitID.md) | function | 🟢 A- | 92.2% | certified | 2026-12-22 |
 
 ---
 

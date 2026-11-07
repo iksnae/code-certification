@@ -2,22 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-21 |
-| [formatLayerMap](architect.go/formatLayerMap.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-21 |
-| [HasAnyProvider](autodetect.go/HasAnyProvider.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-21 |
-| [reviewStage](stage.go/reviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-21 |
-| [Message](types.go/Message.md) | class | 🟢 A- | 90.0% | certified | 2026-12-21 |
-| [buildPhaseSet](architect_review.go/buildPhaseSet.md) | function | 🟢 A | 93.3% | certified | 2026-12-21 |
-| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2026-12-21 |
-| [ListModels](models.go/ListModels.md) | function | 🟢 A | 93.3% | certified | 2026-12-21 |
-| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-12-21 |
+| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-12-22 |
+| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-12-22 |
+| [schemas_test.go](schemas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-22 |
+| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
+| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-12-22 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-12-22 |
 
 ---
 
