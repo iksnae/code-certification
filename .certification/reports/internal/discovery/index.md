@@ -2,16 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.0%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [DiffResult](index.go/DiffResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
-| [Merge](scanner.go/Merge.md) | function | 🟢 A- | 92.8% | certified | 2026-12-22 |
-| [symbolToUnitType](analysis_adapter.go/symbolToUnitType.md) | method | 🟢 A | 93.3% | certified | 2026-12-22 |
+| [NewTSAdapter](ts_adapter.go/NewTSAdapter.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-23 |
+| [ts_adapter_test.go](ts_adapter_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-23 |
 
 ---
 

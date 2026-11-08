@@ -2,16 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.1%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ValidatePolicyPack](validator.go/ValidatePolicyPack.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-22 |
-| [rawConfig](loader.go/rawConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
-| [rawPolicyRule](policy.go/rawPolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
+| [rawPolicyRule](policy.go/rawPolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
 
 ---
 

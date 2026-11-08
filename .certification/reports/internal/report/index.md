@@ -2,18 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.3%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartI](architect_report.go/writeArchPartI.md) | function | 🟢 B | 84.4% | certified | 2026-12-22 |
-| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2026-12-22 |
-| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-22 |
-| [gradeRow](site.go/gradeRow.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
+| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-23 |
+| [ScoreKnown](site.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-23 |
+| [LanguageDetail](full.go/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
+| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-12-23 |
 
 ---
 

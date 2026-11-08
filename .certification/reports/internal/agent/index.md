@@ -2,19 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatCondensedSubmodule](workspace_snapshot.go/formatCondensedSubmodule.md) | function | 🟢 B | 83.3% | certified | 2026-12-22 |
-| [Chat](fallback.go/Chat.md) | method | 🟢 B | 85.0% | certified | 2026-12-22 |
-| [schemas_test.go](schemas_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-22 |
-| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-12-22 |
-| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2026-12-22 |
-| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-12-22 |
+| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-23 |
+| [stage_test.go](stage_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-23 |
+| [NewRateLimiter](ratelimit.go/NewRateLimiter.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-23 |
+| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-23 |
+| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-23 |
+| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
+| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
+| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
+| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-12-23 |
 
 ---
 

@@ -2,17 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B (85.5%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LSPServerConfig](lsp_analyzer.go/LSPServerConfig.md) | class | 🟢 B | 82.5% | certified | 2026-12-22 |
-| [pyComputeCyclomatic](python_analyzer.go/pyComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-22 |
-| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2026-12-22 |
-| [tsComputeCyclomatic](ts_analyzer.go/tsComputeCyclomatic.md) | function | 🟢 B | 86.1% | certified | 2026-12-22 |
+| [TSAnalyzer](ts_analyzer.go/TSAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-12-23 |
+| [rsAnalyzeFunction](rust_analyzer.go/rsAnalyzeFunction.md) | function | 🟢 B | 82.8% | certified | 2026-12-23 |
+| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-12-23 |
+| [pyComputeNesting](python_analyzer.go/pyComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-23 |
+| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-23 |
+| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
 
 ---
 

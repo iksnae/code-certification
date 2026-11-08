@@ -2,14 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.2%)  
+**Grade:** 🟢 B+ (88.9%)  
 **Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SaveSnapshot](store.go/SaveSnapshot.md) | method | 🟢 A- | 92.2% | certified | 2026-12-22 |
+| [Load](store.go/Load.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-23 |
 
 ---
 

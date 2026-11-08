@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A (93.3%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatGroupedIssueBody](issues.go/FormatGroupedIssueBody.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-22 |
-| [BuildPRCommentCommand](pr.go/BuildPRCommentCommand.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-22 |
+| [GeneratePRWorkflow](workflows.go/GeneratePRWorkflow.md) | function | 🟢 A | 93.3% | certified | 2026-12-23 |
 
 ---
 
