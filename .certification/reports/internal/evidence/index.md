@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParsePytestShort](tools.go/ParsePytestShort.md) | function | 🟢 B | 80.0% | certified | 2026-12-23 |
-| [CollectAll](executor.go/CollectAll.md) | method | 🟢 B+ | 87.8% | certified | 2026-12-23 |
-| [collectPythonCoverage](tools.go/collectPythonCoverage.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-23 |
-| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-23 |
-| [attribution_test.go](attribution_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-23 |
-| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-12-23 |
+| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-12-24 |
+| [runJSTestAt](tools.go/runJSTestAt.md) | method | 🟢 B | 84.4% | certified | 2026-12-24 |
+| [AnalyzeGoFile](structural.go/AnalyzeGoFile.md) | function | 🟢 A | 93.3% | certified | 2026-12-24 |
+| [hasStringLit](structural.go/hasStringLit.md) | function | 🟢 A | 93.3% | certified | 2026-12-24 |
 
 ---
 

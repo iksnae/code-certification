@@ -2,23 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 10 · **Passing:** 10 / 10
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-23 |
-| [stage_test.go](stage_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-23 |
-| [NewRateLimiter](ratelimit.go/NewRateLimiter.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-23 |
-| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-23 |
-| [FormatReviewForRecord](stage_deep.go/FormatReviewForRecord.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-23 |
-| [ArchSnapshot](architect_snapshot.go/ArchSnapshot.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
-| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
-| [ScanSuggestion](suggest.go/ScanSuggestion.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
-| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
-| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2026-12-23 |
+| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-24 |
+| [Name](openrouter.go/Name.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-24 |
+| [LoadPrompt](prompts.go/LoadPrompt.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-24 |
+| [String](types.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-24 |
+| [GatherContext](architect.go/GatherContext.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-24 |
+| [detectRepoNameFromDir](workspace_snapshot.go/detectRepoNameFromDir.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-24 |
+| [ArchDelta](architect_review.go/ArchDelta.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
+| [ArchPhase5Result](architect_review.go/ArchPhase5Result.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
+| [ArchRecommendation](architect_review.go/ArchRecommendation.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
+| [ModelConfig](types.go/ModelConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
+| [refill](ratelimit.go/refill.md) | method | 🟢 A | 93.3% | certified | 2026-12-24 |
+| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-12-24 |
 
 ---
 

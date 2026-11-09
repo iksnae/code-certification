@@ -2,19 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (86.9%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [TSAnalyzer](ts_analyzer.go/TSAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-12-23 |
-| [rsAnalyzeFunction](rust_analyzer.go/rsAnalyzeFunction.md) | function | 🟢 B | 82.8% | certified | 2026-12-23 |
-| [rsDetectUnsafeImports](rust_analyzer.go/rsDetectUnsafeImports.md) | function | 🟢 B | 85.6% | certified | 2026-12-23 |
-| [pyComputeNesting](python_analyzer.go/pyComputeNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-23 |
-| [rsComputeLoopNesting](rust_analyzer.go/rsComputeLoopNesting.md) | function | 🟢 B | 86.1% | certified | 2026-12-23 |
-| [FileMetrics](analyzer.go/FileMetrics.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
+| [GoAnalyzer](go_analyzer.go/GoAnalyzer.md) | class | 🟢 B | 82.5% | certified | 2026-12-24 |
+| [rsAnalyzeFunction](rust_analyzer.go/rsAnalyzeFunction.md) | function | 🟢 B | 82.8% | certified | 2026-12-24 |
+| [pyDetectUnsafeImports](python_analyzer.go/pyDetectUnsafeImports.md) | function | 🟢 B | 84.4% | certified | 2026-12-24 |
+| [tsCountEmptyCatch](ts_analyzer.go/tsCountEmptyCatch.md) | function | 🟢 B | 86.1% | certified | 2026-12-24 |
+| [goContainsStringConcat](go_analyzer.go/goContainsStringConcat.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-24 |
+| [DeepGoAnalyzer](go_deep.go/DeepGoAnalyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
+| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2026-12-24 |
 
 ---
 

@@ -2,15 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.5%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (91.5%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CheckHasConfig](workspace.go/CheckHasConfig.md) | function | 🟢 B | 85.0% | certified | 2026-12-23 |
-| [WorkspaceCard](aggregate.go/WorkspaceCard.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
+| [report_test.go](report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-24 |
+| [aggregate_weight_test.go](aggregate_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-24 |
+| [formatRate](report.go/formatRate.md) | function | 🟢 A | 93.3% | certified | 2026-12-24 |
+| [formatWorkspaceIndex](report.go/formatWorkspaceIndex.md) | function | 🟢 A | 93.3% | certified | 2026-12-24 |
 
 ---
 

@@ -2,17 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.2%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.7%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeUnitIdentity](report_tree.go/writeUnitIdentity.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-23 |
-| [ScoreKnown](site.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-23 |
-| [LanguageDetail](full.go/LanguageDetail.md) | class | 🟢 A- | 90.0% | certified | 2026-12-23 |
-| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-12-23 |
+| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-24 |
+| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-24 |
+| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-24 |
+| [unassessed_renderer_test.go](unassessed_renderer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-24 |
+| [partitionByLanguage](card.go/partitionByLanguage.md) | function | 🟢 A | 93.3% | certified | 2026-12-24 |
 
 ---
 

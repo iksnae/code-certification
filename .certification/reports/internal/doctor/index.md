@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [checkModuleRoots](doctor.go/checkModuleRoots.md) | method | 🟢 B | 86.1% | certified | 2026-12-23 |
+| [RunAll](doctor.go/RunAll.md) | function | 🟢 B | 86.1% | certified | 2026-12-24 |
 
 ---
 

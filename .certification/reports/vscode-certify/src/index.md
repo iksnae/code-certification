@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (91.9%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [loadIndex](dataLoader.ts/loadIndex.md) | method | 🟢 A- | 91.9% | certified | 2026-12-23 |
+| [DEEP_METRIC_LABELS](constants.ts/DEEP_METRIC_LABELS.md) | function | 🟢 A- | 90.0% | certified | 2026-12-24 |
+| [FullReport](types.ts/FullReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
 
 ---
 
