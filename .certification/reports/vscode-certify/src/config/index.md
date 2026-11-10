@@ -2,26 +2,14 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.5%)  
-**Units:** 13 · **Passing:** 13 / 13
+**Grade:** 🟢 A (93.1%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ConfigPanel](ConfigPanel.ts/ConfigPanel.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
-| [ConnectionTestResult](configWriter.ts/ConnectionTestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-24 |
-| [constructor](ConfigPanel.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2026-12-24 |
-| [createOrShow](ConfigPanel.ts/createOrShow.md) | method | 🟢 A- | 92.5% | certified | 2026-12-24 |
-| [handleMessage](ConfigPanel.ts/handleMessage.md) | method | 🟢 A- | 92.5% | certified | 2026-12-24 |
-| [renderHTML](ConfigPanel.ts/renderHTML.md) | method | 🟢 A- | 92.5% | certified | 2026-12-24 |
-| [readConfig](configWriter.ts/readConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-24 |
-| [testConnection](configWriter.ts/testConnection.md) | function | 🟢 A | 93.1% | certified | 2026-12-24 |
-| [writeConfig](configWriter.ts/writeConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-24 |
-| [activateSettingsSync](settingsSync.ts/activateSettingsSync.md) | function | 🟢 A | 93.1% | certified | 2026-12-24 |
-| [applyPreset](settingsSync.ts/applyPreset.md) | function | 🟢 A | 93.1% | certified | 2026-12-24 |
-| [bootstrapFromConfig](settingsSync.ts/bootstrapFromConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-24 |
-| [syncSettingsToConfig](settingsSync.ts/syncSettingsToConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-24 |
+| [readConfig](configWriter.ts/readConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-25 |
 
 ---
 
