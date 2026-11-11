@@ -2,17 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.8%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-25 |
-| [card_test.go](card_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-25 |
-| [full_unassessed_test.go](full_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-25 |
-| [report_tree_test.go](report_tree_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-25 |
+| [writeUnitEvidence](report_tree.go/writeUnitEvidence.md) | function | 🟢 B | 86.7% | certified | 2026-12-26 |
+| [writeArchDependencyGraph](architect_report.go/writeArchDependencyGraph.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-26 |
+| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-26 |
+| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-26 |
+| [architect_report_test.go](architect_report_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-26 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-26 |
+| [formatPackageIndexMarkdown](report_tree.go/formatPackageIndexMarkdown.md) | function | 🟢 A- | 90.6% | certified | 2026-12-26 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2026-12-26 |
 
 ---
 
