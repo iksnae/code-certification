@@ -2,19 +2,25 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 12 · **Passing:** 12 / 12
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatHotspots](architect.go/formatHotspots.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-26 |
-| [Error](openrouter.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2026-12-26 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-26 |
-| [NewModelChain](fallback.go/NewModelChain.md) | function | 🟢 A | 93.3% | certified | 2026-12-26 |
-| [normalizeLocalURL](providers.go/normalizeLocalURL.md) | function | 🟢 A | 93.3% | certified | 2026-12-26 |
-| [runDecision](reviewer.go/runDecision.md) | method | 🟢 A | 93.3% | certified | 2026-12-26 |
+| [listOllamaModels](models.go/listOllamaModels.md) | function | 🟢 B | 81.1% | certified | 2026-12-27 |
+| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-12-27 |
+| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 85.6% | certified | 2026-12-27 |
+| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-12-27 |
+| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-27 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [Provider](provider.go/Provider.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-12-27 |
 
 ---
 

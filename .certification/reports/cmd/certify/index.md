@@ -2,19 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.1%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [submoduleSummaryFromCard](report_cmd.go/submoduleSummaryFromCard.md) | function | 🟢 B | 83.3% | certified | 2026-12-26 |
-| [executeArchitectReview](architect_cmd.go/executeArchitectReview.md) | function | 🟢 B | 86.1% | certified | 2026-12-26 |
-| [runWorkspaceExpire](expire.go/runWorkspaceExpire.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-26 |
-| [bindArchitectFlags](architect_cmd.go/bindArchitectFlags.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-26 |
-| [registerCommands](root.go/registerCommands.md) | function | 🟢 B+ | 90.0% | certified | 2026-12-26 |
-| [tally_test.go](tally_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-26 |
+| [cli_test.go](cli_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-27 |
 
 ---
 

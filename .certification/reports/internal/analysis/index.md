@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
+**Grade:** 🟢 B+ (89.6%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2026-12-26 |
-| [goCountNakedReturns](go_analyzer.go/goCountNakedReturns.md) | function | 🟢 B | 86.1% | certified | 2026-12-26 |
-| [tsHasReturnWithValue](ts_analyzer.go/tsHasReturnWithValue.md) | function | 🟢 B | 86.1% | certified | 2026-12-26 |
-| [go_deep_test.go](go_deep_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-26 |
-| [goIsConstLikeExpr](go_analyzer.go/goIsConstLikeExpr.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-26 |
-| [depDepthRec](go_deps.go/depDepthRec.md) | method | 🟢 A | 93.3% | certified | 2026-12-26 |
+| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-12-27 |
+| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-27 |
+| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-12-27 |
+| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-12-27 |
 
 ---
 

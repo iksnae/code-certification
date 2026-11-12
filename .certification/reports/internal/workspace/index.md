@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (85.6%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Submodule](workspace.go/Submodule.md) | class | 🟢 B | 85.6% | certified | 2026-12-26 |
+| [aggregate_test.go](aggregate_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-27 |
+| [aggregate_weight_test.go](aggregate_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2026-12-27 |
 
 ---
 

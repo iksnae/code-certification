@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (88.1%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [cargoSpan](tools.go/cargoSpan.md) | class | 🟢 B | 85.6% | certified | 2026-12-26 |
-| [ruffJSONFinding](tools.go/ruffJSONFinding.md) | class | 🟢 B | 85.6% | certified | 2026-12-26 |
-| [isConstLikeCall](structural.go/isConstLikeCall.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-26 |
-| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-26 |
-| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-26 |
+| [ParseLCOV](tools.go/ParseLCOV.md) | function | 🟢 B | 80.0% | certified | 2026-12-27 |
+| [funcName](complexity.go/funcName.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-27 |
+| [ParseGoVet](runner.go/ParseGoVet.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-27 |
+| [CoverageProfile](executor.go/CoverageProfile.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-27 |
+| [collectPythonCoverage](tools.go/collectPythonCoverage.md) | method | 🟢 B+ | 89.4% | certified | 2026-12-27 |
+| [isExported](structural.go/isExported.md) | function | 🟢 A | 93.3% | certified | 2026-12-27 |
 
 ---
 
