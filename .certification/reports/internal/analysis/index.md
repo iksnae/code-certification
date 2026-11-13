@@ -2,19 +2,23 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.6%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B (85.7%)  
+**Units:** 10 · **Passing:** 10 / 10
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [init](ts_analyzer.go/init.md) | function | 🟢 B | 83.9% | certified | 2026-12-27 |
-| [rust_analyzer_test.go](rust_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-27 |
-| [Analyzer](analyzer.go/Analyzer.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [LSPAvailability](lsp_config.go/LSPAvailability.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [InterfaceSize](go_refine.go/InterfaceSize.md) | method | 🟢 A- | 91.1% | certified | 2026-12-27 |
-| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2026-12-27 |
+| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-12-28 |
+| [OpenFile](lsp_analyzer.go/OpenFile.md) | method | 🟡 C | 78.3% | certified_with_observations | 2026-12-28 |
+| [Discover](rust_analyzer.go/Discover.md) | method | 🟢 B | 81.1% | certified | 2026-12-28 |
+| [analyzeSignature](go_deps.go/analyzeSignature.md) | function | 🟢 B | 83.9% | certified | 2026-12-28 |
+| [goCountHardcodedSecrets](go_analyzer.go/goCountHardcodedSecrets.md) | function | 🟢 B | 86.1% | certified | 2026-12-28 |
+| [goCountNakedReturns](go_analyzer.go/goCountNakedReturns.md) | function | 🟢 B | 86.1% | certified | 2026-12-28 |
+| [defaultLookPath](lsp_analyzer.go/defaultLookPath.md) | function | 🟢 B | 86.7% | certified | 2026-12-28 |
+| [classifyAlgo](go_analyzer.go/classifyAlgo.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-28 |
+| [ToEvidence](analyzer.go/ToEvidence.md) | method | 🟢 A | 93.3% | certified | 2026-12-28 |
+| [ParamAbstraction](go_deps.go/ParamAbstraction.md) | method | 🟢 A | 93.3% | certified | 2026-12-28 |
 
 ---
 

@@ -2,25 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.2%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [listOllamaModels](models.go/listOllamaModels.md) | function | 🟢 B | 81.1% | certified | 2026-12-27 |
-| [Execute](stage_deep.go/Execute.md) | method | 🟢 B | 85.0% | certified | 2026-12-27 |
-| [CrossDepEdge](workspace_snapshot.go/CrossDepEdge.md) | class | 🟢 B | 85.6% | certified | 2026-12-27 |
-| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2026-12-27 |
-| [formatStructuralMetrics](architect.go/formatStructuralMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-27 |
-| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [DepEdge](architect_snapshot.go/DepEdge.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [PackageNode](architect_snapshot.go/PackageNode.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [Provider](provider.go/Provider.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [isBudgetError](openrouter.go/isBudgetError.md) | function | 🟢 A | 93.3% | certified | 2026-12-27 |
+| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 85.6% | certified | 2026-12-28 |
+| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-28 |
+| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-28 |
+| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-28 |
+| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [scoringStage](stage.go/scoringStage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-12-28 |
+| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-12-28 |
+| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-12-28 |
 
 ---
 

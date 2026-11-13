@@ -2,18 +2,16 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.7%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchCoupling](architect_report.go/writeArchCoupling.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-27 |
-| [site_test.go](site_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2026-12-27 |
-| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-27 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 A- | 90.0% | certified | 2026-12-27 |
-| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2026-12-27 |
+| [UnitSummary](detailed.go/UnitSummary.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [UnitReport](full.go/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [dimRow](site.go/dimRow.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
 
 ---
 
