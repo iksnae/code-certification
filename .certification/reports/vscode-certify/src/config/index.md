@@ -2,14 +2,16 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A (93.1%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 A- (92.1%)  
+**Units:** 3 · **Passing:** 3 / 3
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [activateSettingsSync](settingsSync.ts/activateSettingsSync.md) | function | 🟢 A | 93.1% | certified | 2026-12-28 |
+| [ConnectionTestResult](configWriter.ts/ConnectionTestResult.md) | class | 🟢 A- | 90.0% | certified | 2026-12-29 |
+| [readConfig](configWriter.ts/readConfig.md) | function | 🟢 A | 93.1% | certified | 2026-12-29 |
+| [activateSettingsSync](settingsSync.ts/activateSettingsSync.md) | function | 🟢 A | 93.1% | certified | 2026-12-29 |
 
 ---
 

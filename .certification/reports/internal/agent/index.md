@@ -2,27 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 14 · **Passing:** 14 / 14
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [SubmoduleSnapshotEntry](workspace_snapshot.go/SubmoduleSnapshotEntry.md) | class | 🟢 B | 85.6% | certified | 2026-12-28 |
-| [formatSnapshotMetrics](architect.go/formatSnapshotMetrics.md) | function | 🟢 B+ | 87.2% | certified | 2026-12-28 |
-| [DefaultOpenAIModels](providers.go/DefaultOpenAIModels.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-28 |
-| [reviewer_test.go](reviewer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-28 |
-| [ScoringResponse](schemas.go/ScoringResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
-| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
-| [DecisionResponse](schemas.go/DecisionResponse.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
-| [CodeMetricsAggregates](architect_snapshot.go/CodeMetricsAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
-| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
-| [scoringStage](stage.go/scoringStage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
-| [ChatRequest](types.go/ChatRequest.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
-| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2026-12-28 |
-| [FormatProviderSummary](autodetect.go/FormatProviderSummary.md) | function | 🟢 A | 93.3% | certified | 2026-12-28 |
-| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2026-12-28 |
+| [listOllamaModels](models.go/listOllamaModels.md) | function | 🟢 B | 81.1% | certified | 2026-12-29 |
+| [architect_snapshot_test.go](architect_snapshot_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2026-12-29 |
+| [AdaptiveMessages](fallback.go/AdaptiveMessages.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-29 |
+| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-29 |
+| [WorkspacePhasePrompts](workspace_prompts.go/WorkspacePhasePrompts.md) | function | 🟢 B+ | 88.9% | certified | 2026-12-29 |
+| [DeepAnalysisAggregates](architect_snapshot.go/DeepAnalysisAggregates.md) | class | 🟢 A- | 90.0% | certified | 2026-12-29 |
+| [StageInput](stage.go/StageInput.md) | class | 🟢 A- | 90.0% | certified | 2026-12-29 |
+| [deepReviewStage](stage_deep.go/deepReviewStage.md) | class | 🟢 A- | 90.0% | certified | 2026-12-29 |
 
 ---
 

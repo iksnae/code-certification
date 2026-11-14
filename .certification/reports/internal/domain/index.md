@@ -9,8 +9,8 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsGlobal](policy.go/IsGlobal.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-28 |
-| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 A- | 90.0% | certified | 2026-12-28 |
+| [VerdictOf](record.go/VerdictOf.md) | method | 🟢 B+ | 88.9% | certified | 2026-12-29 |
+| [ProviderConfig](config.go/ProviderConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-29 |
 
 ---
 

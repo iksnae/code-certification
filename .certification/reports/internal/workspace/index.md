@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [workspace_test.go](workspace_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2026-12-28 |
+| [DiscoverSubmodules](workspace.go/DiscoverSubmodules.md) | function | 🟢 B+ | 89.4% | certified | 2026-12-29 |
 
 ---
 

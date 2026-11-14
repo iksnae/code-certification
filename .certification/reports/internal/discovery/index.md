@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ChangedFiles](diff.go/ChangedFiles.md) | function | 🟢 B | 85.6% | certified | 2026-12-28 |
+| [MovedFile](diff.go/MovedFile.md) | class | 🟢 B | 85.6% | certified | 2026-12-29 |
 
 ---
 
