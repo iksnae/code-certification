@@ -2,15 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
+**Grade:** 🟢 A- (91.7%)  
 **Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2026-12-30 |
-| [Unit](unit.go/Unit.md) | class | 🟢 A- | 90.0% | certified | 2026-12-30 |
+| [AgentConfig](config.go/AgentConfig.md) | class | 🟢 A- | 90.0% | certified | 2026-12-31 |
+| [WithUnassessedVerdict](record.go/WithUnassessedVerdict.md) | method | 🟢 A | 93.3% | certified | 2026-12-31 |
 
 ---
 

@@ -1,60 +1,59 @@
 # 🟢 Certify — Report Card
 
 **Repository:** `iksnae/code-certification`
-**Commit:** `0ca96056e`
-**Generated:** 2026-11-15T08:43:24
+**Commit:** `91c5841fb`
+**Generated:** 2026-11-16T08:53:08
 
-## 🟢 Overall: B+ (88.3%)
+## 🟢 Overall: B+ (89.8%)
 
 | Metric | Value |
 |--------|-------|
 | Total Units | 50 |
-| Passing | 49 |
+| Passing | 50 |
 | Failing | 0 |
-| Not Assessed | 1 |
-| Analyzable Units | 49 |
 | Pass Rate | 100.0% |
-| Observations | 2 |
+| Observations | 0 |
 | Expired | 0 |
 
 ### Grade Distribution
 
 | Grade | Count | % |
 |-------|-------|---|
-| A | 4 | 8.0% |
-| A- | 13 | 26.0% |
-| B+ | 19 | 38.0% |
-| B | 11 | 22.0% |
-| C | 2 | 4.0% |
-| N/A | 1 | 2.0% |
+| A | 8 | 16.0% |
+| A- | 21 | 42.0% |
+| B+ | 15 | 30.0% |
+| B | 6 | 12.0% |
 
 ### By Language
 
-| Language | Units | Not Assessed | Grade | Score |
-|----------|-------|-------------:|-------|-------|
-| go | 47 | 0 | 🟢 B+ | 88.1% |
-| ts | 2 | 0 | 🟢 A- | 92.5% |
-| sh | 1 | 1 | ⚪ N/A | n/a |
+| Language | Units | Grade | Score |
+|----------|-------|-------|-------|
+| go | 43 | 🟢 B+ | 89.6% |
+| ts | 7 | 🟢 A- | 91.2% |
 
 ### Packages
 
-| Package | Units | Not Assessed | Grade | Score |
-|---------|------:|-------------:|:-----:|------:|
-| [cmd/certify](reports/cmd/certify/index.md) | 5 | 0 | 🟢 B | 85.0% |
-| [internal/agent](reports/internal/agent/index.md) | 10 | 0 | 🟢 A- | 90.4% |
-| [internal/analysis](reports/internal/analysis/index.md) | 10 | 0 | 🟢 B | 84.9% |
-| [internal/analysis/lsp](reports/internal/analysis/lsp/index.md) | 1 | 0 | 🟢 A- | 90.0% |
-| [internal/config](reports/internal/config/index.md) | 1 | 0 | 🟢 B | 82.8% |
-| [internal/discovery](reports/internal/discovery/index.md) | 2 | 0 | 🟢 A- | 91.4% |
-| [internal/doctor](reports/internal/doctor/index.md) | 3 | 0 | 🟢 B+ | 88.9% |
-| [internal/domain](reports/internal/domain/index.md) | 2 | 0 | 🟢 A- | 90.0% |
-| [internal/engine](reports/internal/engine/index.md) | 1 | 0 | 🟢 B+ | 90.0% |
-| [internal/evidence](reports/internal/evidence/index.md) | 4 | 0 | 🟢 B | 86.4% |
-| [internal/queue](reports/internal/queue/index.md) | 2 | 0 | 🟢 A- | 91.1% |
-| [internal/report](reports/internal/report/index.md) | 4 | 0 | 🟢 B+ | 89.8% |
-| [internal/workspace](reports/internal/workspace/index.md) | 2 | 0 | 🟢 A- | 91.7% |
-| [scripts](reports/scripts/index.md) | 1 | 1 | ⚪ N/A | n/a |
-| [vscode-certify/src/treeView](reports/vscode-certify/src/treeView/index.md) | 2 | 0 | 🟢 A- | 92.5% |
+| Package | Units | Grade | Score |
+|---------|------:|:-----:|------:|
+| [cmd/certify](reports/cmd/certify/index.md) | 2 | 🟢 B+ | 88.6% |
+| [internal/agent](reports/internal/agent/index.md) | 8 | 🟢 A- | 90.3% |
+| [internal/analysis](reports/internal/analysis/index.md) | 10 | 🟢 B+ | 88.1% |
+| [internal/analysis/lsp](reports/internal/analysis/lsp/index.md) | 1 | 🟢 B | 85.6% |
+| [internal/discovery](reports/internal/discovery/index.md) | 3 | 🟢 A- | 90.6% |
+| [internal/doctor](reports/internal/doctor/index.md) | 2 | 🟢 B+ | 89.1% |
+| [internal/domain](reports/internal/domain/index.md) | 2 | 🟢 A- | 91.7% |
+| [internal/engine](reports/internal/engine/index.md) | 4 | 🟢 B+ | 87.8% |
+| [internal/evidence](reports/internal/evidence/index.md) | 3 | 🟢 A- | 90.7% |
+| [internal/language_tiers](reports/internal/language_tiers/index.md) | 1 | 🟢 B+ | 89.4% |
+| [internal/policy](reports/internal/policy/index.md) | 1 | 🟢 A- | 92.8% |
+| [internal/queue](reports/internal/queue/index.md) | 2 | 🟢 A- | 91.7% |
+| [internal/report](reports/internal/report/index.md) | 3 | 🟢 A- | 91.9% |
+| [internal/workspace](reports/internal/workspace/index.md) | 1 | 🟢 B+ | 89.4% |
+| [vscode-certify/src](reports/vscode-certify/src/index.md) | 1 | 🟢 B+ | 88.1% |
+| [vscode-certify/src/config](reports/vscode-certify/src/config/index.md) | 1 | 🟢 A- | 90.0% |
+| [vscode-certify/src/dashboard](reports/vscode-certify/src/dashboard/index.md) | 1 | 🟢 A- | 92.5% |
+| [vscode-certify/src/treeView](reports/vscode-certify/src/treeView/index.md) | 3 | 🟢 A- | 92.5% |
+| [website/src](reports/website/src/index.md) | 1 | 🟢 A- | 90.0% |
 
 ---
 
