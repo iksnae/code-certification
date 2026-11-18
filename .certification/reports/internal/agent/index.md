@@ -2,25 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.2%)  
-**Units:** 12 · **Passing:** 12 / 12
+**Grade:** 🟢 A- (90.9%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [formatPackageMap](architect.go/formatPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-01 |
-| [Version](prompts.go/Version.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-01 |
-| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-01 |
-| [Content](types.go/Content.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-01 |
-| [resolveReplacePath](workspace_snapshot.go/resolveReplacePath.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-01 |
-| [ArchitectResult](architect_review.go/ArchitectResult.md) | class | 🟢 A- | 90.0% | certified | 2027-01-01 |
-| [CoverageAggregates](architect_snapshot.go/CoverageAggregates.md) | class | 🟢 A- | 90.0% | certified | 2027-01-01 |
-| [StructuralAggregates](architect_snapshot.go/StructuralAggregates.md) | class | 🟢 A- | 90.0% | certified | 2027-01-01 |
-| [PrescreenResponse](schemas.go/PrescreenResponse.md) | class | 🟢 A- | 90.0% | certified | 2027-01-01 |
-| [DetectProviders](providers.go/DetectProviders.md) | function | 🟢 A- | 92.2% | certified | 2027-01-01 |
-| [DetectAPIKey](autodetect.go/DetectAPIKey.md) | function | 🟢 A | 93.3% | certified | 2027-01-01 |
-| [buildSuggestPrompt](suggest.go/buildSuggestPrompt.md) | function | 🟢 A | 93.3% | certified | 2027-01-01 |
+| [findMatchingSubmodule](workspace_snapshot.go/findMatchingSubmodule.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-02 |
+| [ArchPhase6Result](architect_review.go/ArchPhase6Result.md) | class | 🟢 A- | 90.0% | certified | 2027-01-02 |
+| [CircuitBreaker](circuit.go/CircuitBreaker.md) | class | 🟢 A- | 90.0% | certified | 2027-01-02 |
+| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 A- | 90.0% | certified | 2027-01-02 |
+| [Usage](types.go/Usage.md) | class | 🟢 A- | 90.0% | certified | 2027-01-02 |
+| [isAPIError](openrouter.go/isAPIError.md) | function | 🟢 A | 93.3% | certified | 2027-01-02 |
+| [runCodeReview](reviewer.go/runCodeReview.md) | method | 🟢 A | 93.3% | certified | 2027-01-02 |
 
 ---
 

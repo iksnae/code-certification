@@ -2,15 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B (82.8%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Error](validator.go/Error.md) | method | 🟢 B+ | 88.3% | certified | 2027-01-01 |
-| [loader_test.go](loader_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-01 |
+| [FilterPolicyPacks](matcher.go/FilterPolicyPacks.md) | function | 🟢 B | 82.8% | certified | 2027-01-02 |
 
 ---
 

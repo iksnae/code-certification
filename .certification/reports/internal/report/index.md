@@ -2,20 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.9%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 A- (90.9%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [explainStatus](detailed.go/explainStatus.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-01 |
-| [writeSummary](full.go/writeSummary.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-01 |
-| [ScoreKnown](full.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-01 |
-| [detailed_test.go](detailed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-01 |
-| [DetailedReport](detailed.go/DetailedReport.md) | class | 🟢 A- | 90.0% | certified | 2027-01-01 |
-| [severityEmoji](architect_report.go/severityEmoji.md) | function | 🟢 A | 93.3% | certified | 2027-01-01 |
-| [max](site.go/max.md) | function | 🟢 A | 93.3% | certified | 2027-01-01 |
+| [Analyzable](report_tree.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-02 |
+| [ScoreKnown](site_search.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-02 |
+| [badge_test.go](badge_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-02 |
+| [badgeGrade](badge.go/badgeGrade.md) | function | 🟢 A | 93.3% | certified | 2027-01-02 |
+| [badgeMessage](badge.go/badgeMessage.md) | function | 🟢 A | 93.3% | certified | 2027-01-02 |
 
 ---
 
