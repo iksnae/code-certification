@@ -2,20 +2,14 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.8%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [IsExpired](expiry.go/IsExpired.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-02 |
-| [ScopeConfig](config.go/ScopeConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-02 |
-| [config_test.go](config_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-02 |
-| [expiry_test.go](expiry_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-02 |
-| [PolicyRule](policy.go/PolicyRule.md) | class | 🟢 A- | 90.0% | certified | 2027-01-02 |
-| [WithUnassessedVerdict](record.go/WithUnassessedVerdict.md) | method | 🟢 A | 93.3% | certified | 2027-01-02 |
-| [Language](unit.go/Language.md) | method | 🟢 A | 93.3% | certified | 2027-01-02 |
+| [record_test.go](record_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-03 |
 
 ---
 
