@@ -2,19 +2,20 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.0%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.2%)  
+**Units:** 7 · **Passing:** 7 / 7
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Analyzable](report_tree.go/Analyzable.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-03 |
-| [packagePageData](site.go/packagePageData.md) | class | 🟢 A- | 90.0% | certified | 2027-01-03 |
-| [computeDeltaDisplay](architect_report.go/computeDeltaDisplay.md) | function | 🟢 A | 93.3% | certified | 2027-01-03 |
-| [computeDimensionAverages](detailed.go/computeDimensionAverages.md) | function | 🟢 A | 93.3% | certified | 2027-01-03 |
-| [FormatJSON](health.go/FormatJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-03 |
-| [buildPackageStats](site.go/buildPackageStats.md) | function | 🟢 A | 93.3% | certified | 2027-01-03 |
+| [generateIndex](site.go/generateIndex.md) | function | 🟢 B | 85.0% | certified | 2027-01-04 |
+| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-04 |
+| [ScoreKnown](site.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-04 |
+| [issueRow](site.go/issueRow.md) | class | 🟢 A- | 90.0% | certified | 2027-01-04 |
+| [findFailing](detailed.go/findFailing.md) | function | 🟢 A | 93.3% | certified | 2027-01-04 |
+| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2027-01-04 |
+| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2027-01-04 |
 
 ---
 
