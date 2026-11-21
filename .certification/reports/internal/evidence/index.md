@@ -2,17 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.4%)  
-**Units:** 4 · **Passing:** 4 / 4
+**Grade:** 🟢 B+ (89.5%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ComputeSymbolMetrics](complexity.go/ComputeSymbolMetrics.md) | function | 🟢 B | 84.4% | certified | 2027-01-04 |
-| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 85.6% | certified | 2027-01-04 |
-| [pytestJUnitSuite](tools.go/pytestJUnitSuite.md) | class | 🟢 B | 85.6% | certified | 2027-01-04 |
-| [StructuralMetrics](structural.go/StructuralMetrics.md) | class | 🟢 A- | 90.0% | certified | 2027-01-04 |
+| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 85.6% | certified | 2027-01-05 |
+| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
 
 ---
 

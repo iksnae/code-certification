@@ -2,15 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-04 |
-| [Severity](evidence.go/Severity.md) | class | 🟢 A- | 90.0% | certified | 2027-01-04 |
+| [String](dimension.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-05 |
+| [PolicyConfig](config.go/PolicyConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
+| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
+| [Override](override.go/Override.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
+| [WithUnassessedVerdict](record.go/WithUnassessedVerdict.md) | method | 🟢 A | 93.3% | certified | 2027-01-05 |
 
 ---
 
