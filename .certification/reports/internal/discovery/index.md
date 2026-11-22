@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [diff_test.go](diff_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-05 |
+| [TSAdapter](ts_adapter.go/TSAdapter.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
 
 ---
 

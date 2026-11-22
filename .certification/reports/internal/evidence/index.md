@@ -2,15 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.5%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 B+ (88.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 85.6% | certified | 2027-01-05 |
-| [containsStringConcat](structural.go/containsStringConcat.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
+| [ParsePytestJUnitXML](tools.go/ParsePytestJUnitXML.md) | function | 🟢 B | 85.0% | certified | 2027-01-06 |
+| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 85.6% | certified | 2027-01-06 |
+| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 85.6% | certified | 2027-01-06 |
+| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-06 |
+| [GitStats](git.go/GitStats.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
 
 ---
 

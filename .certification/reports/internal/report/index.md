@@ -2,24 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.5%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 A- (90.6%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [generatePackagePages](site.go/generatePackagePages.md) | function | 🟢 B | 86.7% | certified | 2027-01-05 |
-| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-05 |
-| [writeGradeDistribution](full.go/writeGradeDistribution.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-05 |
-| [writeUnitObservations](report_tree.go/writeUnitObservations.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-05 |
-| [UnitReport](full.go/UnitReport.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [unitPageData](site.go/unitPageData.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [FormatBadgeJSON](badge.go/FormatBadgeJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
-| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
-| [writeUnitCert](report_tree.go/writeUnitCert.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
-| [statusFromString](site.go/statusFromString.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
-| [splitObservations](unit_report.go/splitObservations.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
+| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
+| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
+| [ScoreKnown](site.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-06 |
+| [formatPassRate](card.go/formatPassRate.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
 
 ---
 

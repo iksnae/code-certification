@@ -3,13 +3,14 @@
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (92.5%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [renderEmpty](DashboardPanel.ts/renderEmpty.md) | method | 🟢 A- | 92.5% | certified | 2027-01-05 |
+| [computeDeepMetrics](DashboardPanel.ts/computeDeepMetrics.md) | method | 🟢 A- | 92.5% | certified | 2027-01-06 |
+| [update](DashboardPanel.ts/update.md) | method | 🟢 A- | 92.5% | certified | 2027-01-06 |
 
 ---
 

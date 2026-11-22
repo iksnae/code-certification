@@ -2,21 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.7%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [architect_test.go](architect_test.go.md) | file | 🟢 B | 83.7% | certified | 2027-01-05 |
-| [OllamaModels](providers.go/OllamaModels.md) | function | 🟢 B | 86.1% | certified | 2027-01-05 |
-| [formatHeader](architect.go/formatHeader.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-05 |
-| [FormatForLLM](architect.go/FormatForLLM.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-05 |
-| [ollamaTagsResponse](models.go/ollamaTagsResponse.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [prescreenStage](stage.go/prescreenStage.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2027-01-05 |
+| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
+| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
+| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2027-01-06 |
+| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-06 |
+| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-06 |
+| [TaskType](types.go/TaskType.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [workspace_snapshot_weight_test.go](workspace_snapshot_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2027-01-06 |
 
 ---
 

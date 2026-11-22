@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [constructor](CertificationTreeProvider.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2027-01-05 |
+| [buildReadyItems](CertificationTreeProvider.ts/buildReadyItems.md) | method | 🟢 A- | 92.5% | certified | 2027-01-06 |
 
 ---
 

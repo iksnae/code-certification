@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 A- (90.0%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](dimension.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-05 |
-| [PolicyConfig](config.go/PolicyConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [SignoffConfig](config.go/SignoffConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [Override](override.go/Override.md) | class | 🟢 A- | 90.0% | certified | 2027-01-05 |
-| [WithUnassessedVerdict](record.go/WithUnassessedVerdict.md) | method | 🟢 A | 93.3% | certified | 2027-01-05 |
+| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [ScopeConfig](config.go/ScopeConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [UnitID](unit.go/UnitID.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [UnitType](unit.go/UnitType.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
 
 ---
 
