@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (87.2%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B (86.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [getCertifyFlags](certify_cmd.go/getCertifyFlags.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
+| [generateConfig](init_cmd.go/generateConfig.md) | function | 🟢 B | 83.3% | certified | 2027-01-07 |
+| [report_cmd_test.go](report_cmd_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-07 |
 
 ---
 

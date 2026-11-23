@@ -2,19 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.6%)  
+**Grade:** 🟢 B+ (90.0%)  
 **Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchRoadmap](architect_report.go/writeArchRoadmap.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
-| [writeUnitCertification](report_tree.go/writeUnitCertification.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
-| [ScoreKnown](site.go/ScoreKnown.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-06 |
-| [formatPassRate](card.go/formatPassRate.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
-| [findHighestRisk](detailed.go/findHighestRisk.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
-| [sortedKeys](full.go/sortedKeys.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [writeArchPackageMap](architect_report.go/writeArchPackageMap.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-07 |
+| [writeDimensionAverages](full.go/writeDimensionAverages.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-07 |
+| [card_unassessed_test.go](card_unassessed_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [mixed_population_test.go](mixed_population_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [computeLanguageBreakdowns](detailed.go/computeLanguageBreakdowns.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [findRecurrentlyFailing](detailed.go/findRecurrentlyFailing.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
 
 ---
 

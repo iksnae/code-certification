@@ -2,19 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.0%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 A- (90.4%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [RateLimitConfig](config.go/RateLimitConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [ScopeConfig](config.go/ScopeConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [PolicyPack](policy.go/PolicyPack.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [CertificationRun](record.go/CertificationRun.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [UnitID](unit.go/UnitID.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [UnitType](unit.go/UnitType.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
+| [record_test.go](record_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [ProviderConfig](config.go/ProviderConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [Grade](dimension.go/Grade.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [ParseSeverity](evidence.go/ParseSeverity.md) | function | 🟢 A- | 92.2% | certified | 2027-01-07 |
 
 ---
 

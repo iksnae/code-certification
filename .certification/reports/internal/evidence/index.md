@@ -3,18 +3,23 @@
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
 **Grade:** 🟢 B+ (88.2%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParsePytestJUnitXML](tools.go/ParsePytestJUnitXML.md) | function | 🟢 B | 85.0% | certified | 2027-01-06 |
-| [cargoDiag](tools.go/cargoDiag.md) | class | 🟢 B | 85.6% | certified | 2027-01-06 |
-| [cargoMsg](tools.go/cargoMsg.md) | class | 🟢 B | 85.6% | certified | 2027-01-06 |
-| [filterModulesByLang](executor.go/filterModulesByLang.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-06 |
-| [GitStats](git.go/GitStats.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [containsTodo](metrics.go/containsTodo.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [ParseESLintJSON](tools.go/ParseESLintJSON.md) | function | 🟢 B | 85.0% | certified | 2027-01-07 |
+| [ParseRuffJSON](tools.go/ParseRuffJSON.md) | function | 🟢 B | 85.0% | certified | 2027-01-07 |
+| [cargoCode](tools.go/cargoCode.md) | class | 🟢 B | 85.6% | certified | 2027-01-07 |
+| [countFuncLines](structural.go/countFuncLines.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-07 |
+| [countNakedReturns](structural.go/countNakedReturns.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-07 |
+| [ToEvidence](metrics.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-07 |
+| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [findESLint](tools.go/findESLint.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [CoverageMap](coverage.go/CoverageMap.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [goTestEvent](runner.go/goTestEvent.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [ComputeMetrics](metrics.go/ComputeMetrics.md) | function | 🟢 A- | 92.8% | certified | 2027-01-07 |
 
 ---
 

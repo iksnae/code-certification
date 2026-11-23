@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (86.5%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 B+ (87.9%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 86.1% | certified | 2027-01-06 |
-| [tsCountEmptyCatch](ts_analyzer.go/tsCountEmptyCatch.md) | function | 🟢 B | 86.1% | certified | 2027-01-06 |
-| [funcKeyFromSSA](go_deep.go/funcKeyFromSSA.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
+| [tsComputeCognitive](ts_analyzer.go/tsComputeCognitive.md) | function | 🟢 B | 85.6% | certified | 2027-01-07 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2027-01-07 |
+| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2027-01-07 |
+| [FormatLSPStatus](lsp_config.go/FormatLSPStatus.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-07 |
+| [lsp_analyzer_test.go](lsp_analyzer_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-07 |
 
 ---
 

@@ -2,24 +2,21 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.4%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 8 · **Passing:** 8 / 8
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [buildTreeRecursive](architect.go/buildTreeRecursive.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
-| [formatCouplingPairs](architect.go/formatCouplingPairs.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-06 |
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2027-01-06 |
-| [NewScoringStage](stage.go/NewScoringStage.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-06 |
-| [ToDeepEvidence](stage_deep.go/ToDeepEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-06 |
-| [TaskType](types.go/TaskType.md) | class | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [workspace_snapshot_weight_test.go](workspace_snapshot_weight_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-06 |
-| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
-| [probeLocal](providers.go/probeLocal.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
-| [runScoring](reviewer.go/runScoring.md) | method | 🟢 A | 93.3% | certified | 2027-01-06 |
-| [directAssignment](router.go/directAssignment.md) | method | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [Review](architect_review.go/Review.md) | method | 🟢 B+ | 87.8% | certified | 2027-01-07 |
+| [stage_test.go](stage_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2027-01-07 |
+| [NewPromptRegistry](prompts.go/NewPromptRegistry.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-07 |
+| [ModelChain](fallback.go/ModelChain.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [architectPhasePrompts](architect_prompts.go/architectPhasePrompts.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [validatePhase5](architect_review.go/validatePhase5.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [parseGoImports](architect_snapshot.go/parseGoImports.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [runRemediation](reviewer.go/runRemediation.md) | method | 🟢 A | 93.3% | certified | 2027-01-07 |
 
 ---
 

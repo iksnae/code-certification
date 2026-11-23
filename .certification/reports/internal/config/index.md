@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [LoadFromDir](loader.go/LoadFromDir.md) | function | 🟢 A | 93.3% | certified | 2027-01-06 |
+| [LoadFromDir](loader.go/LoadFromDir.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
 
 ---
 
