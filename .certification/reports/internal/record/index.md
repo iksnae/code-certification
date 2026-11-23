@@ -2,15 +2,52 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.3%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Grade:** 🟢 A- (91.1%)  
+**Units:** 39 · **Passing:** 39 / 39
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
+| [LoadHistory](store.go/LoadHistory.md) | method | 🟢 B | 85.0% | certified | 2027-01-07 |
+| [Store](store.go/Store.md) | class | 🟢 B | 86.2% | certified | 2027-01-07 |
 | [toJSON](store.go/toJSON.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-07 |
+| [evidenceToJSON](store.go/evidenceToJSON.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-07 |
+| [store_test.go](store_test.go.md) | file | 🟢 B+ | 87.5% | certified | 2027-01-07 |
+| [LoadRuns](store.go/LoadRuns.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-07 |
+| [LoadSnapshot](store.go/LoadSnapshot.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-07 |
+| [Load](store.go/Load.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-07 |
+| [store_legacy_unsupported_test.go](store_legacy_unsupported_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [ListAll](store.go/ListAll.md) | method | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [AppendRun](store.go/AppendRun.md) | method | 🟢 B+ | 89.4% | certified | 2027-01-07 |
 | [AppendHistory](store.go/AppendHistory.md) | method | 🟢 B+ | 89.4% | certified | 2027-01-07 |
+| [recordJSON](store.go/recordJSON.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [store_legacy_capture_test.go](store_legacy_capture_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [store_grade_test.go](store_grade_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [evidenceJSON](store.go/evidenceJSON.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [store_unsupported_test.go](store_unsupported_test.go.md) | file | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [historyEntry](store.go/historyEntry.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [snapshotJSON](store.go/snapshotJSON.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
+| [SaveSnapshot](store.go/SaveSnapshot.md) | method | 🟢 A- | 92.2% | certified | 2027-01-07 |
+| [listAllFromDir](store.go/listAllFromDir.md) | method | 🟢 A- | 92.2% | certified | 2027-01-07 |
+| [historyPathFor](store.go/historyPathFor.md) | method | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [parseGrade](store.go/parseGrade.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [parseStatusOrDefault](store.go/parseStatusOrDefault.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [parseTimeOrZero](store.go/parseTimeOrZero.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [parseUnitIDOrEmpty](store.go/parseUnitIDOrEmpty.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [parseUnitTypeOrDefault](store.go/parseUnitTypeOrDefault.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [pathFor](store.go/pathFor.md) | method | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [mapToDimensions](store.go/mapToDimensions.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [runsPath](store.go/runsPath.md) | method | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [listAllFromSnapshot](store.go/listAllFromSnapshot.md) | method | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [fromJSON](store.go/fromJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [unsupportedFromJSON](store.go/unsupportedFromJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [unsupportedToJSON](store.go/unsupportedToJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [evidenceFromJSON](store.go/evidenceFromJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [dimensionsToMap](store.go/dimensionsToMap.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [Save](store.go/Save.md) | method | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [NewStoreWithSnapshot](store.go/NewStoreWithSnapshot.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
+| [NewStore](store.go/NewStore.md) | function | 🟢 A | 93.3% | certified | 2027-01-07 |
 
 ---
 
