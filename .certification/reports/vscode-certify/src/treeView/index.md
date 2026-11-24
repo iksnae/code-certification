@@ -2,30 +2,15 @@
 
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (92.0%)  
-**Units:** 17 · **Passing:** 17 / 17
+**Grade:** 🟢 B+ (89.4%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [CertificationTreeProvider](CertificationTreeProvider.ts/CertificationTreeProvider.md) | class | 🟢 B | 86.2% | certified | 2027-01-07 |
-| [CertifyTreeItem](CertificationTreeProvider.ts/CertifyTreeItem.md) | class | 🟢 A- | 90.0% | certified | 2027-01-07 |
-| [GRADE_ORDER](CertificationTreeProvider.ts/GRADE_ORDER.md) | function | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [buildArchitectItems](CertificationTreeProvider.ts/buildArchitectItems.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [buildConfigNoDataItems](CertificationTreeProvider.ts/buildConfigNoDataItems.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [buildNoConfigItems](CertificationTreeProvider.ts/buildNoConfigItems.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [buildReadyItems](CertificationTreeProvider.ts/buildReadyItems.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [buildWorkspaceItems](CertificationTreeProvider.ts/buildWorkspaceItems.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [constructor](CertificationTreeProvider.ts/constructor.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [getChildren](CertificationTreeProvider.ts/getChildren.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [getDirectoryChildren](CertificationTreeProvider.ts/getDirectoryChildren.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [getParent](CertificationTreeProvider.ts/getParent.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [getRootChildren](CertificationTreeProvider.ts/getRootChildren.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [getTreeItem](CertificationTreeProvider.ts/getTreeItem.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [projectState](CertificationTreeProvider.ts/projectState.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [refresh](CertificationTreeProvider.ts/refresh.md) | method | 🟢 A- | 92.5% | certified | 2027-01-07 |
-| [worstGrade](CertificationTreeProvider.ts/worstGrade.md) | function | 🟢 A- | 92.5% | certified | 2027-01-07 |
+| [CertificationTreeProvider](CertificationTreeProvider.ts/CertificationTreeProvider.md) | class | 🟢 B | 86.2% | certified | 2027-01-08 |
+| [getParent](CertificationTreeProvider.ts/getParent.md) | method | 🟢 A- | 92.5% | certified | 2027-01-08 |
 
 ---
 
