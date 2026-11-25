@@ -2,22 +2,24 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 9 · **Passing:** 9 / 9
+**Grade:** 🟢 A- (90.1%)  
+**Units:** 11 · **Passing:** 11 / 11
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [writeArchPartII](architect_report.go/writeArchPartII.md) | function | 🟢 B | 80.0% | certified | 2027-01-08 |
-| [Detailed](detailed.go/Detailed.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-08 |
-| [unitSummaryFrom](detailed.go/unitSummaryFrom.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-08 |
-| [BuildSearchIndex](site_search.go/BuildSearchIndex.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-08 |
-| [FormatCardText](card.go/FormatCardText.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-08 |
-| [navLink](site.go/navLink.md) | class | 🟢 A- | 90.0% | certified | 2027-01-08 |
-| [packagePageData](site.go/packagePageData.md) | class | 🟢 A- | 90.0% | certified | 2027-01-08 |
-| [SearchEntry](site_search.go/SearchEntry.md) | class | 🟢 A- | 90.0% | certified | 2027-01-08 |
-| [statsForUnits](report_tree.go/statsForUnits.md) | function | 🟢 A | 93.3% | certified | 2027-01-08 |
+| [writeArchErrors](architect_report.go/writeArchErrors.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-09 |
+| [writeArchThinking](architect_report.go/writeArchThinking.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-09 |
+| [writeUnitDimensions](report_tree.go/writeUnitDimensions.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-09 |
+| [site_test.go](site_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2027-01-09 |
+| [mixed_denominator_test.go](mixed_denominator_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-09 |
+| [HealthReport](health.go/HealthReport.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
+| [navLink](site.go/navLink.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
+| [GenerateSite](site.go/GenerateSite.md) | function | 🟢 A- | 91.1% | certified | 2027-01-09 |
+| [gradeEmoji](card.go/gradeEmoji.md) | function | 🟢 A | 93.3% | certified | 2027-01-09 |
+| [FormatFullMarkdown](full.go/FormatFullMarkdown.md) | function | 🟢 A | 93.3% | certified | 2027-01-09 |
+| [BuildPackageSummaries](report_tree.go/BuildPackageSummaries.md) | function | 🟢 A | 93.3% | certified | 2027-01-09 |
 
 ---
 
