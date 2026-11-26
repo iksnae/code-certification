@@ -2,21 +2,17 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.1%)  
-**Units:** 8 · **Passing:** 8 / 8
+**Grade:** 🟢 B (85.0%)  
+**Units:** 4 · **Passing:** 4 / 4
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2027-01-09 |
-| [pyNodeName](python_analyzer.go/pyNodeName.md) | function | 🟢 B | 86.1% | certified | 2027-01-09 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-09 |
-| [ts_analyzer_test.go](ts_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-09 |
-| [goWalkStmt](go_analyzer.go/goWalkStmt.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-09 |
-| [UnusedExports](go_deep.go/UnusedExports.md) | method | 🟢 A | 93.3% | certified | 2027-01-09 |
-| [computeFanMetrics](go_deep.go/computeFanMetrics.md) | method | 🟢 A | 93.3% | certified | 2027-01-09 |
-| [buildPkgMap](go_deps.go/buildPkgMap.md) | method | 🟢 A | 93.3% | certified | 2027-01-09 |
+| [IsDeadCode](lsp_analyzer.go/IsDeadCode.md) | method | 🟡 C | 78.3% | certified_with_observations | 2027-01-10 |
+| [pyCountEmptyExcept](python_analyzer.go/pyCountEmptyExcept.md) | function | 🟢 B | 86.1% | certified | 2027-01-10 |
+| [rsCountPanics](rust_analyzer.go/rsCountPanics.md) | function | 🟢 B | 86.1% | certified | 2027-01-10 |
+| [AnalyzeFile](python_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2027-01-10 |
 
 ---
 

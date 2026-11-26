@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [activateSettingsSync](settingsSync.ts/activateSettingsSync.md) | function | 🟢 A | 93.1% | certified | 2027-01-09 |
+| [syncSettingsToConfig](settingsSync.ts/syncSettingsToConfig.md) | function | 🟢 A | 93.1% | certified | 2027-01-10 |
 
 ---
 

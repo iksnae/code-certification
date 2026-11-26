@@ -2,24 +2,27 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.4%)  
-**Units:** 11 · **Passing:** 11 / 11
+**Grade:** 🟢 A- (91.2%)  
+**Units:** 14 · **Passing:** 14 / 14
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatWorkspaceForLLM](workspace_snapshot.go/FormatWorkspaceForLLM.md) | function | 🟡 C | 78.9% | certified_with_observations | 2027-01-09 |
-| [OpenAIModels](providers.go/OpenAIModels.md) | function | 🟢 B | 86.1% | certified | 2027-01-09 |
-| [detectInfraFiles](workspace_snapshot.go/detectInfraFiles.md) | function | 🟢 B+ | 88.3% | certified | 2027-01-09 |
-| [AutoDetectEnvVars](autodetect.go/AutoDetectEnvVars.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-09 |
-| [Version](prompts.go/Version.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-09 |
-| [ProviderNames](providers.go/ProviderNames.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-09 |
-| [GatherWorkspaceContext](workspace_snapshot.go/GatherWorkspaceContext.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-09 |
-| [APIError](openrouter.go/APIError.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
-| [PipelineConfig](pipeline.go/PipelineConfig.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
-| [RemediationResponse](schemas.go/RemediationResponse.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
-| [extractJSON](stage.go/extractJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-09 |
+| [DefaultModels](providers.go/DefaultModels.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-10 |
+| [NewReviewer](reviewer.go/NewReviewer.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-10 |
+| [Wait](ratelimit.go/Wait.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-10 |
+| [ArchConcern](architect_review.go/ArchConcern.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
+| [Usage](types.go/Usage.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
+| [DeepReviewResponse](stage_deep.go/DeepReviewResponse.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
+| [ReviewInput](reviewer.go/ReviewInput.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
+| [Pipeline](pipeline.go/Pipeline.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
+| [buildCouplingPairs](architect_snapshot.go/buildCouplingPairs.md) | method | 🟢 A | 93.3% | certified | 2027-01-10 |
+| [NewLocalProvider](openrouter.go/NewLocalProvider.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
+| [extractQuotedImport](architect_snapshot.go/extractQuotedImport.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
+| [classifyLayer](architect_snapshot.go/classifyLayer.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
+| [buildFileTree](architect.go/buildFileTree.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
+| [extractThinking](architect_review.go/extractThinking.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
 
 ---
 

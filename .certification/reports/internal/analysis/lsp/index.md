@@ -3,14 +3,13 @@
 [← All Packages](../../../index.md) · [← Report Card](../../../../REPORT_CARD.md)
 
 **Grade:** 🟢 A- (90.0%)  
-**Units:** 2 · **Passing:** 2 / 2
+**Units:** 1 · **Passing:** 1 / 1
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [Diagnostic](types.go/Diagnostic.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
-| [ReferenceContext](types.go/ReferenceContext.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
+| [ServerCapabilities](types.go/ServerCapabilities.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
 
 ---
 

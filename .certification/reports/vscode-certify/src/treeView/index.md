@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [GRADE_ORDER](CertificationTreeProvider.ts/GRADE_ORDER.md) | function | 🟢 A- | 92.5% | certified | 2027-01-09 |
+| [buildArchitectItems](CertificationTreeProvider.ts/buildArchitectItems.md) | method | 🟢 A- | 92.5% | certified | 2027-01-10 |
 
 ---
 

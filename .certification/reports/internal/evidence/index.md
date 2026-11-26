@@ -2,19 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.5%)  
-**Units:** 6 · **Passing:** 6 / 6
+**Grade:** 🟢 B+ (88.9%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [ParseLCOV](tools.go/ParseLCOV.md) | function | 🟢 B | 80.0% | certified | 2027-01-09 |
-| [HasPackageJSON](executor.go/HasPackageJSON.md) | method | 🟢 B | 85.0% | certified | 2027-01-09 |
-| [runRuffAt](tools.go/runRuffAt.md) | method | 🟢 B+ | 89.4% | certified | 2027-01-09 |
-| [GitStats](git.go/GitStats.md) | class | 🟢 A- | 90.0% | certified | 2027-01-09 |
-| [CoverageForFile](coverage.go/CoverageForFile.md) | function | 🟢 A | 93.3% | certified | 2027-01-09 |
-| [walkStmt](structural.go/walkStmt.md) | function | 🟢 A | 93.3% | certified | 2027-01-09 |
+| [runCargoTestAt](tools.go/runCargoTestAt.md) | method | 🟢 B | 84.4% | certified | 2027-01-10 |
+| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
 
 ---
 

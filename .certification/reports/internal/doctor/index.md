@@ -2,14 +2,15 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (88.9%)  
-**Units:** 1 · **Passing:** 1 / 1
+**Grade:** 🟢 B+ (90.0%)  
+**Units:** 2 · **Passing:** 2 / 2
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [FormatOnboardPlan](onboard.go/FormatOnboardPlan.md) | function | 🟢 B+ | 88.9% | certified | 2027-01-09 |
+| [hasJSONFiles](onboard.go/hasJSONFiles.md) | function | 🟢 B+ | 90.0% | certified | 2027-01-10 |
+| [OnboardStatus](onboard.go/OnboardStatus.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
 
 ---
 
