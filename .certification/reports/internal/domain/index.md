@@ -2,16 +2,18 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 A- (90.7%)  
-**Units:** 3 · **Passing:** 3 / 3
+**Grade:** 🟢 A- (90.3%)  
+**Units:** 5 · **Passing:** 5 / 5
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [String](dimension.go/String.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-10 |
-| [ExpiryFactors](expiry.go/ExpiryFactors.md) | class | 🟢 A- | 90.0% | certified | 2027-01-10 |
-| [GradeFromScore](dimension.go/GradeFromScore.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
+| [VerdictOf](record.go/VerdictOf.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-11 |
+| [dimension_test.go](dimension_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-11 |
+| [Violation](policy.go/Violation.md) | class | 🟢 A- | 90.0% | certified | 2027-01-11 |
+| [CertificationRecord](record.go/CertificationRecord.md) | class | 🟢 A- | 90.0% | certified | 2027-01-11 |
+| [NewUnitID](unit.go/NewUnitID.md) | function | 🟢 A | 93.3% | certified | 2027-01-11 |
 
 ---
 

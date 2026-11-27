@@ -9,7 +9,7 @@
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [unsupportedFromJSON](store.go/unsupportedFromJSON.md) | function | 🟢 A | 93.3% | certified | 2027-01-10 |
+| [mapToDimensions](store.go/mapToDimensions.md) | function | 🟢 A | 93.3% | certified | 2027-01-11 |
 
 ---
 
