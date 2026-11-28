@@ -2,18 +2,19 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B+ (89.0%)  
-**Units:** 5 · **Passing:** 5 / 5
+**Grade:** 🟢 B+ (89.2%)  
+**Units:** 6 · **Passing:** 6 / 6
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [eslintFileResult](tools.go/eslintFileResult.md) | class | 🟢 B | 85.6% | certified | 2027-01-11 |
-| [analyzeAlgoComplexity](structural.go/analyzeAlgoComplexity.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-11 |
-| [ChurnRate](git.go/ChurnRate.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-11 |
-| [LintResult](lint.go/LintResult.md) | class | 🟢 A- | 90.0% | certified | 2027-01-11 |
-| [walkLoops](structural.go/walkLoops.md) | function | 🟢 A | 93.3% | certified | 2027-01-11 |
+| [collectJSCoverage](tools.go/collectJSCoverage.md) | method | 🟢 B | 86.7% | certified | 2027-01-12 |
+| [countRecursiveCalls](structural.go/countRecursiveCalls.md) | function | 🟢 B+ | 87.2% | certified | 2027-01-12 |
+| [ToEvidence](metrics.go/ToEvidence.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-12 |
+| [modules_test.go](modules_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-12 |
+| [detectJSTestRunner](tools.go/detectJSTestRunner.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-12 |
+| [classifyAlgoComplexity](structural.go/classifyAlgoComplexity.md) | function | 🟢 A | 93.3% | certified | 2027-01-12 |
 
 ---
 

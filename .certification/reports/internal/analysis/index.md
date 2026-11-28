@@ -2,20 +2,22 @@
 
 [← All Packages](../../index.md) · [← Report Card](../../../REPORT_CARD.md)
 
-**Grade:** 🟢 B (87.0%)  
-**Units:** 7 · **Passing:** 7 / 7
+**Grade:** 🟢 B+ (87.5%)  
+**Units:** 9 · **Passing:** 9 / 9
 
 ## Units
 
 | Unit | Type | Grade | Score | Status | Expires |
 |------|------|:-----:|------:|--------|--------:|
-| [rsDiscoverNode](rust_analyzer.go/rsDiscoverNode.md) | function | 🟢 B | 82.2% | certified | 2027-01-11 |
-| [goComputeCyclomaticComplexity](go_analyzer.go/goComputeCyclomaticComplexity.md) | function | 🟢 B | 86.1% | certified | 2027-01-11 |
-| [goDetectUnsafeImports](go_analyzer.go/goDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2027-01-11 |
-| [commandExists](lsp_analyzer.go/commandExists.md) | function | 🟢 B | 86.7% | certified | 2027-01-11 |
-| [go_analyzer_test.go](go_analyzer_test.go.md) | file | 🟢 B+ | 88.8% | certified | 2027-01-11 |
-| [python_analyzer_test.go](python_analyzer_test.go.md) | file | 🟢 B+ | 89.4% | certified | 2027-01-11 |
-| [AnalyzeFile](python_analyzer.go/AnalyzeFile.md) | method | 🟢 B+ | 89.4% | certified | 2027-01-11 |
+| [tsAnalyzeFunction](ts_analyzer.go/tsAnalyzeFunction.md) | function | 🟢 B | 80.6% | certified | 2027-01-12 |
+| [pyDetectUnsafeImports](python_analyzer.go/pyDetectUnsafeImports.md) | function | 🟢 B | 84.4% | certified | 2027-01-12 |
+| [goCountFuncLines](go_analyzer.go/goCountFuncLines.md) | function | 🟢 B | 86.1% | certified | 2027-01-12 |
+| [tsDetectUnsafeImports](ts_analyzer.go/tsDetectUnsafeImports.md) | function | 🟢 B | 86.1% | certified | 2027-01-12 |
+| [Analyze](go_analyzer.go/Analyze.md) | method | 🟢 B+ | 88.3% | certified | 2027-01-12 |
+| [FanIn](go_deep.go/FanIn.md) | method | 🟢 B+ | 88.9% | certified | 2027-01-12 |
+| [goReceiverTypeName](go_analyzer.go/goReceiverTypeName.md) | function | 🟢 B+ | 89.4% | certified | 2027-01-12 |
+| [Symbol](analyzer.go/Symbol.md) | class | 🟢 A- | 90.0% | certified | 2027-01-12 |
+| [isLocalPkg](go_deps.go/isLocalPkg.md) | method | 🟢 A | 93.3% | certified | 2027-01-12 |
 
 ---
 
